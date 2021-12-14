@@ -105,12 +105,12 @@ div{
     flex-grow: 0;
     margin: 0;
     opacity:66%;
-    transition: width 200ms, opacity 200ms;
 }
 .selected .icon-frame{
     width: 64px;
     background: #F9A83188;
     opacity: 100%;
+    transition: opacity 300ms, width 300ms, background 300ms;
 }
 .choice-set{
     width: 100%;
@@ -139,6 +139,7 @@ div{
 .choice.selected{
     background: #F9A83188;
     color: #FFFFFFEE;
+    transition: background 300ms, color 300ms;
 }
 .card-list{
     background: #FFFFFF77;
@@ -190,5 +191,6 @@ div{
     user-select: none; 
 }
 .selected .label{
-        color: #E3E3E3FF;
+    color: #E3E3E3FF;
+    transition: color 300ms;
 }
