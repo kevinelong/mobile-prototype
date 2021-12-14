@@ -11,6 +11,7 @@ body{
     font-style: normal;
     font-weight: 500;
     font-size: 14pt;
+    
 }
 
 div{
@@ -210,4 +211,8 @@ div{
 .selected .label{
     color: #E3E3E3FF;
     transition: color 300ms;
+}
+
+.title-text{
+    margin-right: 1rem;
 }
