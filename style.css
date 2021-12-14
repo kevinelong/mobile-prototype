@@ -40,7 +40,7 @@ div{
     height: auto;
     background: rgba(0, 0, 0, 0.5);
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     flex-direction: row;
     align-items: center;
     padding: 0;
@@ -61,7 +61,16 @@ div{
     font-size: 20pt;
     color: #000000CC;
     text-align: center;
-    display: block;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.title-middle{
+  flex: 2 2;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 .nav-list-item{
     border-top: 1px solid rgba(0,0,0,0.5);
@@ -150,6 +159,14 @@ div{
     padding: 0.5em 0.25em;
     height: 100%;
     /* margin-top: 0.5em; */
+}
+.circle {
+  width: 30px;
+  height: 30px;
+  background: #88888888;
+  border-radius: 15px;
+  align-items: center;
+  justify-content: center;
 }
 .card{
     border-radius: 18px;
