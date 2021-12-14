@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded",()=>{
 
-const gbcn = n => document.getElementsByClassName(n)[0];
+const get = q => document.querySelectorAll(q)[0];
 
 const div = (className, content) => `<div class="${className}">${content}</div>`
 
@@ -24,12 +24,13 @@ mainNavTab = (text="", selected=false, icon="compass") => `<div class="main-nav-
 </div>`
 
 
-gbcn("main-nav").innerHTML = mainNavTab("EXPLORE") + mainNavTab("BOARDS", false, "boards") + 
+get(".main-nav").innerHTML = mainNavTab("EXPLORE") + 
+mainNavTab("BOARDS", false, "boards") + 
 mainNavTab("PEOPLE", true, "people") + 
 mainNavTab("AGENDA", false, "planner") + 
 mainNavTab("PAYMENTS",false, "payments") ;
 
-gbcn("inner-content").innerHTML = title("PEOPLE (/)") + 
+get(".inner-content").innerHTML = title("PEOPLE (/)") + 
 choiceSet(
     choiceSelected("ALL NETWORK (23)") + 
     choice("PLANNERS (5)") + 
