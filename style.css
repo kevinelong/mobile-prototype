@@ -29,7 +29,7 @@ div{
 
 .outer-box{
     position: relative;
-    background: #F9A831;
+    background: #F9A83188;
     width: 360px;
     height: 640px;
 }
@@ -56,10 +56,10 @@ div{
 .title{
     width: 100%;
     height: auto;
-    background: #ffffffEE;
+    background: #ffffff88;
     padding: 1vh;
     font-size: 175%;
-    color: #000000EE;
+    color: #000000CC;
     text-align: center;
     display: block;
 }
@@ -69,7 +69,7 @@ div{
     height: auto;
     background: #ffffffDD;
     padding: 0.75vh;
-    font-size: 150%;
+    font-size: 0.75rem;
     color: #000000CC;
 }
 .main-nav-tab{
@@ -78,6 +78,7 @@ div{
     align-items: center;
     width: 64px;
     height: 64px;
+    cursor: pointer;
 }
 .main-nav-tab-background{
     display: flex;
@@ -96,17 +97,20 @@ div{
     justify-content: center;
     align-items: center;
     padding: 0;
-    width: 64px;
+    width: 0;
     height: 30px;
     border-radius: 18px;
     flex: none;
     order: 0;
     flex-grow: 0;
     margin: 0;
+    opacity:66%;
+    transition: width 200ms, opacity 200ms;
 }
-
-.icon-frame.selected{
-    background: #F9A831;
+.selected .icon-frame{
+    width: 64px;
+    background: #F9A83188;
+    opacity: 100%;
 }
 .choice-set{
     width: 100%;
@@ -116,22 +120,24 @@ div{
     justify-content: start;
     align-items: left; */
     padding: 0.25em;
-    background: #00000066;
+    background: #00000033;
     /* overflow: hidden; */
     /* overflow-x:hidden; */
 }
 .choice{
     display: inline-block;
     border-radius: 18px;
-    background: #FFFFFF88;
-    color: #000000EE;
+    background: #00000088;
+    color: #ffffffCC;
     padding: 0.25em 0.5em;
     margin: 0.25em;
     white-space: nowrap;
-    font-size: 90%;
+    font-size: 60%;
+    user-select: none; 
+    cursor: pointer;
 }
 .choice.selected{
-    background: #F9A831;
+    background: #F9A83188;
     color: #FFFFFFEE;
 }
 .card-list{
@@ -153,6 +159,7 @@ div{
     width: 100%;
     margin-bottom: 0.5em;
     min-height: 120px;
+    user-select: none; 
 }
 
 .icon-frame-inner{
@@ -168,17 +175,20 @@ div{
     height: auto;
     margin: 0;
 }
-
 .label{
     font-family: Roboto;
     font-style: normal;
     font-weight: 500;
-    font-size: 75%;
+    font-size: 0.75rem;
     line-height: 100%;
-    color: #E3E3E3;
+    color: #E3E3E3BB;
     width: 100%;
     display: block;
     flex: none;
     order: 0;
     flex-grow: 0;
+    user-select: none; 
+}
+.selected .label{
+        color: #E3E3E3FF;
 }
