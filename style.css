@@ -10,7 +10,7 @@ body{
     font-family: Roboto;
     font-style: normal;
     font-weight: 500;
-    font-size: 100%;
+    font-size: 14pt;
 }
 
 div{
@@ -58,7 +58,7 @@ div{
     height: auto;
     background: #ffffff88;
     padding: 1vh;
-    font-size: 175%;
+    font-size: 20pt;
     color: #000000CC;
     text-align: center;
     display: block;
@@ -120,7 +120,7 @@ div{
     justify-content: start;
     align-items: left; */
     padding: 0.25em;
-    background: #00000033;
+    background: #88888866;
     /* overflow: hidden; */
     /* overflow-x:hidden; */
 }
