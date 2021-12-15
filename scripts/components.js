@@ -1,6 +1,7 @@
 const div = (className, content, attrs) => `<div class="${className}" ${attrs}>${content}</div>`
 
 const title = text => div("title", text)
+const subtitle = text => div("subtitle", text)
 const circle = text => div("circle", text)
 
 const cardList = content => div("card-list", content)

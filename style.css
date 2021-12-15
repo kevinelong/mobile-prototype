@@ -216,3 +216,17 @@ div{
 .title-text{
     margin-right: 1rem;
 }
+
+.hidden{
+    position: absolute;
+    left: 100%;
+    top: 0;
+    display:none;
+    transition: left 300ms;
+}
+.shown{
+    position: absolute;
+    left: 100%;
+    top: 0;
+    display:none;
+}
