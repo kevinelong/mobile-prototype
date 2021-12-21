@@ -2,11 +2,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     get(".main-nav").innerHTML = mainNav(
-        ["explore", "boards", "people", "agenda", "payments",], "people");
+        ["explore", "boards", "people", "agenda", "payments",], "payments");
 
     get(".inner-content").innerHTML =
         explorePage() +
-        peoplePage()
+        peoplePage() +
+        paymentsPage(true)
 });
 
 
