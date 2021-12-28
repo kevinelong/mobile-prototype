@@ -5,15 +5,16 @@ const page = (
     choiceList = [],
     selectedChoice = "",
     content = "",
-    selectedCard = ""
+    selectedCard = "",
+    parent = "",
 ) =>
     div(
         `${name} page ${ selected ? "" : "hidden"}`,
         title(
-                icon("menu") +
+            actionItem(parent ? "back" : "menu") +
                     div("title-middle",
                 div("title-text", caption) +
-                circle(icon("search"))
-            ) + icon("account-circle")) +
+                actionItem("search")
+            ) + actionItem("account-circle")) +
         choiceSet("${name}-filters", choiceList, selectedChoice) +
-        content, `id='page-${name}'`);
+        contentPanel(content), `id='page-${name}'`);

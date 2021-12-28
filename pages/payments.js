@@ -24,7 +24,6 @@ const paymentsPage = (selected=false) => page(selected,
             ["paypal", "venmo", "zelle"],
             "images/cannon-beach.jpg"
         )
-
     ),
     "ALL NETWORK"
 );

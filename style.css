@@ -12,6 +12,7 @@ body {
     font-style: normal;
     font-weight: 500;
     font-size: 14pt;
+    user-select: none;
 }
 
 div {
@@ -198,7 +199,14 @@ div {
     max-width: 16px;
     max-height: 16px;
 }
+.title .action-item .icon{
+    max-width: 24px;
+    max-height: 24px;
+}
 
+.title .action-item {
+    border: none;
+}
 .card-list {
     width: 100%;
     flex-direction: column;
@@ -209,7 +217,13 @@ div {
     height: 100%;
     /* margin-top: 0.5em; */
 }
-
+.action-list{
+    background: none;
+}
+.action-list .action-item{
+    background: #00000066;
+    border: none;
+}
 .person-icon {
     width: fit-content;
     height: fit-content;
@@ -318,21 +332,21 @@ div {
     margin-right: 1rem;
 }
 
-.page {
+.page, .dialog {
     position: absolute;
     left: 0;
     top: 0;
     width: 360px;
     opacity: 1;
     visibility: visible;
-    transition: opacity 900ms ease-in-out;
+    transition: opacity 90ms ease-in-out;
 }
 
 .hidden {
     width: 0;
     opacity: 0;
     visibility: collapse;
-    transition: opacity 900ms ease-in-out;
+    transition: opacity 90ms ease-in-out;
 }
 
 .card-subtitle {
@@ -467,3 +481,124 @@ div {
     flex-direction: row;
     justify-content: space-between;
 }
+
+.simple-list{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-top: 1px solid #00000088;
+    background: #00000088;
+    color: #ffffff88;
+}
+a{
+    text-decoration-color: white;
+}
+.simple-item{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid #00000088;
+    background: #FFFFFF66;
+    padding-left: 0.5rem;
+    width: 100%;
+}
+.content-panel{
+    height: 511px;
+    overflow: scroll;
+}
+.content-panel .title{
+    background: none;
+    padding: 0.5rem 0 0 0.25rem;
+}
+.content-panel .subtitle{
+    background: none;
+    padding: 0 0 0.25rem 0.5rem;
+}
+.simple-list .title,
+.simple-list .subtitle,
+.simple-list .title-block{
+    background: none;
+    width: 100%;
+    flex: 1;
+    padding: 0.2rem;
+    font-size: 1rem;
+}
+.simple-list .subtitle{
+    font-size: 0.8rem;
+    padding: 0 0 0 0.25rem;
+    margin:0;
+}
+.simple-list .icon {
+    position: static;
+    width: 24px;
+    height: 24px;
+    margin: 0;
+}
+
+.simple-list .action-item {
+    border-radius: 30px;
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+}
+.simple-item > .circle > *{
+    padding:0;
+    margin:0;
+    text-align: center;
+    vertical-align: middle;
+}
+.simple-item > .circle {
+    border-radius: 30px;
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: 2px solid #ffffff88;
+}
+/*.simple-item:hover {*/
+/*    background: #ffffff88;*/
+/*}*/
+.simple-item .action-item:hover {
+    background: #ffffff33;
+}
+.simple-item .action-item .icon{
+    max-width: 16px;
+    max-height: 16px;
+}
+.smoke{
+    background: #000000CC;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+}
+.dialog{
+    position: relative;
+    background: #eeeeeeff;
+    margin: auto;
+    z-index: 999999;
+    width:80%;
+    height:80%;
+    color: black;
+}
+.dialog .title,
+.dialog .subtitle{
+    color: black;
+}
+.dialog .autocomplete .simple-list,
+.dialog input[type=text]{
+    display: flex;
+    /*flex: 1;*/
+    padding: 0.25rem;
+    margin: 0 0.25rem;
+}
+.dialog label{
+    display: flex;
+    flex-direction: column;
+}
+
