@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    get(".main-nav").innerHTML = mainNav(
+    get(".main-nav-outer").innerHTML = mainNav(
         ["explore", "boards", "people", "agenda", "payments",], "payments");
     get(".inner-content").innerHTML =
         explorePage() +
