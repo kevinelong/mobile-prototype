@@ -3,16 +3,20 @@ const peoplePage = (selected=false) => page(
     "people",
     "People",
     [
-        "ALL NETWORK",
-        "GROUPS",
-        "PLANNERS",
-        "FRIENDS",
-        "CONFIRMATIONS",
-        "NEW PEOPLE",
-        "MATCHES",
-        "DEALS"
+        "All Members",
+        "My Contacts",
     ],
-    "ALL NETWORK",
+    // [
+    //     "ALL NETWORK",
+    //     "GROUPS",
+    //     "PLANNERS",
+    //     "FRIENDS",
+    //     "CONFIRMATIONS",
+    //     "NEW PEOPLE",
+    //     "MATCHES",
+    //     "DEALS"
+    // ],
+    "All Members",
     cardList(
         card(
             div("titles",
