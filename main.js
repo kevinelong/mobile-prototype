@@ -1,54 +1,76 @@
 document.addEventListener("DOMContentLoaded", () => {
     get(".main-nav-outer").innerHTML = mainNav(
-        ["explore", "boards", "people", "agenda", "payments",], "payments");
+        ["explore", "boards", "connect", "plan", "settle",], "connect");
     get(".inner-content").innerHTML =
         explorePage() +
         boardsPage() +
-        agendaPage() +
-        peoplePage() +
-        paymentsList() +
-        paymentsSplit() +
-        paymentsPage(true)
+        planPage() +
+        peoplePage(true) +
+        settleList() +
+        settleSplit() +
+        settlePage()
 });
 
-window.lastPage = "payments";
-
-const search = ()=> contentPanel(
-    title("Search") +
+window.lastPage = "connect";
+const search = (items) =>
     label(
-        input("search", "text", "onkeypress=\"if (this.value.length > 0){ show('.autocomplete'); }else{ hide('.autocomplete');}\"") +
-        div("autocomplete hidden", simpleList("", [
-            ["KL","Kevin","Long",""],
-            ["GB","Greg","Bellowe",""]
-        ],"","hide"))
+        input("search", "text",
+            "placeholder=\"Filter Text\""
+            // +" onkeypress=\"if (this.value.length > 0){ show('.autocomplete'); }else{ hide('.autocomplete');}\""
+        ) +
+        div("autocomplete", simpleList(name,
+            items
+            , "Contacts", "hide"))
     )
+
+const dialog = (name, content = "") => contentPanel(
+    title(name) + content
 );
-const showSearch = ()=>{
-    get(".dialog").innerHTML = search();
+const showDialog = (name, content = "") => {
+    get(".dialog").innerHTML = dialog(name, content);
     show(".smoke");
     show(".dialog");
 }
-const hideSearch = ()=>{
+const hideDialog = () => {
     hide(".smoke");
     hide(".dialog");
 }
-
+const addMessage = () => {
+    showDialog("Add Message",
+        contentPanel(
+            choiceSet("filter", [
+                "All People",
+                "My Contacts"
+            ]) +
+            search([
+                ["KL", "Kevin", "Long", ""],
+                ["NM", "Nina", "Marie", ""],
+                ["GB", "Greg", "Bellowe", ""]
+            ]) +
+            actionPanel(
+                actionButton("close")
+            )
+        )
+    );
+}
 const actionClick = (action) => {
-    hideSearch();
-    if (action == "back"){
+    hideDialog();
+    if (action == "back") {
         showPage(window.lastPage);
-    }else if (["search","more"].includes(action)){
-        showSearch();
-    }else if (["hide"].includes(action)){
-        hideSearch();
-    }else{
+    } else if (["add", "new"].includes(action)) {
+        addMessage();
+    } else if (["search", "more"].includes(action)) {
+        showDialog("Search", search());
+    } else if (["hide"].includes(action)) {
+        hideDialog();
+    } else {
         console.log(action);
     }
 }
 
-listen("click",e=>{
+listen("click", e => {
     console.log(e.target);
-    if(e.target.classList.contains("smoke")) {
+    if (e.target.classList.contains("smoke")) {
         hide(".smoke");
         hide(".dialog");
     }

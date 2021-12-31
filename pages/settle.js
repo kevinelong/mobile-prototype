@@ -1,6 +1,6 @@
-const paymentsPage = (selected=false) => page(selected,
-    "payments",
-    "Payments",
+const settlePage = (selected=false) => page(selected,
+    "settle",
+    "Settle",
     [
         "ALL",
         "I OWE",

@@ -1,5 +1,5 @@
-const paymentsList = (selected = false) => page(selected,
-    "payments_list",
+const settleList = (selected = false) => page(selected,
+    "settle_list",
     "Itemization",
     [
         "DIVVY",
@@ -13,5 +13,5 @@ const paymentsList = (selected = false) => page(selected,
                 ["", "Veggie Burger", "9.00", "more"],
     ],"","more"),
     "",
-    "payments"
+    "settle"
 );

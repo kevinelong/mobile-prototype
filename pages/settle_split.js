@@ -1,5 +1,5 @@
-const paymentsSplit = (selected = false) => page(selected,
-    "payments_split",
+const settleSplit = (selected = false) => page(selected,
+    "settle_split",
     "Split",
     [
         "DIVVY",

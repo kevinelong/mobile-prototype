@@ -1,7 +1,7 @@
 const boardsPage = (selected=false) => page(
     selected,
     "boards",
-    "Boards",
+    "Dream",
     [
         "ALL NETWORK",
         "PLANNERS",

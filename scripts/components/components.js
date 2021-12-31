@@ -10,7 +10,7 @@ const card = (title, body = "", people = "", actions = "", image="") => div(
     "card",
     cardSection(
         cardTitle(title)
-    ) + body +
+    ) + contentPanel(body) +
     cardSection(
         cardQuadrant(
             cardPeople(people) +
@@ -27,8 +27,8 @@ const img = (className, src = "") => tag("img", "image", `src="${src}`);
 const icon = (icon = "menu") => div("icon-frame", `<img class="icon" src="./images/icons/icon-${icon}.svg">`);
 // const listItem = text => div("nav-list-item", text);
 const text = (text) => div("text", text);
-const contentPanel = c => div("content-panel", c);
-const label = c => closedTag("label", c);
+const contentPanel = content => div("content-panel", content);
+const label = content => closedTag("label", content);
 const input = (name,inputType="text", attrs="") => tag("input", name, `name="${name}" type="${inputType}" ${attrs}`);
 
 
@@ -38,16 +38,26 @@ const choice = (text, selected = false, badgeText = "") => div(
     `onclick='select(this)'`
 );
 
-const choiceSet = (id, choiceList, selectedItem) => div("choice-set",
+const choiceSet = (id, choiceList=[], selectedItem="") => div("choice-set",
     [...choiceList].map(c => choice(c, c == selectedItem)).join("")
     , `id="${id}" class='secondary-nav'`
 );
 
 const action = name => ` onclick="actionClick('${name}')"`;
 
-const actionItem = (name, badgeText = "") => div(
+const actionPanel = (content) => div(
+    `action-panel`,
+    content);
+const actionButton = (name) => div(
+    `action-button`,
+    name,
+    action(name)
+);
+const actionItem = (name, showName=false, badgeText = "") => div(
     `action-item`,
-    (name ? icon(name) : "" ) + badgeText,
+    (name ? icon(name) : "" ) +
+    badgeText +
+    (showName ? `${name}` : "" ),
     action(name)
 );
 
@@ -60,6 +70,9 @@ const hashTagSilver = (c) => div("hash-tag silver", c);
 const hashTagBlack = (c) => div("hash-tag black", c);
 const hashTagWhite = (c) => div("hash-tag white", c);
 
+
+const row = (c) => div("row", c);
+const col = (c) => div("col", c);
 const cardText = (c) => div("card-text", c);
 const cardSection = (c) => div("card-section", c);
 const cardQuadrant = (c) => div("card-quadrant", c);
@@ -75,18 +88,18 @@ const messageItem = (mi) => div("message-item",
     messageText(mi[0])
 );
 
-const messagePanel = (messageList=[["",""]]) => {
-    return div("message-panel",
+const messagePanel = (messageList=[["",""]]) => div(
+    "message-panel",
         [...messageList].map(mi=>messageItem(mi)).join("")
     )
-}
+
 const moneyText = (c) => div("money-text", c);
 
 const moneyItem = (mi) => div("money-item",
     circle(icon("account-circle") + mi[1]) +
     moneyText(mi[2]) +
     moneyText(mi[3]) +
-    a(moneyText(mi[0]),"javascript:showPage('payments_list')")
+    a(moneyText(mi[0]),"javascript:showPage('settle_list')")
 );
 
 const moneyPanel = (messageList=[["",""]]) => {
@@ -105,7 +118,7 @@ const cardPeople = (peopleList) => div("card-people",
 
 
 const cardActions = (id, actionList = []) => div("action-list",
-    [...actionList].map(c => actionItem(c)).join("")
+    [...actionList].map(c => actionItem(c, actionList.length == 1)).join("")
     , `id="${id}" class='action-list'`
 );
 

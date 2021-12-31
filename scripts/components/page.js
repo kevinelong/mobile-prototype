@@ -7,6 +7,7 @@ const page = (
     content = "",
     selectedCard = "",
     parent = "",
+    actionContent = ""
 ) =>
     div(
         `${name} page ${ selected ? "" : "hidden"}`,
@@ -17,4 +18,6 @@ const page = (
                 actionItem("search")
             ) + actionItem("account-circle")) +
         choiceSet("${name}-filters", choiceList, selectedChoice) +
-        contentPanel(content), `id='page-${name}'`);
+        contentPanel(content)+
+        actionContent,
+        `id='page-${name}'` );

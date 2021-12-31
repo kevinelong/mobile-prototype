@@ -3,8 +3,8 @@ body {
     background: #123;
     margin: 0;
     /* background: green; */
-    width: 100vh;
-    height: 100vh;
+    /*width: 100vw;*/
+    /*height: 100vh;*/
     display: flex;
     align-items: flex-start;
     justify-content: left;
@@ -177,7 +177,7 @@ div {
     margin: 0.25em 0.5em;
     padding: 3px 6px 2px;
     white-space: nowrap;
-    font-size: 7pt;
+    font-size: 11pt;
     user-select: none;
     cursor: pointer;
 
@@ -195,14 +195,17 @@ div {
 
 .action-item {
     border-radius: 30px;
-    width: 24px;
-    height: 24px;
+    /*width: 24px;*/
+    /*height: 24px;*/
     background: none;
-    border: 1px solid #ffff;
+    /*border: 1px solid #ffff;*/
+    flex-direction: row;
+    gap: 3pt;
+    padding: 3pt 6pt;
 }
 .action-item .icon{
-    max-width: 16px;
-    max-height: 16px;
+    max-width: 24px;
+    max-height: 24px;
 }
 .title .action-item .icon{
     max-width: 24px;
@@ -282,7 +285,8 @@ div {
     flex-direction: column;
     align-content: space-between;
     justify-content: space-between;
-    min-height: 180px;
+    /*min-height: 231px;*/
+    height: auto;
 }
 
 .card-section {
@@ -347,6 +351,20 @@ div {
     transition: opacity 90ms ease-in-out;
 }
 
+.page > .action-item{
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    width: 48px;
+    height: 48px;
+    border: none;
+}
+.page > .action-item .icon {
+    max-width: 48px;
+    max-height: 48px;
+    width: 48px;
+    height: 48px;
+}
 .hidden {
     width: 0;
     opacity: 0;
@@ -509,9 +527,25 @@ a{
     padding-left: 0.5rem;
     width: 100%;
 }
+.content{
+    width: 360px;
+    margin:0;
+    padding:0;
+}
 .content-panel{
+    width: 100%;
+    margin:0;
+    padding:0;
     height: 511px;
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.card .content-panel{
+    margin: 0.5rem;
+}
+.card .content-panel,
+.dialog .content-panel{
+    height: auto;
 }
 .content-panel .title{
     background: none;
@@ -588,12 +622,16 @@ a{
     margin: auto;
     z-index: 999999;
     width:80%;
-    height:80%;
+    height:auto;
+    min-height: 120px;
     color: black;
+    max-height: 640px;
+    border-radius: 5px;
 }
 .dialog .title,
 .dialog .subtitle{
     color: black;
+    font-size: 1.2rem;
 }
 .dialog .autocomplete .simple-list,
 .dialog input[type=text]{
@@ -606,7 +644,34 @@ a{
     display: flex;
     flex-direction: column;
 }
-
+.col{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+.row > * {
+    align-self: center;
+    justify-self: center;
+}
+.row .icon-frame{
+    margin-right: 1rem;
+}
+.action-panel{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.action-button{
+    margin: 1rem;
+}
 .length-5 .index-2{
     margin-top: -40px;
 }

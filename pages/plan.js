@@ -1,6 +1,6 @@
-const agendaPage = (selected=false) => page(
+const planPage = (selected=false) => page(
     selected,
-    "agenda",
+    "plan",
     "Agenda",
     [
         "ALL NETWORK",
