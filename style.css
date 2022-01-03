@@ -235,17 +235,20 @@ div {
 
 .main-nav-tab.selected #connect .icon-frame,
 .card.connect {
-    background-color: #993366;
+    background-color: #F9A831;
 }
 
 .main-nav-tab.selected #explore .icon-frame,
 .card.explore {
     /*background-color: #FFCC00;*/
-    background-color: #F9A831;
+    background-color: #ff6666;
 }
 
+.main-nav-tab.selected #dream .icon-frame,
+.card.dream,
 .main-nav-tab.selected #boards .icon-frame,
-.card.board {
+.card.board
+{
     /*background-color: #996633;*/
     /*background-color: #998877;*/
     background-color: #6677cc;
@@ -260,7 +263,7 @@ div {
 .main-nav-tab.selected #settle .icon-frame,
 .card.settle {
     /*background-color: #993366;*/
-    background-color: #cc6633;
+    background-color: #663399;
 }
 
 .card-subtitle {
