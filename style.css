@@ -240,7 +240,8 @@ div {
 
 .main-nav-tab.selected #explore .icon-frame,
 .card.explore {
-    background-color: #FFCC00;
+    /*background-color: #FFCC00;*/
+    background-color: #F9A831;
 }
 
 .main-nav-tab.selected #boards .icon-frame,
