@@ -1,4 +1,33 @@
 document.addEventListener("DOMContentLoaded", () => {
+    /*
+    <div class="content">
+    <div class="outer-box">
+
+        <div class="inner-content"></div>
+        <div class="main-nav-outer" id="main-nav-outer"></div>
+        <div class="smoke hidden">
+            <div class="dialog hidden">Dialog</div>
+        </div>
+
+    </div>
+    </div>
+     */
+    const content = c => div("content", c);
+    const outerBox = c => div("outer-box", c);
+    const innerContent = c => div("inner-content", c);
+    const mainNavOuter = c => div("main-nav-outer", c);
+    const hiddenSmoke = c => div("hidden smoke", c);
+    const hiddenDialog = c => div("hidden dialog", c);
+
+    document.body.innerHTML = content(
+        outerBox(
+            innerContent() +
+            mainNavOuter() +
+            hiddenSmoke(
+                hiddenDialog()
+            )
+        )
+    )
     get(".main-nav-outer").innerHTML = mainNav(
         ["explore", "dream", "connect", "plan", "settle",], "connect");
     get(".inner-content").innerHTML =

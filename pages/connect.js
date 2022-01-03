@@ -13,7 +13,7 @@ const peoplePage = (selected = false) => page(
         boardCard("Kevin", 2) +
         planCard("Greg", "Pinball Museum") +
         settleCard("Three Amigos", "$3.00") +
-        connectCard("Sunday Brunch")
+        connectCard("Connect", "Sunday Brunch")
     ),
     "",
     "",
