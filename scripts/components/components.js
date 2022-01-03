@@ -1,33 +1,19 @@
-const div = (className, content, attrs) => `<div class="${className}" ${attrs}>${content}</div>`;
+const div = (className, content, attrs) => `<div class="${className}" ${attrs ? attrs : ""}>${content}</div>`;
 
 const title = text => div("title", text);
 const subtitle = text => div("subtitle", text);
 const circle = text => div("circle", text);
 
-const cardList = content => div("card-list", content);
 
-const card = (title, body = "", people = "", actions = "", image="") => div(
-    "card",
-    cardSection(
-        cardTitle(title)
-    ) + contentPanel(body) +
-    cardSection(
-        cardQuadrant(
-            cardPeople(people) +
-            cardActions(`card-actions`, actions)
-        )
-    ),
-    image ? `style="background-image: url('${image}');"` : ""
-);
 
 const tag = (name, className, attrs) => `<${name} class="${className}" ${attrs}>`;
 const closedTag = (name, content, className, attrs) => `<${name} class="${className}" ${attrs}>${content}</${name}>`;
 const a = (text, href, className="") => closedTag("a", text, "",`href="${href}"`);
-const img = (className, src = "") => tag("img", "image", `src="${src}`);
+const img = (className, src = "") => tag("img", `${className} image`, `src="${src}"`);
 const icon = (icon = "menu") => div("icon-frame", `<img class="icon" src="./images/icons/icon-${icon}.svg">`);
 // const listItem = text => div("nav-list-item", text);
 const text = (text) => div("text", text);
-const contentPanel = content => div("content-panel", content);
+const contentPanel = content => content ? div("content-panel", content) : "";
 const label = content => closedTag("label", content);
 const input = (name,inputType="text", attrs="") => tag("input", name, `name="${name}" type="${inputType}" ${attrs}`);
 
@@ -78,7 +64,7 @@ const cardSection = (c) => div("card-section", c);
 const cardQuadrant = (c) => div("card-quadrant", c);
 const cardTitle = (c) => div("card-title", c);
 const cardTitleText = (c) => div("card-title-text", c);
-const cardSubtitle = (c) => div("card-subtitle", c);
+const cardSubtitle = (c) => c ? div("card-subtitle", c) : '';
 const cardPhoto = (c) => div("card-photo", c);
 
 const messageText = (c) => div("message-text", c);
@@ -130,14 +116,14 @@ const simpleItem = (data, actionName="more") => {
         "simple-item",
         (data[0] ? circle(subtitle(data[0])): circle(icon("who"))) +
         div("title-block",
-            title(data[1]) +
-            subtitle(data[2])
-        ) + actionItem(data[3]),
+            title(data[1] + " " + data[2])
+            // subtitle(data[2])
+        ) + actionItem(actionName),
         action(actionName)
     )
 }
 
-const simpleList = (titleText, itemData=[["",""]], subtitleText="", actionName="more") => {
+const simpleList = (titleText, itemData=[["",""]], subtitleText="", actionName="right") => {
     return div(`title-block`,
         (titleText ? title(titleText) : "" )+
         (subtitleText ? subtitle(subtitleText) : "")

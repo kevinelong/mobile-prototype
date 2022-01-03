@@ -1,6 +1,6 @@
 const boardsPage = (selected=false) => page(
     selected,
-    "boards",
+    "dream",
     "Dream",
     [
         "ALL NETWORK",
@@ -9,7 +9,7 @@ const boardsPage = (selected=false) => page(
     ],
     "ALL NETWORK",
     cardList(
-        card(
+        card("board",
             div("titles",
                 cardTitle("Europe") +
                 cardSubtitle("Stuff to hit when I get to go!")

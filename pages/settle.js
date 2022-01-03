@@ -8,7 +8,7 @@ const settlePage = (selected=false) => page(selected,
     ],
     "ALL",
     cardList(
-        card(
+        card("settle",
             div(`titles`,
                 cardTitle("You owe WH") +
                 cardSubtitle(" of The Three Amigos<br>for yesterday, Tuesday 12/12/2022.")

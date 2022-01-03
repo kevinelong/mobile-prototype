@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     get(".main-nav-outer").innerHTML = mainNav(
-        ["explore", "boards", "connect", "plan", "settle",], "connect");
+        ["explore", "dream", "connect", "plan", "settle",], "connect");
     get(".inner-content").innerHTML =
         explorePage() +
         boardsPage() +
@@ -20,7 +20,7 @@ const search = (items) =>
         ) +
         div("autocomplete", simpleList(name,
             items
-            , "Contacts", "hide"))
+            , "", "right"))
     )
 
 const dialog = (name, content = "") => contentPanel(
@@ -60,7 +60,11 @@ const actionClick = (action) => {
     } else if (["add", "new"].includes(action)) {
         addMessage();
     } else if (["search", "more"].includes(action)) {
-        showDialog("Search", search());
+        showDialog("Search", search([
+            ["KL", "Kevin", "Long", ""],
+            ["NM", "Nina", "Marie", ""],
+            ["GB", "Greg", "Bellowe", ""]
+        ]));
     } else if (["hide"].includes(action)) {
         hideDialog();
     } else {

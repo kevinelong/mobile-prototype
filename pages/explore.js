@@ -13,21 +13,22 @@ const explorePage = (selected=false) => page(
     ],
     "ALL NETWORK",
     cardList(
-        card(
-            div("titles",
-                cardTitle("Commonwealth of Massachusetts") +
-                cardSubtitle("New England, United States of America")
-            ) +
-            cardSection(
-                hashTag("Landmark") +
-                hashTag("Recommended")
-            ),
-            "NOTE: I like Paris in the springtime.",
-            ["KL", "GB"],
-            ["share", "heart", "pin"],
-            "images/cannon-beach.jpg"
-        ) +
-        card(
+        exploreCardNotification(3) +
+        // card("explore",
+        //     div("titles",
+        //         cardTitle("Commonwealth of Massachusetts") +
+        //         cardSubtitle("New England, United States of America")
+        //     ) +
+        //     cardSection(
+        //         hashTag("Landmark") +
+        //         hashTag("Recommended")
+        //     ),
+        //     "NOTE: I like Paris in the springtime.",
+        //     ["KL", "GB"],
+        //     ["share", "heart", "pin"],
+        //     "images/photos/cannon-beach.jpg"
+        // ) +
+        card("explore",
             div("titles",
                 cardTitle("Eiffel Tower") +
                 cardSubtitle("Paris, France")

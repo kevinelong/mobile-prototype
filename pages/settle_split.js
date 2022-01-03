@@ -7,7 +7,7 @@ const settleSplit = (selected = false) => page(selected,
     ],
     "ALL",
     cardList(
-        card(
+        card("settle",
             div(`titles`,
                 cardTitle("Dinner at Wilf's") +
                 cardSubtitle("Tuesday 12/12/2022.")
