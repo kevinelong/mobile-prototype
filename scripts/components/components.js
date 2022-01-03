@@ -103,6 +103,10 @@ const cardPeople = (peopleList) => div("card-people",
 );
 
 
+const cardTags = (tags) => div("card-tags",
+    [...tags].map(p=>hashTag(p)).join("")
+);
+
 const cardActions = (id, actionList = []) => div("action-list",
     [...actionList].map(c => actionItem(c, actionList.length == 1)).join("")
     , `id="${id}" class='action-list'`

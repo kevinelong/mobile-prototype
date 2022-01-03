@@ -1,12 +1,14 @@
 const cardList = content => div("card-list", content);
 
-const card = (kind, title, body = "", people = "", actions = "", image="") => div(
+const card = (kind, title, body = "", people = "", actions = "", image="", tags=[]) => div(
     `card ${kind}`,
     img("background top", "images/backgrounds/top-gradient-black.svg") +
     cardSection(
         cardTitle(title)
     ) + contentPanel(body) +
     cardSection(
+        cardTags(tags) +
+
         cardQuadrant(
             cardPeople(people) +
             cardActions(`card-actions`, actions)
@@ -52,7 +54,7 @@ const settleCard = (who, amount) => card("settle",
     [],
     ["settle"]
 );
-const exploreCard = (imagePath="images/photos/cannon-beach.jpg", title="", subtitle="", content="") => card("explore",
+const exploreCard = (imagePath="images/photos/cannon-beach.jpg", title="", subtitle="", content="", tags=[], people=[], actions=[]) => card("explore",
     div("titles explore",
         row(
             icon("explore") +
@@ -63,9 +65,10 @@ const exploreCard = (imagePath="images/photos/cannon-beach.jpg", title="", subti
         )
     ) + actionItem("open"),
     text(content),
-    [],
-    [],
-    imagePath
+    people,
+    actions,
+    imagePath,
+    tags
 );
 const exploreCardNotification = (quantity) => card("explore",
     div("titles explore",
