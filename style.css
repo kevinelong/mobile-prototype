@@ -237,7 +237,20 @@ div {
 .card.connect {
     background-color: #F9A831;
 }
-
+.detail{
+    /*gap: 1rem;*/
+    padding: 1rem;
+}
+.detail .col{
+    gap:1rem;
+}
+.detail .row{
+    gap: 1rem;
+}
+.detail .image{
+    /*border: 1rem solid #eeeeee;*/
+    border-radius: 1rem;
+}
 .main-nav-tab.selected #explore .icon-frame,
 .card.explore {
     /*background-color: #FFCC00;*/
@@ -449,12 +462,24 @@ div {
     visibility: visible;
     transition: opacity 90ms ease-in-out;
 }
+
+.toast{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 360px;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 90ms ease-in-out;
+}
+
 .connect_chat label{
     position: absolute;
     bottom:0;
     left:0;
     right:0;
 }
+
 .connect_chat .message-panel {
     position: absolute;
     bottom: 2em;
@@ -690,6 +715,13 @@ a {
     background-color: #eeeeee;
     border-radius: 0;
     font-size: 11px;
+    align-content: space-between;
+    justify-content: space-between;
+}
+.detail.explore{
+    align-content: space-between;
+    justify-content: space-between;
+    height: 511px;
 }
 .card .content-panel {
     margin: 0.25rem;
@@ -790,7 +822,7 @@ a {
     bottom: 0;
 }
 
-.dialog {
+.dialog, .toast {
     position: relative;
     background: #eeeeeeff;
     margin: auto;
@@ -803,6 +835,12 @@ a {
     border-radius: 2rem;
     padding: 1rem;
 }
+.toast{
+    z-index: 1000000;
+    position: absolute;
+    bottom:0;
+}
+
 
 .dialog .title,
 .dialog .subtitle {

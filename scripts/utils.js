@@ -14,6 +14,11 @@ const showPage = (pageName, action = "", id = "") => {
         console.log("No such page element: " + pageName);
         return;
     }
+    const parts = pageName.split("_")
+    if(parts.length == 1){
+        window.lastPage = pageName;
+        select(get("#main-nav-tab-" + pageName));
+    }
     document.body.setAttribute("page", name);
     document.body.setAttribute("page-action", action);
     document.body.setAttribute("page-id", id);

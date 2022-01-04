@@ -49,17 +49,17 @@ const detail = (kind, title, body = "", people = "", actions = "", imagePath = "
     `detail ${kind}`,
     img("detail-image", imagePath) +
     cardSection(
-        cardTitle(title)
-    ) + contentPanel(body) +
+        cardTitle(body)
+    ) +
+    // contentPanel(body) +
     cardSection(
         cardTags(tags) +
-
         cardQuadrant(
             cardPeople(people) +
             cardActions(`card-actions`, actions)
         )
-    ),
-    imagePath ? `style="background-image: url('${imagePath}');"` : ""
+    )
+    //, imagePath ? `style="background-image: url('${imagePath}');"` : ""
 );
 
 const connectCard = (title, subtitle = "", id="") => card("connect",
