@@ -1,6 +1,32 @@
+const cardText = (c) => div("card-text", c);
+const cardSection = (c) => div("card-section", c);
+const cardQuadrant = (c) => div("card-quadrant", c);
+const cardTitle = (c) => div("card-title", c);
+const cardTitleText = (c) => div("card-title-text", c);
+const cardSubtitle = (c) => c ? div("card-subtitle", c) : '';
+const cardPhoto = (c) => div("card-photo", c);
+
+const personIcon = (p) => div("person-icon",
+    circle(icon("account-circle") + p)
+);
+
+const cardPeople = (peopleList) => div("card-people",
+    [...peopleList].map(p => personIcon(p)).join("")
+);
+
+
+const cardTags = (tags) => div("card-tags",
+    [...tags].map(p => hashTag(p)).join("")
+);
+
+const cardActions = (id, actionList = []) => div("action-list",
+    [...actionList].map(c => actionItem(c, actionList.length == 1)).join("")
+    , `id="${id}" class='action-list'`
+);
+
 const cardList = content => div("card-list", content);
 
-const card = (kind, title, body = "", people = "", actions = "", image="", tags=[]) => div(
+const card = (kind, title, body = "", people = "", actions = "", image = "", tags = []) => div(
     `card ${kind}`,
     img("background top", "images/backgrounds/top-gradient-black.svg") +
     cardSection(
@@ -19,7 +45,24 @@ const card = (kind, title, body = "", people = "", actions = "", image="", tags=
     image ? `style="background-image: url('${image}');"` : ""
 );
 
-const connectCard = (title, subtitle = "") => card("connect",
+const detail = (kind, title, body = "", people = "", actions = "", imagePath = "", tags = []) => div(
+    `detail ${kind}`,
+    img("detail-image", imagePath) +
+    cardSection(
+        cardTitle(title)
+    ) + contentPanel(body) +
+    cardSection(
+        cardTags(tags) +
+
+        cardQuadrant(
+            cardPeople(people) +
+            cardActions(`card-actions`, actions)
+        )
+    ),
+    imagePath ? `style="background-image: url('${imagePath}');"` : ""
+);
+
+const connectCard = (title, subtitle = "", id="") => card("connect",
     div("titles",
         row(
             icon("people") +
@@ -29,7 +72,7 @@ const connectCard = (title, subtitle = "") => card("connect",
             )
         )
     ) +
-    actionItem("open"),
+    actionItem("open", "connect_chat", id),
     messagePanel([
         ["Are you ready for mimosas?", "KL"],
         ["Oh, so ready...", "GB"],
@@ -40,7 +83,7 @@ const connectCard = (title, subtitle = "") => card("connect",
     "images/cannon-beach.jpg"
 );
 
-const settleCard = (who, amount) => card("settle",
+const settleCard = (who, amount, id="") => card("settle",
     div("titles settle",
         row(
             icon("settle") +
@@ -49,12 +92,13 @@ const settleCard = (who, amount) => card("settle",
                 cardSubtitle(who)
             )
         )
-    ) + actionItem("open"),
+    ) +
+    actionItem("open", "settle_list", id),
     text(`You owe ${amount}`),
     [],
     ["settle"]
 );
-const exploreCard = (imagePath="images/photos/cannon-beach.jpg", title="", subtitle="", content="", tags=[], people=[], actions=[]) => card("explore",
+const exploreCard = (imagePath = "images/photos/cannon-beach.jpg", title = "", subtitle = "", content = "", tags = [], people = [], actions = [], id="") => card("explore",
     div("titles explore",
         row(
             icon("explore") +
@@ -63,8 +107,34 @@ const exploreCard = (imagePath="images/photos/cannon-beach.jpg", title="", subti
                 cardSubtitle(subtitle)
             )
         )
-    ) + actionItem("open"),
+    ) +
+    actionItem("open", "explore_detail", id),
     text(content),
+    people,
+    actions,
+    imagePath,
+    tags
+);
+const exploreDetail = (
+    imagePath = "images/photos/cannon-beach.jpg",
+    title = "",
+    subtitle = "",
+    content = "",
+    tags = [],
+    people = [],
+    actions = [],
+    id="") => detail(
+        "explore",
+    "Details",
+    div("titles explore",
+        row(
+            // icon("explore") +
+            col(
+                cardTitle(title) +
+                cardSubtitle(subtitle)
+            )
+        )
+    ) + text(content),
     people,
     actions,
     imagePath,
@@ -79,12 +149,12 @@ const exploreCardNotification = (quantity) => card("explore",
                 cardSubtitle(``)
             )
         )
-    ) + actionItem("open"),
+    ) +
+    actionItem("open", "explore", "1"),
     text(`You have ${quantity} new items to Explore!`),
     [],
     [],
     ""
-
 );
 
 const boardCard = (who, quantity) => card("board",

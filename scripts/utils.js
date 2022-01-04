@@ -4,11 +4,19 @@ const select = e => {
     [...e.parentElement.children].forEach(s => s.classList.remove('selected'));
     e.classList.add('selected');
 }
-const showPage = pageName => {
-    const page = get(`.page.${pageName}`);
-    if (!page)
+const showPage = (pageName, action = "", id = "") => {
+    if ("" == pageName) {
+        console.log("Missing pageName: " + pageName);
         return;
+    }
+    const page = get(`.page.${pageName}`);
+    if (!page) {
+        console.log("No such page element: " + pageName);
+        return;
+    }
     document.body.setAttribute("page", name);
+    document.body.setAttribute("page-action", action);
+    document.body.setAttribute("page-id", id);
     const pages = document.getElementsByClassName('page');
     [...pages].forEach(s => s.classList.add('hidden'));
     page.classList.remove('hidden');

@@ -1,7 +1,7 @@
 const planPage = (selected=false) => page(
     selected,
     "plan",
-    "Agenda",
+    "Plan",
     [
         "ALL NETWORK",
         "PLANNERS",

@@ -1,5 +1,4 @@
-
-const peoplePage = (selected = false) => page(
+const connectPage = (selected = false) => page(
     selected,
     "connect",
     "Connect",

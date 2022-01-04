@@ -63,7 +63,7 @@ div {
     /*background: #F9A831ff;*/
     background: #eeeeee;
     padding: 0.2rem;
-    font-size: 20pt;
+    font-size: 24px;
     /*color: #ffffffcc;*/
     color: #333333;
     text-align: center;
@@ -263,7 +263,7 @@ div {
 .main-nav-tab.selected #settle .icon-frame,
 .card.settle {
     /*background-color: #993366;*/
-    background-color: #663399;
+    background-color: #6633EE;
 }
 
 .card-subtitle {
@@ -449,7 +449,19 @@ div {
     visibility: visible;
     transition: opacity 90ms ease-in-out;
 }
-
+.connect_chat label{
+    position: absolute;
+    bottom:0;
+    left:0;
+    right:0;
+}
+.connect_chat .message-panel {
+    position: absolute;
+    bottom: 2em;
+    left:0;
+    right:0;
+    background: none;
+}
 .page > .action-item {
     position: absolute;
     right: 8px;
@@ -468,6 +480,7 @@ div {
 }
 
 .hidden {
+    height: 0;
     width: 0;
     opacity: 0;
     visibility: collapse;
@@ -671,6 +684,13 @@ a {
     background-color: #eeeeee;
 }
 
+.detail .content-panel {
+    margin: 0;
+    color: #333333;
+    background-color: #eeeeee;
+    border-radius: 0;
+    font-size: 11px;
+}
 .card .content-panel {
     margin: 0.25rem;
     color: white;
@@ -679,6 +699,7 @@ a {
     font-size: 11px;
 }
 
+.detail .content-panel,
 .card .content-panel,
 .dialog .content-panel {
     height: auto;
@@ -800,12 +821,12 @@ a {
     border-radius: 0.5rem;
 }
 
-.dialog input[type=text] {
+input[type=text] {
     padding: 0.25rem;
     margin: 0.25rem;
 }
 
-.dialog label {
+label {
     display: flex;
     flex-direction: column;
 }

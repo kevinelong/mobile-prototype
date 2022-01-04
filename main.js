@@ -32,9 +32,11 @@ document.addEventListener("DOMContentLoaded", () => {
         ["explore", "dream", "connect", "plan", "settle",], "connect");
     get(".inner-content").innerHTML =
         explorePage() +
+        exploreDetailPage() +
         boardsPage() +
         planPage() +
-        peoplePage(true) +
+        connectPage(true) +
+        connectChatPage() +
         settleList() +
         settleSplit() +
         settlePage()
@@ -82,10 +84,12 @@ const addMessage = () => {
         )
     );
 }
-const actionClick = (action) => {
+const actionClick = (action, which = "", id = "") => {
     hideDialog();
     if (action == "back") {
         showPage(window.lastPage);
+    } else if ("open" == action) {
+        showPage(which, action, id);
     } else if (["add", "new"].includes(action)) {
         addMessage();
     } else if (["search", "more"].includes(action)) {
