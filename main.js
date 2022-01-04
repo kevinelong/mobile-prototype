@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
         outerBox(
             innerContent() +
             mainNavOuter() +
-            hiddenToast("") +
+            // hiddenToast("") +
             hiddenSmoke(
                 hiddenDialog()
             )
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },1000);
     }
 
-    showToast("Toast Message");
+    // showToast("Toast Message");
 
     get(".main-nav-outer").innerHTML = mainNav(
         ["explore", "dream", "connect", "plan", "settle",], "connect");
