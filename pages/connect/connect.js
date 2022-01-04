@@ -11,7 +11,7 @@ const connectPage = (selected = false) => page(
         exploreCardNotification(11) +
         boardCard("Kevin", 2) +
         planCard("Greg", "Pinball Museum") +
-        settleCard("Three Amigos", "$3.00") +
+        settleCard("Three Amigos - Monday 1/3/2022", "$3.00") +
         connectCard("Connect", "Sunday Brunch")
     ),
     "",
