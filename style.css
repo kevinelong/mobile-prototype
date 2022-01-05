@@ -507,6 +507,9 @@ div {
     right:0;
     background: none;
 }
+.page > .label {
+    background-color: #fffb;
+}
 .page > .action-item {
     position: absolute;
     right: 8px;

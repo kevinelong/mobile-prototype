@@ -17,6 +17,7 @@ const page = (
                 div("title-text", caption) +
                 actionItem("search")
             ) + actionItem("account-circle")) +
+        search([]) +
         choiceSet("${name}-filters", choiceList, selectedChoice) +
         contentPanel(content)+
         actionContent,
