@@ -3,8 +3,9 @@ const connectPage = (selected = false) => page(
     "connect",
     "Connect",
     [
-        "All Messages",
-        "Group Messages",
+        "All",
+        "Personal",
+        "Group",
     ],
     "All Messages",
     cardList(

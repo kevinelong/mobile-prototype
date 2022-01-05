@@ -3,14 +3,20 @@ const explorePage = (selected=false) => page(
     "explore",
     "Explore",
     [
-        "ALL NETWORK",
-        "PLANNERS",
-        "FRIENDS",
-        "CONFIRMATIONS",
-        "NEW PEOPLE",
-        "MATCHES",
-        "DEALS"
+        "All",
+        "Personal",
+        "Matches",
+        "Deals"
     ],
+    // [
+    //     "ALL NETWORK",
+    //     "PLANNERS",
+    //     "FRIENDS",
+    //     "CONFIRMATIONS",
+    //     "NEW PEOPLE",
+    //     "MATCHES",
+    //     "DEALS"
+    // ],
     "ALL NETWORK",
     cardList(
         exploreCard(

@@ -3,11 +3,12 @@ const boardsPage = (selected=false) => page(
     "dream",
     "Dream",
     [
-        "ALL NETWORK",
-        "PLANNERS",
-        "FRIENDS",
+        "All Boards",
+        "Mine",
+        "PLANNER'S",
+        "FRIEND'S",
     ],
-    "ALL NETWORK",
+    "All Boards",
     cardList(
         card("board",
             div("titles",
