@@ -139,7 +139,10 @@ div {
 }
 
 .person-icon .icon-frame {
-    margin: 0 0.25em 0 0;
+    margin: 0;
+}
+.person-icon .text {
+     padding: 3px 6px 0 4px;
 }
 
 .person-icon .icon {
@@ -147,7 +150,7 @@ div {
 }
 
 .person-icon .circle {
-    padding-right: 0.5em;
+    padding-right: 0;
     background: #0005;
 }
 
@@ -183,7 +186,7 @@ div {
     border-radius: 18px;
     background: #00000088;
     color: #ffffffCC;
-    margin: 0.25em 0.5em;
+    margin: 0;
     padding: 3px 6px 2px;
     white-space: nowrap;
     font-size: 11pt;
@@ -193,6 +196,11 @@ div {
     display: inline-flex;
     justify-content: center; /* align horizontal */
     align-items: center; /* align vertical */
+}
+
+.action-list,
+.card-actions{
+    gap: 0.25rem;
 }
 
 .choice {
@@ -301,15 +309,17 @@ div {
 .title .action-item {
     border: none;
 }
-
+.title .action-item .text{
+    display: none;
+}
 .card-list {
     width: 100%;
     flex-direction: column;
     justify-content: start;
     align-items: flex-start;
 
-    padding: 0.5em 0.25em;
-    height: 100%;
+    padding: 0.5em 0.25em 64px 0.25em;
+    /*height: 100%;*/
     /* margin-top: 0.5em; */
 }
 
@@ -332,10 +342,19 @@ div {
     justify-content: center;
     font-size: 11px;
 }
+.message-item .text,
+.person-icon .text{
+    display: none;
+}
+
+.message-item:hover .text,
+.person-icon:hover .text{
+    display: block;
+}
 
 .card-people {
     flex-direction: row;
-    gap: 0.5rem;
+    gap: 0.25rem;
 }
 
 .circle {
@@ -409,9 +428,10 @@ div {
 
 .card-quadrant {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-content: space-between;
     justify-content: space-between;
+    gap: 0.5rem;
 }
 
 .icon-frame-inner {
@@ -502,6 +522,9 @@ div {
     max-height: 48px;
     width: 48px;
     height: 48px;
+}
+.page > .action-item .text{
+    display: none;
 }
 
 .hidden {
@@ -631,7 +654,7 @@ div {
     font-size: 8pt;
     gap: 0.25em;
     height: 24px;
-    padding-right: 0.5em;
+    padding-right: 0;
 }
 
 .money-item .money-text,

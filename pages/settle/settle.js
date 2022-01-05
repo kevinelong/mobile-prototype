@@ -20,7 +20,7 @@ const settlePage = (selected=false) => page(selected,
                 ["Lunch at Toro Toro", "KL $99.99",  "-33.33", "33.33"],
                 ["Dinner at Wilf's", "WH $105.99", "-36.33", "-3.00"],
             ]),
-            ["KL", "GB", "WH"],
+            ["Kevin Long", "Greg Bellowe", "Nina Marie"],
             ["paypal", "venmo", "zelle"],
             "images/cannon-beach.jpg"
         )

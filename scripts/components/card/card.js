@@ -7,7 +7,7 @@ const cardSubtitle = (c) => c ? div("card-subtitle", c) : '';
 const cardPhoto = (c) => div("card-photo", c);
 
 const personIcon = (p) => div("person-icon",
-    circle(icon("account-circle") + p)
+    circle(icon("account-circle") + text(p))
 );
 
 const cardPeople = (peopleList) => div("card-people",
@@ -78,7 +78,7 @@ const connectCard = (title, subtitle = "", id="") => card("connect",
         ["Oh, so ready...", "GB"],
         ["Waffle bar is where I'm at!", "NM"],
     ]),
-    ["KL", "GB", "NM"],
+    ["Kevin Long", "Greg Bellowe", "Nina Marie"],
     ["share", "heart", "pin"],
     "images/cannon-beach.jpg"
 );

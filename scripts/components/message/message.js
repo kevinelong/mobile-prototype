@@ -1,7 +1,7 @@
 const messageText = (c) => div("message-text", c);
 
 const messageItem = (mi) => div("message-item",
-    circle(icon("account-circle") + mi[1]) +
+    circle(icon("account-circle") + text(mi[1])) +
     messageText(mi[0])
 );
 

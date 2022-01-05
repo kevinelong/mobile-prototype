@@ -30,6 +30,12 @@ const actionClick = (action, which = "", id = "") => {
         ]));
     } else if (["hide"].includes(action)) {
         hideDialog();
+    } else if (["heart"].includes(action)) {
+        showToast("Added to your Favorites");
+    } else if (["share"].includes(action)) {
+        showToast("Shared to your Connections");
+    } else if (["pin"].includes(action)) {
+        showToast("Added to Dream Board");
     } else if (["plan"].includes(action)) {
         showToast("Added to Plan");
     } else if (["settle"].includes(action)) {

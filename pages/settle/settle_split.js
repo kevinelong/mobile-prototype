@@ -20,7 +20,7 @@ const settleSplit = (selected = false) => page(selected,
                 ["Deluxe Cheeseburger", "?", "9.00", "0"],
                 ["Veggie Burger", "?", "9.00", "0"],
             ]),
-            ["KL", "GB", "WH"],
+            ["Kevin Long", "Greg Bellowe", "Nina Marie"],
             ["paypal", "venmo", "zelle"],
             "images/cannon-beach.jpg"
         )

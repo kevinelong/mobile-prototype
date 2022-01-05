@@ -19,7 +19,7 @@ const explorePage = (selected=false) => page(
             "Cannon Beach, Oregon",
             "This is an iconic photo opportunity",
             ["Landmark", "Recommended"],
-            ["KL", "GB"],
+            ["Kevin Long", "Greg Bellowe", "Nina Marie"],
             ["share", "heart", "pin"],
         )
     ),

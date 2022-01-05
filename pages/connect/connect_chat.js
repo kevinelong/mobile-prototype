@@ -16,5 +16,5 @@ const connectChatPage = (selected = false) => page(selected,
     "",
     "connect",
     [],
-    ["KL", "GB", "NM"]
+    ["Kevin Long", "Greg Bellowe", "Nina Marie"]
 );
