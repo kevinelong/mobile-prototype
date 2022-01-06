@@ -1,3 +1,5 @@
+
+
 const action = (name, which = "", id = "") => ` onclick="actionClick('${name}','${which}','${id}')"`;
 
 const actionPanel = (content) => div(
@@ -8,6 +10,7 @@ const actionButton = (name) => div(
     name,
     action(name)
 );
+
 const actionItem = (name, which = "", id = "", textValue = "", iconColor="") => div(
     `action-item`,
     icon(name, iconColor) + text(textValue ? textValue : name),
@@ -18,6 +21,11 @@ const actionClick = (action, which = "", id = "") => {
     hideDialog();
     if (action == "back") {
         showPage(window.lastPage);
+    } else if ("open" == action && which.toLowerCase().startsWith("http")) {
+        window.open(
+            which,
+            "_blank"
+        );
     } else if ("open" == action) {
         showPage(which, action, id);
     } else if (["add", "new"].includes(action)) {

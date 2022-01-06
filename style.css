@@ -748,7 +748,7 @@ a {
     width: 100%;
     margin: 0;
     padding: 0;
-    height: 511px;
+    height: 476px;
     overflow-y: scroll;
     overflow-x: hidden;
     color: #333333;
@@ -767,7 +767,7 @@ a {
 .detail.explore{
     align-content: space-between;
     justify-content: space-between;
-    height: 511px;
+    height: 476px;
 }
 .card .content-panel {
     margin: 0.25rem;
