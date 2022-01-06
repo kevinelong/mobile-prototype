@@ -14,9 +14,10 @@ const page = (
         title(
             actionItem(parent ? "back" : "menu") +
                     div("title-middle",
-                div("title-text", caption) +
-                actionItem("search")
-            ) + actionItem("account-circle")) +
+                icon(name + "-black") +
+                div("title-text", caption)
+                        // + actionItem("search")
+            ) + actionItem("person", "","","", "black")) +
         search([]) +
         choiceSet("${name}-filters", choiceList, selectedChoice) +
         contentPanel(content)+

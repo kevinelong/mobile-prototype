@@ -3,11 +3,11 @@ const planPage = (selected=false) => page(
     "plan",
     "Plan",
     [
-        "ALL NETWORK",
-        "PLANNERS",
-        "FRIENDS",
+        "All",
+        "Personal",
+        "Group",
     ],
-    "ALL NETWORK",
+    "All",
     simpleList("TODAY",[
         ["12+", "Breakfast at Sunny's", "9:30am", "right"],
         ["4", "Golf on the hill.", "12:30pm", "right"],

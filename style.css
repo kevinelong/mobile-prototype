@@ -78,6 +78,7 @@ div {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    gap: 0.5rem;
 }
 
 .nav-list-item {
@@ -133,6 +134,12 @@ div {
     padding: 18px;
 }
 
+.page > label .icon-frame,
+.page > label .icon {
+    height: 16px;
+    width: 16px;
+}
+
 .main-nav .icon-frame {
     height: 36px;
     width: 36px;
@@ -153,7 +160,9 @@ div {
     padding-right: 0;
     background: #0005;
 }
-
+.person-icon .action-item{
+    padding:0;
+}
 .selected .icon-frame {
     background: #F9A831cc;
     opacity: 100%;
@@ -462,9 +471,10 @@ div {
     order: 0;
     flex-grow: 0;
     user-select: none;
+    flex-direction: row;
 }
 
-.selected .label {
+.selected label {
     color: #FFFFFFEE;
     transition: color 300ms;
 }
@@ -507,8 +517,11 @@ div {
     right:0;
     background: none;
 }
-.page > .label {
+.page > label {
     background-color: #fffb;
+    flex-direction: row;
+    justify-items: center;
+    justify-content: center;
 }
 .page > .action-item {
     position: absolute;
@@ -518,6 +531,10 @@ div {
     height: 48px;
     border: none;
     z-index: 300;
+}
+.page > .action-item .icon-frame{
+    box-shadow: 0 0 1rem #0008;
+    background-color: #0008;
 }
 
 .page > .action-item .icon {
@@ -919,10 +936,13 @@ input[type=text] {
     padding: 0.25rem;
     margin: 0.25rem;
 }
-
+.page > label input[type=text]{
+    margin: 0;
+}
 label {
     display: flex;
     flex-direction: column;
+    padding: 0.5rem;
 }
 
 .col {

@@ -17,7 +17,7 @@ const explorePage = (selected=false) => page(
     //     "MATCHES",
     //     "DEALS"
     // ],
-    "ALL NETWORK",
+    "All",
     cardList(
         exploreCard(
             "images/photos/cannon-beach.jpg",

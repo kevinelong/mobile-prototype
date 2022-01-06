@@ -2,11 +2,11 @@ const settlePage = (selected=false) => page(selected,
     "settle",
     "Settle",
     [
-        "ALL",
-        "I OWE",
-        "OWED TO ME",
+        "All",
+        "I Owe",
+        "Owed to me",
     ],
-    "ALL",
+    "All",
     cardList(
         card("settle",
             div(`titles`,
@@ -25,5 +25,5 @@ const settlePage = (selected=false) => page(selected,
             "images/cannon-beach.jpg"
         )
     ),
-    "ALL NETWORK"
+    "All"
 );

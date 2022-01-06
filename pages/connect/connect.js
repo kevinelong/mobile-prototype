@@ -7,7 +7,7 @@ const connectPage = (selected = false) => page(
         "Personal",
         "Group",
     ],
-    "All Messages",
+    "All",
     cardList(
         exploreCardNotification(11) +
         boardCard("Kevin", 2) +

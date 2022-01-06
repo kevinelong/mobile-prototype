@@ -1,13 +1,13 @@
 const messageText = (c) => div("message-text", c);
 
-const messageItem = (mi) => div("message-item",
-    circle(icon("account-circle") + text(mi[1])) +
+const messageItem = (mi, iconColor) => div("message-item",
+    circle(icon("person", iconColor ) + text(mi[1])) +
     messageText(mi[0])
 );
 
-const messagePanel = (messageList = [["", ""]]) => div(
+const messagePanel = (messageList = [["", ""]], iconColor="black") => div(
     "message-panel",
-    [...messageList].map(mi => messageItem(mi)).join("")
+    [...messageList].map(mi => messageItem(mi, iconColor)).join("")
 )
 
 const addMessage = () => {

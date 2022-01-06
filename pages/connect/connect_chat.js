@@ -1,13 +1,14 @@
-const connectChatPage = (selected = false) => page(selected,
+const connectChatPage = (selected = false) => page(
+    selected,
     "connect_chat",
     "Sunday Brunch",
     [],
     "",
     messagePanel([
-        ["Are you ready for mimosas?", "KL"],
-        ["Oh, so ready...", "GB"],
-        ["Waffle bar is where I'm at!", "NM"],
-    ], "") +
+        ["Are you ready for mimosas?", "Kevin Long"],
+        ["Oh, so ready...", "Greg Bellowe"],
+        ["Waffle bar is where I'm at!", "Nina Marie"],
+    ], "black") +
     label(
         input("message", "text",
             "placeholder=\"Enter Message\""

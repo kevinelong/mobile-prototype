@@ -1,4 +1,4 @@
-const icon = (icon = "menu") => div("icon-frame", `<img class="icon" src="./images/icons/icon-${icon}.svg">`);
+const icon = (icon = "menu", iconColor = "") => div("icon-frame", `<img class="icon" src="./images/icons/icon-${icon}${iconColor ? "-" + iconColor : ""}.svg">`);
 // const listItem = text => div("nav-list-item", text);
 const text = (text) => div("text", text);
 const contentPanel = content => content ? div("content-panel", content) : "";

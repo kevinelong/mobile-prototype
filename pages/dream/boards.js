@@ -3,12 +3,13 @@ const boardsPage = (selected=false) => page(
     "dream",
     "Dream",
     [
-        "All Boards",
-        "Mine",
-        "PLANNER'S",
-        "FRIEND'S",
+        "All",
+        "Personal",
+        "Linked",
+        "Groups",
+        "Network",
     ],
-    "All Boards",
+    "All",
     cardList(
         card("board",
             div("titles",

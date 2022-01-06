@@ -8,9 +8,9 @@ const actionButton = (name) => div(
     name,
     action(name)
 );
-const actionItem = (name, which = "", id = "") => div(
+const actionItem = (name, which = "", id = "", textValue = "", iconColor="") => div(
     `action-item`,
-    icon(name) + text(name),
+    icon(name, iconColor) + text(textValue ? textValue : name),
     action(name, which, id)
 );
 
