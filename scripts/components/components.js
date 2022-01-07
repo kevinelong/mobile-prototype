@@ -9,7 +9,7 @@ const row = content => div("row", content);
 const col = content => div("col", content);
 
 const PATH_STATIC = "";
-const PATH_IMAGES = `${PATH_STATIC}/images/`;
+const PATH_IMAGES = `${PATH_STATIC}images/`;
 const PATH_ICONS = `${PATH_IMAGES}/icons/`;
 const PREFIX_ICONS = `${PATH_ICONS}/icon-`;
 const SUFFIX_ICONS = `.svg`;
