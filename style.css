@@ -938,6 +938,14 @@ input[type=text] {
 }
 .page > label input[type=text]{
     margin: 0;
+    padding-left: 30px;
+    background-image: url(images/icons/icon-search-black.svg);
+    background-repeat: no-repeat;
+    background-position: left;
+    background-position-x: 6px;
+    border-radius: 30px;
+    width: 98%;
+    border: 1px solid #0006
 }
 label {
     display: flex;
