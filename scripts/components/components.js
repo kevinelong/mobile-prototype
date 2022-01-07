@@ -7,7 +7,7 @@ const contentPanel = content => content ? div("content-panel", content) : "";
 
 const row = content => div("row", content);
 const col = content => div("col", content);
-// debugger;
+
 const PATH_STATIC = "";
 const PATH_IMAGES = `${PATH_STATIC}/images/`;
 const PATH_ICONS = `${PATH_IMAGES}/icons/`;
@@ -21,8 +21,25 @@ const iconPath = (name, color = "") => [
     SUFFIX_ICONS
 ].join('').replace(/([^:]\/)\/+/g, "$1");
 
-const icon = (icon = "menu", iconColor = "") => div("icon-frame",
-    `<img class="icon" src="${iconPath(icon, iconColor)}">`);
+const ICON_MAP = {
+    "decline" : "plan",
+    "accept" : "plan",
+}
 
-const person = (iconName, textName = "") => actionItem("person", "", "",
+const iconMap = icon => {
+    if (ICON_MAP.hasOwnProperty(icon)) {
+        return ICON_MAP[icon];
+    }
+    return icon;
+}
+
+const icon = (name = "menu", iconColor = "", textValue="") => div("icon-frame",
+    `<img class="icon" src="${iconPath(iconMap(name), iconColor)}">`) + text(textValue ? textValue : "");
+
+const person = (iconName, textName = "") => actionItem("person", "connect_person", "",
     textName ? textName : iconName);
+
+const inputMessage = () => label(
+    input("message-input", "text", `placeholder="Type a message..."`)
+);
+

@@ -6,15 +6,23 @@ const connectPage = (selected = false) => page(
         "All",
         "Personal",
         "Group",
+        "Notifications",
     ],
     "All",
-    cardList(
-        exploreCardNotification(11) +
-        boardCard("Kevin", 2) +
-        planCard("Greg", "Pinball Museum") +
-        settleCard("Three Amigos - Monday 1/3/2022", "$3.00") +
-        connectCard("Connect", "Sunday Brunch")
-    ),
+    cardList([
+
+        connectCard([
+            ["I'm thinking about brunch on Sunday.", "KL"],
+            ["Are you ready for mimosas?", "KL"],
+            ["Oh, so ready...", "GB"],
+            ["Waffle bar is where I'm at!", "NM"],
+        ],"Group Chat", "The Three Amigos"),
+
+        exploreCardNotification(11),
+        boardCard("Kevin", 2, "Santa Barbara"),
+        planCard("Greg", "Pinball Museum", "Santa Barbara", "Tuesday March 3rd 2022 at Noon."),
+        settleCard("Three Amigos - Monday 1/3/2022", "$3.00")
+    ].join("")),
     "",
     "",
     actionItem("add")

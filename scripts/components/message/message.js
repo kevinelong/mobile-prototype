@@ -1,29 +1,32 @@
 const messageText = (c) => div("message-text", c);
 
 const messageItem = (mi, iconColor) => div("message-item",
-    circle(icon("person", iconColor ) + text(mi[1])) +
+    person("person", mi[1]) +
+    // circle(icon("person", iconColor ) + text(mi[1])) +
     messageText(mi[0])
 );
 
 const messagePanel = (messageList = [["", ""]], iconColor="black") => div(
     "message-panel",
-    [...messageList].map(mi => messageItem(mi, iconColor)).join("")
-)
+    [...messageList].map(mi => messageItem(mi, iconColor)).join("") +
+    inputMessage()
+);
 
 const addMessage = () => {
-    showDialog("Add Message",
+    showDialog("Who?",
         contentPanel(
             choiceSet("filter", [
-                "All People",
-                "My Contacts"
-            ]) +
+                "My Contacts",
+                "Groups",
+                "Everyone"
+            ], "My Contacts") +
             search([
                 ["KL", "Kevin", "Long", ""],
                 ["NM", "Nina", "Marie", ""],
                 ["GB", "Greg", "Bellowe", ""]
-            ]) +
-            actionPanel(
-                actionButton("close")
+            ]) +row(
+            actionItem("add", "", "", "Group") +
+            actionItem("add", "", "", "Contact")
             )
         )
     );

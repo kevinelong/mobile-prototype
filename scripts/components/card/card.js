@@ -20,7 +20,7 @@ const cardTags = (tags) => div("card-tags",
 );
 
 const cardActions = (id, actionList = []) => div("action-list",
-    [...actionList].map(c => actionItem(c, actionList.length == 1)).join("")
+    [...actionList].map(c => actionItem(c, actionList.length == 1, "", c)).join("")
     , `id="${id}" class='action-list'`
 );
 
@@ -32,14 +32,15 @@ const card = (kind, title, body = "", people = "", actions = "", image = "", tag
     cardSection(
         cardTitle(title)
     ) + contentPanel(body) +
-    cardSection(
-        cardTags(tags) +
-
-        cardQuadrant(
-            cardPeople(people) +
-            cardActions(`card-actions`, actions)
-        )
-    ) +
+    ((tags || people || actions)?
+        cardSection(
+            cardTags(tags) +
+            ((people || actions) ?
+                cardQuadrant(
+                    cardPeople(people) +
+                    cardActions(`card-actions`, actions)
+                ) : ""))
+    :"") +
     img("background bottom", "images/backgrounds/bottom-gradient-black.svg")
     ,
     image ? `style="background-image: url('${image}');"` : ""
@@ -62,7 +63,7 @@ const detail = (kind, title, body = "", people = "", actions = "", imagePath = "
     //, imagePath ? `style="background-image: url('${imagePath}');"` : ""
 );
 
-const connectCard = (title, subtitle = "", id="") => card("connect",
+const connectCard = (messageList=[], title="", subtitle = "", id="") => card("connect",
     div("titles",
         row(
             icon("people") +
@@ -73,14 +74,10 @@ const connectCard = (title, subtitle = "", id="") => card("connect",
         )
     ) +
     actionItem("open", "connect_chat", id),
-    messagePanel([
-        ["Are you ready for mimosas?", "KL"],
-        ["Oh, so ready...", "GB"],
-        ["Waffle bar is where I'm at!", "NM"],
-    ], "white"),
-    ["Kevin Long", "Greg Bellowe", "Nina Marie"],
-    ["share", "heart", "pin"],
-    "images/cannon-beach.jpg"
+    row(actionItem("add") + cardPeople([
+        "Kevin Long", "Greg Bellowe", "Nina Marie"
+    ]))+
+    messagePanel(messageList, "white")
 );
 
 const settleCard = (who, amount, id="") => card("settle",
@@ -88,13 +85,14 @@ const settleCard = (who, amount, id="") => card("settle",
         row(
             icon("settle") +
             col(
-                cardTitle("Settle") +
-                cardSubtitle(who)
+                cardTitle(`Pay ${amount}`) +
+                cardSubtitle("The Three Amigos")
             )
         )
     ) +
     actionItem("open", "settle_list", id),
-    text(`You owe ${amount}`),
+    text("Yesterday 12/12/2022") +
+    text("All Activities - Net"),
     [],
     ["settle"]
 );
@@ -140,50 +138,81 @@ const exploreDetail = (
     imagePath,
     tags
 );
+const connectPersonDetail = (
+    imagePath = "images/photos/cannon-beach.jpg",
+    title = "",
+    subtitle = "",
+    content = "",
+    tags = [],
+    people = [],
+    actions = [],
+    id="") => detail(
+    "connect",
+    "Details",
+    div("titles explore",
+        row(
+            // icon("explore") +
+            col(
+                cardTitle(title) +
+                cardSubtitle(subtitle)
+            )
+        )
+    ) + col(
+        text(content) +
+        text("Friends:") +
+        cardPeople(people)
+    ),
+    [],
+    [],
+    imagePath,
+    tags
+);
 const exploreCardNotification = (quantity) => card("explore",
     div("titles explore",
         row(
             icon("explore") +
             col(
                 cardTitle("Explore") +
-                cardSubtitle(``)
+                cardSubtitle(`Santa Barbara, +12 more`)
             )
         )
     ) +
     actionItem("open",  "https://www.figma.com/proto/RNFPr2XMBBFuj60EEo3TK7/Vita---Greg?page-id=1%3A995&node-id=765%3A1510&viewport=241%2C48%2C0.45&scaling=min-zoom&starting-point-node-id=765%3A1510&show-proto-sidebar=0",
     "","") ,
-    text(`You have ${quantity} new items to Explore!`),
+    text(`${quantity} new cards from people you love!`),
     [],
-    [],
+    ["explore"],
     ""
 );
 
-const boardCard = (who, quantity) => card("board",
+const boardCard = (who, quantity, which) => card("board",
     div("titles board",
         row(
             icon("board") +
             col(
                 cardTitle("Dream") +
-                cardSubtitle(``)
+                cardSubtitle(which)
             )
         )
     ) + actionItem("open"),
-    text(`${who} added an items to your board.`),
+    text(`${quantity} new items added to your linked ${which} board by your friend ${who}.`),
     [],
-    ["pin"]
+    ["board"]
 );
 
-const planCard = (who, what) => card("plan",
+const planCard = (who, what, where, when) => card("plan",
     div("titles plan",
         row(
             icon("plan") +
             col(
-                cardTitle("Plan") +
-                cardSubtitle(``)
+                cardTitle("Plan Invitation") +
+                cardSubtitle(`${where}`)
             )
         )
     ) + actionItem("open"),
-    text(`${who} invited you to ${what}.`),
+    text(when) +
+    text(what) +
+    text(who),
     [],
-    ["plan"]
+    ["decline", "accept"]
 );

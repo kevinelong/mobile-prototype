@@ -14,9 +14,7 @@ const page = (
         title(
             actionItem(parent ? "back" : "menu") +
                     div("title-middle",
-                icon(name + "-black") +
-                div("title-text", caption)
-                        // + actionItem("search")
+                icon(name + "-black", "", caption)
             ) + actionItem("person", "","","", "black")) +
         search([]) +
         choiceSet("${name}-filters", choiceList, selectedChoice) +

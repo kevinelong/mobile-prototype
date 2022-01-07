@@ -9,11 +9,7 @@ const connectChatPage = (selected = false) => page(
         ["Oh, so ready...", "Greg Bellowe"],
         ["Waffle bar is where I'm at!", "Nina Marie"],
     ], "black") +
-    label(
-        input("message", "text",
-            "placeholder=\"Enter Message\""
-        )
-    ),
+    label(inputMessage()),
     "",
     "connect",
     [],

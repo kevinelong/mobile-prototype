@@ -24,3 +24,4 @@ const input = (
     name,
     `name="${name}" type="${inputType}" onkeypress="onTextInput(event);" ${attrs}`
 );
+

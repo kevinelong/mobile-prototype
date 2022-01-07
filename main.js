@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
         planPage() +
         connectPage(true) +
         connectChatPage() +
+        connectPersonPage() +
         settleList() +
         settleSplit() +
         settlePage()

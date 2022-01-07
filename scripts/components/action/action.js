@@ -1,10 +1,12 @@
 
 
-const action = (name, which = "", id = "") => ` onclick="actionClick('${name}','${which}','${id}')"`;
+const action = (name, which = "", id = "") => `onclick="actionClick('${name}','${which}','${id}')"`;
 
 const actionPanel = (content) => div(
     `action-panel`,
-    content);
+    content
+);
+
 const actionButton = (name) => div(
     `action-button`,
     name,
@@ -13,7 +15,7 @@ const actionButton = (name) => div(
 
 const actionItem = (name, which = "", id = "", textValue = "", iconColor="") => div(
     `action-item`,
-    icon(name, iconColor) + text(textValue ? textValue : name),
+    icon(name, iconColor, textValue),
     action(name, which, id)
 );
 
@@ -28,6 +30,10 @@ const actionClick = (action, which = "", id = "") => {
         );
     } else if ("open" == action) {
         showPage(which, action, id);
+    } else if ("person" == action) {
+        showPage("connect_person", "open", id);
+    } else if ("board" == action) {
+        showPage("dream", "dream", id);
     } else if (["add", "new"].includes(action)) {
         addMessage();
     } else if (["search", "more"].includes(action)) {
