@@ -6,7 +6,7 @@ const div = (className, content, attrs) => closedTag("div", content, className, 
 const a = (text, href, className="") => closedTag("a", text, "",`href="${href}"`);
 const img = (className, src = "") => tag("img", `${className} image`, `src="${src}"`);
 
-const label = content => closedTag("label", content);
+const label = (className, content) => closedTag(`label ${className}`, content);
 
 window.onTextInput = (event) => {
     if (event.keyCode==13){

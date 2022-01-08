@@ -8,8 +8,7 @@ const connectChatPage = (selected = false) => page(
         ["Are you ready for mimosas?", "Kevin Long"],
         ["Oh, so ready...", "Greg Bellowe"],
         ["Waffle bar is where I'm at!", "Nina Marie"],
-    ], "black") +
-    label(inputMessage()),
+    ], "black"),
     "",
     "connect",
     [],

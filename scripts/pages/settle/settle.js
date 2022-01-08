@@ -10,7 +10,7 @@ const settlePage = (selected=false) => page(selected,
     cardList(
         card("settle",
             div(`titles`,
-                cardTitle("You owe WH") +
+                cardTitle("Pay Kevin,") +
                 cardSubtitle(" of The Three Amigos<br>for yesterday, Tuesday 12/12/2022.")
             ) +
             cardSection("$3.00"),

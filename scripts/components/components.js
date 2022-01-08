@@ -22,6 +22,7 @@ const iconPath = (name, color = "") => [
 ].join('').replace(/([^:]\/)\/+/g, "$1");
 
 const ICON_MAP = {
+    "connect_chat-black" : "connect-black",
     "decline" : "plan",
     "accept" : "plan",
 }
@@ -39,7 +40,7 @@ const icon = (name = "menu", iconColor = "", textValue="") => div("icon-frame",
 const person = (iconName, textName = "") => actionItem("person", "connect_person", "",
     textName ? textName : iconName);
 
-const inputMessage = () => label(
+const inputMessage = () => label("input-message",
     input("message-input", "text", `placeholder="Type a message..."`)
 );
 

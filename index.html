@@ -3,39 +3,44 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Mobile Prototype</title>
-    <link href="style.css" rel="stylesheet" type="text/css"/>
+    <title>Vita Explorer</title>
+    <link href="styles/style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body></body>
+<script>
+`
+utils
+html
 
-<script src="scripts/utils.js"></script>
-<script src="scripts/html.js"></script>
+components components
 
-<script src="scripts/components/components.js"></script>
+components action action
+components card card
+components choice choice
+components dialog dialog
+components hash_tag hash_tag
+components list list
+components main_nav
+components message message
+components money money
+components page
+components search search
+components toast toast
 
-<script src="scripts/components/action/action.js"></script>
-<script src="scripts/components/card/card.js"></script>
-<script src="scripts/components/choice/choice.js"></script>
-<script src="scripts/components/dialog/dialog.js"></script>
-<script src="scripts/components/hash_tag/hash_tag.js"></script>
-<script src="scripts/components/list/list.js"></script>
-<script src="scripts/components/main_nav.js"></script>
-<script src="scripts/components/message/message.js"></script>
-<script src="scripts/components/money/money.js"></script>
-<script src="scripts/components/page.js"></script>
-<script src="scripts/components/search/search.js"></script>
-<script src="scripts/components/toast/toast.js"></script>
+pages explore explore
+pages explore explore_detail
+pages dream boards
+pages connect connect
+pages connect connect_chat
+pages connect connect_person
+pages plan plan
+pages settle settle
+pages settle settle_split
+pages settle settle_list
 
-<script src="pages/explore/explore.js"></script>
-<script src="pages/explore/explore_detail.js"></script>
-<script src="pages/dream/boards.js"></script>
-<script src="pages/connect/connect.js"></script>
-<script src="pages/connect/connect_chat.js"></script>
-<script src="pages/connect/connect_person.js"></script>
-<script src="pages/plan/plan.js"></script>
-<script src="pages/settle/settle.js"></script>
-<script src="pages/settle/settle_list.js"></script>
-<script src="pages/settle/settle_split.js"></script>
-
-<script src="main.js"></script>
+main
+`.split("\n").map(p => p ? document.write(`<scr` + `ipt src="scripts/` +
+        p.split(" ").join("/") + ".js" +
+        `"></scr` + `ipt>`) : '');
+</script>
 </html>

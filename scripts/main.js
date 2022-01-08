@@ -17,8 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 hiddenDialog()
             )
         )
-    )
-
+    );
 
     get(".main-nav-outer").innerHTML = mainNav(
         ["explore", "dream", "connect", "plan", "settle",], "connect");

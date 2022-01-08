@@ -16,8 +16,8 @@ const page = (
                     div("title-middle",
                 icon(name + "-black", "", caption)
             ) + actionItem("person", "","","", "black")) +
-        search([]) +
-        choiceSet("${name}-filters", choiceList, selectedChoice) +
-        contentPanel(content)+
-        actionContent,
-        `id='page-${name}'` );
+        contentPanel(
+            choiceSet("${name}-filters", choiceList, selectedChoice) +
+            search([]) +
+            content
+        )+ actionContent, `id='page-${name}'` );
