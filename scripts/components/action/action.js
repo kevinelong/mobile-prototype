@@ -52,6 +52,10 @@ const actionClick = (action, which = "", id = "") => {
         showToast("Added to Dream Board");
     } else if (["plan"].includes(action)) {
         showToast("Added to Plan");
+    } else if (["accept"].includes(action)) {
+        showToast("Invitation Accepted and Added to Plan");
+    } else if (["decline"].includes(action)) {
+        showToast("Invitation Declined and Not Added to Plan");
     } else if (["settle", "zelle", "paypal", "venmo"].includes(action)) {
         showToast("Payment Settled");
     } else {
