@@ -1,28 +1,24 @@
-const planPage = (selected=false) => page(
+const planPage = (selected = false) => page(
     selected,
     "plan",
     "Plan",
     [
         "All",
         "Personal",
-        "Group",
+        "Linked",
+        "Groups",
+        "Network",
     ],
     "All",
-    simpleList("TODAY",[
-        ["12+", "Breakfast at Sunny's", "9:30am", "right"],
-        ["4", "Golf on the hill.", "12:30pm", "right"],
-    ], "Friday December 12 2022") +
-    simpleList("TOMORROW",[
-        ["12+", "Breakfast at Sunny's", "9:30am", "right"],
-        ["4", "Golf on the hill.", "12:30pm", "right"],
-    ], "Saturday December 13 2022")+
-    simpleList("SUNDAY",[
-        ["12+", "Breakfast at Sunny's", "9:30am", "right"],
-        ["4", "Golf on the hill.", "12:30pm", "right"],
-    ], "Sunday December 14 2022")+
-    simpleList("FRIDAY",[
-        ["12+", "Breakfast at Sunny's", "9:30am", "right"],
-        ["4", "Golf on the hill.", "12:30pm", "right"],
-    ], "Friday December 19 2022"),
-    "ALL NETWORK"
-);
+    cardList(
+        planCard(
+            "Santa Barbara",
+            "Tuesday March 3rd<br>Monday March 10th",
+            "8 Activities Planned"
+        ) +
+        planCard(
+            "Paris France",
+            "Tuesday September 3rd<br>Monday September 9th",
+            "12 Activities Planned"
+        )
+))

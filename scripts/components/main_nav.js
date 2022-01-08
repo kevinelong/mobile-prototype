@@ -6,7 +6,7 @@ const mainNavTab = (text = "", selected = false, icon = "compass", index) =>
         
         <div class="main-nav-tab-background" id="${toName(text)}">
             <div class="icon-frame">
-                <img class="icon" src="./images/nav/icon-nav-${icon}-white.svg">
+                <img class="icon" src="./images/nav/icon-nav-${icon}-black.svg">
             </div>
             <div class="label">${text}</div>
         </div>

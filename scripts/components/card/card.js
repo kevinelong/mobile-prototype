@@ -196,23 +196,16 @@ const boardCard = (who, quantity, which) => card("board",
         )
     ) + actionItem("open"),
     text(`${quantity} new items added to your linked ${which} board by your friend ${who}.`),
-    [],
+    ["Greg"],
     ["board"]
 );
 
-const planCard = (who, what, where, when) => card("plan",
-    div("titles plan",
-        row(
-            icon("plan") +
-            col(
-                cardTitle("Plan Invitation") +
-                cardSubtitle(`${where}`)
-            )
-        )
-    ) + actionItem("open"),
-    text(when) +
-    text(what) +
-    text(who),
-    [],
-    ["decline", "accept"]
+const planCard = (title, subtitle, content, people=[], actions=[]) => card("plan",
+    div("titles plan", row(icon("plan") + col(
+                cardTitle(title) +
+                cardSubtitle(`${subtitle}`
+                )))) + actionItem("open", "plan_detail"),
+    content,
+    people,
+    actions
 );

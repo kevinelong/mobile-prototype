@@ -13,7 +13,7 @@ const messagePanel = (messageList = [["", ""]], iconColor="black") => div(
 );
 
 const addMessage = () => {
-    showDialog("Who?",
+    showDialog("Connect to People",
         contentPanel(
             choiceSet("filter", [
                 "My Contacts",

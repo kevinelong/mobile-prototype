@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
         exploreDetailPage() +
         boardsPage() +
         planPage() +
+        planDetailPage() +
         connectPage(true) +
         connectChatPage() +
         connectPersonPage() +

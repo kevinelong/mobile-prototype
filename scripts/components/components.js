@@ -23,6 +23,7 @@ const iconPath = (name, color = "") => [
 
 const ICON_MAP = {
     "connect_chat-black" : "connect-black",
+    "plan_detail-black" : "plan-black",
     "decline" : "plan",
     "accept" : "plan",
 }

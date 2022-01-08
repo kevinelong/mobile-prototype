@@ -9,7 +9,7 @@ const connectPersonPage = (selected=false) => page(
         "Kevin Ernest Long",
         "Friend and Collaborator",
         "Kevin is the creator of cool.",
-        ["Friend", "Groups", "Linked"],
+        ["Santa Barbara", "London"],
         ["Greg Bellowe", "Nina Marie"],
         ["share", "heart", "message"]
     ),

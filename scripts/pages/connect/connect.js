@@ -20,7 +20,15 @@ const connectPage = (selected = false) => page(
 
         exploreCardNotification(11),
         boardCard("Kevin", 2, "Santa Barbara"),
-        planCard("Greg", "Pinball Museum", "Santa Barbara", "Tuesday March 3rd 2022 at Noon."),
+        planCard(
+            "Plan Invite",
+            "Pinball Museum",
+            "Santa Barbara<br>"+
+            "Tuesday March 3rd 2022 at Noon.<br>"+
+            "Plan Invitation",
+            ["Greg"],
+            ["decline", "accept"]
+        ),
         settleCard("Three Amigos - Monday 1/3/2022", "$3.00")
     ].join("")),
     "",
