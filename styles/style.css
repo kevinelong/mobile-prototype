@@ -14,7 +14,6 @@ body {
     font-size: 14pt;
     user-select: none;
 }
-
 div {
     margin: 0;
     padding: 0;
@@ -23,6 +22,12 @@ div {
     position: relative;
     box-sizing: border-box;
     width: auto;
+}
+.content {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-items: center center;
 }
 
 .outer-box {
@@ -137,7 +142,8 @@ div {
     /*box-shadow: 0 0 3px black;*/
     /*z-index: 100;*/
 }
-.main-nav .icon-frame img{
+
+.main-nav .icon-frame img {
     z-index: 1000;
 }
 
@@ -582,6 +588,7 @@ label.search {
     border: none;
     z-index: 300;
 }
+
 /*.page > .action-item {*/
 /*    position: absolute;*/
 /*    right: 8px;*/
@@ -806,11 +813,6 @@ a {
     border-radius: 0.25rem;
 }
 
-.content {
-    width: 360px;
-    margin: 0;
-    padding: 0;
-}
 
 .content-panel {
     width: 100%;
@@ -1072,3 +1074,4 @@ input[type=text] {
 .length-5 .index-2 {
     margin-top: -40px;
 }
+
