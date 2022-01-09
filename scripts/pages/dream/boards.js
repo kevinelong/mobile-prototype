@@ -1,4 +1,9 @@
-const boardsPage = (selected=false) => page(
+const boardCard2 = (title, subtitle="") => card("board",
+    div("titles", cardTitle(title) + cardSubtitle(subtitle)),
+    "", [], ["open"], ""
+)
+
+const boardsPage = (selected = false) => page(
     selected,
     "dream",
     "Dream",
@@ -11,20 +16,8 @@ const boardsPage = (selected=false) => page(
     ],
     "All",
     cardList(
-        card("board",
-            div("titles",
-                cardTitle("Europe") +
-                cardSubtitle("Stuff to hit when I get to go!")
-            ) +
-            cardSection(
-                hashTag("Personal") +
-                hashTag("Dream")
-            ),
-            "",
-            [],
-            ["open"],
-            ""
-        )
+        boardCard2("Paris, France") +
+        boardCard2("Santa Barbara")
     ),
     "ALL NETWORK"
 );

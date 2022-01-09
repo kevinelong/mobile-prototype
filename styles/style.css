@@ -277,6 +277,7 @@ div {
     background: none;
     margin: 0;
     padding: 0;
+    width: 100%;
 }
 
 .card.connect .card-people {
@@ -758,7 +759,7 @@ label.search {
     gap: 0.25em;
     background: white;
     padding: 0.25em;
-    border-radius: 0 0.25em 0.25em 0.25em;
+    border-radius: 0 1em 1em 1em;
     color: #000000CC;
     box-shadow: none;
     text-shadow: none;
