@@ -1,0 +1,56 @@
+
+.content-panel {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 555px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    color: #333333;
+    background-color: #eeeeee;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.detail .content-panel {
+    margin: 0;
+    color: #333333;
+    background-color: #eeeeee;
+    border-radius: 0;
+    font-size: 11px;
+    align-content: space-between;
+    justify-content: space-between;
+}
+
+.card .content-panel {
+    margin: 0.25rem;
+    color: white;
+    background-color: #00000033;
+    border-radius: 0.5rem;
+    font-size: 11px;
+}
+
+.detail .content-panel,
+.card .content-panel,
+.dialog .content-panel {
+    height: auto;
+    padding: 0.5rem;
+    /*border-radius: 40px;*/
+    gap: 0.5rem;
+    background: none;
+}
+
+.content-panel .title {
+    background: none;
+    padding: 0.5em .5em 0.25em
+}
+
+.content-panel .subtitle {
+    background: none;
+    padding: 0 0 0.5rem 0.5rem;
+}
+
+
+.content-panel .text {
+    font-size: 1rem;
+}

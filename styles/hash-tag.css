@@ -1,0 +1,41 @@
+
+.hash-tag {
+    background: #88888888;
+    border-radius: 3px;
+    font-size: 0.5em;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    vertical-align: center;
+    margin: 0 0.25em 0.25em auto;
+    padding: 0.25em 0.5em 0.125em;
+    width: fit-content;
+}
+
+.hash-tag.red {
+    background: #FF8888CC;
+}
+
+.hash-tag.green {
+    background: #88ff88CC;
+}
+
+.hash-tag.blue {
+    background: #8888ffCC;
+}
+
+.hash-tag.gold {
+    background: #FFEE88CC;
+}
+
+.hash-tag.silver {
+    background: #E0E0E0CC;
+}
+
+.hash-tag.black {
+    background: #333333CC;
+}
+
+.hash-tag.white {
+    background: #FFFFFFCC;
+}

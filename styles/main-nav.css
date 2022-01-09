@@ -1,0 +1,120 @@
+
+.main-nav {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    background: white;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    z-index: 500;
+}
+
+.nav-list-item {
+    border-top: 1px solid rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: auto;
+    background: #ffffffDD;
+    padding: 0.75vh;
+    font-size: 0.75rem;
+    color: #000000CC;
+}
+
+.main-nav-tab {
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: auto;
+    height: auto;
+    cursor: pointer;
+}
+
+.main-nav-tab-background {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    width: auto;
+    height: auto;
+}
+
+.main-nav .icon-frame {
+    background: white;
+    border: 3px solid white;
+    padding: 18px;
+    /*box-shadow: 0 0 3px black;*/
+    /*z-index: 100;*/
+}
+
+.main-nav .icon-frame img {
+    z-index: 1000;
+}
+
+.main-nav .icon-frame {
+    height: 36px;
+    width: 36px;
+}
+
+.main-nav-tab.selected #connect .icon-frame,
+.card.connect {
+    background-color: #F9A831;
+}
+
+.main-nav-tab.selected #explore .icon-frame,
+.card.explore {
+    /*background-color: #FFCC00;*/
+    background-color: #ff6666;
+}
+
+.main-nav-tab.selected #dream .icon-frame,
+.card.dream,
+.main-nav-tab.selected #boards .icon-frame,
+.card.board {
+    /*background-color: #996633;*/
+    /*background-color: #998877;*/
+    background-color: #6677cc;
+}
+
+.main-nav-tab.selected #plan .icon-frame,
+.card.plan {
+    /*background-color: #339966;*/
+    background-color: #77cc77;
+}
+
+.main-nav-tab.selected #settle .icon-frame,
+.card.settle {
+    /*background-color: #993366;*/
+    background-color: #6633EE;
+}
+
+.main-nav-outer {
+    z-index: 400;
+}
+
+.nav-caption {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 9px;
+    color: #333333;
+    width: 100%;
+    display: block;
+    /*display:none;*/
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    user-select: none;
+    flex-direction: row;
+}
+
+
+.length-5 .index-2 {
+    margin-top: -40px;
+}
+

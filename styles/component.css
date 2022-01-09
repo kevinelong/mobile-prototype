@@ -1,0 +1,45 @@
+a {
+    text-decoration-color: white;
+}
+
+input[type=text] {
+    padding: 0.25rem;
+    margin: 0.25rem;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.row > * {
+    align-self: center;
+    justify-self: center;
+}
+
+.row .icon-frame {
+    margin-right: 1rem;
+}
+
+.row .action-item .icon-frame {
+    margin-right: 0;
+}
+
+.hidden {
+    height: 0;
+    width: 0;
+    opacity: 0;
+    visibility: collapse;
+    transition: opacity 300ms ease-in-out,
+    height 300ms ease-in-out,
+    width 300ms ease-in-out;
+}

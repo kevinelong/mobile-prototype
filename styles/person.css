@@ -1,0 +1,32 @@
+
+.person-icon .icon-frame {
+    margin: 0;
+}
+
+.person-icon .text {
+    padding: 3px 6px 0 4px;
+}
+
+.person-icon .icon {
+    height: 24px;
+}
+
+.person-icon .circle {
+    padding-right: 0;
+    background: #0005;
+}
+
+.person-icon .action-item {
+    padding: 0;
+}
+
+.person-icon {
+    width: fit-content;
+    height: fit-content;
+    background: #ffffffee;
+    border: 1px solid #ffffffee;
+    border-radius: 15px;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+}

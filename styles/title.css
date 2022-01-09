@@ -1,0 +1,33 @@
+
+.title-block {
+    background-color: #ffffffee;
+    width: 100%;
+}
+
+.title {
+    width: 100%;
+    height: auto;
+    /*background: #F9A831ff;*/
+    background: #eeeeee;
+    padding: 0.2rem;
+    font-size: 24px;
+    /*color: #ffffffcc;*/
+    color: #333333;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title-middle {
+    flex: 2 2;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.title-text {
+    margin-right: 1rem;
+}

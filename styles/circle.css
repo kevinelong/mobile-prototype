@@ -1,0 +1,18 @@
+
+.circle {
+    width: auto;
+    height: auto;
+    background: #ffffff22;
+    border-radius: 15px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.circle.selected {
+    width: 180px;
+}
+
+.circle.selected input {
+    opacity: 1;
+}

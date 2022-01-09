@@ -1,0 +1,33 @@
+
+.choice {
+    border-radius: 12px;
+    background: #00000088;
+    color: #ffffffCC;
+    margin: 0;
+    padding: 0.5em 1em 0.25em;
+    white-space: nowrap;
+    font-size: 11px;
+    user-select: none;
+    cursor: pointer;
+
+    display: inline-flex;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+}
+
+.choice.selected {
+    background: #F9A831;
+    color: white;
+    transition: background 300ms, color 300ms;
+}
+
+
+.choice-set {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    background: #dddddd;
+}

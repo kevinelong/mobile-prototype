@@ -1,0 +1,117 @@
+
+.card-subtitle {
+    margin-bottom: 0.125rem;
+}
+
+.card-list {
+    width: 100%;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    padding: 0.5em 0.25em 64px 0.25em;
+}
+
+.card-people {
+    flex-direction: row;
+    gap: 0.25rem;
+}
+
+.card {
+    border-radius: 13px;
+    background-color: #FFF3;
+    color: #FFFFFFee;
+    padding: 0.5em 0.75em;
+    margin-right: 0.5em;
+    width: 100%;
+    margin-bottom: 0.5em;
+    user-select: none;
+    /*background-image: url("https://farm3.static.flickr.com/2098/2260149771_00cb406fd6_o.jpg");*/
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    /*background-blend-mode: darken;*/
+    text-shadow: 0 0 12px black;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    justify-content: space-between;
+    /*min-height: 231px;*/
+    height: auto;
+    position: relative;
+}
+
+.card > * {
+    z-index: 200;
+}
+
+.card .background {
+    position: absolute;
+    left: 0;
+    right: 0;
+    opacity: 0.25;
+    z-index: 100;
+}
+
+.card .background.top {
+    top: 0;
+}
+
+.card .background.bottom {
+    bottom: 0;
+}
+
+.card-section {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: right;
+}
+
+.card-quadrant {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.card-subtitle {
+    font-size: 12pt;
+}
+
+.card-text {
+    font-size: 10pt;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    border-radius: 0.25em;
+    padding: 0.25em 0.125em;
+    margin: 0.25em 0;
+}
+
+.card-you {
+    font-size: 10pt;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0.5em;
+    width: 100%;
+    text-align: right;
+}
+
+.card-title {
+    font-size: 18pt;
+    flex-direction: row;
+    align-items: flex-start;
+    display: flex;
+    align-content: space-around;
+    justify-content: space-between;
+}
+
+.card-title-text {
+    padding: 3px 6px;
+    border-radius: 3px;
+    font-size: 1em;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    vertical-align: center;
+    margin-right: 1em;
+}

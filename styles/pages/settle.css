@@ -1,0 +1,65 @@
+
+.money-panel,
+.message-panel {
+    margin: 0;
+    padding: 0;
+    background: #00000066;
+    gap: 0.25em;
+    border-radius: 1em;
+}
+
+.money-panel {
+    margin: 1em 0;
+    padding: 0.125em;
+    background: #00000099;
+    gap: 0.125em;
+    border-radius: 0.125em;
+}
+
+.money-item,
+.message-item {
+    flex-direction: row;
+    gap: 0.25em;
+}
+
+.money-item .circle,
+.message-item .circle {
+    flex-direction: row;
+    font-size: 8pt;
+    gap: 0.25em;
+    height: 24px;
+    padding-right: 0;
+}
+
+.money-item .money-text {
+    flex-direction: column;
+    font-size: 11px;
+    gap: 0.25em;
+    background: white;
+    padding: 0.25em;
+    border-radius: 0 1em 1em 1em;
+    color: #000000CC;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+.money-item .money-text {
+    font-size: 8pt;
+    color: white;
+    background: #fff1;
+    border-radius: 0.25em;
+    min-width: 50px;
+    text-align: right;
+}
+
+.money-item {
+    align-items: center;
+    vertical-align: middle;
+}
+
+.money-item .circle {
+    min-width: 100px;
+    text-align: right;
+    flex-direction: row;
+    justify-content: space-between;
+}

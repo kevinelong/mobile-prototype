@@ -1,0 +1,21 @@
+.message-item .text,
+.person-icon .text {
+    display: none;
+}
+
+.message-item:hover .text,
+.person-icon:hover .text {
+    display: block;
+}
+
+.message-item .message-text {
+    flex-direction: column;
+    font-size: 11px;
+    gap: 0.25em;
+    background: white;
+    padding: 0.25em;
+    border-radius: 0 1em 1em 1em;
+    color: #000000CC;
+    box-shadow: none;
+    text-shadow: none;
+}
