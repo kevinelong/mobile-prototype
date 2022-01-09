@@ -80,18 +80,18 @@ const connectCard = (messageList=[], title="", subtitle = "", id="") => card("co
     messagePanel(messageList, "white")
 );
 
-const settleCard = (who, amount, id="") => card("settle",
+const settleCard = (who, amount, when="", id="") => card("settle",
     div("titles settle",
         row(
             icon("settle") +
             col(
                 cardTitle(`Pay ${amount}`) +
-                cardSubtitle("The Three Amigos")
+                cardSubtitle(who)
             )
         )
     ) +
     actionItem("open", "settle_list", id),
-    text("Yesterday 12/12/2022") +
+    text(when) +
     text("All Activities - Net"),
     [],
     ["settle"]

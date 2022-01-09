@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     get(".main-nav-outer").innerHTML = mainNav(
         ["explore", "dream", "connect", "plan", "settle",], "connect");
+
     get(".inner-content").innerHTML =
         explorePage() +
         exploreDetailPage() +

@@ -29,7 +29,8 @@ const connectPage = (selected = false) => page(
             ["Greg"],
             ["decline", "accept"]
         ),
-        settleCard("Three Amigos - Monday 1/3/2022", "$3.00")
+        settleCard("Three Amigos - Monday 1/3/2022", "$", "Yesterday 12/12/2022"),
+        settleCard("Kevin Long", "$1.23", "Yesterday 01/1/2023")
     ].join("")),
     "",
     "",
