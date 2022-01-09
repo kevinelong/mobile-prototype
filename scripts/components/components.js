@@ -14,12 +14,21 @@ const PATH_ICONS = `${PATH_IMAGES}/icons/`;
 const PREFIX_ICONS = `${PATH_ICONS}/icon-`;
 const SUFFIX_ICONS = `.svg`;
 
-const iconPath = (name, color = "") => [
-    PREFIX_ICONS,
-    name,
-    color ? "-" + color : "",
-    SUFFIX_ICONS
-].join('').replace(/([^:]\/)\/+/g, "$1");
+function iconPath (name, color = "") {
+    return [
+        PREFIX_ICONS,
+        name,
+        color ? "-" + color : "",
+        SUFFIX_ICONS
+    ].join('').replace(/([^:]\/)\/+/g, "$1");
+}
+
+// const iconPath = (name, color = "") => [
+//     PREFIX_ICONS,
+//     name,
+//     color ? "-" + color : "",
+//     SUFFIX_ICONS
+// ].join('').replace(/([^:]\/)\/+/g, "$1");
 
 const ICON_MAP = {
     "connect_chat-black" : "connect-black",
