@@ -1,9 +1,34 @@
+const getAll = q => document.querySelectorAll(q);
+const get = q => getAll(q)[0];
+
 const toName = name => name.toLowerCase().replace(/[^a-zA-Z0-9À-ž\s]/g, "-").replace(" ", "_");
 
 const select = e => {
     [...e.parentElement.children].forEach(s => s.classList.remove('selected'));
     e.classList.add('selected');
 }
+
+const showElement = e => {
+    if (!e)
+        return;
+    e.classList.remove('hidden');
+}
+
+const hideElement = e => {
+    debugger;
+    if (!e)
+        return;
+    e.classList.add('hidden');
+}
+
+const show = selector => {
+    showElement(get(selector));
+}
+
+const hide = selector => {
+    hideElement(get(selector));
+}
+
 const showPage = (pageName, action = "", id = "") => {
     if ("" == pageName) {
         console.log("Missing pageName: " + pageName);
@@ -15,29 +40,17 @@ const showPage = (pageName, action = "", id = "") => {
         return;
     }
     const parts = pageName.split("_")
-    if(parts.length == 1){
+    if (parts.length == 1) {
         window.lastPage = pageName;
         select(get("#main-nav-tab-" + pageName));
     }
     document.body.setAttribute("page", name);
     document.body.setAttribute("page-action", action);
     document.body.setAttribute("page-id", id);
-    const pages = document.getElementsByClassName('page');
-    [...pages].forEach(s => s.classList.add('hidden'));
-    page.classList.remove('hidden');
+    [...getAll('.page')].forEach(hideElement);
+    showElement(page)
 }
-const show = selector => {
-    const e = get(selector);
-    if (!e)
-        return;
-    e.classList.remove('hidden');
-}
-const hide = selector => {
-    const e = get(selector);
-    if (!e)
-        return;
-    e.classList.add('hidden');
-}
+
 
 const selectPage = e => {
     select(e);
@@ -51,7 +64,7 @@ const selectPage = e => {
     window.lastPage = pageName;
     showPage(pageName);
 }
-const get = q => document.querySelectorAll(q)[0];
+
 
 const fire = (eventTypeName, elem = document.body) => {
     const event = new Event(eventTypeName);

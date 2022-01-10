@@ -1,25 +1,22 @@
-let st = undefined;
+let current_timeout_id = undefined;
 let duration = 0;
 const showToast = (message) => {
 
     const ti = document.createElement("toast-item");
     get(".toast").appendChild(ti);
 
-    if (undefined !== st) {
-        clearTimeout(st);
-        ti.innerHTML += message;
-    }else{
-        ti.innerHTML = message;
+    if (undefined !== current_timeout_id) {
+        clearTimeout(current_timeout_id);
     }
+    ti.innerHTML = message;
 
     duration = 2000;
 
     show(".toast")
 
-    st = setTimeout((e) => {
+    current_timeout_id = setTimeout((e) => {
+        current_timeout_id = undefined
         hide(".toast");
-        st = undefined
-        duration = 0;
         get(".toast").innerHTML = "";
     }, duration);
 }
