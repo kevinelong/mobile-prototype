@@ -44,8 +44,10 @@ const iconMap = icon => {
     return icon;
 }
 
-const icon = (name = "menu", iconColor = "", textValue="") => div("icon-frame",
+function icon (name = "menu", iconColor = "", textValue="") { 
+    return div("icon-frame",
     `<img class="icon" src="${iconPath(iconMap(name), iconColor)}">`) + text(textValue ? textValue : "");
+}
 
 const person = (iconName, textName = "") => actionItem("person", "connect_person", "",
     textName ? textName : iconName);
