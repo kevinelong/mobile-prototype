@@ -15,7 +15,6 @@ const showElement = e => {
 }
 
 const hideElement = e => {
-    debugger;
     if (!e)
         return;
     e.classList.add('hidden');
