@@ -1,0 +1,15 @@
+
+label,
+label input {
+    width: 97%;
+}
+
+
+.selected label {
+    color: #FFFFFFEE;
+    transition: color 300ms;
+}
+
+label.search {
+    background: deeppink;
+}

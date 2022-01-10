@@ -1,0 +1,84 @@
+
+.action-panel {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.action-button {
+    margin: 1rem;
+}
+
+
+.action-list {
+    width: 100%;
+    height: auto;
+    background: #dddddd;
+    display: flex;
+    flex-direction: row;
+    align-content: space-evenly;
+    justify-content: flex-end;
+    padding: 0;
+    margin: 0;
+}
+
+.action-list,
+.card-actions {
+    gap: 0.25rem;
+}
+
+.action-item {
+    margin: 0;
+    white-space: nowrap;
+    font-size: 11pt;
+    user-select: none;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+    background: #F9A831;
+    color: white;
+    transition: background 300ms, color 300ms;
+    border-radius: 30px;
+    background: none;
+    flex-direction: row;
+    gap: 3pt;
+    padding: 3pt 6pt;
+    /*padding: 0;*/
+}
+
+/*.card-title .action-item {*/
+/*    padding: 0;*/
+/*}*/
+
+.action-item .icon {
+    max-width: 24px;
+    max-height: 24px;
+}
+
+.action-list .action-item .icon {
+    max-width: 15px;
+    max-height: 15px;
+}
+
+.title .action-item .icon {
+    max-width: 24px;
+    max-height: 24px;
+}
+
+.title .action-item {
+    border: none;
+}
+
+.title .action-item .text {
+    display: none;
+}
+
+.action-list {
+    background: none;
+}
+.action-list .action-item {
+    background: #00000066;
+    border: none;
+}

@@ -31,6 +31,8 @@ function iconPath (name, color = "") {
 // ].join('').replace(/([^:]\/)\/+/g, "$1");
 
 const ICON_MAP = {
+    "settle_list-black" : "settle-black",
+    "explore_detail-black" : "explore-black",
     "connect_chat-black" : "connect-black",
     "plan_detail-black" : "plan-black",
     "decline" : "plan",

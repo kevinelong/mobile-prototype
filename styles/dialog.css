@@ -1,0 +1,53 @@
+
+.dialog {
+    background: #888;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 360px;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 90ms ease-in-out;
+    margin: auto;
+    z-index: 999999;
+    height: auto;
+    min-height: 120px;
+    color: black;
+    max-height: 640px;
+    border-radius: 2rem;
+    padding: 1rem;
+}
+
+.dialog .choice-set {
+    background: none;
+}
+
+
+.dialog .title,
+.dialog .subtitle {
+    color: black;
+    font-size: 1.2rem;
+}
+
+.dialog .circle .subtitle {
+    font-size: 0.75rem;
+}
+
+.dialog .autocomplete .simple-list {
+    display: flex;
+    padding: 0.25rem;
+    margin: 0.25rem;
+    border-radius: 0.5rem;
+}
+
+
+.smoke {
+    background: #000000CC;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}

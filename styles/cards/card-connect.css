@@ -1,0 +1,13 @@
+
+.card.connect .content-panel,
+.card.connect .message-panel,
+.card.connect .message-panel > label {
+    background: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.card.connect .card-people {
+    margin: 0.5rem 0;
+}

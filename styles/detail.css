@@ -1,0 +1,25 @@
+
+.detail {
+    /*gap: 1rem;*/
+    padding: 1rem;
+}
+
+.detail .col {
+    gap: 1rem;
+}
+
+.detail .row {
+    gap: 1rem;
+}
+
+.detail .image {
+    /*border: 1rem solid #eeeeee;*/
+    border-radius: 1rem;
+    width: 100%;
+}
+
+.detail.explore {
+    align-content: space-between;
+    justify-content: space-between;
+    height: 476px;
+}

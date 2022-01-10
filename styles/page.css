@@ -1,0 +1,77 @@
+.page {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 360px;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 90ms ease-in-out;
+}
+
+.page > label .icon-frame,
+.page > label .icon {
+    height: 16px;
+    width: 16px;
+}
+
+.page > label {
+    background-color: #fffb;
+    flex-direction: row;
+    justify-items: center;
+    justify-content: center;
+}
+
+.page > .action-item {
+    position: absolute;
+    right: 11px;
+    top: 40px;
+    width: 24px;
+    height: 24px;
+    border: none;
+    z-index: 300;
+}
+
+/*.page > .action-item {*/
+/*    position: absolute;*/
+/*    right: 8px;*/
+/*    bottom: 8px;*/
+/*    width: 48px;*/
+/*    height: 48px;*/
+/*    border: none;*/
+/*    z-index: 300;*/
+/*}*/
+
+/*.page > .action-item .icon-frame {*/
+/*    box-shadow: 0 0 1rem #0008;*/
+/*    background-color: #0008;*/
+/*}*/
+
+.page > .action-item .icon {
+    max-width: 24px;
+    max-height: 24px;
+    width: 24px;
+    height: 24px;
+}
+
+/*.page > .action-item .icon {*/
+/*    max-width: 48px;*/
+/*    max-height: 48px;*/
+/*    width: 48px;*/
+/*    height: 48px;*/
+/*}*/
+
+.page > .action-item .text {
+    display: none;
+}
+
+.page > label input[type=text] {
+    margin: 0;
+    padding-left: 30px;
+    background-image: url(../images/icons/icon-search-black.svg);
+    background-repeat: no-repeat;
+    background-position: left;
+    background-position-x: 6px;
+    border-radius: 30px;
+    width: 98%;
+    border: 1px solid #0006
+}

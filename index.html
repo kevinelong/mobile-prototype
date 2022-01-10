@@ -4,12 +4,41 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Vita Explorer</title>
-    <link href="styles/style.css" rel="stylesheet" type="text/css"/>
+<!--    <link href="styles/style.css" rel="stylesheet" type="text/css"/>-->
+    <script>
+`
+action
+card
+choice
+circle
+content-panel
+detail
+dialog
+hash-tag
+icon
+label
+main-nav
+message
+page
+person
+simple-list
+title
+toast
+cards card-connect
+pages connect
+pages settle
+
+main
+component
+`.split("\n").map(p => p ? document.write(`<li` + `nk href="styles/` +
+            p.split(" ").join("/") + ".css" +
+            `"  rel="stylesheet" type="text/css"/>`) : '');
+
+    </script>
 </head>
 <body></body>
 <script>
-
-`
+    `
 utils
 html
 
