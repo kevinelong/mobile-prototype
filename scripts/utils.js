@@ -1,3 +1,11 @@
+function getAll(q) {
+  return document.querySelectorAll(q);
+}
+
+function get(q) { 
+  return getAll(q)[0];
+}
+
 function toName(name) {
     return name.toLowerCase().replace(/[^a-zA-Z0-9À-ž\s]/g, "-").replace(" ", "_");
 }
@@ -6,7 +14,9 @@ function select(e) {
     [...e.parentElement.children].forEach(s => s.classList.remove('selected'));
     e.classList.add('selected');
 }
+
 function showPage(pageName, action = "", id = "") {
+
     if ("" == pageName) {
         console.log("Missing pageName: " + pageName);
         return;
@@ -17,23 +27,26 @@ function showPage(pageName, action = "", id = "") {
         return;
     }
     const parts = pageName.split("_")
-    if(parts.length == 1){
+    if (parts.length == 1) {
         window.lastPage = pageName;
         select(get("#main-nav-tab-" + pageName));
     }
     document.body.setAttribute("page", name);
     document.body.setAttribute("page-action", action);
     document.body.setAttribute("page-id", id);
+
     const pages = document.getElementsByClassName('page');
     [...pages].forEach(s => s.classList.add('hidden'));
     page.classList.remove('hidden');
 }
+
 function show(selector) {
     const e = get(selector);
     if (!e)
         return;
     e.classList.remove('hidden');
 }
+
 function hide(selector) {
     const e = get(selector);
     if (!e)
@@ -42,6 +55,7 @@ function hide(selector) {
 }
 
 function selectPage(e) {
+
     select(e);
     const name = toName(e.id);
     const parts = name.split("-");
@@ -52,9 +66,8 @@ function selectPage(e) {
         return;
     window.lastPage = pageName;
     showPage(pageName);
-}
-function get(q) { 
-    return document.querySelectorAll(q)[0];
+    [...getAll('.page')].forEach(hideElement);
+    showElement(page)
 }
 
 function fire(eventTypeName, elem = document.body) {
