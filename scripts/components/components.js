@@ -14,7 +14,7 @@ const PATH_ICONS = `${PATH_IMAGES}/icons/`;
 const PREFIX_ICONS = `${PATH_ICONS}/icon-`;
 const SUFFIX_ICONS = `.svg`;
 
-function iconPath (name, color = "") {
+function iconPath(name, color = "") {
     return [
         PREFIX_ICONS,
         name,
