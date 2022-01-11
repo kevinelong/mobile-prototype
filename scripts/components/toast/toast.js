@@ -1,5 +1,4 @@
 let current_timeout_id = undefined;
-let duration = 0;
 const showToast = (message) => {
 
     const ti = document.createElement("toast-item");
@@ -10,7 +9,7 @@ const showToast = (message) => {
     }
     ti.innerHTML = message;
 
-    duration = 2000;
+    const duration = 2000;
 
     show(".toast")
 

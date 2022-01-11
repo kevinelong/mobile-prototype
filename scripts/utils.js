@@ -15,6 +15,18 @@ function select(e) {
     e.classList.add('selected');
 }
 
+const showElement = e => {
+    if (!e)
+        return;
+    e.classList.remove('hidden');
+}
+
+const hideElement = e => {
+    if (!e)
+        return;
+    e.classList.add('hidden');
+}
+
 function showPage(pageName, action = "", id = "") {
 
     if ("" == pageName) {
@@ -36,8 +48,8 @@ function showPage(pageName, action = "", id = "") {
     document.body.setAttribute("page-id", id);
 
     const pages = document.getElementsByClassName('page');
-    [...pages].forEach(s => s.classList.add('hidden'));
-    page.classList.remove('hidden');
+    [...pages].forEach(hideElement);
+    showElement(page)
 }
 
 function show(selector) {
@@ -65,9 +77,8 @@ function selectPage(e) {
     if (pageName.length < 1)
         return;
     window.lastPage = pageName;
-    showPage(pageName);
     [...getAll('.page')].forEach(hideElement);
-    showElement(page)
+    showPage(pageName);
 }
 
 function fire(eventTypeName, elem = document.body) {
