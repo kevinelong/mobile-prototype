@@ -12,7 +12,7 @@ function mainNavTab(text = "", selected = false, icon = "compass", index) {
                 <div class="nav-caption">${text}</div>
             </div>
         </div>
-    `
+    `;
 }
 
 function mainNav(tabNames, selectedItem = "") {
