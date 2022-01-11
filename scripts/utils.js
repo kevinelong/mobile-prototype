@@ -1,34 +1,22 @@
-const getAll = q => document.querySelectorAll(q);
-const get = q => getAll(q)[0];
+function getAll(q) {
+  return document.querySelectorAll(q);
+}
 
-const toName = name => name.toLowerCase().replace(/[^a-zA-Z0-9À-ž\s]/g, "-").replace(" ", "_");
+function get(q) { 
+  return getAll(q)[0];
+}
 
-const select = e => {
+function toName(name) {
+    return name.toLowerCase().replace(/[^a-zA-Z0-9À-ž\s]/g, "-").replace(" ", "_");
+}
+
+function select(e) {
     [...e.parentElement.children].forEach(s => s.classList.remove('selected'));
     e.classList.add('selected');
 }
 
-const showElement = e => {
-    if (!e)
-        return;
-    e.classList.remove('hidden');
-}
+function showPage(pageName, action = "", id = "") {
 
-const hideElement = e => {
-    if (!e)
-        return;
-    e.classList.add('hidden');
-}
-
-const show = selector => {
-    showElement(get(selector));
-}
-
-const hide = selector => {
-    hideElement(get(selector));
-}
-
-const showPage = (pageName, action = "", id = "") => {
     if ("" == pageName) {
         console.log("Missing pageName: " + pageName);
         return;
@@ -46,12 +34,28 @@ const showPage = (pageName, action = "", id = "") => {
     document.body.setAttribute("page", name);
     document.body.setAttribute("page-action", action);
     document.body.setAttribute("page-id", id);
-    [...getAll('.page')].forEach(hideElement);
-    showElement(page)
+
+    const pages = document.getElementsByClassName('page');
+    [...pages].forEach(s => s.classList.add('hidden'));
+    page.classList.remove('hidden');
 }
 
+function show(selector) {
+    const e = get(selector);
+    if (!e)
+        return;
+    e.classList.remove('hidden');
+}
 
-const selectPage = e => {
+function hide(selector) {
+    const e = get(selector);
+    if (!e)
+        return;
+    e.classList.add('hidden');
+}
+
+function selectPage(e) {
+
     select(e);
     const name = toName(e.id);
     const parts = name.split("-");
@@ -62,14 +66,15 @@ const selectPage = e => {
         return;
     window.lastPage = pageName;
     showPage(pageName);
+    [...getAll('.page')].forEach(hideElement);
+    showElement(page)
 }
 
-
-const fire = (eventTypeName, elem = document.body) => {
+function fire(eventTypeName, elem = document.body) {
     const event = new Event(eventTypeName);
     elem.dispatchEvent(event);
 }
 
-const listen = (eventTypeName, handler, elem = document.body) => {
+function listen(eventTypeName, handler, elem = document.body) {
     elem.addEventListener(eventTypeName, handler);
 }

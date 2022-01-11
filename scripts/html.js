@@ -1,12 +1,24 @@
 
-const tag = (name, className="", attrs="") => `<${name} class="${className}" ${attrs}>`;
-const closedTag = (name, content, className="", attrs="") => `<${name} class="${className}" ${attrs}>${content}</${name}>`;
-const div = (className, content, attrs) => closedTag("div", content, className, attrs);
+function tag(name, className="", attrs="") {
+    return `<${name} class="${className}" ${attrs}>`;
+}
+function closedTag(name, content, className="", attrs="") {
+    return `<${name} class="${className}" ${attrs}>${content}</${name}>`;
+}
+function div(className, content, attrs) {
+    return closedTag("div", content, className, attrs);
+}
 
-const a = (text, href, className="") => closedTag("a", text, "",`href="${href}"`);
-const img = (className, src = "") => tag("img", `${className} image`, `src="${src}"`);
+function a(text, href, className="") {
+    return closedTag("a", text, "",`href="${href}"`);
+}
+function img(className, src = "") {
+    return tag("img", `${className} image`, `src="${src}"`);
+}
 
-const label = (className, content) => closedTag(`label ${className}`, content);
+function label(className, content) {
+    return closedTag(`label ${className}`, content);
+}
 
 window.onTextInput = (event) => {
     if (event.keyCode==13){
@@ -15,13 +27,14 @@ window.onTextInput = (event) => {
         return false;
     }
 }
-const input = (
+function input(
     name,
     inputType="text",
     attrs=""
-) => tag(
-    "input",
-    name,
-    `name="${name}" type="${inputType}" onkeypress="onTextInput(event);" ${attrs}`
-);
-
+) {
+    return tag(
+        "input",
+        name,
+        `name="${name}" type="${inputType}" onkeypress="onTextInput(event);" ${attrs}`
+    );
+}

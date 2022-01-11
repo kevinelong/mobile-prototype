@@ -1,12 +1,26 @@
-const text = textValue => div("text", textValue);
-const title = textValue => div("title", textValue);
-const subtitle = textValue => div("subtitle", textValue);
-const circle = textValue => div("circle", textValue);
+function text(textValue) {
+    return div("text", textValue);
+}
+function title(textValue) {
+    return div("title", textValue);
+}
+function subtitle(textValue) {
+    return div("subtitle", textValue);
+}
+function circle(textValue) {
+    return div("circle", textValue);
+}
 
-const contentPanel = content => content ? div("content-panel", content) : "";
+function contentPanel(content) {
+    return content ? div("content-panel", content) : "";
+}
 
-const row = content => div("row", content);
-const col = content => div("col", content);
+function row(content) {
+    return div("row", content);
+}
+function col(content) {
+    return div("col", content);
+}
 
 const PATH_STATIC = "";
 const PATH_IMAGES = `${PATH_STATIC}images/`;
@@ -31,28 +45,28 @@ function iconPath(name, color = "") {
 // ].join('').replace(/([^:]\/)\/+/g, "$1");
 
 const ICON_MAP = {
-    "settle_list-black" : "settle-black",
-    "explore_detail-black" : "explore-black",
     "connect_chat-black" : "connect-black",
     "plan_detail-black" : "plan-black",
     "decline" : "plan",
     "accept" : "plan",
 }
 
-const iconMap = icon => {
+function iconMap(icon) {
     if (ICON_MAP.hasOwnProperty(icon)) {
         return ICON_MAP[icon];
     }
     return icon;
 }
 
-const icon = (name = "menu", iconColor = "", textValue="") => div("icon-frame",
+function icon(name = "menu", iconColor = "", textValue="") { 
+    return div("icon-frame",
     `<img class="icon" src="${iconPath(iconMap(name), iconColor)}">`) + text(textValue ? textValue : "");
+}
 
-const person = (iconName, textName = "") => actionItem("person", "connect_person", "",
-    textName ? textName : iconName);
+function person(iconName, textName = "") {
+    return actionItem("person", "connect_person", "", textName ? textName : iconName);
+}
 
-const inputMessage = () => label("input-message",
-    input("message-input", "text", `placeholder="Type a message..."`)
-);
-
+function inputMessage() {
+    return label("input-message", input("message-input", "text", `placeholder="Type a message..."`));
+}
