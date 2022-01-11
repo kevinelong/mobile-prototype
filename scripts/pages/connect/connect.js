@@ -11,8 +11,8 @@ const connectPage = (selected = false) => page(
     "All",
     cardList([
 
-        connectCard([], "What's Up?", "Saturday 11:05am", "1",
-            ["Kevin Ernest Long"],
+        connectCard([], "I can join you on Saturday and Sunday", "Thursday June 17th 10:23am", "1",
+            ["Best Friend"],
             "https://www.figma.com/proto/RNFPr2XMBBFuj60EEo3TK7/Vita---Greg?node-id=52%3A9886&scaling=min-zoom&page-id=1%3A995&starting-point-node-id=52%3A9817&show-proto-sidebar=0"
         ),
 
@@ -52,7 +52,9 @@ const connectPage = (selected = false) => page(
         // boardCard2("Paris, France"),
         // boardCard2("Santa Barbara"),
 
-        planCard("Check In and Rate", "Brasil Arts Cafe", "Check in and rate to earn Vita Rewards", [], [], "https://www.figma.com/proto/RNFPr2XMBBFuj60EEo3TK7/Vita---Greg?node-id=890%3A4924&starting-point-node-id=890%3A4924&show-proto-sidebar=0")
+        planCard("Check In and Rate", "Brasil Arts Cafe", "Check in and rate to earn Vita Rewards", [], [], "https://www.figma.com/proto/RNFPr2XMBBFuj60EEo3TK7/Vita---Greg?node-id=890%3A4924&starting-point-node-id=890%3A4924&show-proto-sidebar=0"),
+
+        planCard("Verify", "Yesterday's Transportation", "Verify to earn Vita Rewards", [], [], "http://www.vitaexplorer.com")
 
     ].join("")),
     "",
