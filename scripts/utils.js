@@ -1,10 +1,12 @@
-const toName = name => name.toLowerCase().replace(/[^a-zA-Z0-9À-ž\s]/g, "-").replace(" ", "_");
+function toName(name) {
+    return name.toLowerCase().replace(/[^a-zA-Z0-9À-ž\s]/g, "-").replace(" ", "_");
+}
 
-const select = e => {
+function select(e) {
     [...e.parentElement.children].forEach(s => s.classList.remove('selected'));
     e.classList.add('selected');
 }
-const showPage = (pageName, action = "", id = "") => {
+function showPage(pageName, action = "", id = "") {
     if ("" == pageName) {
         console.log("Missing pageName: " + pageName);
         return;
@@ -26,20 +28,20 @@ const showPage = (pageName, action = "", id = "") => {
     [...pages].forEach(s => s.classList.add('hidden'));
     page.classList.remove('hidden');
 }
-const show = selector => {
+function show(selector) {
     const e = get(selector);
     if (!e)
         return;
     e.classList.remove('hidden');
 }
-const hide = selector => {
+function hide(selector) {
     const e = get(selector);
     if (!e)
         return;
     e.classList.add('hidden');
 }
 
-const selectPage = e => {
+function selectPage(e) {
     select(e);
     const name = toName(e.id);
     const parts = name.split("-");
@@ -51,13 +53,15 @@ const selectPage = e => {
     window.lastPage = pageName;
     showPage(pageName);
 }
-const get = q => document.querySelectorAll(q)[0];
+function get(q) { 
+    return document.querySelectorAll(q)[0];
+}
 
-const fire = (eventTypeName, elem = document.body) => {
+function fire(eventTypeName, elem = document.body) {
     const event = new Event(eventTypeName);
     elem.dispatchEvent(event);
 }
 
-const listen = (eventTypeName, handler, elem = document.body) => {
+function listen(eventTypeName, handler, elem = document.body) {
     elem.addEventListener(eventTypeName, handler);
 }

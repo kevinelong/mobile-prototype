@@ -1,12 +1,26 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const content = c => div("content", c);
-    const outerBox = c => div("outer-box", c);
-    const innerContent = c => div("inner-content", c);
-    const mainNavOuter = c => div("main-nav-outer", c);
-    const hiddenSmoke = c => div("hidden smoke", c);
-    const hiddenDialog = c => div("hidden dialog", c);
-    const hiddenToast = c => div("hidden toast", c);
+    function content(c) {
+        return div("content", c);
+    }
+    function outerBox(c) {
+        return div("outer-box", c);
+    }
+    function innerContent(c) {
+        return div("inner-content", c);
+    }
+    function mainNavOuter(c) {
+        return div("main-nav-outer", c);
+    }
+    function hiddenSmoke(c) {
+        return div("hidden smoke", c);
+    }
+    function hiddenDialog(c) {
+        return div("hidden dialog", c);
+    }
+    function hiddenToast(c) {
+        return div("hidden toast", c);
+    }
 
     document.body.innerHTML = content(
         outerBox(

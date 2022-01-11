@@ -1,4 +1,4 @@
-const route = (action, which = "", id = "") => {
+function route(action, which = "", id = "") {
     if (action == "back") {
         showPage(window.lastPage);
     } else if ("open" == action && which.toLowerCase().startsWith("http")) {
