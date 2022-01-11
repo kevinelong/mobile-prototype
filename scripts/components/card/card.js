@@ -77,33 +77,37 @@ const connectCard = (
     actionItem("add") + cardPeople(people)
 ) + messagePanel(messageList, "white"));
 
-const settleCard = (who, amount, when="", id="") => card("settle",
+const settleCard = (who, amount, when="", prefix= "Pay", what= "Balance - Net", which="settle_list", id="") => card("settle",
     div("titles settle",
         row(
             icon("settle") +
             col(
-                cardTitle(`Pay ${amount}`) +
+                cardTitle(`${prefix} ${amount}`) +
                 cardSubtitle(who)
-            )
-        )
+            ),
+
+)
     ) +
-    actionItem("open", "settle_list", id),
+    actionItem("open", which, id),
     text(when) +
-    text("All Activities - Net"),
+    text(what),
     [],
-    ["settle"]
+    prefix == "Pay" ? ["settle"] : []
 );
-const exploreCard = (imagePath = "images/photos/cannon-beach.jpg", title = "", subtitle = "", content = "", tags = [], people = [], actions = [], id = "") => card("explore",
+const exploreCard = (imagePath = "images/photos/cannon-beach.jpg", title = "", subtitle = "", content = "", tags = [], people = [], actions = [], id = "", which="") => card("explore",
     div("titles explore",
         row(
             icon("explore") +
             col(
                 cardTitle(title) +
                 cardSubtitle(subtitle)
+                // +
+                // actionItem("open",
+                //     "https://www.figma.com/proto/RNFPr2XMBBFuj60EEo3TK7/Vita---Greg?node-id=164%3A610&starting-point-node-id=132%3A605&show-proto-sidebar=0")
             )
         )
     ) +
-    actionItem("open", "explore_detail", id),
+    actionItem("open", which, id),
     text(content),
     people,
     actions,
@@ -191,11 +195,11 @@ const boardNotificationCard = (who, quantity, which) => card("board", div("title
     ["board"]
 );
 
-const planCard = (title, subtitle, content, people = [], actions = []) => card("plan",
+const planCard = (title, subtitle, content, people = [], actions = [], which="open") => card("plan",
     div("titles plan", row(icon("plan") + col(
         cardTitle(title) +
         cardSubtitle(`${subtitle}`
-        )))) + actionItem("open", "plan_detail"),
+        )))) + actionItem("open", which),
     content,
     people,
     actions
