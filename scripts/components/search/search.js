@@ -3,7 +3,7 @@ const search = (items) =>
         input("vita-search", "text",
             "placeholder=\"Type to search...\""
         ) +
-        div("autocomplete", simpleList(name,
+        (items.length > 0 ? div("autocomplete", simpleList(name,
             items
-            , "", "right"))
+            , "", "right")) : "")
     )
