@@ -1,22 +1,26 @@
+function dialog(name, content = "") {
+    return contentPanel(title(name) + content);
+}
 
-const dialog = (name, content = "") => contentPanel(
-    title(name) + content
-);
-const showDialog = (name, content = "") => {
+function showDialog(name, content = "") {
     get(".dialog").innerHTML = dialog(name, content);
     show(".smoke");
     show(".dialog");
 }
 
-const hideDialog = () => {
+function hideDialog() {
     hide(".smoke");
     hide(".dialog");
 }
 
-listen("click", e => {
-    console.log(e.target);
-    if (e.target.classList.contains("smoke")) {
-        hide(".smoke");
-        hide(".dialog");
-    }
-}, get(".smoke"));
+listen(
+    "click",
+    (e) => {
+        console.log(e.target);
+        if (e.target.classList.contains("smoke")) {
+            hide(".smoke");
+            hide(".dialog");
+        }
+    },
+    get(".smoke")
+);

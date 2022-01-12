@@ -1,34 +1,36 @@
 function getAll(q) {
-  return document.querySelectorAll(q);
+    return document.querySelectorAll(q);
 }
 
-function get(q) { 
-  return getAll(q)[0];
+function get(q) {
+    return getAll(q)[0];
 }
 
 function toName(name) {
-    return name.toLowerCase().replace(/[^a-zA-Z0-9À-ž\s]/g, "-").replace(" ", "_");
+    return name
+        .toLowerCase()
+        .replace(/[^a-zA-Z0-9À-ž\s]/g, "-")
+        .replace(" ", "_");
 }
 
 function select(e) {
-    [...e.parentElement.children].forEach(s => s.classList.remove('selected'));
-    e.classList.add('selected');
+    [...e.parentElement.children].forEach((s) =>
+        s.classList.remove("selected")
+    );
+    e.classList.add("selected");
 }
 
-const showElement = e => {
-    if (!e)
-        return;
-    e.classList.remove('hidden');
+function showElement(e) {
+    if (!e) return;
+    e.classList.remove("hidden");
 }
 
-const hideElement = e => {
-    if (!e)
-        return;
-    e.classList.add('hidden');
+function hideElement(e) {
+    if (!e) return;
+    e.classList.add("hidden");
 }
 
 function showPage(pageName, action = "", id = "") {
-
     if ("" == pageName) {
         console.log("Missing pageName: " + pageName);
         return;
@@ -38,7 +40,7 @@ function showPage(pageName, action = "", id = "") {
         console.log("No such page element: " + pageName);
         return;
     }
-    const parts = pageName.split("_")
+    const parts = pageName.split("_");
     if (parts.length == 1) {
         window.lastPage = pageName;
         select(get("#main-nav-tab-" + pageName));
@@ -47,37 +49,32 @@ function showPage(pageName, action = "", id = "") {
     document.body.setAttribute("page-action", action);
     document.body.setAttribute("page-id", id);
 
-    const pages = document.getElementsByClassName('page');
+    const pages = document.getElementsByClassName("page");
     [...pages].forEach(hideElement);
-    showElement(page)
+    showElement(page);
 }
 
 function show(selector) {
     const e = get(selector);
-    if (!e)
-        return;
-    e.classList.remove('hidden');
+    if (!e) return;
+    e.classList.remove("hidden");
 }
 
 function hide(selector) {
     const e = get(selector);
-    if (!e)
-        return;
-    e.classList.add('hidden');
+    if (!e) return;
+    e.classList.add("hidden");
 }
 
 function selectPage(e) {
-
     select(e);
     const name = toName(e.id);
     const parts = name.split("-");
-    if (parts.length < 2)
-        return;
+    if (parts.length < 2) return;
     const pageName = parts.pop();
-    if (pageName.length < 1)
-        return;
+    if (pageName.length < 1) return;
     window.lastPage = pageName;
-    [...getAll('.page')].forEach(hideElement);
+    [...getAll(".page")].forEach(hideElement);
     showPage(pageName);
 }
 

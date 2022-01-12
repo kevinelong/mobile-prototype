@@ -12,11 +12,14 @@ function route(action, which = "", id = "") {
     } else if (["add", "new"].includes(action)) {
         addMessage();
     } else if (["search", "more"].includes(action)) {
-        showDialog("Search", search([
-            ["KL", "Kevin", "Long", ""],
-            ["NM", "Nina", "Marie", ""],
-            ["GB", "Greg", "Bellowe", ""]
-        ]));
+        showDialog(
+            "Search",
+            search([
+                ["KL", "Kevin", "Long", ""],
+                ["NM", "Nina", "Marie", ""],
+                ["GB", "Greg", "Bellowe", ""],
+            ])
+        );
     } else if (["hide"].includes(action)) {
         hideDialog();
     } else if (["heart"].includes(action)) {
