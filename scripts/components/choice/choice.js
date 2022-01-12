@@ -1,5 +1,5 @@
 function choice(text, selected = false, badgeText = "") {
-    div(
+    return div(
         `choice ${selected ? "selected" : ""}`,
         text + badgeText,
         `onclick='select(this)'`
@@ -7,7 +7,7 @@ function choice(text, selected = false, badgeText = "") {
 }
 
 function choiceSet(id, choiceList = [], selectedItem = "") {
-    div(
+    return div(
         "choice-set",
         [...choiceList].map((c) => choice(c, c == selectedItem)).join(""),
         `id="${id}" class='secondary-nav'`

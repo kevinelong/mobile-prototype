@@ -17,7 +17,7 @@ function page(
                 actionItem("person", "", "", "", "black")
         ) +
             contentPanel(
-                choiceSet("${name}-filters", choiceList, selectedChoice) +
+                choiceSet(`${name}-filters`, choiceList, selectedChoice) +
                     search([]) +
                     content
             ) +
