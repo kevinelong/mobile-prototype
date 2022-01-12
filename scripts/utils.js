@@ -73,9 +73,16 @@ function selectPage(e) {
     if (parts.length < 2) return;
     const pageName = parts.pop();
     if (pageName.length < 1) return;
+
+
+    if (pageName == "explore"){
+        window.open("https://www.figma.com/proto/RNFPr2XMBBFuj60EEo3TK7/Vita---Greg?node-id=765%3A1510&starting-point-node-id=765%3A1510&show-proto-sidebar=0", "_self");
+    }
+
     window.lastPage = pageName;
     [...getAll(".page")].forEach(hideElement);
     showPage(pageName);
+
 }
 
 function fire(eventTypeName, elem = document.body) {
