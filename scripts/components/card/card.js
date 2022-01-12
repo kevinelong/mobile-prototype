@@ -121,14 +121,15 @@ function connectCard(
     title = "",
     subtitle = "",
     id = "",
-    people = []
+    people = [],
+    which=""
 ) {
     return card(
         "connect",
         div(
             "titles",
             row(icon("people") + col(cardTitle(title) + cardSubtitle(subtitle)))
-        ) + actionItem("open", "connect_chat", id),
+        ) + actionItem("open", which, id),
         row(actionItem("add") + cardPeople(people)) +
             messagePanel(messageList, "white")
     );
