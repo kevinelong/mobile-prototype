@@ -1,6 +1,6 @@
 let current_timeout_id = undefined;
-const showToast = (message) => {
 
+function showToast(message) {
     const ti = document.createElement("toast-item");
     get(".toast").appendChild(ti);
 
@@ -11,10 +11,10 @@ const showToast = (message) => {
 
     const duration = 2000;
 
-    show(".toast")
+    show(".toast");
 
     current_timeout_id = setTimeout((e) => {
-        current_timeout_id = undefined
+        current_timeout_id = undefined;
         hide(".toast");
         get(".toast").innerHTML = "";
     }, duration);

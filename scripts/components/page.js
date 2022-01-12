@@ -1,4 +1,4 @@
-const page = (
+function page(
     selected = false,
     name,
     caption = "",
@@ -8,16 +8,20 @@ const page = (
     selectedCard = "",
     parent = "",
     actionContent = ""
-) =>
-    div(
-        `${name} page ${ selected ? "" : "hidden"}`,
+) {
+    return div(
+        `${name} page ${selected ? "" : "hidden"}`,
         title(
             actionItem(parent ? "back" : "menu") +
-                    div("title-middle",
-                icon(name + "-black", "", caption)
-            ) + actionItem("person", "","","", "black")) +
-        contentPanel(
-            choiceSet("${name}-filters", choiceList, selectedChoice) +
-            search([]) +
-            content
-        )+ actionContent, `id='page-${name}'` );
+                div("title-middle", icon(name + "-black", "", caption)) +
+                actionItem("person", "", "", "", "black")
+        ) +
+            contentPanel(
+                choiceSet("${name}-filters", choiceList, selectedChoice) +
+                    search([]) +
+                    content
+            ) +
+            actionContent,
+        `id='page-${name}'`
+    );
+}

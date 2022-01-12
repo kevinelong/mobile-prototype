@@ -2,7 +2,7 @@ function mainNavTab(text = "", selected = false, icon = "compass", index) {
     return `
         <div
             id="main-nav-tab-${toName(text)}"
-            class="main-nav-tab index-${index} ${selected ? ' selected' : ''}"
+            class="main-nav-tab index-${index} ${selected ? " selected" : ""}"
             onclick="selectPage(this)">
         
             <div class="main-nav-tab-background" id="${toName(text)}">
@@ -16,7 +16,10 @@ function mainNavTab(text = "", selected = false, icon = "compass", index) {
 }
 
 function mainNav(tabNames, selectedItem = "") {
-    return div(`main-nav length-${tabNames.length}`, [...tabNames].map(
-        (t, i) => mainNavTab(t.toUpperCase(), t == selectedItem, t, i)
-    ).join(""));
+    return div(
+        `main-nav length-${tabNames.length}`,
+        [...tabNames]
+            .map((t, i) => mainNavTab(t.toUpperCase(), t == selectedItem, t, i))
+            .join("")
+    );
 }
