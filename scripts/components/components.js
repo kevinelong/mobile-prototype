@@ -47,6 +47,8 @@ function iconPath(name, color = "") {
 
 const ICON_MAP = {
     "explore_detail-black": "explore-black",
+    "settle_split-black": "settle-black",
+    "settle_list-black": "settle-black",
     "connect_chat-black": "connect-black",
     "plan_detail-black": "plan-black",
     decline: "plan",

@@ -23,7 +23,7 @@ function settlePage(selected = false) {
                 ]),
                 ["Kevin Long", "Greg Bellowe", "Nina Marie"],
                 ["paypal", "venmo", "zelle"],
-                "images/cannon-beach.jpg"
+                "images/photos/cannon-beach.jpg"
             )
         ),
         "All"
