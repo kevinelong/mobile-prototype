@@ -76,6 +76,7 @@ function facePath(number) {
 // ].join('').replace(/([^:]\/)\/+/g, "$1");
 
 const ICON_MAP = {
+    "dream_board-black": "dream-black",
     "explore_detail-black": "explore-black",
     "settle_split-black": "settle-black",
     "settle_list-black": "settle-black",

@@ -44,7 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
     get(".inner-content").innerHTML =
         explorePage() +
         exploreDetailPage() +
-        boardsPage() +
+        dreamPage() +
+        dreamBoardPage() +
         planPage() +
         planDetailPage() +
         connectPage(true) +

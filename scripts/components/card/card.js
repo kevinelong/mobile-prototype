@@ -22,6 +22,13 @@ function cardSubtitle(content) {
     return content ? div("card-subtitle", content) : "";
 }
 
+function cardTitles(kind, title, subtitle = "", which = "", id = 0) {
+    return div(
+        "titles",
+        row(icon(kind) + col(cardTitle(title) + cardSubtitle(subtitle)))
+    ) + actionItem("open", which, id);
+}
+
 function cardPhoto(c) {
     return div("card-photo", c);
 }
@@ -33,10 +40,16 @@ function cardPerson(person) {
     );
 }
 
-function cardPeople(peopleList) {
+function cardPeople(peopleList, showSuffix = false) {
+    if(!peopleList || peopleList.length == 0){
+        return "";
+    }
     return div(
         "card-people",
-        [...peopleList].map((p) => cardPerson(p)).join("")
+        [...peopleList].map((p) => cardPerson(p)).join("") +
+        (showSuffix ? circle(text(
+            `&nbsp;${peopleList.length} ${peopleList.length == 1 ? "Person" : "People"} loved this!&nbsp;`
+        )) : "")
     );
 }
 
@@ -65,28 +78,29 @@ function card(
     people = [],
     actions = "",
     image = "",
-    tags = []
+    tags = [],
+    showSuffix = false
 ) {
     return div(
         `card ${kind}`,
         img("background top", "images/backgrounds/top-gradient-black.svg") +
-            cardSection(cardTitle(title)) +
-            contentPanel(body) +
-            (tags || people || actions
-                ? cardSection(
-                      cardTags(tags) +
-                          (people || actions
-                              ? cardQuadrant(
-                                    cardPeople(people) +
-                                        cardActions(`card-actions`, actions)
-                                )
-                              : "")
-                  )
-                : "") +
-            img(
-                "background bottom",
-                "images/backgrounds/bottom-gradient-black.svg"
-            ),
+        cardSection(cardTitle(title)) +
+        contentPanel(body) +
+        (tags || people || actions
+            ? cardSection(
+                cardTags(tags) +
+                (people || actions
+                    ? cardQuadrant(
+                        cardPeople(people, showSuffix) +
+                        cardActions(`card-actions`, actions)
+                    )
+                    : "")
+            )
+            : "") +
+        img(
+            "background bottom",
+            "images/backgrounds/bottom-gradient-black.svg"
+        ),
         image ? `style="background-image: url('${image}');"` : ""
     );
 }
@@ -103,26 +117,53 @@ function detail(
     return div(
         `detail ${kind}`,
         img("detail-image", imagePath) +
-            cardSection(cardTitle(body)) +
-            // contentPanel(body) +
-            cardSection(
-                cardTags(tags) +
-                    cardQuadrant(
-                        cardPeople(people) +
-                            cardActions(`card-actions`, actions)
-                    )
+        cardSection(cardTitle(body)) +
+        // contentPanel(body) +
+        cardSection(
+            cardTags(tags) +
+            cardQuadrant(
+                cardPeople(people) +
+                cardActions(`card-actions`, actions)
             )
+        )
         //, imagePath ? `style="background-image: url('${imagePath}');"` : ""
     );
 }
 
+function exploreDetail(
+    imagePath = "images/photos/cannon-beach.jpg",
+    title = "",
+    subtitle = "",
+    content = "",
+    tags = [],
+    people = [],
+    actions = [],
+    id = ""
+) {
+    return detail(
+        "explore",
+        "Details",
+        div(
+            "titles explore",
+            row(
+                // icon("explore") +
+                col(cardTitle(title) + cardSubtitle(subtitle))
+            )
+        ) + text(content),
+        people,
+        actions,
+        imagePath,
+        tags
+    );
+}
 function connectCard(
     messageList = [],
     title = "",
     subtitle = "",
-    id = "",
+    id = 0,
     people = [],
-    which=""
+    which = "",
+    showSuffix = false
 ) {
     return card(
         "connect",
@@ -130,8 +171,8 @@ function connectCard(
             "titles",
             row(icon("people") + col(cardTitle(title) + cardSubtitle(subtitle)))
         ) + actionItem("open", which, id),
-        row(actionItem("add") + cardPeople(people)) +
-            messagePanel(messageList, "white")
+        row(actionItem("add") + cardPeople(people, showSuffix)) +
+        messagePanel(messageList, "white")
     );
 }
 
@@ -142,7 +183,7 @@ function settleCard(who, amount, when = "", id = "") {
             "titles settle",
             row(
                 icon("settle") +
-                    col(cardTitle(`Pay ${amount}`) + cardSubtitle(who.name))
+                col(cardTitle(`Pay ${amount}`) + cardSubtitle(who.name))
             )
         ) + actionItem("open", "settle_list", id),
         text(when) + text("All Activities - Net"),
@@ -177,32 +218,6 @@ function exploreCard(
     );
 }
 
-function exploreDetail(
-    imagePath = "images/photos/cannon-beach.jpg",
-    title = "",
-    subtitle = "",
-    content = "",
-    tags = [],
-    people = [],
-    actions = [],
-    id = ""
-) {
-    return detail(
-        "explore",
-        "Details",
-        div(
-            "titles explore",
-            row(
-                // icon("explore") +
-                col(cardTitle(title) + cardSubtitle(subtitle))
-            )
-        ) + text(content),
-        people,
-        actions,
-        imagePath,
-        tags
-    );
-}
 
 function connectPersonDetail(
     imagePath = "images/photos/cannon-beach.jpg",
@@ -238,18 +253,18 @@ function exploreCardNotification(quantity) {
             "titles explore",
             row(
                 icon("explore") +
-                    col(
-                        cardTitle("Explore") +
-                            cardSubtitle(`Santa Barbara, +12 more`)
-                    )
+                col(
+                    cardTitle("Explore") +
+                    cardSubtitle(`Santa Barbara, +12 more`)
+                )
             )
         ) +
-            actionItem(
-                "open",
-                "https://www.figma.com/proto/RNFPr2XMBBFuj60EEo3TK7/Vita---Greg?page-id=1%3A995&node-id=765%3A1510&viewport=241%2C48%2C0.45&scaling=min-zoom&starting-point-node-id=765%3A1510&show-proto-sidebar=0",
-                "",
-                ""
-            ),
+        actionItem(
+            "open",
+            "https://www.figma.com/proto/RNFPr2XMBBFuj60EEo3TK7/Vita---Greg?page-id=1%3A995&node-id=765%3A1510&viewport=241%2C48%2C0.45&scaling=min-zoom&starting-point-node-id=765%3A1510&show-proto-sidebar=0",
+            "",
+            ""
+        ),
         text(`${quantity} new cards from people you love!`),
         [],
         ["explore"],
@@ -264,13 +279,13 @@ function boardNotificationCard(who, quantity, which) {
             "titles board",
             row(icon("board") + col(cardTitle("Dream") + cardSubtitle(which)))
         ) +
-            actionItem(
-                "open",
-                "https://www.figma.com/proto/RNFPr2XMBBFuj60EEo3TK7/Vita---Greg?page-id=1%3A995&node-id=724%3A3890&viewport=241%2C48%2C0.45&scaling=min-zoom&starting-point-node-id=724%3A3890&show-proto-sidebar=0"
-            ),
+        actionItem(
+            "open",
+            "https://www.figma.com/proto/RNFPr2XMBBFuj60EEo3TK7/Vita---Greg?page-id=1%3A995&node-id=724%3A3890&viewport=241%2C48%2C0.45&scaling=min-zoom&starting-point-node-id=724%3A3890&show-proto-sidebar=0"
+        ),
         text(
             `${quantity} new items added to your linked ${which} board by your friend ${who.name}.`
-        ),  
+        ),
         [who],
         ["board"]
     );
@@ -283,7 +298,7 @@ function planCard(title, subtitle, content, people = [], actions = []) {
             "titles plan",
             row(
                 icon("plan") +
-                    col(cardTitle(title) + cardSubtitle(`${subtitle}`))
+                col(cardTitle(title) + cardSubtitle(`${subtitle}`))
             )
         ) + actionItem("open", "plan_detail"),
         content,

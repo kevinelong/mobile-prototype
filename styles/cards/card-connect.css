@@ -11,3 +11,10 @@
 .card.connect .card-people {
     margin: 0.5rem 0;
 }
+
+.dream_board .card{
+    min-height: 240px;
+}
+.dream_board .card .text{
+    font-size: 13px;
+}
