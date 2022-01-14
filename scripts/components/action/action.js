@@ -18,6 +18,14 @@ function actionItem(name, which = "", id = "", textValue = "", iconColor = "") {
     );
 }
 
+function personItem(name, which = "", id = "", person = {}) {
+    return div(
+        `action-item`,
+        personIcon(person),
+        action(name, which, id)
+    );
+}
+
 function actionClick(action, which = "", id = "") {
     hideDialog();
     route(action, which, id);

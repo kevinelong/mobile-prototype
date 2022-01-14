@@ -1,42 +1,42 @@
-function cardText(c) {
-    return div("card-text", c);
+function cardText(content) {
+    return div("card-text", content);
 }
 
-function cardSection(c) {
-    return div("card-section", c);
+function cardSection(content) {
+    return div("card-section", content);
 }
 
-function cardQuadrant(c) {
-    return div("card-quadrant", c);
+function cardQuadrant(content) {
+    return div("card-quadrant", content);
 }
 
-function cardTitle(c) {
-    return div("card-title", c);
+function cardTitle(content) {
+    return div("card-title", content);
 }
 
-function cardTitleText(c) {
-    return div("card-title-text", c);
+function cardTitleText(content) {
+    return div("card-title-text", content);
 }
 
-function cardSubtitle(c) {
-    return c ? div("card-subtitle", c) : "";
+function cardSubtitle(content) {
+    return content ? div("card-subtitle", content) : "";
 }
 
 function cardPhoto(c) {
     return div("card-photo", c);
 }
 
-function personIcon(p) {
+function cardPerson(person) {
     return div(
         "person-icon",
-        circle(actionItem("person", "connect", "1", p, "black"))
+        circle(personItem("person", "connect", person.id, person))
     );
 }
 
 function cardPeople(peopleList) {
     return div(
         "card-people",
-        [...peopleList].map((p) => personIcon(p)).join("")
+        [...peopleList].map((p) => cardPerson(p)).join("")
     );
 }
 
@@ -62,7 +62,7 @@ function card(
     kind,
     title,
     body = "",
-    people = "",
+    people = [],
     actions = "",
     image = "",
     tags = []
@@ -142,7 +142,7 @@ function settleCard(who, amount, when = "", id = "") {
             "titles settle",
             row(
                 icon("settle") +
-                    col(cardTitle(`Pay ${amount}`) + cardSubtitle(who))
+                    col(cardTitle(`Pay ${amount}`) + cardSubtitle(who.name))
             )
         ) + actionItem("open", "settle_list", id),
         text(when) + text("All Activities - Net"),
@@ -269,9 +269,9 @@ function boardNotificationCard(who, quantity, which) {
                 "https://www.figma.com/proto/RNFPr2XMBBFuj60EEo3TK7/Vita---Greg?page-id=1%3A995&node-id=724%3A3890&viewport=241%2C48%2C0.45&scaling=min-zoom&starting-point-node-id=724%3A3890&show-proto-sidebar=0"
             ),
         text(
-            `${quantity} new items added to your linked ${which} board by your friend ${who}.`
-        ),
-        ["Greg"],
+            `${quantity} new items added to your linked ${which} board by your friend ${who.name}.`
+        ),  
+        [who],
         ["board"]
     );
 }
