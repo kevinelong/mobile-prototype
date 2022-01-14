@@ -16,12 +16,12 @@ function settlePage(selected = false) {
                         )
                 ) + cardSection("$3.00"),
                 moneyPanel([
-                    ["Description", "Who Paid", "Amount", "Balance"],
-                    ["Breakfast at Wally's", "GB $99.99", "+66.00", "66.66"],
-                    ["Lunch at Toro Toro", "KL $99.99", "-33.33", "33.33"],
-                    ["Dinner at Wilf's", "WH $105.99", "-36.33", "-3.00"],
+                    ["Description", "Who", "Paid", "Amount", "Balance"],
+                    ["Breakfast at Wally's", peopleList[RUBY],  "$99.99", "+66.00", "66.66"],
+                    ["Lunch at Toro Toro", peopleList[JOE],"$99.99", "-33.33", "33.33"],
+                    ["Dinner at Wilf's", peopleList[BF],"$105.99", "-36.33", "-3.00"],
                 ]),
-                [peopleList[0], peopleList[1], peopleList[2]],
+                [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
                 ["paypal", "venmo", "zelle"],
                 "images/photos/cannon-beach.jpg"
             )

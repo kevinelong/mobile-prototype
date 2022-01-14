@@ -37,7 +37,10 @@ const PATH_FACES = `${PATH_IMAGES}/faces/`;
 const PREFIX_FACES = `${PATH_FACES}/face`;
 const SUFFIX_FACES = `.png`;
 
+const RUBY = 0
+const JOE = 1
 const BF = 2
+
 const peopleList = [
     {
         id: 1,

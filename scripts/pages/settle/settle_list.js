@@ -8,10 +8,10 @@ function settleList(selected = false) {
         simpleList(
             "Wilf's 12/31/2022",
             [
-                ["KL", "French Fries", "6.00", "more"],
-                ["GB", "Basic Burger", "6.00", "more"],
-                ["KL", "Deluxe Cheeseburger", "9.00", "more"],
-                ["", "Veggie Burger", "9.00", "more"],
+                [peopleList[BF], "French Fries", "6.00", "more"],
+                [peopleList[RUBY], "Basic Burger", "6.00", "more"],
+                [peopleList[BF], "Deluxe Cheeseburger", "9.00", "more"],
+                [peopleList[JOE], "Veggie Burger", "9.00", "more"],
             ],
             "",
             "more"
