@@ -28,12 +28,39 @@ function col(content) {
 
 const PATH_STATIC = "";
 const PATH_IMAGES = `${PATH_STATIC}images/`;
+
 const PATH_ICONS = `${PATH_IMAGES}/icons/`;
 const PREFIX_ICONS = `${PATH_ICONS}/icon-`;
 const SUFFIX_ICONS = `.svg`;
 
+const PATH_FACES = `${PATH_IMAGES}/faces/`;
+const PREFIX_FACES = `${PATH_FACES}/face`;
+const SUFFIX_FACES = `.png`;
+
+const BF = 2
+const peopleList = [
+    {
+        id: 1,
+        name: "Ruby Red",
+    },
+    {
+        id: 2,
+        name: "Joe Shmoe",
+    },
+    {
+        id: 3,
+        name: "Betty Ford",
+    },
+]
+
 function iconPath(name, color = "") {
     return [PREFIX_ICONS, name, color ? "-" + color : "", SUFFIX_ICONS]
+        .join("")
+        .replace(/([^:]\/)\/+/g, "$1");
+}
+
+function facePath(number) {
+    return [PREFIX_FACES, number, SUFFIX_FACES]
         .join("")
         .replace(/([^:]\/)\/+/g, "$1");
 }
@@ -71,8 +98,17 @@ function icon(name = "menu", iconColor = "", textValue = "") {
     );
 }
 
+function personIcon(person) {
+    return (
+        div(
+            "icon-frame",
+            `<img class="icon" src="${facePath(person.id)}">`
+        ) + text(person.name ? person.name : "")
+    );
+}
+
 function person(iconName, textName = "") {
-    return actionItem(
+    return personItem(
         "person",
         "connect_person",
         "",

@@ -12,21 +12,21 @@ function connectPage(selected = false) {
                     "I can join you on Saturday and Sunday",
                     "Thursday June 17th 10:23am",
                     "1",
-                    ["Best Friend"],
+                    [peopleList[BF]],
                     "https://www.figma.com/proto/RNFPr2XMBBFuj60EEo3TK7/Vita---Greg?node-id=52%3A9886&scaling=min-zoom&page-id=1%3A995&starting-point-node-id=52%3A9817&show-proto-sidebar=0"
                 ),
 
                 connectCard(
                     [
-                        ["I'm thinking about brunch on Sunday.", "KL"],
-                        ["Are you ready for mimosas?", "KL"],
-                        ["Oh, so ready...", "GB"],
-                        ["Waffle bar is where I'm at!", "NM"],
+                        ["I'm thinking about brunch on Sunday.", peopleList[0]],
+                        ["Are you ready for mimosas?", peopleList[0]],
+                        ["Oh, so ready...", peopleList[1]],
+                        ["Waffle bar is where I'm at!", peopleList[2]],
                     ],
                     "Group Chat",
                     "The Three Amigos",
                     "",
-                    ["Kevin Long", "Greg Bellowe", "Nina Marie"]
+                    [peopleList[0], peopleList[1]]
                 ),
 
                 exploreCardNotification(
@@ -40,13 +40,13 @@ function connectPage(selected = false) {
                     "Broadcast Response",
                     "Love this bar!",
                     [],
-                    ["Maria Carder"],
+                    [peopleList[1]],
                     [],
                     "1",
                     "https://www.figma.com/proto/RNFPr2XMBBFuj60EEo3TK7/Vita---Greg?node-id=164%3A610&starting-point-node-id=132%3A605&show-proto-sidebar=0"
                 ),
 
-                boardNotificationCard("Kevin", 2, "Santa Barbara"),
+                boardNotificationCard(peopleList[0], 2, "Santa Barbara"),
 
                 planCard(
                     "Plan Invite",
@@ -54,13 +54,13 @@ function connectPage(selected = false) {
                     "Santa Barbara<br>" +
                         "Tuesday March 3rd 2022 at Noon.<br>" +
                         "Plan Invitation",
-                    ["Greg"],
+                    [peopleList[0]],
                     ["decline", "accept"],
                     "https://www.figma.com/proto/RNFPr2XMBBFuj60EEo3TK7/Vita---Greg?node-id=768%3A4973&starting-point-node-id=724%3A3890&show-proto-sidebar=0"
                 ),
 
                 settleCard(
-                    "Best Friend",
+                    peopleList[BF],
                     "$23.00",
                     "Yesterday 12/12/2022",
                     "Pay",
@@ -69,7 +69,7 @@ function connectPage(selected = false) {
                 ),
 
                 settleCard(
-                    "Emery Press",
+                    peopleList[0],
                     "$80.00",
                     "Yesterday 11/21/2022",
                     "Received",
@@ -77,7 +77,7 @@ function connectPage(selected = false) {
                     "https://www.figma.com/proto/RNFPr2XMBBFuj60EEo3TK7/Vita---Greg?node-id=415%3A2024&starting-point-node-id=188%3A1973&show-proto-sidebar=0"
                 ),
                 settleCard(
-                    "Desirae Donin",
+                    peopleList[1],
                     "$75.00",
                     "Yesterday 11/21/2022",
                     "Received",

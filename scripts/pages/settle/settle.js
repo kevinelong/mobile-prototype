@@ -21,7 +21,7 @@ function settlePage(selected = false) {
                     ["Lunch at Toro Toro", "KL $99.99", "-33.33", "33.33"],
                     ["Dinner at Wilf's", "WH $105.99", "-36.33", "-3.00"],
                 ]),
-                ["Kevin Long", "Greg Bellowe", "Nina Marie"],
+                [peopleList[0], peopleList[1], peopleList[2]],
                 ["paypal", "venmo", "zelle"],
                 "images/photos/cannon-beach.jpg"
             )
