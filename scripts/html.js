@@ -14,8 +14,8 @@ function a(text, href, className = "") {
     return closedTag("a", text, "", `href="${href}"`);
 }
 
-function img(className, src = "") {
-    return tag("img", `${className} image`, `src="${src}"`);
+function img(className, src = "", attrs="") {
+    return tag("img", `${className} image`, `src="${src}" ${attrs}`);
 }
 
 function label(className, content) {

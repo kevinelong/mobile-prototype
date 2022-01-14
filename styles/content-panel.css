@@ -9,7 +9,7 @@
     color: #333333;
     background-color: #eeeeee;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .detail .content-panel {
