@@ -23,15 +23,21 @@ function dreamBoardPage(selected = false) {
         activities: [
             {
                 kind: "food",
-                title:"Brasil Art",
-                description: "Restaurant and Bar",
-                image: "images/photos/brasil_art.png",
+                title:"Brasil Arts Cafe",
+                description: "the perfect blend of traditional Brazilian fare & one-of-a-kind Açai, Juice, and Smoothie creations",
+                image: "images/photos/brasil_arts_cafe.jpeg",
                 people:[peopleList[BF],peopleList[JOE],peopleList[RUBY],],
                 tags:["bar","art"]
-            }
+            },{
+                kind: "food",
+                title:"Yoichi's",
+                description: "Restaurant and Bar",
+                image: "images/photos/yoichis.jpg",
+                people:[peopleList[BF],peopleList[JOE],],
+                tags:["bar","art"]
+            },
         ]
     }
-
     return page(
         selected,
         "dream_board",
