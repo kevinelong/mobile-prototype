@@ -37,7 +37,22 @@
     justify-content: space-between;
     height: auto;
     position: relative;
-    min-height: 231px;
+    /*min-height: 231px;*/
+}
+.page.explore .card.collapsed .card-tags,
+.page.explore .card.collapsed .card-people,
+.page.explore .card.collapsed .content-panel{
+    /*max-height: 0;*/
+    display:none;
+}
+
+.page.explore .card.collapsed .action-list .icon {
+    width: 12px;
+    height: 12px;
+}
+
+.page.explore .card.collapsed{
+    min-height: 0;
 }
 
 .page.dream .card {

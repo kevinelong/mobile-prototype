@@ -1,5 +1,5 @@
 function action(name, which = "", id = "") {
-    return `onclick="actionClick('${name}','${which}','${id}')"`;
+    return `onclick="actionClick(this, '${name}','${which}','${id}')"`;
 }
 
 function actionPanel(content) {
@@ -22,7 +22,7 @@ function personItem(name, which = "", id = "", person = {}) {
     );
 }
 
-function actionClick(action, which = "", id = "") {
+function actionClick(target, action, which = "", id = "") {
     hideDialog();
-    route(action, which, id);
+    route(target, action, which, id);
 }

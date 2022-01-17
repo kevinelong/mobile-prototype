@@ -5,10 +5,11 @@ function showSearch() {
         ["Joe Schmoe", "Joe", "Schmoe", ""],
     ]));
 }
-function collapseCard(action, which, id){
-    console.log(action, which, id);
+function collapseCard(target, action, which, id){
+    target.closest(".card").classList.toggle("collapsed")
+    console.log("collapseCard", action, which, id);
 }
-function openPage(action, which, id) {
+function openPage(target, action, which, id) {
     if ("open" === action && which.toLowerCase().startsWith("http")) {
         window.open(which, "_self");
     } else if ("open" === action) {
@@ -46,14 +47,14 @@ ACTION_PAGES = {
     collapse: collapseCard
 }
 
-function route(action, which = "", id = "") {
+function route(target, action, which = "", id = "") {
     if (TOAST_MESSAGES.hasOwnProperty(action)) {
         return showToast(TOAST_MESSAGES[action]);
     } else if (ACTION_PAGES.hasOwnProperty(action)) {
         console.log("ACTION: " + action, which, id);
         const f = ACTION_PAGES[action];
         console.log(f);
-        return f(action, which, id);
+        return f(target, action, which, id);
     } else {
         console.log("UNKNOWN ACTION:" + action);
     }
