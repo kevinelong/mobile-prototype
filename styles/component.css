@@ -19,6 +19,7 @@ input[type=text] {
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
+    align-self: flex-start;
 }
 
 .row > * {

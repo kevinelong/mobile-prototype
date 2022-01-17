@@ -9,8 +9,11 @@
     color: #333333;
     background-color: #eeeeee;
     justify-content: flex-start;
-    align-items: center;
+    /*align-items: center;*/
     /*font-size: 1.2rem;*/
+}
+.page .content-panel{
+    align-items: center;
 }
 
 .detail .content-panel {
@@ -53,5 +56,5 @@
 
 
 .content-panel .text {
-    font-size: 1rem;
+    font-size: 11px;
 }

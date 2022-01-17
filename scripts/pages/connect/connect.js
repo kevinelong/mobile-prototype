@@ -26,12 +26,13 @@ function connectPage(selected = false) {
                     "Group Chat",
                     "The Three Amigos",
                     "",
-                    [peopleList[0], peopleList[1]]
+                    [peopleList[0], peopleList[1]],
+                    "connect_chat"
                 ),
 
                 exploreCardNotification(
-                    11,
-                    "https://www.figma.com/proto/RNFPr2XMBBFuj60EEo3TK7/Vita---Greg?node-id=726%3A5745&scaling=min-zoom&page-id=1%3A995&starting-point-node-id=765%3A1510&show-proto-sidebar=0"
+                    13,
+                    "https://www.figma.com/proto/RNFPr2XMBBFuj60EEo3TK7/Vita---Greg?page-id=1%3A995&node-id=726%3A5745&viewport=241%2C48%2C0.45&scaling=min-zoom&starting-point-node-id=765%3A1510"
                 ),
 
                 exploreCard(
@@ -56,7 +57,7 @@ function connectPage(selected = false) {
                         "Plan Invitation",
                     [peopleList[0]],
                     ["decline", "accept"],
-                    "https://www.figma.com/proto/RNFPr2XMBBFuj60EEo3TK7/Vita---Greg?node-id=768%3A4973&starting-point-node-id=724%3A3890&show-proto-sidebar=0"
+                    "https://www.figma.com/proto/RNFPr2XMBBFuj60EEo3TK7/Vita---Greg?node-id=768%3A4973&starting-point-node-id=724%3A3890&show-proto-sidebar=0",
                 ),
 
                 settleCard(

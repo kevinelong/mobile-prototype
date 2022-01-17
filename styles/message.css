@@ -1,11 +1,30 @@
 .message-item .text,
 .person-icon .text {
     display: none;
+    /*width:0;*/
+    /*margin:0;*/
+    /*padding:0;*/
+    max-height: 0;
+    max-width: 0;
+    opacity: 0;
+    visibility: collapse;
+    transition: opacity 300ms ease-in-out,
+    height 300ms ease-in-out,
+    width 300ms ease-in-out;
 }
 
 .message-item:hover .text,
 .person-icon:hover .text {
     display: block;
+    max-height: 10em;
+    max-width: 10em;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1300ms ease-in-out,
+    display 1300ms ease-in-out,
+    max-height 1300ms ease-in-out,
+    max-width 1300ms ease-in-out;
+
 }
 
 .message-item .message-text {

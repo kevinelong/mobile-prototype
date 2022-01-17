@@ -43,8 +43,8 @@
     border-radius: 30px;
     background: none;
     flex-direction: row;
-    gap: 3pt;
-    padding: 3pt 6pt;
+    gap: 0.5rem;
+    padding: 6px;
     /*padding: 0;*/
 }
 
@@ -58,8 +58,8 @@
 }
 
 .action-list .action-item .icon {
-    max-width: 15px;
-    max-height: 15px;
+    max-width: 24px;
+    max-height: 24px;
 }
 
 .title .action-item .icon {
@@ -79,6 +79,6 @@
     background: none;
 }
 .action-list .action-item {
-    background: #00000066;
+    background: #00000033;
     border: none;
 }

@@ -41,19 +41,20 @@ document.addEventListener("DOMContentLoaded", () => {
         "connect"
     );
 
-    get(".inner-content").innerHTML =
-        explorePage() +
-        exploreDetailPage() +
-        dreamPage() +
-        dreamBoardPage() +
-        planPage() +
-        planDetailPage() +
-        connectPage(true) +
-        connectChatPage() +
-        connectPersonPage() +
-        settleList() +
-        settleSplit() +
-        settlePage();
+    get(".inner-content").innerHTML = [
+            explorePage(),
+            exploreDetailPage(),
+            dreamPage(),
+            dreamBoardPage(),
+            planPage(),
+            planDetailPage(),
+            connectPage(true),
+            connectChatPage(),
+            connectPersonPage(),
+            settleList(),
+            settleSplit(),
+            settlePage()
+        ].join("")
 });
 
 window.lastPage = "connect";

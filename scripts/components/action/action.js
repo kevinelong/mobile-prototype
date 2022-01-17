@@ -6,14 +6,10 @@ function actionPanel(content) {
     return div(`action-panel`, content);
 }
 
-function actionButton(name) {
-    return div(`action-button`, name, action(name));
-}
-
-function actionItem(name, which = "", id = "", textValue = "", iconColor = "") {
+function actionItem(name, which = "", id = "", textValue = "", iconColor = "", hideText=false) {
     return div(
         `action-item`,
-        icon(name, iconColor, textValue),
+        icon(name, iconColor, textValue, hideText),
         action(name, which, id)
     );
 }

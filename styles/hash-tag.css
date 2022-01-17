@@ -10,32 +10,33 @@
     margin: 0 0.25em 0.25em auto;
     padding: 0.25em 0.5em 0.125em;
     width: fit-content;
+    box-shadow: 1px 1px 2px #00000088;
 }
 
 .hash-tag.red {
-    background: #FF8888CC;
+    background: #FF8888;
 }
 
 .hash-tag.green {
-    background: #88ff88CC;
+    background: #88ff88;
 }
 
 .hash-tag.blue {
-    background: #8888ffCC;
+    background: #8888ff;
 }
 
 .hash-tag.gold {
-    background: #FFEE88CC;
+    background: #CCBB66;
 }
 
 .hash-tag.silver {
-    background: #E0E0E0CC;
+    background: #E0E0E0;
 }
 
 .hash-tag.black {
-    background: #333333CC;
+    background: #333333;
 }
 
 .hash-tag.white {
-    background: #FFFFFFCC;
+    background: #FFFFFF;
 }

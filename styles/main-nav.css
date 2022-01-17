@@ -11,6 +11,7 @@
     align-items: center;
     padding: 0;
     z-index: 500;
+    box-shadow: -1px -1px 3px #000c;
 }
 
 .nav-list-item {
@@ -66,10 +67,32 @@
     background-color: #F9A831;
 }
 
-.main-nav-tab.selected #explore .icon-frame,
-.card.explore {
+.main-nav-tab.selected #explore .icon-frame {
     /*background-color: #FFCC00;*/
     background-color: #ff6666;
+}
+.content-panel {
+    background-color: #888;
+}
+.card.explore{
+    background-color: #ff6666;
+    box-shadow: 2px 2px 4px 1px #00000088;
+}
+.page.explore .card.explore{
+    background-color: #ff6666;
+    box-shadow: 2px 2px 4px 1px #00000088;
+    width:90%;
+}
+.page.explore .card.explore:nth-child(odd) {
+    align-self: flex-start;
+}
+.page.explore .card.explore:nth-child(even) {
+    align-self: flex-end;
+}
+
+.card {
+    /* prevents the exported black frames from figma from showing. */
+    background-size: 103%;
 }
 
 .main-nav-tab.selected #dream .icon-frame,

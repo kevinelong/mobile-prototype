@@ -7,7 +7,8 @@ function activityCard(item={}, index){
         [],
         item.image,
         item.tags,
-        true
+        true,
+        "recommended"
     )
 }
 
@@ -34,6 +35,20 @@ function dreamBoardPage(selected = false) {
                 description: "Restaurant and Bar",
                 image: "images/photos/yoichis.jpg",
                 people:[peopleList[BF],peopleList[JOE],],
+                tags:["bar","art"]
+            },{
+                kind: "food",
+                title:"Yoichi's",
+                description: "Restaurant and Bar",
+                image: "images/photos/yoichis.jpg",
+                people:[],
+                tags:["bar","art"]
+            },{
+                kind: "food",
+                title:"Yoichi's",
+                description: "Restaurant and Bar",
+                image: "images/photos/yoichis.jpg",
+                people:[peopleList[BF]],
                 tags:["bar","art"]
             },
         ]

@@ -73,12 +73,20 @@ function selectPage(e) {
     if (parts.length < 2) return;
     const pageName = parts.pop();
     if (pageName.length < 1) return;
-
+    //
     // if (pageName == "explore") {
     //     window.open(
-    //         "https://www.figma.com/proto/RNFPr2XMBBFuj60EEo3TK7/Vita---Greg?node-id=765%3A1510&starting-point-node-id=765%3A1510&show-proto-sidebar=0",
+    //         "https://www.figma.com/proto/RNFPr2XMBBFuj60EEo3TK7/Vita---Greg?node-id=726%3A5745&starting-point-node-id=765%3A1510&show-proto-sidebar=0",
     //         "_self"
     //     );
+    //     return;
+    // }
+    // if (pageName == "dream") {
+    //     window.open(
+    //         "https://www.figma.com/proto/RNFPr2XMBBFuj60EEo3TK7/Vita---Greg?node-id=80%3A2582&starting-point-node-id=80%3A2507&show-proto-sidebar=0",
+    //         "_self"
+    //     );
+    //     return;
     // }
 
     window.lastPage = pageName;

@@ -93,12 +93,12 @@ function iconMap(icon) {
     return icon;
 }
 
-function icon(name = "menu", iconColor = "", textValue = "") {
+function icon(name = "menu", iconColor = "", textValue = "", hideText=false) {
     return (
         div(
             "icon-frame",
             `<img class="icon" src="${iconPath(iconMap(name), iconColor)}">`
-        ) + text(textValue ? textValue : "")
+        ) + ((textValue && !hideText) ? text(textValue) : "")
     );
 }
 
