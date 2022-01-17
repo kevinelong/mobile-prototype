@@ -10,7 +10,7 @@
     margin: 0 0.25em 0.25em auto;
     padding: 0.25em 0.5em 0.125em;
     width: fit-content;
-    box-shadow: 1px 1px 2px #00000088;
+    box-shadow: 1px 1px 2px black;
 }
 
 .hash-tag.red {
