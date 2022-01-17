@@ -50,6 +50,9 @@
     width: 12px;
     height: 12px;
 }
+.page.explore .card.collapsed .background.image {
+    opacity: 0.45;
+}
 
 .page.explore .card.collapsed{
     min-height: 0;

@@ -1,3 +1,28 @@
+// function exploreCard(
+//     imagePath = "images/photos/cannon-beach.jpg",
+//     title = "",
+//     subtitle = "",
+//     content = "",
+//     tags = [],
+//     people = [],
+//     actions = [],
+//     id = ""
+// ) {
+//     return card(
+//         "explore",
+//         div(
+//             "titles explore",
+//             row(
+//                 icon("explore") + col(cardTitle(title) + cardSubtitle(subtitle))
+//             )
+//         ) + actionItem("open", "explore_detail", id),
+//         text(content),
+//         people,
+//         actions,
+//         imagePath,
+//         tags
+//     );
+// }
 function exploreCard(
     imagePath = "images/photos/cannon-beach.jpg",
     title = "",
@@ -6,7 +31,10 @@ function exploreCard(
     tags = [],
     people = [],
     actions = [],
-    id = ""
+    id = "",
+    showSuffix = false,
+    verb = "",
+    group = ""
 ) {
     return card(
         "explore",
@@ -20,10 +48,13 @@ function exploreCard(
         people,
         actions,
         imagePath,
-        tags
+        tags,
+        id,
+        showSuffix,
+        verb,
+        group
     );
 }
-
 function exploreDetail(
     imagePath = "images/photos/cannon-beach.jpg",
     title = "",
