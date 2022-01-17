@@ -39,22 +39,36 @@
     position: relative;
     /*min-height: 231px;*/
 }
+
+.card-tags {
+    flex-direction: row;
+    align-self: flex-start;
+    margin: 0.5rem 0;
+}
+
 .page.explore .card.collapsed .card-tags,
 .page.explore .card.collapsed .card-people,
-.page.explore .card.collapsed .content-panel{
+.page.explore .card.collapsed .content-panel {
     /*max-height: 0;*/
-    display:none;
+    display: none;
 }
 
 .page.explore .card.collapsed .action-list .icon {
     width: 12px;
     height: 12px;
-}
-.page.explore .card.collapsed .background.image {
-    opacity: 0.45;
+    transition: width 300ms ease-in-out,
+    height 300ms ease-in-out;
 }
 
-.page.explore .card.collapsed{
+.page.explore .card .background.image {
+    opacity: 0.50;
+}
+
+.page.explore .card.collapsed .background.image {
+    opacity: 0.20;
+}
+
+.page.explore .card.collapsed {
     min-height: 0;
 }
 
@@ -64,19 +78,26 @@
     box-shadow: 2px 2px 4px 1px #00000088;
 
 }
+
 .page.dream .card {
     background-blend-mode: darken;
     /*filter: brightness(50%);*/
 }
-.page.dream .card .background.image{
+
+.page.dream .card .background.image {
     display: none;
 }
-.page.explore .card{
+
+.page.explore .card {
     min-height: 406px;
+    transition: opacity 300ms ease-in-out,
+    min-height 300ms ease-in-out;
 }
-.page.dream .card{
+
+.page.dream .card {
     background-color: #0005;
 }
+
 .card > * {
     z-index: 200;
 }
@@ -151,4 +172,43 @@
     justify-content: center;
     vertical-align: center;
     margin-right: 1em;
+}
+
+.card.explore {
+    background-color: #ff6666;
+    box-shadow: 2px 2px 4px 1px #00000088;
+}
+
+.card.connect {
+    background-color: #F9A831;
+}
+
+.page.explore .card.explore{
+    background-color: #ff6666;
+    box-shadow: 2px 2px 4px 1px #00000088;
+    width:90%;
+}
+.page.explore .card.explore:nth-child(odd) {
+    align-self: flex-start;
+}
+.page.explore .card.explore:nth-child(even) {
+    align-self: flex-end;
+}
+
+.card {
+    /* prevents the exported black frames from figma from showing. */
+    background-size: 103%;
+}
+
+.card.dream,
+.card.board {
+    background-color: #6677cc;
+}
+
+.card.plan {
+    background-color: #77cc77;
+}
+
+.card.settle {
+    background-color: #6633EE;
 }

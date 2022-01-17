@@ -39,13 +39,21 @@
     align-items: center; /* align vertical */
     background: #F9A831;
     color: white;
-    transition: background 300ms, color 300ms;
     border-radius: 30px;
     background: none;
     flex-direction: row;
     gap: 0.5rem;
     padding: 6px;
     /*padding: 0;*/
+    transform: rotate(0deg);
+    transition: background 300ms ease-in-out,
+                color 300ms ease-in-out,
+                transform 300ms ease-in-out;
+}
+
+.collapsed .action-item.collapse{
+    transform: rotate(180deg);
+    transition: transform 300ms ease-in-out;
 }
 
 /*.card-title .action-item {*/

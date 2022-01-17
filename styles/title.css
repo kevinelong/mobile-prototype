@@ -23,7 +23,7 @@
     box-shadow: 1px 1px 3px #000000CC;
     z-index: 300;
 }
-.content-panel > .choice-set{
+.page > .content-panel > .choice-set{
     box-shadow: 1px 1px 3px #000000CC;
     z-index: 200;
 }

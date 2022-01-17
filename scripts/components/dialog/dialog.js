@@ -1,5 +1,5 @@
 function dialog(name, content = "") {
-    return contentPanel(title(name) + content);
+    return contentPanel(title(name + actionItem("close")) + content);
 }
 
 function showDialog(name, content = "") {

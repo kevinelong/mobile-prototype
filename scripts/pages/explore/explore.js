@@ -8,7 +8,9 @@ const EXPLORE_DATA = [
         [peopleList[BF], peopleList[RUBY], peopleList[JOE]],
         ["share", "favorite", "pin", "collapse"],
         "1",
-        ""
+        true,
+        "Recommended",
+        "Local Expert"
     ], [
         "images/photos/hanna-levin.png",
         "Hanna Levin",
@@ -18,12 +20,15 @@ const EXPLORE_DATA = [
         [],
         ["share", "follow", "collapse"],
         "2",
+        true,
+        "Recommended",
+        "Local Expert"
     ], [
         "images/explore_bg.png",
         "Loquita",
         "Santa Barbara",
-        "A lovely wine bar away from everything.",
-        ["Seafood", "Restaurant"],
+        "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
+        ["Spanish", "Tapas", "Seafood",  "Wine", "Cocktails", "Restaurant"],
         [peopleList[BF], peopleList[RUBY], peopleList[JOE]],
         ["share", "favorite", "pin", "collapse"],
         "2",

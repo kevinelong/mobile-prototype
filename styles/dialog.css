@@ -1,10 +1,7 @@
 
 .dialog {
-    background: #888;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 360px;
+    background: #ffffff;
+    width: auto;
     opacity: 1;
     visibility: visible;
     transition: opacity 90ms ease-in-out;
@@ -16,6 +13,9 @@
     max-height: 640px;
     border-radius: 2rem;
     padding: 1rem;
+    justify-self: center;
+    justify-content: center;
+    justify-items: center;
 }
 
 .dialog .choice-set {
@@ -42,7 +42,7 @@
 
 
 .smoke {
-    background: #000000CC;
+    background: #000000BB;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -50,4 +50,5 @@
     right: 0;
     top: 0;
     bottom: 0;
+    z-index: 900;
 }

@@ -8,7 +8,7 @@ function actionPanel(content) {
 
 function actionItem(name, which = "", id = "", textValue = "", iconColor = "", hideText=false) {
     return div(
-        `action-item`,
+        `action-item ${name} ${which}`,
         icon(name, iconColor, textValue, hideText),
         action(name, which, id)
     );
@@ -16,7 +16,7 @@ function actionItem(name, which = "", id = "", textValue = "", iconColor = "", h
 
 function personItem(name, which = "", id = "", person = {}) {
     return div(
-        `action-item`,
+        `action-item person ${name} ${which}`,
         personIcon(person),
         action(name, which, id)
     );

@@ -8,7 +8,7 @@ function connectCard(
     showSuffix = false
 ) {
     return card(
-        "connect",
+        "connect"+ (people.length > 0 ? " group-chat" : ""),
         div(
             "titles",
             row(icon("people") + col(cardTitle(title) + cardSubtitle(subtitle)))

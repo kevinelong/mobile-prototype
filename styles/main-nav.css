@@ -71,48 +71,31 @@
     /*background-color: #FFCC00;*/
     background-color: #ff6666;
 }
-.content-panel {
-    background-color: #888;
-}
-.card.explore{
+
+.page.explore .card.explore {
     background-color: #ff6666;
     box-shadow: 2px 2px 4px 1px #00000088;
+    width: 90%;
 }
-.page.explore .card.explore{
-    background-color: #ff6666;
-    box-shadow: 2px 2px 4px 1px #00000088;
-    width:90%;
-}
+
 .page.explore .card.explore:nth-child(odd) {
     align-self: flex-start;
 }
+
 .page.explore .card.explore:nth-child(even) {
     align-self: flex-end;
 }
 
-.card {
-    /* prevents the exported black frames from figma from showing. */
-    background-size: 103%;
-}
-
 .main-nav-tab.selected #dream .icon-frame,
-.card.dream,
-.main-nav-tab.selected #boards .icon-frame,
-.card.board {
-    /*background-color: #996633;*/
-    /*background-color: #998877;*/
+.main-nav-tab.selected #boards .icon-frame {
     background-color: #6677cc;
 }
 
-.main-nav-tab.selected #plan .icon-frame,
-.card.plan {
-    /*background-color: #339966;*/
+.main-nav-tab.selected #plan .icon-frame {
     background-color: #77cc77;
 }
 
-.main-nav-tab.selected #settle .icon-frame,
-.card.settle {
-    /*background-color: #993366;*/
+.main-nav-tab.selected #settle .icon-frame {
     background-color: #6633EE;
 }
 

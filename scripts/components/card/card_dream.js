@@ -14,6 +14,12 @@ function dreamCardNotification(who, quantity, which) {
             `${quantity} new items added to your linked ${which} dream board by your friend ${who.name}.`
         ),
         [who],
-        ["dream"]
+        ["dream"],
+        "",
+        "",
+        "",
+        true,
+        "Added",
+        "Co-Planner"
     );
 }

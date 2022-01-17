@@ -37,7 +37,7 @@ function exploreCard(
     group = ""
 ) {
     return card(
-        "explore",
+        "explore collapsed",
         div(
             "titles explore",
             row(
