@@ -69,8 +69,10 @@ function card(
     return div(
         `card ${kind}`,
         img("background top", "images/backgrounds/top-gradient-black.svg") +
-        cardSection(cardTitle(title)) +
-        contentPanel(body) +
+        cardSection(
+            cardTitle(title) +
+            contentPanel(body)
+        ) +
         (tags || people || actions
             ? cardSection(
                 cardTags(tags) +

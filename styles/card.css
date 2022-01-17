@@ -19,7 +19,7 @@
 .card {
     border-radius: 13px;
     background-color: #FFF3;
-    color: #FFFFFFee;
+    color: #FFFFFF;
     padding: 0.5em 0.75em;
     margin-right: 0.5em;
     width: 99%;
@@ -37,8 +37,18 @@
     justify-content: space-between;
     height: auto;
     position: relative;
-    /*min-height: 231px;*/
-    /*min-height: 406px;*/
+    min-height: 231px;
+}
+
+.page.dream .card{
+    min-height: 60px;
+    background-size: 72%;
+}
+.page.dream .card .background.image{
+    display: none;
+}
+.page.explore .card{
+    min-height: 406px;
 }
 
 .card > * {
@@ -49,7 +59,7 @@
     position: absolute;
     left: 0;
     right: 0;
-    opacity: 0.75;
+    opacity: 0.85;
     z-index: 100;
 }
 

@@ -16,7 +16,7 @@ const EXPLORE_DATA = [
         "Hanna Levin has rated over 20 places, including 2 you both love!",
         ["Influencer", "Recommended"],
         [],
-        ["share", "favorite", "follow", "collapse"],
+        ["share", "follow", "collapse"],
         "2",
     ], [
         "images/explore_bg.png",
