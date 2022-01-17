@@ -46,7 +46,7 @@ function connectPage(selected = false) {
                     "https://www.figma.com/proto/RNFPr2XMBBFuj60EEo3TK7/Vita---Greg?node-id=164%3A610&starting-point-node-id=132%3A605&show-proto-sidebar=0"
                 ),
 
-                boardNotificationCard(peopleList[0], 2, "Santa Barbara"),
+                dreamCardNotification(peopleList[0], 2, "Santa Barbara"),
 
                 planCard(
                     "Plan Invite",
