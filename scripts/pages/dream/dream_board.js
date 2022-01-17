@@ -28,7 +28,7 @@ function dreamBoardPage(selected = false) {
                 description: "the perfect blend of traditional Brazilian fare & one-of-a-kind Açai, Juice, and Smoothie creations",
                 image: "images/photos/brasil_arts_cafe.jpeg",
                 people: [peopleList[BF], peopleList[JOE], peopleList[RUBY],],
-                tags: ["brazilian", "cafe"]
+                tags: ["brazilian", "cafe"],
             }, {
                 kind: "food",
                 title: "Yoichi's",
