@@ -1,4 +1,4 @@
-function activityCard(item={}, index){
+function activityCard(item = {}, index) {
     return card(
         "activity",
         item.title,
@@ -24,33 +24,19 @@ function dreamBoardPage(selected = false) {
         activities: [
             {
                 kind: "food",
-                title:"Brasil Arts Cafe",
+                title: "Brasil Arts Cafe",
                 description: "the perfect blend of traditional Brazilian fare & one-of-a-kind Açai, Juice, and Smoothie creations",
                 image: "images/photos/brasil_arts_cafe.jpeg",
-                people:[peopleList[BF],peopleList[JOE],peopleList[RUBY],],
-                tags:["bar","art"]
-            },{
+                people: [peopleList[BF], peopleList[JOE], peopleList[RUBY],],
+                tags: ["brazilian", "cafe"]
+            }, {
                 kind: "food",
-                title:"Yoichi's",
-                description: "Restaurant and Bar",
+                title: "Yoichi's",
+                description: "A prix-fixe only spot featuring traditional Japanese small plates &amp; sushi in an intimate setting.",
                 image: "images/photos/yoichis.jpg",
-                people:[peopleList[BF],peopleList[JOE],],
-                tags:["bar","art"]
-            },{
-                kind: "food",
-                title:"Yoichi's",
-                description: "Restaurant and Bar",
-                image: "images/photos/yoichis.jpg",
-                people:[],
-                tags:["bar","art"]
-            },{
-                kind: "food",
-                title:"Yoichi's",
-                description: "Restaurant and Bar",
-                image: "images/photos/yoichis.jpg",
-                people:[peopleList[BF]],
-                tags:["bar","art"]
-            },
+                people: [peopleList[BF], peopleList[JOE],],
+                tags: ["japanese", "sushi", "prix-fixe"]
+            }
         ]
     }
     return page(

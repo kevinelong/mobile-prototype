@@ -4,7 +4,7 @@
 }
 
 .person-icon .text {
-    padding: 3px 6px 0 4px;
+    padding: 3px 12px 0 4px;
 }
 
 .person-icon .icon {
@@ -38,7 +38,7 @@
     border-radius: 15px;
 }
 .row > .circle .text{
-    margin: 0 11px;
+    margin: 0 7px;
     padding-top: 3px;
     font-size: 11px;
 }

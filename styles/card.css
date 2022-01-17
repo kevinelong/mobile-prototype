@@ -40,9 +40,15 @@
     min-height: 231px;
 }
 
-.page.dream .card{
+.page.dream .card {
     min-height: 60px;
-    background-size: 72%;
+    /*background-size: 72%;*/
+    box-shadow: 2px 2px 4px 1px #00000088;
+
+}
+.page.dream .card {
+    background-blend-mode: darken;
+    /*filter: brightness(50%);*/
 }
 .page.dream .card .background.image{
     display: none;
@@ -50,7 +56,9 @@
 .page.explore .card{
     min-height: 406px;
 }
-
+.page.dream .card{
+    background-color: #0005;
+}
 .card > * {
     z-index: 200;
 }
