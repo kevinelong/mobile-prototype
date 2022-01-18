@@ -27,14 +27,34 @@
 
 }
 
-.message-item .message-text {
+.message-item .message-text,
+.message-item-sender .message-text {
     flex-direction: column;
     font-size: 11px;
     gap: 0.25em;
-    background: white;
-    padding: 0.25em;
-    border-radius: 0 1em 1em 1em;
+    /* background: white; */
+    background: #CAF2FF;
+    margin-left: 15px;
+    padding: 0.5em;
+    border-radius: 0 .5em .5em .5em;
     color: #000000CC;
     box-shadow: none;
     text-shadow: none;
+}
+
+/* .message-item-sender .message-text {
+    flex-direction: column;
+    font-size: 11px;
+    gap: 0.25em;
+    background: #CAF2FF;
+    margin-left: 15px;
+    padding: 0.5em;
+    border-radius: 0 .5em .5em .5em;
+    color: #000000CC;
+    box-shadow: none;
+    text-shadow: none;
+} */
+
+.page.connect_chat .person.connect_person {
+    display: none;
 }

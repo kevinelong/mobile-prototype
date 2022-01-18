@@ -3,8 +3,14 @@ function messageText(c) {
 }
 
 function messageItem(mi, iconColor) {
+    let className = ""
+    if (mi[1] == "Kevin Long") {
+        className = "message-item-sender"
+    } else {
+        className = "message-item"
+    }
     return div(
-        "message-item",
+        className,
         person("person", mi[1]) +
             // circle(icon("person", iconColor ) + text(mi[1])) +
             messageText(mi[0])
