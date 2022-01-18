@@ -8,7 +8,7 @@ function settleCard(who, amount, when = "", id = "") {
                     col(cardTitle(`Pay ${amount}`) + cardSubtitle(who.name))
             )
         ) + actionItem("open", "settle_list", id),
-        text(when) + text("All Activities - Net"),
+        text(when) + text("All Activities - Daily Net"),
         [],
         ["settle"]
     );

@@ -10,9 +10,9 @@ function settlePage(selected = false) {
                 "settle",
                 div(
                     `titles`,
-                    cardTitle("Pay Kevin,") +
+                    cardTitle("Pay Betty Ford,") +
                         cardSubtitle(
-                            " of The Three Amigos<br>for yesterday, Tuesday 12/12/2022."
+                            " of Betty Ford, Joe Shmoe, Ruby Red <br> for yesterday, Tuesday 12/12/2022."
                         )
                 ) + cardSection("$3.00"),
                 moneyPanel([
