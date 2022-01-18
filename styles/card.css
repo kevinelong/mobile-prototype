@@ -71,7 +71,7 @@
 }
 
 .page.explore .card.collapsed {
-    min-height: 23vw;
+    min-height: 92px;
 }
 .page.explore .card-list > .card-title {
     margin-bottom: 1rem;
