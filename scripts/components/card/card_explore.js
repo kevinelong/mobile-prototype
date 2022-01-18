@@ -23,6 +23,47 @@
 //         tags
 //     );
 // }
+
+function exploreCardContent(
+    kind,
+    title,
+    body = "",
+    people = [],
+    actions = "",
+    image = "",
+    tags = [],
+    id = 0,
+    showSuffix = false,
+    verb = "",
+    group = ""
+) {
+    return div(
+        `card ${kind}`,
+        img("background top", "images/backgrounds/top-gradient-black.svg") +
+        cardSection(
+            contentPanel(body)
+        ) +
+        (tags || people || actions
+            ? cardSection(
+                cardTags(tags) +
+                (people || actions
+                    ? cardQuadrant(
+                        cardPeople(people, showSuffix, verb, group) +
+                        cardActions(`card-actions`, actions)
+                    )
+                    : "")
+            )
+            : "")
+        +
+        img(
+            "background bottom",
+            "images/backgrounds/bottom-gradient-black.svg"
+        )
+        ,
+        image ? `style="background-image: url('${image}');"` : ""
+    ) + cardTitle(title);
+}
+
 function exploreCard(
     imagePath = "images/photos/cannon-beach.jpg",
     title = "",
@@ -36,14 +77,19 @@ function exploreCard(
     verb = "",
     group = ""
 ) {
-    return card(
+    return exploreCardContent(
         "explore collapsed",
         div(
             "titles explore",
             row(
-                icon("explore") + col(cardTitle(title) + cardSubtitle(subtitle))
+                 col(cardTitle(title) + cardSubtitle(subtitle))
             )
-        ) + actionItem("open", "explore_detail", id),
+        ) ,
+        row(icon("explore") +
+        cardTitle(title) +
+            actionItem("open", "explore_detail", id)
+        ) +
+        cardSubtitle(subtitle) +
         text(content),
         people,
         actions,

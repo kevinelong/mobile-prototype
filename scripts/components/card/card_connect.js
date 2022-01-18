@@ -7,14 +7,18 @@ function connectCard(
     which = "",
     showSuffix = false
 ) {
+    const kind = (people.length > 1 ? "group-chat" : "1-on-1");
+
     return card(
-        "connect"+ (people.length > 0 ? " group-chat" : ""),
+        "connect" + " " + kind,
         div(
             "titles",
             row(icon("people") + col(cardTitle(title) + cardSubtitle(subtitle)))
         ) + actionItem("open", which, id),
         row(actionItem("add") + cardPeople(people, showSuffix)) +
             messagePanel(messageList, "white")
+        , [], [], "",[],0,false,"","",
+        ` data-kind="${kind}" `
     );
 }
 

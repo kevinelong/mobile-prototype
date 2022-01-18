@@ -64,7 +64,8 @@ function card(
     id = 0,
     showSuffix = false,
     verb = "",
-    group = ""
+    group = "",
+    attrs = ""
 ) {
     return div(
         `card ${kind}`,
@@ -88,7 +89,7 @@ function card(
             "background bottom",
             "images/backgrounds/bottom-gradient-black.svg"
         ),
-        image ? `style="background-image: url('${image}');"` : ""
+        attrs + ` data-kind="${kind}" ` + (image ? `style="background-image: url('${image}');"` : "")
     );
 }
 

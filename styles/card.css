@@ -20,9 +20,9 @@
     border-radius: 13px;
     background-color: #FFF3;
     color: #FFFFFF;
-    padding: 0.5em 0.75em;
+    padding: 0.25em;
     margin-right: 0.5em;
-    width: 99%;
+    width: 100%;
     margin-bottom: 0.5em;
     user-select: none;
     /*background-image: url("https://farm3.static.flickr.com/2098/2260149771_00cb406fd6_o.jpg");*/
@@ -30,7 +30,7 @@
     background-size: cover;
     background-position: 50% 50%;
     /*background-blend-mode: darken;*/
-    text-shadow: 0 0 1px black;
+    text-shadow: 1px 1px 0px black;
     /*display: flex;*/
     flex-direction: column;
     align-content: space-between;
@@ -41,8 +41,9 @@
 }
 
 .card-tags {
-    flex-direction: row;
-    align-self: flex-start;
+    display: block;
+    /*flex-direction: row;*/
+    /*align-self: flex-start;*/
     margin: 0.5rem 0;
 }
 
@@ -53,7 +54,8 @@
     display: none;
 }
 
-.page.explore .card.collapsed .action-list .icon {
+/*.page.explore .card.collapsed .action-list .icon {*/
+.page.explore .card .action-list .icon {
     width: 12px;
     height: 12px;
     transition: width 300ms ease-in-out,
@@ -69,14 +71,46 @@
 }
 
 .page.explore .card.collapsed {
-    min-height: 0;
+    min-height: 23vw;
+}
+.page.explore .card-list > .card-title {
+    margin-bottom: 1rem;
+    flex-direction: column;
+}
+.page .card-list > .card-title{
+    display:none;
+}
+.page.explore .card-list > .card-title{
+    display:flex;
+}
+.page.explore .card-list > .card-title .card-title{
+    font-weight: bolder;
+    font-size: 11px;
+}
+.card.explore .content-panel {
+    background-color: #0008;
+}
+.page.explore .card.explore .icon {
+    position: static;
+    /*width: 12px;*/
+    /*height: 12px;*/
+    margin: 0;
+}
+
+.page.explore .card.explore .card-title{
+    font-size: 15px
+}
+.page.explore .card.explore .row {
+    justify-content: space-between;
+}
+.page.explore .card.explore .content-panel .action-item{
+    padding: 1px;
 }
 
 .page.dream .card {
     min-height: 60px;
     /*background-size: 72%;*/
     box-shadow: 2px 2px 4px 1px #00000088;
-
 }
 
 .page.dream .card {
@@ -89,7 +123,7 @@
 }
 
 .page.explore .card {
-    min-height: 406px;
+    min-height: 293px;
     transition: opacity 300ms ease-in-out,
     min-height 300ms ease-in-out;
 }
@@ -182,18 +216,35 @@
 .card.connect {
     background-color: #F9A831;
 }
-
+.page.explore .row > *{
+    align-self: auto;
+}
+.page.explore > .content-panel > .row {
+    width:100%;
+    gap: 8px;
+    padding: 8px;
+}
+.page.explore .card-list {
+    padding:0;
+    margin:0;
+    /*align-self: center;*/
+    /*align-items: center;*/
+    /*align-content: center;*/
+    /*alignment: center;*/
+    width: 50%;
+}
 .page.explore .card.explore{
     background-color: #ff6666;
     box-shadow: 2px 2px 4px 1px #00000088;
-    width:90%;
+    width:100%;
+    margin: 0 4px 4px 0;
 }
-.page.explore .card.explore:nth-child(odd) {
-    align-self: flex-start;
-}
-.page.explore .card.explore:nth-child(even) {
-    align-self: flex-end;
-}
+/*.page.explore .card.explore:nth-child(odd) {*/
+/*    align-self: flex-start;*/
+/*}*/
+/*.page.explore .card.explore:nth-child(even) {*/
+/*    align-self: flex-end;*/
+/*}*/
 
 .card {
     /* prevents the exported black frames from figma from showing. */

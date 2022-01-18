@@ -1,15 +1,15 @@
-function choice(text, selected = false, badgeText = "") {
+function choice(id, text, selected = false, badgeText = "") {
     return div(
         `choice ${selected ? "selected" : ""}`,
         text + badgeText,
-        `onclick='select(this)'`
+        `onclick='select(this)' data-choice='${text}'`
     );
 }
 
 function choiceSet(id, choiceList = [], selectedItem = "") {
     return div(
         "choice-set",
-        [...choiceList].map((c) => choice(c, c == selectedItem)).join(""),
+        [...choiceList].map((c) => choice(id, c, c == selectedItem)).join(""),
         `id="${id}" class='secondary-nav'`
     );
 }

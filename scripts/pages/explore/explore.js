@@ -42,19 +42,28 @@ const EXPLORE_CANNON_BEACH = exploreCard(...EXPLORE_DATA[0]);
 const EXPLORE_HANNA_LEVIN = exploreCard(...EXPLORE_DATA[1]);
 
 const EXPLORE_LOQUITA = exploreCard(...EXPLORE_DATA[2]);
-
+const EXPLORE_CARDS = [
+        EXPLORE_LOQUITA,
+        EXPLORE_HANNA_LEVIN,
+        EXPLORE_CANNON_BEACH,
+];
 function explorePage(selected = false) {
+    let columns = [[],[]];
+    EXPLORE_CARDS.forEach((c,i)=>{
+        columns[i%columns.length].push(c)
+    });
+    let lists = [];
+    columns.forEach(c=>lists.push(cardList(c.join(""))));
+
     return page(
         selected,
         "explore",
         "Explore",
         ["All", "Personal", "Matches", "Deals"],
         "All",
-        cardList([
-            EXPLORE_LOQUITA,
-            EXPLORE_HANNA_LEVIN,
-            EXPLORE_CANNON_BEACH,
-        ].join("")),
+        row(
+            lists.join("")
+        ),
         "ALL"
     );
     // return page(

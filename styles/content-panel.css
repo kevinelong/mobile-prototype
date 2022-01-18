@@ -27,7 +27,7 @@
 }
 
 .card .content-panel {
-    margin: 0.25rem;
+    /*margin: 0.25rem;*/
     color: white;
     background-color: #00000033;
     border-radius: 0.5rem;
