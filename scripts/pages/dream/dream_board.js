@@ -43,7 +43,12 @@ function dreamBoardPage(selected = false) {
         selected,
         "dream_board",
         "Santa Barbara",
-        ["All", "things to do", "restaurants", "lodging", "transport"],
+        [
+            "All",
+            "Ideas",
+            "Favorites",
+            "Going",
+        ],
         "All",
         activityList(boardData.activities),
         "ALL NETWORK",

@@ -15,7 +15,7 @@ function dreamPage(selected = false) {
         selected,
         "dream",
         "Dream",
-        ["All", "Personal", "Linked", "Groups", "Network"],
+        [],
         "All",
         cardList([
             dreamCard("Santa Barbara", "California", [], "dream_board", 1,
