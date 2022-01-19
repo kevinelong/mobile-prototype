@@ -4,7 +4,7 @@ function messageText(c) {
 
 function messageItem(mi, iconColor) {
     let className = ""
-    if (mi[1] == "Kevin Long") {
+    if (mi[1] === "Kevin Long") {
         className = "message-item-sender"
     } else {
         className = "message-item"
@@ -18,11 +18,27 @@ function messageItem(mi, iconColor) {
 }
 
 function messagePanel(messageList = [["", ""]], iconColor = "black") {
-    return div(
-        "message-panel",
-        [...messageList].map((mi) => messageItem(mi, iconColor)).join("") +
-            inputMessage()
-    );
+    MessageSentClass = "message-panel-sent";
+    MessageReceivedClass = "message-panel-received";
+    const MessageListSent = [];
+    const MessageListReceived = [];
+    for (let i = 0; i < messageList.length; i++) {
+        if (messageList[i][1] == "Kevin Long") {
+            MessageListSent.push(messageList[i]);
+        } else {
+            MessageListReceived.push(messageList[i]);
+        }
+    }
+    // return div(
+    //     "message-panel",
+    //     [...messageList].map((mi) => messageItem(mi, iconColor)).join("") +
+    //         inputMessage()
+    // );
+     return div(
+         MessageSentClass,
+         MessageListSent.map((mi) => messageItem(mi, iconColor)).join("") +
+             inputMessage()
+     );
 }
 
 function addMessage() {

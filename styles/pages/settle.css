@@ -17,9 +17,14 @@
 }
 
 .money-item,
-.message-item {
+.message-item,
+.message-item-sender {
     flex-direction: row;
     gap: 0.25em;
+}
+
+.message-item-sender {
+    flex-direction: row-reverse;
 }
 
 .money-item .circle,
