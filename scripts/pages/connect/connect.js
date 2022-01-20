@@ -15,12 +15,7 @@ function connectPage(selected = false) {
                     "connect_chat"
                 ),
                 connectCard(
-                    [
-                        ["I'm thinking about brunch on Sunday.", peopleList[0]],
-                        ["Are you ready for mimosas?", peopleList[0]],
-                        ["Oh, so ready...", peopleList[1]],
-                        ["Waffle bar is where I'm at!", peopleList[2]],
-                    ],
+                    messageListExample,
                     "Group Chat",
                     "Joe Shmoe, Betty Ford, Ruby Red",
                     "",

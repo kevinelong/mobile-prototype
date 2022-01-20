@@ -42,7 +42,7 @@
     text-shadow: none;
 }
 
-.message-item-sender .message-text {
+.message-item.is-current-user .message-text {
     background: #F0DCFF;
     margin-left: 0px;
     margin-right: 15px;

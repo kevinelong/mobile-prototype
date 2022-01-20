@@ -45,16 +45,54 @@ const peopleList = [
     {
         id: 1,
         name: "Ruby Red",
+        isCurrentUser: true,
     },
     {
         id: 2,
         name: "Joe Shmoe",
+        isCurrentUser: false,
     },
     {
         id: 3,
         name: "Betty Ford",
+        isCurrentUser: false,
     },
-]
+];
+
+let messageListExample = [
+    {
+        text: "Are you ready for mimosas?",
+        person: peopleList[JOE],
+    },
+    {
+        text: "Oh, so ready...",
+        person: peopleList[RUBY],
+    },
+    {
+        text: "Waffle bar is where I'm at!",
+        person: peopleList[BF],
+    },
+    {
+        text: "Where is the waffle bar again?",
+        person: peopleList[RUBY],
+    },
+    {
+        text: "Don't worry about it, I'm driving this time",
+        person: peopleList[RUBY],
+    },
+    {
+        text: "Now is the time for all good people to come to the aid of their planet",
+        person: peopleList[BF],
+    },
+    {
+        text: "I started without you",
+        person: peopleList[BF],
+    },
+    {
+        text: "I was gonna say...",
+        person: peopleList[RUBY],
+    },
+];
 
 function iconPath(name, color = "") {
     return [PREFIX_ICONS, name, color ? "-" + color : "", SUFFIX_ICONS]

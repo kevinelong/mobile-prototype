@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     background: #00000066;
-    gap: 0.25em;
+    gap: 10px;
     border-radius: 1em;
 }
 
@@ -17,14 +17,17 @@
 }
 
 .money-item,
-.message-item,
-.message-item-sender {
+.message-item {
     flex-direction: row;
-    gap: 0.25em;
 }
 
-.message-item-sender {
+.message-item.is-current-user {
     flex-direction: row-reverse;
+    gap: 5em;
+}
+
+.message-item.same-person {
+    margin-top: -8px;
 }
 
 .money-item .circle,
