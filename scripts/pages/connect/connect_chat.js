@@ -5,14 +5,7 @@ function connectChatPage(selected = false) {
         "Sunday Brunch",
         [],
         "",
-        messagePanel(
-            [
-                ["Are you ready for mimosas?", "Kevin Long"],
-                ["Oh, so ready...", "Greg Bellowe"],
-                ["Waffle bar is where I'm at!", "Nina Marie"],
-            ],
-            "black"
-        ),
+        messagePanel(messageListExample),
         "",
         "connect",
         [],

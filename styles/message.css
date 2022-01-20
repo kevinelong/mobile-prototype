@@ -27,14 +27,27 @@
 
 }
 
-.message-item .message-text {
+.message-item .message-text,
+.message-item-sender .message-text {
     flex-direction: column;
     font-size: 11px;
     gap: 0.25em;
-    background: white;
-    padding: 0.25em;
-    border-radius: 0 1em 1em 1em;
+    /* background: white; */
+    background: #CAF2FF;
+    margin: 0 125px 0 15px;
+    padding: 0.5em;
+    border-radius: .5em .5em .5em 0;
     color: #000000CC;
     box-shadow: none;
     text-shadow: none;
+}
+
+.message-item.is-current-user .message-text {
+    background: #F0DCFF;
+    margin: 0 15px 0 125px;
+    border-radius: .5em .5em 0 .5em;
+}
+
+.page.connect_chat .person.connect_person {
+    display: none;
 }
