@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Vita Explorer</title>
+    <!--    <link href="styles/style.css" rel="stylesheet" type="text/css"/>-->
+    <script>
+        `
+action
+card
+choice
+circle
+content-panel
+detail
+dialog
+hash-tag
+icon
+label
+main-nav
+message
+page
+person
+simple-list
+title
+toast
+cards card-connect
+pages connect
+pages settle
+
+main
+component
+`.split("\n").map(p => p ? document.write(`<li` + `nk href="styles/` +
+            p.split(" ").join("/") + ".css" +
+            `"  rel="stylesheet" type="text/css"/>`) : '');
+
+    </script>
+</head>
+
+<script>
+    `
+utils
+html
+
+components components
+
+components action action
+
+components card card
+components card card_person
+components card card_explore
+components card card_connect
+components card card_settle
+components card card_plan
+components card card_dream
+
+components card card_people
+
+components choice choice
+components dialog dialog
+components hash_tag hash_tag
+components list list
+components main_nav
+components message message
+components money money
+components page
+components search search
+components toast toast
+
+pages connect connect
+pages connect connect_chat
+pages connect connect_person
+
+pages plan plan
+pages plan plan_detail
+
+pages settle settle
+pages settle settle_split
+pages settle settle_list
+
+pages explore explore_detail
+pages explore explore
+
+pages dream dream
+pages dream dream_board
+pages dream dream_details
+
+route
+`.split("\n").map(p => p ? document.write(`<scr` + `ipt src="scripts/` +
+        p.split(" ").join("/") + ".js" +
+        `"></scr` + `ipt>`) : '');
+</script>
+<style>
+    .temp .title {
+        color: red;
+    }
+</style>
+<body>
+<div class="page temp">
+
+    <div class="content">
+        <div class="outer-box">
+            <div class="inner-content">
+                <div class="page">
+
+                    styles on body css would be applied here.
+                    Arial is Sans-Serif vs Times (Newspaper)
+
+                    <div class="message-panel">
+                        <div class="message-item">
+                            <div class="message-text">
+                                Hello?
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="hidden toast"></div>
+            <div class="hidden smoke">
+                <div class="hidden dialog">undefined</div>
+            </div>
+        </div>
+    </div>
+
+    <a href="main.html">The real deal...</a>
+
+    <script>
+        document.write(
+            title("Me too!")
+        )
+    </script>
+</div>
+</body>
+</html>
