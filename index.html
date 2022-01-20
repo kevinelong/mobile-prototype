@@ -1,94 +1,37 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Vita Explorer</title>
-<!--    <link href="styles/style.css" rel="stylesheet" type="text/css"/>-->
-    <script>
-`
-action
-card
-choice
-circle
-content-panel
-detail
-dialog
-hash-tag
-icon
-label
-main-nav
-message
-page
-person
-simple-list
-title
-toast
-cards card-connect
-pages connect
-pages settle
 
-main
-component
-`.split("\n").map(p => p ? document.write(`<li` + `nk href="styles/` +
-            p.split(" ").join("/") + ".css" +
-            `"  rel="stylesheet" type="text/css"/>`) : '');
+<body>
 
-    </script>
-</head>
-<body></body>
+<div style="font-family:sans-serif;height:100vh;display:flex;align-items:center;justify-content:center;">
+    <form name="login" onsubmit="return handleSubmit()">
+        <label>User Name:<br><input name="username"></label><br>
+        <label>Password:<br><input name="password" type="password"></label><br>
+        <input type="submit" value="LOGIN">
+    </form>
+</div>
 <script>
-    `
-utils
-html
 
-components components
+    async function sha256(source) {
+        const sourceBytes = new TextEncoder().encode(source);
+        const digest = await crypto.subtle.digest("SHA-256", sourceBytes);
+        const resultBytes = [...new Uint8Array(digest)];
+        return resultBytes.map(x => x.toString(16).padStart(2, '0')).join("");
+    }
 
-components action action
+    async function main(text) {
+        const result = await sha256(text+"_v");
+        console.log(result);
+        if (result == "cef8213b097acde521a6b9b8ea03205305b8b6b1ea5b66d4383c4a855f366fec") {
+            self.location = "main.html";
+        }
+    }
 
-components card card
-components card card_person
-components card card_explore
-components card card_connect
-components card card_settle
-components card card_plan
-components card card_dream
+    function handleSubmit() {
+        main(login.password.value)
+        return false;
+    }
 
-components card card_people
-
-components choice choice
-components dialog dialog
-components hash_tag hash_tag
-components list list
-components main_nav
-components message message
-components money money
-components page
-components search search
-components toast toast
-
-pages connect connect
-pages connect connect_chat
-pages connect connect_person
-
-pages plan plan
-pages plan plan_detail
-
-pages settle settle
-pages settle settle_split
-pages settle settle_list
-
-pages explore explore_detail
-pages explore explore
-
-pages dream dream
-pages dream dream_board
-pages dream dream_details
-
-route
-main
-`.split("\n").map(p => p ? document.write(`<scr` + `ipt src="scripts/` +
-        p.split(" ").join("/") + ".js" +
-        `"></scr` + `ipt>`) : '');
 </script>
+</body>
 </html>
