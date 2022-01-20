@@ -61,36 +61,32 @@ const peopleList = [
 
 let messageListExample = [
     {
-        text: "Are you ready for mimosas?",
-        person: peopleList[JOE],
-    },
-    {
-        text: "Oh, so ready...",
+        text: "Hey girl welcome!",
         person: peopleList[RUBY],
     },
     {
-        text: "Waffle bar is where I'm at!",
+        text: "Hi! Thanks for the invite",
         person: peopleList[BF],
     },
     {
-        text: "Where is the waffle bar again?",
+        text: "So... I have a long weekend in 2 weeks. Thinkin' of taking that trip to Santa Barbara I have been telling you about.",
         person: peopleList[RUBY],
     },
     {
-        text: "Don't worry about it, I'm driving this time",
+        text: "What do you think? Wanna join me?",
         person: peopleList[RUBY],
     },
     {
-        text: "Now is the time for all good people to come to the aid of their planet",
+        text: "I don't have a long weekend :(",
         person: peopleList[BF],
     },
     {
-        text: "I started without you",
+        text: "BUT I can join you on Saturday and Sunday",
         person: peopleList[BF],
     },
     {
-        text: "I was gonna say...",
-        person: peopleList[RUBY],
+        text: "??",
+        person: peopleList[BF],
     },
 ];
 
