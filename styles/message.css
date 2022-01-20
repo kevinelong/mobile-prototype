@@ -24,7 +24,6 @@
     display 1300ms ease-in-out,
     max-height 1300ms ease-in-out,
     max-width 1300ms ease-in-out;
-
 }
 
 .message-item .message-text,
@@ -34,18 +33,21 @@
     gap: 0.25em;
     /* background: white; */
     background: #CAF2FF;
-    margin: 0 125px 0 15px;
-    padding: 0.5em;
-    border-radius: .5em .5em .5em 0;
+    border: 1px solid #BAE2EF;
+    margin: 0 30px 0 15px;
+    padding: .75em;
+    border-radius: .75em .75em .75em 0;
     color: #000000CC;
     box-shadow: none;
     text-shadow: none;
+    text-align: justify;
 }
 
 .message-item.is-current-user .message-text {
     background: #F0DCFF;
-    margin: 0 15px 0 125px;
-    border-radius: .5em .5em 0 .5em;
+    border: 1px solid #E0CCEF;
+    margin: 0 15px 0 30px;
+    border-radius: .75em .75em 0 .75em;
 }
 
 .page.connect_chat .person.connect_person {
