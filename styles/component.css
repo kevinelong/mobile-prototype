@@ -4,7 +4,7 @@ a {
 
 input[type=text] {
     padding: 0.25rem;
-    margin: 0.25rem;
+    margin: 0;
 }
 
 .col {

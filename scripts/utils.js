@@ -12,53 +12,13 @@ function toName(name) {
         .replace(/[^a-zA-Z0-9À-ž\s]/g, "-")
         .replace(" ", "_");
 }
-function cleanName(n){
-    return n.trim().toUpperCase().replace(/\s/g, "-");
-}
-function applyFilter(e) {
-    if (!e) {
-        return;
-    }
-    const cp = e.closest(".page");
-    if (!cp) {
-        return;
-    }
-    const cards = cp.querySelectorAll(".card");
-    const text = e.innerHTML.toUpperCase();
-    console.log(text);
-    // debugger;
-    cards.forEach((c, i) => {
-
-        if ("ALL" == text) {
-            return showElement(c);
-        }
-
-        if (!e.dataset.choice || !c.dataset.kind) {
-            return hideElement(c);
-        }
-
-        let kind = cleanName(c.dataset.kind);
-        let choiceName = cleanName(e.dataset.choice);
-        const content = cleanName(c.outerHTML);
-        console.log(content);
-
-        if (choiceName == kind) {
-            return showElement(c);
-        }
-
-        if ("NOTIFICATIONS" == choiceName && !["1-ON-1", "GROUP-CHAT"].includes(kind)) {
-            return showElement(c);
-        }
-        hideElement(c);
-    });
-}
 
 function select(e, id) {
     [...e.parentElement.children].forEach((s) =>
         s.classList.remove("selected")
     );
     e.classList.add("selected");
-    applyFilter(e, id);
+    applyConnectPageFilter(e, id);
 }
 
 function showElement(e) {
@@ -107,6 +67,9 @@ function hide(selector) {
     e.classList.add("hidden");
 }
 
+function applyFilter(){
+
+}
 function selectPage(e) {
     select(e);
     const name = toName(e.id);
@@ -142,4 +105,75 @@ function fire(eventTypeName, elem = document.body) {
 
 function listen(eventTypeName, handler, elem = document.body) {
     elem.addEventListener(eventTypeName, handler);
+}
+
+function cleanName(n){
+    return n.trim().toUpperCase().replace(/\s/g, "-");
+}
+
+function applyConnectPageFilter(e) {
+
+    if (!e) {
+        return;
+    }
+
+    const cp = e.closest(".page");
+    if (!cp) {
+        return;
+    }
+
+    const cards = cp.querySelectorAll(".card");
+    const text = e.innerHTML.toUpperCase();
+    console.log(text);
+
+    cards.forEach((c, i) => {
+
+        if ("ALL" == text) {
+            return showElement(c);
+        }
+
+        if (!e.dataset.choice || !c.dataset.kind) {
+            return hideElement(c);
+        }
+
+        let kind = cleanName(c.dataset.kind);
+        let choiceName = cleanName(e.dataset.choice);
+        const content = cleanName(c.outerHTML);
+        console.log(content);
+
+        if (choiceName == kind) {
+            return showElement(c);
+        }
+
+        if ("NOTIFICATIONS" == choiceName && !["1-ON-1", "GROUP-CHAT"].includes(kind)) {
+            return showElement(c);
+        }
+        hideElement(c);
+    });
+}
+
+function applyFilterText(parentElement, childClass, searchText) {
+
+    if (!parentElement) {
+        return;
+    }
+
+    const children = parentElement.querySelectorAll(childClass);
+
+    children.forEach((c, i) => {
+
+        if ("" == searchText) {
+            return showElement(c);
+        }
+
+        let cleanText = cleanName(searchText);
+        const content = cleanName(c.outerHTML);
+
+        if (content.indexOf(cleanText) === -1) {
+            showElement(c);
+        }else{
+            hideElement(c);
+        }
+
+    });
 }

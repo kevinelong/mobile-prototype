@@ -44,9 +44,12 @@ ACTION_PAGES = {
     search: showSearch,
     more: showSearch,
     hide: hideDialog,
-    collapse: collapseCard
+    collapse: collapseCard,
+    right: toggleCollapse
 }
-
+function toggleCollapse(target, action, which, id){
+    target.closest(".card-list").classList.toggle("collapse");
+}
 function route(target, action, which = "", id = "") {
     if (TOAST_MESSAGES.hasOwnProperty(action)) {
         return showToast(TOAST_MESSAGES[action]);

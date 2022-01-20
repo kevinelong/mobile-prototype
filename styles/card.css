@@ -8,7 +8,8 @@
     flex-direction: column;
     justify-content: start;
     align-items: flex-start;
-    padding: 0.5em 0.25em 64px 0.25em;
+    padding: 0;
+    gap: 8px;
 }
 
 .card-people {
@@ -20,10 +21,11 @@
     border-radius: 13px;
     background-color: #FFF3;
     color: #FFFFFF;
-    padding: 0.25em;
-    margin-right: 0.5em;
-    width: 100%;
-    margin-bottom: 0.5em;
+    padding: 15px;
+    margin: 0;
+    /*width: auto;*/
+    width: calc(100% - 16px);
+    align-self: center;
     user-select: none;
     /*background-image: url("https://farm3.static.flickr.com/2098/2260149771_00cb406fd6_o.jpg");*/
     background-repeat: no-repeat;
@@ -126,6 +128,7 @@
     min-height: 293px;
     transition: opacity 300ms ease-in-out,
     min-height 300ms ease-in-out;
+    padding: 8px;
 }
 
 .page.dream .card {
@@ -262,4 +265,40 @@
 
 .card.settle {
     background-color: #6633EE;
+}
+
+.card-list .card {
+    transition: opacity 300ms ease-in-out,
+    padding 300ms ease-in-out,
+    max-height 300ms ease-in-out,
+    max-height 300ms ease-in-out,
+    min-height 300ms ease-in-out,
+    minwidth 300ms ease-in-out;
+}
+.card-list.collapse .card {
+    opacity: 0;
+    min-height: 0;
+    max-height: 0;
+    padding: 0;
+    transition: opacity 300ms ease-in-out,
+    padding 300ms ease-in-out,
+    max-height 300ms ease-in-out,
+    max-height 300ms ease-in-out,
+    min-height 300ms ease-in-out,
+    minwidth 300ms ease-in-out;
+
+}
+.card-list{
+    margin-top: 8px;
+}
+.card-list.collapse .card > * {
+    display: none;
+}
+.card-list .title .icon {
+    transform: rotate(90deg);
+    transition: transform 300ms ease-in-out;
+}
+.card-list.collapse .title .icon {
+    transform: rotate(0deg);
+    transition: transform 300ms ease-in-out;
 }

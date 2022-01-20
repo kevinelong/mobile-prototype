@@ -127,3 +127,14 @@
     margin-top: -40px;
 }
 
+.outer-box > .circle{
+    width: 42px;
+    height: 42px;
+
+    /*box-shadow: 0 0 2px 2px black;*/
+    box-shadow: 0 0 5px #000c;
+    position: absolute;
+    bottom: 32px;
+    left: calc(50% - 21px);
+    border-radius: 50%;
+}

@@ -86,6 +86,9 @@
 .action-list {
     background: none;
 }
+.title > .action-item{
+    background: white;
+}
 .action-list .action-item {
     background: #00000066;
     border: none;

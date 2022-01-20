@@ -16,6 +16,16 @@
     align-items: center;
 }
 
+.page.plan_detail > .content-panel{
+    gap: 0;
+    background: #ccc;
+}
+
+.card-list .title{
+    border-top: 1px solid #888888;
+    /*border-bottom: 1px solid #888888;*/
+}
+
 .detail .content-panel {
     margin: 0;
     color: #333333;
@@ -46,7 +56,9 @@
 
 .content-panel .title {
     background: none;
-    padding: 0.5em .5em 0.25em
+    padding: 0.5em;
+    background: #00000008;
+    box-shadow: 0 0 1px black;
 }
 
 .content-panel .subtitle {

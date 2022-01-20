@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.innerHTML = content(
         outerBox(
             innerContent() +
+                circle("") +
                 mainNavOuter() +
                 hiddenToast("") +
                 hiddenSmoke(hiddenDialog())
