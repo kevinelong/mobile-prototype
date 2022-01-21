@@ -4,7 +4,7 @@ function cardPerson(person, index = 0, limit = 3) {
     }
     return div(
         "person-icon",
-        circle(personItem("person", "connect", person.id, person))
+        circle(personItem("person", "connect", index, person))
     );
 }
 
@@ -17,9 +17,9 @@ function cardPeople(peopleList, showSuffix = false, verb = "", group = "", limit
         col(
             (verb.length ? text(`${verb.toUpperCase()} BY`) : "") +
             row(
-                [...peopleList].map((p, i) => cardPerson(p, i, limit)).join("") +
+                [...peopleList].map((p, i) => cardPerson(p, p.id - 1, limit)).join("") +
                 (showSuffix ? circle(text(
-                    `&nbsp;${peopleList.length} ${group ? group + (peopleList.length > 0 ? "s" : "") :""}&nbsp;`
+                    `&nbsp;${peopleList.length} ${group ? group + (peopleList.length > 1 ? "s" : "") :""}&nbsp;`
                 )) : "")
             )
         )

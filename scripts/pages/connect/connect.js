@@ -51,7 +51,7 @@ function connectPage(selected = false) {
                     "Tuesday March 3rd 2022 at Noon.<br>" +
                     "Plan Invitation",
                     [peopleList[0]],
-                    ["decline", "accept"],
+                    ["decline", "counter", "accept"],
                     "plan_invite"
                 ),
                 settleCard(
@@ -83,7 +83,7 @@ function connectPage(selected = false) {
                     "Brasil Arts Cafe",
                     "Check in and rate to earn Vita Rewards",
                     [],
-                    [],
+                    ["check-in", "rate"],
                     "plan"
                 ),
                 planCard(
@@ -91,12 +91,12 @@ function connectPage(selected = false) {
                     "Yesterday's Transportation",
                     "Verify to earn Vita Rewards",
                     [],
-                    [],
+                    ["verify"],
                     "plan"
                 ),
         ].join("")),
         "",
         "",
-        actionItem("add")
+        actionItem("add", "message", -1, "", "black", false)
     );
 }

@@ -14,12 +14,12 @@ function circle(textValue) {
     return div("circle", textValue);
 }
 
-function contentPanel(content) {
-    return content ? div("content-panel", content) : "";
+function contentPanel(content, className="") {
+    return content ? div(`content-panel ${className}`, content) : "";
 }
 
-function row(content) {
-    return div("row", content);
+function row(content, attrs="") {
+    return div("row", content, attrs);
 }
 
 function col(content) {
@@ -116,7 +116,6 @@ const ICON_MAP = {
     "settle_list-black": "settle-black",
     "connect_chat-black": "connect-black",
     "plan_detail-black": "plan-black",
-    decline: "plan",
     accept: "plan",
 };
 
@@ -145,12 +144,17 @@ function personIcon(person) {
     );
 }
 
-function person(iconName, textName = "") {
+function person(person) {
+    if (!person){
+        console.log("person function requires a person object");
+        // debugger;
+        return "";
+    }
     return personItem(
-        "person",
+        person.name,
         "connect_person",
-        "",
-        textName ? textName : iconName
+        person.id,
+        person
     );
 }
 

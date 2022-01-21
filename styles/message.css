@@ -1,3 +1,6 @@
+
+
+.action-item.person .text,
 .message-item .text,
 .person-icon .text {
     display: none;
@@ -12,7 +15,7 @@
     height 300ms ease-in-out,
     width 300ms ease-in-out;
 }
-
+.action-item.person:hover .text,
 .message-item:hover .text,
 .person-icon:hover .text {
     display: block;
@@ -25,7 +28,19 @@
     max-height 1300ms ease-in-out,
     max-width 1300ms ease-in-out;
 }
-
+.dialog .action-item.person .text,
+.dialog .message-item .text,
+.dialog .person-icon .text
+{
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    max-height: 10em;
+    max-width: 10em;
+}
+.dialog .search .action-item.person .text{
+    display: none;
+}
 .message-item .message-text,
 .message-item-sender .message-text {
     flex-direction: column;

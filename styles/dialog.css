@@ -12,10 +12,41 @@
     color: black;
     max-height: 640px;
     border-radius: 2rem;
-    padding: 1rem;
+    padding: 18px;
     justify-self: center;
     justify-content: center;
     justify-items: center;
+}
+
+.dialog .content-panel > .row{
+    gap: 1rem;
+    margin: auto;
+}
+
+.dialog .content-panel {
+    padding: 0;
+    gap: 1rem;
+}
+
+.dialog .simple-list {
+    padding: 0;
+    margin: 0;
+}
+
+.dialog .title .action-item {
+    padding: 0;
+}
+
+.dialog .action-item{
+    color: white;
+    background-color: #aaaaaa;
+    padding: 0.5rem 0.75rem;
+}
+
+.dialog .title {
+    padding: 0;
+    box-shadow: none;
+    background: none;
 }
 
 .dialog .choice-set {

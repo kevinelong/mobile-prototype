@@ -9,7 +9,7 @@ function initials(name) {
 function moneyItem(rowData, index) {
     return div(
         "money-item",
-        (rowData[1].name ? person("person", rowData[1]) : moneyText(rowData[1])) +
+        person(rowData[1]) +
         moneyText(rowData[2]) +
         moneyText(rowData[3]) +
         a(moneyText(rowData[0]), "javascript:showPage('settle_list')")

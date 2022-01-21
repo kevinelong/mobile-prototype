@@ -21,14 +21,18 @@
     justify-content: center;
 }
 
-.page > .action-item {
-    position: absolute;
-    right: 11px;
-    top: 44px;
+.page.connect .add.message.action-item {
     width: 24px;
     height: 24px;
     border: none;
-    z-index: 300;
+
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    z-index: 999;
+}
+.page.connect .add.message.action-item .icon{
+    /*box-shadow: 0 0 1px black;*/
 }
 
 /*.page > .action-item {*/

@@ -3,7 +3,7 @@ function tag(name, className = "", attrs = "") {
 }
 
 function closedTag(name, content, className = "", attrs = "") {
-    return `<${name} class="${className}" ${attrs}>${content}</${name}>`;
+    return `<${name} class="${className} ${name}" ${attrs}>${content}</${name}>`;
 }
 
 function div(className, content, attrs) {
@@ -19,7 +19,7 @@ function img(className, src = "", attrs="") {
 }
 
 function label(className, content) {
-    return closedTag(`label ${className}`, content);
+    return closedTag(`label`, content, className);
 }
 
 window.onTextInput = (event) => {

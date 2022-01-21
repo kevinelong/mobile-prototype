@@ -39,7 +39,7 @@ function cardTags(tags) {
     return div("card-tags", [...tags].map(hashTagGold).join(""));
 }
 
-function cardActions(id, actionList = [], hideText = true) {
+function cardActions(id, actionList = [], hideText = false) {
     return div(
         "action-list",
         [...actionList].map(

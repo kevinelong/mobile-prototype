@@ -5,7 +5,7 @@ const EXPLORE_DATA = [
         "Cannon Beach, Oregon",
         "This is an iconic photo opportunity",
         ["Landmark", "Recommended"],
-        [peopleList[BF], peopleList[RUBY], peopleList[JOE]],
+        [peopleList[BF]],
         ["share", "favorite", "pin", "collapse"],
         "1",
         true,
@@ -17,7 +17,7 @@ const EXPLORE_DATA = [
         "New Taste Match to Follow!",
         "Hanna Levin has rated over 20 places, including 2 you both love!",
         ["Influencer", "Recommended"],
-        [],
+        [peopleList[BF]],
         ["share", "follow", "collapse"],
         "2",
         true,
@@ -35,15 +35,43 @@ const EXPLORE_DATA = [
         true,
         "Recommended",
         "Local Expert"
+    ], [
+        "images/explore_bg.png",
+        "Loquita",
+        "Santa Barbara",
+        "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
+        ["Spanish", "Tapas", "Seafood",  "Wine", "Cocktails", "Restaurant"],
+        [peopleList[BF], peopleList[RUBY]],
+        ["share", "favorite", "pin", "collapse"],
+        "2",
+        true,
+        "Recommended",
+        "Local Expert"
+    ], [
+        "images/explore_bg.png",
+        "Loquita",
+        "Santa Barbara",
+        "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
+        ["Spanish", "Tapas", "Seafood",  "Wine", "Cocktails", "Restaurant"],
+        [peopleList[BF]],
+        ["share", "favorite", "pin", "collapse"],
+        "2",
+        true,
+        "Recommended",
+        "Local Expert"
     ]
 ];
 
 const EXPLORE_CANNON_BEACH = exploreCard(...EXPLORE_DATA[0]);
 const EXPLORE_HANNA_LEVIN = exploreCard(...EXPLORE_DATA[1]);
+const EXPLORE_LOQUITA3 = exploreCard(...EXPLORE_DATA[2]);
+const EXPLORE_LOQUITA2 = exploreCard(...EXPLORE_DATA[3]);
+const EXPLORE_LOQUITA1 = exploreCard(...EXPLORE_DATA[4]);
 
-const EXPLORE_LOQUITA = exploreCard(...EXPLORE_DATA[2]);
 const EXPLORE_CARDS = [
-        EXPLORE_LOQUITA,
+        EXPLORE_LOQUITA3,
+        EXPLORE_LOQUITA2,
+        EXPLORE_LOQUITA1,
         EXPLORE_HANNA_LEVIN,
         EXPLORE_CANNON_BEACH,
 ];

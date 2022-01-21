@@ -14,14 +14,14 @@ function page(
         title(
             actionItem(parent ? "back" : "menu") +
                 div("title-middle", icon(name + "-black", "", caption)) +
-                actionItem("person", "", "", "", "black")
+                actionItem("person", "me", 0, "", "black")
         ) +
             contentPanel(
                 choiceSet(`${name}-filters`, choiceList, selectedChoice) +
+                    actionContent +
                     search([]) +
                     content
-            ) +
-            actionContent,
+            ),
         `id='page-${name}'`
     );
 }

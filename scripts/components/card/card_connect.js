@@ -15,7 +15,7 @@ function connectCard(
             "titles",
             row(icon("people") + col(cardTitle(title) + cardSubtitle(subtitle)))
         ) + actionItem("open", which, id),
-        row(actionItem("add") + cardPeople(people, showSuffix)) +
+        row(actionItem("add", "person", -1, "", "", false) + cardPeople(people, showSuffix)) +
             messagePanel(messageList.slice(-3) )
         , [], [], "",[],0,false,"","",
         ` data-kind="${kind}" `
