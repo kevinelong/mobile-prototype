@@ -97,6 +97,6 @@ function connectPage(selected = false) {
         ].join("")),
         "",
         "",
-        actionItem("add")
+        actionItem("add", "person", -1, "", "black", false)
     );
 }

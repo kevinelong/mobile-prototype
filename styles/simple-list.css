@@ -56,9 +56,9 @@
 
 .simple-list {
     display: flex;
-    align-items: flex-start;
+    align-items: stretch;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     color: #333333;
     gap: 1px;
     padding: 1px;
@@ -71,7 +71,7 @@
     flex-direction: row;
     justify-content: space-between;
     background: #FFFFFFcc;
-    padding-left: 0.5rem;
+    /*padding-left: 0.5rem;*/
     width: 100%;
-    border-radius: 0.25rem;
+    /*border-radius: 0.25rem;*/
 }

@@ -1,9 +1,5 @@
 function showSearchDialog() {
-    showDialog("Search", search([
-        ["Ruby Red", "Ruby", "Red", ""],
-        ["Betty Ford", "Betty", "Ford", ""],
-        ["Joe Schmoe", "Joe", "Schmoe", ""],
-    ]));
+    showDialog("Search", search(peopleList));
 }
 
 function showProfileDialog(target, action, which, index= RUBY) {
@@ -15,7 +11,7 @@ function showProfileDialog(target, action, which, index= RUBY) {
                 "friend",
                 "follow",
             ].map((actionName)=>actionItem(actionName, index, index, actionName,"white",false)).join(""))
-        )
+        ,"profile")
     );
 }
 
@@ -53,6 +49,9 @@ TOAST_MESSAGES = {
     venmo: "Payment Settled",
 }
 function addItem(target, action, which, id){
+    if("person" == which){
+        showSearchDialog();
+    }
     console.log("add",...arguments);
 }
 ACTION_PAGES = {

@@ -32,23 +32,20 @@ function simpleList(
 }
 
 function rowPerson(data, actionName = "right") {
-    debugger;
-    console.log("rowPerson(...)",data,actionName)
+    // debugger;
+    // console.log("rowPerson(...)",data,actionName)
     return div(
         "simple-item",
-        person(data) +
-        div(
-            "title-block",
-            title(data.name)
-        ) +
-        // actionItem(actionName),
-        action(actionName, data.name, data.id, data)
+            person(data) +
+            title(data.name) +
+            icon(actionName),
+            action(actionName, data.name, data.id)
     );
 }
 
 function listPeople(
     titleText,
-    itemData = [["", ""]],
+    itemData,
     subtitleText = "",
     actionName = "right"
 ) {

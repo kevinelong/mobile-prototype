@@ -14,12 +14,12 @@ function circle(textValue) {
     return div("circle", textValue);
 }
 
-function contentPanel(content) {
-    return content ? div("content-panel", content) : "";
+function contentPanel(content, className="") {
+    return content ? div(`content-panel ${className}`, content) : "";
 }
 
-function row(content) {
-    return div("row", content);
+function row(content, attrs="") {
+    return div("row", content, attrs);
 }
 
 function col(content) {

@@ -32,11 +32,14 @@
 .dialog .message-item .text,
 .dialog .person-icon .text
 {
-    display:block;
+    display: block;
     opacity: 1;
     visibility: visible;
     max-height: 10em;
     max-width: 10em;
+}
+.dialog .search .action-item.person .text{
+    display: none;
 }
 .message-item .message-text,
 .message-item-sender .message-text {
