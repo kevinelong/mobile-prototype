@@ -1,5 +1,5 @@
 function showSearchDialog() {
-    showDialog("Connections", search(peopleList));
+    showDialog("Add Person", search(peopleList));
 }
 
 function showProfileDialog(target, action, which, index= RUBY) {

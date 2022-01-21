@@ -51,7 +51,7 @@ function connectPage(selected = false) {
                     "Tuesday March 3rd 2022 at Noon.<br>" +
                     "Plan Invitation",
                     [peopleList[0]],
-                    ["decline", "accept"],
+                    ["decline", "counter", "accept"],
                     "plan_invite"
                 ),
                 settleCard(
