@@ -17,7 +17,7 @@ const EXPLORE_DATA = [
         "New Taste Match to Follow!",
         "Hanna Levin has rated over 20 places, including 2 you both love!",
         ["Influencer", "Recommended"],
-        [peopleList[JOE],peopleList[BF]],
+        [peopleList[BF]],
         ["share", "follow", "collapse"],
         "2",
         true,
