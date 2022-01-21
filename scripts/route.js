@@ -14,7 +14,7 @@ function showProfileDialog(target, action, which, index= RUBY) {
                 "block",
                 "friend",
                 "follow",
-            ].map(actionItem).join(""))
+            ].map((actionName)=>actionItem(actionName, index, index, actionName,"white",false)).join(""))
         )
     );
 }
@@ -39,6 +39,8 @@ function openPage(target, action, which, id) {
 TOAST_MESSAGES = {
     favorite: "Added to favorites!",
     follow: "Followed!",
+    friend: "Friend Added",
+    block: "Blocked",
     heart: "Added to your Favorites",
     share: "Shared to your Connections",
     pin: "Added to Dream Board",

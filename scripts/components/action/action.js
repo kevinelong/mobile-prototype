@@ -1,4 +1,7 @@
-function action(name, which = "", id = 0, object={}) {
+function action(name, which = "", id = -1, object={}) {
+    // if(name=="block"){
+    //     debugger;
+    // }
     return `onclick="actionClick(this, '${name}','${which}',${id})" data-object="${JSON.stringify(object).replace(/\"/g,"'")}"`;
 }
 
@@ -6,11 +9,11 @@ function actionPanel(content) {
     return div(`action-panel`, content);
 }
 
-function actionItem(name, which = "", id = 0, textValue = "", iconColor = "", hideText=false) {
+function actionItem(name, which = "", index = -1, textValue = "", iconColor = "", hideText=false) {
     return div(
         `action-item ${name} ${which}`,
         icon(name, iconColor, textValue, hideText),
-        action(name, which, id)
+        action(name, which, index)
     );
 }
 

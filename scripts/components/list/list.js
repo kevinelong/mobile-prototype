@@ -32,6 +32,8 @@ function simpleList(
 }
 
 function rowPerson(data, actionName = "right") {
+    debugger;
+    console.log("rowPerson(...)",data,actionName)
     return div(
         "simple-item",
         person(data) +
@@ -39,7 +41,7 @@ function rowPerson(data, actionName = "right") {
             "title-block",
             title(data.name)
         ) +
-        actionItem(actionName),
+        // actionItem(actionName),
         action(actionName, data.name, data.id, data)
     );
 }
