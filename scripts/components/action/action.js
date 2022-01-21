@@ -1,5 +1,5 @@
 function action(name, which = "", id = 0, object={}) {
-    return `onclick="actionClick(this, '${name}','${which}',${id})" data-object="${JSON.stringify(object)}"`;
+    return `onclick="actionClick(this, '${name}','${which}',${id})" data-object="${JSON.stringify(object).replace(/\"/g,"'")}"`;
 }
 
 function actionPanel(content) {
@@ -25,7 +25,7 @@ function personItem(name, which, index, person) {
     );
 }
 
-function actionClick(target, action, which = "", id = 0) {
+function actionClick(target, action, which = "", index = -1, data={}) {
     hideDialog();
-    route(target, action, which, id);
+    route(target, action, which, index, data);
 }

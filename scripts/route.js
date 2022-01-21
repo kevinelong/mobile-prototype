@@ -50,17 +50,19 @@ TOAST_MESSAGES = {
     paypal: "Payment Settled",
     venmo: "Payment Settled",
 }
-
+function addItem(target, action, which, id){
+    console.log("add",...arguments);
+}
 ACTION_PAGES = {
     back: () => showPage(window.lastPage),
     open: openPage,
-    add: addMessage,
-    new: addMessage,
+    add: addItem,
+    new: addItem,
     search: showSearchDialog,
     more: showSearchDialog,
     hide: hideDialog,
     collapse: collapseCard,
-    right: toggleCollapse,
+    right: hideDialog,
     person: showProfileDialog,
 }
 function toggleCollapse(target, action, which, id){

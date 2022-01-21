@@ -40,7 +40,7 @@ function rowPerson(data, actionName = "right") {
             title(data.name)
         ) +
         actionItem(actionName),
-        action(actionName)
+        action(actionName, data.name, data.id, data)
     );
 }
 

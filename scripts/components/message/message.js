@@ -72,8 +72,8 @@ function addMessage() {
             ) +
                 search(peopleList) +
                 row(
-                    actionItem("add", "", "", "Group") +
-                        actionItem("add", "", "", "Contact")
+                    actionItem("add", "group", -1, "Group") +
+                        actionItem("add", "contact", -1, "Contact")
                 )
         )
     );

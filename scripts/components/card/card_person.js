@@ -17,7 +17,7 @@ function cardPeople(peopleList, showSuffix = false, verb = "", group = "", limit
         col(
             (verb.length ? text(`${verb.toUpperCase()} BY`) : "") +
             row(
-                [...peopleList].map((p, i) => cardPerson(p, i, limit)).join("") +
+                [...peopleList].map((p, i) => cardPerson(p, p.id - 1, limit)).join("") +
                 (showSuffix ? circle(text(
                     `&nbsp;${peopleList.length} ${group ? group + (peopleList.length > 1 ? "s" : "") :""}&nbsp;`
                 )) : "")
