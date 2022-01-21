@@ -22,13 +22,14 @@
 }
 
 .page > .action-item {
-    position: absolute;
-    right: 11px;
-    top: 44px;
     width: 24px;
     height: 24px;
     border: none;
-    z-index: 300;
+
+    position: absolute;
+    right: 0;
+    top: -3px;
+    z-index: 999;
 }
 
 /*.page > .action-item {*/

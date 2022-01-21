@@ -63,7 +63,7 @@ function messagePanel(messageList) {
 
 function addMessage() {
     showDialog(
-        "Connect to People",
+        "Add Message",
         contentPanel(
             choiceSet(
                 "filter",

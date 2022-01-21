@@ -1,8 +1,8 @@
-function settleCard(who, amount, when = "", id = "") {
+function settleCard(who, amount, when = "", kind="", id = "") {
     return card(
         "settle",
         div(
-            "titles settle",
+            `titles settle ${kind}`,
             row(
                 icon("settle") +
                     col(cardTitle(`Pay ${amount}`) + cardSubtitle(who.name))

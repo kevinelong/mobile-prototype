@@ -1,9 +1,9 @@
 function showSearchDialog() {
-    showDialog("Search", search(peopleList));
+    showDialog("Connections", search(peopleList));
 }
 
 function showProfileDialog(target, action, which, index= RUBY) {
-    showDialog("Profile",
+    showDialog("Connection Profile",
         contentPanel(
         person(peopleList[index]) +
             actionPanel([
@@ -52,6 +52,11 @@ function addItem(target, action, which, id){
     if("person" == which){
         showSearchDialog();
     }
+
+    if("message" == which){
+        addMessage();
+    }
+
     console.log("add",...arguments);
 }
 ACTION_PAGES = {
