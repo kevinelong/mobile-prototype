@@ -1,14 +1,34 @@
-function showSearch() {
+function showSearchDialog() {
     showDialog("Search", search([
         ["Ruby Red", "Ruby", "Red", ""],
         ["Betty Ford", "Betty", "Ford", ""],
         ["Joe Schmoe", "Joe", "Schmoe", ""],
     ]));
 }
+
+function showProfileDialog(personIndex= RUBY) {
+    showDialog("Profile",
+        `
+        Now is the
+        time for 
+        all good people...
+        `
+        // contentPanel(
+        // personItem(peopleList[personIndex]) +
+        //     actionPanel([
+        //         "block",
+        //         "friend",
+        //         "follow",
+        //     ].map(actionItem).join(""))
+        // )
+    );
+}
+
 function collapseCard(target, action, which, id){
     target.closest(".card").classList.toggle("collapsed")
     console.log("collapseCard", action, which, id);
 }
+
 function openPage(target, action, which, id) {
     if ("open" === action && which.toLowerCase().startsWith("http")) {
         window.open(which, "_self");
@@ -41,11 +61,12 @@ ACTION_PAGES = {
     open: openPage,
     add: addMessage,
     new: addMessage,
-    search: showSearch,
-    more: showSearch,
+    search: showSearchDialog,
+    more: showSearchDialog,
     hide: hideDialog,
     collapse: collapseCard,
-    right: toggleCollapse
+    right: toggleCollapse,
+    person: showProfileDialog,
 }
 function toggleCollapse(target, action, which, id){
     target.closest(".card-list").classList.toggle("collapse");

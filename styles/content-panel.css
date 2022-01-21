@@ -52,6 +52,8 @@
     /*border-radius: 40px;*/
     gap: 0.5rem;
     background: none;
+    min-width: 70vw;
+    min-height: 20vh;
 }
 
 .content-panel .title {
