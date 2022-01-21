@@ -79,7 +79,13 @@ function selectPage(e) {
     if (pageName.length < 1) return;
 
     window.lastPage = pageName;
-    [...getAll(".page")].forEach(hideElement);
+    const pages = getAll(".page");
+    if(!pages){
+        debugger;
+        console.log("","getAll, can't find .pages to hide.");
+    }else {
+        [...pages].forEach(hideElement);
+    }
     showPage(pageName);
 }
 
