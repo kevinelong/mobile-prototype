@@ -145,12 +145,12 @@ function personIcon(person) {
     );
 }
 
-function person(iconName, textName = "") {
+function person(person) {
     return personItem(
-        "person",
+        person.name,
         "connect_person",
-        "",
-        textName ? textName : iconName
+        person.id,
+        person.name
     );
 }
 

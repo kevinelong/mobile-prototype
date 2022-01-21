@@ -6,21 +6,16 @@ function showSearchDialog() {
     ]));
 }
 
-function showProfileDialog(personIndex= RUBY) {
+function showProfileDialog(target, action, which, index= RUBY) {
     showDialog("Profile",
-        `
-        Now is the
-        time for 
-        all good people...
-        `
-        // contentPanel(
-        // personItem(peopleList[personIndex]) +
-        //     actionPanel([
-        //         "block",
-        //         "friend",
-        //         "follow",
-        //     ].map(actionItem).join(""))
-        // )
+        contentPanel(
+        person(peopleList[index]) +
+            actionPanel([
+                "block",
+                "friend",
+                "follow",
+            ].map(actionItem).join(""))
+        )
     );
 }
 
@@ -71,14 +66,14 @@ ACTION_PAGES = {
 function toggleCollapse(target, action, which, id){
     target.closest(".card-list").classList.toggle("collapse");
 }
-function route(target, action, which = "", id = "") {
+function route(target, action, which = "", index = "") {
     if (TOAST_MESSAGES.hasOwnProperty(action)) {
         return showToast(TOAST_MESSAGES[action]);
     } else if (ACTION_PAGES.hasOwnProperty(action)) {
-        console.log("ACTION: " + action, which, id);
+        console.log("ACTION: " + action, which, index);
         const f = ACTION_PAGES[action];
         console.log(f);
-        return f(target, action, which, id);
+        return f(target, action, which, index);
     } else {
         console.log("UNKNOWN ACTION:" + action);
     }
