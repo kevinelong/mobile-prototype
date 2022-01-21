@@ -83,7 +83,7 @@ function connectPage(selected = false) {
                     "Brasil Arts Cafe",
                     "Check in and rate to earn Vita Rewards",
                     [],
-                    [],
+                    ["check-in", "rate"],
                     "plan"
                 ),
                 planCard(
@@ -91,7 +91,7 @@ function connectPage(selected = false) {
                     "Yesterday's Transportation",
                     "Verify to earn Vita Rewards",
                     [],
-                    [],
+                    ["verify"],
                     "plan"
                 ),
         ].join("")),

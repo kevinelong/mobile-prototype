@@ -43,7 +43,7 @@
     border-radius: 30px;
     background: none;
     flex-direction: row;
-    gap: 0.5rem;
+    gap: 4px;
     padding: 6px;
     /*padding: 0;*/
     transform: rotate(0deg);
@@ -64,6 +64,16 @@
 .action-item .icon {
     max-width: 24px;
     max-height: 24px;
+}
+
+.profile .action-item.person .text {
+    font-size: 2em;
+}
+.profile .action-item.person .icon {
+    max-width: none;
+    max-height: none;
+    width: 56px;
+    height: 56px;
 }
 
 .action-list .action-item .icon {

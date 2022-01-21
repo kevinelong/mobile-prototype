@@ -41,8 +41,8 @@ TOAST_MESSAGES = {
     share: "Shared to your Connections",
     pin: "Added to Dream Board",
     plan: "Added to Plan",
-    accept: "Invitation Accepted and Added to Plan",
-    decline: "Invitation Declined and Not Added to Plan",
+    accept: "Accepted Invitation",
+    decline: "Declined Invitation",
     settle: "Payment Settled",
     zelle: "Payment Settled",
     paypal: "Payment Settled",
@@ -64,6 +64,7 @@ ACTION_PAGES = {
     hide: hideDialog,
     collapse: collapseCard,
     right: hideDialog,
+    show: toggleCollapse,
     person: showProfileDialog,
 }
 function toggleCollapse(target, action, which, id){

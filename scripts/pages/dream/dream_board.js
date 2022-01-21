@@ -16,7 +16,7 @@ function activityListItems(list) {
     if (!list) {
         return "";
     }
-    return cardList(title(list.name + actionItem("right"))+ list.items.map(activityCard).join(""));
+    return cardList(title(list.name + actionItem("show"))+ list.items.map(activityCard).join(""));
 }
 
 function activityList(list) {

@@ -116,7 +116,6 @@ const ICON_MAP = {
     "settle_list-black": "settle-black",
     "connect_chat-black": "connect-black",
     "plan_detail-black": "plan-black",
-    decline: "plan",
     accept: "plan",
 };
 
