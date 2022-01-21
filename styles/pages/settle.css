@@ -1,4 +1,33 @@
-
+.settle.page .content-panel > .row{
+    width:99%;
+    gap: 1rem;
+    padding: 1rem;
+    align-content: space-evenly;
+    alignment: center;
+    /*flex-direction: ;*/
+}
+/*.dashboard-item{*/
+/*    alignment: center;*/
+/*    align-content: space-evenly;*/
+/*    text-align: center;*/
+/*}*/
+/*.dashboard-item *,*/
+/*.dashboard-item .title{*/
+/*    text-align: center;*/
+/*    align-self: center;*/
+/*    align-items: center;*/
+/*    margin: auto;*/
+/*}*/
+.dashboard-item .action-item{
+    border: 1px solid black;
+    border-radius: 6px;
+    color:black;
+    font-size: 1rem;
+}
+.dashboard-item .text{
+    font-size: 2rem;
+    padding: 1rem;
+}
 .money-panel,
 .message-panel {
     margin: 0;

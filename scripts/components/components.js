@@ -147,7 +147,7 @@ function personIcon(person) {
 function person(person) {
     if (!person){
         console.log("person function requires a person object");
-        debugger;
+        // debugger;
         return "";
     }
     return personItem(
