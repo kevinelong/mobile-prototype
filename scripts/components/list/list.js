@@ -30,3 +30,35 @@ function simpleList(
         )
     );
 }
+
+function rowPerson(data, actionName = "right") {
+    return div(
+        "simple-item",
+        person(data) +
+        div(
+            "title-block",
+            title(data.name)
+        ) +
+        actionItem(actionName),
+        action(actionName)
+    );
+}
+
+function listPeople(
+    titleText,
+    itemData = [["", ""]],
+    subtitleText = "",
+    actionName = "right"
+) {
+    return (
+        div(
+            `title-block`,
+            (titleText ? title(titleText) : "") +
+            (subtitleText ? subtitle(subtitleText) : "")
+        ) +
+        div(
+            "simple-list",
+            [...itemData].map((item) => rowPerson(item, actionName)).join("")
+        )
+    );
+}

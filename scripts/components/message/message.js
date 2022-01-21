@@ -70,11 +70,7 @@ function addMessage() {
                 ["My Contacts", "Groups", "Everyone"],
                 "My Contacts"
             ) +
-                search([
-                    ["KL", "Kevin", "Long", ""],
-                    ["NM", "Nina", "Marie", ""],
-                    ["GB", "Greg", "Bellowe", ""],
-                ]) +
+                search(peopleList) +
                 row(
                     actionItem("add", "", "", "Group") +
                         actionItem("add", "", "", "Contact")

@@ -64,7 +64,18 @@ ACTION_PAGES = {
     person: showProfileDialog,
 }
 function toggleCollapse(target, action, which, id){
-    target.closest(".card-list").classList.toggle("collapse");
+    if(!target){
+        debugger;
+        console.log("toggleCollapse(...)","required target is not defined.")
+        return false;
+    }
+    const card_list = target.closest(".card-list");
+    if(!card_list){
+        debugger;
+        console.log("","No ancestor .card-list");
+        return false;
+    }
+    card_list.classList.toggle("collapse");
 }
 function route(target, action, which = "", index = "") {
     if (TOAST_MESSAGES.hasOwnProperty(action)) {

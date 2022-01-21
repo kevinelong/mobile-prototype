@@ -18,3 +18,13 @@
 .dream_board .card .text{
     font-size: 13px;
 }
+.card.connect .content-panel > .row{
+    background: #0008;
+    padding: 6px;
+    border-radius: 6px;
+}
+.card.connect .message-panel{
+    background: white;
+    padding: 6px;
+    border-radius: 6px;
+}
