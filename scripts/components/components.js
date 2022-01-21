@@ -149,6 +149,7 @@ function person(person) {
     if (!person){
         console.log("person function requires a person object");
         debugger;
+        return "";
     }
     return personItem(
         person.name,
