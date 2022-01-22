@@ -1,5 +1,4 @@
 function search(items) {
-
     return label(
         "search",
         input("vita-search", "text", 'placeholder="Type to search..."') +

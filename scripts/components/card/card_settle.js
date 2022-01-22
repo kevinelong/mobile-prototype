@@ -1,4 +1,4 @@
-function settleCard(who, amount, when = "", kind="", id = "") {
+function settleCard(who, amount, when = "", kind = "", id = "") {
     return card(
         "settle",
         div(

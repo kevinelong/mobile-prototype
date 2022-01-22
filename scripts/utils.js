@@ -67,9 +67,7 @@ function hide(selector) {
     e.classList.add("hidden");
 }
 
-function applyFilter(){
-
-}
+function applyFilter() {}
 function selectPage(e) {
     select(e);
     const name = toName(e.id);
@@ -80,10 +78,10 @@ function selectPage(e) {
 
     window.lastPage = pageName;
     const pages = getAll(".page");
-    if(!pages){
+    if (!pages) {
         debugger;
-        console.log("","getAll, can't find .pages to hide.");
-    }else {
+        console.log("", "getAll, can't find .pages to hide.");
+    } else {
         [...pages].forEach(hideElement);
     }
     showPage(pageName);
@@ -98,12 +96,11 @@ function listen(eventTypeName, handler, elem = document.body) {
     elem.addEventListener(eventTypeName, handler);
 }
 
-function cleanName(n){
+function cleanName(n) {
     return n.trim().toUpperCase().replace(/\s/g, "-");
 }
 
 function applyConnectPageFilter(e) {
-
     if (!e) {
         return;
     }
@@ -118,7 +115,6 @@ function applyConnectPageFilter(e) {
     console.log(text);
 
     cards.forEach((c, i) => {
-
         if ("ALL" == text) {
             return showElement(c);
         }
@@ -136,7 +132,10 @@ function applyConnectPageFilter(e) {
             return showElement(c);
         }
 
-        if ("NOTIFICATIONS" == choiceName && !["1-ON-1", "GROUP-CHAT"].includes(kind)) {
+        if (
+            "NOTIFICATIONS" == choiceName &&
+            !["1-ON-1", "GROUP-CHAT"].includes(kind)
+        ) {
             return showElement(c);
         }
         hideElement(c);
@@ -144,7 +143,6 @@ function applyConnectPageFilter(e) {
 }
 
 function applyFilterText(parentElement, childClass, searchText) {
-
     if (!parentElement) {
         return;
     }
@@ -152,7 +150,6 @@ function applyFilterText(parentElement, childClass, searchText) {
     const children = parentElement.querySelectorAll(childClass);
 
     children.forEach((c, i) => {
-
         if ("" == searchText) {
             return showElement(c);
         }
@@ -162,9 +159,8 @@ function applyFilterText(parentElement, childClass, searchText) {
 
         if (content.indexOf(cleanText) === -1) {
             showElement(c);
-        }else{
+        } else {
             hideElement(c);
         }
-
     });
 }

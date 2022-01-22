@@ -8,7 +8,13 @@ function cardPerson(person, index = 0, limit = 3) {
     );
 }
 
-function cardPeople(peopleList, showSuffix = false, verb = "", group = "", limit = 3) {
+function cardPeople(
+    peopleList,
+    showSuffix = false,
+    verb = "",
+    group = "",
+    limit = 3
+) {
     if (!peopleList || peopleList.length == 0) {
         return "";
     }
@@ -16,12 +22,25 @@ function cardPeople(peopleList, showSuffix = false, verb = "", group = "", limit
         "card-people",
         col(
             (verb.length ? text(`${verb.toUpperCase()} BY`) : "") +
-            row(
-                [...peopleList].map((p, i) => cardPerson(p, p.id - 1, limit)).join("") +
-                (showSuffix ? circle(text(
-                    `&nbsp;${peopleList.length} ${group ? group + (peopleList.length > 1 ? "s" : "") :""}&nbsp;`
-                )) : "")
-            )
+                row(
+                    [...peopleList]
+                        .map((p, i) => cardPerson(p, p.id - 1, limit))
+                        .join("") +
+                        (showSuffix
+                            ? circle(
+                                  text(
+                                      `&nbsp;${peopleList.length} ${
+                                          group
+                                              ? group +
+                                                (peopleList.length > 1
+                                                    ? "s"
+                                                    : "")
+                                              : ""
+                                      }&nbsp;`
+                                  )
+                              )
+                            : "")
+                )
         )
     );
 }

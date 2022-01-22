@@ -1,11 +1,18 @@
-function planCard(title, subtitle, content, people = [], actions = [], image = "") {
+function planCard(
+    title,
+    subtitle,
+    content,
+    people = [],
+    actions = [],
+    image = ""
+) {
     return card(
         "plan",
         div(
             "titles plan",
             row(
                 icon("plan") +
-                col(cardTitle(title) + cardSubtitle(`${subtitle}`))
+                    col(cardTitle(title) + cardSubtitle(`${subtitle}`))
             )
         ) + actionItem("open", "plan_detail"),
         content,

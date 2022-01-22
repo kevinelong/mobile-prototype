@@ -37,31 +37,33 @@ function exploreCardContent(
     verb = "",
     group = ""
 ) {
-    return div(
-        `card ${kind}`,
-        img("background top", "images/backgrounds/top-gradient-black.svg") +
-        cardSection(
-            contentPanel(body)
-        ) +
-        (tags || people || actions
-            ? cardSection(
-                cardTags(tags) +
-                (people || actions
-                    ? cardQuadrant(
-                        cardPeople(people, showSuffix, verb, group) +
-                        cardActions(`card-actions`, actions)
-                    )
-                    : "")
-            )
-            : "")
-        +
-        img(
-            "background bottom",
-            "images/backgrounds/bottom-gradient-black.svg"
-        )
-        ,
-        image ? `style="background-image: url('${image}');"` : ""
-    ) + cardTitle(title);
+    return (
+        div(
+            `card ${kind}`,
+            img("background top", "images/backgrounds/top-gradient-black.svg") +
+                cardSection(contentPanel(body)) +
+                (tags || people || actions
+                    ? cardSection(
+                          cardTags(tags) +
+                              (people || actions
+                                  ? cardQuadrant(
+                                        cardPeople(
+                                            people,
+                                            showSuffix,
+                                            verb,
+                                            group
+                                        ) + cardActions(`card-actions`, actions)
+                                    )
+                                  : "")
+                      )
+                    : "") +
+                img(
+                    "background bottom",
+                    "images/backgrounds/bottom-gradient-black.svg"
+                ),
+            image ? `style="background-image: url('${image}');"` : ""
+        ) + cardTitle(title)
+    );
 }
 
 function exploreCard(
@@ -81,16 +83,15 @@ function exploreCard(
         "explore collapsed",
         div(
             "titles explore",
-            row(
-                 col(cardTitle(title) + cardSubtitle(subtitle))
-            )
-        ) ,
-        row(icon("explore") +
-        cardTitle(title) +
-            actionItem("open", "explore_detail", id)
+            row(col(cardTitle(title) + cardSubtitle(subtitle)))
+        ),
+        row(
+            icon("explore") +
+                cardTitle(title) +
+                actionItem("open", "explore_detail", id)
         ) +
-        cardSubtitle(subtitle) +
-        text(content),
+            cardSubtitle(subtitle) +
+            text(content),
         people,
         actions,
         imagePath,

@@ -9,14 +9,17 @@ function activityCard(item = {}, index) {
         item.tags,
         true,
         "recommended"
-    )
+    );
 }
 
 function activityListItems(list) {
     if (!list) {
         return "";
     }
-    return cardList(title(list.name + actionItem("show"))+ list.items.map(activityCard).join(""));
+    return cardList(
+        title(list.name + actionItem("show")) +
+            list.items.map(activityCard).join("")
+    );
 }
 
 function activityList(list) {
@@ -30,11 +33,11 @@ function dreamBoardPage(selected = false) {
     const boardData = [
         {
             name: "Things to Do",
-            items: []
+            items: [],
         },
         {
             name: "Places to See",
-            items: []
+            items: [],
         },
         {
             name: "Restaurants",
@@ -42,40 +45,38 @@ function dreamBoardPage(selected = false) {
                 {
                     kind: "food",
                     title: "Brasil Arts Cafe",
-                    description: "the perfect blend of traditional Brazilian fare & one-of-a-kind Açai, Juice, and Smoothie creations",
+                    description:
+                        "the perfect blend of traditional Brazilian fare & one-of-a-kind Açai, Juice, and Smoothie creations",
                     image: "images/photos/brasil_arts_cafe.jpeg",
-                    people: [peopleList[BF], peopleList[JOE], peopleList[RUBY],],
+                    people: [peopleList[BF], peopleList[JOE], peopleList[RUBY]],
                     tags: ["brazilian", "cafe"],
-                }, {
+                },
+                {
                     kind: "food",
                     title: "Yoichi's",
-                    description: "A prix-fixe only spot featuring traditional Japanese small plates &amp; sushi in an intimate setting.",
+                    description:
+                        "A prix-fixe only spot featuring traditional Japanese small plates &amp; sushi in an intimate setting.",
                     image: "images/photos/yoichis.jpg",
-                    people: [peopleList[BF], peopleList[JOE],],
-                    tags: ["japanese", "sushi", "prix-fixe"]
-                }
-            ]
+                    people: [peopleList[BF], peopleList[JOE]],
+                    tags: ["japanese", "sushi", "prix-fixe"],
+                },
+            ],
         },
         {
             name: "Lodging",
-            items: []
+            items: [],
         },
         {
             name: "Transportation",
-            items: []
-        }
+            items: [],
+        },
     ];
 
     return page(
         selected,
         "dream_board",
         "Santa Barbara",
-        [
-            "All",
-            "Ideas",
-            "Favorites",
-            "Going",
-        ],
+        ["All", "Ideas", "Favorites", "Going"],
         "All",
         activityList(boardData),
         "ALL NETWORK",

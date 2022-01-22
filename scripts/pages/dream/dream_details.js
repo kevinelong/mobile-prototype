@@ -1,5 +1,3 @@
-
-
 function dreamBoardDetailsPage(selected = false) {
     return page(
         selected,

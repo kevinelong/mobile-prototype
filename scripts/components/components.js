@@ -14,11 +14,11 @@ function circle(textValue) {
     return div("circle", textValue);
 }
 
-function contentPanel(content, className="") {
+function contentPanel(content, className = "") {
     return content ? div(`content-panel ${className}`, content) : "";
 }
 
-function row(content, attrs="") {
+function row(content, attrs = "") {
     return div("row", content, attrs);
 }
 
@@ -37,9 +37,9 @@ const PATH_FACES = `${PATH_IMAGES}/faces/`;
 const PREFIX_FACES = `${PATH_FACES}/face`;
 const SUFFIX_FACES = `.png`;
 
-const RUBY = 0
-const JOE = 1
-const BF = 2
+const RUBY = 0;
+const JOE = 1;
+const BF = 2;
 
 const peopleList = [
     {
@@ -126,36 +126,29 @@ function iconMap(icon) {
     return icon;
 }
 
-function icon(name = "menu", iconColor = "", textValue = "", hideText=false) {
+function icon(name = "menu", iconColor = "", textValue = "", hideText = false) {
     return (
         div(
             "icon-frame",
             `<img class="icon" src="${iconPath(iconMap(name), iconColor)}">`
-        ) + ((textValue && !hideText) ? text(textValue) : "")
+        ) + (textValue && !hideText ? text(textValue) : "")
     );
 }
 
 function personIcon(person) {
     return (
-        div(
-            "icon-frame",
-            `<img class="icon" src="${facePath(person.id)}">`
-        ) + text(person.name ? person.name : "")
+        div("icon-frame", `<img class="icon" src="${facePath(person.id)}">`) +
+        text(person.name ? person.name : "")
     );
 }
 
 function person(person) {
-    if (!person){
+    if (!person) {
         console.log("person function requires a person object");
         // debugger;
         return "";
     }
-    return personItem(
-        person.name,
-        "connect_person",
-        person.id,
-        person
-    );
+    return personItem(person.name, "connect_person", person.id, person);
 }
 
 function inputMessage() {
