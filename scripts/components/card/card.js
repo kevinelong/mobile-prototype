@@ -42,8 +42,10 @@ function cardTags(tags) {
 function cardActions(id, actionList = [], hideText = false) {
     return div(
         "action-list",
-        [...actionList].map(
-            (c) => actionItem(c, actionList.length == 1, "", c, "", hideText))
+        [...actionList]
+            .map((c) =>
+                actionItem(c, actionList.length == 1, "", c, "", hideText)
+            )
             .join(""),
         `id="${id}" class='action-list'`
     );
@@ -58,7 +60,7 @@ function card(
     title,
     body = "",
     people = [],
-    actions = "",
+    actions = [],
     image = "",
     tags = [],
     id = 0,
@@ -70,26 +72,29 @@ function card(
     return div(
         `card ${kind}`,
         img("background top", "images/backgrounds/top-gradient-black.svg") +
-        cardSection(
-            cardTitle(title) +
-            contentPanel(body)
-        ) +
-        (tags || people || actions
-            ? cardSection(
-                cardTags(tags) +
-                (people || actions
-                    ? cardQuadrant(
-                        cardPeople(people, showSuffix, verb, group) +
-                        cardActions(`card-actions`, actions)
-                    )
-                    : "")
-            )
-            : "") +
-        img(
-            "background bottom",
-            "images/backgrounds/bottom-gradient-black.svg"
-        ),
-        attrs + ` data-kind="${kind}" ` + (image ? `style="background-image: url('${image}');"` : "")
+            cardSection(cardTitle(title) + contentPanel(body)) +
+            (tags || people || actions
+                ? cardSection(
+                      cardTags(tags) +
+                          (people || actions
+                              ? cardQuadrant(
+                                    cardPeople(
+                                        people,
+                                        showSuffix,
+                                        verb,
+                                        group
+                                    ) + cardActions(`card-actions`, actions)
+                                )
+                              : "")
+                  )
+                : "") +
+            img(
+                "background bottom",
+                "images/backgrounds/bottom-gradient-black.svg"
+            ),
+        attrs +
+            ` data-kind="${kind}" ` +
+            (image ? `style="background-image: url('${image}');"` : "")
     );
 }
 

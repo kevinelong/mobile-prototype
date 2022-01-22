@@ -2,21 +2,80 @@ function showSearchDialog() {
     showDialog("Add Person", search(peopleList));
 }
 
-function showProfileDialog(target, action, which, index= RUBY) {
-    showDialog("Connection Profile",
-        contentPanel(
-        person(peopleList[index]) +
-            actionPanel([
-                "block",
-                "friend",
-                "follow",
-            ].map((actionName)=>actionItem(actionName, index, index, actionName,"white",false)).join(""))
-        ,"profile")
+function showMatchDialog() {
+    showDialog(
+        "Taste Match",
+        `
+        <div class="dialog-content">
+            <header>
+
+            </header>
+            <main>
+                <div>
+                    <h2>You and Joe Schmoe Matched!</h2>
+                </div>
+                <div class="images">
+
+                    <img src="images/faces/face1.png" alt="">
+
+                    <img src="images/faces/face2.png" alt="">
+
+                </div>
+
+                <div>
+                    <!-- <b>Richard's home - Best Wine tasting in Napa</b> has been booked by Joe Shmoe for
+                    all coplanners. -->
+                    <b>You and Joe Schmoe</b> both classified <b>Yoichi’s</b> as an Idea in your
+                    <b>Santa Barbara</b> DreamBoards
+                </div>
+                <div>
+                    You can pay back now or settle at the end of the day.
+                </div>
+            </main>
+            <footer>
+                <button class="link" onclick="actionClick(this, 'close','',-1)">
+                    Don't Show Again
+                </button>
+                <div>
+                    <button onclick="actionClick(this, 'close','',-1)">
+                        Dismiss
+                    </button>
+                    <button onclick="actionClick(this, 'close','',-1)">
+                        Open Board
+                    </button>
+                </div>
+            </footer>     
+        </div>    
+         `
     );
 }
 
-function collapseCard(target, action, which, id){
-    target.closest(".card").classList.toggle("collapsed")
+function showProfileDialog(target, action, which, index = RUBY) {
+    showDialog(
+        "Connection Profile",
+        contentPanel(
+            person(peopleList[index]) +
+                actionPanel(
+                    ["block", "friend", "follow"]
+                        .map((actionName) =>
+                            actionItem(
+                                actionName,
+                                index,
+                                index,
+                                actionName,
+                                "white",
+                                false
+                            )
+                        )
+                        .join("")
+                ),
+            "profile"
+        )
+    );
+}
+
+function collapseCard(target, action, which, id) {
+    target.closest(".card").classList.toggle("collapsed");
     console.log("collapseCard", action, which, id);
 }
 
@@ -47,17 +106,17 @@ TOAST_MESSAGES = {
     zelle: "Payment Settled",
     paypal: "Payment Settled",
     venmo: "Payment Settled",
-}
-function addItem(target, action, which, id){
-    if("person" == which){
+};
+function addItem(target, action, which, id) {
+    if ("person" == which) {
         showSearchDialog();
     }
 
-    if("message" == which){
+    if ("message" == which) {
         addMessage();
     }
 
-    console.log("add",...arguments);
+    console.log("add", ...arguments);
 }
 ACTION_PAGES = {
     back: () => showPage(window.lastPage),
@@ -71,17 +130,18 @@ ACTION_PAGES = {
     right: hideDialog,
     show: toggleCollapse,
     person: showProfileDialog,
-}
-function toggleCollapse(target, action, which, id){
-    if(!target){
+    match: showMatchDialog,
+};
+function toggleCollapse(target, action, which, id) {
+    if (!target) {
         debugger;
-        console.log("toggleCollapse(...)","required target is not defined.")
+        console.log("toggleCollapse(...)", "required target is not defined.");
         return false;
     }
     const card_list = target.closest(".card-list");
-    if(!card_list){
+    if (!card_list) {
         debugger;
-        console.log("","No ancestor .card-list");
+        console.log("", "No ancestor .card-list");
         return false;
     }
     card_list.classList.toggle("collapse");

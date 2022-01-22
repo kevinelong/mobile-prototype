@@ -92,164 +92,59 @@ route
         `"></scr` + `ipt>`) : '');
 </script>
 <style>
-    .temp .outer-box {
-        background-color: white;
-    }
-
-    .temp .page {
-        color: black;
-        text-align: center;
-        min-height: 100%;
-        background-color: #111;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    /* .temp .title {
-        color: red;
-    } */
-
-    .dialog-content {
-        margin: auto;
-        padding: 18px;
-        position: relative;
-        min-height: 600px;
-        max-width: 90%;
-        background-color: white;
-        border-radius: 18px;
-    }
-
-    /* header {
-        height: 50px;
-    } */
-
-    div {
-        display: block;
-    }
-
-    div.images {
-        margin-top: 36px;
-        display: flex;
+    .rating {
         flex-direction: row;
-        justify-content: center;
-        gap: 5px;
+        gap: 3px;
     }
 
-    .images img {
-        height: 72pt;
-        border: 2px solid black;
-        border-radius: 50%
+    .rating .rating-star {
+        opacity: 0.33;
     }
 
-    /* b {
-        display: inline !important;
-    } */
-
-    main div {
-        margin-top: 48px;
+    .rating .rating-star.on {
+        opacity: 1;
     }
-
-    footer {
-        /* width: 100%; */
-        text-align: center;
-        /* border: 1px solid red; */
-        position: absolute;
-        bottom: 18px;
-        left: 18px;
-        right: 18px;
-    }
-
-    footer button.link {
-        color: blue;
-        background-color: white;
-        width: 99%;
-    }
-
-    footer .link:hover {
-        text-decoration: underline;
-    }
-
-    footer button {
-        width: 49%;
-        padding: 9px;
-        font-size: 18px;
-        border: none;
-    } 
-    
 </style>
 
 <body>
-    <div class="temp page">
-
-        <div class="content">
-            <div class="outer-box">
-                <div class="inner-content">
-                    <div class="page">
-                        <div class="dialog-content">
-                            <header>
-
-                            </header>
-                            <div>
-                                <h2>You're both going!</h2>
-                            </div>
-                            <div class="images">
-                                
-                                <img src="images\faces\face1.png" alt="">
-                                
-                                <img src="images\faces\face2.png" alt="">
-                                
-                            </div>
-                            <main>
-                                <div>
-                                    <b>Richard's home - Best Wine tasting in Napa</b> has been booked by Joe Shmoe for
-                                    all coplanners.
-                                </div>
-                                <div>
-                                    You can pay back now or settle at the end of the day.
-                                </div>
-                            </main>
-                            <footer>
-                                <button class="link">
-                                    Don't Show Again
-                                </button>
-                                <div>
-                                    <button>
-                                        Dismiss
-                                    </button>
-                                    <button>
-                                        Book Now
-                                    </button>
-                                </div>
-                            </footer>
-
-
-
-                            <!-- <div class="message-panel">
-                            <div class="message-item">
-                                <div class="message-text">
-                                    Hello?
-                                </div>
-                            </div>
-                        </div> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="hidden toast"></div>
-                <div class="hidden smoke">
-                    <div class="hidden dialog">undefined</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- <a href="main.html">The real deal...</a>
-
     <script>
+        function onStar(target, index) {
+            const parent = target.parentElement
+            console.log(index, target)
+            for (i = 0; i < 4; i++) {
+                console.log(i)
+                if (i <= index) {
+                    console.log("on")
+                    parent.getElementsByClassName("star-" + i)[0].classList.add("on")
+                } else {
+                    console.log("off")
+                    parent.getElementsByClassName("star-" + i)[0].classList.remove("on")
+                }
+            }
+        }
+
+        function star(index) {
+            return div("rating-star star-" + index, icon("star"), `onclick="onStar(this, ${index})"`)
+        }
+
         document.write(
-            title("Me too!")
-        )
-    </script> -->
-    </div>
+            div("rating",
+                [
+                    star(0),
+                    star(1),
+                    star(2),
+                    star(3)
+                ].join("")
+            ) + div("rating",
+                [
+                    star(0),
+                    star(1),
+                    star(2),
+                    star(3)
+                ].join("")
+            )
+        );
+    </script>
 </body>
 
 </html>

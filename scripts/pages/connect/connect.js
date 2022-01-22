@@ -5,7 +5,8 @@ function connectPage(selected = false) {
         "Connect",
         ["All", "1 on 1", "Group Chat", "Notifications"],
         "All",
-        cardList([
+        cardList(
+            [
                 connectCard(
                     [],
                     "I can join you on Saturday and Sunday",
@@ -22,10 +23,7 @@ function connectPage(selected = false) {
                     [peopleList[0], peopleList[1], peopleList[2]],
                     "connect_chat"
                 ),
-                exploreCardNotification(
-                    13,
-                    "explore"
-                ),
+                exploreCardNotification(13, "explore"),
                 exploreCard(
                     "",
                     "London July",
@@ -37,19 +35,32 @@ function connectPage(selected = false) {
                     "1",
                     "explore_detail",
                     "Recommended",
-                    "Friend",
+                    "Friend"
                 ),
                 dreamCardNotification(
-                    peopleList[0],
+                    [peopleList[BF]],
                     2,
-                    "Santa Barbara"
+                    "Santa Barbara",
+                    text(
+                        `${11} new items added to your linked ${"Santa Barbara"} dream board by your friend ${
+                            peopleList[BF].name
+                        }.`
+                    ),
+                    ["dream"]
+                ),
+                dreamCardNotification(
+                    [],
+                    2,
+                    "Santa Barbara",
+                    "New taste match!",
+                    ["match"]
                 ),
                 planCard(
                     "Plan Invite",
                     "Yoichi's",
                     "Santa Barbara<br>" +
-                    "Tuesday March 3rd 2022 at Noon.<br>" +
-                    "Plan Invitation",
+                        "Tuesday March 3rd 2022 at Noon.<br>" +
+                        "Plan Invitation",
                     [peopleList[0]],
                     ["decline", "counter", "accept"],
                     "plan_invite"
@@ -76,7 +87,7 @@ function connectPage(selected = false) {
                     "Yesterday 11/21/2022",
                     "Received",
                     "",
-                    "settle",
+                    "settle"
                 ),
                 planCard(
                     "Check In and Rate",
@@ -94,7 +105,8 @@ function connectPage(selected = false) {
                     ["verify"],
                     "plan"
                 ),
-        ].join("")),
+            ].join("")
+        ),
         "",
         "",
         actionItem("add", "message", -1, "", "black", false)
