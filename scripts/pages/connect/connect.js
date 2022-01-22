@@ -42,13 +42,19 @@ function connectPage(selected = false) {
                     2,
                     "Santa Barbara",
                     text(
-                        `${11} new items added to your linked ${"Santa Barbara"} dream board by your friend ${peopleList[BF].name}.`
+                        `${11} new items added to your linked ${"Santa Barbara"} dream board by your friend ${
+                            peopleList[BF].name
+                        }.`
                     ),
                     ["dream"]
                 ),
-                dreamCardNotification([], 2, "Santa Barbara", "New taste match!", [
-                    "match",
-                ]),
+                dreamCardNotification(
+                    [],
+                    2,
+                    "Santa Barbara",
+                    "New taste match!",
+                    ["match"]
+                ),
                 planCard(
                     "Plan Invite",
                     "Yoichi's",
