@@ -56,6 +56,9 @@
     display: none;
 }
 
+.page.explore .card .action-list{
+    flex-direction: row;
+}
 /*.page.explore .card.collapsed .action-list .icon {*/
 .page.explore .card .action-list .icon {
     width: 12px;

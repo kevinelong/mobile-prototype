@@ -1,4 +1,4 @@
-function settleCard(
+function settleCardZZZ(
     title,
     subtitle = "",
     content = "",

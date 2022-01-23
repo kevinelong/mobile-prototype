@@ -171,7 +171,7 @@ function applyFilterText(parentElement, childClass, searchText) {
 }
 
 function onStar(target, index) {
-    const parent = target.closest(".rating-action");
+    const parent = target.closest(".card");
 
     for (let i = 0; i < 4; i++) {
         console.log(i)
@@ -183,8 +183,13 @@ function onStar(target, index) {
             parent.getElementsByClassName("star-" + i)[0].classList.remove("on")
         }
     }
-    parent.getElementsByClassName("text")[0].innerHTML = index + 1;
+    parent.getElementsByClassName("text")[0].innerHTML = `${index + 1}`;
     parent.querySelectorAll(".rating-action > .icon-frame img")[0].setAttribute("src", iconPath("star"));
+    const ra = parent.querySelectorAll(".action-item.review");
+    debugger;
+    if (ra){
+        showElement(ra[0]);
+    }
 }
 
 function star(index) {
@@ -197,4 +202,8 @@ function rating() {
 
 function ratingAction() {
     return div("action-item rating-action", rating() + icon("star-outline", "", "?"));
+}
+
+function reviewAction() {
+    return div("action-item review hidden", icon("review", "", "review"));
 }

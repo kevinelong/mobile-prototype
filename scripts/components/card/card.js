@@ -39,12 +39,18 @@ function cardTags(tags) {
     return div("card-tags", [...tags].map(hashTagGold).join(""));
 }
 
-function cardActions(id, actionList = [], hideText = false) {
+function actionList(id, list = [], hideText = false) {
     return div(
         "action-list",
-        [...actionList]
+        [...list].reverse()
             .map((c) =>
-                actionItem(c, actionList.length == 1, "", c, "", hideText)
+                actionItem(
+                    c,
+                    c,
+                    -1,
+                    c,
+                    "",
+                    hideText)
             )
             .join(""),
         `id="${id}" class='action-list'`
@@ -83,7 +89,7 @@ function card(
                                         showSuffix,
                                         verb,
                                         group
-                                    ) + cardActions(`card-actions`, actions)
+                                    ) + actionList(`card-actions`, actions)
                                 )
                               : "")
                   )
@@ -116,7 +122,7 @@ function detail(
                 cardTags(tags) +
                     cardQuadrant(
                         cardPeople(people) +
-                            cardActions(`card-actions`, actions)
+                            actionList(`card-actions`, actions)
                     )
             )
         //, imagePath ? `style="background-image: url('${imagePath}');"` : ""

@@ -17,7 +17,7 @@
     height: auto;
     background: #dddddd;
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     align-content: space-evenly;
     justify-content: space-between;
     padding: 0;

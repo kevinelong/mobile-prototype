@@ -49,7 +49,7 @@ function exploreCardContent(
                 (people || actions
                     ? cardQuadrant(
                         cardPeople(people, showSuffix, verb, group) +
-                        cardActions(`card-actions`, actions)
+                        actionList(`card-actions`, actions)
                     )
                     : "")
             )
