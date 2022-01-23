@@ -24,8 +24,8 @@ function settleCardZZZ(
 
 function dashBoardItem(titleText = "", valueText = "", actionName = "") {
     return contentPanel(col([
-            title(titleText),
-            text(valueText),
+            title(valueText),
+            text(titleText),
             actionItem(actionName,"settle",-1, actionName,"", false),
         ].join("")), "dashboard-item");
 }

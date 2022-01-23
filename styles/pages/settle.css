@@ -6,11 +6,12 @@
     alignment: center;
     /*flex-direction: ;*/
 }
-/*.dashboard-item{*/
-/*    alignment: center;*/
-/*    align-content: space-evenly;*/
-/*    text-align: center;*/
-/*}*/
+.dashboard-item *{
+    alignment: center;
+    align-content: space-evenly;
+    text-align: center;
+    margin: auto;
+}
 /*.dashboard-item *,*/
 /*.dashboard-item .title{*/
 /*    text-align: center;*/
@@ -25,8 +26,7 @@
     font-size: 1rem;
 }
 .dashboard-item .text{
-    font-size: 2rem;
-    padding: 1rem;
+    padding: 9px;
 }
 .money-panel,
 .message-panel {
