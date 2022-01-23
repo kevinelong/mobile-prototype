@@ -54,3 +54,88 @@ div {
     height: 100%;
     width: 100%;
 }
+
+.rating {
+    flex-direction: row;
+    gap: 3px;
+    border: 1px solid #fff8;
+    width: 0;
+    transition: width 300ms ease-in-out;
+}
+
+.rating .rating-star {
+    opacity: 0.25;
+    transition: opacity 450ms ease-in-out;
+}
+
+.rating .rating-star.on {
+    opacity: 1;
+    transition: opacity 300ms ease-in-out;
+}
+
+
+.rating-action .action-item {
+    opacity: 1;
+    transition:
+            opacity 100ms ease-in-out,
+            width 100ms ease-in-out;
+    position: absolute;
+    top: 0;
+    z-index: 10;
+}
+
+.rating-action:hover .action-item {
+    opacity: 0;
+    transition:
+            opacity 100ms ease-in-out,
+            width 100ms ease-in-out;
+}
+
+.rating-action .rating {
+    height: auto;
+    margin: 0;
+    opacity: 0;
+    transition:
+            opacity 100ms ease-in-out,
+            width 100ms ease-in-out;
+    position: absolute;
+    top: 2px;
+    z-index: 20;
+
+    background-color: #333;
+    border-radius: 36px;
+    padding: 2px;
+    overflow: hidden;
+}
+
+.rating-action:hover .rating {
+    opacity: 1;
+    transition:
+            opacity 100ms ease-in-out,
+            width 100ms ease-in-out;
+    width: 110px;
+}
+
+.rating-action {
+    /*background: #666666;*/
+    margin: 0;
+    border-radius: 36px;
+    padding: 0;
+    transition:
+            opacity 100ms ease-in-out,
+            width 100ms ease-in-out;
+    position: relative;
+    display: flex;
+    align-items: center;
+    /*height: 36px;*/
+    width: 60px;
+    z-index: 10;
+}
+.rating-action .icon{
+    width: 24px;
+    height: 24px;
+}
+.content-panel .action-item.rating-action .text{
+    font-size: 18px;
+    margin-top: 4px;
+}

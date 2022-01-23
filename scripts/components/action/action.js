@@ -9,7 +9,13 @@ function actionPanel(content) {
     return div(`action-panel`, content);
 }
 
+const ACTION_COMPONENT_MAP = {
+    "rate" : ratingAction,
+}
 function actionItem(name, which = "", index = -1, textValue = "", iconColor = "", hideText=false) {
+    if (ACTION_COMPONENT_MAP.hasOwnProperty(name) ) {
+        return ACTION_COMPONENT_MAP[name]();
+    }
     return div(
         `action-item ${name} ${which}`,
         icon(name, iconColor, textValue, hideText),

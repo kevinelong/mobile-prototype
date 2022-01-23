@@ -67,9 +67,10 @@ function hide(selector) {
     e.classList.add("hidden");
 }
 
-function applyFilter(){
+function applyFilter() {
 
 }
+
 function selectPage(e) {
     select(e);
     const name = toName(e.id);
@@ -80,10 +81,10 @@ function selectPage(e) {
 
     window.lastPage = pageName;
     const pages = getAll(".page");
-    if(!pages){
+    if (!pages) {
         debugger;
-        console.log("","getAll, can't find .pages to hide.");
-    }else {
+        console.log("", "getAll, can't find .pages to hide.");
+    } else {
         [...pages].forEach(hideElement);
     }
     showPage(pageName);
@@ -98,7 +99,7 @@ function listen(eventTypeName, handler, elem = document.body) {
     elem.addEventListener(eventTypeName, handler);
 }
 
-function cleanName(n){
+function cleanName(n) {
     return n.trim().toUpperCase().replace(/\s/g, "-");
 }
 
@@ -162,9 +163,38 @@ function applyFilterText(parentElement, childClass, searchText) {
 
         if (content.indexOf(cleanText) === -1) {
             showElement(c);
-        }else{
+        } else {
             hideElement(c);
         }
 
     });
+}
+
+function onStar(target, index) {
+    const parent = target.closest(".rating-action");
+
+    for (let i = 0; i < 4; i++) {
+        console.log(i)
+        if (i <= index) {
+            console.log("on");
+            parent.getElementsByClassName("star-" + i)[0].classList.add("on")
+        } else {
+            console.log("off");
+            parent.getElementsByClassName("star-" + i)[0].classList.remove("on")
+        }
+    }
+    parent.getElementsByClassName("text")[0].innerHTML = index + 1;
+    parent.querySelectorAll(".rating-action > .icon-frame img")[0].setAttribute("src", iconPath("star"));
+}
+
+function star(index) {
+    return div("rating-star star-" + index, icon("star"), `onclick="onStar(this, ${index})"`)
+}
+
+function rating() {
+    return div("rating", [0, 1, 2, 3].map(star).join(""))
+}
+
+function ratingAction() {
+    return div("action-item rating-action", rating() + icon("star-outline", "", "?"));
 }

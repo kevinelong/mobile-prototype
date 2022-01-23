@@ -94,7 +94,7 @@ function connectPage(selected = false) {
                     "Brasil Arts Cafe",
                     "Check in and rate to earn Vita Rewards",
                     [],
-                    ["check-in", "rate"],
+                    ["rate", "check-in"],
                     "plan"
                 ),
                 planCard(
