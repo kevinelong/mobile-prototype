@@ -3,7 +3,7 @@ function messageText(c) {
 }
 
 function messageItem(message_item, isSamePerson) {
-    console.log(message_item)
+   //   console.log(message_item)
     return div(
         `message-item ${isSamePerson ? "same-person" : ""} ${message_item.person.isCurrentUser ? "is-current-user" : ""}`,
         person(message_item.person) + messageText(message_item.text)
@@ -12,7 +12,7 @@ function messageItem(message_item, isSamePerson) {
 
 function messagePanel(messageList) {
     let lastItem = {person: {id: 0}};
-    console.log(lastItem)
+   //   console.log(lastItem)
     return div(
         "message-panel",
         [...messageList]
@@ -24,7 +24,7 @@ function messagePanel(messageList) {
             .join("") + inputMessage()
     );
     // const messagePanel = document.createElement("div");
-    // console.log(typeof messagePanel);
+    ////   console.log(typeof messagePanel);
     // const messageSentClass = "message-panel-sent";
     // const messageReceivedClass = "message-panel-received";
     // const messageListDivs = [];
@@ -51,7 +51,7 @@ function messagePanel(messageList) {
     //     }
     // }
     // return messagePanel;
-    // console.log(typeof messagePanel)
+    ////   console.log(typeof messagePanel)
     // return div(
     //     MessageSentClass,
     //     MessageListDivs.map((mi) => messageItem(mi, iconColor)).join("") +

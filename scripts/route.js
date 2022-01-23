@@ -76,7 +76,7 @@ function showProfileDialog(target, action, which, index = RUBY) {
 
 function collapseCard(target, action, which, id) {
     target.closest(".card").classList.toggle("collapsed");
-    console.log("collapseCard", action, which, id);
+   //   console.log("collapseCard", action, which, id);
 }
 
 function openPage(target, action, which, id) {
@@ -116,7 +116,7 @@ function addItem(target, action, which, id) {
         addMessage();
     }
 
-    console.log("add", ...arguments);
+   //   console.log("add", ...arguments);
 }
 ACTION_PAGES = {
     back: () => showPage(window.lastPage),
@@ -134,12 +134,12 @@ ACTION_PAGES = {
 };
 function toggleCollapse(target) {
     if (!target) {
-        console.log("toggleCollapse(...)", "required target is not defined.");
+       //   console.log("toggleCollapse(...)", "required target is not defined.");
         return false;
     }
     const card_list = target.closest(".card-list");
     if (!card_list) {
-        console.log("", "No ancestor .card-list");
+       //   console.log("", "No ancestor .card-list");
         return false;
     }
     card_list.classList.toggle("collapse");
@@ -148,11 +148,11 @@ function route(target, action, which = "", index = "") {
     if (TOAST_MESSAGES.hasOwnProperty(action)) {
         return showToast(TOAST_MESSAGES[action]);
     } else if (ACTION_PAGES.hasOwnProperty(action)) {
-        console.log("ACTION: " + action, which, index);
+       //   console.log("ACTION: " + action, which, index);
         const f = ACTION_PAGES[action];
-        console.log(f);
+       //   console.log(f);
         return f(target, action, which, index);
     } else {
-        console.log("UNKNOWN ACTION:" + action);
+       //   console.log("UNKNOWN ACTION:" + action);
     }
 }

@@ -145,11 +145,12 @@ function personIcon(person) {
 }
 
 function person(person) {
+
     if (!person){
-        console.log("person function requires a person object");
-        // debugger;
+       //   console.log("person function requires a person object");
         return "";
     }
+    
     return personItem(
         person.name,
         "connect_person",

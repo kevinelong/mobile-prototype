@@ -33,12 +33,12 @@ function hideElement(e) {
 
 function showPage(pageName, action = "", id = "") {
     if ("" === pageName) {
-        console.log("Missing pageName: " + pageName);
+       //   console.log("Missing pageName: " + pageName);
         return;
     }
     const page = get(`.page.${pageName}`);
     if (!page) {
-        console.log("No such page element: " + pageName);
+       //   console.log("No such page element: " + pageName);
         return;
     }
     const parts = pageName.split("_");
@@ -81,12 +81,13 @@ function selectPage(e) {
 
     window.lastPage = pageName;
     const pages = getAll(".page");
+
     if (!pages) {
-        debugger;
-        console.log("", "getAll, can't find .pages to hide.");
+       //   console.log("", "getAll, can't find .pages to hide.");
     } else {
         [...pages].forEach(hideElement);
     }
+
     showPage(pageName);
 }
 
@@ -116,7 +117,7 @@ function applyConnectPageFilter(e) {
 
     const cards = cp.querySelectorAll(".card");
     const text = e.innerHTML.toUpperCase();
-    console.log(text);
+   //   console.log(text);
 
     cards.forEach(c => {
 
@@ -131,7 +132,7 @@ function applyConnectPageFilter(e) {
         let kind = cleanName(c.dataset.kind);
         let choiceName = cleanName(e.dataset.choice);
         const content = cleanName(c.outerHTML);
-        console.log(content);
+       //   console.log(content);
 
         if (choiceName === kind) {
             return showElement(c);
@@ -171,22 +172,23 @@ function applyFilterText(parentElement, childClass, searchText) {
 }
 
 function onStar(target, index) {
-    const parent = target.closest(".card");
+    const parent = target.closest(".action-item");
+    const cardElement = target.closest(".card");
 
     for (let i = 0; i < 4; i++) {
-        console.log(i)
+        const starElement = parent.getElementsByClassName("star-" + i)[0];
         if (i <= index) {
-            console.log("on");
-            parent.getElementsByClassName("star-" + i)[0].classList.add("on")
+            starElement.classList.add("on")
         } else {
-            console.log("off");
-            parent.getElementsByClassName("star-" + i)[0].classList.remove("on")
+            starElement.classList.remove("on")
         }
     }
+
     parent.getElementsByClassName("text")[0].innerHTML = `${index + 1}`;
     parent.querySelectorAll(".rating-action > .icon-frame img")[0].setAttribute("src", iconPath("star"));
-    const ra = parent.querySelectorAll(".action-item.review");
-    debugger;
+
+    const ra = cardElement.querySelectorAll(".action-item.review");
+
     if (ra){
         showElement(ra[0]);
     }
