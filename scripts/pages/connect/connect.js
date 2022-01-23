@@ -1,4 +1,6 @@
 function connectPage(selected = false) {
+    const defaultLocation = "Santa Barbara";
+    const itemCount = 11;
     return page(
         selected,
         "connect",
@@ -40,9 +42,9 @@ function connectPage(selected = false) {
                 dreamCardNotification(
                     [peopleList[BF]],
                     2,
-                    "Santa Barbara",
+                    defaultLocation,
                     text(
-                        `${11} new items added to your linked ${"Santa Barbara"} dream board by your friend ${
+                        `${itemCount} new items added to your linked ${defaultLocation} dream board by your friend ${
                             peopleList[BF].name
                         }.`
                     ),

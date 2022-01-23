@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <body>
 
@@ -16,19 +16,19 @@
         const sourceBytes = new TextEncoder().encode(source);
         const digest = await crypto.subtle.digest("SHA-256", sourceBytes);
         const resultBytes = [...new Uint8Array(digest)];
-        return resultBytes.map(x => x.toString(16).padStart(2, '0')).join("");
+        return resultBytes.map(x => parseInt(x).toString(16).padStart(2, '0')).join("");
     }
 
     async function main(text) {
         const result = await sha256(text + "_v");
         console.log(result);
-        if (result == "cef8213b097acde521a6b9b8ea03205305b8b6b1ea5b66d4383c4a855f366fec") {
+        if (result === "cef8213b097acde521a6b9b8ea03205305b8b6b1ea5b66d4383c4a855f366fec") {
             self.location = "main.html";
         }
     }
 
     function handleSubmit() {
-        main(login.password.value)
+        main(document.getElementsByName("login")[0].password.value)
         return false;
     }
 

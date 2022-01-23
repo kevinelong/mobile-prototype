@@ -1,4 +1,4 @@
-function activityCard(item = {}, index) {
+function activityCard(item = {}, index= -1) {
     return card(
         "activity",
         item.title,
@@ -7,7 +7,7 @@ function activityCard(item = {}, index) {
         [],
         item.image,
         item.tags,
-        true,
+        index,
         "recommended"
     )
 }

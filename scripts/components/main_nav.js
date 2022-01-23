@@ -19,7 +19,7 @@ function mainNav(tabNames, selectedItem = "") {
     return div(
         `main-nav length-${tabNames.length}`,
         [...tabNames]
-            .map((t, i) => mainNavTab(t.toUpperCase(), t == selectedItem, t, i))
+            .map((t, i) => mainNavTab(t.toUpperCase(), t === selectedItem, t, i))
             .join("")
     );
 }

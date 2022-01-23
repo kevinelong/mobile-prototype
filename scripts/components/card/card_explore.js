@@ -109,13 +109,13 @@ function exploreDetail(
     tags = [],
     people = [],
     actions = [],
-    id = ""
+    which = -1
 ) {
     return detail(
         "explore",
         "Details",
         div(
-            "titles explore",
+            `titles explore ${which}`,
             row(
                 // icon("explore") +
                 col(cardTitle(title) + cardSubtitle(subtitle))

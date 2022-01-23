@@ -17,7 +17,7 @@ function messagePanel(messageList) {
         "message-panel",
         [...messageList]
             .map((message_item) => {
-                const OUTPUT = messageItem(message_item, message_item.person.id == lastItem.person.id);
+                const OUTPUT = messageItem(message_item, message_item.person.id === lastItem.person.id);
                 lastItem = message_item;
                 return OUTPUT;
             })

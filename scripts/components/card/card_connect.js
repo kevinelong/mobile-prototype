@@ -30,20 +30,19 @@ function connectPersonDetail(
     tags = [],
     people = [],
     actions = [],
-    id = ""
+    which = -1
 ) {
     return detail(
         "connect",
         "Details",
         div(
-            "titles explore",
+            `titles explore ${which}`,
             row(
-                // icon("explore") +
                 col(cardTitle(title) + cardSubtitle(subtitle))
             )
         ) + col(text(content) + text("Friends:") + cardPeople(people)),
-        [],
-        [],
+        people,
+        actions,
         imagePath,
         tags
     );

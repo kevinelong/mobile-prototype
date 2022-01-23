@@ -32,7 +32,7 @@
     background-size: cover;
     background-position: 50% 50%;
     /*background-blend-mode: darken;*/
-    text-shadow: 1px 1px 0px black;
+    text-shadow: 1px 1px 0 black;
     /*display: flex;*/
     flex-direction: column;
     align-content: space-between;
@@ -56,10 +56,6 @@
     display: none;
 }
 
-.page.explore .card .action-list{
-    flex-direction: row;
-}
-/*.page.explore .card.collapsed .action-list .icon {*/
 .page.explore .card .action-list .icon {
     width: 12px;
     height: 12px;

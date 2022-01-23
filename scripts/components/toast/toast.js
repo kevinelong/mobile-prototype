@@ -14,9 +14,11 @@ function showToast(message) {
 
     show(".toast");
 
-    current_timeout_id = setTimeout((e) => {
+    function handleTimeout() {
         current_timeout_id = undefined;
         hide(".toast");
         get(".toast").innerHTML = "";
-    }, duration);
+    }
+
+    current_timeout_id = setTimeout(handleTimeout, duration);
 }

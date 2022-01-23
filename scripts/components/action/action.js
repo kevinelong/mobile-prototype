@@ -2,7 +2,7 @@ function action(name, which = "", id = -1, object={}) {
     // if(name=="block"){
     //     debugger;
     // }
-    return `onclick="actionClick(this, '${name}','${which}',${id})" data-object="${JSON.stringify(object).replace(/\"/g,"'")}"`;
+    return `onclick="actionClick(this, '${name}','${which}',${id})" data-object="${JSON.stringify(object).replace(/"/g,"'")}"`;
 }
 
 function actionPanel(content) {
@@ -25,8 +25,8 @@ function actionItem(name, which = "", index = -1, textValue = "", iconColor = ""
 }
 
 function personItem(name, which, index, person) {
-    if(!name, !which, !index, !person){
-        console.log(name, which, index, person);
+    if(!name && !which && !index && !person){
+        console.log("MISSING ONE OR MORE REQUIRED(name, which, index, person)", name, which, index, person);
     }
     return div(
         `action-item person ${name} ${which}`,

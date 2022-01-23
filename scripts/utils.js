@@ -32,7 +32,7 @@ function hideElement(e) {
 }
 
 function showPage(pageName, action = "", id = "") {
-    if ("" == pageName) {
+    if ("" === pageName) {
         console.log("Missing pageName: " + pageName);
         return;
     }
@@ -42,7 +42,7 @@ function showPage(pageName, action = "", id = "") {
         return;
     }
     const parts = pageName.split("_");
-    if (parts.length == 1) {
+    if (parts.length === 1) {
         window.lastPage = pageName;
         select(get("#main-nav-tab-" + pageName));
     }
@@ -118,9 +118,9 @@ function applyConnectPageFilter(e) {
     const text = e.innerHTML.toUpperCase();
     console.log(text);
 
-    cards.forEach((c, i) => {
+    cards.forEach(c => {
 
-        if ("ALL" == text) {
+        if ("ALL" === text) {
             return showElement(c);
         }
 
@@ -133,11 +133,11 @@ function applyConnectPageFilter(e) {
         const content = cleanName(c.outerHTML);
         console.log(content);
 
-        if (choiceName == kind) {
+        if (choiceName === kind) {
             return showElement(c);
         }
 
-        if ("NOTIFICATIONS" == choiceName && !["1-ON-1", "GROUP-CHAT"].includes(kind)) {
+        if ("NOTIFICATIONS" === choiceName && !["1-ON-1", "GROUP-CHAT"].includes(kind)) {
             return showElement(c);
         }
         hideElement(c);
@@ -152,9 +152,9 @@ function applyFilterText(parentElement, childClass, searchText) {
 
     const children = parentElement.querySelectorAll(childClass);
 
-    children.forEach((c, i) => {
+    children.forEach((c) => {
 
-        if ("" == searchText) {
+        if (!searchText) {
             return showElement(c);
         }
 

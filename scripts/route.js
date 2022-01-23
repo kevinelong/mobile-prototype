@@ -24,7 +24,7 @@ function showMatchDialog() {
 
                 <div>
                     <!-- <b>Richard's home - Best Wine tasting in Napa</b> has been booked by Joe Shmoe for
-                    all coplanners. -->
+                    all co-planners. -->
                     <b>You and Joe Schmoe</b> both classified <b>Yoichi’s</b> as an Idea in your
                     <b>Santa Barbara</b> DreamBoards
                 </div>
@@ -108,11 +108,11 @@ TOAST_MESSAGES = {
     venmo: "Payment Settled",
 };
 function addItem(target, action, which, id) {
-    if ("person" == which) {
+    if ("person" === which) {
         showSearchDialog();
     }
 
-    if ("message" == which) {
+    if ("message" === which) {
         addMessage();
     }
 
@@ -132,15 +132,13 @@ ACTION_PAGES = {
     person: showProfileDialog,
     match: showMatchDialog,
 };
-function toggleCollapse(target, action, which, id) {
+function toggleCollapse(target) {
     if (!target) {
-        debugger;
         console.log("toggleCollapse(...)", "required target is not defined.");
         return false;
     }
     const card_list = target.closest(".card-list");
     if (!card_list) {
-        debugger;
         console.log("", "No ancestor .card-list");
         return false;
     }

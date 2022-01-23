@@ -11,7 +11,7 @@ function connectPersonPage(selected = false) {
             "Friend and Collaborator",
             "Kevin is the creator of cool.",
             ["Santa Barbara", "London"],
-            ["Greg Bellowe", "Nina Marie"],
+            peopleList,
             ["share", "heart", "message"]
         ),
         "",
