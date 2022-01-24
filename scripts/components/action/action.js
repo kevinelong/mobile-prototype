@@ -34,7 +34,7 @@ function personItem(name, which, index, person) {
     );
 }
 
-function actionClick(target, action, which = "", index = -1, data={}) {
+function actionClick(target, action, which = "", index = -1, data = {}) {
     hideDialog();
     route(target, action, which, index, data);
 }

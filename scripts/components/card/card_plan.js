@@ -5,7 +5,7 @@ function planCard(title, subtitle, content, groups = [], actions = [], image = "
             "titles plan",
             row(
                 icon("plan") +
-                col(cardTitle(title) + cardSubtitle(`${subtitle}`))
+                    col(cardTitle(title) + cardSubtitle(`${subtitle}`))
             )
         ) + actionItem("open", "plan_detail"),
         content,

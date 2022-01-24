@@ -3,7 +3,10 @@ function moneyText(c) {
 }
 
 function initials(name) {
-    return name.split(" ").map(w => w[0]).join("");
+    return name
+        .split(" ")
+        .map((w) => w[0])
+        .join("");
 }
 
 function moneyItem(rowData, index) {
@@ -17,8 +20,5 @@ function moneyItem(rowData, index) {
 }
 
 function moneyPanel(messageList = [["", ""]]) {
-    return div(
-        "money-panel",
-        [...messageList].map(moneyItem).join("")
-    );
+    return div("money-panel", [...messageList].map(moneyItem).join(""));
 }

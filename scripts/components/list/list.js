@@ -34,10 +34,8 @@ function simpleList(
 function rowPerson(data, actionName = "right") {
     return div(
         "simple-item",
-            person(data) +
-            title(data.name) +
-            icon(actionName),
-            action(actionName, data.name, data.id)
+        person(data) + title(data.name) + icon(actionName),
+        action(actionName, data.name, data.id)
     );
 }
 
@@ -51,7 +49,7 @@ function listPeople(
         div(
             `title-block`,
             (titleText ? title(titleText) : "") +
-            (subtitleText ? subtitle(subtitleText) : "")
+                (subtitleText ? subtitle(subtitleText) : "")
         ) +
         div(
             "simple-list",

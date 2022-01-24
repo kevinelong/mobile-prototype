@@ -78,13 +78,12 @@ function exploreCard(
         "explore collapsed",
         div(
             "titles explore",
-            row(
-                 col(cardTitle(title) + cardSubtitle(subtitle))
-            )
-        ) ,
-        row(icon("explore") +
-        cardTitle(title) +
-            actionItem("open", "explore_detail", id)
+            row(col(cardTitle(title) + cardSubtitle(subtitle)))
+        ),
+        row(
+            icon("explore") +
+                cardTitle(title) +
+                actionItem("open", "explore_detail", id)
         ) +
         cardSubtitle(subtitle) +
         text(content),

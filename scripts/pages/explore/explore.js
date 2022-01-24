@@ -11,8 +11,9 @@ const EXPLORE_DATA = [
         "1",
         true,
         "Recommended",
-        "Local Expert"
-    ], [
+        "Local Expert",
+    ],
+    [
         "images/photos/hanna-levin.png",
         "Hanna Levin",
         "New Taste Match to Follow!",
@@ -28,8 +29,9 @@ const EXPLORE_DATA = [
         "2",
         true,
         "Recommended",
-        "Local Expert"
-    ], [
+        "Local Expert",
+    ],
+    [
         "images/explore_bg.png",
         "Loquita",
         "Santa Barbara",
@@ -40,8 +42,9 @@ const EXPLORE_DATA = [
         "2",
         true,
         "Recommended",
-        "Local Expert"
-    ], [
+        "Local Expert",
+    ],
+    [
         "images/explore_bg.png",
         "Loquita",
         "Santa Barbara",
@@ -52,8 +55,9 @@ const EXPLORE_DATA = [
         "2",
         true,
         "Recommended",
-        "Local Expert"
-    ], [
+        "Local Expert",
+    ],
+    [
         "images/explore_bg.png",
         "Loquita",
         "Santa Barbara",
@@ -64,8 +68,8 @@ const EXPLORE_DATA = [
         "2",
         true,
         "Recommended",
-        "Local Expert"
-    ]
+        "Local Expert",
+    ],
 ];
 
 const EXPLORE_CANNON_BEACH = exploreCard(...EXPLORE_DATA[0]);
@@ -96,9 +100,7 @@ function explorePage(selected = false) {
         "Explore",
         ["All", "Personal", "Matches", "Deals"],
         "All",
-        row(
-            lists.join("")
-        ),
+        row(lists.join("")),
         "ALL"
     );
 }

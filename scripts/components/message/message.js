@@ -5,7 +5,9 @@ function messageText(c) {
 function messageItem(message_item, isSamePerson) {
    //   console.log(message_item)
     return div(
-        `message-item ${isSamePerson ? "same-person" : ""} ${message_item.person.isCurrentUser ? "is-current-user" : ""}`,
+        `message-item ${isSamePerson ? "same-person" : ""} ${
+            message_item.person.isCurrentUser ? "is-current-user" : ""
+        }`,
         person(message_item.person) + messageText(message_item.text)
     );
 }

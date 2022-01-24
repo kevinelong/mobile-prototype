@@ -9,14 +9,17 @@ function activityCard(item = {}, index= -1) {
         item.tags,
         index,
         "recommended"
-    )
+    );
 }
 
 function activityListItems(list) {
     if (!list) {
         return "";
     }
-    return cardList(title(list.name + actionItem("show"))+ list.items.map(activityCard).join(""));
+    return cardList(
+        title(list.name + actionItem("show")) +
+            list.items.map(activityCard).join("")
+    );
 }
 
 function activityList(list) {
@@ -42,14 +45,17 @@ function dreamBoardPage(selected = false) {
                 {
                     kind: "food",
                     title: "Brasil Arts Cafe",
-                    description: "the perfect blend of traditional Brazilian fare & one-of-a-kind Açai, Juice, and Smoothie creations",
+                    description:
+                        "the perfect blend of traditional Brazilian fare & one-of-a-kind Açai, Juice, and Smoothie creations",
                     image: "images/photos/brasil_arts_cafe.jpeg",
                     people: [{ people:[peopleList[RUBY], peopleList[JOE]], title: "Pinned By", groupName: "Dreamer", subtitle: ""}],
                     tags: ["brazilian", "cafe"],
-                }, {
+                },
+                {
                     kind: "food",
                     title: "Yoichi's",
-                    description: "A prix-fixe only spot featuring traditional Japanese small plates &amp; sushi in an intimate setting.",
+                    description:
+                        "A prix-fixe only spot featuring traditional Japanese small plates &amp; sushi in an intimate setting.",
                     image: "images/photos/yoichis.jpg",
                     people: [{ people:[peopleList[RUBY], peopleList[JOE]], title: "Pinned By", groupName: "Dreamer", subtitle: ""}],
                     tags: ["japanese", "sushi", "prix-fixe"]

@@ -39,9 +39,9 @@ const PATH_FACES = `${PATH_IMAGES}/faces/`;
 const PREFIX_FACES = `${PATH_FACES}/face`;
 const SUFFIX_FACES = `.png`;
 
-const RUBY = 0
-const JOE = 1
-const BF = 2
+const RUBY = 0;
+const JOE = 1;
+const BF = 2;
 
 const peopleList = [
     {
@@ -195,16 +195,14 @@ function icon(name = "menu", iconColor = "", textValue = "", hideText = false) {
         div(
             "icon-frame",
             `<img class="icon" src="${iconPath(iconMap(name), iconColor)}">`
-        ) + ((textValue && !hideText) ? text(textValue) : "")
+        ) + (textValue && !hideText ? text(textValue) : "")
     );
 }
 
 function personIcon(person) {
     return (
-        div(
-            "icon-frame",
-            `<img class="icon" src="${facePath(person.id)}">`
-        ) + text(person.name ? person.name : "")
+        div("icon-frame", `<img class="icon" src="${facePath(person.id)}">`) +
+        text(person.name ? person.name : "")
     );
 }
 

@@ -105,7 +105,6 @@ function cleanName(n) {
 }
 
 function applyConnectPageFilter(e) {
-
     if (!e) {
         return;
     }
@@ -145,7 +144,6 @@ function applyConnectPageFilter(e) {
 }
 
 function applyFilterText(parentElement, childClass, searchText) {
-
     if (!parentElement) {
         return;
     }
@@ -166,7 +164,6 @@ function applyFilterText(parentElement, childClass, searchText) {
         } else {
             hideElement(c);
         }
-
     });
 }
 
