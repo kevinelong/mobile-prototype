@@ -77,6 +77,7 @@ function dreamBoardPage(selected = false) {
             icon("going","","going"),
         ],
         "All",
+        cardGroups(dreamers) +
         activityList(boardData),
         "all",
         "dream"

@@ -115,6 +115,13 @@ group_of_three = [{
 }];
 
 
+dreamers = [{
+    people: three_people,
+    title: "board linked with",
+    groupName: "dreamer",
+    subtitle: "sharing a total of 23 cards"
+}];
+
 let messageListExample = [
     {
         text: "Hey girl welcome!",

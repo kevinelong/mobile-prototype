@@ -14,6 +14,12 @@
     /*align-items: center;*/
     /*font-size: 1.2rem;*/
 }
+.content-panel .circle .text{
+    color: white;
+}
+.content-panel .card-people{
+    margin-top: 9px;
+}
 .page > .content-panel{
     align-items: center;
 }
