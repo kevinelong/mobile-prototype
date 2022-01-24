@@ -332,3 +332,9 @@
     transition: transform 300ms ease-in-out;
 }
 
+.page.explore .card.explore .content-panel .action-item.favorite .text {
+    display: block;
+}
+.page.explore .action-item.favorite .text{
+    display: block;
+}

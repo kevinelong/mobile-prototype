@@ -32,6 +32,11 @@ function exploreCardContent(
     actions = "",
     image = "",
     tags = []) {
+
+    let qty = 0;
+    if (groups && groups[0] && groups[0].people){
+        qty = groups[0].people.length;
+    }
     return div(
         `card ${kind}`,
         img("background top", "images/backgrounds/top-gradient-black.svg") +
@@ -44,7 +49,7 @@ function exploreCardContent(
                 (groups || actions
                     ? cardQuadrant(
                         cardGroups(groups) +
-                        actionList(`card-actions`, actions)
+                        actionList(`card-actions`, actions,false, qty)
                     )
                     : "")
             )

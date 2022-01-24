@@ -32,7 +32,7 @@
 .action-item {
     margin: 0;
     white-space: nowrap;
-    font-size: 11pt;
+    font-size: 10px;
     user-select: none;
     cursor: pointer;
     display: inline-flex;

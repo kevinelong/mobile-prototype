@@ -88,8 +88,9 @@ function showProfileDialog(target, action, which, index = RUBY) {
                 "Santa Barbara - Linked", "Paris - Shared. Link?", "Seattle"
             ]].map(hashTag).join(""))
         ) +
-        ((index === 0) ? "" : actions) +
-        cardGroups(who.groups);
+        cardGroups(who.groups) +
+        ((index === 0) ? "" : actions);
+
     const content = contentPanel(
         person(who) +
         (index===0 ? "" : other)

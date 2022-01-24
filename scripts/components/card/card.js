@@ -39,7 +39,7 @@ function cardTags(tags) {
     return div("card-tags", [...tags].map(hashTagGold).join(""));
 }
 
-function actionList(id, list = [], hideText = false) {
+function actionList(id, list = [], hideText = false, qty= 0) {
     return div(
         "action-list",
         [...list].reverse()
@@ -50,7 +50,8 @@ function actionList(id, list = [], hideText = false) {
                     -1,
                     c,
                     "",
-                    hideText)
+                    hideText,
+                    qty)
             )
             .join(""),
         `id="${id}" class='action-list'`

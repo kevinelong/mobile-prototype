@@ -1,4 +1,5 @@
 function text(textValue) {
+    textValue = `${textValue}`; //ensure that the parameter is converted to text in case its was something like qty
     const word_count = textValue.split().length;
     return div(`text wc-${word_count}`, textValue);
 }
@@ -62,27 +63,27 @@ const peopleList = [
         groups: [],
     },
 ];
-peopleList[RUBY].groups = [
+peopleList[BF].groups = [
     {
-        people: [peopleList[BF]],
+        people: [peopleList[RUBY]],
         title: "Loved By",
         groupName: "friend",
         subtitle: ""
     },
     {
-        people: [peopleList[BF]],
+        people: [peopleList[RUBY]],
         title: "Linked To",
         groupName: "dreamer",
         subtitle: ""
     },
     {
-        people: [peopleList[BF], peopleList[JOE]],
+        people: [peopleList[RUBY], peopleList[JOE]],
         title: "Plans With",
         groupName: "Co-Planner",
         subtitle: ""
     },
     {
-        people: [peopleList[BF], peopleList[JOE]],
+        people: [peopleList[RUBY], peopleList[JOE]],
         title: "Followed By",
         groupName: "explorer",
         subtitle: ""

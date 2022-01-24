@@ -10,10 +10,15 @@ const ACTION_COMPONENT_MAP = {
     "rate" : ratingAction,
     "review" : reviewAction,
 }
-function actionItem(name, which = "", index = -1, textValue = "", iconColor = "", hideText=false) {
+function actionItem(name, which = "", index = -1, textValue = "", iconColor = "", hideText=false, qty= 0) {
     if (ACTION_COMPONENT_MAP.hasOwnProperty(name) ) {
         return ACTION_COMPONENT_MAP[name]();
     }
+
+    if("favorite"===name){
+        textValue = qty ? qty : textValue;
+    }
+
     return div(
         `action-item ${name} ${which}`,
         icon(name, iconColor, textValue, hideText),
