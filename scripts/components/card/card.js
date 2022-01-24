@@ -64,7 +64,7 @@ function cardList(content) {
 function card(
     kind,
     title,
-    body = "",
+    content = "",
     groups = [],
     actions = [],
     image = "",
@@ -75,7 +75,7 @@ function card(
     return div(
         `card ${kind} ${which}`,
         img("background top", "images/backgrounds/top-gradient-black.svg") +
-        cardSection(cardTitle(title) + contentPanel(body)) +
+        cardSection(cardTitle(title) + contentPanel(content)) +
         (tags || groups || actions
             ? cardSection(
                 cardTags(tags) +
