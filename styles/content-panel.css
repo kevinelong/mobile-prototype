@@ -17,6 +17,9 @@
 .content-panel .circle .text{
     color: white;
 }
+.dialog .content-panel .circle .text{
+    color: black;
+}
 .content-panel .card-people{
     margin-top: 9px;
 }
