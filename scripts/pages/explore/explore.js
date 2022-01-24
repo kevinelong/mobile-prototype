@@ -1,28 +1,3 @@
-one_person = peopleList.filter((p, i) => i < 1);
-two_people = peopleList.filter((p, i) => i < 2);
-three_people = peopleList.filter((p, i) => i < 3);
-
-group_of_one = [{
-    people: one_person,
-    title: one_person.map(p => p.name).join(", "),
-    groupName: "Friend",
-    subtitle: ""
-}];
-
-group_of_two = [{
-    people: two_people,
-    title: two_people.map(p => p.name).join(", "),
-    groupName: "Friend",
-    subtitle: ""
-}];
-
-group_of_three = [{
-    people: three_people,
-    title: three_people.map(p => p.name).join(", "),
-    groupName: "Friend",
-    subtitle: ""
-}];
-
 
 const EXPLORE_DATA = [
     [

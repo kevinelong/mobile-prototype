@@ -31,7 +31,18 @@
     font-size: 11px;
     margin-right: -7px;
 }
-
+.title .person-icon{
+    margin-right: 7px;
+}
+.title .person-icon:hover .text,
+.title .circle:hover .text,
+.title .icon-frame:hover .text,
+.title .action-item:hover .text{
+    display:none;
+}
+.title .person-icon{
+    border: 1px solid black;
+}
 .row > .circle{
     background: #000000ee;
     border: 1px solid #ffffffee;

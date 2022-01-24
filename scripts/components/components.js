@@ -15,11 +15,11 @@ function circle(textValue) {
     return div("circle", textValue);
 }
 
-function contentPanel(content, className="") {
+function contentPanel(content, className = "") {
     return content ? div(`content-panel ${className}`, content) : "";
 }
 
-function row(content, attrs="") {
+function row(content, attrs = "") {
     return div("row", content, attrs);
 }
 
@@ -47,18 +47,73 @@ const peopleList = [
         id: 1,
         name: "Ruby Red",
         isCurrentUser: true,
+        groups: [],
     },
     {
         id: 2,
         name: "Joe Shmoe",
         isCurrentUser: false,
+        groups: [],
     },
     {
         id: 3,
         name: "Betty Ford",
         isCurrentUser: false,
+        groups: [],
     },
 ];
+peopleList[RUBY].groups = [
+    {
+        people: [peopleList[BF]],
+        title: "Loved By",
+        groupName: "friend",
+        subtitle: ""
+    },
+    {
+        people: [peopleList[BF]],
+        title: "Linked To",
+        groupName: "dreamer",
+        subtitle: ""
+    },
+    {
+        people: [peopleList[BF], peopleList[JOE]],
+        title: "Plans With",
+        groupName: "Co-Planner",
+        subtitle: ""
+    },
+    {
+        people: [peopleList[BF], peopleList[JOE]],
+        title: "Followed By",
+        groupName: "explorer",
+        subtitle: ""
+    }
+];
+
+one_person = peopleList.filter((p, i) => i < 1);
+two_people = peopleList.filter((p, i) => i < 2);
+three_people = peopleList.filter((p, i) => i < 3);
+
+group_of_one = [{
+    people: one_person,
+    title: one_person.map(p => p.name).join(", "),
+    groupName: "Friend",
+    subtitle: ""
+}];
+
+group_of_two = [{
+    people: two_people,
+    title: two_people.map(p => p.name).join(", "),
+    groupName: "Friend",
+    subtitle: ""
+}];
+
+group_of_three = [{
+    people: three_people,
+    title: three_people.map(p => p.name).join(", "),
+    groupName: "Friend",
+    subtitle: ""
+}];
+
 
 let messageListExample = [
     {
@@ -127,7 +182,7 @@ function iconMap(icon) {
     return icon;
 }
 
-function icon(name = "menu", iconColor = "", textValue = "", hideText=false) {
+function icon(name = "menu", iconColor = "", textValue = "", hideText = false) {
     return (
         div(
             "icon-frame",
@@ -147,8 +202,8 @@ function personIcon(person) {
 
 function person(person) {
 
-    if (!person){
-       //   console.log("person function requires a person object");
+    if (!person) {
+        //   console.log("person function requires a person object");
         return "";
     }
 

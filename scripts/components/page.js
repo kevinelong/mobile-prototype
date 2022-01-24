@@ -14,7 +14,8 @@ function page(
         title(
             actionItem(parent ? "back" : "menu") +
                 div("title-middle", icon(name + "-black", "", caption)) +
-                actionItem("person", "me", 0, "", "black")
+                cardPerson(peopleList[RUBY])
+                // actionItem("person", "me", 0, "", "black")
         ) +
             contentPanel(
                 choiceSet(`${name}-filters`, choiceList, selectedChoice) +

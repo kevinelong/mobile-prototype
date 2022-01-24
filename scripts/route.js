@@ -51,27 +51,26 @@ function showMatchDialog() {
 }
 
 function showProfileDialog(target, action, which, index = RUBY) {
-    showDialog(
-        "Connection Profile",
-        contentPanel(
-            person(peopleList[index]) +
-                actionPanel(
-                    ["block", "friend", "follow"]
-                        .map((actionName) =>
-                            actionItem(
-                                actionName,
-                                index,
-                                index,
-                                actionName,
-                                "white",
-                                false
-                            )
-                        )
-                        .join("")
-                ),
-            "profile"
-        )
+    const who = peopleList[index];
+    const actions = actionPanel(
+        ["block", "friend", "follow"]
+            .map((actionName) =>
+                actionItem(
+                    actionName,
+                    index,
+                    index,
+                    actionName,
+                    "black",
+                    false
+                )
+            )
+            .join("")
     );
+    const content = contentPanel(
+        person(who) + ((index === 0) ? "" : actions) + cardGroups(who.groups),
+        "profile"
+    );
+    showDialog(index === 0 ? "Profile" : "Connection Profile", content);
 }
 
 function collapseCard(target) {

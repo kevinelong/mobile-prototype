@@ -28,9 +28,9 @@
     max-height 1300ms ease-in-out,
     max-width 1300ms ease-in-out;
 }
-.dialog .action-item.person .text,
+.dialog .profile > .action-item.person .text,
 .dialog .message-item .text,
-.dialog .person-icon .text
+.dialog .profile > .person-icon .text
 {
     display: block;
     opacity: 1;

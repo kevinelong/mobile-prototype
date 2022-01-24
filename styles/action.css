@@ -66,10 +66,11 @@
     max-height: 24px;
 }
 
-.profile .action-item.person .text {
+.profile > .action-item.person .text {
     font-size: 2em;
 }
-.profile .action-item.person .icon {
+
+.profile > .action-item.person .icon {
     max-width: none;
     max-height: none;
     width: 56px;

@@ -4,7 +4,7 @@ function cardPerson(person, index = 0, limit = 3, which= -1) {
     // }
     return div(
         "person-icon",
-        circle(personItem(`person ${which}`, "connect", index, person))
+        circle(personItem("person", which, index, person))
     );
 }
 

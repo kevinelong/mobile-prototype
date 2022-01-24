@@ -40,7 +40,7 @@ function connectPage(selected = false) {
                     "1",
                 ),
                 dreamCardNotification(
-                    [{ people:[peopleList[1]], title: "Liked By", groupName: "Explorer", subtitle: ""}],
+                    [{ people:[peopleList[1]], title: "linked with", groupName: "dreamer", subtitle: "23 shared cards"}],
                     2,
                     defaultLocation,
                     text(
@@ -73,7 +73,8 @@ function connectPage(selected = false) {
                     "Yesterday 12/12/2022",
                     "Pay",
                     "Santa Barbara",
-                    "settle_detail"
+                    "settle_detail",
+                    5
                 ),
                 settleCard(
                     peopleList[0],
@@ -81,7 +82,8 @@ function connectPage(selected = false) {
                     "Yesterday 11/21/2022",
                     "Received",
                     "",
-                    "settle"
+                    "settle",
+                    5
                 ),
                 settleCard(
                     peopleList[1],
@@ -89,7 +91,8 @@ function connectPage(selected = false) {
                     "Yesterday 11/21/2022",
                     "Received",
                     "",
-                    "settle"
+                    "settle",
+                    5
                 ),
                 planCard(
                     "Check In and Rate",
