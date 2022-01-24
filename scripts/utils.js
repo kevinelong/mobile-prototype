@@ -32,17 +32,17 @@ function hideElement(e) {
 }
 
 function showPage(pageName, action = "", id = "") {
-    if ("" == pageName) {
-        console.log("Missing pageName: " + pageName);
+    if ("" === pageName) {
+       //   console.log("Missing pageName: " + pageName);
         return;
     }
     const page = get(`.page.${pageName}`);
     if (!page) {
-        console.log("No such page element: " + pageName);
+       //   console.log("No such page element: " + pageName);
         return;
     }
     const parts = pageName.split("_");
-    if (parts.length == 1) {
+    if (parts.length === 1) {
         window.lastPage = pageName;
         select(get("#main-nav-tab-" + pageName));
     }
@@ -67,7 +67,10 @@ function hide(selector) {
     e.classList.add("hidden");
 }
 
-function applyFilter() {}
+function applyFilter() {
+
+}
+
 function selectPage(e) {
     select(e);
     const name = toName(e.id);
@@ -78,12 +81,13 @@ function selectPage(e) {
 
     window.lastPage = pageName;
     const pages = getAll(".page");
+
     if (!pages) {
-        debugger;
-        console.log("", "getAll, can't find .pages to hide.");
+       //   console.log("", "getAll, can't find .pages to hide.");
     } else {
         [...pages].forEach(hideElement);
     }
+
     showPage(pageName);
 }
 
@@ -112,10 +116,11 @@ function applyConnectPageFilter(e) {
 
     const cards = cp.querySelectorAll(".card");
     const text = e.innerHTML.toUpperCase();
-    console.log(text);
+   //   console.log(text);
 
-    cards.forEach((c, i) => {
-        if ("ALL" == text) {
+    cards.forEach(c => {
+
+        if ("ALL" === text) {
             return showElement(c);
         }
 
@@ -125,17 +130,13 @@ function applyConnectPageFilter(e) {
 
         let kind = cleanName(c.dataset.kind);
         let choiceName = cleanName(e.dataset.choice);
-        const content = cleanName(c.outerHTML);
-        console.log(content);
+        // const content = cleanName(c.outerHTML);
 
-        if (choiceName == kind) {
+        if (choiceName === kind) {
             return showElement(c);
         }
 
-        if (
-            "NOTIFICATIONS" == choiceName &&
-            !["1-ON-1", "GROUP-CHAT"].includes(kind)
-        ) {
+        if ("NOTIFICATIONS" === choiceName && !["1-ON-1", "GROUP-CHAT"].includes(kind)) {
             return showElement(c);
         }
         hideElement(c);
@@ -149,8 +150,9 @@ function applyFilterText(parentElement, childClass, searchText) {
 
     const children = parentElement.querySelectorAll(childClass);
 
-    children.forEach((c, i) => {
-        if ("" == searchText) {
+    children.forEach((c) => {
+
+        if (!searchText) {
             return showElement(c);
         }
 
@@ -163,4 +165,43 @@ function applyFilterText(parentElement, childClass, searchText) {
             hideElement(c);
         }
     });
+}
+
+function onStar(target, index) {
+    const parent = target.closest(".action-item");
+    const cardElement = target.closest(".card");
+
+    for (let i = 0; i < 4; i++) {
+        const starElement = parent.getElementsByClassName("star-" + i)[0];
+        if (i <= index) {
+            starElement.classList.add("on")
+        } else {
+            starElement.classList.remove("on")
+        }
+    }
+
+    parent.getElementsByClassName("text")[0].innerHTML = `${index + 1}`;
+    parent.querySelectorAll(".rating-action > .icon-frame img")[0].setAttribute("src", iconPath("star"));
+
+    const ra = cardElement.querySelectorAll(".action-item.review");
+
+    if (ra){
+        showElement(ra[0]);
+    }
+}
+
+function star(index) {
+    return div("rating-star star-" + index, icon("star"), `onclick="onStar(this, ${index})"`)
+}
+
+function rating() {
+    return div("rating", [0, 1, 2, 3].map(star).join(""))
+}
+
+function ratingAction() {
+    return div("action-item rating-action", rating() + icon("star-outline", "", "?"));
+}
+
+function reviewAction() {
+    return div("action-item review hidden", icon("review", "", "review"));
 }

@@ -1,4 +1,4 @@
-function activityCard(item = {}, index) {
+function activityCard(item = {}, index= -1) {
     return card(
         "activity",
         item.title,
@@ -7,7 +7,7 @@ function activityCard(item = {}, index) {
         [],
         item.image,
         item.tags,
-        true,
+        index,
         "recommended"
     );
 }
@@ -32,15 +32,15 @@ function activityList(list) {
 function dreamBoardPage(selected = false) {
     const boardData = [
         {
-            name: "Things to Do",
-            items: [],
+            name: icon("activities-black") + "Things to Do",
+            items: []
         },
         {
-            name: "Places to See",
-            items: [],
+            name: icon("landscape-black") + "Places to See",
+            items: []
         },
         {
-            name: "Restaurants",
+            name: icon("dining-black") + "Restaurants",
             items: [
                 {
                     kind: "food",
@@ -48,7 +48,7 @@ function dreamBoardPage(selected = false) {
                     description:
                         "the perfect blend of traditional Brazilian fare & one-of-a-kind Açai, Juice, and Smoothie creations",
                     image: "images/photos/brasil_arts_cafe.jpeg",
-                    people: [peopleList[BF], peopleList[JOE], peopleList[RUBY]],
+                    people: [{ people:[peopleList[RUBY], peopleList[JOE]], title: "Pinned By", groupName: "Dreamer", subtitle: ""}],
                     tags: ["brazilian", "cafe"],
                 },
                 {
@@ -57,29 +57,35 @@ function dreamBoardPage(selected = false) {
                     description:
                         "A prix-fixe only spot featuring traditional Japanese small plates &amp; sushi in an intimate setting.",
                     image: "images/photos/yoichis.jpg",
-                    people: [peopleList[BF], peopleList[JOE]],
-                    tags: ["japanese", "sushi", "prix-fixe"],
-                },
-            ],
+                    people: [{ people:[peopleList[RUBY], peopleList[JOE]], title: "Pinned By", groupName: "Dreamer", subtitle: ""}],
+                    tags: ["japanese", "sushi", "prix-fixe"]
+                }
+            ]
         },
         {
-            name: "Lodging",
-            items: [],
+            name: icon("lodging-black") + "Lodging",
+            items: []
         },
         {
-            name: "Transportation",
-            items: [],
-        },
+            name: icon("transportation-black") + "Transportation",
+            items: []
+        }
     ];
 
     return page(
         selected,
         "dream_board",
         "Santa Barbara",
-        ["All", "Ideas", "Favorites", "Going"],
+        [
+            icon("all") + "All",
+            icon("ideas") + "Ideas",
+            icon("favorites") + "Favorites",
+            icon("going","","going"),
+        ],
         "All",
+        cardGroups(dreamers) +
         activityList(boardData),
-        "ALL NETWORK",
+        "all",
         "dream"
     );
 }

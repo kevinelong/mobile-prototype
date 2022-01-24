@@ -11,19 +11,19 @@ function div(className, content, attrs) {
 }
 
 function a(text, href, className = "") {
-    return closedTag("a", text, "", `href="${href}"`);
+    return closedTag("a", text, className, `href="${href}"`);
 }
 
 function img(className, src = "", attrs = "") {
     return tag("img", `${className} image`, `src="${src}" ${attrs}`);
 }
 
-function label(className, content) {
-    return closedTag(`label`, content, className);
+function label(className, content, attrs="") {
+    return closedTag(`label`, content, className, attrs);
 }
 
 window.onTextInput = (event) => {
-    if (event.keyCode == 13) {
+    if (event.keyCode === 13) {
         event.preventDefault();
         event.target.value = "";
         return false;

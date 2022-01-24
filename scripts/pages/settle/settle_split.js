@@ -20,7 +20,7 @@ function settleSplit(selected = false) {
                     ["Deluxe Cheeseburger", "?", "9.00", "0"],
                     ["Veggie Burger", "?", "9.00", "0"],
                 ]),
-                ["Kevin Long", "Greg Bellowe", "Nina Marie"],
+                [{ people:peopleList, title: "Divvying", groupName: "Co-Planner", subtitle: "4 items"}],
                 ["paypal", "venmo", "zelle"],
                 "images/photos/cannon-beach.jpg"
             )

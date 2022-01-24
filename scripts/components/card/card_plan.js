@@ -1,11 +1,4 @@
-function planCard(
-    title,
-    subtitle,
-    content,
-    people = [],
-    actions = [],
-    image = ""
-) {
+function planCard(title, subtitle, content, groups = [], actions = [], image = "") {
     return card(
         "plan",
         div(
@@ -16,7 +9,7 @@ function planCard(
             )
         ) + actionItem("open", "plan_detail"),
         content,
-        people,
+        groups,
         actions,
         image
     );

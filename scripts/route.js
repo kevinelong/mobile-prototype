@@ -1,5 +1,5 @@
-function showSearchDialog() {
-    showDialog("Add Person", search(peopleList));
+function showSearchDialog(id) {
+    showDialog("Add Person", search(peopleList, id));
 }
 
 function showMatchDialog() {
@@ -24,7 +24,7 @@ function showMatchDialog() {
 
                 <div>
                     <!-- <b>Richard's home - Best Wine tasting in Napa</b> has been booked by Joe Shmoe for
-                    all coplanners. -->
+                    all co-planners. -->
                     <b>You and Joe Schmoe</b> both classified <b>Yoichi’s</b> as an Idea in your
                     <b>Santa Barbara</b> DreamBoards
                 </div>
@@ -51,32 +51,57 @@ function showMatchDialog() {
 }
 
 function showProfileDialog(target, action, which, index = RUBY) {
-    showDialog(
-        "Connection Profile",
-        contentPanel(
-            person(peopleList[index]) +
-                actionPanel(
-                    ["block", "friend", "follow"]
-                        .map((actionName) =>
-                            actionItem(
-                                actionName,
-                                index,
-                                index,
-                                actionName,
-                                "white",
-                                false
-                            )
-                        )
-                        .join("")
-                ),
-            "profile"
-        )
+    const who = peopleList[index];
+    const actions = actionPanel(
+        ["block", "friend", "follow"]
+            .map((actionName) =>
+                actionItem(
+                    actionName,
+                    index,
+                    index,
+                    actionName,
+                    "black",
+                    false
+                )
+            )
+            .join("")
     );
+    const other = text(
+            "Relationship" +
+            input("relationship", "text", `placeholder="e.g. Acquaintance, Friend, BFF"`)
+        ) +
+        text(
+            "Shared Plans" +
+            div("card-tags", [...[
+                "Brunch - Sunday March 3rd 2022"
+            ]].map(hashTag).join(""))
+        ) +
+        text(
+            "Interests" +
+            div("card-tags", [...[
+                "Skiing", "Fine Dining - Shared", "Wine Tasting - Shared"
+            ]].map(hashTag).join(""))
+        ) +
+        text(
+            "Boards" +
+            div("card-tags", [...[
+                "Santa Barbara - Linked", "Paris - Shared. Link?", "Seattle"
+            ]].map(hashTag).join(""))
+        ) +
+        cardGroups(who.groups) +
+        ((index === 0) ? "" : actions);
+
+    const content = contentPanel(
+        person(who) +
+        (index===0 ? "" : other)
+        ,
+        "profile"
+    );
+    showDialog(index === 0 ? "Your Profile" : "Connection Profile", content);
 }
 
-function collapseCard(target, action, which, id) {
+function collapseCard(target) {
     target.closest(".card").classList.toggle("collapsed");
-    console.log("collapseCard", action, which, id);
 }
 
 function openPage(target, action, which, id) {
@@ -107,17 +132,19 @@ TOAST_MESSAGES = {
     paypal: "Payment Settled",
     venmo: "Payment Settled",
 };
+
 function addItem(target, action, which, id) {
-    if ("person" == which) {
-        showSearchDialog();
+    if ("person" === which) {
+        showSearchDialog(id);
     }
 
-    if ("message" == which) {
+    if ("message" === which) {
         addMessage();
     }
 
-    console.log("add", ...arguments);
+    //   console.log("add", ...arguments);
 }
+
 ACTION_PAGES = {
     back: () => showPage(window.lastPage),
     open: openPage,
@@ -132,29 +159,29 @@ ACTION_PAGES = {
     person: showProfileDialog,
     match: showMatchDialog,
 };
-function toggleCollapse(target, action, which, id) {
+
+function toggleCollapse(target) {
     if (!target) {
-        debugger;
-        console.log("toggleCollapse(...)", "required target is not defined.");
+        //   console.log("toggleCollapse(...)", "required target is not defined.");
         return false;
     }
     const card_list = target.closest(".card-list");
     if (!card_list) {
-        debugger;
-        console.log("", "No ancestor .card-list");
+        //   console.log("", "No ancestor .card-list");
         return false;
     }
     card_list.classList.toggle("collapse");
 }
+
 function route(target, action, which = "", index = "") {
     if (TOAST_MESSAGES.hasOwnProperty(action)) {
         return showToast(TOAST_MESSAGES[action]);
     } else if (ACTION_PAGES.hasOwnProperty(action)) {
-        console.log("ACTION: " + action, which, index);
+        //   console.log("ACTION: " + action, which, index);
         const f = ACTION_PAGES[action];
-        console.log(f);
+        //   console.log(f);
         return f(target, action, which, index);
     } else {
-        console.log("UNKNOWN ACTION:" + action);
+        //   console.log("UNKNOWN ACTION:" + action);
     }
 }

@@ -1,4 +1,4 @@
-function settleCard(
+function settleCardZZZ(
     title,
     subtitle = "",
     content = "",
@@ -16,16 +16,11 @@ function settleCard(
 }
 
 function dashBoardItem(titleText = "", valueText = "", actionName = "") {
-    return contentPanel(
-        col(
-            [
-                title(titleText),
-                text(valueText),
-                actionItem(actionName, "settle", -1, actionName, "", false),
-            ].join("")
-        ),
-        "dashboard-item"
-    );
+    return contentPanel(col([
+            title(valueText),
+            text(titleText),
+            actionItem(actionName,"settle",-1, actionName,"", false),
+        ].join("")), "dashboard-item");
 }
 
 function dashboard(items) {

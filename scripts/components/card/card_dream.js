@@ -1,5 +1,11 @@
+function dreamCardNotificationTitle(which){
+    return div(
+        "titles dream",
+        row(icon("dream") + col(cardTitle("Dream") + cardSubtitle(which)))
+    ) + actionItem("open", "dream");
+}
 function dreamCardNotification(
-    people,
+    groups,
     quantity,
     which,
     content = "",
@@ -7,18 +13,14 @@ function dreamCardNotification(
 ) {
     return card(
         "dream",
-        div(
-            "titles dream",
-            row(icon("dream") + col(cardTitle("Dream") + cardSubtitle(which)))
-        ) + actionItem("open", "dream"),
+        dreamCardNotificationTitle(which),
         content,
-        people,
+        groups,
         actions,
         "",
         "",
         "",
         true,
-        "Added",
-        "Co-Planner"
+        [{ people:peopleList, title: "Linked With", groupName: "Dreamer", subtitle: "23 shared cards"}]
     );
 }
