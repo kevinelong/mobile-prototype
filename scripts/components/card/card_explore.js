@@ -31,9 +31,7 @@ function exploreCardContent(
     groups = [],
     actions = "",
     image = "",
-    tags = [],
-    id = 0
-) {
+    tags = []) {
     return div(
         `card ${kind}`,
         img("background top", "images/backgrounds/top-gradient-black.svg") +

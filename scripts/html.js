@@ -18,8 +18,8 @@ function img(className, src = "", attrs="") {
     return tag("img", `${className} image`, `src="${src}" ${attrs}`);
 }
 
-function label(className, content) {
-    return closedTag(`label`, content, className);
+function label(className, content, attrs="") {
+    return closedTag(`label`, content, className, attrs);
 }
 
 window.onTextInput = (event) => {

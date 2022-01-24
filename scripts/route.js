@@ -1,5 +1,5 @@
-function showSearchDialog() {
-    showDialog("Add Person", search(peopleList));
+function showSearchDialog(id) {
+    showDialog("Add Person", search(peopleList, id));
 }
 
 function showMatchDialog() {
@@ -74,9 +74,8 @@ function showProfileDialog(target, action, which, index = RUBY) {
     );
 }
 
-function collapseCard(target, action, which, id) {
+function collapseCard(target) {
     target.closest(".card").classList.toggle("collapsed");
-   //   console.log("collapseCard", action, which, id);
 }
 
 function openPage(target, action, which, id) {
@@ -109,7 +108,7 @@ TOAST_MESSAGES = {
 };
 function addItem(target, action, which, id) {
     if ("person" === which) {
-        showSearchDialog();
+        showSearchDialog(id);
     }
 
     if ("message" === which) {

@@ -131,8 +131,7 @@ function applyConnectPageFilter(e) {
 
         let kind = cleanName(c.dataset.kind);
         let choiceName = cleanName(e.dataset.choice);
-        const content = cleanName(c.outerHTML);
-       //   console.log(content);
+        // const content = cleanName(c.outerHTML);
 
         if (choiceName === kind) {
             return showElement(c);

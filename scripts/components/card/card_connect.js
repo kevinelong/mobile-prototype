@@ -18,9 +18,7 @@ function connectCard(
     subtitle = "",
     id = 0,
     groups = [],
-    which = "",
-    showSuffix = false
-) {
+    which = "") {
     const kind = (groups[0].people.length > 1 ? "group-chat" : "1-on-1");
 
     return card(
