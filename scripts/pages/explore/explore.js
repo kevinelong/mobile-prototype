@@ -1,3 +1,29 @@
+one_person = peopleList.filter((p, i) => i < 1);
+two_people = peopleList.filter((p, i) => i < 2);
+three_people = peopleList.filter((p, i) => i < 3);
+
+group_of_one = [{
+    people: one_person,
+    title: one_person.map(p => p.name).join(", "),
+    groupName: "Friend",
+    subtitle: ""
+}];
+
+group_of_two = [{
+    people: two_people,
+    title: two_people.map(p => p.name).join(", "),
+    groupName: "Friend",
+    subtitle: ""
+}];
+
+group_of_three = [{
+    people: three_people,
+    title: three_people.map(p => p.name).join(", "),
+    groupName: "Friend",
+    subtitle: ""
+}];
+
+
 const EXPLORE_DATA = [
     [
         "images/photos/cannon-beach.jpg",
@@ -5,7 +31,7 @@ const EXPLORE_DATA = [
         "Cannon Beach, Oregon",
         "This is an iconic photo opportunity",
         ["Landmark", "Recommended"],
-        [peopleList[BF]],
+        [{people: [peopleList[BF]], title: "Pinned By", groupName: "explorer", subtitle: ""}],
         ["share", "favorite", "pin", "collapse"],
         "1",
         true,
@@ -17,7 +43,12 @@ const EXPLORE_DATA = [
         "New Taste Match to Follow!",
         "Hanna Levin has rated over 20 places, including 2 you both love!",
         ["Influencer", "Recommended"],
-        [peopleList[BF]],
+        [{
+            people: [peopleList[BF]],
+            title: "Followed By",
+            groupName: "Friend",
+            subtitle: "and 123 others!"
+        }],
         ["share", "follow", "collapse"],
         "2",
         true,
@@ -28,8 +59,8 @@ const EXPLORE_DATA = [
         "Loquita",
         "Santa Barbara",
         "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
-        ["Spanish", "Tapas", "Seafood",  "Wine", "Cocktails", "Restaurant"],
-        [peopleList[BF], peopleList[RUBY], peopleList[JOE]],
+        ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
+        group_of_one,
         ["share", "favorite", "pin", "collapse"],
         "2",
         true,
@@ -40,8 +71,8 @@ const EXPLORE_DATA = [
         "Loquita",
         "Santa Barbara",
         "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
-        ["Spanish", "Tapas", "Seafood",  "Wine", "Cocktails", "Restaurant"],
-        [peopleList[BF], peopleList[RUBY]],
+        ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
+        group_of_two,
         ["share", "favorite", "pin", "collapse"],
         "2",
         true,
@@ -52,8 +83,8 @@ const EXPLORE_DATA = [
         "Loquita",
         "Santa Barbara",
         "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
-        ["Spanish", "Tapas", "Seafood",  "Wine", "Cocktails", "Restaurant"],
-        [peopleList[BF]],
+        ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
+        group_of_three,
         ["share", "favorite", "pin", "collapse"],
         "2",
         true,
@@ -69,19 +100,20 @@ const EXPLORE_LOQUITA2 = exploreCard(...EXPLORE_DATA[3]);
 const EXPLORE_LOQUITA1 = exploreCard(...EXPLORE_DATA[4]);
 
 const EXPLORE_CARDS = [
-        EXPLORE_LOQUITA3,
-        EXPLORE_LOQUITA2,
-        EXPLORE_LOQUITA1,
-        EXPLORE_HANNA_LEVIN,
-        EXPLORE_CANNON_BEACH,
+    EXPLORE_LOQUITA3,
+    EXPLORE_LOQUITA2,
+    EXPLORE_LOQUITA1,
+    EXPLORE_HANNA_LEVIN,
+    EXPLORE_CANNON_BEACH,
 ];
+
 function explorePage(selected = false) {
-    let columns = [[],[]];
-    EXPLORE_CARDS.forEach((c,i)=>{
-        columns[i%columns.length].push(c)
+    let columns = [[], []];
+    EXPLORE_CARDS.forEach((c, i) => {
+        columns[i % columns.length].push(c)
     });
     let lists = [];
-    columns.forEach(c=>lists.push(cardList(c.join(""))));
+    columns.forEach(c => lists.push(cardList(c.join(""))));
 
     return page(
         selected,
@@ -94,19 +126,4 @@ function explorePage(selected = false) {
         ),
         "ALL"
     );
-    // return page(
-    //     selected,
-    //     "explore",
-    //     "Explore",
-    //     [],
-    //     "",
-    //       img(
-    //           "figma-content",
-    //           "images/explore_cards.png",
-    //           action("open", "explore_detail")
-    //       )
-    // );
-
-    // return `<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FRNFPr2XMBBFuj60EEo3TK7%2FVita---Greg%3Fnode-id%3D765%253A1510%26starting-point-node-id%3D765%253A1510" allowfullscreen></iframe>`
-
 }

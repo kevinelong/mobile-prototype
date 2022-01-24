@@ -29,39 +29,39 @@ function activityList(list) {
 function dreamBoardPage(selected = false) {
     const boardData = [
         {
-            name: "Things to Do",
+            name: icon("activities-black") + "Things to Do",
             items: []
         },
         {
-            name: "Places to See",
+            name: icon("landscape-black") + "Places to See",
             items: []
         },
         {
-            name: "Restaurants",
+            name: icon("dining-black") + "Restaurants",
             items: [
                 {
                     kind: "food",
                     title: "Brasil Arts Cafe",
                     description: "the perfect blend of traditional Brazilian fare & one-of-a-kind Açai, Juice, and Smoothie creations",
                     image: "images/photos/brasil_arts_cafe.jpeg",
-                    people: [peopleList[BF], peopleList[JOE], peopleList[RUBY],],
+                    people: [{ people:[peopleList[RUBY], peopleList[JOE]], title: "Pinned By", groupName: "Dreamer", subtitle: ""}],
                     tags: ["brazilian", "cafe"],
                 }, {
                     kind: "food",
                     title: "Yoichi's",
                     description: "A prix-fixe only spot featuring traditional Japanese small plates &amp; sushi in an intimate setting.",
                     image: "images/photos/yoichis.jpg",
-                    people: [peopleList[BF], peopleList[JOE],],
+                    people: [{ people:[peopleList[RUBY], peopleList[JOE]], title: "Pinned By", groupName: "Dreamer", subtitle: ""}],
                     tags: ["japanese", "sushi", "prix-fixe"]
                 }
             ]
         },
         {
-            name: "Lodging",
+            name: icon("lodging-black") + "Lodging",
             items: []
         },
         {
-            name: "Transportation",
+            name: icon("transportation-black") + "Transportation",
             items: []
         }
     ];
@@ -71,14 +71,14 @@ function dreamBoardPage(selected = false) {
         "dream_board",
         "Santa Barbara",
         [
-            "All",
-            "Ideas",
-            "Favorites",
-            "Going",
+            icon("all") + "All",
+            icon("ideas") + "Ideas",
+            icon("favorites") + "Favorites",
+            icon("going","","going"),
         ],
         "All",
         activityList(boardData),
-        "ALL NETWORK",
+        "all",
         "dream"
     );
 }

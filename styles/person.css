@@ -29,7 +29,7 @@
     align-items: center;
     justify-content: center;
     font-size: 11px;
-    margin-right: -11px;
+    margin-right: -7px;
 }
 
 .row > .circle{
@@ -38,7 +38,7 @@
     border-radius: 15px;
 }
 .row > .circle .text{
-    margin: 0 0 0 4px;
+    margin: 0 0 0 1px;
     padding-top: 3px;
     font-size: 11px;
 }

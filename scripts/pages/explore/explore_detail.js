@@ -11,7 +11,7 @@ function exploreDetailPage(selected = false) {
             "Cannon Beach, Oregon",
             "This is an iconic photo opportunity",
             ["Landmark", "Recommended"],
-            ["Kevin Long", "Greg Bellowe", "Nina Marie"],
+            [{ people:peopleList, title: "Liked By", groupName: "Friend", subtitle: ""}],
             ["share", "heart", "pin"]
         ),
         "",

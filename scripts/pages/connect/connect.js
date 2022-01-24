@@ -13,34 +13,34 @@ function connectPage(selected = false) {
                     [],
                     "I can join you on Saturday and Sunday",
                     "Thursday June 17th 10:23am",
-                    "1",
-                    [peopleList[BF]],
+                    0,
+                    [{ people:[peopleList[BF]], title: "Connecting with", groupName: "Participant", subtitle: "in 1 on 1 conversation."}],
                     "connect_chat"
                 ),
                 connectCard(
                     messageListExample,
                     "Group Chat",
-                    "Joe Shmoe, Betty Ford, Ruby Red",
-                    "",
-                    [peopleList[0], peopleList[1], peopleList[2]],
+                    peopleList.map(p=>p.name).join(", "),
+                    0,
+                    [{ people:peopleList, title: "Connecting with", groupName: "Participant", subtitle: "in group conversation."}],
                     "connect_chat"
                 ),
-                exploreCardNotification(13, "explore"),
+                exploreCardNotification(
+                    13,
+                    [{ people:peopleList, title: "Liked By", groupName: "Explorer", subtitle: ""}]
+                ),
                 exploreCard(
                     "",
                     "London July",
                     "Broadcast Response",
                     "Love this bar!",
                     [],
-                    [peopleList[1]],
-                    [],
+                    [{ people:[peopleList[1]], title: "Liked By", groupName: "Explorer", subtitle: ""}],
+                    ["explore_detail"],
                     "1",
-                    "explore_detail",
-                    "Recommended",
-                    "Friend"
                 ),
                 dreamCardNotification(
-                    [peopleList[BF]],
+                    [{ people:[peopleList[1]], title: "Liked By", groupName: "Explorer", subtitle: ""}],
                     2,
                     defaultLocation,
                     text(
@@ -63,7 +63,7 @@ function connectPage(selected = false) {
                     "Santa Barbara<br>" +
                         "Tuesday March 3rd 2022 at Noon.<br>" +
                         "Plan Invitation",
-                    [peopleList[0]],
+                    [{ people:[peopleList[0], peopleList[1]], title: "Going", groupName: "Co-Planner", subtitle: ""}],
                     ["decline", "counter", "accept"],
                     "plan_invite"
                 ),

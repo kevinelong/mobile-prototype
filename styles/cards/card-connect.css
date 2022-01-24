@@ -11,6 +11,9 @@
 .card.connect .card-people {
     margin: 0.5rem 0;
 }
+.card-people .col{
+    gap:4px;
+}
 
 .dream_board .card{
     min-height: 164px;

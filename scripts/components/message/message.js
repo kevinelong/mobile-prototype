@@ -23,43 +23,8 @@ function messagePanel(messageList) {
             })
             .join("") + inputMessage()
     );
-    // const messagePanel = document.createElement("div");
-    ////   console.log(typeof messagePanel);
-    // const messageSentClass = "message-panel-sent";
-    // const messageReceivedClass = "message-panel-received";
-    // const messageListDivs = [];
-    // const messageListReceived = [];
-    // for (let i = 0; i < messageList.length; i++) {
-    //     if (messageList[i][1] === "Kevin Long") {
-    //         messagePanel.appendChild(
-    //             div(
-    //                 messageSentClass,
-    //                 messageListDivs.map((mi) =>
-    //                     messageItem(mi, iconColor)
-    //                 ).join("") + inputMessage()
-    //             )
-    //         );
-    //     } else {
-    //         messagePanel.appendChild(
-    //             div(
-    //                 messageReceivedClass,
-    //                 messageListDivs.map((mi) =>
-    //                     messageItem(mi, iconColor)
-    //                 ).join("") + inputMessage()
-    //             )
-    //         );
-    //     }
-    // }
-    // return messagePanel;
-    ////   console.log(typeof messagePanel)
-    // return div(
-    //     MessageSentClass,
-    //     MessageListDivs.map((mi) => messageItem(mi, iconColor)).join("") +
-    //         inputMessage()
-    // );
 }
 
-// function messagePanelSent
 
 function addMessage() {
     showDialog(

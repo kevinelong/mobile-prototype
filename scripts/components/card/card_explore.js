@@ -28,14 +28,11 @@ function exploreCardContent(
     kind,
     title,
     body = "",
-    people = [],
+    groups = [],
     actions = "",
     image = "",
     tags = [],
-    id = 0,
-    showSuffix = false,
-    verb = "",
-    group = ""
+    id = 0
 ) {
     return div(
         `card ${kind}`,
@@ -43,12 +40,12 @@ function exploreCardContent(
         cardSection(
             contentPanel(body)
         ) +
-        (tags || people || actions
+        (tags || groups || actions
             ? cardSection(
                 cardTags(tags) +
-                (people || actions
+                (groups || actions
                     ? cardQuadrant(
-                        cardPeople(people, showSuffix, verb, group) +
+                        cardGroups(groups) +
                         actionList(`card-actions`, actions)
                     )
                     : "")
@@ -70,12 +67,9 @@ function exploreCard(
     subtitle = "",
     content = "",
     tags = [],
-    people = [],
+    groups = [],
     actions = [],
-    id = "",
-    showSuffix = false,
-    verb = "",
-    group = ""
+    id = 0
 ) {
     return exploreCardContent(
         "explore collapsed",
@@ -91,14 +85,11 @@ function exploreCard(
         ) +
         cardSubtitle(subtitle) +
         text(content),
-        people,
+        groups,
         actions,
         imagePath,
         tags,
-        id,
-        showSuffix,
-        verb,
-        group
+        id
     );
 }
 function exploreDetail(
@@ -107,7 +98,7 @@ function exploreDetail(
     subtitle = "",
     content = "",
     tags = [],
-    people = [],
+    groups = [],
     actions = [],
     which = -1
 ) {
@@ -121,14 +112,14 @@ function exploreDetail(
                 col(cardTitle(title) + cardSubtitle(subtitle))
             )
         ) + text(content),
-        people,
+        groups,
         actions,
         imagePath,
         tags
     );
 }
 
-function exploreCardNotification(quantity) {
+function exploreCardNotification(quantity, groups=[]) {
     return card(
         "explore",
         div(
@@ -144,12 +135,11 @@ function exploreCardNotification(quantity) {
             actionItem(
                 "open",
                 "explore",
-                // "https://www.figma.com/proto/RNFPr2XMBBFuj60EEo3TK7/Vita---Greg?page-id=1%3A995&node-id=765%3A1510&viewport=241%2C48%2C0.45&scaling=min-zoom&starting-point-node-id=765%3A1510&show-proto-sidebar=0",
                 "",
                 ""
             ),
         text(`${quantity} new cards from people you love!`),
-        [],
+        groups,
         ["explore"],
         ""
     );

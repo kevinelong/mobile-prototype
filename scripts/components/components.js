@@ -1,5 +1,6 @@
 function text(textValue) {
-    return div("text", textValue);
+    const word_count = textValue.split().length;
+    return div(`text wc-${word_count}`, textValue);
 }
 
 function title(textValue) {
@@ -150,7 +151,7 @@ function person(person) {
        //   console.log("person function requires a person object");
         return "";
     }
-    
+
     return personItem(
         person.name,
         "connect_person",

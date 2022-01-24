@@ -322,12 +322,12 @@
     display: none;
 }
 
-.card-list .title .icon {
+.card-list .title .action-item .icon {
     transform: rotate(90deg);
     transition: transform 300ms ease-in-out;
 }
 
-.card-list.collapse .title .icon {
+.card-list.collapse .title .action-item .icon {
     transform: rotate(0deg);
     transition: transform 300ms ease-in-out;
 }

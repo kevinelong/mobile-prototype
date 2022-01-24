@@ -65,42 +65,35 @@ function card(
     kind,
     title,
     body = "",
-    people = [],
+    groups = [],
     actions = [],
     image = "",
     tags = [],
     which = -1,
-    showSuffix = false,
-    verb = "",
-    group = "",
-    attrs = ""
+    attrs=""
 ) {
     return div(
         `card ${kind} ${which}`,
         img("background top", "images/backgrounds/top-gradient-black.svg") +
-            cardSection(cardTitle(title) + contentPanel(body)) +
-            (tags || people || actions
-                ? cardSection(
-                      cardTags(tags) +
-                          (people || actions
-                              ? cardQuadrant(
-                                    cardPeople(
-                                        people,
-                                        showSuffix,
-                                        verb,
-                                        group
-                                    ) + actionList(`card-actions`, actions)
-                                )
-                              : "")
-                  )
-                : "") +
-            img(
-                "background bottom",
-                "images/backgrounds/bottom-gradient-black.svg"
-            ),
+        cardSection(cardTitle(title) + contentPanel(body)) +
+        (tags || groups || actions
+            ? cardSection(
+                cardTags(tags) +
+                (groups || actions
+                    ? cardQuadrant(
+                        cardGroups(groups) +
+                        actionList(`card-actions`, actions)
+                    )
+                    : "")
+            )
+            : "") +
+        img(
+            "background bottom",
+            "images/backgrounds/bottom-gradient-black.svg"
+        ),
         attrs +
-            ` data-kind="${kind}" data-which="${which}" ` +
-            (image ? `style="background-image: url('${image}');"` : "")
+        ` data-kind="${kind}" data-which="${which}" ` +
+        (image ? `style="background-image: url('${image}');"` : "")
     );
 }
 
@@ -108,7 +101,7 @@ function detail(
     kind,
     title,
     body = "",
-    people = "",
+    groups = [],
     actions = "",
     imagePath = "",
     tags = [],
@@ -117,13 +110,13 @@ function detail(
     return div(
         `detail ${kind} ${which}`,
         img("detail-image", imagePath) +
-            cardSection(cardTitle(body)) +
-            cardSection(
-                cardTags(tags) +
-                    cardQuadrant(
-                        cardPeople(people) +
-                            actionList(`card-actions`, actions)
-                    )
+        cardSection(cardTitle(body)) +
+        cardSection(
+            cardTags(tags) +
+            cardQuadrant(
+                cardGroups(groups) +
+                actionList(`card-actions`, actions)
             )
+        )
     );
 }

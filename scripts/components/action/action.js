@@ -22,9 +22,9 @@ function actionItem(name, which = "", index = -1, textValue = "", iconColor = ""
 }
 
 function personItem(name, which, index, person) {
-    if(!name && !which && !index && !person){
-       //   console.log("MISSING ONE OR MORE REQUIRED(name, which, index, person)", name, which, index, person);
-    }
+    // if(!name && !which && !index && !person){
+    //    //   console.log("MISSING ONE OR MORE REQUIRED(name, which, index, person)", name, which, index, person);
+    // }
     return div(
         `action-item person ${name} ${which}`,
         personIcon(person),
