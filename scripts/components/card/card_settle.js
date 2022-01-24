@@ -1,4 +1,4 @@
-function settleCard(who, amount, when = "", kind = "", id = "") {
+function settleCard(who, amount, when = "", kind="", index=0, which="", quantity = 1) {
     return card(
         "settle",
         div(
@@ -7,9 +7,9 @@ function settleCard(who, amount, when = "", kind = "", id = "") {
                 icon("settle") +
                     col(cardTitle(`Pay ${amount}`) + cardSubtitle(who.name))
             )
-        ) + actionItem("open", "settle_list", id),
+        ) + actionItem("open", "settle_list", index),
         text(when) + text("All Activities - Daily Net"),
-        [],
+        [{ people:[index], title: "split with", groupName: "participant", subtitle: `Covered ${quantity} item` + (quantity === 1 ? "" : "s")}],
         ["settle"]
     );
 }

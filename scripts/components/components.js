@@ -1,5 +1,7 @@
 function text(textValue) {
-    return div("text", textValue);
+    textValue = `${textValue}`; //ensure that the parameter is converted to text in case its was something like qty
+    const word_count = textValue.split().length;
+    return div(`text wc-${word_count}`, textValue);
 }
 
 function title(textValue) {
@@ -46,18 +48,80 @@ const peopleList = [
         id: 1,
         name: "Ruby Red",
         isCurrentUser: true,
+        groups: [],
     },
     {
         id: 2,
         name: "Joe Shmoe",
         isCurrentUser: false,
+        groups: [],
     },
     {
         id: 3,
         name: "Betty Ford",
         isCurrentUser: false,
+        groups: [],
     },
 ];
+peopleList[BF].groups = [
+    {
+        people: [peopleList[RUBY]],
+        title: "Loved By",
+        groupName: "friend",
+        subtitle: ""
+    },
+    {
+        people: [peopleList[RUBY]],
+        title: "Linked To",
+        groupName: "dreamer",
+        subtitle: ""
+    },
+    {
+        people: [peopleList[RUBY], peopleList[JOE]],
+        title: "Plans With",
+        groupName: "Co-Planner",
+        subtitle: ""
+    },
+    {
+        people: [peopleList[RUBY], peopleList[JOE]],
+        title: "Followed By",
+        groupName: "explorer",
+        subtitle: ""
+    }
+];
+
+one_person = peopleList.filter((p, i) => i < 1);
+two_people = peopleList.filter((p, i) => i < 2);
+three_people = peopleList.filter((p, i) => i < 3);
+
+group_of_one = [{
+    people: one_person,
+    title: one_person.map(p => p.name).join(", "),
+    groupName: "Friend",
+    subtitle: ""
+}];
+
+group_of_two = [{
+    people: two_people,
+    title: two_people.map(p => p.name).join(", "),
+    groupName: "Friend",
+    subtitle: ""
+}];
+
+group_of_three = [{
+    people: three_people,
+    title: three_people.map(p => p.name).join(", "),
+    groupName: "Friend",
+    subtitle: ""
+}];
+
+
+dreamers = [{
+    people: three_people,
+    title: "board linked with",
+    groupName: "dreamer",
+    subtitle: "sharing a total of 23 cards"
+}];
 
 let messageListExample = [
     {
@@ -143,12 +207,18 @@ function personIcon(person) {
 }
 
 function person(person) {
+
     if (!person) {
-        console.log("person function requires a person object");
-        // debugger;
+        //   console.log("person function requires a person object");
         return "";
     }
-    return personItem(person.name, "connect_person", person.id, person);
+
+    return personItem(
+        person.name,
+        "connect_person",
+        person.id,
+        person
+    );
 }
 
 function inputMessage() {

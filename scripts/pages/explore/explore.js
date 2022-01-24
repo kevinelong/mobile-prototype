@@ -1,3 +1,4 @@
+
 const EXPLORE_DATA = [
     [
         "images/photos/cannon-beach.jpg",
@@ -5,8 +6,8 @@ const EXPLORE_DATA = [
         "Cannon Beach, Oregon",
         "This is an iconic photo opportunity",
         ["Landmark", "Recommended"],
-        [peopleList[BF]],
-        ["share", "favorite", "pin", "collapse"],
+        [{people: [peopleList[BF]], title: "Pinned By", groupName: "explorer", subtitle: ""}],
+        ["favorite", "share", "pin", "collapse"],
         "1",
         true,
         "Recommended",
@@ -18,8 +19,13 @@ const EXPLORE_DATA = [
         "New Taste Match to Follow!",
         "Hanna Levin has rated over 20 places, including 2 you both love!",
         ["Influencer", "Recommended"],
-        [peopleList[BF]],
-        ["share", "follow", "collapse"],
+        [{
+            people: [peopleList[BF]],
+            title: "Followed By",
+            groupName: "Friend",
+            subtitle: "and 123 others!"
+        }],
+        ["favorite", "share", "follow", "collapse"],
         "2",
         true,
         "Recommended",
@@ -31,8 +37,8 @@ const EXPLORE_DATA = [
         "Santa Barbara",
         "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
         ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
-        [peopleList[BF], peopleList[RUBY], peopleList[JOE]],
-        ["share", "favorite", "pin", "collapse"],
+        group_of_one,
+        ["favorite", "share", "pin", "collapse"],
         "2",
         true,
         "Recommended",
@@ -44,8 +50,8 @@ const EXPLORE_DATA = [
         "Santa Barbara",
         "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
         ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
-        [peopleList[BF], peopleList[RUBY]],
-        ["share", "favorite", "pin", "collapse"],
+        group_of_two,
+        ["favorite", "share", "pin", "collapse"],
         "2",
         true,
         "Recommended",
@@ -57,8 +63,8 @@ const EXPLORE_DATA = [
         "Santa Barbara",
         "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
         ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
-        [peopleList[BF]],
-        ["share", "favorite", "pin", "collapse"],
+        group_of_three,
+        ["favorite" , "share", "pin", "collapse"],
         "2",
         true,
         "Recommended",
@@ -79,13 +85,14 @@ const EXPLORE_CARDS = [
     EXPLORE_HANNA_LEVIN,
     EXPLORE_CANNON_BEACH,
 ];
+
 function explorePage(selected = false) {
     let columns = [[], []];
     EXPLORE_CARDS.forEach((c, i) => {
-        columns[i % columns.length].push(c);
+        columns[i % columns.length].push(c)
     });
     let lists = [];
-    columns.forEach((c) => lists.push(cardList(c.join(""))));
+    columns.forEach(c => lists.push(cardList(c.join(""))));
 
     return page(
         selected,
@@ -96,18 +103,4 @@ function explorePage(selected = false) {
         row(lists.join("")),
         "ALL"
     );
-    // return page(
-    //     selected,
-    //     "explore",
-    //     "Explore",
-    //     [],
-    //     "",
-    //       img(
-    //           "figma-content",
-    //           "images/explore_cards.png",
-    //           action("open", "explore_detail")
-    //       )
-    // );
-
-    // return `<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FRNFPr2XMBBFuj60EEo3TK7%2FVita---Greg%3Fnode-id%3D765%253A1510%26starting-point-node-id%3D765%253A1510" allowfullscreen></iframe>`
 }

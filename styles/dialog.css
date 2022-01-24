@@ -17,6 +17,13 @@
     justify-items: center;
 }
 
+.dialog .person-icon,
+.dialog .person-icon .circle,
+.dialog .row > .circle {
+    border-color: black;
+    background-color: white;
+}
+
 .dialog .content-panel > .row {
     gap: 1rem;
     margin: auto;
@@ -37,11 +44,14 @@
 }
 
 .dialog .action-item {
-    color: white;
-    background-color: #aaaaaa;
+    color: black;
+    background-color: white;
     padding: 0.5rem 0.75rem;
 }
 
+.dialog .action-item:hover {
+    background-color: #dddddd;
+}
 .dialog .title {
     padding: 0;
     box-shadow: none;

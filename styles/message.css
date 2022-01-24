@@ -28,9 +28,9 @@
     max-height 1300ms ease-in-out,
     max-width 1300ms ease-in-out;
 }
-.dialog .action-item.person .text,
+.dialog .profile > .action-item.person .text,
 .dialog .message-item .text,
-.dialog .person-icon .text
+.dialog .profile > .person-icon .text
 {
     display: block;
     opacity: 1;
@@ -65,6 +65,7 @@
     border-radius: .75em .75em 0 .75em;
 }
 
+/*noinspection CssUnusedSymbol*/
 .page.connect_chat .person.connect_person {
     display: none;
 }

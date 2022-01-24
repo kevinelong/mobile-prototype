@@ -28,42 +28,40 @@ function exploreCardContent(
     kind,
     title,
     body = "",
-    people = [],
+    groups = [],
     actions = "",
     image = "",
-    tags = [],
-    id = 0,
-    showSuffix = false,
-    verb = "",
-    group = ""
-) {
-    return (
-        div(
-            `card ${kind}`,
-            img("background top", "images/backgrounds/top-gradient-black.svg") +
-                cardSection(contentPanel(body)) +
-                (tags || people || actions
-                    ? cardSection(
-                          cardTags(tags) +
-                              (people || actions
-                                  ? cardQuadrant(
-                                        cardPeople(
-                                            people,
-                                            showSuffix,
-                                            verb,
-                                            group
-                                        ) + cardActions(`card-actions`, actions)
-                                    )
-                                  : "")
-                      )
-                    : "") +
-                img(
-                    "background bottom",
-                    "images/backgrounds/bottom-gradient-black.svg"
-                ),
-            image ? `style="background-image: url('${image}');"` : ""
-        ) + cardTitle(title)
-    );
+    tags = []) {
+
+    let qty = 0;
+    if (groups && groups[0] && groups[0].people){
+        qty = groups[0].people.length;
+    }
+    return div(
+        `card ${kind}`,
+        img("background top", "images/backgrounds/top-gradient-black.svg") +
+        cardSection(
+            contentPanel(body)
+        ) +
+        (tags || groups || actions
+            ? cardSection(
+                cardTags(tags) +
+                (groups || actions
+                    ? cardQuadrant(
+                        cardGroups(groups) +
+                        actionList(`card-actions`, actions,false, qty)
+                    )
+                    : "")
+            )
+            : "")
+        +
+        img(
+            "background bottom",
+            "images/backgrounds/bottom-gradient-black.svg"
+        )
+        ,
+        image ? `style="background-image: url('${image}');"` : ""
+    ) + cardTitle(title);
 }
 
 function exploreCard(
@@ -72,12 +70,9 @@ function exploreCard(
     subtitle = "",
     content = "",
     tags = [],
-    people = [],
+    groups = [],
     actions = [],
-    id = "",
-    showSuffix = false,
-    verb = "",
-    group = ""
+    id = 0
 ) {
     return exploreCardContent(
         "explore collapsed",
@@ -90,16 +85,13 @@ function exploreCard(
                 cardTitle(title) +
                 actionItem("open", "explore_detail", id)
         ) +
-            cardSubtitle(subtitle) +
-            text(content),
-        people,
+        cardSubtitle(subtitle) +
+        text(content),
+        groups,
         actions,
         imagePath,
         tags,
-        id,
-        showSuffix,
-        verb,
-        group
+        id
     );
 }
 function exploreDetail(
@@ -108,28 +100,28 @@ function exploreDetail(
     subtitle = "",
     content = "",
     tags = [],
-    people = [],
+    groups = [],
     actions = [],
-    id = ""
+    which = -1
 ) {
     return detail(
         "explore",
         "Details",
         div(
-            "titles explore",
+            `titles explore ${which}`,
             row(
                 // icon("explore") +
                 col(cardTitle(title) + cardSubtitle(subtitle))
             )
         ) + text(content),
-        people,
+        groups,
         actions,
         imagePath,
         tags
     );
 }
 
-function exploreCardNotification(quantity) {
+function exploreCardNotification(quantity, groups=[]) {
     return card(
         "explore",
         div(
@@ -145,12 +137,11 @@ function exploreCardNotification(quantity) {
             actionItem(
                 "open",
                 "explore",
-                // "https://www.figma.com/proto/RNFPr2XMBBFuj60EEo3TK7/Vita---Greg?page-id=1%3A995&node-id=765%3A1510&viewport=241%2C48%2C0.45&scaling=min-zoom&starting-point-node-id=765%3A1510&show-proto-sidebar=0",
                 "",
                 ""
             ),
         text(`${quantity} new cards from people you love!`),
-        [],
+        groups,
         ["explore"],
         ""
     );

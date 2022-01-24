@@ -16,7 +16,7 @@ function hideDialog() {
 listen(
     "click",
     (e) => {
-        console.log(e.target);
+       //   console.log(e.target);
         if (e.target.classList.contains("smoke")) {
             hide(".smoke");
             hide(".dialog");

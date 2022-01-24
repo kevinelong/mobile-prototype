@@ -32,7 +32,7 @@
     background-size: cover;
     background-position: 50% 50%;
     /*background-blend-mode: darken;*/
-    text-shadow: 1px 1px 0px black;
+    text-shadow: 1px 1px 0 black;
     /*display: flex;*/
     flex-direction: column;
     align-content: space-between;
@@ -56,7 +56,6 @@
     display: none;
 }
 
-/*.page.explore .card.collapsed .action-list .icon {*/
 .page.explore .card .action-list .icon {
     width: 12px;
     height: 12px;
@@ -323,13 +322,19 @@
     display: none;
 }
 
-.card-list .title .icon {
+.card-list .title .action-item .icon {
     transform: rotate(90deg);
     transition: transform 300ms ease-in-out;
 }
 
-.card-list.collapse .title .icon {
+.card-list.collapse .title .action-item .icon {
     transform: rotate(0deg);
     transition: transform 300ms ease-in-out;
 }
 
+.page.explore .card.explore .content-panel .action-item.favorite .text {
+    display: block;
+}
+.page.explore .action-item.favorite .text{
+    display: block;
+}

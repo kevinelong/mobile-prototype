@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Vita Explorer</title>
     <!--    <link href="styles/style.css" rel="stylesheet" type="text/css"/>-->
-    <script>
-        `
+<script>
+    `
 action
 card
 choice
@@ -32,12 +32,10 @@ pages settle
 main
 component
 `.split("\n").map(p => p ? document.write(`<li` + `nk href="styles/` +
-            p.split(" ").join("/") + ".css" +
-            `"  rel="stylesheet" type="text/css"/>`) : '');
+        p.split(" ").join("/") + ".css" +
+        `"  rel="stylesheet" type="text/css"/>`) : '');
 
-    </script>
-</head>
-
+</script>
 <script>
     `
 utils
@@ -92,59 +90,14 @@ route
         `"></scr` + `ipt>`) : '');
 </script>
 <style>
-    .rating {
-        flex-direction: row;
-        gap: 3px;
-    }
-
-    .rating .rating-star {
-        opacity: 0.33;
-    }
-
-    .rating .rating-star.on {
-        opacity: 1;
+    body {
+        background: #cccccc;
     }
 </style>
-
+</head>
 <body>
-    <script>
-        function onStar(target, index) {
-            const parent = target.parentElement
-            console.log(index, target)
-            for (i = 0; i < 4; i++) {
-                console.log(i)
-                if (i <= index) {
-                    console.log("on")
-                    parent.getElementsByClassName("star-" + i)[0].classList.add("on")
-                } else {
-                    console.log("off")
-                    parent.getElementsByClassName("star-" + i)[0].classList.remove("on")
-                }
-            }
-        }
-
-        function star(index) {
-            return div("rating-star star-" + index, icon("star"), `onclick="onStar(this, ${index})"`)
-        }
-
-        document.write(
-            div("rating",
-                [
-                    star(0),
-                    star(1),
-                    star(2),
-                    star(3)
-                ].join("")
-            ) + div("rating",
-                [
-                    star(0),
-                    star(1),
-                    star(2),
-                    star(3)
-                ].join("")
-            )
-        );
-    </script>
+<script>
+    document.write(dialog("", ratingAction()));
+</script>
 </body>
-
 </html>
