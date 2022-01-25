@@ -15,9 +15,11 @@
     gap:4px;
 }
 
+.plan_detail .card,
 .dream_board .card{
     min-height: 164px;
 }
+.plan_detail .card .text,
 .dream_board .card .text{
     font-size: 13px;
 }

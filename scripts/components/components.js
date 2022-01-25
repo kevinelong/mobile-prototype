@@ -123,6 +123,13 @@ dreamers = [{
     subtitle: "sharing a total of 23 cards"
 }];
 
+coplanners = [{
+    people: three_people,
+    title: "planned with",
+    groupName: "co-planners",
+    subtitle: "plan contains 23 cards"
+}];
+
 let messageListExample = [
     {
         text: "Hey girl welcome!",
@@ -227,3 +234,47 @@ function inputMessage() {
         input("message-input", "text", `placeholder="Type a message..."`)
     );
 }
+
+
+
+const activityData = [
+    {
+        name: icon("activities-black") + "Things to Do",
+        items: []
+    },
+    {
+        name: icon("landscape-black") + "Places to See",
+        items: []
+    },
+    {
+        name: icon("dining-black") + "Restaurants",
+        items: [
+            {
+                kind: "food",
+                title: "Brasil Arts Cafe",
+                description:
+                    "the perfect blend of traditional Brazilian fare & one-of-a-kind Açai, Juice, and Smoothie creations",
+                image: "images/photos/brasil_arts_cafe.jpeg",
+                people: [{ people:[peopleList[RUBY], peopleList[JOE]], title: "Pinned By", groupName: "Dreamer", subtitle: ""}],
+                tags: ["brazilian", "cafe"],
+            },
+            {
+                kind: "food",
+                title: "Yoichi's",
+                description:
+                    "A prix-fixe only spot featuring traditional Japanese small plates &amp; sushi in an intimate setting.",
+                image: "images/photos/yoichis.jpg",
+                people: [{ people:[peopleList[RUBY], peopleList[JOE]], title: "Pinned By", groupName: "Dreamer", subtitle: ""}],
+                tags: ["japanese", "sushi", "prix-fixe"]
+            }
+        ]
+    },
+    {
+        name: icon("lodging-black") + "Lodging",
+        items: []
+    },
+    {
+        name: icon("transportation-black") + "Transportation",
+        items: []
+    }
+];

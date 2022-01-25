@@ -14,6 +14,14 @@
     /*align-items: center;*/
     /*font-size: 1.2rem;*/
 }
+.page .content-panel > .row{
+    width:99%;
+    gap: 1rem;
+    padding: 1rem;
+    align-content: space-evenly;
+    alignment: center;
+    /*flex-direction: ;*/
+}
 .content-panel .circle .text{
     color: white;
 }
@@ -22,14 +30,28 @@
 }
 .content-panel .card-people{
     margin-top: 9px;
+    /*align-content: center;*/
+    /*justify-content: center;*/
 }
+.page > .content-panel > .card-people{
+    align-content: center;
+    justify-content: center;
+}
+
 .page > .content-panel{
-    align-items: center;
+    /*align-items: center;*/
 }
 
 .page.plan_detail > .content-panel{
     gap: 0;
-    background: #ccc;
+    background: none;
+}
+
+.page.plan_detail{
+    background-color: #fffffff0;
+}
+.page.plan_detail .label-when input{
+    width: 40%
 }
 
 .card-list .title{

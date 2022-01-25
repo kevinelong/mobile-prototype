@@ -5,7 +5,9 @@ function planPage(selected = false) {
         "Plan",
         ["All", "Past", "Present", "Future"],
         "Present",
-        cardList(
+
+        div("card-list",
+            title("ONGOING") +
             planCard(
                 "Santa Barbara",
                 "Tuesday March 3rd<br>Monday March 10th",
@@ -15,19 +17,24 @@ function planPage(selected = false) {
                     title: "Going with",
                     groupName: "Co-Planner",
                     subtitle: "8 activities planned"
-                }]
+                }],
+                [],
+                "images/photos/santa_barbara_1500x500.jpg",
             ) +
-                planCard(
-                    "Paris France",
-                    "Tuesday September 3rd<br>Monday September 9th",
-                    "12 Activities Planned",
-                    [{
-                        people: [peopleList[JOE]],
-                        title: "Going with",
-                        groupName: "Co-Planner",
-                        subtitle: "2 activities planned"
-                    }]
-                )
+            title("UPCOMING") +
+            planCard(
+                "Paris France",
+                "Tuesday September 3rd<br>Monday September 9th",
+                "12 Activities Planned",
+                [{
+                    people: [peopleList[JOE]],
+                    title: "Going with",
+                    groupName: "Co-Planner",
+                    subtitle: "2 activities planned"
+                }],
+                [],
+                "images/photos/paris_france.jpg"
+            )
         )
     );
 }

@@ -83,3 +83,8 @@ background-color: #0002;
     width: 98%;
     border: 1px solid #0006
 }
+
+.page > .content-panel > .label {
+    padding: 6px 12px;
+    font-size: 14px;
+}

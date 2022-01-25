@@ -121,3 +121,34 @@ function detail(
         )
     );
 }
+
+function activityCard(item = {}, index= -1) {
+    return card(
+        "activity",
+        item.title,
+        item.description,
+        item.people,
+        [],
+        item.image,
+        item.tags,
+        index,
+        "recommended"
+    );
+}
+
+function activityListItems(list) {
+    if (!list) {
+        return "";
+    }
+    return cardList(
+        title(list.name + actionItem("show")) +
+        list.items.map(activityCard).join("")
+    );
+}
+
+function activityList(list) {
+    if (!list) {
+        return "";
+    }
+    return cardList(list.map(activityListItems).join(""));
+}
