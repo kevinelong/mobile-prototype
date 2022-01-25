@@ -11,7 +11,7 @@ function exploreDetailPage(selected = false) {
             "Cannon Beach, Oregon",
             "This is an iconic photo opportunity",
             ["Landmark", "Recommended"],
-            [{ people:peopleList, title: "Liked By", groupName: "Friend", subtitle: ""}],
+            [{ people:peopleList, title: "Liked By", groupName: "Friend", subtitle: "including 2 taste matches!"}],
             ["share", "heart", "pin"]
         ),
         "",

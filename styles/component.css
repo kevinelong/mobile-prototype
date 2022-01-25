@@ -28,12 +28,15 @@ input[type=text] {
 
 .row .icon-frame {
     margin-right: 1rem;
+    align-self: flex-start;
 }
 
 .row .action-item .icon-frame {
     margin-right: 0;
 }
-
+.card-title .action-item{
+    padding: 0;
+}
 .hidden {
     height: 0;
     width: 0;

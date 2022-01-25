@@ -1,4 +1,4 @@
-function dreamCard(title, subtitle = "", actions = [], which = "", id = 0, image="", groups=[]) {
+function dreamCard(title, subtitle = "", actions = [], which = "", id = 0, image = "", groups = []) {
     const kind = "board"
     return card(
         kind,
@@ -15,7 +15,7 @@ function dreamPage(selected = false) {
         selected,
         "dream",
         "Dream",
-        [],
+        ["All", "Local", "Americas", "Europe", "Asia", "Other"],
         "All",
         cardList([
             dreamCard("Santa Barbara", "California", [], "dream_board", 1,

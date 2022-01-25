@@ -1,10 +1,63 @@
-function showSearchDialog(id) {
-    showDialog("Add Person", search(peopleList, id));
+function addContact() {
+
+    showDialog(
+        "Add New Contact",
+        [
+            label("first", input("first", "text", `placeholder="First Name"`)),
+            label("last", input("last", "text", `placeholder="Last Name"`)),
+        ].join("") +
+        actionPanel(
+            actionItem("cancel", "contact", -1, "Cancel", "black") +
+            actionItem("save", "contact", -1, "Save", "black")
+        )
+    )
 }
 
-function showMatchDialog() {
+function createGroup() {
     showDialog(
-        "Taste Match",
+        "Create Group",
+        label("name", input("name", "text", `placeholder="Name"`)) +
+        actionPanel(
+            actionItem("cancel", "contact", -1, "Cancel", "black") +
+            actionItem("save", "contact", -1, "Save", "black")
+        )
+    )
+}
+
+function addParticipant() {
+    showSearch("Add Participant");
+}
+
+function addPerson() {
+    showSearch("Add Person");
+}
+
+function showSearch(title, index = -1) {
+    showDialog(title,
+        contentPanel(
+            choiceSet("search-filter", ["All", "Connections", "Groups", "Contacts"]) +
+            search(peopleList, index) +
+            row(
+                actionItem("create-new-group", "group", -1, "Create New Group", "black") +
+                actionItem("contact", "contact", -1, "Add New Contact", "black")
+            )
+        )
+    );
+}
+function showReviewDialog(){
+    showDialog(
+        "Write Review",
+        contentPanel(
+            label(
+                "review",
+                text("Review") + textarea("review")
+            )+
+            actionList("",["cancel", "save"], false, 0, "black")
+        )
+    )
+}
+function showMatchDialog() {
+    showDialog("Taste Match",
         `
         <div class="dialog-content">
             <header>
@@ -66,34 +119,31 @@ function showProfileDialog(target, action, which, index = RUBY) {
             )
             .join("")
     );
-    const other = text(
-            "Relationship" +
+    const other = label("", "Relationship" +
             input("relationship", "text", `placeholder="e.g. Acquaintance, Friend, BFF"`)
         ) +
-        text(
+        label("",
             "Shared Plans" +
             div("card-tags", [...[
                 "Brunch - Sunday March 3rd 2022"
             ]].map(hashTag).join(""))
         ) +
-        text(
+        label("",
             "Interests" +
             div("card-tags", [...[
                 "Skiing", "Fine Dining - Shared", "Wine Tasting - Shared"
-            ]].map(hashTag).join(""))
-        ) +
-        text(
+            ]].map(hashTag).join(""))) +
+        label("",
             "Boards" +
             div("card-tags", [...[
                 "Santa Barbara - Linked", "Paris - Shared. Link?", "Seattle"
-            ]].map(hashTag).join(""))
-        ) +
+            ]].map(hashTag).join(""))) +
         cardGroups(who.groups) +
         ((index === 0) ? "" : actions);
 
     const content = contentPanel(
         person(who) +
-        (index===0 ? "" : other)
+        (index === 0 ? "" : other)
         ,
         "profile"
     );
@@ -107,7 +157,7 @@ function collapseCard(target) {
 function openPage(target, action, which, id) {
     if ("open" === action && which.toLowerCase().startsWith("http")) {
         window.open(which, "_self");
-    } else if ("open" === action) {
+    } else if ("open" === action || "explore" === action) {
         showPage(which, action, id);
     } else if ("person" === action) {
         showPage("connect_person", "open", id);
@@ -117,6 +167,7 @@ function openPage(target, action, which, id) {
 }
 
 TOAST_MESSAGES = {
+    acknowledge: "Acknowledged!",
     favorite: "Added to favorites!",
     follow: "Followed!",
     friend: "Friend Added",
@@ -128,14 +179,18 @@ TOAST_MESSAGES = {
     accept: "Accepted Invitation",
     decline: "Declined Invitation",
     settle: "Payment Settled",
+    "remind-all": "Reminders Sent",
+    "settle-all": "Payments Sent",
     zelle: "Payment Settled",
     paypal: "Payment Settled",
     venmo: "Payment Settled",
+    verify: "Verified",
+    "check-in": "Checked In",
 };
 
 function addItem(target, action, which, id) {
     if ("person" === which) {
-        showSearchDialog(id);
+        showSearch(`${action} ${which}`, id);
     }
 
     if ("message" === which) {
@@ -147,17 +202,22 @@ function addItem(target, action, which, id) {
 
 ACTION_PAGES = {
     back: () => showPage(window.lastPage),
+    explore: openPage,
     open: openPage,
+    "create-new-group": createGroup,
+    "add-participant": addParticipant,
     add: addItem,
+    contact: addContact,
     new: addItem,
-    search: showSearchDialog,
-    more: showSearchDialog,
+    search: addPerson,
+    more: addPerson,
     hide: hideDialog,
     collapse: collapseCard,
     right: hideDialog,
     show: toggleCollapse,
     person: showProfileDialog,
     match: showMatchDialog,
+    review: showReviewDialog
 };
 
 function toggleCollapse(target) {
@@ -177,11 +237,11 @@ function route(target, action, which = "", index = "") {
     if (TOAST_MESSAGES.hasOwnProperty(action)) {
         return showToast(TOAST_MESSAGES[action]);
     } else if (ACTION_PAGES.hasOwnProperty(action)) {
-        //   console.log("ACTION: " + action, which, index);
+        console.log("ACTION: " + action, which, index);
         const f = ACTION_PAGES[action];
-        //   console.log(f);
+        console.log(f);
         return f(target, action, which, index);
     } else {
-        //   console.log("UNKNOWN ACTION:" + action);
+        console.log("UNKNOWN ACTION:" + action);
     }
 }

@@ -8,7 +8,6 @@ function actionPanel(content) {
 
 const ACTION_COMPONENT_MAP = {
     "rate" : ratingAction,
-    "review" : reviewAction,
 }
 function actionItem(name, which = "", index = -1, textValue = "", iconColor = "", hideText=false, qty= 0) {
     if (ACTION_COMPONENT_MAP.hasOwnProperty(name) ) {

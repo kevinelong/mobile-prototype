@@ -22,15 +22,19 @@
 }
 
 .page.connect .add.message.action-item {
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
     border: none;
 
     position: absolute;
-    right: 3px;
-    top: 3px;
-    z-index: 999;
+    right: 2px;
+    top: 2px;
+    z-index: 200;
 }
+.page.connect .add.message.action-item:hover {
+background-color: #0002;
+}
+
 .page.connect .add.message.action-item .icon{
     /*box-shadow: 0 0 1px black;*/
 }

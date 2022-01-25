@@ -27,18 +27,18 @@ function connectPage(selected = false) {
                 ),
                 exploreCardNotification(
                     13,
-                    [{ people:peopleList, title: "Liked By", groupName: "Explorer", subtitle: ""}]
+                    [{ people:peopleList, title: "Liked By", groupName: "Explorer", subtitle: "including 2 taste matches!"}]
                 ),
-                exploreCard(
-                    "",
-                    "London July",
-                    "Broadcast Response",
-                    "Love this bar!",
-                    [],
-                    [{ people:[peopleList[1]], title: "Liked By", groupName: "Explorer", subtitle: ""}],
-                    ["explore_detail"],
-                    "1",
-                ),
+                // exploreCard(
+                //     "",
+                //     "London July",
+                //     "Broadcast Response",
+                //     "Love this bar!",
+                //     [],
+                //     [{ people:[peopleList[1]], title: "Liked By", groupName: "Explorer", subtitle: "including 2 taste matches!"}],
+                //     ["explore_detail"],
+                //     "1",
+                // ),
                 dreamCardNotification(
                     [{ people:[peopleList[1]], title: "linked with", groupName: "dreamer", subtitle: "23 shared cards"}],
                     2,
@@ -68,31 +68,36 @@ function connectPage(selected = false) {
                     "plan_invite"
                 ),
                 settleCard(
-                    peopleList[BF],
-                    "$23.00",
+                    [peopleList[BF]],
+                    "$123.45",
                     "Yesterday 12/12/2022",
                     "Pay",
-                    "Santa Barbara",
-                    "settle_detail",
-                    5
+                    -1,
+                    "NET - All Items",
+                    13,
+                    "Santa Barbara"
                 ),
                 settleCard(
-                    peopleList[0],
+                    [peopleList[JOE]],
                     "$80.00",
                     "Yesterday 11/21/2022",
                     "Received",
-                    "",
-                    "settle",
-                    5
+                    -1,
+                    "Golf",
+                    3,
+                    "Santa Barbara",
+                    ["acknowledge"]
                 ),
                 settleCard(
-                    peopleList[1],
-                    "$75.00",
+                    [peopleList[BF]],
+                    "$12.34",
                     "Yesterday 11/21/2022",
-                    "Received",
-                    "",
-                    "settle",
-                    5
+                    "received",
+                    -1,
+                    "Coffee",
+                    4,
+                    "Santa Barbara",
+                    ["accept"],
                 ),
                 planCard(
                     "Check In and Rate",

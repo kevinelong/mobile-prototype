@@ -39,7 +39,7 @@ function cardTags(tags) {
     return div("card-tags", [...tags].map(hashTagGold).join(""));
 }
 
-function actionList(id, list = [], hideText = false, qty= 0) {
+function actionList(id, list = [], hideText = false, qty= 0, iconColor="") {
     return div(
         "action-list",
         [...list].reverse()
@@ -48,8 +48,8 @@ function actionList(id, list = [], hideText = false, qty= 0) {
                     c,
                     c,
                     -1,
-                    c,
-                    "",
+                    titleCase(c),
+                    iconColor,
                     hideText,
                     qty)
             )

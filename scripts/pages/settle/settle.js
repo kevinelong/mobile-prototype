@@ -36,14 +36,26 @@ function settlePage(selected = false) {
         "All",
 
         dashboard([
-            dashBoardItem("total debt", "$123.45", "remind-all"),
-            dashBoardItem("total credit", "$543.21", "settle-all"),
+            dashBoardItem("total owed to me", "$123.45", "remind-all"),
+            dashBoardItem("total I owe", "$543.21", "settle-all"),
         ]) +
             cardList(
                 settleCard(
-                    "Pay Betty Ford,",
-                    " of Betty Ford, Joe Shmoe, Ruby Red <br> for yesterday, Tuesday 12/12/2022.",
-                    cardSection("$3.00"),
+                    [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+                    "3.00",
+                    "yesterday, Tuesday 12/12/2022",
+                    "pay",
+                    -1,
+                    "All Items NET",
+                    13,
+                    "Yoichi's",
+                    ["paypal", "venmo", "zelle"]
+                )
+            )
+    );
+}
+/*
+
                     [
                         ["Description", "Who", "Paid", "Amount", "Balance"],
                         [
@@ -68,9 +80,4 @@ function settlePage(selected = false) {
                             "-3.00",
                         ],
                     ],
-                    [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
-                    ["paypal", "venmo", "zelle"]
-                )
-            )
-    );
-}
+ */

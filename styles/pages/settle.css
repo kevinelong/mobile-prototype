@@ -20,14 +20,23 @@
 /*    margin: auto;*/
 /*}*/
 .dashboard-item .action-item{
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     border-radius: 6px;
     color:black;
     font-size: 1rem;
 }
+.dashboard-item .action-item:hover {
+    background-color: #0002;
+}
+
 .dashboard-item .text{
     padding: 9px;
 }
+
+.dashboard-item .title{
+    background: none;
+}
+
 .money-panel,
 .message-panel {
     margin: 0;
