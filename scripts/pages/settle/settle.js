@@ -36,8 +36,8 @@ function settlePage(selected = false) {
         "All",
 
         dashboard([
-            dashBoardItem("total debt", "$123.45", "remind-all"),
-            dashBoardItem("total credit", "$543.21", "settle-all"),
+            dashBoardItem("total owed to me", "$123.45", "remind-all"),
+            dashBoardItem("total I owe", "$543.21", "settle-all"),
         ]) +
             cardList(
                 settleCard(
