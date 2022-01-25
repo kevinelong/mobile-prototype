@@ -74,7 +74,7 @@ function connectPage(selected = false) {
                     "Pay",
                     "Santa Barbara",
                     "settle_detail",
-                    5
+                    2
                 ),
                 settleCard(
                     peopleList[0],
@@ -83,7 +83,7 @@ function connectPage(selected = false) {
                     "Received",
                     "",
                     "settle",
-                    5
+                    3
                 ),
                 settleCard(
                     peopleList[1],
@@ -92,7 +92,7 @@ function connectPage(selected = false) {
                     "Received",
                     "",
                     "settle",
-                    5
+                    4
                 ),
                 planCard(
                     "Check In and Rate",
