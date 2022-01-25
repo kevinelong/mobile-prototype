@@ -27,7 +27,7 @@ function connectPage(selected = false) {
                 ),
                 exploreCardNotification(
                     13,
-                    [{ people:peopleList, title: "Liked By", groupName: "Explorer", subtitle: ""}]
+                    [{ people:peopleList, title: "Liked By", groupName: "Explorer", subtitle: "including 2 taste matches!"}]
                 ),
                 exploreCard(
                     "",
@@ -35,7 +35,7 @@ function connectPage(selected = false) {
                     "Broadcast Response",
                     "Love this bar!",
                     [],
-                    [{ people:[peopleList[1]], title: "Liked By", groupName: "Explorer", subtitle: ""}],
+                    [{ people:[peopleList[1]], title: "Liked By", groupName: "Explorer", subtitle: "including 2 taste matches!"}],
                     ["explore_detail"],
                     "1",
                 ),

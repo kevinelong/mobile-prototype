@@ -3,9 +3,20 @@ function addContact() {
     showDialog(
         "Add New Contact",
         [
-            label("first", "First<br>" + input("first")),
-            label("last", "Last<br>" + input("last")),
-        ].join("<br>") +
+            label("first", input("first", "text", `placeholder="First Name"`)),
+            label("last", input("last","text", `placeholder="Last Name"`)),
+        ].join("") +
+        actionPanel(
+            actionItem("cancel","contact", -1, "Cancel", "black") +
+            actionItem("save","contact", -1, "Save", "black")
+        )
+    )
+}
+
+function createGroup() {
+    showDialog(
+        "Create Group",
+            label("name", input("name", "text", `placeholder="Name"`))+
         actionPanel(
             actionItem("cancel","contact", -1, "Cancel", "black") +
             actionItem("save","contact", -1, "Save", "black")
@@ -31,7 +42,7 @@ function showSearch(title, index = -1, target={}) {
             choiceSet("search-filter", ["All", "Connections", "Groups", "Contacts"]) +
             search(peopleList, index) +
             row(
-                actionItem("people", "group", -1, "Create New Group", "black") +
+                actionItem("create-new-group", "group", -1, "Create New Group", "black") +
                 actionItem("contact", "contact", -1, "Add New Contact", "black")
             )
         )
@@ -185,6 +196,7 @@ function addItem(target, action, which, id) {
 ACTION_PAGES = {
     back: () => showPage(window.lastPage),
     open: openPage,
+    "create-new-group": createGroup,
     "add-participant": addParticipant,
     add: addItem,
     contact: addContact,
