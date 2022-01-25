@@ -4,11 +4,11 @@ function addContact() {
         "Add New Contact",
         [
             label("first", input("first", "text", `placeholder="First Name"`)),
-            label("last", input("last","text", `placeholder="Last Name"`)),
+            label("last", input("last", "text", `placeholder="Last Name"`)),
         ].join("") +
         actionPanel(
-            actionItem("cancel","contact", -1, "Cancel", "black") +
-            actionItem("save","contact", -1, "Save", "black")
+            actionItem("cancel", "contact", -1, "Cancel", "black") +
+            actionItem("save", "contact", -1, "Save", "black")
         )
     )
 }
@@ -16,10 +16,10 @@ function addContact() {
 function createGroup() {
     showDialog(
         "Create Group",
-            label("name", input("name", "text", `placeholder="Name"`))+
+        label("name", input("name", "text", `placeholder="Name"`)) +
         actionPanel(
-            actionItem("cancel","contact", -1, "Cancel", "black") +
-            actionItem("save","contact", -1, "Save", "black")
+            actionItem("cancel", "contact", -1, "Cancel", "black") +
+            actionItem("save", "contact", -1, "Save", "black")
         )
     )
 }
@@ -36,7 +36,7 @@ function showSearchDialog(target, action, which, index) {
     showSearch(`ADD ${which.toUpperCase()}`, index, target)
 }
 
-function showSearch(title, index = -1, target={}) {
+function showSearch(title, index = -1, target = {}) {
     showDialog(title,
         contentPanel(
             choiceSet("search-filter", ["All", "Connections", "Groups", "Contacts"]) +
@@ -112,28 +112,25 @@ function showProfileDialog(target, action, which, index = RUBY) {
             )
             .join("")
     );
-    const other = text(
-            "Relationship" +
+    const other = label("", "Relationship" +
             input("relationship", "text", `placeholder="e.g. Acquaintance, Friend, BFF"`)
         ) +
-        text(
+        label("",
             "Shared Plans" +
             div("card-tags", [...[
                 "Brunch - Sunday March 3rd 2022"
             ]].map(hashTag).join(""))
         ) +
-        text(
+        label("",
             "Interests" +
             div("card-tags", [...[
                 "Skiing", "Fine Dining - Shared", "Wine Tasting - Shared"
-            ]].map(hashTag).join(""))
-        ) +
-        text(
+            ]].map(hashTag).join(""))) +
+        label("",
             "Boards" +
             div("card-tags", [...[
                 "Santa Barbara - Linked", "Paris - Shared. Link?", "Seattle"
-            ]].map(hashTag).join(""))
-        ) +
+            ]].map(hashTag).join(""))) +
         cardGroups(who.groups) +
         ((index === 0) ? "" : actions);
 

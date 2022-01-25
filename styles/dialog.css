@@ -202,3 +202,10 @@ footer button {
     font-size: 18px;
     border-radius: 6px;
 }
+
+.dialog .card-tags {
+    margin: 0;
+}
+.dialog label {
+    font-size: 14px;
+}
