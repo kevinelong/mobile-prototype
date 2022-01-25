@@ -22,13 +22,13 @@
 }
 
 .page.connect .add.message.action-item {
-    width: 36px;
-    height: 36px;
+    width: 30px;
+    height: 30px;
     border: none;
 
     position: absolute;
-    right: 3px;
-    top: 3px;
+    right: 2px;
+    top: 2px;
     z-index: 200;
 }
 .page.connect .add.message.action-item:hover {

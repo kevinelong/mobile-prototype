@@ -3,8 +3,8 @@ function planPage(selected = false) {
         selected,
         "plan",
         "Plan",
-        ["All", "Personal", "Linked", "Groups", "Network"],
-        "All",
+        ["All", "Past", "Present", "Future"],
+        "Present",
         cardList(
             planCard(
                 "Santa Barbara",

@@ -13,6 +13,8 @@
     display: inline-flex;
     justify-content: center; /* align horizontal */
     align-items: center; /* align vertical */
+
+    min-height: 24px;
 }
 
 .choice.selected {
@@ -30,5 +32,4 @@
     gap: 0.5rem;
     padding: 0.25rem 0.5rem;
     background: #dddddd;
-    min-height: 40px;
 }

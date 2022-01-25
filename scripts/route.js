@@ -41,8 +41,7 @@ function showSearch(title, index = -1) {
                 actionItem("create-new-group", "group", -1, "Create New Group", "black") +
                 actionItem("contact", "contact", -1, "Add New Contact", "black")
             )
-        ),
-        `data-target="${JSON.stringify(target)}"`
+        )
     );
 }
 function showReviewDialog(){

@@ -1,4 +1,21 @@
+function planDetailContent() {
+    return 'Plan Detail Content'
+}
+
 function planDetailPage(selected = false) {
+    return page(
+        selected,
+        "plan_detail",
+        "Santa Barbara",
+        [],
+        "",
+        planDetailContent(),
+        "ALL NETWORK",
+        "plan"
+    );
+}
+
+function planDetailPageOld(selected = false) {
     return page(
         selected,
         "plan_detail",
