@@ -36,3 +36,11 @@
     height: 24px;
     margin: 0;
 }
+
+
+.title .action-item.menu .icon {
+    max-width: 18px;
+    max-height: 18px;
+    width: 18px;
+    height: 18px;
+}

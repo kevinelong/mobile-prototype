@@ -153,7 +153,7 @@ function collapseCard(target) {
 function openPage(target, action, which, id) {
     if ("open" === action && which.toLowerCase().startsWith("http")) {
         window.open(which, "_self");
-    } else if ("open" === action) {
+    } else if ("open" === action || "explore" === action) {
         showPage(which, action, id);
     } else if ("person" === action) {
         showPage("connect_person", "open", id);
@@ -195,6 +195,7 @@ function addItem(target, action, which, id) {
 
 ACTION_PAGES = {
     back: () => showPage(window.lastPage),
+    explore: openPage,
     open: openPage,
     "create-new-group": createGroup,
     "add-participant": addParticipant,

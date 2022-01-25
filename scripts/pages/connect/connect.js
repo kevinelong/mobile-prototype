@@ -29,16 +29,16 @@ function connectPage(selected = false) {
                     13,
                     [{ people:peopleList, title: "Liked By", groupName: "Explorer", subtitle: "including 2 taste matches!"}]
                 ),
-                exploreCard(
-                    "",
-                    "London July",
-                    "Broadcast Response",
-                    "Love this bar!",
-                    [],
-                    [{ people:[peopleList[1]], title: "Liked By", groupName: "Explorer", subtitle: "including 2 taste matches!"}],
-                    ["explore_detail"],
-                    "1",
-                ),
+                // exploreCard(
+                //     "",
+                //     "London July",
+                //     "Broadcast Response",
+                //     "Love this bar!",
+                //     [],
+                //     [{ people:[peopleList[1]], title: "Liked By", groupName: "Explorer", subtitle: "including 2 taste matches!"}],
+                //     ["explore_detail"],
+                //     "1",
+                // ),
                 dreamCardNotification(
                     [{ people:[peopleList[1]], title: "linked with", groupName: "dreamer", subtitle: "23 shared cards"}],
                     2,
