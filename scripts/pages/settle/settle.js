@@ -41,9 +41,21 @@ function settlePage(selected = false) {
         ]) +
             cardList(
                 settleCard(
-                    "Pay Betty Ford,",
-                    " of Betty Ford, Joe Shmoe, Ruby Red <br> for yesterday, Tuesday 12/12/2022.",
-                    cardSection("$3.00"),
+                    [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+                    "3.00",
+                    "yesterday, Tuesday 12/12/2022",
+                    "pay",
+                    -1,
+                    "All Items NET",
+                    13,
+                    "Yoichi's",
+                    ["paypal", "venmo", "zelle"]
+                )
+            )
+    );
+}
+/*
+
                     [
                         ["Description", "Who", "Paid", "Amount", "Balance"],
                         [
@@ -68,9 +80,4 @@ function settlePage(selected = false) {
                             "-3.00",
                         ],
                     ],
-                    [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
-                    ["paypal", "venmo", "zelle"]
-                )
-            )
-    );
-}
+ */

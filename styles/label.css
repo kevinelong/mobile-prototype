@@ -5,6 +5,11 @@ label input {
     /* margin-right: 15px; */
 }
 
+textarea{
+    width: 100%;
+    min-height: 12em;
+}
+
 .selected label {
     color: #FFFFFFEE;
     transition: color 300ms;

@@ -208,7 +208,4 @@ function ratingAction() {
     return div("action-item rating-action", rating() + icon("star-outline", "", "?"));
 }
 
-function reviewAction() {
-    return div("action-item review hidden", icon("review", "", "review"));
-}
 

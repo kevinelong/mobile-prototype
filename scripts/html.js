@@ -18,7 +18,7 @@ function img(className, src = "", attrs = "") {
     return tag("img", `${className} image`, `src="${src}" ${attrs}`);
 }
 
-function label(className, content, attrs="") {
+function label(className, content, attrs = "") {
     return closedTag(`label`, content, className, attrs);
 }
 
@@ -35,5 +35,14 @@ function input(name, inputType = "text", attrs = "") {
         "input",
         name,
         `name="${name}" type="${inputType}" onkeypress="onTextInput(event);" ${attrs}`
+    );
+}
+
+
+function textarea(name, content = "", attrs = "") {
+    return closedTag(
+        `textarea ${name}`,
+        content,
+        `name="${name}" onkeypress="onTextInput(event);" ${attrs}`
     );
 }

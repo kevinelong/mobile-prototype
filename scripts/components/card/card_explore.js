@@ -83,7 +83,7 @@ function exploreCard(
         row(
             icon("explore") +
                 cardTitle(title) +
-                actionItem("explore", "detail", id, "Details")
+                actionItem("open", "explore_detail", id, "")
         ) +
         cardSubtitle(subtitle) +
         text(content),

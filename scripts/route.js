@@ -32,11 +32,7 @@ function addPerson() {
     showSearch("Add Person");
 }
 
-function showSearchDialog(target, action, which, index) {
-    showSearch(`ADD ${which.toUpperCase()}`, index, target)
-}
-
-function showSearch(title, index = -1, target = {}) {
+function showSearch(title, index = -1) {
     showDialog(title,
         contentPanel(
             choiceSet("search-filter", ["All", "Connections", "Groups", "Contacts"]) +
@@ -45,10 +41,22 @@ function showSearch(title, index = -1, target = {}) {
                 actionItem("create-new-group", "group", -1, "Create New Group", "black") +
                 actionItem("contact", "contact", -1, "Add New Contact", "black")
             )
-        )
+        ),
+        `data-target="${JSON.stringify(target)}"`
     );
 }
-
+function showReviewDialog(){
+    showDialog(
+        "Write Review",
+        contentPanel(
+            label(
+                "review",
+                text("Review") + textarea("review")
+            )+
+            actionList("",["cancel", "save"], false, 0, "black")
+        )
+    )
+}
 function showMatchDialog() {
     showDialog("Taste Match",
         `
@@ -160,6 +168,7 @@ function openPage(target, action, which, id) {
 }
 
 TOAST_MESSAGES = {
+    acknowledge: "Acknowledged!",
     favorite: "Added to favorites!",
     follow: "Followed!",
     friend: "Friend Added",
@@ -176,6 +185,8 @@ TOAST_MESSAGES = {
     zelle: "Payment Settled",
     paypal: "Payment Settled",
     venmo: "Payment Settled",
+    verify: "Verified",
+    "check-in": "Checked In",
 };
 
 function addItem(target, action, which, id) {
@@ -207,6 +218,7 @@ ACTION_PAGES = {
     show: toggleCollapse,
     person: showProfileDialog,
     match: showMatchDialog,
+    review: showReviewDialog
 };
 
 function toggleCollapse(target) {
