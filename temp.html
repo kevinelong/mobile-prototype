@@ -111,7 +111,7 @@ route
             display: inline-flex;
             margin: 0.5rem;
             border-radius: 10px;
-            background-color: grey;
+            /* background-color: grey; */
             width: 50px;
             height: 70px;
             /* display: flex; */
@@ -120,8 +120,12 @@ route
             gap: 0.5rem;
         }
 
-        .timeline .day > div {
+        .timeline .day.current-day {
+            background-color: #000000bb;
+        }
 
+        .timeline .day.adjacent-day {
+            background-color: grey;
         }
 
         .timeline .day-of-week {
@@ -130,17 +134,97 @@ route
         }
 
     </style>
-    <script>
-    </script>
-</head>
 
+    <script>
+        // function daysInMonth(month, year) {
+        //     let date = new Date(Date.UTC(year, month, 5))
+        //     let days = []
+        //     while (date.getUTCMonth() === month) {
+        //         days.push(new Date(date))
+        //         date.setUTCDate(date.getUTCDate() + 1)
+        //     }
+        //     return days
+        // }
+        // function daysInMonth() {
+        //     var dt = new Date();
+        //     var month = dt.getMonth();
+        //     var year = dt.getFullYear();
+        //     daysInMonth = new Date(year, month, 0).getDate();
+        //     return daysInMonth
+        // }
+        // function getDates() {
+        //     let date = new Date();
+        //     let firstDay = newDate(date.getFullYear)
+        //     for 
+        // } 
+        
+        function getDates() {
+            const today1 = new Date()
+            console.log(today1)
+            const startDate = new Date(today1.setDate(today1.getDate() - 15))
+            console.log(startDate)
+            const today2 = new Date()
+            const endDate = today2.setDate(today2.getDate() + 15)
+            console.log(new Date(endDate))
+
+            const dates = []
+            let currentDate = startDate
+            const addDays = function (days) {
+                const date = new Date(this.valueOf())
+                date.setDate(date.getDate() + days)
+                return date
+            }
+            while (currentDate <= endDate) {
+                dates.push(currentDate)
+                currentDate = addDays.call(currentDate, 1)
+            }
+            return dates
+        }
+
+        function formatDates(dates) {
+            const daysOfWeek = []
+            const daysOfMonth = []
+            for (let i = 0; i < dates.length; i++) {
+                const weekday = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
+                d = dates[i].getDay()
+                daysOfWeek.push(weekday[d])
+
+                daysOfMonth.push(dates[i].getDate())
+            }
+            console.log(daysOfWeek)
+            console.log(daysOfMonth)           
+        }
+
+        function day() {
+            return 'Hello World!'
+        }
+    </script>
+
+</head>
 <body cz-shortcut-listen="true">
     <div class="content div">
         <div class="outer-box div">
             <div class="inner-content div">
                 <div class="timeline">
                     <script>
-                        document.write(day())
+                        // document.write(day())
+                        // const date = new Date(2013, 10, 22)
+                        // console.log(date)
+                        // const today = new Date()
+                        // console.log(today)
+                        // const result = today.setDate(today.getDate() - 15)
+                        // console.log(new Date(result))
+
+                        const dates = getDates()
+                        console.log(dates)
+                        formatDates(dates)
+
+                        // var someDate = new Date();
+                        // var numberOfDaysToAdd = 6;
+                        // var result = someDate.setDate(someDate.getDate() + 15);
+                        // console.log(new Date(result))
+                        // console.log(getDates(today.setDate(today.getDate() - 15), today.setDate(today.getDate() + 15)))
+                        // console.log(getDates(new Date(2022, 1, 15), new Date(2022, 1, 30)))
                     </script>
                     <div class="day">
                         <div class="day-of-week">
@@ -150,7 +234,7 @@ route
                             <p>14</p>
                         </div>
                     </div>
-                    <div class="day">
+                    <div class="day adjacent-day">
                         <div class="day-of-week">
                             Fri
                         </div>
@@ -158,7 +242,7 @@ route
                             15
                         </div>
                     </div>
-                    <div class="day">
+                    <div class="day current-day">
                         <div class="day-of-week">
                             Sat
                         </div>
@@ -166,7 +250,7 @@ route
                             16
                         </div>
                     </div>
-                    <div class="day">
+                    <div class="day adjacent-day">
                         <div class="day-of-week">
                             Sun
                         </div>
