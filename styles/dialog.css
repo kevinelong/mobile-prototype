@@ -33,7 +33,13 @@
     padding: 0;
     gap: 1rem;
 }
-
+.dialog .content-panel .content-panel {
+    flex-flow: wrap;
+}
+.dialog .action-panel {
+    justify-content: space-between;
+    width: 100%;
+}
 .dialog .simple-list {
     padding: 0;
     margin: 0;

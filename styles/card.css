@@ -176,6 +176,15 @@
     justify-content: space-between;
     gap: 0.5rem;
 }
+.card.connect .card-quadrant{
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.card.connect .card-quadrant .action-list {
+    width: auto;
+    flex-direction: column;
+    justify-content: center;
+}
 
 .card-subtitle {
     font-size: 11px;

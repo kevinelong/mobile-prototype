@@ -7,8 +7,8 @@ function connectCardTitle(title, subtitle, which = "", id = 0) {
 
 function connectCardContent(groups, messageList = []) {
     return [
-        actionItem("add", "person", -1, "Add Person", "", false),
         messagePanel(messageList.slice(-3)),
+        // actionItem("add", "person", -1, "Add Person", "", false),
     ].join("");
 }
 
@@ -26,7 +26,7 @@ function connectCard(
         connectCardTitle(title, subtitle, which, id),
         connectCardContent(messageList),
         groups,
-        [],
+        ["add-participant"],
         "",
         [],
         0,

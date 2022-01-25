@@ -48,7 +48,7 @@ function actionList(id, list = [], hideText = false, qty= 0) {
                     c,
                     c,
                     -1,
-                    c,
+                    titleCase(c),
                     "",
                     hideText,
                     qty)

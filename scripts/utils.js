@@ -13,6 +13,12 @@ function toName(name) {
         .replace(" ", "_");
 }
 
+function titleCase(str) {
+    return str.replace("-"," ").toLowerCase().split(' ').map(function(word) {
+        return (word.charAt(0).toUpperCase() + word.slice(1));
+    }).join(' ');
+}
+
 function select(e, id) {
     [...e.parentElement.children].forEach((s) =>
         s.classList.remove("selected")
@@ -205,3 +211,4 @@ function ratingAction() {
 function reviewAction() {
     return div("action-item review hidden", icon("review", "", "review"));
 }
+

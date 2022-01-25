@@ -3,7 +3,7 @@ function messageText(c) {
 }
 
 function messageItem(message_item, isSamePerson) {
-   //   console.log(message_item)
+    //   console.log(message_item)
     return div(
         `message-item ${isSamePerson ? "same-person" : ""} ${
             message_item.person.isCurrentUser ? "is-current-user" : ""
@@ -14,7 +14,7 @@ function messageItem(message_item, isSamePerson) {
 
 function messagePanel(messageList) {
     let lastItem = {person: {id: 0}};
-   //   console.log(lastItem)
+    //   console.log(lastItem)
     return div(
         "message-panel",
         [...messageList]
@@ -29,19 +29,5 @@ function messagePanel(messageList) {
 
 
 function addMessage() {
-    showDialog(
-        "Add Message",
-        contentPanel(
-            choiceSet(
-                "filter",
-                ["My Contacts", "Groups", "Everyone"],
-                "My Contacts"
-            ) +
-                search(peopleList) +
-                row(
-                    actionItem("add", "group", -1, "Group") +
-                        actionItem("add", "contact", -1, "Contact")
-                )
-        )
-    );
+    showSearch("Add Message");
 }
