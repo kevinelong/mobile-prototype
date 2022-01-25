@@ -9,7 +9,7 @@ function settleCard(who, amount, when = "", kind="", index=0, which="", quantity
             )
         ) + actionItem("open", "settle_list", index),
         text(when) + text("All Activities - Daily Net"),
-        [{ people:[index], title: "split with", groupName: "participant", subtitle: `Covered ${quantity} item` + (quantity === 1 ? "" : "s")}],
+        [{ people:peopleList, title: "split with", groupName: "participant", subtitle: `Covered ${quantity} item${quantity === 1 ? "" : "s"}` + (quantity === 1 ? "" : "s")}],
         ["settle"]
     );
 }
