@@ -123,6 +123,13 @@ dreamers = [{
     subtitle: "sharing a total of 23 cards"
 }];
 
+coplanners = [{
+    people: three_people,
+    title: "planned with",
+    groupName: "co-planner",
+    subtitle: "plan contains 23 cards"
+}];
+
 let messageListExample = [
     {
         text: "Hey girl welcome!",
@@ -227,3 +234,61 @@ function inputMessage() {
         input("message-input", "text", `placeholder="Type a message..."`)
     );
 }
+
+
+const activityData = [
+    {
+        icon: "activities-black",
+        name: "Things to Do",
+        items: []
+    },
+    {
+        icon: "landscape-black",
+        name: "Places to See",
+        items: []
+    },
+    {
+        icon: "dining-black",
+        name: "Restaurants",
+        items: [
+            {
+                kind: "food",
+                title: "Brasil Arts Cafe",
+                description:
+                    "the perfect blend of traditional Brazilian fare & one-of-a-kind Açai, Juice, and Smoothie creations",
+                image: "images/photos/brasil_arts_cafe.jpeg",
+                people: [{
+                    people: [peopleList[RUBY], peopleList[JOE]],
+                    title: "Pinned By",
+                    groupName: "Dreamer",
+                    subtitle: ""
+                }],
+                tags: ["brazilian", "cafe"],
+            },
+            {
+                kind: "food",
+                title: "Yoichi's",
+                description:
+                    "A prix-fixe only spot featuring traditional Japanese small plates &amp; sushi in an intimate setting.",
+                image: "images/photos/yoichis.jpg",
+                people: [{
+                    people: [peopleList[RUBY], peopleList[JOE]],
+                    title: "Pinned By",
+                    groupName: "Dreamer",
+                    subtitle: ""
+                }],
+                tags: ["japanese", "sushi", "prix-fixe"]
+            }
+        ]
+    },
+    {
+        icon: "lodging-black",
+        name: "Lodging",
+        items: []
+    },
+    {
+        icon: "transportation-black",
+        name: "Transportation",
+        items: []
+    }
+];

@@ -7,7 +7,7 @@ function settleCard(
     which = "",
     quantity = 1,
     where = "",
-    actions = ["paypal", "venmo", "zelle"]
+    actions = ["split", "settle"]
 ) {
     // debugger;
     return card(
