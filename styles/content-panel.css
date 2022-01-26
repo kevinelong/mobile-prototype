@@ -1,6 +1,7 @@
 
 .page > .content-panel {
     height: 555px;
+    background-color: #fffffff0;
 }
 .content-panel {
     width: 100%;

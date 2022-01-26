@@ -48,8 +48,7 @@ function settlePage(selected = false) {
                     -1,
                     "NET - All Items",
                     13,
-                    "Santa Barbara",
-                    ["paypal", "venmo", "zelle"]
+                    "Santa Barbara"
                 )
             )
     );

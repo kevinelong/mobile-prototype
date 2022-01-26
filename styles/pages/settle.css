@@ -6,6 +6,16 @@
     alignment: center;
     /*flex-direction: ;*/
 }
+.dashboard-item {
+    padding: 1rem;
+    border-radius: 1rem;
+}
+.dashboard-item .action-item{
+    background-color: #0001;
+}
+.dashboard-item .action-item:hover{
+    background-color: #0004;
+}
 .dashboard-item *{
     alignment: center;
     align-content: space-evenly;

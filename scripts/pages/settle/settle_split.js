@@ -14,11 +14,11 @@ function settleSplit(selected = false) {
                         cardSubtitle("Tuesday 12/12/2022.")
                 ) + cardSection("$36.33"),
                 moneyPanel([
-                    ["Description", "Who Paid", "Amount", "Balance"],
-                    ["French Fries", "?", "6.00", "0"],
-                    ["Basic Burger", "?", "6.00", "0"],
-                    ["Deluxe Cheeseburger", "?", "9.00", "0"],
-                    ["Veggie Burger", "?", "9.00", "0"],
+                    ["Description", "Who", "Amount", "Balance"],
+                    ["French Fries", peopleList[RUBY], "6.00", "0"],
+                    ["Basic Burger", peopleList[RUBY], "6.00", "0"],
+                    ["Deluxe Cheeseburger", peopleList[JOE], "9.00", "0"],
+                    ["Veggie Burger", peopleList[JOE], "9.00", "0"],
                 ]),
                 [{ people:peopleList, title: "Divvying", groupName: "Co-Planner", subtitle: "4 items"}],
                 ["paypal", "venmo", "zelle"],

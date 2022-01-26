@@ -44,18 +44,20 @@ function showSearch(title, index = -1) {
         )
     );
 }
-function showReviewDialog(){
+
+function showReviewDialog() {
     showDialog(
         "Write Review",
         contentPanel(
             label(
                 "review",
                 text("Review") + textarea("review")
-            )+
-            actionList("",["cancel", "save"], false, 0, "black")
+            ) +
+            actionList("", ["cancel", "save"], false, 0, "black")
         )
     )
 }
+
 function showMatchDialog() {
     showDialog("Taste Match",
         `
@@ -155,12 +157,15 @@ function collapseCard(target) {
 }
 
 function openPage(target, action, which, id) {
+    console.log("openPage", target, action, which, id);
     if ("open" === action && which.toLowerCase().startsWith("http")) {
         window.open(which, "_self");
     } else if ("open" === action || "explore" === action) {
         showPage(which, action, id);
     } else if ("person" === action) {
         showPage("connect_person", "open", id);
+    } else if ("split" === action) {
+        showPage("settle_split", "open", id);
     } else if ("board" === action) {
         showPage("dream", "dream", id);
     }
@@ -204,6 +209,8 @@ ACTION_PAGES = {
     back: () => showPage(window.lastPage),
     explore: openPage,
     open: openPage,
+    settle_split: openPage,
+    split: openPage,
     "create-new-group": createGroup,
     "add-participant": addParticipant,
     add: addItem,
@@ -234,6 +241,7 @@ function toggleCollapse(target) {
 }
 
 function route(target, action, which = "", index = "") {
+    console.log("ROUTE", target, action, which, index)
     if (TOAST_MESSAGES.hasOwnProperty(action)) {
         return showToast(TOAST_MESSAGES[action]);
     } else if (ACTION_PAGES.hasOwnProperty(action)) {
