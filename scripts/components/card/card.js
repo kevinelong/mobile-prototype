@@ -36,6 +36,9 @@ function cardPhoto(c) {
 }
 
 function cardTags(tags) {
+    if(!tags || tags.length===0){
+        return "";
+    }
     return div("card-tags", [...tags].map(hashTagGold).join(""));
 }
 

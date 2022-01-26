@@ -194,6 +194,8 @@ function onStar(target, index) {
     if (ra){
         showElement(ra[0]);
     }
+
+    showToast("Rating Sent!")
 }
 
 function star(index) {

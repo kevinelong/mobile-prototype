@@ -46,9 +46,9 @@ function settlePage(selected = false) {
                     "yesterday, Tuesday 12/12/2022",
                     "pay",
                     -1,
-                    "All Items NET",
+                    "NET - All Items",
                     13,
-                    "Yoichi's",
+                    "Santa Barbara",
                     ["paypal", "venmo", "zelle"]
                 )
             )
