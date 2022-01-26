@@ -15,9 +15,9 @@
     /*font-size: 1.2rem;*/
 }
 .page .content-panel > .row{
-    width:99%;
-    gap: 1rem;
-    padding: 1rem;
+    width: 100%;
+    gap: 0;
+    padding: 4px;
     align-content: space-evenly;
     alignment: center;
     /*flex-direction: ;*/
