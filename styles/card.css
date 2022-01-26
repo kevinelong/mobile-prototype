@@ -92,11 +92,13 @@
 
 .page.explore .card.explore .icon {
     position: static;
-    /*width: 12px;*/
-    /*height: 12px;*/
+    width: 12px;
+    height: 12px;
     margin: 0;
 }
-
+.card .titles .row .col{
+    margin-left: 12px;
+}
 .page.explore .card.explore .card-title {
     font-size: 15px
 }
