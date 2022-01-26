@@ -126,7 +126,7 @@ dreamers = [{
 coplanners = [{
     people: three_people,
     title: "planned with",
-    groupName: "co-planners",
+    groupName: "co-planner",
     subtitle: "plan contains 23 cards"
 }];
 
