@@ -236,18 +236,20 @@ function inputMessage() {
 }
 
 
-
 const activityData = [
     {
-        name: icon("activities-black") + "Things to Do",
+        icon: "activities-black",
+        name: "Things to Do",
         items: []
     },
     {
-        name: icon("landscape-black") + "Places to See",
+        icon: "landscape-black",
+        name: "Places to See",
         items: []
     },
     {
-        name: icon("dining-black") + "Restaurants",
+        icon: "dining-black",
+        name: "Restaurants",
         items: [
             {
                 kind: "food",
@@ -255,7 +257,12 @@ const activityData = [
                 description:
                     "the perfect blend of traditional Brazilian fare & one-of-a-kind Açai, Juice, and Smoothie creations",
                 image: "images/photos/brasil_arts_cafe.jpeg",
-                people: [{ people:[peopleList[RUBY], peopleList[JOE]], title: "Pinned By", groupName: "Dreamer", subtitle: ""}],
+                people: [{
+                    people: [peopleList[RUBY], peopleList[JOE]],
+                    title: "Pinned By",
+                    groupName: "Dreamer",
+                    subtitle: ""
+                }],
                 tags: ["brazilian", "cafe"],
             },
             {
@@ -264,17 +271,24 @@ const activityData = [
                 description:
                     "A prix-fixe only spot featuring traditional Japanese small plates &amp; sushi in an intimate setting.",
                 image: "images/photos/yoichis.jpg",
-                people: [{ people:[peopleList[RUBY], peopleList[JOE]], title: "Pinned By", groupName: "Dreamer", subtitle: ""}],
+                people: [{
+                    people: [peopleList[RUBY], peopleList[JOE]],
+                    title: "Pinned By",
+                    groupName: "Dreamer",
+                    subtitle: ""
+                }],
                 tags: ["japanese", "sushi", "prix-fixe"]
             }
         ]
     },
     {
-        name: icon("lodging-black") + "Lodging",
+        icon: "lodging-black",
+        name: "Lodging",
         items: []
     },
     {
-        name: icon("transportation-black") + "Transportation",
+        icon: "transportation-black",
+        name: "Transportation",
         items: []
     }
 ];

@@ -39,7 +39,7 @@ function cardTags(tags) {
     return div("card-tags", [...tags].map(hashTagGold).join(""));
 }
 
-function actionList(id, list = [], hideText = false, qty= 0, iconColor="") {
+function actionList(id, list = [], hideText = false, qty = 0, iconColor = "") {
     return div(
         "action-list",
         [...list].reverse()
@@ -71,7 +71,7 @@ function card(
     image = "",
     tags = [],
     which = -1,
-    attrs=""
+    attrs = ""
 ) {
     return div(
         `card ${kind} ${which}`,
@@ -122,7 +122,7 @@ function detail(
     );
 }
 
-function activityCard(item = {}, index= -1) {
+function activityCard(item = {}, index = -1) {
     return card(
         "activity",
         item.title,
@@ -140,8 +140,11 @@ function activityListItems(list) {
     if (!list) {
         return "";
     }
-    return cardList(
-        title(list.name + actionItem("show")) +
+    return cardList(row(
+        row(
+            actionItem(list.icon) +
+            title(list.name)
+        ) + actionItem("show") )+
         list.items.map(activityCard).join("")
     );
 }
