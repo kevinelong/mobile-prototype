@@ -69,7 +69,10 @@ function show(selector) {
 
 function hide(selector) {
     const e = get(selector);
-    if (!e) return;
+    if (!e) {
+        console.log(`selector '${selector}' not matched.`)
+        return;
+    }
     e.classList.add("hidden");
 }
 

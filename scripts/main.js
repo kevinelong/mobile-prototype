@@ -59,3 +59,15 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 window.lastPage = "connect";
+
+listen(
+    "click",
+    (e) => {
+        //   console.log(e.target);
+        if (e.target.classList.contains("smoke")) {
+            hide(".smoke");
+            hide(".dialog");
+        }
+    },
+    get(".smoke")
+);
