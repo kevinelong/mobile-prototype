@@ -103,6 +103,8 @@ route
             display: block;
             overflow-x: scroll;
             white-space: nowrap;
+            background-color: white;
+            color: black;
         }
 
         .timeline .day {
@@ -119,11 +121,12 @@ route
         }
 
         .timeline .day.current-day {
-            background-color: #000000bb;
+            background-color: black;
+            color: white;
         }
 
         .timeline .day.adjacent-day {
-            background-color: grey;
+            background-color: #EAEAEA;
         }
 
         .timeline .day-of-week {
@@ -156,14 +159,14 @@ route
         // } 
 
         // ADJUST PARAMETERS OF DATE() IN TODAY1 AND TODAY2 EQUALLY TO TEST DIFFERENT DAYS
-        function getDates() {
+        function getDates(daysBefore = 30, daysAfter = 30) {
             const today1 = new Date()
             // console.log("TODAY", today1)
-            const startDate = new Date(today1.setDate(today1.getDate() - 15))
+            const startDate = new Date(today1.setDate(today1.getDate() - daysBefore))
             // console.log("TODAY", today1)
             // console.log("STARTDATE", startDate)
             const today2 = new Date()
-            const endDate = today2.setDate(today2.getDate() + 15)
+            const endDate = today2.setDate(today2.getDate() + daysAfter)
             // console.log("ENDDATE", endDate)
 
             const dates = []
@@ -225,22 +228,57 @@ route
             return date === today.getDate()
         }
 
-        function isToday(i) {
-            // const todayWeek = isTodayWeek(weekday)
-            // const todayMonth = isTodayMonth(monthday)
-            // return todayWeek && todayMonth
-            return 15 === i
+        function isToday(weekday, monthday) {
+            const todayWeek = isTodayWeek(weekday)
+            const todayMonth = isTodayMonth(monthday)
+            return todayWeek && todayMonth
+            // return 15 === i
         }
 
-        function isAdjacentDay(i) {
-            // today = new Date()
-            // const yesterday = today.getDate() - 1
-            // const tomorrow = today.getDate() + 1
-            // const adjacentDay = monthday === yesterday || monthday === tomorrow
+        function isAdjacentDay(monthday) {
+            today = new Date()
+            const yesterday = today.getDate() - 1
+            const tomorrow = today.getDate() + 1
+            const adjacentDay = monthday === yesterday || monthday === tomorrow
             // const adjacentDayMonth = 
-            return i === 14 || i === 16
+            // return i === 14 || i === 16
+            return adjacentDay
         }
 
+        function dayBlock(day) {
+            const currentDay = isToday(day[0], day[1]) ? " current-day" : ""
+            const adjacentDay = isAdjacentDay(day[1]) ? " adjacent-day" : ""
+            const dayOfWeek = day[0]
+            const dayOfMonth = day[1]
+            return `
+                <div class="day${currentDay}${adjacentDay}">
+                    <div class="day-of-week">
+                        <p>${dayOfWeek}</p>
+                    </div>
+                    <div class="day-of-month">
+                        <p>${dayOfMonth}</p>
+                    </div>
+                </div>
+            `
+        }
+
+        function dayRangeBlock() {
+            let dates = getDates()
+            console.log(dates)
+            dates = formatDates(dates)
+            console.log(dates)
+            // console.log(isTodayWeek("Wed"))
+            // console.log(isTodayMonth(26))
+            // console.log(isToday())
+            // console.log(isAdjacentDay(26))
+            let output = []
+            for (let i = 0; i < dates.length; i++) {
+                const day = dates[i]
+                output.push(dayBlock(day))
+            }
+            return output.join("")
+        }
+        
         function day() {
             return 'Hello World!'
         }
@@ -262,30 +300,8 @@ route
                         // const result = today.setDate(today.getDate() - 15)
                         // console.log(new Date(result))
 
-                        let dates = getDates()
-                        // console.log(dates)
-                        dates = formatDates(dates)
-                        console.log(dates)
-                        // console.log(isTodayWeek("Wed"))
-                        // console.log(isTodayMonth(26))
-                        // console.log(isToday())
-                        // console.log(isAdjacentDay(26))
+                        document.write(dayRangeBlock())
 
-                        for (let i = 0; i < dates.length; i++) {
-                            document.write(`
-                                <div class="day 
-                                    ${isToday(i) ? "current-day" : ""} 
-                                    ${isAdjacentDay(i) ? "adjacent-day" : ""}"
-                                    >
-                                    <div class="day-of-week">
-                                        <p>${dates[i][0]}</p>
-                                    </div>
-                                    <div class="day-of-month">
-                                        <p>${dates[i][1]}</p>
-                                    </div>
-                                </div>
-                            `)
-                        }
                         // var someDate = new Date();
                         // var numberOfDaysToAdd = 6;
                         // var result = someDate.setDate(someDate.getDate() + 15);
