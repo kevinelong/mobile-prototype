@@ -14,7 +14,7 @@ function toName(name) {
 }
 
 function titleCase(str) {
-    return str.replace("-"," ").toLowerCase().split(' ').map(function(word) {
+    return str.replace("-", " ").toLowerCase().split(' ').map(function (word) {
         return (word.charAt(0).toUpperCase() + word.slice(1));
     }).join(' ');
 }
@@ -39,12 +39,12 @@ function hideElement(e) {
 
 function showPage(pageName, action = "", id = "") {
     if ("" === pageName) {
-       //   console.log("Missing pageName: " + pageName);
+        //   console.log("Missing pageName: " + pageName);
         return;
     }
     const page = get(`.page.${pageName}`);
     if (!page) {
-       //   console.log("No such page element: " + pageName);
+        //   console.log("No such page element: " + pageName);
         return;
     }
     const parts = pageName.split("_");
@@ -69,7 +69,10 @@ function show(selector) {
 
 function hide(selector) {
     const e = get(selector);
-    if (!e) return;
+    if (!e) {
+        console.log(`selector '${selector}' not matched.`)
+        return;
+    }
     e.classList.add("hidden");
 }
 
@@ -89,7 +92,7 @@ function selectPage(e) {
     const pages = getAll(".page");
 
     if (!pages) {
-       //   console.log("", "getAll, can't find .pages to hide.");
+        //   console.log("", "getAll, can't find .pages to hide.");
     } else {
         [...pages].forEach(hideElement);
     }
@@ -122,7 +125,7 @@ function applyConnectPageFilter(e) {
 
     const cards = cp.querySelectorAll(".card");
     const text = e.innerHTML.toUpperCase();
-   //   console.log(text);
+    //   console.log(text);
 
     cards.forEach(c => {
 
@@ -191,7 +194,7 @@ function onStar(target, index) {
 
     const ra = cardElement.querySelectorAll(".action-item.review");
 
-    if (ra){
+    if (ra) {
         showElement(ra[0]);
     }
 
@@ -210,4 +213,12 @@ function ratingAction() {
     return div("action-item rating-action", rating() + icon("star-outline", "", "?"));
 }
 
+function object_list_to_list_of_lists(raw_data, key_list) {
+    let output = []
+    output.push(key_list.map(key => key.toUpperCase()));
+    raw_data.map(item => {
+        output.push(key_list.map(key => item[key]))
+    });
+    return output;
+}
 

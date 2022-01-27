@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Vita Explorer</title>
+    <!--    <link href="styles/style.css" rel="stylesheet" type="text/css"/>-->
+    <script>
+        `
+action
+card
+choice
+circle
+content-panel
+detail
+dialog
+hash-tag
+icon
+label
+main-nav
+message
+page
+person
+simple-list
+title
+toast
+cards card-connect
+pages connect
+pages settle
+
+main
+component
+`.split("\n").map(p => p ? document.write(`<li` + `nk href="styles/` +
+            p.split(" ").join("/") + ".css" +
+            `"  rel="stylesheet" type="text/css"/>`) : '');
+
+    </script>
+    <script>
+        `
+utils
+html
+
+components components
+components grid
+
+components action action
+
+components card card
+components card card_person
+components card card_explore
+components card card_connect
+components card card_settle
+components card card_plan
+components card card_dream
+
+components card card_people
+
+components choice choice
+components dialog dialog
+components hash_tag hash_tag
+components list list
+components main_nav
+components message message
+components money money
+components page
+components search search
+components toast toast
+
+pages connect connect
+pages connect connect_chat
+pages connect connect_person
+
+pages plan plan
+pages plan plan_detail
+
+pages settle settle
+pages settle settle_split
+pages settle settle_list
+
+pages explore explore_detail
+pages explore explore
+
+pages dream dream
+pages dream dream_board
+pages dream dream_details
+
+route
+component
+`.split("\n").map(p => p ? document.write(`<scr` + `ipt src="scripts/` +
+            p.split(" ").join("/") + ".js" +
+            `"></scr` + `ipt>`) : '');
+    </script>
+    <style>
+        body {
+            color: white;
+            background-color: black;
+        }
+        *{
+            /*border: 1px solid white;*/
+        }
+
+        .pane {
+            width:320px;
+            height:240px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid white;
+        }
+
+        .pane .pane-actions {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            flex-flow: row-reverse;
+            width: 100%
+        }
+
+        .pane .pane-action{
+            border-radius: 1em;
+            background-color: black;
+            color: white;
+            padding: 0.25rem 0.5rem;
+        }
+    </style>
+
+    <script>
+        const data = {
+            start: "AAA",
+            panes: {
+                "AAA": {
+                    content: "AAA",
+                    actions: [
+                        {
+                            name: "next",
+                            pane: "BBB"
+                        },
+                    ]
+                },
+                "BBB": {
+                    content: "BBB",
+                    actions: [
+                        {
+                            name: "previous",
+                            pane: "AAA"
+                        },
+                        {
+                            name: "next",
+                            pane: "CCC"
+                        },
+                    ]
+                },
+                "CCC": {
+                    content: "CCC",
+                    actions: [
+                        {
+                            name: "previous",
+                            pane: "BBB"
+                        },
+                        {
+                            name: "restart",
+                            pane: "AAA"
+                        },
+                        {
+                            name: "finish",
+                            pane: ""
+                        },
+                    ]
+                }
+            }
+        };
+
+        function onPaneAction(pane) {
+            [...(document.querySelectorAll(
+                ".pane"
+            ))].forEach(
+                e => e.classList.add("hidden")
+            );
+            if(pane){
+                [...(document.querySelectorAll(
+                    `.${pane}`
+                ))].forEach(
+                    e => e.classList.remove("hidden")
+                );
+            }
+        }
+
+        function paneAction(a) {
+            return `<div class="pane-action" onclick="onPaneAction('${a.pane}')">${
+                a.name
+            }</div>`;
+        }
+
+        function pane(name, p, start) {
+            return `<div class="pane ${name}${
+                start === name ? " start" : " hidden"
+            }">${
+                `<div class="title">${name}</div>` +
+                `<div class="pane-content">${p.content}</div>` +
+                `<div class="pane-actions">` +
+                p.actions.reverse().map(paneAction).join("") +
+                "</div>"
+            }</div>`;
+        }
+
+        function panes(data) {
+            return Object.keys(data.panes).map(k => pane(k, data.panes[k], data.start)).join("");
+        }
+
+        function test() {
+            const output = panes(data)
+            console.log(output);
+            return output;
+        }
+    </script>
+
+</head>
+
+<body cz-shortcut-listen="true">
+<div class="content div">
+    <div class="outer-box div">
+        <div class="inner-content div">
+            <div class="test">
+                <script>
+                    document.write(test());
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="smoke hidden"></div>
+<div class="dialog hidden"></div>
+</body>
+
+</html>
