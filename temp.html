@@ -105,6 +105,15 @@ route
             overflow-x: scroll;
         }
 
+        .tab-set::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .tab-set {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
         .tab-set div {
             width: 120px;
             align-items: center;
