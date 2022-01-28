@@ -46,6 +46,7 @@
 .page.plan_detail > .content-panel{
     gap: 0;
     background: none;
+    display: block;
 }
 
 .page.plan_detail{
