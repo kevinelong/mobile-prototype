@@ -92,6 +92,8 @@ route
     </script>
 
     <style>
+
+        /* temporarily set for visibility */
         .outer-box.div {
             background-color: white;
         }
@@ -105,10 +107,12 @@ route
             overflow-x: scroll;
         }
 
+        /* Hide scrollbar for Chrome, Safari and Opera */
         .tab-set::-webkit-scrollbar {
             display: none;
         }
         
+        /* Hide scrollbar for IE, Edge and Firefox */
         .tab-set {
             -ms-overflow-style: none;  /* IE and Edge */
             scrollbar-width: none;  /* Firefox */
@@ -221,8 +225,12 @@ route
         for (let i = 0; i < tabs.length; i++) {
             const divOff = tabs[i].querySelector('div')
             divOff.removeAttribute("class", "tab-highlight")
+
+            tabs[i].removeAttribute("style")
         }
+
         div.setAttribute("class", "tab-highlight")   
+        e.target.style.fontWeight = "bold"
     }
 
 </script>
