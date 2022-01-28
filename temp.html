@@ -8,6 +8,7 @@
     <!--    <link href="styles/style.css" rel="stylesheet" type="text/css"/>-->
     <script>
         `
+timeline
 action
 card
 choice
@@ -66,6 +67,7 @@ components money money
 components page
 components search search
 components toast toast
+components timeline timeline
 
 pages connect connect
 pages connect connect_chat
@@ -90,200 +92,47 @@ route
             p.split(" ").join("/") + ".js" +
             `"></scr` + `ipt>`) : '');
     </script>
+
     <style>
-        * {
-            margin-top: 0 !important;
+        .outer-box.div {
+            background-color: white;
         }
 
-        .inner-content {}
-
-        .timeline {
-            padding: 5px 0;
-            height: auto;
-            width: auto;
-            display: block;
-            overflow-x: scroll;
-            white-space: nowrap;
+        .tab-set {
+            position: relative;
+            height: 44px;
             background-color: white;
             color: black;
+            flex-direction: row;
+
         }
 
-        .timeline .day {
-            display: inline-flex;
-            margin: 0.5rem;
-            border-radius: 10px;
-            /* background-color: grey; */
-            width: 50px;
-            height: 70px;
-            /* display: flex; */
-            justify-content: center;
+        .tab-set div {
+
+            width: 120px;
             align-items: center;
-            gap: 0.5rem;
+            justify-content: center;
+            /* display: block; */
         }
 
-        .timeline .day.current-day {
+        .tab-highlight {
+            position: absolute;
+            bottom: 0px;
+            height: 2px;
             background-color: black;
-            color: white;
+            display: none;
         }
 
-        .timeline .day.adjacent-day {
-            background-color: #EAEAEA;
-        }
-
-        .timeline .day-of-week {
-            font-size: 10px;
-            justify-content: flex-end;
-        }
     </style>
 
-    <script>
-        // function daysInMonth(month, year) {
-        //     let date = new Date(Date.UTC(year, month, 5))
-        //     let days = []
-        //     while (date.getUTCMonth() === month) {
-        //         days.push(new Date(date))
-        //         date.setUTCDate(date.getUTCDate() + 1)
-        //     }
-        //     return days
-        // }
-        // function daysInMonth() {
-        //     var dt = new Date();
-        //     var month = dt.getMonth();
-        //     var year = dt.getFullYear();
-        //     daysInMonth = new Date(year, month, 0).getDate();
-        //     return daysInMonth
-        // }
-        // function getDates() {
-        //     let date = new Date();
-        //     let firstDay = newDate(date.getFullYear)
-        //     for 
-        // } 
-
-        // ADJUST PARAMETERS OF DATE() IN TODAY1 AND TODAY2 EQUALLY TO TEST DIFFERENT DAYS
-        function getDates(daysBefore = 30, daysAfter = 30) {
-            const today1 = new Date()
-            // console.log("TODAY", today1)
-            const startDate = new Date(today1.setDate(today1.getDate() - daysBefore))
-            // console.log("TODAY", today1)
-            // console.log("STARTDATE", startDate)
-            const today2 = new Date()
-            const endDate = today2.setDate(today2.getDate() + daysAfter)
-            // console.log("ENDDATE", endDate)
-
-            const dates = []
-            let currentDate = startDate
-            // console.log("CURRENT DATE", currentDate)
-            const addDays = function (days) {
-                const date = new Date(this.valueOf())
-                date.setDate(date.getDate() + days)
-                return date
-            }
-            while (currentDate <= endDate) {
-                dates.push(currentDate)
-                currentDate = addDays.call(currentDate, 1)
-            }
-            return dates
+    <!-- <script>
+        const tab = document.querySelectorAll(".tab");
+        console.log(tab);
+        for (let i = 0; i < tab.length; i++) {
+            tab[i].style.color = "red";
         }
-
-        function convertWeekday(num) {
-            const weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
-            const day = weekday[num]
-            return day
-        }
-
-        function reverseWeekday(day) {
-            const weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
-            const num = weekday.indexOf(day)
-            return num
-        }
-
-        function formatDates(dates) {
-            const daysOfWeek = []
-            const daysOfMonth = []
-            for (let i = 0; i < dates.length; i++) {
-                d = dates[i].getDay()
-                daysOfWeek.push(convertWeekday(d))
-
-                daysOfMonth.push(dates[i].getDate())
-            }
-            console.log(daysOfWeek)
-            console.log(daysOfMonth)
-            const formattedDates = []
-            for (let i = 0; i < daysOfWeek.length; i++) {
-                formattedDates[i] = [daysOfWeek[i], daysOfMonth[i]]
-            }
-            return formattedDates
-        }
-
-        function isTodayWeek(date) {
-            const num = reverseWeekday(date)
-            const today = new Date()
-            // console.log('TODAY', today.getDay())
-            // console.log('DATE', date)
-            // console.log('NUM', num)
-            return num === today.getDay()
-        }
-
-        function isTodayMonth(date) {
-            const today = new Date()
-            return date === today.getDate()
-        }
-
-        function isToday(weekday, monthday) {
-            const todayWeek = isTodayWeek(weekday)
-            const todayMonth = isTodayMonth(monthday)
-            return todayWeek && todayMonth
-            // return 15 === i
-        }
-
-        function isAdjacentDay(monthday) {
-            today = new Date()
-            const yesterday = today.getDate() - 1
-            const tomorrow = today.getDate() + 1
-            const adjacentDay = monthday === yesterday || monthday === tomorrow
-            // const adjacentDayMonth = 
-            // return i === 14 || i === 16
-            return adjacentDay
-        }
-
-        function dayBlock(day) {
-            const currentDay = isToday(day[0], day[1]) ? " current-day" : ""
-            const adjacentDay = isAdjacentDay(day[1]) ? " adjacent-day" : ""
-            const dayOfWeek = day[0]
-            const dayOfMonth = day[1]
-            return `
-                <div class="day${currentDay}${adjacentDay}">
-                    <div class="day-of-week">
-                        <p>${dayOfWeek}</p>
-                    </div>
-                    <div class="day-of-month">
-                        <p>${dayOfMonth}</p>
-                    </div>
-                </div>
-            `
-        }
-
-        function dayRangeBlock() {
-            let dates = getDates()
-            console.log(dates)
-            dates = formatDates(dates)
-            console.log(dates)
-            // console.log(isTodayWeek("Wed"))
-            // console.log(isTodayMonth(26))
-            // console.log(isToday())
-            // console.log(isAdjacentDay(26))
-            let output = []
-            for (let i = 0; i < dates.length; i++) {
-                const day = dates[i]
-                output.push(dayBlock(day))
-            }
-            return output.join("")
-        }
-        
-        function day() {
-            return 'Hello World!'
-        }
-    </script>
+        // const tabSelect = document.addEventListener() {}
+    </script> -->
 
 </head>
 
@@ -291,123 +140,20 @@ route
     <div class="content div">
         <div class="outer-box div">
             <div class="inner-content div">
-                <div class="timeline">
-                    <script>
-                        // document.write(day())
-                        // const date = new Date(2013, 10, 22)
-                        // console.log(date)
-                        // const today = new Date()
-                        // console.log(today)
-                        // const result = today.setDate(today.getDate() - 15)
-                        // console.log(new Date(result))
-
-                        document.write(dayRangeBlock())
-
-                        // var someDate = new Date();
-                        // var numberOfDaysToAdd = 6;
-                        // var result = someDate.setDate(someDate.getDate() + 15);
-                        // console.log(new Date(result))
-                        // console.log(getDates(today.setDate(today.getDate() - 15), today.setDate(today.getDate() + 15)))
-                        // console.log(getDates(new Date(2022, 1, 15), new Date(2022, 1, 30)))
-                    </script>
-                    <!-- <div class="day">
-                        <div class="day-of-week">
-                            <p>Thu</p>
-                        </div>
-                        <div class="day-of-month">
-                            <p>14</p>
-                        </div>
+                <div class="tab-set">
+                    <div class="tab tab-details">
+                        Details
+                        <div class="tab-highlight"></div>
                     </div>
-                    <div class="day adjacent-day">
-                        <div class="day-of-week">
-                            Fri
-                        </div>
-                        <div class="day-of-month">
-                            15
-                        </div>
+                    <div class="tab tab-timeline">
+                        Timeline
+                        <div class="tab-highlight"></div>
                     </div>
-                    <div class="day current-day">
-                        <div class="day-of-week">
-                            Sat
-                        </div>
-                        <div class="day-of-month">
-                            16
-                        </div>
+                    <div class="tab tab-budget">
+                        Budget
+                        <div class="tab-highlight"></div>
                     </div>
-                    <div class="day adjacent-day">
-                        <div class="day-of-week">
-                            Sun
-                        </div>
-                        <div class="day-of-month">
-                            17
-                        </div>
-                    </div>
-                    <div class="day">
-                        <div class="day-of-week">
-                            Mon
-                        </div>
-                        <div class="day-of-month">
-                            18
-                        </div>
-                    </div>
-                    <div class="day">
-                        <div class="day-of-week">
-                            Tue
-                        </div>
-                        <div class="day-of-month">
-                            19
-                        </div>
-                    </div>
-                    <div class="day">
-                        <div class="day-of-week">
-                            <p>Thu</p>
-                        </div>
-                        <div class="day-of-month">
-                            <p>14</p>
-                        </div>
-                    </div>
-                    <div class="day">
-                        <div class="day-of-week">
-                            Fri
-                        </div>
-                        <div class="day-of-month">
-                            15
-                        </div>
-                    </div>
-                    <div class="day">
-                        <div class="day-of-week">
-                            Sat
-                        </div>
-                        <div class="day-of-month">
-                            16
-                        </div>
-                    </div>
-                    <div class="day">
-                        <div class="day-of-week">
-                            Sun
-                        </div>
-                        <div class="day-of-month">
-                            17
-                        </div>
-                    </div>
-                    <div class="day">
-                        <div class="day-of-week">
-                            Mon
-                        </div>
-                        <div class="day-of-month">
-                            18
-                        </div>
-                    </div>
-                    <div class="day">
-                        <div class="day-of-week">
-                            Tue
-                        </div>
-                        <div class="day-of-month">
-                            19
-                        </div>
-                    </div> -->
                 </div>
-                Kevin, please see comment on line 158 in temp.html!
             </div>
         </div>
     </div>
@@ -415,3 +161,27 @@ route
 </body>
 
 </html>
+
+<script>
+
+    const tabs = document.querySelectorAll(".tab")
+    function addEventListenerList(list, event, fn) {
+        for (i = 0; i < tabs.length; i++) {
+            tabs[i].addEventListener(event, fn)
+        }
+    }
+
+    const highlightTab = function() {
+        const tabHighlight = .querySelector(".tab-highlight")
+        tabHighlight.style.color = "red";
+    }
+
+    const hello = function () {
+        alert("Hello World!");
+    }
+
+    
+    console.log(tabs)
+    addEventListenerList(tabs, "click", highlightTab)
+
+</script>

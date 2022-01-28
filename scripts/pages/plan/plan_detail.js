@@ -11,18 +11,25 @@ function planDetailPage(selected = false) {
         //     icon("favorites") + "Favorites",
         //     icon("going","","going"),
         // ]) +
-        label("label-name",
-            "Plan Name:" +
-            input("input-name", "text", `value="Santa Barbara"`) +
-            div("help-text", `Name was generated automatically, but may be customized here.`)
-        ) +
-        label("label-when",
-            "When:" +
-            input("input-name", "date", `value="Santa Barbara"`)
-            + " - " +
-            input("input-name", "date", `value="Santa Barbara"`)
-        ) +
-        cardGroups(coplanners) + activityList(activityData),
+        dayRangeBlock() +
+            label(
+                "label-name",
+                "Plan Name:" +
+                    input("input-name", "text", `value="Santa Barbara"`) +
+                    div(
+                        "help-text",
+                        `Name was generated automatically, but may be customized here.`
+                    )
+            ) +
+            label(
+                "label-when",
+                "When:" +
+                    input("input-name", "date", `value="Santa Barbara"`) +
+                    " - " +
+                    input("input-name", "date", `value="Santa Barbara"`)
+            ) +
+            cardGroups(coplanners) +
+            activityList(activityData),
         "all",
         "dream"
     );
