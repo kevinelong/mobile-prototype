@@ -55,8 +55,6 @@ components card card_settle
 components card card_plan
 components card card_dream
 
-components card card_people
-
 components choice choice
 components dialog dialog
 components hash_tag hash_tag
@@ -104,14 +102,14 @@ route
             background-color: white;
             color: black;
             flex-direction: row;
-
+            overflow-x: scroll;
         }
 
         .tab-set div {
-
             width: 120px;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
             /* display: block; */
         }
 
@@ -119,9 +117,10 @@ route
             position: absolute;
             bottom: 0px;
             height: 2px;
-            background-color: black;
-            display: none;
+            background-color: black;    
         }
+
+        
 
     </style>
 
@@ -143,15 +142,31 @@ route
                 <div class="tab-set">
                     <div class="tab tab-details">
                         Details
-                        <div class="tab-highlight"></div>
+                        <div></div>
                     </div>
                     <div class="tab tab-timeline">
                         Timeline
-                        <div class="tab-highlight"></div>
+                        <div></div>
                     </div>
                     <div class="tab tab-budget">
                         Budget
-                        <div class="tab-highlight"></div>
+                        <div></div>
+                    </div>
+                    <div class="tab tab-foo">
+                        Foo
+                        <div></div>
+                    </div>
+                    <div class="tab tab-bar">
+                        Bar
+                        <div></div>
+                    </div>
+                    <div class="tab tab-hello">
+                        Hello
+                        <div></div>
+                    </div>
+                    <div class="tab tab-world">
+                        World
+                        <div></div>
                     </div>
                 </div>
             </div>
@@ -164,24 +179,41 @@ route
 
 <script>
 
-    const tabs = document.querySelectorAll(".tab")
-    function addEventListenerList(list, event, fn) {
-        for (i = 0; i < tabs.length; i++) {
-            tabs[i].addEventListener(event, fn)
-        }
-    }
+    // const tabs = document.querySelectorAll(".tab")
+    // function addEventListenerList(list, event, fn) {
+    //     for (i = 0; i < tabs.length; i++) {
+    //         tabs[i].addEventListener(event, fn)
+    //     }
+    // }
 
-    const highlightTab = function() {
-        const tabHighlight = .querySelector(".tab-highlight")
-        tabHighlight.style.color = "red";
-    }
+    // const highlightTab = function() {
+    //     const tabHighlight = tab.querySelector(".tab-highlight")
+    //     tabHighlight.style.color = "red";
+    // }
 
-    const hello = function () {
-        alert("Hello World!");
-    }
+    // const hello = function () {
+    //     alert("Hello World!");
+    // }
 
     
-    console.log(tabs)
-    addEventListenerList(tabs, "click", highlightTab)
+    // console.log(tabs)
+    // addEventListenerList(tabs, "click", highlightTab)
+
+    const tabSet = document.querySelector(".tab-set")
+    tabSet.addEventListener("click", changeColor, false)
+
+    function changeColor(e) {
+        // tabSet.style.backgroundColor = "#FFC926"
+        console.log(e.target)
+        const div = e.target.querySelector('div')
+        console.log(div)
+        const tabs = tabSet.querySelectorAll('.tab')
+        console.log(tabs)
+        for (let i = 0; i < tabs.length; i++) {
+            const divOff = tabs[i].querySelector('div')
+            divOff.removeAttribute("class", "tab-highlight")
+        }
+        div.setAttribute("class", "tab-highlight")   
+    }
 
 </script>
