@@ -9,7 +9,6 @@ function settleCard(
     where = "",
     actions = ["split", "settle"]
 ) {
-    // debugger;
     return card(
         "settle",
         div(

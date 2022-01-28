@@ -1,3 +1,7 @@
+function sendInvite() {
+    showSearch("Send Invitation");
+}
+
 function addContact() {
 
     showDialog(
@@ -182,6 +186,7 @@ TOAST_MESSAGES = {
     pin: "Added to Dream Board",
     plan: "Added to Plan",
     accept: "Accepted Invitation",
+    schedule: "Added to Plan",
     decline: "Declined Invitation",
     settle: "Payment Settled",
     "remind-all": "Reminders Sent",
@@ -217,6 +222,7 @@ ACTION_PAGES = {
     contact: addContact,
     new: addItem,
     search: addPerson,
+    invite: sendInvite,
     more: addPerson,
     hide: hideDialog,
     collapse: collapseCard,

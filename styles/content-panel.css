@@ -18,7 +18,7 @@
 .page .content-panel > .row{
     width: 100%;
     gap: 0;
-    padding: 4px;
+    padding: 0;
     align-content: space-evenly;
     alignment: center;
     /*flex-direction: ;*/
@@ -30,7 +30,7 @@
     color: black;
 }
 .content-panel .card-people{
-    margin-top: 9px;
+    margin-top: -6px;
     /*align-content: center;*/
     /*justify-content: center;*/
 }
@@ -108,5 +108,5 @@
 
 
 .content-panel .text {
-    font-size: 10px;
+    font-size: 8px;
 }

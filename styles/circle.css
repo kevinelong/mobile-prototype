@@ -2,8 +2,8 @@
 .circle {
     width: auto;
     height: auto;
-    min-width: 24px;
-    min-height: 24px;
+    /*min-width: 24px;*/
+    /*min-height: 24px;*/
     background: #ffffff22;
     border-radius: 15px;
     align-items: center;

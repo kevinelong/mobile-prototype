@@ -41,7 +41,10 @@
 
 .card-tags {
     display: block;
-    margin: 0.5rem 0;
+    margin: 0px 0;
+    white-space: nowrap;
+    overflow-y: hidden;
+    overflow-x: scroll;
 }
 
 .page.explore .card.collapsed .card-tags,
@@ -93,15 +96,13 @@
 
 .page.explore .card.explore .icon {
     position: static;
-    width: 12px;
-    height: 12px;
     margin: 0;
 }
 .card .titles .row .col{
     margin-left: 12px;
 }
 .page.explore .card.explore .card-title {
-    font-size: 15px
+    font-size: 13px
 }
 
 .page.explore .card.explore .row {
@@ -109,7 +110,7 @@
 }
 
 .page.explore .card.explore .content-panel .action-item {
-    padding: 1px;
+    padding: 0;
 }
 
 .page .card {
@@ -283,7 +284,7 @@
 .card.settle {
     background-color: #6633EE;
 }
-.card-list .row{
+.card-list .card-list .row{
     width: 100%;
 }
 .card-list .card {
@@ -296,7 +297,7 @@
 }
 
 .page.explore .action-item .text{
-    display: none;
+    /*display: none;*/
 }
 
 .page.explore .action-item:hover .text{

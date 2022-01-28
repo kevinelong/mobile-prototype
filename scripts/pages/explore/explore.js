@@ -7,7 +7,7 @@ const EXPLORE_DATA = [
         "This is an iconic photo opportunity",
         ["Landmark", "Recommended"],
         [{people: [peopleList[BF]], title: "Pinned By", groupName: "explorer", subtitle: ""}],
-        ["favorite", "share", "pin"],
+        ["invite", "schedule", "pin"],
         "1",
         true,
         "Recommended",
@@ -19,13 +19,24 @@ const EXPLORE_DATA = [
         "New Taste Match to Follow!",
         "Hanna Levin has rated over 20 places, including 2 you both love!",
         ["Influencer", "Recommended"],
-        [{
-            people: [peopleList[BF]],
-            title: "Followed By",
-            groupName: "Friend",
-            subtitle: "and 123 others!"
-        }],
-        ["favorite", "share", "follow"],
+        [
+            {
+                people: [peopleList[BF]],
+                title: "Recommended By",
+                groupName: "Friend"
+            },
+            {
+                people: [peopleList[JOE], peopleList[BF]],
+                title: "Recommended By",
+                groupName: "Expert"
+            },
+            {
+                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+                title: "Recommended By",
+                groupName: "Taste Match"
+            },
+        ],
+        ["invite", "schedule", "pin"],
         "2",
         true,
         "Recommended",
@@ -38,7 +49,7 @@ const EXPLORE_DATA = [
         "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
         ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
         group_of_one,
-        ["favorite", "share", "pin"],
+        ["invite", "schedule", "pin"],
         "2",
         true,
         "Recommended",
@@ -51,7 +62,7 @@ const EXPLORE_DATA = [
         "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
         ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
         group_of_two,
-        ["favorite", "share", "pin"],
+        ["invite", "schedule", "pin"],
         "2",
         true,
         "Recommended",

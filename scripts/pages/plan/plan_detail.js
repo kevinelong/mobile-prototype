@@ -11,7 +11,7 @@ function planDetailPage(selected = false) {
         //     icon("favorites") + "Favorites",
         //     icon("going","","going"),
         // ]) +
-        dayRangeBlock() +
+        // dayRangeBlock() +
             label(
                 "label-name",
                 "Plan Name:" +
