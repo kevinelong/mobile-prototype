@@ -72,16 +72,16 @@ background-color: #0002;
     display: none;
 }
 
-.page > label input[type=text] {
+input[type="text"].vita-search {
     margin: 0;
-    padding-left: 30px;
     background-image: url(../images/icons/icon-search-black.svg);
     background-repeat: no-repeat;
-    background-position: left;
-    background-position-x: 6px;
-    border-radius: 30px;
     width: 98%;
-    border: 1px solid #0006
+    border-radius: 2em;
+    padding: 1em 1em 1em 3em;
+    border: none;
+    box-shadow: 1px 1px 2px 0 #0008;
+    background-position: 1em 1em;
 }
 
 .page > .content-panel > .label {

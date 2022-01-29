@@ -12,6 +12,7 @@ input[type=text] {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    gap: 3px;
 }
 
 .row {
@@ -19,6 +20,7 @@ input[type=text] {
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
+    gap: 6px;
 }
 
 .row > * {
@@ -35,8 +37,25 @@ input[type=text] {
     margin-right: 0;
 }
 
-.card-title .action-item{
+.row > .action-item,
+.row .col:last-of-type {
+    /*width: 100%;*/
+}
+
+.card-title .action-item {
     padding: 0;
+}
+
+.col,
+.row {
+    width: 100%;
+}
+
+.card-people .row{
+    width: auto;
+}
+.row > .action-item{
+    justify-content: right;
 }
 .hidden {
     height: 0;

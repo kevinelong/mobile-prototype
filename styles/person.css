@@ -8,7 +8,8 @@
 }
 
 .person-icon .icon {
-    height: 24px;
+    height: 18px;
+    width: 18px;
 }
 
 .person-icon .circle {
@@ -29,27 +30,25 @@
     align-items: center;
     justify-content: center;
     font-size: 11px;
-    margin-right: -7px;
+    margin-right: -16px;
 }
 .title .person-icon{
     margin-right: 7px;
 }
-.title .person-icon:hover .text,
-.title .circle:hover .text,
-.title .icon-frame:hover .text,
-.title .action-item:hover .text{
-    display:none;
-}
+
 .title .person-icon{
     border: 1px solid black;
 }
-.row > .circle{
+
+.card-people .circle{
     background: #000000ee;
     border: 1px solid #ffffffee;
     border-radius: 15px;
 }
-.row > .circle .text{
+
+.card-people .circle .text{
     margin: 0 0 0 1px;
-    padding-top: 3px;
-    font-size: 11px;
+    padding-top: 2px;
+    font-size: 9px;
+    white-space: nowrap;
 }

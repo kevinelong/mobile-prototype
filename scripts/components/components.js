@@ -96,21 +96,22 @@ three_people = peopleList.filter((p, i) => i < 3);
 
 group_of_one = [{
     people: one_person,
-    title: one_person.map(p => p.name).join(", "),
+    title: "Recommended By",
+    // title: one_person.map(p => p.name).join(", "),
     groupName: "Friend",
     subtitle: ""
 }];
 
 group_of_two = [{
     people: two_people,
-    title: two_people.map(p => p.name).join(", "),
+    title: "Recommended By",
     groupName: "Friend",
     subtitle: ""
 }];
 
 group_of_three = [{
     people: three_people,
-    title: three_people.map(p => p.name).join(", "),
+    title: "Recommended By",
     groupName: "Friend",
     subtitle: ""
 }];

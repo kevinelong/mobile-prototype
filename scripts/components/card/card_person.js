@@ -1,4 +1,4 @@
-function cardPerson(person, index = 0, limit = 3, which= -1) {
+function cardPerson(person, index = 0, limit = 3, which = -1) {
     // if (index >= limit) {
     //     return "";
     // }
@@ -8,29 +8,39 @@ function cardPerson(person, index = 0, limit = 3, which= -1) {
     );
 }
 
-function cardPeople(group, limit=-1){
-    // if(limit===0){
-    //     return "";
-    // }
-    //        [{ people:peopleList, title: "Linked With", groupName: "Dreamer", subtitle: "23 shared cards"}]
+const PLURALS = {
+    "taste match": "Taste Matches",
+    "match": "matches"
+}
+
+function pluralSuffix(word) {
+    const wordLower = word.toLowerCase();
+    if (PLURALS.hasOwnProperty(wordLower)) {
+        return PLURALS[wordLower];
+    }
+    return `${word}s`;
+}
+
+function cardPeople(group, limit = -1, index, all) {
     const titleText = group.title ? group.title.toUpperCase() : "";
     const length = group.people.length;
-    const plural =( (length !== 1) && (titleText.length > 0)) ? "s" : "";
-    const textGroup = group.groupName === "" ? `${length}` : `&nbsp;${length} ${group.groupName + plural}&nbsp;&nbsp;`;
-
+    const isPlural = ((length !== 1) && (titleText.length > 0)) ? titleText : "";
+    const textGroup = group.groupName === "" ? `${length}` : `&nbsp;${length} ${isPlural ? pluralSuffix(group.groupName) : group.groupName}&nbsp;&nbsp;`;
+    const isSameKind = index > 0 && group.title === all[index - 1].title;
+    const isLast = index === all.length - 1;
     return div(
         "card-people",
         col(
-            text(titleText) +
+            (isSameKind ? "" : text(titleText)) +
             row(
                 [...group.people].map(p => cardPerson(p, p.id - 1, limit, p.id - 1)).join("") +
                 circle(text(textGroup))
-            ) +
-            text(group.subtitle)
+            )
+            // + (!isSameKind || isLast ? text(group.subtitle) : "")
         )
     );
 }
 
-function cardGroups(groups, limit=0) {
-    return groups.map(g=>cardPeople(g,limit)).join("");
+function cardGroups(groups, limit = 0) {
+    return groups.map((g, i, all) => cardPeople(g, limit, i, all)).join("");
 }

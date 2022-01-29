@@ -34,22 +34,25 @@ function exploreCardContent(
     tags = []) {
 
     let qty = 0;
-    if (groups && groups[0] && groups[0].people){
+    if (groups && groups[0] && groups[0].people) {
         qty = groups[0].people.length;
     }
     return div(
         `card ${kind}`,
         img("background top", "images/backgrounds/top-gradient-black.svg") +
         cardSection(
-            contentPanel(body)
+            contentPanel(body) +
+            cardTags(tags)
         ) +
         (tags || groups || actions
-            ? cardSection(
-                cardTags(tags) +
+            ? row(
                 (groups || actions
-                    ? cardQuadrant(
-                        cardGroups(groups) +
-                        actionList(`card-actions`, actions,false, qty)
+                    ? col(
+                        row(
+                            col(cardGroups(groups)) +
+                            (actionItem("book", "book", -1, "Book Now!"))
+                        ) +
+                        actionList(`card-actions`, actions, false, qty)
                     )
                     : "")
             )
@@ -61,7 +64,7 @@ function exploreCardContent(
         )
         ,
         image ? `style="background-image: url('${image}');"` : ""
-    ) + cardTitle(title);
+    ) //+ cardTitle(title);
 }
 
 function exploreCard(
@@ -72,21 +75,21 @@ function exploreCard(
     tags = [],
     groups = [],
     actions = [],
-    id = 0
+    id = 0,
+    kind = "explore"
 ) {
     return exploreCardContent(
-        "explore collapsed",
+        "explore",
         div(
             "titles explore",
-            row(col(cardTitle(title) + cardSubtitle(subtitle)))
+            cardTitle(title) + cardSubtitle(subtitle)
         ),
         row(
-            icon("explore") +
-                cardTitle(title) +
-                actionItem("open", "explore_detail", id, "")
+            icon(kind) +
+            cardTitle(title) +
+            actionItem("open", "explore_detail", id, "")
         ) +
-        cardSubtitle(subtitle) +
-        text(content),
+        cardSubtitle(subtitle),
         groups,
         actions,
         imagePath,
@@ -94,6 +97,7 @@ function exploreCard(
         id
     );
 }
+
 function exploreDetail(
     imagePath = "images/photos/cannon-beach.jpg",
     title = "",
@@ -121,25 +125,25 @@ function exploreDetail(
     );
 }
 
-function exploreCardNotification(quantity, groups=[]) {
+function exploreCardNotification(quantity, groups = []) {
     return card(
         "explore",
         div(
             "titles explore",
             row(
                 icon("explore") +
-                    col(
-                        cardTitle("Explore") +
-                            cardSubtitle(`Santa Barbara, +12 more`)
-                    )
+                col(
+                    cardTitle("Explore") +
+                    cardSubtitle(`Santa Barbara, +12 more`)
+                )
             )
         ) +
-            actionItem(
-                "open",
-                "explore",
-                "",
-                ""
-            ),
+        actionItem(
+            "open",
+            "explore",
+            "",
+            ""
+        ),
         text(`${quantity} new cards from people you love!`),
         groups,
         ["explore"],

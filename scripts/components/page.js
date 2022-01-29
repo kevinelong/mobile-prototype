@@ -7,7 +7,8 @@ function page(
     content = "",
     selectedCard = "",
     parent = "",
-    actionContent = ""
+    actionContent = "",
+    searchMessage = "Where to?"
 ) {
     return div(
         `${name} page ${selected ? "" : "hidden"}`,
@@ -20,7 +21,7 @@ function page(
             contentPanel(
                 choiceSet(`${name}-filters`, choiceList, selectedChoice) +
                     actionContent +
-                    search([]) +
+                    (searchMessage ? search([]) : "") +
                     content
             ),
         `id='page-${name}'`

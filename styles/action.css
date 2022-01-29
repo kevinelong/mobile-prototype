@@ -31,19 +31,18 @@
 
 .action-item {
     margin: 0;
-    white-space: nowrap;
+    /*white-space: nowrap;*/
     font-size: 10px;
     user-select: none;
     cursor: pointer;
     display: inline-flex;
     justify-content: center; /* align horizontal */
     align-items: center; /* align vertical */
-    background: #F9A831;
+    /*background: #F9A831;*/
     color: white;
     border-radius: 30px;
-    background: none;
     flex-direction: row;
-    gap: 4px;
+    gap: 1px;
     padding: 6px;
     /*padding: 0;*/
     transform: rotate(0deg);
@@ -51,7 +50,38 @@
                 color 300ms ease-in-out,
                 transform 300ms ease-in-out;
 }
-
+.action-item.book{
+    background: #F9A831cc;
+}
+.action-item.book:hover{
+    background: #F9A831FF;
+}
+.card-title .action-item{
+    background: none;
+}
+.page.explore .col:last-child{
+    align-self: self-end;
+    flex-direction: column;
+    align-content: center;
+    /*align-self: center;*/
+    justify-content: center;
+    justify-self: center;
+    justify-items: center;
+    width: 100%;
+}
+.page.explore .col:last-child .action-item.book {
+    align-self: self-end;
+    /*flex-direction: column;*/
+    align-content: center;
+    /*align-self: center;*/
+    justify-content: center;
+    justify-self: center;
+    justify-items: center;
+    height: max-content;
+    text-align: center;
+    /*border-radius: 6px;*/
+    text-shadow: none;
+}
 .collapsed .action-item.collapse{
     transform: rotate(180deg);
     transition: transform 300ms ease-in-out;
@@ -103,6 +133,11 @@
     background: white;
 }
 .action-list .action-item {
-    background: #00000066;
+    background: #00000033;
+    border: none;
+    text-shadow: none;
+}
+.action-list .action-item:hover {
+    background: #00000099;
     border: none;
 }

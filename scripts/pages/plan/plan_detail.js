@@ -11,7 +11,7 @@ function planDetailPage(selected = false) {
         //     icon("favorites") + "Favorites",
         //     icon("going","","going"),
         // ]) +
-        dayRangeBlock() +
+        // dayRangeBlock() +
             label(
                 "label-name",
                 "Plan Name:" +
@@ -23,9 +23,9 @@ function planDetailPage(selected = false) {
             ) +
             label(
                 "label-when",
-                "When:" +
+                "When:<br>" +
                     input("input-name", "date", `value="Santa Barbara"`) +
-                    " - " +
+                    "-" +
                     input("input-name", "date", `value="Santa Barbara"`)
             ) +
             cardGroups(coplanners) +
