@@ -69,8 +69,8 @@ function formatDates(dates) {
 
         daysOfMonth.push(dates[i].getDate());
     }
-    console.log(daysOfWeek);
-    console.log(daysOfMonth);
+    // console.log(daysOfWeek);
+    // console.log(daysOfMonth);
     const formattedDates = [];
     for (let i = 0; i < daysOfWeek.length; i++) {
         formattedDates[i] = [daysOfWeek[i], daysOfMonth[i]];
@@ -104,8 +104,8 @@ function isToday(dayRaw) {
     let today = new Date()
     today = today.getTime()
     dayRaw = dayRaw.getTime()
-    console.log(dayRaw)
-    console.log(today)
+    // console.log(dayRaw)
+    // console.log(today)
 
     return dayRaw === today
 }
@@ -126,7 +126,7 @@ function dayBlock(day, dayRaw) {
     
     // const currentDay = isToday(day[0], day[1]) ? " current-day" : "";
     const currentDay = isToday(dayRaw) ? " current-day" : "";
-    console.log(currentDay)
+    // console.log(currentDay)
     const adjacentDay = isAdjacentDay(day[1]) ? " adjacent-day" : "";
     const dayOfWeek = day[0];
     const dayOfMonth = day[1];
@@ -153,7 +153,7 @@ function dayRangeBlock() {
     // console.log(isAdjacentDay(26))
     let output = [];
     for (let i = 0; i < formattedDates.length && dates.length; i++) {
-        console.log(formattedDates[i], dates[i])
+        // console.log(formattedDates[i], dates[i])
         const day = formattedDates[i];
         const dayRaw = dates[i]
         output.push(dayBlock(day, dayRaw));
