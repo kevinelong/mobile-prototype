@@ -2,19 +2,14 @@ function exploreDetailPage(selected = false) {
     return page(
         selected,
         "explore_detail",
-        "Explore Details",
+        "Explore Detail",
         [],
+        "All",
+        row(cardList([EXPLORE_CARDS[1]])),
+        "ALL",
+        "explore",
         "",
-        exploreDetail(
-            "images/photos/cannon-beach.jpg",
-            "Haystack Rock",
-            "Cannon Beach, Oregon",
-            "This is an iconic photo opportunity",
-            ["Landmark", "Recommended"],
-            [{ people:peopleList, title: "Liked By", groupName: "Friend", subtitle: "including 2 taste matches!"}],
-            ["share", "heart", "pin"]
-        ),
-        "",
-        "explore"
+        ""
+
     );
 }

@@ -119,6 +119,9 @@
     box-shadow: 2px 2px 4px 1px #00000088;
 }
 
+.page.explore_detail .card{
+    min-height: 466px;
+}
 .page.dream .card {
     background-blend-mode: darken;
     /*filter: brightness(50%);*/
@@ -132,7 +135,8 @@
     min-height: 293px;
     transition: opacity 300ms ease-in-out,
     min-height 300ms ease-in-out;
-    padding: 8px;
+    padding: 6px;
+    width: 100%;
 }
 
 .page.dream .card {
@@ -211,6 +215,7 @@
     display: flex;
     align-content: space-around;
     justify-content: space-between;
+    width: 100%;
 }
 
 .card-title-text {
@@ -239,8 +244,8 @@
 
 .page.explore > .content-panel > .row {
     width: 100%;
-    gap: 8px;
-    padding: 8px;
+    gap: 3px;
+    padding: 5px;
 }
 
 .page.explore .card-list {
@@ -258,6 +263,7 @@
     box-shadow: 2px 2px 4px 1px #00000088;
     width: 100%;
     margin: 0 4px 4px 0;
+    background-size: auto;
 }
 
 /*.page.explore .card.explore:nth-child(odd) {*/
@@ -267,9 +273,20 @@
 /*    align-self: flex-end;*/
 /*}*/
 
+.page.explore .card > .row,
+.page.explore .card > .row .col .row,
+.page.explore .card > .row .col .row .col
+{
+    /*width: 100%;*/
+    /*margin: 0 auto;*/
+}
+.page.explore .row .icon-frame{
+    align-self: center;
+}
 .card {
     /* prevents the exported black frames from figma from showing. */
     background-size: 103%;
+    gap: 1rem;
 }
 
 .card.dream,
@@ -299,51 +316,94 @@
 .page.explore .action-item .text{
     /*display: none;*/
 }
-
-.page.explore .action-item:hover .text{
-    display: flex;
+.action-item.person .text,
+.message-item .text,
+.person-icon .text {
+    display: none;
+    /*width:0;*/
+    /*margin:0;*/
+    /*padding:0;*/
+    max-height: 0;
+    max-width: 0;
+    opacity: 0;
+    visibility: collapse;
+    transition: opacity 300ms ease-in-out,
+    height 300ms ease-in-out,
+    width 300ms ease-in-out;
 }
 
+.page.explore .action-item:hover .text{
+    /*display: flex;*/
+    /*position: absolute;*/
+    /*background-color: black;*/
+    /*z-index: 999;*/
+    /*margin-right:2em;*/
+    /*bottom:0;*/
+}
+.person-icon:hover text{
+    display: flex;
+    position: absolute;
+    background-color: black;
+    z-index: 99999;
+    margin-right:2em;
+    bottom:0;
+}
 .page.explore .action-item.collapse:hover .text {
     display: none;
 }
 
+.person-icon:hover .text {
+    display: block;
+    background: #0008;
+    position: absolute;
+    width: auto;
+    height: auto;
+    max-width: none;
+    max-height: none;
+    border-radius: 12px;
+    z-index: 99999;
+    top: -66%;
+    opacity: 1;
+    visibility: visible;
+    transition: all 1300ms ease-in-out;
+}
+
 .card-list.collapse .card {
-    opacity: 0;
-    min-height: 0;
-    max-height: 0;
-    margin: 0;
-    padding: 0;
-    transition: opacity 300ms ease-in-out,
-    padding 300ms ease-in-out,
-    max-height 300ms ease-in-out,
-    max-height 300ms ease-in-out,
-    min-height 300ms ease-in-out,
-    minwidth 300ms ease-in-out;
+opacity: 0;
+min-height: 0;
+max-height: 0;
+margin: 0;
+padding: 0;
+transition: opacity 300ms ease-in-out,
+padding 300ms ease-in-out,
+max-height 300ms ease-in-out,
+max-height 300ms ease-in-out,
+min-height 300ms ease-in-out,
+minwidth 300ms ease-in-out;
 }
 
 .card-list.collapse .card > * {
-    display: none;
+display: none;
 }
 .card-list > .row{
-    border-top: 1px solid #bbb;
+border-top: 1px solid #bbb;
 }
 .card-list .row > .title{
-    background: none;
+background: none;
 }
 .card-list > .row > .action-item .icon {
-    transform: rotate(90deg);
-    transition: transform 300ms ease-in-out;
+transform: rotate(90deg);
+transition: transform 300ms ease-in-out;
 }
 
 .card-list.collapse > .row > .action-item .icon {
-    transform: rotate(0deg);
-    transition: transform 300ms ease-in-out;
+transform: rotate(0deg);
+transition: transform 300ms ease-in-out;
 }
 
 .page.explore .card.explore .content-panel .action-item.favorite .text {
-    display: block;
+display: block;
 }
 .page.explore .action-item.favorite .text{
-    display: block;
+display: block;
 }

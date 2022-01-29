@@ -181,6 +181,7 @@ TOAST_MESSAGES = {
     follow: "Followed!",
     friend: "Friend Added",
     block: "Blocked",
+    book: "Finding the best rate...",
     heart: "Added to your Favorites",
     share: "Shared to your Connections",
     pin: "Added to Dream Board",

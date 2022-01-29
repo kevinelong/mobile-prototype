@@ -9,7 +9,7 @@ function cardPerson(person, index = 0, limit = 3, which = -1) {
 }
 
 const PLURALS = {
-    "taste match": "matches",
+    "taste match": "Taste Matches",
     "match": "matches"
 }
 

@@ -9,9 +9,7 @@ const EXPLORE_DATA = [
         [{people: [peopleList[BF]], title: "Pinned By", groupName: "explorer", subtitle: ""}],
         ["invite", "schedule", "pin"],
         "1",
-        true,
-        "Recommended",
-        "Local Expert",
+        "place"
     ],
     [
         "images/photos/hanna-levin.png",
@@ -38,9 +36,7 @@ const EXPLORE_DATA = [
         ],
         ["invite", "schedule", "pin"],
         "2",
-        true,
-        "Recommended",
-        "Local Expert",
+        "connect"
     ],
     [
         "images/explore_bg.png",
@@ -51,9 +47,7 @@ const EXPLORE_DATA = [
         group_of_one,
         ["invite", "schedule", "pin"],
         "2",
-        true,
-        "Recommended",
-        "Local Expert",
+        "dining"
     ],
     [
         "images/explore_bg.png",

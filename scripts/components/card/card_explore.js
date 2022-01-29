@@ -45,10 +45,13 @@ function exploreCardContent(
             cardTags(tags)
         ) +
         (tags || groups || actions
-            ? cardSection(
+            ? row(
                 (groups || actions
-                    ? cardQuadrant(
-                        cardGroups(groups) +
+                    ? col(
+                        row(
+                            col(cardGroups(groups)) +
+                            (actionItem("book", "book", -1, "Book Now!"))
+                        ) +
                         actionList(`card-actions`, actions, false, qty)
                     )
                     : "")
@@ -72,16 +75,17 @@ function exploreCard(
     tags = [],
     groups = [],
     actions = [],
-    id = 0
+    id = 0,
+    kind = "explore"
 ) {
     return exploreCardContent(
         "explore",
         div(
             "titles explore",
-            row(col(cardTitle(title) + cardSubtitle(subtitle)))
+            cardTitle(title) + cardSubtitle(subtitle)
         ),
         row(
-            icon("explore") +
+            icon(kind) +
             cardTitle(title) +
             actionItem("open", "explore_detail", id, "")
         ) +

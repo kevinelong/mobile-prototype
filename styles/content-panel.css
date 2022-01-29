@@ -17,7 +17,7 @@
 }
 .page .content-panel > .row{
     width: 100%;
-    gap: 0;
+    gap: 0.5em;
     padding: 0;
     align-content: space-evenly;
     alignment: center;
