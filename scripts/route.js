@@ -239,7 +239,7 @@ function toggleCollapse(target) {
         //   console.log("toggleCollapse(...)", "required target is not defined.");
         return false;
     }
-    const card_list = target.closest(".card-list");
+    const card_list = target.closest(".activity-list");
     if (!card_list) {
         //   console.log("", "No ancestor .card-list");
         return false;

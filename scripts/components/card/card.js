@@ -36,7 +36,7 @@ function cardPhoto(c) {
 }
 
 function cardTags(tags) {
-    if(!tags || tags.length===0){
+    if (!tags || tags.length === 0) {
         return "";
     }
     return div("card-tags", [...tags].map(hashTagGold).join(""));
@@ -139,22 +139,27 @@ function activityCard(item = {}, index = -1) {
     );
 }
 
+function titleRow(name, icon){
+    return row(
+        row(
+            actionItem(icon) +
+            title(name)
+        ) +
+        actionItem("show")
+    )
+}
+
 function activityListItems(list) {
     if (!list) {
         return "";
     }
-    return cardList(row(
-        row(
-            actionItem(list.icon) +
-            title(list.name)
-        ) + actionItem("show") )+
-        list.items.map(activityCard).join("")
-    );
+    return titleRow(list.name, list.icon) +
+        cardList(list.items.map(activityCard).join(""));
 }
 
 function activityList(list) {
     if (!list) {
         return "";
     }
-    return cardList(list.map(activityListItems).join(""));
+    return div("activity-list", list.map(activityListItems).join(""));
 }
