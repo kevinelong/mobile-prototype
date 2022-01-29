@@ -105,6 +105,7 @@ function explorePage(selected = false) {
         "Explore",
         [
             "All",
+            "People" + icon("person"),
             "Things to Do" + icon("chevron_down"),
             "Restaurants" + icon("chevron_down"),
             "Lodging" + icon("chevron_down")
@@ -114,4 +115,5 @@ function explorePage(selected = false) {
         "ALL"
     );
 }
+
 // &#124;

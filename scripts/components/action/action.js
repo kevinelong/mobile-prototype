@@ -1,5 +1,5 @@
-function action(name, which = "", id = -1, object={}) {
-    return `onclick="actionClick(this, '${name}','${which}',${id})" data-object="${JSON.stringify(object).replace(/"/g,"'")}"`;
+function action(name, which = "", id = -1, object = {}) {
+    return `onclick="actionClick(this, '${name}','${which}','${id}')" data-object="${JSON.stringify(object).replace(/"/g, "'")}"`;
 }
 
 function actionPanel(content) {
@@ -7,14 +7,17 @@ function actionPanel(content) {
 }
 
 const ACTION_COMPONENT_MAP = {
-    "rate" : ratingAction,
+    "rate": ratingAction,
 }
-function actionItem(name, which = "", index = -1, textValue = "", iconColor = "", hideText=false, qty= 0) {
-    if (ACTION_COMPONENT_MAP.hasOwnProperty(name) ) {
+
+function actionItem(name, which = "", index = -1, textValue = "", iconColor = "", hideText = false, qty = 0) {
+    console.log("actionItem", name, which, index);
+
+    if (ACTION_COMPONENT_MAP.hasOwnProperty(name)) {
         return ACTION_COMPONENT_MAP[name]();
     }
 
-    if("favorite"===name){
+    if ("favorite" === name) {
         textValue = qty ? qty : textValue;
     }
 

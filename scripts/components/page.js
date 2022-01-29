@@ -12,18 +12,20 @@ function page(
 ) {
     return div(
         `${name} page ${selected ? "" : "hidden"}`,
-        title(
-            actionItem(parent ? "back" : "menu") +
+        div("header",
+            title(
+                actionItem(parent ? "back" : "menu") +
                 div("title-middle", icon(name + "-black", "", caption)) +
                 cardPerson(peopleList[RUBY])
                 // actionItem("person", "me", 0, "", "black")
+            ) +
+            choiceSet(`${name}-filters`, choiceList, selectedChoice) +
+            actionContent +
+            (searchMessage ? search([], -1, searchMessage) : "")
         ) +
-            contentPanel(
-                choiceSet(`${name}-filters`, choiceList, selectedChoice) +
-                    actionContent +
-                    (searchMessage ? search([], -1, searchMessage) : "") +
-                    content
-            ),
+        contentPanel(
+            content
+        ),
         `id='page-${name}'`
     );
 }

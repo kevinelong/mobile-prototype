@@ -13,7 +13,7 @@
     background: none;
 }
 
-.activity-list.collapse .card-list{
+.activity-list .collapse .card-list{
     gap: 0;
 }
 
@@ -388,7 +388,7 @@
     transition: all 1300ms ease-in-out;
 }
 
-.activity-list.collapse .card {
+.activity-list .collapse .card {
     opacity: 0;
     min-height: 0;
     max-height: 0;
@@ -402,7 +402,7 @@
     minwidth 300ms ease-in-out;
 }
 
-.activity-list.collapse .card > * {
+.activity-list .collapse .card > * {
     display: none;
 }
 
@@ -411,6 +411,7 @@
 }
 
 .activity-list .row > .title {
+    font-size: 16px;
     background: none;
 }
 
@@ -419,10 +420,18 @@
     transition: transform 300ms ease-in-out;
 }
 
-.activity-list.collapse > .row > .action-item .icon {
+.activity-list > .row.collapse > .action-item .icon {
     transform: rotate(0deg);
     transition: transform 300ms ease-in-out;
 }
+.activity-list > .card-list  {
+    padding-bottom: 1em;
+}
+.activity-list > .card-list.collapse  {
+    gap:0;
+    padding-bottom: 0;
+}
+
 
 .page.explore .card.explore .content-panel .action-item.favorite .text {
     display: block;

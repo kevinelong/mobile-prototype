@@ -236,12 +236,16 @@ ACTION_PAGES = {
 
 function toggleCollapse(target) {
     if (!target) {
-        //   console.log("toggleCollapse(...)", "required target is not defined.");
         return false;
     }
-    const card_list = target.closest(".activity-list");
+    const row = target.closest(".row");
+    if(!row){
+        return false;
+    }
+    row.classList.toggle("collapse");
+
+    const card_list = row.nextElementSibling;
     if (!card_list) {
-        //   console.log("", "No ancestor .card-list");
         return false;
     }
     card_list.classList.toggle("collapse");

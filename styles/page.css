@@ -6,15 +6,24 @@
     opacity: 1;
     visibility: visible;
     transition: opacity 90ms ease-in-out;
+    gap: 3px;
+    background-color: #fffe;
 }
 
-.page > label .icon-frame,
-.page > label .icon {
+.header {
+    gap: 3px;
+    background-color: #fffe;
+    position: relative;
+    padding: 0.125em 0.125em;
+}
+
+.page .header > label .icon-frame,
+.page .header > label .icon {
     height: 16px;
     width: 16px;
 }
 
-.page > label {
+.page .header > label {
     background-color: #fffb;
     flex-direction: row;
     justify-items: center;
@@ -31,11 +40,12 @@
     top: 2px;
     z-index: 200;
 }
+
 .page.connect .add.message.action-item:hover {
-background-color: #0002;
+    background-color: #0002;
 }
 
-.page.connect .add.message.action-item .icon{
+.page.connect .add.message.action-item .icon {
     /*box-shadow: 0 0 1px black;*/
 }
 
@@ -54,7 +64,7 @@ background-color: #0002;
 /*    background-color: #0008;*/
 /*}*/
 
-.page > .action-item .icon {
+.page .header > .action-item .icon {
     max-width: 24px;
     max-height: 24px;
     width: 24px;
@@ -68,7 +78,7 @@ background-color: #0002;
 /*    height: 48px;*/
 /*}*/
 
-.page > .action-item .text {
+.page .header .action-item .text {
     display: none;
 }
 

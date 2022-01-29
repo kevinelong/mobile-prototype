@@ -139,21 +139,23 @@ function activityCard(item = {}, index = -1) {
     );
 }
 
-function titleRow(name, icon){
+function titleRow(name, icon, index) {
+    console.log("titleRow", name, icon, index);
     return row(
         row(
-            actionItem(icon) +
+            actionItem(icon, index, index) +
             title(name)
         ) +
         actionItem("show")
     )
 }
 
-function activityListItems(list) {
+function activityListItems(list, index) {
+    console.log("activityListItems", list, index);
     if (!list) {
         return "";
     }
-    return titleRow(list.name, list.icon) +
+    return titleRow(list.name, list.icon, index) +
         cardList(list.items.map(activityCard).join(""));
 }
 
