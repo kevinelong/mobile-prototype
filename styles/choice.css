@@ -32,6 +32,17 @@
     display: flex;
     flex-direction: row;
     gap: 0.5rem;
-    padding: 0.25rem 0.5rem;
-    background: #dddddd;
+    padding: 0;
+    /*background: #dddddd;*/
+}
+
+.explore.page .choice{
+    background: black;
+    flex-direction: row;
+}
+
+.explore.page .choice.selected {
+    background: #F9A831;
+    color: white;
+    transition: background 300ms, color 300ms;
 }

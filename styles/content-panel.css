@@ -2,7 +2,8 @@
 .page > .content-panel {
     height: 555px;
     background-color: #fffffff0;
-    gap:6px;
+    gap: 0.25em;
+    padding: 0.25em;
 }
 .content-panel {
     width: 100%;
@@ -38,10 +39,6 @@
 .page > .content-panel > .card-people{
     align-content: center;
     justify-content: center;
-}
-
-.page > .content-panel{
-    /*align-items: center;*/
 }
 
 .page.plan_detail > .content-panel{

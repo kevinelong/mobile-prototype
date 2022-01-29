@@ -24,7 +24,7 @@ function select(e, id) {
         s.classList.remove("selected")
     );
     e.classList.add("selected");
-    applyConnectPageFilter(e, id);
+    applyFilter(e, id);
 }
 
 function showElement(e) {
@@ -76,10 +76,6 @@ function hide(selector) {
     e.classList.add("hidden");
 }
 
-function applyFilter() {
-
-}
-
 function selectPage(e) {
     select(e);
     const name = toName(e.id);
@@ -113,10 +109,7 @@ function cleanName(n) {
     return n.trim().toUpperCase().replace(/\s/g, "-");
 }
 
-function applyConnectPageFilter(e) {
-    if (!e) {
-        return;
-    }
+function applyConnectFilter(e) {
 
     const cp = e.closest(".page");
     if (!cp) {
@@ -151,6 +144,24 @@ function applyConnectPageFilter(e) {
         hideElement(c);
     });
 }
+
+function applyFilter(e) {
+
+    if (!e || !e.closest) {
+        return;
+    }
+
+    const page = e.closest(".page");
+
+    if(!page){
+        return;
+    }
+
+    if (page.classList.contains("connect")) {
+        applyConnectFilter(e);
+    }
+}
+
 
 function applyFilterText(parentElement, childClass, searchText) {
     if (!parentElement) {

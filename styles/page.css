@@ -76,15 +76,16 @@ input[type="text"].vita-search {
     margin: 0;
     background-image: url(../images/icons/icon-search-black.svg);
     background-repeat: no-repeat;
-    width: 98%;
+    /*width: 98%;*/
     border-radius: 2em;
-    padding: 1em 1em 1em 3em;
+    padding: 0.75em 0.75em 0.75em 2.75em;
     border: none;
     box-shadow: 1px 1px 2px 0 #0008;
-    background-position: 1em 1em;
+    background-position: 0.75em 0.75em;
+
 }
 
 .page > .content-panel > .label {
-    padding: 6px 12px;
+    padding: 0;
     font-size: 14px;
 }

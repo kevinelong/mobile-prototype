@@ -24,8 +24,9 @@
     z-index: 300;
 }
 .page > .content-panel > .choice-set{
-    box-shadow: 1px 1px 3px #000000CC;
+    /*box-shadow: 1px 1px 3px #000000CC;*/
     z-index: 200;
+    padding: 0;
 }
 .title-middle {
     flex: 2 2;

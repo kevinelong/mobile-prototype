@@ -103,9 +103,15 @@ function explorePage(selected = false) {
         selected,
         "explore",
         "Explore",
-        ["All", "Personal", "Matches", "Deals"],
+        [
+            "All",
+            "Things to Do" + icon("chevron_down"),
+            "Restaurants" + icon("chevron_down"),
+            "Lodging" + icon("chevron_down")
+        ],
         "All",
         row(lists.join("")),
         "ALL"
     );
 }
+// &#124;
