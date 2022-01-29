@@ -21,7 +21,7 @@ function page(
             contentPanel(
                 choiceSet(`${name}-filters`, choiceList, selectedChoice) +
                     actionContent +
-                    (searchMessage ? search([]) : "") +
+                    (searchMessage ? search([], -1, searchMessage) : "") +
                     content
             ),
         `id='page-${name}'`
