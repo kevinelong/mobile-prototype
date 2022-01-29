@@ -23,9 +23,9 @@ function planDetailPage(selected = false) {
             ) +
             label(
                 "label-when",
-                "When:" +
+                "When:<br>" +
                     input("input-name", "date", `value="Santa Barbara"`) +
-                    " - " +
+                    "-" +
                     input("input-name", "date", `value="Santa Barbara"`)
             ) +
             cardGroups(coplanners) +

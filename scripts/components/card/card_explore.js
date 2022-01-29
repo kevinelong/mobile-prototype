@@ -64,7 +64,7 @@ function exploreCardContent(
         )
         ,
         image ? `style="background-image: url('${image}');"` : ""
-    ) + cardTitle(title);
+    ) //+ cardTitle(title);
 }
 
 function exploreCard(

@@ -2,6 +2,7 @@
 .page > .content-panel {
     height: 555px;
     background-color: #fffffff0;
+    gap:6px;
 }
 .content-panel {
     width: 100%;
@@ -30,7 +31,7 @@
     color: black;
 }
 .content-panel .card-people{
-    margin-top: -6px;
+    margin-top: -1px;
     /*align-content: center;*/
     /*justify-content: center;*/
 }
@@ -44,9 +45,9 @@
 }
 
 .page.plan_detail > .content-panel{
-    gap: 0;
+    gap: 6px;
     background: none;
-    display: block;
+    /*display: block;*/
 }
 
 .page.plan_detail{
