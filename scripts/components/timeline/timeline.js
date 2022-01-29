@@ -21,7 +21,9 @@
 // }
 
 // ADJUST PARAMETERS OF DATE() IN TODAY1 AND TODAY2 EQUALLY TO TEST DIFFERENT DAYS
-function getDates(daysBefore = 30, daysAfter = 30) {
+let dates = getDates();
+
+function getDates(daysBefore = 35, daysAfter = 35) {
     const today1 = new Date();
     // console.log("TODAY", today1)
     const startDate = new Date(today1.setDate(today1.getDate() - daysBefore));
@@ -90,11 +92,22 @@ function isTodayMonth(date) {
     return date === today.getDate();
 }
 
-function isToday(weekday, monthday) {
-    const todayWeek = isTodayWeek(weekday);
-    const todayMonth = isTodayMonth(monthday);
-    return todayWeek && todayMonth;
-    // return 15 === i
+// function isToday(weekday, monthday) {
+//     const todayWeek = isTodayWeek(weekday);
+//     const todayMonth = isTodayMonth(monthday);
+//     return todayWeek && todayMonth;
+
+//     // return 15 === i
+// }
+
+function isToday(dayRaw) {
+    let today = new Date()
+    today = today.getTime()
+    dayRaw = dayRaw.getTime()
+    console.log(dayRaw)
+    console.log(today)
+
+    return dayRaw === today
 }
 
 function isAdjacentDay(monthday) {
@@ -107,8 +120,13 @@ function isAdjacentDay(monthday) {
     return adjacentDay;
 }
 
-function dayBlock(day) {
-    const currentDay = isToday(day[0], day[1]) ? " current-day" : "";
+function dayBlock(day, dayRaw) {
+    // console.log("DAY", day, typeof(day))
+    // console.log(dayRaw)
+    
+    // const currentDay = isToday(day[0], day[1]) ? " current-day" : "";
+    const currentDay = isToday(dayRaw) ? " current-day" : "";
+    console.log(currentDay)
     const adjacentDay = isAdjacentDay(day[1]) ? " adjacent-day" : "";
     const dayOfWeek = day[0];
     const dayOfMonth = day[1];
@@ -125,18 +143,25 @@ function dayBlock(day) {
 }
 
 function dayRangeBlock() {
-    let dates = getDates();
-    console.log(dates);
-    dates = formatDates(dates);
-    console.log(dates);
+    // console.log(dates);
+
+    formattedDates = formatDates(dates);
+    // console.log(formattedDates);
     // console.log(isTodayWeek("Wed"))
     // console.log(isTodayMonth(26))
     // console.log(isToday())
     // console.log(isAdjacentDay(26))
     let output = [];
-    for (let i = 0; i < dates.length; i++) {
-        const day = dates[i];
-        output.push(dayBlock(day));
+    for (let i = 0; i < formattedDates.length && dates.length; i++) {
+        console.log(formattedDates[i], dates[i])
+        const day = formattedDates[i];
+        const dayRaw = dates[i]
+        output.push(dayBlock(day, dayRaw));
     }
+
+    // for (let i = 0; i < dates.length; i++){
+
+    // }
+
     return `<div class="timeline">` + output.join("") + "</div>";
 }
