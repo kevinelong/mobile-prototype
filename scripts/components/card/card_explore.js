@@ -30,8 +30,10 @@ function exploreCardContent(
     body = "",
     groups = [],
     actions = "",
-    image = "",
+    image,
     tags = [],
+    id = -1,
+    kind2 = "",
     booking_index = -1
 ) {
 
@@ -39,7 +41,12 @@ function exploreCardContent(
     if (groups && groups[0] && groups[0].people) {
         qty = groups[0].people.length;
     }
-    const booking = (booking_index < 0) ? "" : actionItem("book", "book", -1, "Book Now!");
+    console.log("booking_index", booking_index)
+    let booking = "";
+    if (booking_index >= 0) {
+        booking = actionItem("book", "book", -1, "Book Now!");
+    }
+    // const booking = "";
     return div(
         `card ${kind}`,
         img("background top", "images/backgrounds/top-gradient-black.svg") +
@@ -47,17 +54,15 @@ function exploreCardContent(
             contentPanel(body) +
             cardTags(tags)
         ) +
-        (tags || groups || actions
-            ? row(
-                (groups || actions
-                    ? col(
-                        row(col(cardGroups(groups)) + booking) +
-                        actionList(`card-actions`, actions, false, qty)
-                    )
-                    : "")
+        row(
+            col(
+                row(
+                    col(cardGroups(groups)) +
+                    booking
+                ) +
+                actionList(`card-actions`, actions, false, qty)
             )
-            : "")
-        +
+        ) +
         img(
             "background bottom",
             "images/backgrounds/bottom-gradient-black.svg"

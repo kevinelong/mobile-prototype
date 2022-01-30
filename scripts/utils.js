@@ -160,6 +160,9 @@ function applyFilter(e) {
     if (page.classList.contains("connect")) {
         applyConnectFilter(e);
     }
+    if (page.classList.contains("connect")) {
+
+    }
 }
 
 

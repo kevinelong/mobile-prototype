@@ -34,9 +34,10 @@ const EXPLORE_DATA = [
                 groupName: "Taste Match"
             },
         ],
-        ["invite", "schedule", "pin"],
+        ["pin"],
         "2",
-        "connect"
+        "connect",
+        -1
     ],
     [
         "images/explore_bg.png",
@@ -47,7 +48,8 @@ const EXPLORE_DATA = [
         group_of_one,
         ["invite", "schedule", "pin"],
         "2",
-        "dining"
+        "dining",
+        1
     ],
     [
         "images/explore_bg.png",
@@ -59,8 +61,7 @@ const EXPLORE_DATA = [
         ["invite", "schedule", "pin"],
         "2",
         true,
-        "Recommended",
-        "Local Expert",
+        2
     ],
     [
         "images/explore_bg.png",
@@ -72,8 +73,7 @@ const EXPLORE_DATA = [
         ["favorite" , "share", "pin"],
         "2",
         true,
-        "Recommended",
-        "Local Expert",
+        3
     ],
 ];
 
@@ -105,10 +105,10 @@ function explorePage(selected = false) {
         "Explore",
         [
             "All",
-            "People" + icon("person"),
-            "Things to Do" + icon("chevron_down"),
-            "Restaurants" + icon("chevron_down"),
-            "Lodging" + icon("chevron_down")
+            "People &#124;" + icon("chevron_down"),
+            "Things to Do &#124;" + icon("chevron_down"),
+            "Restaurants &#124;" + icon("chevron_down"),
+            "Lodging &#124;" + icon("chevron_down")
         ],
         "All",
         row(lists.join("")),
