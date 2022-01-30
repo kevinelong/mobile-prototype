@@ -1,16 +1,18 @@
-function choice(id, text, selected = false, badgeText = "") {
-    const data = encodeURI(text);
+function choice(kind, text, selected = false, index = -1) {
+    const encoded = cleanName(text);
     return div(
         `choice ${selected ? "selected" : ""}`,
-        text + badgeText,
-        ` onclick="select(this,'${id}','${data}');" `
+        text,
+        ` onclick="select(this,'${kind}',${index},'${encoded}');" data-kind="${kind}"  data-choice="${encoded}" `
     );
 }
 
-function choiceSet(id, choiceList = [], selectedItem = "") {
+function choiceSet(kind, choiceList = [], selectedItem = "") {
     return div(
         "choice-set",
-        [...choiceList].map(c => choice(id, c, c === selectedItem)).join(""),
-        `id="${id}" class='secondary-nav'`
+        [...choiceList].map(
+            (c, i) => choice(kind, c, c === selectedItem, i)
+        ).join(""),
+        `id="${kind}" class='secondary-nav'`
     );
 }

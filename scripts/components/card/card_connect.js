@@ -19,7 +19,7 @@ function connectCard(
     id = 0,
     groups = [],
     which = "") {
-    const kind = (groups[0].people.length > 1 ? "group-chat" : "1-on-1");
+    const kind = (groups[0].people.length > 1 ? "GROUP-CHAT" : "1-ON-1");
 
     return card(
         "connect" + " " + kind,
@@ -30,7 +30,7 @@ function connectCard(
         "",
         [],
         0,
-        ` data-kind="${kind}" `
+        ` data-kind="${cleanName(kind)}" `
     );
 }
 

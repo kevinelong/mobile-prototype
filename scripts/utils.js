@@ -19,12 +19,13 @@ function titleCase(str) {
     }).join(' ');
 }
 
-function select(e, id) {
+function select(e, id, index, text) {
+    console.log("select", e, id, index, text);
     [...e.parentElement.children].forEach((s) =>
         s.classList.remove("selected")
     );
     e.classList.add("selected");
-    applyFilter(e, id);
+    applyFilter(e, id, index, text);
 }
 
 function showElement(e) {
@@ -106,19 +107,18 @@ function listen(eventTypeName, handler, elem = document.body) {
 }
 
 function cleanName(n) {
-    return n.trim().toUpperCase().replace(/\s/g, "-");
+    return encodeURI(n.trim().toUpperCase().replace(/\s/g, "-"));
 }
 
-function applyConnectFilter(e) {
-
+function applyConnectFilter(e, id, index, text) {
+    console.log("applyConnectFilter", e, id, index, text)
     const cp = e.closest(".page");
     if (!cp) {
         return;
     }
 
     const cards = cp.querySelectorAll(".card");
-    const text = e.innerHTML.toUpperCase();
-    //   console.log(text);
+    text = cleanName(text);
 
     cards.forEach(c => {
 
@@ -132,8 +132,6 @@ function applyConnectFilter(e) {
 
         let kind = cleanName(c.dataset.kind);
         let choiceName = cleanName(e.dataset.choice);
-        // const content = cleanName(c.outerHTML);
-
         if (choiceName === kind) {
             return showElement(c);
         }
@@ -141,11 +139,12 @@ function applyConnectFilter(e) {
         if ("NOTIFICATIONS" === choiceName && !["1-ON-1", "GROUP-CHAT"].includes(kind)) {
             return showElement(c);
         }
+
         hideElement(c);
     });
 }
 
-function applyFilter(e) {
+function applyFilter(e, id, index, text) {
 
     if (!e || !e.closest) {
         return;
@@ -153,13 +152,14 @@ function applyFilter(e) {
 
     const page = e.closest(".page");
 
-    if(!page){
+    if (!page) {
         return;
     }
 
     if (page.classList.contains("connect")) {
-        applyConnectFilter(e);
+        applyConnectFilter(e, id, index, text);
     }
+
     if (page.classList.contains("connect")) {
 
     }
@@ -167,6 +167,9 @@ function applyFilter(e) {
 
 
 function applyFilterText(parentElement, childClass, searchText) {
+
+    console.log("applyFilterText", parentElement, childClass, searchText);
+
     if (!parentElement) {
         return;
     }

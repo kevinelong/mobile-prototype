@@ -96,7 +96,7 @@ function card(
             "images/backgrounds/bottom-gradient-black.svg"
         ),
         attrs +
-        ` data-kind="${kind}" data-which="${which}" ` +
+        ` data-kind="${cleanName(kind)}" data-which="${which}" ` +
         (image ? `style="background-image: url('${image}');"` : "")
     );
 }
