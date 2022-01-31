@@ -105,6 +105,39 @@ function selectDateRange(name) {
     );
 }
 
+function onClickTabItem(e, name, index){
+    const top = e.closest(".tab-set");
+    const items = top.querySelectorAll(".tab-item");
+    const contents = top.querySelectorAll(".tab-content");
+    items.forEach(item=> item.classList.remove('selected'));
+    e.classList.add('selected');
+    top.children[index].classList.add("selected")
+    top.children[index].classList.remove("hidden")
+}
+
+function tabItem(name, index, isSelected=false) {
+    const selected = isSelected ? "selected" : "";
+    return div(
+        `tab-item ${selected} ${cleanName(name)}`,
+        name,
+        ` onclick="onClickTabItem(this,'${cleanName(name)}','${index}')" `);
+}
+//
+// function tabContent(name, index= 0, content, isHidden=true) {
+//     const hidden = isHidden ? "hidden" : "";
+//     return div(`tab-content ${hidden} ${cleanName(name)}`, content);
+// }
+//
+// function tabSet(name, list) {
+//     return div(
+//         `tab-set ${cleanName(name)}`,
+//         col(
+//             row(list.map(tabItem).join("")) +
+//             row(list.map(tabContent).join(""))
+//         )
+//     );
+// }
+
 function showThingsToDo(title = "Filter - Things To Do", index = -1) {
     showDialog(title,
         contentPanel([
@@ -116,10 +149,13 @@ function showThingsToDo(title = "Filter - Things To Do", index = -1) {
                     "Instant Book"
                 ], "Instant Book")
             ),
-            // tabSet("explore-filter-tabs",[
+            //
+            // tabSet("explore-filter-tabs", [
             //     tabItem("A", "AAA"),
-            //     tabItem("B", "BBB")
+            //     tabItem("B", "BBB"),
+            //     tabItem("C", "CCC"),
             // ]) +
+
             selectDateRange("Date Range:"),
 
             selectOptionsComponent("# Adults", [{

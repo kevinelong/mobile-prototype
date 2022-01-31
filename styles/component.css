@@ -31,6 +31,29 @@ input[type=text]:focus {
     align-items: flex-start;
     gap: 6px;
 }
+.center-content{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.center-me{
+    align-self: center;
+    justify-self: center;
+    margin: auto;
+}
+
+.space-between{
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+.space-evenly{
+    justify-content: space-evenly;
+}
+
+.space-around{
+    justify-content: space-around;
+}
 
 .row > * {
     align-self: center;
