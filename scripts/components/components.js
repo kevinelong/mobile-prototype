@@ -192,6 +192,7 @@ const ICON_MAP = {
 };
 
 function iconMap(icon) {
+    icon = cleanName(icon).toLowerCase();
     if (ICON_MAP.hasOwnProperty(icon)) {
         return ICON_MAP[icon];
     }

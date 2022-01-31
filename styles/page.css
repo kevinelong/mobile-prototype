@@ -82,6 +82,10 @@
     display: none;
 }
 
+input[type="text"] {
+    width: 100%;
+}
+
 input[type="text"].vita-search {
     margin: 0;
     background-image: url(../images/icons/icon-search-black.svg);
@@ -92,7 +96,6 @@ input[type="text"].vita-search {
     border: none;
     box-shadow: 1px 1px 2px 0 #0008;
     background-position: 0.75em 0.75em;
-
 }
 
 .page > .content-panel > .label {

@@ -19,7 +19,7 @@ function titleCase(str) {
     }).join(' ');
 }
 
-function select(e, id, index, text) {
+function selectItem(e, id, index, text) {
     console.log("select", e, id, index, text);
     [...e.parentElement.children].forEach((s) =>
         s.classList.remove("selected")
@@ -51,7 +51,7 @@ function showPage(pageName, action = "", id = "") {
     const parts = pageName.split("_");
     if (parts.length === 1) {
         window.lastPage = pageName;
-        select(get("#main-nav-tab-" + pageName));
+        selectItem(get("#main-nav-tab-" + pageName));
     }
     document.body.setAttribute("page", name);
     document.body.setAttribute("page-action", action);
@@ -78,7 +78,7 @@ function hide(selector) {
 }
 
 function selectPage(e) {
-    select(e);
+    selectItem(e);
     const name = toName(e.id);
     const parts = name.split("-");
     if (parts.length < 2) return;
@@ -107,7 +107,7 @@ function listen(eventTypeName, handler, elem = document.body) {
 }
 
 function cleanName(n) {
-    return encodeURI(n.trim().toUpperCase().replace(/\s/g, "-"));
+    return encodeURI(`${n}`.trim().toUpperCase().replace(/\s/g, "-"));
 }
 
 function applyConnectFilter(e, id, index, text) {
@@ -144,6 +144,21 @@ function applyConnectFilter(e, id, index, text) {
     });
 }
 
+function applyExploreFilter(e, id, index, text) {
+    console.log("applyExploreFilter", e, id, index, text);
+    if (1 === index) {
+        showSearch("Filter");
+    } else if (2 === index) {
+        showThingsToDo();
+    } else if (3 === index) {
+        showRestaurants();
+    } else if (4 === index) {
+        showLodging();
+    } else {
+        console.log("INVALID ID: " + id);
+    }
+}
+
 function applyFilter(e, id, index, text) {
 
     if (!e || !e.closest) {
@@ -158,10 +173,14 @@ function applyFilter(e, id, index, text) {
 
     if (page.classList.contains("connect")) {
         applyConnectFilter(e, id, index, text);
-    }
-
-    if (page.classList.contains("connect")) {
-
+    } else if (page.classList.contains("explore")) {
+        if (id === "to-do-subcategory-choices") {
+            if (text === "BROADCAST") {
+                show(`.${id} .${text}`);
+            }
+        } else {
+            applyExploreFilter(e, id, index, text);
+        }
     }
 }
 

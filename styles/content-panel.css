@@ -105,6 +105,9 @@
 }
 
 
+.dialog .content-panel .text {
+    font-size: 14px;
+}
 .content-panel .text {
     font-size: 8px;
 }

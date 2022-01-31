@@ -19,9 +19,9 @@ function page(
                 cardPerson(peopleList[RUBY])
                 // actionItem("person", "me", 0, "", "black")
             ) +
+            (searchMessage ? search([], -1, searchMessage) : "") +
             choiceSet(`${name}-filters`, choiceList, selectedChoice) +
-            actionContent +
-            (searchMessage ? search([], -1, searchMessage) : "")
+            actionContent
         ) +
         contentPanel(
             content

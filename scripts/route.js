@@ -41,10 +41,140 @@ function showSearch(title, index = -1) {
         contentPanel(
             choiceSet("search-filter", ["All", "Connections", "Groups", "Contacts"]) +
             search(peopleList, index) +
-            row(
-                actionItem("create-new-group", "group", -1, "Create New Group", "black") +
-                actionItem("contact", "contact", -1, "Add New Contact", "black")
-            )
+            actionList("filter", ["Create New Group", "Add New Contact"], false, 0, "black")
+        )
+    );
+}
+
+const THINGS_TO_DO = [
+    {
+        name: "Thing 1"
+    },
+    {
+        name: "Thing 2"
+    }
+];
+const THINGS_TO_DO_FILTERS = [
+    "All",
+    "Indoor",
+    "Outdoor",
+    "Group"
+];
+
+const RESTAURANTS = [
+    {
+        name: "1"
+    },
+    {
+        name: "2"
+    }
+];
+const RESTAURANT_FILTERS = [
+    "All",
+    "F1",
+    "F2",
+    "F3"
+];
+const LODGING = [
+    {
+        name: "1"
+    },
+    {
+        name: "2"
+    }
+];
+const LODGING_FILTERS = [
+    "All",
+    "F1",
+    "F2",
+    "F3"
+];
+
+function selectDate(name) {
+    return label(
+        cleanName(name),
+        text(name) +
+        input(name, "date")
+    );
+}
+
+function selectDateRange(name) {
+    return label(cleanName(name),
+        text(name) +
+        row(selectDate("From") + " - " + selectDate("To"))
+    );
+}
+
+function showThingsToDo(title = "Filter - Things To Do", index = -1) {
+    showDialog(title,
+        contentPanel([
+            label("refine-filter",
+                text("Refine Filter:") +
+                choiceSet("to-do-subcategory-choices", [
+                    "Discover",
+                    "Broadcast",
+                    "Instant Book"
+                ], "Instant Book")
+            ),
+            // tabSet("explore-filter-tabs",[
+            //     tabItem("A", "AAA"),
+            //     tabItem("B", "BBB")
+            // ]) +
+            selectDateRange("Date Range:"),
+
+            selectOptionsComponent("# Adults", [{
+                name: "Any Number",
+                value: 0
+            }]),
+
+            selectOptionsComponent("# Kids", [{
+                name: "Any Number",
+                value: 0
+            }]),
+
+            selectOptionsComponent("Time", [{name: "Any Time", value: 0}]),
+
+            selectOptionsComponent("Duration", [{
+                name: "Any Duration",
+                value: 0
+            }]),
+
+            selectOptionsComponent("Budget", [{
+                name: "Any Budget",
+                value: 0
+            }]),
+
+            label("keywords",
+                text("Keywords:") +
+                choiceSet("keywords", ["KW1", "KW2", "KW3"])
+            ),
+
+            label("personal-keywords",
+                text("Personal Keywords:") +
+                choiceSet("keywords", ["PKW1", "PKW2", "PKW3"])
+            ),
+
+            actionList("filter-actions", ["apply"], false, 0, "black"),
+        ].join(""))
+    );
+}
+
+function showRestaurants(title = "Filter - Restaurants", index = -1) {
+    showDialog(title,
+        contentPanel(
+            choiceSet("search-filter", RESTAURANT_FILTERS) +
+            search(RESTAURANTS, index) +
+            actionList("filter-actions", ["apply"], false, 0, "black")
+        )
+    );
+}
+
+function showLodging(title = "Filter - Lodging", index = -1) {
+    showDialog(title,
+        contentPanel(
+            choiceSet("search-filter", LODGING_FILTERS) +
+            search(LODGING, index) +
+            actionList("filter-actions", ["apply"], false, 0, "black")
         )
     );
 }
@@ -239,7 +369,7 @@ function toggleCollapse(target) {
         return false;
     }
     const row = target.closest(".row");
-    if(!row){
+    if (!row) {
         return false;
     }
     row.classList.toggle("collapse");

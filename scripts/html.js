@@ -39,6 +39,30 @@ function input(name, inputType = "text", attrs = "") {
 }
 
 
+function option(name, value) {
+    return closedTag(
+        "option",
+        name,
+        `name="${name}" value="${value}"`
+    );
+}
+
+function select(name, optionList) {
+    return closedTag(
+        `select ${name}`,
+        optionList.map(o => option(o.name, o.value)).join("")
+    );
+}
+
+
+function selectOptionsComponent(name, optionList) {
+    return label("select-options-component",
+        text(name) +
+        select(cleanName(name), optionList)
+    )
+}
+
+
 function textarea(name, content = "", attrs = "") {
     return closedTag(
         `textarea ${name}`,
