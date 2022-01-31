@@ -1,9 +1,9 @@
 .timeline * {
-    margin-top: 0 !important;
+    /* margin-top: 0 !important; */
 }
 
 .timeline {
-    padding: 5px 0;
+    /* padding: 0px 0; */
     height: auto;
     width: auto;
     display: block;
@@ -11,6 +11,7 @@
     white-space: nowrap;
     background-color: white;
     color: black;
+    /* min-height: 100px; */
 }
 
 .timeline .day {
