@@ -35,7 +35,82 @@ function connectPage(selected = false) {
                     "2",
                     "dining",
                     3
-                )
+                ),
+                timelineCard(
+                    "Breakfast",
+                    "8:33am",
+                    "1.5 Hours",
+                    "images/explore_bg.png",
+                    "Loquita",
+                    "Santa Barbara",
+                    "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
+                    ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
+                    group_of_three,
+                    ["favorite", "rate", "verify", "notify"],
+                    "2",
+                    "dining",
+                    3
+                ),
+                timelineCard(
+                    "Breakfast",
+                    "8:33am",
+                    "1.5 Hours",
+                    "images/explore_bg.png",
+                    "Loquita",
+                    "Santa Barbara",
+                    "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
+                    ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
+                    group_of_three,
+                    ["favorite", "rate", "verify", "notify"],
+                    "2",
+                    "dining",
+                    3
+                ),
+                timelineCard(
+                    "Breakfast",
+                    "8:33am",
+                    "1.5 Hours",
+                    "images/explore_bg.png",
+                    "Loquita",
+                    "Santa Barbara",
+                    "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
+                    ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
+                    group_of_three,
+                    ["favorite", "rate", "verify", "notify"],
+                    "2",
+                    "dining",
+                    3
+                ),
+                timelineCard(
+                    "Breakfast",
+                    "8:33am",
+                    "1.5 Hours",
+                    "images/explore_bg.png",
+                    "Loquita",
+                    "Santa Barbara",
+                    "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
+                    ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
+                    group_of_three,
+                    ["favorite", "rate", "verify", "notify"],
+                    "2",
+                    "dining",
+                    3
+                ),
+                timelineCard(
+                    "Breakfast",
+                    "8:33am",
+                    "1.5 Hours",
+                    "images/explore_bg.png",
+                    "Loquita",
+                    "Santa Barbara",
+                    "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
+                    ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
+                    group_of_three,
+                    ["favorite", "rate", "verify", "notify"],
+                    "2",
+                    "dining",
+                    3
+                ),
             ].join("")
         );
 

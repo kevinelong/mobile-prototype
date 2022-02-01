@@ -82,7 +82,8 @@ function timelineCard(
         "explore",
         "???",
         row(
-            cardSubtitle(`${what} ${when} ${duration}`)
+            cardSubtitle(`${what} ${when} ${duration}`) +
+            actionItem("plan", "","","Edit")
         ) +
         row(
             icon(kind) +
