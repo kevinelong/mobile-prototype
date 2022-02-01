@@ -120,20 +120,17 @@ route
             padding: 2em 1em;
         }
 
-        .tab-set .tab{
+        .tab-set .tab {
             padding: 0;
-        }
-
-        .tab-set .tab,
-        .tab-set .tab-indicator {
-            width: 100%;
-            min-width: 60px;
+            white-space: nowrap;
             align-items: center;
+            overflow: visible;
+            min-width: 25%;
+            width: max-content;
             justify-content: center;
-            /*flex-shrink: 0;*/
         }
 
-        .tab-highlight div {
+        .tab-highlight .tab-indicator {
             width: 100%;
             position: absolute;
             bottom: 0;
@@ -161,7 +158,7 @@ route
 
     //EVENT HANDLER
     function changeColor(e, event) {
-        if(!event.target.classList.contains("tab")){
+        if (!event.target.classList.contains("tab")) {
             return;
         }
         e.closest(".tab-set").querySelectorAll('.tab').forEach(t => t.classList.remove("tab-highlight"))
