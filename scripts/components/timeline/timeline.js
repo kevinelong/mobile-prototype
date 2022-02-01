@@ -136,16 +136,10 @@ function dayBlock(day, dayRaw) {
     const adjacentDay = isAdjacentDay(dayRaw) ? " adjacent-day" : "";
     const dayOfWeek = day[0];
     const dayOfMonth = day[1];
-    return `
-                <div class="day${currentDay}${adjacentDay}">
-                    <div class="day-of-week">
-                        <p>${dayOfWeek}</p>
-                    </div>
-                    <div class="day-of-month">
-                        <p>${dayOfMonth}</p>
-                    </div>
-                </div>
-            `;
+    return `<div class="day${currentDay}${adjacentDay}">
+                <div class="day-of-week">${dayOfWeek}</div>
+                <div class="day-of-month">${dayOfMonth}</div>
+            </div>`;
 }
 
 function dayRangeBlock() {

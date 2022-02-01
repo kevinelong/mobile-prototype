@@ -16,8 +16,12 @@
 }
 
 .timeline .day {
+    /* background-color: red; */
+    /* border: 1px solid red; */
     display: inline-flex;
-    margin: 0 0.5rem;
+    /* margin: 0 0.5rem; */
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
     border-radius: 10px;
     /* background-color: grey; */
     width: 50px;

@@ -4,7 +4,11 @@
     /* min-height: 100vh; */
     background-color: #fffffff0;
     gap: 0.25em;
-    padding: 0.25em 0.25em 6em 0.25em
+    /* padding: 0.25em 0.25em 6em 0.25em */
+    padding-top: 0.25em;
+    padding-right: 0.25em;
+    padding-bottom: 6em;
+    padding-left: 0.25em;
 }
 .content-panel {
     width: 100%;
