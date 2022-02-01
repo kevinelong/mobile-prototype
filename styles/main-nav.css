@@ -76,7 +76,9 @@
     background-color: #ff6666;
     /*box-shadow: 2px 2px 4px 1px #00000088;*/
     box-shadow: 1px 1px 2px 0px #000000FF;
-    width: 100%;
+    /*width: 100%;*/
+    width: 48%;
+    display: inline-block;
 }
 
 .page.explore .content-panel .card-list{
@@ -84,6 +86,7 @@
     /*grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));*/
     /*grid-template-rows: masonry; !* this will do the magic *!*/
     /*grid-gap: 1px;*/
+    display: block;
 }
 .page.explore .content-panel .card-list .card{
     /*width: 100%;*/

@@ -35,8 +35,12 @@
     padding: 0;
     /*background: #dddddd;*/
     overflow-x: scroll;
+    min-height: 24px;
 }
 
+.page.dream_board .choice-set{
+    min-height: 48px;
+}
 .explore.page .choice{
     background: black;
     flex-direction: row;

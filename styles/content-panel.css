@@ -1,6 +1,6 @@
 
 .page > .content-panel {
-    height: 555px;
+    /*height: 555px;*/
     background-color: #fffffff0;
     gap: 0.25em;
     padding: 0.25em 0.25em 6em 0.25em
@@ -41,10 +41,14 @@
     justify-content: center;
 }
 
+.page.dream_board > .content-panel,
 .page.plan_detail > .content-panel{
     gap: 6px;
     background: none;
     /*display: block;*/
+    height: 555px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .page.plan_detail{
