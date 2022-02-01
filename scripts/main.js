@@ -56,6 +56,12 @@ document.addEventListener("DOMContentLoaded", () => {
         settleSplit(),
         settlePage(),
     ].join("");
+
+    const timeline = get(".timeline")
+
+    console.log(timeline.scrollWidth)
+    console.log(timeline.scrollLeft)
+    console.log(timeline.getBoundingClientRect());
 });
 
 window.lastPage = "connect";

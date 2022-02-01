@@ -114,12 +114,12 @@ function isAdjacentDay(dayRaw) {
     
     let today = new Date();
     const yesterday = Math.floor((today.getTime() - 86400000) / 60000)
-    console.log("YESTERDAY", yesterday)
+    // console.log("YESTERDAY", yesterday)
     const tomorrow = Math.floor((today.getTime() + 86400000) / 60000)
-    console.log("TOMORROW", tomorrow)
+    // console.log("TOMORROW", tomorrow)
 
     dayRaw = Math.floor(dayRaw.getTime() / 60000)
-    console.log("TODAY", dayRaw);
+    // console.log("TODAY", dayRaw);
     const adjacentDay = dayRaw === yesterday || dayRaw === tomorrow;
     // const adjacentDayMonth =
     // return i === 14 || i === 16
@@ -162,7 +162,7 @@ function dayRangeBlock() {
         // console.log(formattedDates[i], dates[i])
         const day = formattedDates[i];
         const dayRaw = dates[i]
-        console.log(dayRaw)
+        // console.log(dayRaw)
         output.push(dayBlock(day, dayRaw));
     }
 
@@ -172,3 +172,5 @@ function dayRangeBlock() {
 
     return `<div class="timeline">` + output.join("") + "</div>";
 }
+
+
