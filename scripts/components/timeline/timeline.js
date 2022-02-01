@@ -78,19 +78,19 @@ function formatDates(dates) {
     return formattedDates;
 }
 
-function isTodayWeek(date) {
-    const num = reverseWeekday(date);
-    const today = new Date();
-    // console.log('TODAY', today.getDay())
-    // console.log('DATE', date)
-    // console.log('NUM', num)
-    return num === today.getDay();
-}
+// function isTodayWeek(date) {
+//     const num = reverseWeekday(date);
+//     const today = new Date();
+//     // console.log('TODAY', today.getDay())
+//     // console.log('DATE', date)
+//     // console.log('NUM', num)
+//     return num === today.getDay();
+// }
 
-function isTodayMonth(date) {
-    const today = new Date();
-    return date === today.getDate();
-}
+// function isTodayMonth(date) {
+//     const today = new Date();
+//     return date === today.getDate();
+// }
 
 // function isToday(weekday, monthday) {
 //     const todayWeek = isTodayWeek(weekday);
@@ -102,19 +102,25 @@ function isTodayMonth(date) {
 
 function isToday(dayRaw) {
     let today = new Date()
-    today = today.getTime()
-    dayRaw = dayRaw.getTime()
-    // console.log(dayRaw)
-    // console.log(today)
-
+    today = Math.floor(today.getTime() / 60000)
+    dayRaw = Math.floor(dayRaw.getTime() / 60000)
+    // console.log(dayRaw, typeof(dayRaw))
+    // console.log(today, typeof(today))
+    // console.log(dayRaw === today)
     return dayRaw === today
 }
 
-function isAdjacentDay(monthday) {
-    today = new Date();
-    const yesterday = today.getDate() - 1;
-    const tomorrow = today.getDate() + 1;
-    const adjacentDay = monthday === yesterday || monthday === tomorrow;
+function isAdjacentDay(dayRaw) {
+    
+    let today = new Date();
+    const yesterday = Math.floor((today.getTime() - 86400000) / 60000)
+    console.log("YESTERDAY", yesterday)
+    const tomorrow = Math.floor((today.getTime() + 86400000) / 60000)
+    console.log("TOMORROW", tomorrow)
+
+    dayRaw = Math.floor(dayRaw.getTime() / 60000)
+    console.log("TODAY", dayRaw);
+    const adjacentDay = dayRaw === yesterday || dayRaw === tomorrow;
     // const adjacentDayMonth =
     // return i === 14 || i === 16
     return adjacentDay;
@@ -127,7 +133,7 @@ function dayBlock(day, dayRaw) {
     // const currentDay = isToday(day[0], day[1]) ? " current-day" : "";
     const currentDay = isToday(dayRaw) ? " current-day" : "";
     // console.log(currentDay)
-    const adjacentDay = isAdjacentDay(day[1]) ? " adjacent-day" : "";
+    const adjacentDay = isAdjacentDay(dayRaw) ? " adjacent-day" : "";
     const dayOfWeek = day[0];
     const dayOfMonth = day[1];
     return `
@@ -156,6 +162,7 @@ function dayRangeBlock() {
         // console.log(formattedDates[i], dates[i])
         const day = formattedDates[i];
         const dayRaw = dates[i]
+        console.log(dayRaw)
         output.push(dayBlock(day, dayRaw));
     }
 
