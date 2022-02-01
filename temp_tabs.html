@@ -98,7 +98,7 @@ route
             background-color: white;
         }
 
-        .tab-set > div {
+        .tab-set > .tab-row {
             position: relative;
             height: 44px;
             background-color: white;
@@ -130,7 +130,7 @@ route
             justify-content: center;
         }
 
-        .tab.tab-highlight{
+        .tab.tab-highlight {
             font-weight: bold;
         }
 
@@ -146,6 +146,11 @@ route
             display: block;
             padding: 1em 0;
         }
+
+        /*.tab-row{*/
+        /*    width: auto;*/
+        /*    margin: 0 auto;*/
+        /*}*/
 
     </style>
 </head>
@@ -172,11 +177,27 @@ route
     }
 
     //HTML COMPONENTS
-    const tabSet = (name = "", tabList = [], tabName = "") => div("tab-set",
-        div("", tabList.map(t => div(`tab tab-${t.name} ${t.name === tabName ? "tab-highlight" : ""}`, t.title + div(`tab-indicator`, ""), `data-name=${t.name}`)).join("")) +
-        div("", tabList.map(t => div(`tab-content tab-content-${t.name} ${t.name === tabName ? "" : "hidden"}`, t.content)).join("")),
-        `onclick="${name}(this, event)"`
-    );
+    const tab = (t, name) => {
+        const highlight = t.name === name ? "tab-highlight" : "";
+        return div(
+            `tab tab-${t.name} ${highlight}`,
+            t.title + div(`tab-indicator`, ""),
+            `data-name=${t.name}`
+        );
+    }
+
+    const tabContent = (t, name) => {
+        const hidden = t.name === name ? "" : "hidden";
+        return div(`tab-content tab-content-${t.name} ${hidden}`, t.content)
+    }
+
+    const tabSet = (name = "", tabList = [], selectedTabName = "") => {
+        return div("tab-set",
+            div("tab-row", tabList.map(t => tab(t, selectedTabName)).join("")) +
+            div("tab-row", tabList.map(t => tabContent(t, selectedTabName)).join("")),
+            `onclick="${name}(this, event)"`
+        );
+    };
 
     //TEST
     get(".inner-content").innerHTML = tabSet("changeColor", [
