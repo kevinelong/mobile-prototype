@@ -132,7 +132,7 @@
 .title > .action-item{
     background: white;
 }
-.action-list .action-item {
+.card .action-item {
     background: #00000033;
     border: none;
     text-shadow: none;

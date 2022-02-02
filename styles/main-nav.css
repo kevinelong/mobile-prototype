@@ -91,6 +91,7 @@
 .page.explore .content-panel .card-list .card{
     /*width: 100%;*/
     /*height: 100%;*/
+    display: flex;
 }
 
 .main-nav-tab.selected #dream .icon-frame,
