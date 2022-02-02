@@ -77,16 +77,15 @@
     /*box-shadow: 2px 2px 4px 1px #00000088;*/
     box-shadow: 1px 1px 2px 0px #000000FF;
     /*width: 100%;*/
-    width: 48%;
-    display: inline-block;
+    width: 170px;
+    display: flex;
 }
 
 .page.explore .content-panel .card-list{
-    /*display: grid;*/
-    /*grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));*/
-    /*grid-template-rows: masonry; !* this will do the magic *!*/
-    /*grid-gap: 1px;*/
-    display: block;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(167px, 1fr));
+    grid-template-rows: masonry; 
+    grid-gap: 3px 6px;
 }
 .page.explore .content-panel .card-list .card{
     /*width: 100%;*/

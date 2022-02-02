@@ -72,7 +72,7 @@ function timelineCard(
     groups = [],
     actions = [],
     id = 0,
-    kind = "explore",
+    kind = "timeline",
     booking_index = -1
 ) {
     return timelineCardContent(
