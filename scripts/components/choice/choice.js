@@ -8,6 +8,9 @@ function choice(kind, text, selected = false, index = -1) {
 }
 
 function choiceSet(kind, choiceList = [], selectedItem = "") {
+    if(choiceList.length===0){
+        return "";
+    }
     return div(
         "choice-set",
         [...choiceList].map(

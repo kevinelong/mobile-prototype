@@ -92,12 +92,13 @@ const EXPLORE_CARDS = [
 ];
 
 function explorePage(selected = false) {
-    let columns = [[], []];
-    EXPLORE_CARDS.forEach((c, i) => {
-        columns[i % columns.length].push(c)
-    });
+    // let columns = [[], []];
+    // EXPLORE_CARDS.forEach((c, i) => {
+    //     columns[i % columns.length].push(c)
+    // });
     let lists = [];
-    columns.forEach(c => lists.push(cardList(c.join(""))));
+    // columns.forEach(c => lists.push(cardList(c.join(""))));
+    lists.push(cardList(EXPLORE_CARDS.join("")));
 
     return page(
         selected,

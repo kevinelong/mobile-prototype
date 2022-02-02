@@ -212,25 +212,5 @@ route
     // console.log(tabs)
     // addEventListenerList(tabs, "click", highlightTab)
 
-    const tabSet = document.querySelector(".tab-set")
-    tabSet.addEventListener("click", changeColor, false)
-
-    function changeColor(e) {
-        // tabSet.style.backgroundColor = "#FFC926"
-        console.log(e.target)
-        const div = e.target.querySelector('div')
-        console.log(div)
-        const tabs = tabSet.querySelectorAll('.tab')
-        console.log(tabs)
-        for (let i = 0; i < tabs.length; i++) {
-            const divOff = tabs[i].querySelector('div')
-            divOff.removeAttribute("class", "tab-highlight")
-
-            tabs[i].removeAttribute("style")
-        }
-
-        div.setAttribute("class", "tab-highlight")   
-        e.target.style.fontWeight = "bold"
-    }
 
 </script>

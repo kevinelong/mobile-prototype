@@ -4,6 +4,10 @@ function text(textValue) {
     return div(`text wc-${word_count}`, textValue);
 }
 
+function image(path=""){
+    return div("image","", `style="background-image: url('${path}')"`)
+}
+
 function title(textValue) {
     return div("title", textValue);
 }
@@ -237,6 +241,9 @@ function inputMessage() {
     );
 }
 
+function sectionTitle(content){
+    return div("section-title", content);
+}
 
 const activityData = [
     {
