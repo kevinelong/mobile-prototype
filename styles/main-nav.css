@@ -86,6 +86,7 @@
     grid-template-columns: repeat(auto-fill, minmax(167px, 1fr));
     grid-template-rows: masonry; 
     grid-gap: 3px 6px;
+    padding-bottom: 6em;
 }
 .page.explore .content-panel .card-list .card{
     /*width: 100%;*/
