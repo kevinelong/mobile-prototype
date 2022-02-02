@@ -1,21 +1,27 @@
 .timeline * {
-    margin-top: 0 !important;
+    /* margin-top: 0 !important; */
 }
 
 .timeline {
-    padding: 5px 0;
+    /* padding: 0px 0; */
     height: auto;
     width: auto;
     display: block;
     overflow-x: scroll;
+    overflow-y: hidden;
     white-space: nowrap;
-    background-color: white;
+    background: none;
     color: black;
+    min-height: 70px;
 }
 
 .timeline .day {
+    /* background-color: red; */
+    /* border: 1px solid red; */
     display: inline-flex;
-    margin: 0.5rem;
+    /* margin: 0 0.5rem; */
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
     border-radius: 10px;
     /* background-color: grey; */
     width: 50px;
