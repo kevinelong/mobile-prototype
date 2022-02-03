@@ -110,6 +110,9 @@ route
             height: 150px;
             display: flow-root;
             background-color: black;
+            color: red;
+            text-align: center;
+            line-height: 150px;
         }
 
     </style>
@@ -121,16 +124,16 @@ route
         <div class="outer-box div">
             <div class="inner-content div">
                 <div class="scroll-window">
-                    <div class="scroll-item"></div>
-                    <div class="scroll-item"></div>
-                    <div class="scroll-item"></div>
-                    <div class="scroll-item"></div>
-                    <div class="scroll-item"></div>
-                    <div class="scroll-item"></div>
-                    <div class="scroll-item"></div>
-                    <div class="scroll-item"></div>
-                    <div class="scroll-item"></div>
-                    <div class="scroll-item"></div>
+                    <div class="scroll-item">0</div>
+                    <div class="scroll-item">1</div>
+                    <div class="scroll-item">2</div>
+                    <div class="scroll-item">3</div>
+                    <div class="scroll-item">4</div>
+                    <div class="scroll-item">5</div>
+                    <div class="scroll-item">6</div>
+                    <div class="scroll-item">7</div>
+                    <div class="scroll-item">8</div>
+                    <div class="scroll-item">9</div>
                 </div>
             </div>
         </div>
@@ -159,7 +162,8 @@ route
 
     const scrollItems = getAll(".scroll-item")
     console.log(scrollItems)
-    function getRect(div) {
+
+    function getRectTop(div) {
         const rect = div.getBoundingClientRect()
         const left = rect.left
         const top = rect.top
@@ -170,19 +174,31 @@ route
         const width = rect.width
         const height = rect.height
         // return `left: ${left}, top: ${top}, right: ${right}, bottom: ${bottom}, x: ${x}, y: ${y}, width: ${width}, height: ${height}`
-        return y
+        return top
+    }
+
+    function getScrollDistance(div) {
+        const parentPos = getRectTop(scrollWindow)
+        const divPos = getRectTop(div)
+        const relativePos = divPos - parentPos
+        return relativePos
     }
 
     function findClosestDiv(divs) {
         for (let i = 0; i < divs.length; i++) {
-            const distanceFromTop = getRect(scrollItems[i])
+            const distanceFromTop = getScrollDistance(scrollItems[i])
             console.log(distanceFromTop)
+            if (345 < distanceFromTop && distanceFromTop < 400) {
+                console.log(i)
+                // scrollWindow.scrollTop = 5 + (i * 200)
+                scrollWindow.scrollTop = 5
+            }
         }
     }
 
     onScrollStop(() => {
         console.log('The user has stopped scrolling.')
         console.log(`scroll position: ${scrollWindow.scrollTop}`)
-        console.log(findClosestDiv(scrollItems))
+        findClosestDiv(scrollItems)
     });
 </script>
