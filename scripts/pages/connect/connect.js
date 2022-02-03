@@ -1,16 +1,37 @@
+function sample(period){
+  return timelineCard(
+      "timeline",
+      "12:33am",
+      "1.5 Hours",
+      "images/explore_bg.png",
+      "Loquita",
+      "Santa Barbara",
+      "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
+      ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
+      group_of_three,
+      ["favorite", "rate", "verify", "notify"],
+      "2",
+      "dining",
+      3,
+      period
+  );
+}
+
+const periods = ["breakfast","lunch","dinner","late-night"];
+
 function connectPage(selected = false) {
     const defaultLocation = "Santa Barbara";
     const itemCount = 11;
     const timelineContent = choiceSet(
             "timeline",
             [
-                "All",
+                "Go!",
                 "Check-Ins",
                 "Pay/Settle",
                 "Rate/Review",
                 "Verify for Offset",
                 "Memories"
-            ], "All") +
+            ], "Go!") +
 
 
         // titleRow("timeline", "timeline", -1) +
@@ -20,98 +41,7 @@ function connectPage(selected = false) {
                 actionItem("add-place", "timeline", -1, "add", "black")
             ) +
             subtitle("Santa Barbara") +
-            [
-                timelineCard(
-                    "Breakfast",
-                    "8:33am",
-                    "1.5 Hours",
-                    "images/explore_bg.png",
-                    "Loquita",
-                    "Santa Barbara",
-                    "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
-                    ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
-                    group_of_three,
-                    ["favorite", "rate", "verify", "notify"],
-                    "2",
-                    "dining",
-                    3
-                ),
-                timelineCard(
-                    "Breakfast",
-                    "8:33am",
-                    "1.5 Hours",
-                    "images/explore_bg.png",
-                    "Loquita",
-                    "Santa Barbara",
-                    "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
-                    ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
-                    group_of_three,
-                    ["favorite", "rate", "verify", "notify"],
-                    "2",
-                    "dining",
-                    3
-                ),
-                timelineCard(
-                    "Breakfast",
-                    "8:33am",
-                    "1.5 Hours",
-                    "images/explore_bg.png",
-                    "Loquita",
-                    "Santa Barbara",
-                    "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
-                    ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
-                    group_of_three,
-                    ["favorite", "rate", "verify", "notify"],
-                    "2",
-                    "dining",
-                    3
-                ),
-                timelineCard(
-                    "Breakfast",
-                    "8:33am",
-                    "1.5 Hours",
-                    "images/explore_bg.png",
-                    "Loquita",
-                    "Santa Barbara",
-                    "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
-                    ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
-                    group_of_three,
-                    ["favorite", "rate", "verify", "notify"],
-                    "2",
-                    "dining",
-                    3
-                ),
-                timelineCard(
-                    "Breakfast",
-                    "8:33am",
-                    "1.5 Hours",
-                    "images/explore_bg.png",
-                    "Loquita",
-                    "Santa Barbara",
-                    "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
-                    ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
-                    group_of_three,
-                    ["favorite", "rate", "verify", "notify"],
-                    "2",
-                    "dining",
-                    3
-                ),
-                timelineCard(
-                    "Breakfast",
-                    "8:33am",
-                    "1.5 Hours",
-                    "images/explore_bg.png",
-                    "Loquita",
-                    "Santa Barbara",
-                    "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
-                    ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
-                    group_of_three,
-                    ["favorite", "rate", "verify", "notify"],
-                    "2",
-                    "dining",
-                    3
-                ),
-            ].join("")
+            periods.map(sample).join("")
         );
 
     const messagesContent = choiceSet(
@@ -160,16 +90,6 @@ function connectPage(selected = false) {
                         subtitle: "including 2 taste matches!"
                     }]
                 ),
-                // exploreCard(
-                //     "",
-                //     "London July",
-                //     "Broadcast Response",
-                //     "Love this bar!",
-                //     [],
-                //     [{ people:[peopleList[1]], title: "Liked By", groupName: "Explorer", subtitle: "including 2 taste matches!"}],
-                //     ["explore_detail"],
-                //     "1",
-                // ),
                 dreamCardNotification(
                     [{
                         people: [peopleList[1]],
@@ -273,6 +193,6 @@ function connectPage(selected = false) {
         tabSet(name, [
             {name: "Timeline", content: timelineContent},
             {name: "Messages", content: messagesContent},
-        ], "Messages")
+        ], "Timeline")
     );
 }

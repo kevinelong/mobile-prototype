@@ -10,8 +10,9 @@ function timelineCardContent(
     imagePath,
     tags = [],
     id = -1,
-    kind2 = "",
-    booking_index = -1
+    kind2 = "activity",
+    booking_index = -1,
+    period = "lunch",
 ) {
 
     let qty = 0;
@@ -24,8 +25,13 @@ function timelineCardContent(
         booking = actionItem("book", "book", -1, "Book Now!");
     }
     // const booking = "";
+
+    const is_current_period = (period === current_period ? "is-current-period" : "not-current-period");
+    
+    console.log(current_period, period, is_current_period);
+
     return div(
-        `card ${kind}`,
+        `card timeline ${kind} ${kind2} ${period} ${is_current_period}`,
         img("background top", "images/backgrounds/top-gradient-black.svg") +
         cardSection(
             contentPanel(body) +
@@ -60,6 +66,8 @@ function timelineCardContent(
     ) //+ cardTitle(title);
 }
 
+current_period = "lunch"
+
 function timelineCard(
     what = "",
     when = "",
@@ -73,17 +81,20 @@ function timelineCard(
     actions = [],
     id = 0,
     kind = "timeline",
-    booking_index = -1
+    booking_index = -1,
+    period = "lunch"
 ) {
+
+
     return timelineCardContent(
         what,
         when,
         duration,
-        "explore",
-        "???",
+        kind,
+        title,
         row(
-            cardSubtitle(`${what} ${when} ${duration}`) +
-            actionItem("plan", "","","Edit")
+            cardSubtitle(`${period} ${when} ${duration}`) +
+            actionItem("plan", "", "", "Edit")
         ) +
         row(
             icon(kind) +
@@ -97,6 +108,7 @@ function timelineCard(
         tags,
         id,
         kind,
-        booking_index
+        booking_index,
+        period
     );
 }

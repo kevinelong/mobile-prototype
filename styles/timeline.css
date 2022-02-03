@@ -1,8 +1,4 @@
-.timeline * {
-    /* margin-top: 0 !important; */
-}
-
-.timeline {
+.day-picker {
     /* padding: 0px 0; */
     height: auto;
     width: auto;
@@ -14,34 +10,27 @@
     color: black;
     min-height: 70px;
 }
-
-.timeline .day {
-    /* background-color: red; */
-    /* border: 1px solid red; */
+.day-picker .day {
     display: inline-flex;
-    /* margin: 0 0.5rem; */
     margin-left: 0.5rem;
     margin-right: 0.5rem;
     border-radius: 10px;
-    /* background-color: grey; */
     width: 50px;
     height: 70px;
-    /* display: flex; */
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
 }
-
-.timeline .day.current-day {
+.day-picker .day.current-day {
     background-color: black;
     color: white;
 }
 
-.timeline .day.adjacent-day {
+.day-picker .day.adjacent-day {
     background-color: #eaeaea;
 }
 
-.timeline .day-of-week {
+.day-picker .day-of-week {
     font-size: 10px;
     justify-content: flex-end;
 }
@@ -56,4 +45,40 @@
     border-radius: 0.25rem;
     width: 72px;
     height: 48px;
+}
+.timeline.card{
+    border-radius: 3px;
+    padding: 3px;
+}
+.card.not-current-period .content-panel {
+    gap:1px;
+    padding:3px;
+}
+.card.not-current-period .memories {
+    display: none;
+}
+.card.not-current-period .memories .image {
+    border-radius: 0.125rem;
+    width: 36px;
+    height: 24px;
+}
+
+.card.is-current-period{
+    opacity: 1;
+    transition: opacity 100ms ease-in-out;
+}
+
+.card.not-current-period{
+    opacity: 0.75;
+    transition: opacity 100ms ease-in-out;
+}
+
+.card.not-current-period .action-item,
+.card.not-current-period .card-people,
+.card.not-current-period .card-tags{
+        display: none;
+}
+.card.not-current-period .action-item.plan,
+.card.not-current-period .row > .card-subtitle{
+    display: flex;
 }
