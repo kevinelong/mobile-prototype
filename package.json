@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "jslint": "^0.12.1"
+    "jshint": "^2.13.4",
+    "jslint": "^0.12.1",
+    "jslint-cli": "^20201106.0.0"
   }
 }

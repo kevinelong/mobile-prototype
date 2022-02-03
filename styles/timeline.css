@@ -47,8 +47,14 @@
     height: 48px;
 }
 .timeline.card{
-    border-radius: 3px;
-    padding: 3px;
+    border-radius: 13px;
+    padding: 0;
+    background-color: black;
+}
+.timeline.card .card-inner{
+    border-radius: 13px;
+    padding: 13px;
+    
 }
 .card.not-current-period .content-panel {
     gap:1px;
@@ -64,15 +70,33 @@
 }
 
 .card.is-current-period{
+    background-color: white;
+}
+
+.card.not-current-period{
+    background-color: #888888;
+}
+.card.is-current-period .card-inner{
     opacity: 1;
     transition: opacity 100ms ease-in-out;
 }
 
-.card.not-current-period{
-    opacity: 0.75;
+.card.not-current-period .card-inner{
+    opacity: 0.55;
     transition: opacity 100ms ease-in-out;
 }
+.timeline .card .card-inner{
+     padding:7px;
+}
+.timeline .card .content-panel{
+        padding:0;
+}
 
+.card.not-current-period .card-inner{
+    /* background-blend-mode: darken; */
+}
+
+.card.not-current-period .card-inner > .row,
 .card.not-current-period .action-item,
 .card.not-current-period .card-people,
 .card.not-current-period .card-tags{

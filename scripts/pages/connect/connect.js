@@ -1,28 +1,9 @@
-function sample(period){
-  return timelineCard(
-      "timeline",
-      "12:33am",
-      "1.5 Hours",
-      "images/explore_bg.png",
-      "Loquita",
-      "Santa Barbara",
-      "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
-      ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
-      group_of_three,
-      ["favorite", "rate", "verify", "notify"],
-      "2",
-      "dining",
-      3,
-      period
-  );
-}
-
-const periods = ["breakfast","lunch","dinner","late-night"];
 
 function connectPage(selected = false) {
     const defaultLocation = "Santa Barbara";
     const itemCount = 11;
-    const timelineContent = choiceSet(
+    const timelineContent = [
+        choiceSet(
             "timeline",
             [
                 "Go!",
@@ -31,28 +12,40 @@ function connectPage(selected = false) {
                 "Rate/Review",
                 "Verify for Offset",
                 "Memories"
-            ], "Go!") +
-
-
-        // titleRow("timeline", "timeline", -1) +
-        cardList(
-            sectionTitle(
-                title("Friday 12/12/2022") +
-                actionItem("add-place", "timeline", -1, "add", "black")
-            ) +
-            subtitle("Santa Barbara") +
-            periods.map(sample).join("")
-        );
+            ],
+            "Go!"
+        ),
+        cardList([
+            cardListSection(
+                "Friday 12/12/2022",
+                actionItem("add-place", "timeline", -1, "add", "black"),
+                "Santa Barbara",
+                periods.map(sample)
+            ),
+            cardListSection(
+                "Saturday 12/13/2022",
+                actionItem("add-place", "timeline", -1, "add", "black"),
+                "Santa Barbara",
+                periods.map(sample)
+            ),
+            cardListSection(
+                "Sunday 12/14/2022",
+                actionItem("add-place", "timeline", -1, "add", "black"),
+                "Santa Barbara",
+                periods.map(sample)
+            ),
+        ].join("")),
+    ].join("");
 
     const messagesContent = choiceSet(
-            "connect",
-            [
-                "All",
-                "1 on 1",
-                "Group Chat",
-                "Notifications"
-            ], "All"
-        ) +
+        "connect",
+        [
+            "All",
+            "1 on 1",
+            "Group Chat",
+            "Notifications"
+        ], "All"
+    ) +
         cardList(
             [
                 connectCard(
@@ -100,8 +93,7 @@ function connectPage(selected = false) {
                     2,
                     defaultLocation,
                     text(
-                        `${itemCount} new items added to your linked ${defaultLocation} dream board by your friend ${
-                            peopleList[BF].name
+                        `${itemCount} new items added to your linked ${defaultLocation} dream board by your friend ${peopleList[BF].name
                         }.`
                     ),
                     ["dream"]
@@ -190,9 +182,6 @@ function connectPage(selected = false) {
         "",
         actionItem("add", "message", -1, "", "black", false),
         "Find what?",
-        tabSet(name, [
-            {name: "Timeline", content: timelineContent},
-            {name: "Messages", content: messagesContent},
-        ], "Timeline")
+        messagesContent
     );
 }

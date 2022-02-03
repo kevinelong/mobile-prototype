@@ -40,7 +40,7 @@
     width: 12px;
     height: 12px;
 }
-.explore.page .card > .card-section > .content-panel > .card-subtitle{
+.explore.page .card .card-inner > .card-section > .content-panel > .card-subtitle{
     font-size: 9px;
 }
 .explore.page .action-item.person .icon-frame .icon{

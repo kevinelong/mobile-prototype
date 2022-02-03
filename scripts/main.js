@@ -38,8 +38,8 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     get(".main-nav-outer").innerHTML = mainNav(
-        ["explore", "dream", "connect", "plan", "settle"],
-        "connect"
+        ["explore", "dream", "connect", "timeline", "plan", "settle"],
+        "timeline"
     );
 
     get(".inner-content").innerHTML = [
@@ -49,7 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
         dreamBoardPage(),
         planPage(),
         planDetailPage(),
-        connectPage(true),
+        timelinePage(true),
+        connectPage(),
         connectChatPage(),
         connectPersonPage(),
         settleList(),

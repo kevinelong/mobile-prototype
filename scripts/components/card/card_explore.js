@@ -49,7 +49,7 @@ function exploreCardContent(
     // const booking = "";
     return div(
         `card ${kind}`,
-        img("background top", "images/backgrounds/top-gradient-black.svg") +
+        // img("background top", "images/backgrounds/top-gradient-black.svg") +
         cardSection(
             contentPanel(body) +
             cardTags(tags)
@@ -62,13 +62,15 @@ function exploreCardContent(
                 ) +
                 actionList(`card-actions`, actions, false, qty)
             )
-        ) +
-        img(
-            "background bottom",
-            "images/backgrounds/bottom-gradient-black.svg"
-        )
+        ) 
+        // img(
+        //     "background bottom",
+        //     "images/backgrounds/bottom-gradient-black.svg"
+        // )
         ,
-        image ? `style="background-image: url('${image}');"` : ""
+        image ? `style="background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.25)), black url('${image}') center/cover no-repeat;"` : ""
+
+        // image ? `style="background-image: url('${image}');"` : ""
     ) //+ cardTitle(title);
 }
 

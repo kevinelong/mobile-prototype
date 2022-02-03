@@ -64,16 +64,16 @@
 
 .main-nav-tab.selected #connect .icon-frame,
 .card.connect {
-    background-color: #F9A831;
+    background-color: #e99821;
 }
 
 .main-nav-tab.selected #explore .icon-frame {
     /*background-color: #FFCC00;*/
-    background-color: #ff6666;
+    background-color: #ef5656;
 }
 
 .page.explore .card.explore {
-    background-color: #ff6666;
+    background-color: #ef5656;
     /*box-shadow: 2px 2px 4px 1px #00000088;*/
     box-shadow: 1px 1px 2px 0px #000000FF;
     /*width: 100%;*/
@@ -96,15 +96,15 @@
 
 .main-nav-tab.selected #dream .icon-frame,
 .main-nav-tab.selected #boards .icon-frame {
-    background-color: #6677cc;
+    background-color: #5667bc;
 }
 
 .main-nav-tab.selected #plan .icon-frame {
-    background-color: #77cc77;
+    background-color: #67bc67;
 }
 
 .main-nav-tab.selected #settle .icon-frame {
-    background-color: #6633EE;
+    background-color: #5623dE;
 }
 
 .main-nav-outer {
@@ -132,6 +132,7 @@
 }
 
 .outer-box > .circle{
+    display:none;
     width: 42px;
     height: 42px;
 

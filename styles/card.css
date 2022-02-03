@@ -8,7 +8,7 @@
     flex-direction: column;
     /*justify-content: start;*/
     align-items: flex-start;
-    padding: 0 0 1rem 0;
+    padding: 0 0 7rem 0;
     gap: 0.25em;
     background: none;
     height: 555px;
@@ -33,7 +33,7 @@
     border-radius: 13px;
     background-color: #FFF3;
     color: #FFFFFF;
-    padding: 15px;
+    padding: 0;
     margin: 0;
     /*width: auto;*/
     /*width: calc(100% - 16px);*/
@@ -49,6 +49,13 @@
     justify-content: space-between;
     height: auto;
     position: relative;
+}
+.card-inner{
+    padding: 15px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    border-radius: 13px;
 }
 
 .card-tags {
@@ -132,8 +139,11 @@
     /*background-size: 72%;*/
     box-shadow: 2px 2px 4px 1px #00000088;
     width: 100%;
+    padding: 12px;
 }
-
+.page.timeline .card{
+    padding:0;
+}
 .page.explore_detail .card {
     min-height: 466px;
 }
@@ -161,9 +171,10 @@
 
 .page.dream .card {
     background-color: #0005;
+    padding: 12px;
 }
 
-.card > * {
+.card .card-inner > * {
     z-index: 200;
 }
 
@@ -257,7 +268,8 @@
 }
 
 .card.connect {
-    background-color: #F9A831;
+    background-color: #e99821;
+    padding: 12px;    
 }
 
 .page.explore .row > * {
@@ -295,9 +307,9 @@
 /*    align-self: flex-end;*/
 /*}*/
 
-.page.explore .card > .row,
-.page.explore .card > .row .col .row,
-.page.explore .card > .row .col .row .col {
+.page.explore .card .card-inner > .row,
+.page.explore .card .card-inner > .row .col .row,
+.page.explore .card .card-inner > .row .col .row .col {
     /*width: 100%;*/
     /*margin: 0 auto;*/
 }
@@ -307,22 +319,27 @@
 }
 
 .card {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0),  rgba(0, 0, 0, 0),  rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), black center/cover no-repeat;
     /* prevents the exported black frames from figma from showing. */
     background-size: 103%;
     gap: 1rem;
 }
-
+.card-inner{
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0),  rgba(0, 0, 0, 0),  rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), black center/cover no-repeat;
+    background-size: 103%;
+    gap: 1rem;
+}
 .card.dream,
 .card.board {
-    background-color: #6677cc;
+    background-color: #5667bc;
 }
 
 .card.plan {
-    background-color: #77cc77;
+    background-color: #67bc67;
 }
 
 .card.settle {
-    background-color: #6633EE;
+    background-color: #5623dE;
 }
 
 .card-list .card-list .row {
