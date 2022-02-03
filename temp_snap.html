@@ -97,11 +97,18 @@ route
             display: block;
         }
 
+        .inner-content{
+            /* height: 100%; */
+            /* overflow: hidden; */
+            /* overflow: visible; */
+        }
+
         .scroll-window {
             display: block;
             background-color: grey;
-            
-            overflow-y: scroll;
+            /* scroll-behavior: smooth; */
+            overflow: auto;
+            /* overflow-y: auto; */
         }
 
         .scroll-window .scroll-item {
@@ -114,7 +121,6 @@ route
             text-align: center;
             line-height: 150px;
         }
-
     </style>
 
 </head>
@@ -144,7 +150,7 @@ route
 </html>
 
 <script>
-    
+
     const scrollWindow = get(".scroll-window")
     const onScrollStop = callback => {
         let isScrolling;
@@ -159,6 +165,15 @@ route
             false
         );
     };
+
+    // const isStopScrolling = function() {
+    //     {
+    //         clearTimeout(isScrolling);
+    //         isScrolling = setTimeout(() => {
+    //             callback();
+    //         }, 150);
+    //     }
+    // }
 
     const scrollItems = getAll(".scroll-item")
     console.log(scrollItems)
@@ -187,11 +202,12 @@ route
     function findClosestDiv(divs) {
         for (let i = 0; i < divs.length; i++) {
             const distanceFromTop = getScrollDistance(scrollItems[i])
-            console.log(distanceFromTop)
+            console.log(i, distanceFromTop)
             if (345 < distanceFromTop && distanceFromTop < 400) {
-                console.log(i)
-                // scrollWindow.scrollTop = 5 + (i * 200)
-                scrollWindow.scrollTop = 5
+                console.log("Jump", i, distanceFromTop)
+                const scrollYCoord = 5 + ((i - 1) * 200)
+                scrollWindow.scroll({top: scrollYCoord, behavior: "smooth"})
+                // scrollWindow.scrollTop = 5
             }
         }
     }
