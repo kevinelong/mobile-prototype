@@ -153,7 +153,7 @@
 }
 
 .page.dream .card {
-    background-blend-mode: darken;
+    /* background-blend-mode: darken; */
     /*filter: brightness(50%);*/
 }
 
@@ -319,7 +319,7 @@
 }
 
 .card {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0),  rgba(0, 0, 0, 0),  rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), black center/cover no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25)), black center/cover no-repeat;
     /* prevents the exported black frames from figma from showing. */
     background-size: 103%;
     gap: 1rem;

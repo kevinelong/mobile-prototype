@@ -117,8 +117,7 @@ function connectPage(selected = false) {
                         groupName: "Co-Planner",
                         subtitle: ""
                     }],
-                    ["decline", "counter", "accept"],
-                    "plan_invite"
+                    ["decline", "counter", "accept"]
                 ),
                 settleCard(
                     [peopleList[BF]],
@@ -157,16 +156,14 @@ function connectPage(selected = false) {
                     "Brasil Arts Cafe",
                     "Check in and rate to earn Vita Rewards",
                     [],
-                    ["rate", "review", "check-in"],
-                    "plan"
+                    ["rate", "review", "check-in"]
                 ),
                 planCard(
                     "Verify",
                     "Yesterday's Transportation",
                     "Verify to earn Vita Rewards",
                     [],
-                    ["verify"],
-                    "plan"
+                    ["verify"]
                 ),
             ].join("")
         );

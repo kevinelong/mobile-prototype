@@ -97,7 +97,8 @@ function card(
         // ),
         attrs +
         ` data-kind="${cleanName(kind)}" data-which="${which}" ` +
-        (image ? `style="background-image: url('${image}');"` : "")
+        (image ? `style="background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.25)), black url('${image}') center/cover no-repeat;"` : "")
+
     );
 }
 
