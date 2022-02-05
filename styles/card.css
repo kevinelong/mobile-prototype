@@ -346,6 +346,9 @@
 .card.settle {
     background-color: #5623dE;
 }
+.card.settle .titles{
+    width: 100%;
+}
 
 .card-list .card-list .row {
     width: 100%;

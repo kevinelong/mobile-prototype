@@ -119,7 +119,7 @@ function connectPage(selected = false) {
                     }],
                     ["decline", "counter", "accept"]
                 ),
-                settleCard(
+                /* settleCard(
                     [peopleList[BF]],
                     "$123.45",
                     "Yesterday 12/12/2022",
@@ -150,7 +150,7 @@ function connectPage(selected = false) {
                     4,
                     "Santa Barbara",
                     ["accept"],
-                ),
+                ),*/
                 planCard(
                     "Check In and Rate",
                     "Brasil Arts Cafe",

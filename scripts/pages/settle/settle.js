@@ -17,10 +17,10 @@ function settleCardZZZ(
 
 function dashBoardItem(titleText = "", valueText = "", actionName = "") {
     return contentPanel(col([
-            title(valueText),
-            text(titleText),
-            actionItem(actionName,"settle",-1, actionName,"", false),
-        ].join("")), "dashboard-item");
+        title(valueText),
+        text(titleText),
+        actionItem(actionName, "settle", -1, actionName, "", false),
+    ].join("")), "dashboard-item");
 }
 
 function dashboard(items) {
@@ -39,18 +39,24 @@ function settlePage(selected = false) {
             dashBoardItem("total owed to me", "$123.45", "remind-all"),
             dashBoardItem("total I owe", "$543.21", "settle-all"),
         ]) +
-            cardList(
-                settleCard(
-                    [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
-                    "3.00",
-                    "yesterday, Tuesday 12/12/2022",
-                    "pay",
-                    -1,
-                    "NET - All Items",
-                    13,
-                    "Santa Barbara"
-                )
+        cardList(
+            settleCard(
+                [
+                    ["JS", 0],
+                    ["JS", 200],
+                    ["JS", 0],
+                ],
+                "3.00",
+                "9:33am yesterday, Tuesday 12/12/2022",
+                "pay",
+                -1,
+                "dining",
+                13,
+                "The Boathouse Beach Cafe",
+                "Santabarbara, California USA",
+                ["Request Settlement", "Details"]
             )
+        )
     );
 }
 /*
