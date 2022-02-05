@@ -91,10 +91,20 @@
 .timeline .card .content-panel{
         padding:0;
 }
-
-.card.not-current-period .card-inner{
-    /* background-blend-mode: darken; */
+.action-button{
+    background-color: goldenrod;
+    color: white;
+    white-space: nowrap;
+    text-align: center;
+    margin:0;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 3px;;
+    /* box-shadow: 1px 1px 4px #0003; */
 }
+/* .card.not-current-period .card-inner{
+    background-blend-mode: darken;
+} */
 
 .card.not-current-period .card-inner > .row,
 .card.not-current-period .action-item,

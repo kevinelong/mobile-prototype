@@ -213,6 +213,10 @@ function icon(name = "menu", iconColor = "", textValue = "", hideText = false) {
 }
 
 function personIcon(person) {
+    if(!person || !person.id){
+        return "";
+    }
+
     return (
         div("icon-frame", `<img class="icon" src="${facePath(person.id)}">`) +
         text(person.name ? person.name : "")

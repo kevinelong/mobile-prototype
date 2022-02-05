@@ -18,27 +18,30 @@ function sample(period) {
 }
 
 const periods = ["breakfast", "lunch", "dinner", "late-night"];
-
-const timelineContent = cardList([
-    cardListSection(
-        "Friday 12/12/2022",
-        actionItem("add-place", "timeline", -1, "add", "black"),
-        "Santa Barbara",
-        periods.map(sample)
-    ),
-    cardListSection(
-        "Saturday 12/13/2022",
-        actionItem("add-place", "timeline", -1, "add", "black"),
-        "Santa Barbara",
-        periods.map(sample)
-    ),
-    cardListSection(
-        "Sunday 12/14/2022",
-        actionItem("add-place", "timeline", -1, "add", "black"),
-        "Santa Barbara",
-        periods.map(sample)
-    ),
-].join(""));
+function actionButton(content, className, attrs) {
+    return closedTag("button", content, `action-button ${className}`, `onclick="actionClick('${className}', '${className}', '${className}')" $attrs`)
+}
+const timelineContent = actionButton("Smart Ideas", "smart-ideas") +
+    cardList([
+        cardListSection(
+            "Friday 12/12/2022",
+            actionItem("add-place", "timeline", -1, "add", "black"),
+            "Santa Barbara",
+            periods.map(sample)
+        ),
+        cardListSection(
+            "Saturday 12/13/2022",
+            actionItem("add-place", "timeline", -1, "add", "black"),
+            "Santa Barbara",
+            periods.map(sample)
+        ),
+        cardListSection(
+            "Sunday 12/14/2022",
+            actionItem("add-place", "timeline", -1, "add", "black"),
+            "Santa Barbara",
+            periods.map(sample)
+        ),
+    ].join(""));
 
 function timelinePage(selected = false) {
     const defaultLocation = "Santa Barbara";
@@ -61,7 +64,8 @@ function timelinePage(selected = false) {
         "",
         "",
         actionItem("add", "plan", -1, "", "black", false),
-        "Find what?",
+        // "Find what?",
+        "",
         "",
         ""
         // tabSet(name, [

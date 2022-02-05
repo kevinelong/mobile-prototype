@@ -60,7 +60,14 @@ const THINGS_TO_DO_FILTERS = [
     "Outdoor",
     "Group"
 ];
-
+const DESTINATIONS =[
+    {
+        name: "Santa Barabara, California USA"
+    },
+    {
+        name: "Las Vagas, Nevada USA"
+    }
+]
 const RESTAURANTS = [
     {
         name: "1"
@@ -105,17 +112,17 @@ function selectDateRange(name) {
     );
 }
 
-function onClickTabItem(e, name, index){
+function onClickTabItem(e, name, index) {
     const top = e.closest(".tab-set");
     const items = top.querySelectorAll(".tab-item");
     const contents = top.querySelectorAll(".tab-content");
-    items.forEach(item=> item.classList.remove('selected'));
+    items.forEach(item => item.classList.remove('selected'));
     e.classList.add('selected');
     top.children[index].classList.add("selected")
     top.children[index].classList.remove("hidden")
 }
 
-function tabItem(name, index, isSelected=false) {
+function tabItem(name, index, isSelected = false) {
     const selected = isSelected ? "selected" : "";
     return div(
         `tab-item ${selected} ${cleanName(name)}`,
@@ -168,7 +175,7 @@ function showThingsToDo(title = "Filter - Things To Do", index = -1) {
                 value: 0
             }]),
 
-            selectOptionsComponent("Time", [{name: "Any Time", value: 0}]),
+            selectOptionsComponent("Time", [{ name: "Any Time", value: 0 }]),
 
             selectOptionsComponent("Duration", [{
                 name: "Any Duration",
@@ -225,6 +232,32 @@ function showReviewDialog() {
             ) +
             actionList("", ["cancel", "save"], false, 0, "black")
         )
+    )
+}
+/***
+ * a) Destination box and 
+ * b) Date range Calendar 
+ * c) Note for future functionality: 
+ * if a date range of more a single day app asks,
+ *  if user wants to create a Plan?
+ * (so 1 night triggers it)
+ * 
+ */
+
+function showSmartIdeasDialog() {
+    showDialog(
+        "Smart Ideas",
+        contentPanel([
+            label(
+                "Destination", row(
+                // text("Destination") + 
+                input("destination","text",`placeholder="Destination"`) +
+                actionButton("...", "search"))
+            ),
+            selectDateRange("Date Range:"),
+            checkBox("Add to Plan", "add-to-plan"),
+            actionList("", ["cancel", "apply"], false, 0, "black")
+        ].join(""))
     )
 }
 
@@ -292,8 +325,8 @@ function showProfileDialog(target, action, which, index = RUBY) {
             .join("")
     );
     const other = label("", "Relationship" +
-            input("relationship", "text", `placeholder="e.g. Acquaintance, Friend, BFF"`)
-        ) +
+        input("relationship", "text", `placeholder="e.g. Acquaintance, Friend, BFF"`)
+    ) +
         label("",
             "Shared Plans" +
             div("card-tags", [...[
@@ -397,6 +430,7 @@ ACTION_PAGES = {
     show: toggleCollapse,
     person: showProfileDialog,
     match: showMatchDialog,
+    'smart-ideas': showSmartIdeasDialog,
     review: showReviewDialog
 };
 
