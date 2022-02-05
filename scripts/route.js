@@ -222,6 +222,15 @@ function showLodging(title = "Filter - Lodging", index = -1) {
     );
 }
 
+function showDestinations(title = "Destination", index = -1) {
+    showDialog(title,
+        contentPanel(
+            search(DESTINATIONS, index) +
+            actionList("filter-actions", ["apply"], false, 0, "black")
+        )
+    );
+}
+
 function showReviewDialog() {
     showDialog(
         "Write Review",
@@ -252,7 +261,7 @@ function showSmartIdeasDialog() {
                 "Destination", row(
                 // text("Destination") + 
                 input("destination","text",`placeholder="Destination"`) +
-                actionButton("...", "search"))
+                actionButton("...", "search-destination"))
             ),
             selectDateRange("Date Range:"),
             checkBox("Add to Plan", "add-to-plan"),
@@ -422,6 +431,7 @@ ACTION_PAGES = {
     contact: addContact,
     new: addItem,
     search: addPerson,
+    'search-destination': showDestinations,
     invite: sendInvite,
     more: addPerson,
     hide: hideDialog,
