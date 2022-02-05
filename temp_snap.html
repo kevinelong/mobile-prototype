@@ -97,12 +97,6 @@ route
             display: block;
         }
 
-        .inner-content{
-            /* height: 100%; */
-            /* overflow: hidden; */
-            /* overflow: visible; */
-        }
-
         .scroll-window {
             display: block;
             background-color: grey;
@@ -166,8 +160,6 @@ route
         );
     };
 
-    
-
     const scrollItems = getAll(".scroll-item")
     // console.log(scrollItems)
 
@@ -197,7 +189,7 @@ route
             const distanceFromTop = getScrollDistance(scrollItems[i])
             // console.log(i, distanceFromTop)
             // if (345 < distanceFromTop && distanceFromTop < 445) {
-                // console.log("Jump", i, distanceFromTop)
+            // console.log("Jump", i, distanceFromTop)
             //     const scrollYCoord = 5 + ((i - 1) * 200)
             //     console.log("Jump Coord", scrollYCoord)
             //     scrollWindow.scroll({top: scrollYCoord, behavior: "smooth"})
@@ -207,7 +199,7 @@ route
                 // console.log(`scroll position: ${scrollWindow.scrollTop}`)
                 // console.log("Jump", i, distanceFromTop)
                 const scrollYCoord = 5 + ((i - 1) * 200)
-                scrollWindow.scroll({top: scrollYCoord, behavior: "smooth"})
+                scrollWindow.scroll({ top: scrollYCoord, behavior: "smooth" })
             }
         }
     }
@@ -221,10 +213,10 @@ route
     //     console.log(`scroll position: ${scrollWindow.scrollTop}`)
     //     findClosestDiv(scrollItems)
     // })
-    
 
     onScrollStop(() => {
         // console.log("scroll stop event triggered")
         findClosestDiv(scrollItems)
     });
+
 </script>
