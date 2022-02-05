@@ -24,3 +24,10 @@ label.search {
 label.Destination{
     width: 100%;
 }
+
+.black{
+    color:black;
+}
+.page.timeline .is-current-period.card{
+    border-color: green;
+}

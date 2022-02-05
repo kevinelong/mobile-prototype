@@ -1,7 +1,7 @@
-function text(textValue) {
+function text(textValue, color) {
     textValue = `${textValue}`; //ensure that the parameter is converted to text in case its was something like qty
     const word_count = textValue.split().length;
-    return div(`text wc-${word_count}`, textValue);
+    return div(`text wc-${word_count} ${color}`, textValue);
 }
 
 function image(path=""){
@@ -206,9 +206,9 @@ function iconMap(icon) {
 function icon(name = "menu", iconColor = "", textValue = "", hideText = false) {
     return (
         div(
-            "icon-frame",
+            `icon-frame ${iconColor}`,
             `<img class="icon" src="${iconPath(iconMap(name), iconColor)}">`
-        ) + (textValue && !hideText ? text(textValue) : "")
+        ) + (textValue && !hideText ? text(textValue, iconColor) : "")
     );
 }
 
