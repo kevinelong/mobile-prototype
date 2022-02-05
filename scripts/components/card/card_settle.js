@@ -1,13 +1,17 @@
+function currency(number){
+    return number.toLocaleString('us-US', { style: 'currency', currency: 'USD' })
+}
 function settleWho(settleRow){
     const WHO_INDEX = 0;
     const AMOUNT_INDEX = 1
-    return div("settle-who", 
-    col(
-        div(`settle-who ${settleRow[AMOUNT_INDEX] > 0 ? "green" : "red"}`,
-            text(settleRow[WHO_INDEX]) +
-            text(settleRow[AMOUNT_INDEX])
+    const color = settleRow[AMOUNT_INDEX] > 0 ? "green" : "red";
+    const amount = currency(settleRow[AMOUNT_INDEX]);
+    return div(`settle-who ${color}`, 
+        col(
+                div("amount", amount) +
+                div("who", settleRow[WHO_INDEX])
         )
-    ))
+    )
 }
 function settleCard(
     who,
@@ -19,7 +23,7 @@ function settleCard(
     quantity = 1,
     where = "",
     location = "",
-    actions = ["Request Settlement", "details"]
+    actions = ["Request Settlement"]
 ) {
 
     const titleContent = div(

@@ -349,7 +349,51 @@
 .card.settle .titles{
     width: 100%;
 }
-
+.card.settle .title {
+    text-align: right;
+    width: max-content;
+    align-self: flex-end;
+    justify-self: flex-end;
+    color: white;
+    border: 0 solid white;
+    box-shadow: none;
+}
+.card.settle .content-panel > .title{
+    background: none;
+}
+.card.settle .card-title{
+    font-size: 15pt;
+}
+.card.settle .content-panel,
+.card.settle .content-panel .text,
+.settle.page .card.settle .content-panel > .row{
+    text-align: center;
+    align-self: center;
+    justify-self: center;
+    justify-content: center;
+    justify-items: center;
+    padding:0;
+}
+.settle-who .who,
+.settle-who .amount,
+.settle-who{
+    text-align: center;
+    align-self: center;
+    justify-self: center;
+}
+.settle-who .amount{
+    font-size: 1.2em;
+}
+.settle-who .who{
+    font-size: 0.8em;
+}
+.settle-who{
+    margin:0;
+    background-color: #88888888;
+    font-size: 1em;
+    padding: 0.5rem 1em;
+    border-radius: 0.5em;
+}
 .card-list .card-list .row {
     width: 100%;
 }

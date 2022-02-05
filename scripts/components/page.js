@@ -8,7 +8,7 @@ function page(
     selectedCard = "",
     parent = "",
     actionContent = "",
-    searchMessage = "Where to?",
+    searchMessage = "",
     tabs = ""
 ) {
     return div(
@@ -20,7 +20,7 @@ function page(
                 cardPerson(peopleList[RUBY])
                 // actionItem("person", "me", 0, "", "black")
             ) +
-            (searchMessage ? search([], -1, searchMessage) : "") +
+            ((searchMessage !== undefined && searchMessage.length > 0) ? search([], -1, searchMessage) : "") +
             choiceSet(`${name}-filters`, choiceList, selectedChoice)
         ) +
         contentPanel(

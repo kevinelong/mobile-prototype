@@ -113,7 +113,10 @@ function explorePage(selected = false) {
         ],
         "All",
         row(lists.join("")),
-        "ALL"
+        "ALL",
+        "",
+        "",
+        "Search the World"
     );
 }
 

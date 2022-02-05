@@ -1,19 +1,4 @@
-function settleCardZZZ(
-    title,
-    subtitle = "",
-    content = "",
-    transactionList,
-    people,
-    actions
-) {
-    return card(
-        "settle",
-        div(`titles`, cardTitle(title) + cardSubtitle(subtitle)) + content,
-        moneyPanel(transactionList),
-        people,
-        actions
-    );
-}
+
 
 function dashBoardItem(titleText = "", valueText = "", actionName = "") {
     return contentPanel(col([
@@ -39,11 +24,11 @@ function settlePage(selected = false) {
             dashBoardItem("total owed to me", "$123.45", "remind-all"),
             dashBoardItem("total I owe", "$543.21", "settle-all"),
         ]) +
-        cardList(
+        cardList([
             settleCard(
                 [
-                    ["JS", 0],
-                    ["JS", 200],
+                    ["RR", 0],
+                    ["BF", 200],
                     ["JS", 0],
                 ],
                 "3.00",
@@ -53,10 +38,37 @@ function settlePage(selected = false) {
                 "dining",
                 13,
                 "The Boathouse Beach Cafe",
-                "Santabarbara, California USA",
-                ["Request Settlement", "Details"]
-            )
-        )
+                "Santabarbara, California USA"
+            ),settleCard(
+                [
+                    ["RR", 0],
+                    ["BF", 200],
+                    ["JS", 0],
+                ],
+                "3.00",
+                "9:33am yesterday, Tuesday 12/12/2022",
+                "pay",
+                -1,
+                "dining",
+                13,
+                "The Boathouse Beach Cafe",
+                "Santabarbara, California USA"
+            ),settleCard(
+                [
+                    ["RR", 0],
+                    ["BF", 200],
+                    ["JS", 0],
+                ],
+                "3.00",
+                "9:33am yesterday, Tuesday 12/12/2022",
+                "pay",
+                -1,
+                "dining",
+                13,
+                "The Boathouse Beach Cafe",
+                "Santabarbara, California USA"
+            ),
+            ].join(""))
     );
 }
 /*

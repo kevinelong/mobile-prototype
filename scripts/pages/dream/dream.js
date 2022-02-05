@@ -37,6 +37,9 @@ function dreamPage(selected = false) {
                 }]
             ),
         ].join("")),
-        "ALL NETWORK"
+        "ALL NETWORK",
+        "",
+        "",
+        "Find in Collection"
     );
 }
