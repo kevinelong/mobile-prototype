@@ -387,9 +387,15 @@
 .settle-who .who{
     font-size: 0.8em;
 }
+.green{
+    color:green;
+}
+.red{
+    color: #993300;
+}
 .settle-who{
     margin:0;
-    background-color: #88888888;
+    background-color: #ffffffaa;
     font-size: 1em;
     padding: 0.5rem 1em;
     border-radius: 0.5em;
