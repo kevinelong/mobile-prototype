@@ -143,6 +143,11 @@
 }
 .page.timeline .card{
     padding:0;
+    border-left: 9px solid #0004;
+    padding-left: 3px;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
 }
 .page.explore_detail .card {
     min-height: 466px;
