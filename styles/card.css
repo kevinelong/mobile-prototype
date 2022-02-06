@@ -68,6 +68,8 @@
     }
     .smart .card-tags{
         white-space: normal;
+        flex-direction: row;
+        width:auto;
     }
     .smart .hash-tag.gold{
         padding: 0.25rem 0.5rem;

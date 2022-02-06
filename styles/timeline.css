@@ -88,7 +88,7 @@
 }
 
 .page.timeline .card.not-current-period{
-    background-color: #888888;
+    /* background-color: #888888; */
 }
 .page.timeline .card:focus .card-inner,
 .page.timeline .card:focus-within .card-inner,
@@ -130,6 +130,25 @@
 .card.not-current-period .card-tags{
         display: none;
 }
+
+.card.not-current-period:focus .card-inner > .content-panel,
+.card.not-current-period:focus .card-inner > .row,
+.card.not-current-period:focus .card-inner > .text,
+.card.not-current-period:focus .action-item,
+.card.not-current-period:focus .card-people,
+.card.not-current-period:focus-within .card-inner > .content-panel,
+.card.not-current-period:focus-within .card-inner > .row,
+.card.not-current-period:focus-within .card-inner > .text,
+.card.not-current-period:focus-within .action-item,
+.card.not-current-period:focus-within .card-people{
+        display: flex;
+}
+
+.card.not-current-period:focus .card-tags,
+.card.not-current-period:focus-within .card-tags{
+        display: block;
+}
+
 .card.not-current-period .action-item.plan,
 .card.not-current-period .row > .card-subtitle{
     display: flex;
