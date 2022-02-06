@@ -60,6 +60,22 @@
         border-radius: 13px;
     }
     
+    .smart .card-inner{
+        background-color: goldenrod;
+    }
+    .card.smart .content-panel{
+        border-radius: 0;
+    }
+    .smart .card-tags{
+        white-space: normal;
+    }
+    .smart .hash-tag.gold{
+        padding: 0.25rem 0.5rem;
+        border-radius: 12px;
+        background-color: white;
+        color: black;
+    }
+
     .card-tags {
         display: block;
         margin: 0px 0;

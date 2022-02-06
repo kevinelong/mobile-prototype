@@ -34,7 +34,14 @@
     font-size: 10px;
     justify-content: flex-end;
 }
-
+.smart .card-inner{
+    gap: 6px;
+}
+.mood{
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
 .memories {
     flex-direction: row;
     background-color: #0008;
