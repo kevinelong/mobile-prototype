@@ -29,24 +29,30 @@ const SMART_IDEAS = {
     "Fast Food",
     "More...",
   ],
+  afternoon:[
+      "E-Biking Rental", "Outdoor Bars/Pubs","Sailing Tours","Adventure Tours","Standup Paddle", "Beach", "More..."
+  ]
 };
-function smart(period) {
+function smart(period="lunch", timeRange = "11:00 am - 2:30 pm", currentMood="hungry") {
   return smartCard(
     "smart",
     "",
-    "11:00 am - 2:30 pm",
+    timeRange,
     "",
-    "10 Smart Ideas for You!",
-    div("mood", "Current Mood: HUNGRY" + actionItem("edit", "", "", "Update Mood")),
+    `${SMART_IDEAS[period].length} Smart Ideas for You!`,
+    div(
+      "mood",
+      "Current Mood: " + currentMood.toUpperCase() + actionItem("edit", "mood", "", "Update Mood")
+    ),
     "or Check-In right here!" +
-      actionItem("check-in", "", "", "Restaurant 1") +
-      actionItem("check-in", "", "", "Restaurant 2") +
-      actionItem("check-in", "", "", "Restaurant 3"),
-      SMART_IDEAS.lunch,
+      actionItem("check-in", "", "", "Experience 1") +
+      actionItem("check-in", "", "", "Experience 2") +
+      actionItem("check-in", "", "", "Experience 3"),
+    SMART_IDEAS[period],
     [],
     [],
     "2",
-    "dining",
+    "activity",
     3,
     period
   );
@@ -69,10 +75,16 @@ const timelineContent =
         actionItem("add-place", "timeline", -1, "add", "black"),
         "Santa Barbara",
         [
-            sample("breakfast"), 
-            col(title("CURRENT TIME: 11:04 am")+title("LOCATION: Santa Barabara" +actionItem("edit","","","edit","black"))),
-            smart("lunch"), 
-            smart("dinner")
+          sample("breakfast"),
+          col(
+            title("CURRENT TIME: 11:04 am") +
+              title(
+                "LOCATION: Santa Barabara" +
+                  actionItem("edit", "", "", "edit", "black")
+              )
+          ),
+          smart("lunch", "11:00 am - 2:30 pm", "hungry"),
+          smart("afternoon", "2:45 pm - 4:30 pm", "active"),
         ]
       ),
       cardListSection(

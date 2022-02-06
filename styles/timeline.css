@@ -81,14 +81,18 @@
     height: 24px;
 }
 
-.card.is-current-period{
+.page.timeline .card:focus,
+.page.timeline .card:focus-within,
+.page.timeline .card.is-current-period{
     background-color: white;
 }
 
-.card.not-current-period{
+.page.timeline .card.not-current-period{
     background-color: #888888;
 }
-.card.is-current-period .card-inner{
+.page.timeline .card:focus .card-inner,
+.page.timeline .card:focus-within .card-inner,
+.page.timeline .card.is-current-period .card-inner{
     opacity: 1;
     transition: opacity 100ms ease-in-out;
 }
@@ -118,7 +122,9 @@
     background-blend-mode: darken;
 } */
 
+.card.not-current-period .card-inner > .content-panel,
 .card.not-current-period .card-inner > .row,
+.card.not-current-period .card-inner > .text,
 .card.not-current-period .action-item,
 .card.not-current-period .card-people,
 .card.not-current-period .card-tags{

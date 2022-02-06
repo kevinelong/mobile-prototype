@@ -180,11 +180,11 @@ function smartCardContent(
       text("Or you can check-in right here:") +
       ["Check-In to Brasil Cafe","Check into Sports Shop"].map(place=>actionItem("check-in", place,"",place)).join("")
       ,
-      imagePath
+      (imagePath
         ? `style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), black url('${imagePath}') center/cover no-repeat;"`
-        : ""
-    )
-  );
+        : "")
+    ),
+    ` tabindex="1" `);
 }
 
 function smartCard(
