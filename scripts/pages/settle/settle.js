@@ -1,5 +1,3 @@
-
-
 function dashBoardItem(titleText = "", valueText = "", actionName = "") {
     return contentPanel(col([
         title(valueText),
@@ -16,32 +14,52 @@ function settlePage(selected = false) {
     return page(
         selected,
         "settle",
-        "Settle",
-        ["All", "I Owe", "Owed to me"],
+        "Settle", ["All", "I Owe", "Owed to me"],
         "All",
 
         dashboard([
             dashBoardItem("total owed to me", "$123.45", "remind-all"),
             dashBoardItem("total I owe", "$543.21", "settle-all"),
         ]) +
-        cardList([
-            settleCard(
-                [
-                    ["RR", 0],
-                    ["BF", 200],
-                    ["JS", 0],
-                ],
-                "3.00",
-                "9:33 am yesterday, Tuesday 12/12/2022",
-                "pay",
-                -1,
-                "dining",
-                13,
-                "The Boathouse Beach Cafe",
-                "Santabarbara, California USA"
-            ),
-            
-            ].join(""))
+        cardList(
+            [
+                title("Yesterday - Monday 12/11/2022" +
+                    actionItem("settle", "settle", -1, "Add Settlement", "black", false)),
+                settleCard(
+                    [
+                        ["RR", 0],
+                        ["BF", 200],
+                        ["JS", 0],
+                    ],
+                    "3.00",
+                    "9:33 am yesterday, Tuesday 12/12/2022",
+                    "pay", -1,
+                    "dining",
+                    13,
+                    "The Boathouse Beach Cafe",
+                    "Santabarbara, California USA"
+                ),
+                title("Today - Tuesday 12/12/2022" +
+                    actionItem("settle", "settle", -1, "Add Settlement", "black", false)),
+                settleCard(
+                    [
+                        ["RR", 0],
+                        ["BF", 200],
+                        ["JS", 0],
+                    ],
+                    "3.00",
+                    "9:33 am yesterday, Tuesday 12/12/2022",
+                    "pay", -1,
+                    "dining",
+                    13,
+                    "The Boathouse Beach Cafe",
+                    "Santabarbara, California USA"
+                ),
+                title("Tomorrow - Wednesday 12/13/2022" +
+                    actionItem("settle", "settle", -1, "Add Settlement", "black", false))
+
+            ].join("")
+        )
     );
 }
 /*

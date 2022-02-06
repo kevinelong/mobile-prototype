@@ -1,146 +1,140 @@
-.settle.page .content-panel>.row {
-    width: 99%;
-    gap: 1rem;
-    padding: 1rem;
-    align-content: space-evenly;
-    alignment: center;
-    /*flex-direction: ;*/
-}
-
-.dashboard-item .action-item {
-    background-color: #0001;
-}
-
-.dashboard-item .action-item:hover {
-    background-color: #0004;
-}
-
-.dashboard-item {
-    padding: 0;
-    border-radius: 0;
-}
-
-.dashboard-item * {
-    align-self: center;
-    align-content: space-evenly;
-    text-align: center;
-    margin: auto;
-    gap: 0;
-}
-
-.dashboard-item .text {
-    padding: 8px 4px;
-}
-
-
-/*.dashboard-item *,*/
-
-
-/*.dashboard-item .title{*/
-
-
-/*    text-align: center;*/
-
-
-/*    align-self: center;*/
-
-
-/*    align-items: center;*/
-
-
-/*    margin: auto;*/
-
-
-/*}*/
-
-.dashboard-item .action-item {
-    /*border: 1px solid black;*/
-    border-radius: 6px;
-    color: black;
-    font-size: 1rem;
-}
-
-.dashboard-item .action-item:hover {
-    background-color: #0002;
-}
-
-.dashboard-item .text {
-    padding: 4px;
-}
-
-.dashboard-item .title {
-    background: none;
-}
-
-.money-panel,
-.message-panel {
-    margin: 0;
-    padding: 0;
-    background: #00000066;
-    gap: 10px;
-    border-radius: 1em;
-}
-
-.money-panel {
-    margin: 1em 0;
-    padding: 0.125em;
-    background: #00000099;
-    gap: 0.125em;
-    border-radius: 0.125em;
-}
-
-.money-item,
-.message-item {
-    flex-direction: row;
-}
-
-.message-item.is-current-user {
-    flex-direction: row-reverse;
-    gap: 5em;
-}
-
-.message-item.same-person {
-    margin-top: -8px;
-}
-
-.money-item .circle,
-.message-item .circle {
-    flex-direction: row;
-    font-size: 8pt;
-    gap: 0.25em;
-    height: 24px;
-    padding-right: 0;
-}
-
-.money-item .money-text {
-    flex-direction: column;
-    font-size: 11px;
-    gap: 0.25em;
-    background: white;
-    padding: 0.25em;
-    border-radius: 0 1em 1em 1em;
-    color: #000000CC;
-    box-shadow: none;
-    text-shadow: none;
-}
-
-.money-item .money-text {
-    font-size: 8pt;
-    color: white;
-    background: #fff1;
-    border-radius: 0.25em;
-    min-width: 50px;
-    text-align: right;
-}
-
-.money-item {
-    align-items: center;
-    vertical-align: middle;
-}
-
-.money-item .circle {
-    min-width: 100px;
-    text-align: right;
-    flex-direction: row;
-    justify-content: space-between;
-}
+        .settle.page .content-panel>.row {
+            width: 99%;
+            gap: 1rem;
+            padding: 1rem;
+            align-content: space-evenly;
+            alignment: center;
+            /*flex-direction: ;*/
+        }
+        
+        .dashboard-item .action-item {
+            background-color: #0001;
+        }
+        
+        .dashboard-item .action-item:hover {
+            background-color: #0004;
+        }
+        
+        .dashboard-item {
+            padding: 0;
+            border-radius: 0;
+        }
+        
+        .dashboard-item * {
+            align-self: center;
+            align-content: space-evenly;
+            text-align: center;
+            margin: auto;
+            gap: 0;
+        }
+        
+        .dashboard-item .text {
+            padding: 8px 4px;
+        }
+        /*.dashboard-item *,*/
+        /*.dashboard-item .title{*/
+        /*    text-align: center;*/
+        /*    align-self: center;*/
+        /*    align-items: center;*/
+        /*    margin: auto;*/
+        /*}*/
+        
+        .dashboard-item .action-item {
+            /*border: 1px solid black;*/
+            border-radius: 6px;
+            color: black;
+            font-size: 1rem;
+        }
+        
+        .settle .title .action-item .text {
+            display: flex;
+        }
+        
+        .settle.page>.content-panel>.card-list>.title {
+            font-size: 18px;
+        }
+        
+        .dashboard-item .action-item:hover {
+            background-color: #0002;
+        }
+        
+        .dashboard-item .text {
+            padding: 4px;
+        }
+        
+        .dashboard-item .title {
+            background: none;
+        }
+        
+        .money-panel,
+        .message-panel {
+            margin: 0;
+            padding: 0;
+            background: #00000066;
+            gap: 10px;
+            border-radius: 1em;
+        }
+        
+        .money-panel {
+            margin: 1em 0;
+            padding: 0.125em;
+            background: #00000099;
+            gap: 0.125em;
+            border-radius: 0.125em;
+        }
+        
+        .money-item,
+        .message-item {
+            flex-direction: row;
+        }
+        
+        .message-item.is-current-user {
+            flex-direction: row-reverse;
+            gap: 5em;
+        }
+        
+        .message-item.same-person {
+            margin-top: -8px;
+        }
+        
+        .money-item .circle,
+        .message-item .circle {
+            flex-direction: row;
+            font-size: 8pt;
+            gap: 0.25em;
+            height: 24px;
+            padding-right: 0;
+        }
+        
+        .money-item .money-text {
+            flex-direction: column;
+            font-size: 11px;
+            gap: 0.25em;
+            background: white;
+            padding: 0.25em;
+            border-radius: 0 1em 1em 1em;
+            color: #000000CC;
+            box-shadow: none;
+            text-shadow: none;
+        }
+        
+        .money-item .money-text {
+            font-size: 8pt;
+            color: white;
+            background: #fff1;
+            border-radius: 0.25em;
+            min-width: 50px;
+            text-align: right;
+        }
+        
+        .money-item {
+            align-items: center;
+            vertical-align: middle;
+        }
+        
+        .money-item .circle {
+            min-width: 100px;
+            text-align: right;
+            flex-direction: row;
+            justify-content: space-between;
+        }
