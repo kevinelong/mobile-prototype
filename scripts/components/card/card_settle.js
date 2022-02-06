@@ -1,15 +1,20 @@
-function settleWho(settleRow){
+function settleWho(settleRow) {
     const WHO_INDEX = 0;
     const AMOUNT_INDEX = 1
     const color = settleRow[AMOUNT_INDEX] > 0 ? "green" : "red";
     const amount = currency(settleRow[AMOUNT_INDEX]);
-    return div(`settle-who ${color}`, 
+    return div(`settle-who ${color}`,
         col(
-                div("amount", amount) +
-                div("who", settleRow[WHO_INDEX])
+            div("amount", amount) +
+            div("who", settleRow[WHO_INDEX])
         )
     )
 }
+
+function settleGroup(people) {
+    return row(people.map(settleWho).join(""));
+}
+
 function settleCard(
     who,
     amount,
@@ -30,19 +35,19 @@ function settleCard(
             icon(which) +
             col(
                 cardTitle(`${titleCase(where)}`) +
-                cardSubtitle(`${titleCase(location)}`) 
-            )
-        + actionItem("open", "settle_list", index)),
+                cardSubtitle(`${titleCase(location)}`)
+            ) +
+            actionItem("open", "settle_list", index)),
     );
-    
-    const cardContent =  title(currency(amount), amount > 0 ? "green" : "red") +
-    row(who.map(settleWho).join(""));
+
+    const color = ((amount > 0) ? "green" : ((amount < 0) ? "red" : "black"));
+    const amountText = currency(amount);
+    const cardContent = title(amountText, color) + settleGroup(who);
 
     return card(
         "settle",
         titleContent,
-        cardContent,
-        [],
+        cardContent, [],
         actions
     );
 }

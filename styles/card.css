@@ -374,6 +374,7 @@
     
     .card.settle .content-panel,
     .card.settle .content-panel .text,
+    .settle .title .col .row,
     .settle.page .card.settle .content-panel>.row {
         text-align: center;
         align-self: center;
@@ -392,11 +393,20 @@
     }
     
     .settle-who .amount {
-        font-size: 1.2em;
+        font-size: 11px;
     }
     
     .settle-who .who {
-        font-size: 0.8em;
+        font-size: 9px;
+    }
+    
+    .card-list .title .row .col {
+        align-items: center;
+        align-content: center;
+        margin: 0 auto;
+        justify-content: center;
+        align-self: center;
+        justify-self: center;
     }
     
     .green {
@@ -404,7 +414,11 @@
     }
     
     .red {
-        color: #993300;
+        color: #ff6633;
+    }
+    
+    .black {
+        color: #333333;
     }
     
     .dashboard-item .title,
@@ -442,17 +456,11 @@
         transition: opacity 300ms ease-in-out, padding 300ms ease-in-out, max-height 300ms ease-in-out, max-height 300ms ease-in-out, min-height 300ms ease-in-out, minwidth 300ms ease-in-out;
     }
     
-    .page.explore .action-item .text {
-        /*display: none;*/
-    }
-    
     .action-item.person .text,
     .message-item .text,
     .person-icon .text {
         display: none;
-        /*width:0;*/
-        /*margin:0;*/
-        /*padding:0;*/
+        width: 0;
         max-height: 0;
         max-width: 0;
         opacity: 0;
