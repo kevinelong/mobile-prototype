@@ -1,11 +1,13 @@
 function settleWho(settleRow) {
     const WHO_INDEX = 0;
     const AMOUNT_INDEX = 1
-    const color = settleRow[AMOUNT_INDEX] > 0 ? "green" : "red";
-    const amount = currency(settleRow[AMOUNT_INDEX]);
+    const amount = settleRow[AMOUNT_INDEX];
+    const color = ((amount > 0) ? "green" : ((amount < 0) ? "red" : "black"));
+
+    const amountText = currency(amount);
     return div(`settle-who ${color}`,
         col(
-            div("amount", amount) +
+            div("amount", amountText) +
             div("who", settleRow[WHO_INDEX])
         )
     )

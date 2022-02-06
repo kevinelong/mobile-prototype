@@ -144,6 +144,27 @@ function settlePage(selected = false) {
             "Santa Barbara, California USA"
           ),
           title(
+            col(
+              "Daily Ending Balances" +
+                settleGroup([
+                  ["RR", 433],
+                  ["BF", -391],
+                  ["JS", -261],
+                ])
+            ) +
+              col(
+                actionItem("discuss", "discuss", -1, "Discuss", "black", false) +
+                actionItem(
+                  "settle",
+                  "settle",
+                  -1,
+                  "Request Settlement",
+                  "black",
+                  false
+                ) 
+              )
+          ),
+          title(
             "Tomorrow - Wednesday 12/13/2022" +
               actionItem(
                 "settle",
