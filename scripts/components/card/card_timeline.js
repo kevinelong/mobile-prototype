@@ -164,7 +164,6 @@ function smartCardContent(
     div(
       "card-inner",
       cardSection(
-        // contentPanel(body) +
         row(cardSubtitle(`${period} ${when} ${duration}`)) +
     
       row(icon(kind) + cardTitle(titleText)) +
@@ -176,6 +175,8 @@ function smartCardContent(
             )
           )
       )+
+      contentPanel(subtitleText) +
+
       text("Or you can check-in right here:") +
       ["Check-In to Brasil Cafe","Check into Sports Shop"].map(place=>actionItem("check-in", place,"",place)).join("")
       ,
