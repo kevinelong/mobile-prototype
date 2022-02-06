@@ -35,7 +35,6 @@ component
 `.split("\n").map(p => p ? document.write(`<li` + `nk href="styles/` +
             p.split(" ").join("/") + ".css" +
             `"  rel="stylesheet" type="text/css"/>`) : '');
-
     </script>
     <script>
         `
@@ -53,7 +52,7 @@ components card card_explore
 components card card_connect
 components card card_settle
 components card card_plan
-components card card_dream
+components card card_collect
 
 components card card_people
 
@@ -83,9 +82,9 @@ pages settle settle_list
 pages explore explore_detail
 pages explore explore
 
-pages dream dream
-pages dream dream_board
-pages dream dream_details
+pages collect collect
+pages collect collect_board
+pages collect collect_details
 
 route
 component
@@ -98,19 +97,20 @@ component
             color: white;
             background-color: black;
         }
-        *{
+        
+        * {
             /*border: 1px solid white;*/
         }
-
+        
         .pane {
-            width:320px;
-            height:240px;
+            width: 320px;
+            height: 240px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             border: 1px solid white;
         }
-
+        
         .pane .pane-actions {
             display: flex;
             flex-direction: row;
@@ -118,8 +118,8 @@ component
             flex-flow: row-reverse;
             width: 100%
         }
-
-        .pane .pane-action{
+        
+        .pane .pane-action {
             border-radius: 1em;
             background-color: black;
             color: white;
@@ -133,42 +133,33 @@ component
             panes: {
                 "AAA": {
                     content: "AAA",
-                    actions: [
-                        {
-                            name: "next",
-                            pane: "BBB"
-                        },
-                    ]
+                    actions: [{
+                        name: "next",
+                        pane: "BBB"
+                    }, ]
                 },
                 "BBB": {
                     content: "BBB",
-                    actions: [
-                        {
-                            name: "previous",
-                            pane: "AAA"
-                        },
-                        {
-                            name: "next",
-                            pane: "CCC"
-                        },
-                    ]
+                    actions: [{
+                        name: "previous",
+                        pane: "AAA"
+                    }, {
+                        name: "next",
+                        pane: "CCC"
+                    }, ]
                 },
                 "CCC": {
                     content: "CCC",
-                    actions: [
-                        {
-                            name: "previous",
-                            pane: "BBB"
-                        },
-                        {
-                            name: "restart",
-                            pane: "AAA"
-                        },
-                        {
-                            name: "finish",
-                            pane: ""
-                        },
-                    ]
+                    actions: [{
+                        name: "previous",
+                        pane: "BBB"
+                    }, {
+                        name: "restart",
+                        pane: "AAA"
+                    }, {
+                        name: "finish",
+                        pane: ""
+                    }, ]
                 }
             }
         };
@@ -179,7 +170,7 @@ component
             ))].forEach(
                 e => e.classList.add("hidden")
             );
-            if(pane){
+            if (pane) {
                 [...(document.querySelectorAll(
                     `.${pane}`
                 ))].forEach(
@@ -220,19 +211,19 @@ component
 </head>
 
 <body cz-shortcut-listen="true">
-<div class="content div">
-    <div class="outer-box div">
-        <div class="inner-content div">
-            <div class="test">
-                <script>
-                    document.write(test());
-                </script>
+    <div class="content div">
+        <div class="outer-box div">
+            <div class="inner-content div">
+                <div class="test">
+                    <script>
+                        document.write(test());
+                    </script>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="smoke hidden"></div>
-<div class="dialog hidden"></div>
+    <div class="smoke hidden"></div>
+    <div class="dialog hidden"></div>
 </body>
 
 </html>

@@ -1,6 +1,3 @@
-function currency(number){
-    return number.toLocaleString('us-US', { style: 'currency', currency: 'USD' })
-}
 function settleWho(settleRow){
     const WHO_INDEX = 0;
     const AMOUNT_INDEX = 1
@@ -38,7 +35,7 @@ function settleCard(
         + actionItem("open", "settle_list", index)),
     );
     
-    const cardContent =  title(amount, amount > 0 ? "green" : "red") +
+    const cardContent =  title(currency(amount), amount > 0 ? "green" : "red") +
     row(who.map(settleWho).join(""));
 
     return card(

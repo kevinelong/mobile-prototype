@@ -1,4 +1,4 @@
-function dreamCard(title, subtitle = "", actions = [], which = "", id = 0, image = "", groups = []) {
+function collectCard(title, subtitle = "", actions = [], which = "", id = 0, image = "", groups = []) {
     const kind = "board"
     return card(
         kind,
@@ -10,29 +10,26 @@ function dreamCard(title, subtitle = "", actions = [], which = "", id = 0, image
     );
 }
 
-function dreamPage(selected = false) {
+function collectPage(selected = false) {
     return page(
         selected,
-        "dream",
-        "Dream",
-        ["All", "Local", "Americas", "Europe", "Asia", "Other"],
+        "collect",
+        "Collect", ["All", "Local", "Americas", "Europe", "Asia", "Other"],
         "All",
         cardList([
-            dreamCard("Santa Barbara", "California", [], "dream_board", 1,
-                "images/photos/santa_barbara_1500x500.jpg",
-                [{
+            collectCard("Santa Barbara", "California", [], "collect_board", 1,
+                "images/photos/santa_barbara_1500x500.jpg", [{
                     people: peopleList,
                     title: "Linked with",
-                    groupName: "Dreamer",
+                    groupName: "Collector",
                     subtitle: "23 cards shared"
                 }]
             ),
-            dreamCard("Paris", "France", [], "dream_board", 2,
-                "images/photos/paris_france.jpg",
-                [{
+            collectCard("Paris", "France", [], "collect_board", 2,
+                "images/photos/paris_france.jpg", [{
                     people: [peopleList[JOE]],
                     title: "Linked with",
-                    groupName: "Dreamer",
+                    groupName: "Collector",
                     subtitle: "2 cards shared"
                 }]
             ),

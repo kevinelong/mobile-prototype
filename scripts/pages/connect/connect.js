@@ -1,11 +1,9 @@
-
 function connectPage(selected = false) {
     const defaultLocation = "Santa Barbara";
     const itemCount = 11;
     const timelineContent = [
         choiceSet(
-            "timeline",
-            [
+            "timeline", [
                 "Go!",
                 "Check-Ins",
                 "Pay/Settle",
@@ -38,22 +36,20 @@ function connectPage(selected = false) {
     ].join("");
 
     const messagesContent = choiceSet(
-        "connect",
-        [
-            "All",
-            "1 on 1",
-            "Group Chat",
-            "Notifications"
-        ], "All"
-    ) +
+            "connect", [
+                "All",
+                "1 on 1",
+                "Group Chat",
+                "Notifications"
+            ], "All"
+        ) +
         cardList(
             [
                 connectCard(
                     [],
                     "I can join you on Saturday and Sunday",
                     "Thursday June 17th 10:23am",
-                    0,
-                    [{
+                    0, [{
                         people: [peopleList[BF]],
                         title: "Connecting with",
                         groupName: "Participant",
@@ -65,8 +61,7 @@ function connectPage(selected = false) {
                     messageListExample,
                     "Group Chat",
                     peopleList.map(p => p.name).join(", "),
-                    0,
-                    [{
+                    0, [{
                         people: peopleList,
                         title: "Connecting with",
                         groupName: "Participant",
@@ -75,49 +70,44 @@ function connectPage(selected = false) {
                     "connect_chat"
                 ),
                 exploreCardNotification(
-                    13,
-                    [{
+                    13, [{
                         people: peopleList,
                         title: "Liked By",
                         groupName: "Explorer",
                         subtitle: "including 2 taste matches!"
                     }]
                 ),
-                dreamCardNotification(
+                collectCardNotification(
                     [{
                         people: [peopleList[1]],
                         title: "linked with",
-                        groupName: "dreamer",
+                        groupName: "collecter",
                         subtitle: "23 shared cards"
                     }],
                     2,
                     defaultLocation,
                     text(
-                        `${itemCount} new items added to your linked ${defaultLocation} dream board by your friend ${peopleList[BF].name
+                        `${itemCount} new items added to your linked ${defaultLocation} collect board by your friend ${peopleList[BF].name
                         }.`
-                    ),
-                    ["dream"]
+                    ), ["collect"]
                 ),
-                dreamCardNotification(
+                collectCardNotification(
                     [],
                     2,
                     "Santa Barbara",
-                    "New taste match!",
-                    ["match"]
+                    "New taste match!", ["match"]
                 ),
                 planCard(
                     "Plan Invite",
                     "Yoichi's",
                     "Santa Barbara<br>" +
                     "Tuesday March 3rd 2022 at Noon.<br>" +
-                    "Plan Invitation",
-                    [{
+                    "Plan Invitation", [{
                         people: [peopleList[0], peopleList[1]],
                         title: "Going",
                         groupName: "Co-Planner",
                         subtitle: ""
-                    }],
-                    ["decline", "counter", "accept"]
+                    }], ["decline", "counter", "accept"]
                 ),
                 /* settleCard(
                     [peopleList[BF]],
@@ -154,16 +144,12 @@ function connectPage(selected = false) {
                 planCard(
                     "Check In and Rate",
                     "Brasil Arts Cafe",
-                    "Check in and rate to earn Vita Rewards",
-                    [],
-                    ["rate", "review", "check-in"]
+                    "Check in and rate to earn Vita Rewards", [], ["rate", "review", "check-in"]
                 ),
                 planCard(
                     "Verify",
                     "Yesterday's Transportation",
-                    "Verify to earn Vita Rewards",
-                    [],
-                    ["verify"]
+                    "Verify to earn Vita Rewards", [], ["verify"]
                 ),
             ].join("")
         );
@@ -171,8 +157,7 @@ function connectPage(selected = false) {
     return page(
         selected,
         "connect",
-        "Connect",
-        [],
+        "Connect", [],
         "All",
         "",
         "",

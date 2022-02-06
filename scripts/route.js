@@ -5,8 +5,7 @@ function sendInvite() {
 function addContact() {
 
     showDialog(
-        "Add New Contact",
-        [
+        "Add New Contact", [
             label("first", input("first", "text", `placeholder="First Name"`)),
             label("last", input("last", "text", `placeholder="Last Name"`)),
         ].join("") +
@@ -46,8 +45,7 @@ function showSearch(title, index = -1) {
     );
 }
 
-const THINGS_TO_DO = [
-    {
+const THINGS_TO_DO = [{
         name: "Thing 1"
     },
     {
@@ -60,16 +58,14 @@ const THINGS_TO_DO_FILTERS = [
     "Outdoor",
     "Group"
 ];
-const DESTINATIONS =[
-    {
+const DESTINATIONS = [{
         name: "Santa Barabara, California USA"
     },
     {
         name: "Las Vagas, Nevada USA"
     }
 ]
-const RESTAURANTS = [
-    {
+const RESTAURANTS = [{
         name: "1"
     },
     {
@@ -82,8 +78,7 @@ const RESTAURANT_FILTERS = [
     "F2",
     "F3"
 ];
-const LODGING = [
-    {
+const LODGING = [{
         name: "1"
     },
     {
@@ -259,15 +254,19 @@ function showSmartIdeasDialog() {
         contentPanel([
             label(
                 "Destination", row(
-                // text("Destination") + 
-                input("destination","text",`placeholder="Destination"`) +
-                actionButton("...", "search-destination"))
+                    // text("Destination") + 
+                    input("destination", "text", `placeholder="Destination"`) +
+                    actionButton("...", "search-destination"))
             ),
             selectDateRange("Date Range:"),
             checkBox("Add to Plan", "add-to-plan"),
             actionList("", ["cancel", "apply"], false, 0, "black")
         ].join(""))
     )
+}
+
+function showUploadDialog() {
+    showDialog("Upload", input("file", "file", "") + actionButton("upload"))
 }
 
 function showMatchDialog() {
@@ -293,7 +292,7 @@ function showMatchDialog() {
                     <!-- <b>Richard's home - Best Wine tasting in Napa</b> has been booked by Joe Shmoe for
                     all co-planners. -->
                     <b>You and Joe Schmoe</b> both classified <b>Yoichi’s</b> as an Idea in your
-                    <b>Santa Barbara</b> DreamBoards
+                    <b>Santa Barbara</b> Collections
                 </div>
                 <div>
                     You can pay back now or settle at the end of the day.
@@ -321,21 +320,21 @@ function showProfileDialog(target, action, which, index = RUBY) {
     const who = peopleList[index];
     const actions = actionPanel(
         ["block", "friend", "follow"]
-            .map((actionName) =>
-                actionItem(
-                    actionName,
-                    index,
-                    index,
-                    actionName,
-                    "black",
-                    false
-                )
+        .map((actionName) =>
+            actionItem(
+                actionName,
+                index,
+                index,
+                actionName,
+                "black",
+                false
             )
-            .join("")
+        )
+        .join("")
     );
     const other = label("", "Relationship" +
-        input("relationship", "text", `placeholder="e.g. Acquaintance, Friend, BFF"`)
-    ) +
+            input("relationship", "text", `placeholder="e.g. Acquaintance, Friend, BFF"`)
+        ) +
         label("",
             "Shared Plans" +
             div("card-tags", [...[
@@ -357,8 +356,7 @@ function showProfileDialog(target, action, which, index = RUBY) {
 
     const content = contentPanel(
         person(who) +
-        (index === 0 ? "" : other)
-        ,
+        (index === 0 ? "" : other),
         "profile"
     );
     showDialog(index === 0 ? "Your Profile" : "Connection Profile", content);
@@ -379,7 +377,7 @@ function openPage(target, action, which, id) {
     } else if ("split" === action) {
         showPage("settle_split", "open", id);
     } else if ("board" === action) {
-        showPage("dream", "dream", id);
+        showPage("collect", "collect", id);
     }
 }
 
@@ -392,10 +390,10 @@ TOAST_MESSAGES = {
     book: "Finding the best rate...",
     heart: "Added to your Favorites",
     share: "Shared to your Connections",
-    pin: "Added to Dream Board",
-    plan: "Added to Plan",
+    collect: "Added to your Collection",
+    plan: "Added to your Plan",
     accept: "Accepted Invitation",
-    schedule: "Added to Plan",
+    schedule: "Added to your Plan",
     decline: "Declined Invitation",
     settle: "Payment Settled",
     "remind-all": "Reminders Sent",
@@ -440,6 +438,7 @@ ACTION_PAGES = {
     show: toggleCollapse,
     person: showProfileDialog,
     match: showMatchDialog,
+    upload: showUploadDialog,
     'smart-ideas': showSmartIdeasDialog,
     review: showReviewDialog
 };

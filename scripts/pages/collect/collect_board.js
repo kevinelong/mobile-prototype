@@ -1,22 +1,19 @@
-
-
-function dreamBoardPage(selected = false) {
+function collectBoardPage(selected = false) {
 
 
     return page(
         selected,
-        "dream_board",
-        "Santa Barbara",
-        [
+        "collect_board",
+        "Santa Barbara", [
             icon("all") + "All",
             icon("ideas") + "Ideas",
             icon("favorites") + "Favorites",
-            icon("going","","going"),
+            icon("going", "", "going"),
         ],
         "All",
-        cardGroups(dreamers) +
+        cardGroups(collecters) +
         activityList(activityData),
         "all",
-        "dream"
+        "collect"
     );
 }

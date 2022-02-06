@@ -30,23 +30,23 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.innerHTML = content(
         outerBox(
             innerContent() +
-                circle("") +
-                mainNavOuter() +
-                hiddenToast("") +
-                hiddenSmoke(hiddenDialog())
+            circle("") +
+            mainNavOuter() +
+            hiddenToast("") +
+            hiddenSmoke(hiddenDialog())
         )
     );
 
     get(".main-nav-outer").innerHTML = mainNav(
-        ["explore", "dream", "connect", "timeline", "plan", "settle"],
+        ["explore", "collect", "connect", "timeline", "plan", "settle"],
         "timeline"
     );
 
     get(".inner-content").innerHTML = [
         explorePage(),
         exploreDetailPage(),
-        dreamPage(),
-        dreamBoardPage(),
+        collectPage(),
+        collectBoardPage(),
         planPage(),
         planDetailPage(),
         timelinePage(true),
@@ -60,18 +60,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const outerBox2 = get(".outer-box");
     outerBoxWidth = outerBox2.clientWidth
-    // console.log(outerBoxWidth);
+        // console.log(outerBoxWidth);
 
     const contentPanel = get(".content-panel")
     const cssObjContentPanel = window.getComputedStyle(contentPanel)
     const contentPanelPaddingSides = parseFloat(cssObjContentPanel.paddingLeft) + parseFloat(cssObjContentPanel.paddingRight)
-    // console.log(contentPanelPaddingSides)    
-    
+        // console.log(contentPanelPaddingSides)    
+
     timelineWindowWidth = outerBoxWidth - contentPanelPaddingSides
-    // console.log(timelineWindowWidth)
-    // const page = get(".page")
-    // const cssObjPage = window.getComputedStyle(page)
-    // console.log(cssObjPage)
+        // console.log(timelineWindowWidth)
+        // const page = get(".page")
+        // const cssObjPage = window.getComputedStyle(page)
+        // console.log(cssObjPage)
 
     const timeline = get(".timeline");
     const days = timeline.children;
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //         parseFloat(cssObj.marginLeft) +
     //         parseFloat(cssObj.marginRight)
     // );
-    
+
     let count = 0
     let timelineScrollWidth = 0
     for (let i = 0; i < days.length; i++) {
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // const timelineScrollStart = (timelineScrollWidth / 2)
     const timelineScrollStart = (timelineScrollWidth / 2) - (timelineWindowWidth / 2)
-    // console.log(timelineScrollStart)
+        // console.log(timelineScrollStart)
 
     timeline.scrollLeft = timelineScrollStart
 

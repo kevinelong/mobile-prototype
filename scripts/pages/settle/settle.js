@@ -32,35 +32,7 @@ function settlePage(selected = false) {
                     ["JS", 0],
                 ],
                 "3.00",
-                "9:33am yesterday, Tuesday 12/12/2022",
-                "pay",
-                -1,
-                "dining",
-                13,
-                "The Boathouse Beach Cafe",
-                "Santabarbara, California USA"
-            ),settleCard(
-                [
-                    ["RR", 0],
-                    ["BF", 200],
-                    ["JS", 0],
-                ],
-                "3.00",
-                "9:33am yesterday, Tuesday 12/12/2022",
-                "pay",
-                -1,
-                "dining",
-                13,
-                "The Boathouse Beach Cafe",
-                "Santabarbara, California USA"
-            ),settleCard(
-                [
-                    ["RR", 0],
-                    ["BF", 200],
-                    ["JS", 0],
-                ],
-                "3.00",
-                "9:33am yesterday, Tuesday 12/12/2022",
+                "9:33 am yesterday, Tuesday 12/12/2022",
                 "pay",
                 -1,
                 "dining",
@@ -68,6 +40,7 @@ function settlePage(selected = false) {
                 "The Boathouse Beach Cafe",
                 "Santabarbara, California USA"
             ),
+            
             ].join(""))
     );
 }

@@ -4,8 +4,8 @@ function text(textValue, color) {
     return div(`text wc-${word_count} ${color}`, textValue);
 }
 
-function image(path=""){
-    return div("image","", `style="background-image: url('${path}')"`)
+function image(path = "") {
+    return div("image", "", `style="background-image: url('${path}')"`)
 }
 
 function title(textValue) {
@@ -47,8 +47,7 @@ const RUBY = 0;
 const JOE = 1;
 const BF = 2;
 
-const peopleList = [
-    {
+const peopleList = [{
         id: 1,
         name: "Ruby Red",
         isCurrentUser: true,
@@ -67,8 +66,7 @@ const peopleList = [
         groups: [],
     },
 ];
-peopleList[BF].groups = [
-    {
+peopleList[BF].groups = [{
         people: [peopleList[RUBY]],
         title: "Loved By",
         groupName: "friend",
@@ -77,7 +75,7 @@ peopleList[BF].groups = [
     {
         people: [peopleList[RUBY]],
         title: "Linked To",
-        groupName: "dreamer",
+        groupName: "collecter",
         subtitle: ""
     },
     {
@@ -121,10 +119,10 @@ group_of_three = [{
 }];
 
 
-dreamers = [{
+collecters = [{
     people: three_people,
     title: "board linked with",
-    groupName: "dreamer",
+    groupName: "collecter",
     subtitle: "sharing a total of 23 cards"
 }];
 
@@ -135,8 +133,7 @@ coplanners = [{
     subtitle: "plan contains 23 cards"
 }];
 
-let messageListExample = [
-    {
+let messageListExample = [{
         text: "Hey girl welcome!",
         person: peopleList[RUBY],
     },
@@ -186,7 +183,7 @@ function facePath(number) {
 // ].join('').replace(/([^:]\/)\/+/g, "$1");
 
 const ICON_MAP = {
-    "dream_board-black": "dream-black",
+    "collect_board-black": "collect-black",
     "explore_detail-black": "explore-black",
     "settle_split-black": "settle-black",
     "settle_list-black": "settle-black",
@@ -213,7 +210,7 @@ function icon(name = "menu", iconColor = "", textValue = "", hideText = false) {
 }
 
 function personIcon(person) {
-    if(!person || !person.id){
+    if (!person || !person.id) {
         return "";
     }
 
@@ -245,12 +242,11 @@ function inputMessage() {
     );
 }
 
-function sectionTitle(content){
+function sectionTitle(content) {
     return div("section-title", content);
 }
 
-const activityData = [
-    {
+const activityData = [{
         icon: "activities-black",
         name: "Things to Do",
         items: []
@@ -263,17 +259,15 @@ const activityData = [
     {
         icon: "dining-black",
         name: "Restaurants",
-        items: [
-            {
+        items: [{
                 kind: "food",
                 title: "Brasil Arts Cafe",
-                description:
-                    "the perfect blend of traditional Brazilian fare & one-of-a-kind Açai, Juice, and Smoothie creations",
+                description: "the perfect blend of traditional Brazilian fare & one-of-a-kind Açai, Juice, and Smoothie creations",
                 image: "images/photos/brasil_arts_cafe.jpeg",
                 people: [{
                     people: [peopleList[RUBY], peopleList[JOE]],
                     title: "Pinned By",
-                    groupName: "Dreamer",
+                    groupName: "Collector",
                     subtitle: ""
                 }],
                 tags: ["brazilian", "cafe"],
@@ -281,13 +275,12 @@ const activityData = [
             {
                 kind: "food",
                 title: "Yoichi's",
-                description:
-                    "A prix-fixe only spot featuring traditional Japanese small plates &amp; sushi in an intimate setting.",
+                description: "A prix-fixe only spot featuring traditional Japanese small plates &amp; sushi in an intimate setting.",
                 image: "images/photos/yoichis.jpg",
                 people: [{
                     people: [peopleList[RUBY], peopleList[JOE]],
                     title: "Pinned By",
-                    groupName: "Dreamer",
+                    groupName: "Collector",
                     subtitle: ""
                 }],
                 tags: ["japanese", "sushi", "prix-fixe"]

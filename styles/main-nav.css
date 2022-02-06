@@ -1,4 +1,3 @@
-
 .main-nav {
     position: absolute;
     bottom: 0;
@@ -67,6 +66,11 @@
     background-color: #e99821;
 }
 
+.main-nav-tab.selected #timeline .icon-frame,
+.card.timeline {
+    background-color: #e99821;
+}
+
 .main-nav-tab.selected #explore .icon-frame {
     /*background-color: #FFCC00;*/
     background-color: #ef5656;
@@ -81,20 +85,21 @@
     display: flex;
 }
 
-.page.explore .content-panel .card-list{
+.page.explore .content-panel .card-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(167px, 1fr));
-    grid-template-rows: masonry; 
+    grid-template-rows: masonry;
     grid-gap: 3px 6px;
     padding-bottom: 6em;
 }
-.page.explore .content-panel .card-list .card{
+
+.page.explore .content-panel .card-list .card {
     /*width: 100%;*/
     /*height: 100%;*/
     display: flex;
 }
 
-.main-nav-tab.selected #dream .icon-frame,
+.main-nav-tab.selected #collect .icon-frame,
 .main-nav-tab.selected #boards .icon-frame {
     background-color: #5667bc;
 }
@@ -126,16 +131,14 @@
     flex-direction: row;
 }
 
-
 .length-5 .index-2 {
     margin-top: -40px;
 }
 
-.outer-box > .circle{
-    display:none;
+.outer-box>.circle {
+    display: none;
     width: 42px;
     height: 42px;
-
     /*box-shadow: 0 0 2px 2px black;*/
     box-shadow: 0 0 5px #000c;
     position: absolute;

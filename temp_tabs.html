@@ -36,7 +36,6 @@ component
 `.split("\n").map(p => p ? document.write(`<li` + `nk href="styles/` +
             p.split(" ").join("/") + ".css" +
             `"  rel="stylesheet" type="text/css"/>`) : '');
-
     </script>
     <script>
         `
@@ -54,7 +53,7 @@ components card card_explore
 components card card_connect
 components card card_settle
 components card card_plan
-components card card_dream
+components card card_collect
 
 components choice choice
 components dialog dialog
@@ -83,9 +82,9 @@ pages settle settle_list
 pages explore explore_detail
 pages explore explore
 
-pages dream dream
-pages dream dream_board
-pages dream dream_details
+pages collect collect
+pages collect collect_board
+pages collect collect_details
 
 route
 `.split("\n").map(p => p ? document.write(`<scr` + `ipt src="scripts/` +
@@ -94,35 +93,47 @@ route
     </script>
 
     <style>
-
         /* temporarily set for visibility */
+        
         .outer-box.div {
             background-color: white;
         }
-
     </style>
 </head>
+
 <body cz-shortcut-listen="true">
-<div class="content div">
-    <div class="outer-box div">
-        <div class="inner-content div">
+    <div class="content div">
+        <div class="outer-box div">
+            <div class="inner-content div">
+            </div>
         </div>
     </div>
-</div>
 </body>
+
 </html>
 <script>
-
     function tabData(name = "", title = "", content = "") {
-        return {name: name, title: title, content: content}
+        return {
+            name: name,
+            title: title,
+            content: content
+        }
     }
 
     //TEST
     get(".inner-content").innerHTML = tabSet("changeColor", [
-        tabData("1", "Apples", "A is for Apple."),
-        {name: "2", title: "Bananas", content: "B is for Banana."},
-        {name: "3", title: "Cherries", content: "C is for Cherry."},
-        {name: "4", title: "Durian Fruit", content: "D is for Durian (ew!)."},
+        tabData("1", "Apples", "A is for Apple."), {
+            name: "2",
+            title: "Bananas",
+            content: "B is for Banana."
+        }, {
+            name: "3",
+            title: "Cherries",
+            content: "C is for Cherry."
+        }, {
+            name: "4",
+            title: "Durian Fruit",
+            content: "D is for Durian (ew!)."
+        },
     ], "1");
-
 </script>

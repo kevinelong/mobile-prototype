@@ -1,5 +1,4 @@
-
-.page > .content-panel {
+.page>.content-panel {
     /* min-height: 100vh; */
     /*height: 555px;*/
     background-color: #fffffff0;
@@ -10,6 +9,7 @@
     padding-bottom: 6em;
     padding-left: 0.25em;
 }
+
 .content-panel {
     width: 100%;
     margin: 0;
@@ -22,7 +22,8 @@
     /*align-items: center;*/
     /*font-size: 1.2rem;*/
 }
-.page .content-panel > .row{
+
+.page .content-panel>.row {
     width: 100%;
     gap: 0.5em;
     padding: 0;
@@ -30,24 +31,28 @@
     alignment: center;
     /*flex-direction: ;*/
 }
-.content-panel .circle .text{
+
+.content-panel .circle .text {
     color: white;
 }
-.dialog .content-panel .circle .text{
+
+.dialog .content-panel .circle .text {
     color: black;
 }
-.content-panel .card-people{
+
+.content-panel .card-people {
     margin-top: -1px;
     /*align-content: center;*/
     /*justify-content: center;*/
 }
-.page > .content-panel > .card-people{
+
+.page>.content-panel>.card-people {
     align-content: center;
     justify-content: center;
 }
 
-.page.dream_board > .content-panel,
-.page.plan_detail > .content-panel{
+.page.collect_board>.content-panel,
+.page.plan_detail>.content-panel {
     gap: 6px;
     background: none;
     /*display: block;*/
@@ -56,14 +61,15 @@
     overflow-x: hidden;
 }
 
-.page.plan_detail{
+.page.plan_detail {
     background-color: #fffffff0;
 }
-.page.plan_detail .label-when input{
+
+.page.plan_detail .label-when input {
     width: 40%
 }
 
-.card-list .title{
+.card-list .title {
     /*border-top: 1px solid #888888;*/
     /*border-bottom: 1px solid #888888;*/
 }
@@ -98,13 +104,13 @@
     min-height: 20%;
 }
 
-.content-panel > .title {
+.content-panel>.title {
     background: none;
     padding: 0.5em;
     background: #00000008;
 }
 
-.content-panel > .title {
+.content-panel>.title {
     box-shadow: 0 0 1px black;
 }
 
@@ -113,10 +119,10 @@
     padding: 0 0 0.5rem 0.5rem;
 }
 
-
 .dialog .content-panel .text {
     font-size: 14px;
 }
+
 .content-panel .text {
     font-size: 8px;
 }

@@ -6,6 +6,13 @@ function get(q) {
     return getAll(q)[0];
 }
 
+function currency(number){
+    if (typeof number === "string"){
+        number = Number(number);
+    }
+    return number.toLocaleString('us-US', { style: 'currency', currency: 'USD' })
+}
+
 function toName(name) {
     return name
         .toLowerCase()

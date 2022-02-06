@@ -1,49 +1,74 @@
-.settle.page .content-panel > .row{
-    width:99%;
+.settle.page .content-panel>.row {
+    width: 99%;
     gap: 1rem;
     padding: 1rem;
     align-content: space-evenly;
     alignment: center;
     /*flex-direction: ;*/
 }
-.dashboard-item {
-    padding: 1rem;
-    border-radius: 1rem;
-}
-.dashboard-item .action-item{
+
+.dashboard-item .action-item {
     background-color: #0001;
 }
-.dashboard-item .action-item:hover{
+
+.dashboard-item .action-item:hover {
     background-color: #0004;
 }
-.dashboard-item *{
-    alignment: center;
+
+.dashboard-item {
+    padding: 0;
+    border-radius: 0;
+}
+
+.dashboard-item * {
+    align-self: center;
     align-content: space-evenly;
     text-align: center;
     margin: auto;
+    gap: 0;
 }
+
+.dashboard-item .text {
+    padding: 8px 4px;
+}
+
+
 /*.dashboard-item *,*/
+
+
 /*.dashboard-item .title{*/
+
+
 /*    text-align: center;*/
+
+
 /*    align-self: center;*/
+
+
 /*    align-items: center;*/
+
+
 /*    margin: auto;*/
+
+
 /*}*/
-.dashboard-item .action-item{
+
+.dashboard-item .action-item {
     /*border: 1px solid black;*/
     border-radius: 6px;
-    color:black;
+    color: black;
     font-size: 1rem;
 }
+
 .dashboard-item .action-item:hover {
     background-color: #0002;
 }
 
-.dashboard-item .text{
-    padding: 9px;
+.dashboard-item .text {
+    padding: 4px;
 }
 
-.dashboard-item .title{
+.dashboard-item .title {
     background: none;
 }
 
