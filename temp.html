@@ -91,58 +91,7 @@ route
     </script>
 
     <style>
-        /* temporarily set for visibility */
-        
-        .outer-box.div {
-            background-color: white;
-        }
-        
-        .tab-set {
-            position: relative;
-            height: 44px;
-            background-color: white;
-            color: black;
-            flex-direction: row;
-            overflow-x: scroll;
-        }
-        /* Hide scrollbar for Chrome, Safari and Opera */
-        
-        .tab-set::-webkit-scrollbar {
-            display: none;
-        }
-        /* Hide scrollbar for IE, Edge and Firefox */
-        
-        .tab-set {
-            -ms-overflow-style: none;
-            /* IE and Edge */
-            scrollbar-width: none;
-            /* Firefox */
-        }
-        
-        .tab-set div {
-            width: 120px;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            /* display: block; */
-        }
-        
-        .tab-highlight {
-            position: absolute;
-            bottom: 0px;
-            height: 2px;
-            background-color: black;
-        }
     </style>
-
-    <!-- <script>
-        const tab = document.querySelectorAll(".tab");
-        console.log(tab);
-        for (let i = 0; i < tab.length; i++) {
-            tab[i].style.color = "red";
-        }
-        // const tabSelect = document.addEventListener() {}
-    </script> -->
 
 </head>
 
@@ -150,62 +99,13 @@ route
     <div class="content div">
         <div class="outer-box div">
             <div class="inner-content div">
-                <div class="tab-set">
-                    <div class="tab tab-details">
-                        Details
-                        <div></div>
-                    </div>
-                    <div class="tab tab-timeline">
-                        Timeline
-                        <div></div>
-                    </div>
-                    <div class="tab tab-budget">
-                        Budget
-                        <div></div>
-                    </div>
-                    <div class="tab tab-foo">
-                        Foo
-                        <div></div>
-                    </div>
-                    <div class="tab tab-bar">
-                        Bar
-                        <div></div>
-                    </div>
-                    <div class="tab tab-hello">
-                        Hello
-                        <div></div>
-                    </div>
-                    <div class="tab tab-world">
-                        World
-                        <div></div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
-
 </body>
 
 </html>
 
 <script>
-    // const tabs = document.querySelectorAll(".tab")
-    // function addEventListenerList(list, event, fn) {
-    //     for (i = 0; i < tabs.length; i++) {
-    //         tabs[i].addEventListener(event, fn)
-    //     }
-    // }
-
-    // const highlightTab = function() {
-    //     const tabHighlight = tab.querySelector(".tab-highlight")
-    //     tabHighlight.style.color = "red";
-    // }
-
-    // const hello = function () {
-    //     alert("Hello World!");
-    // }
-
-
-    // console.log(tabs)
-    // addEventListenerList(tabs, "click", highlightTab)
 </script>

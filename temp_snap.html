@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Vita Explorer</title>
+    <!--    <link href="styles/style.css" rel="stylesheet" type="text/css"/>-->
+    <script>
+        `
+timeline
+action
+card
+choice
+circle
+content-panel
+detail
+dialog
+hash-tag
+icon
+label
+main-nav
+message
+page
+person
+simple-list
+title
+toast
+cards card-connect
+pages connect
+pages settle
+
+main
+component
+`.split("\n").map(p => p ? document.write(`<li` + `nk href="styles/` +
+            p.split(" ").join("/") + ".css" +
+            `"  rel="stylesheet" type="text/css"/>`) : '');
+
+    </script>
+    <script>
+        `
+utils
+html
+
+components components
+
+components action action
+components grid
+
+components card card
+components card card_person
+components card card_explore
+components card card_connect
+components card card_settle
+components card card_plan
+components card card_dream
+
+components choice choice
+components dialog dialog
+components hash_tag hash_tag
+components list list
+components main_nav
+components message message
+components money money
+components page
+components search search
+components toast toast
+components timeline timeline
+
+pages connect connect
+pages connect connect_chat
+pages connect connect_person
+
+pages plan plan
+pages plan plan_detail
+
+pages settle settle
+pages settle settle_split
+pages settle settle_list
+
+pages explore explore_detail
+pages explore explore
+
+pages dream dream
+pages dream dream_board
+pages dream dream_details
+
+route
+`.split("\n").map(p => p ? document.write(`<scr` + `ipt src="scripts/` +
+            p.split(" ").join("/") + ".js" +
+            `"></scr` + `ipt>`) : '');
+    </script>
+
+
+    <!-- 
+    TO DO
+    snap in proper direction relative to scrolling 
+    opacity depending on proximity to center, 100% - 50%
+    variable divs, variable vh of scroll window 
+-->
+
+
+    <style>
+        .scroll-window,
+        .scroll-window * {
+            display: block;
+        }
+
+        .scroll-window {
+            display: block;
+            background-color: grey;
+            /* scroll-behavior: smooth; */
+            overflow: auto;
+            /* overflow-y: auto; */
+        }
+
+        .scroll-window .scroll-item {
+            margin: 50px 50px;
+            /* margin-top: 50px; */
+            height: 150px;
+            display: flow-root;
+            background-color: black;
+            color: red;
+            text-align: center;
+            line-height: 150px;
+        }
+    </style>
+
+</head>
+
+<body cz-shortcut-listen="true">
+    <div class="content div">
+        <div class="outer-box div">
+            <div class="inner-content div">
+                <div class="scroll-window">
+                    <div class="scroll-item">0</div>
+                    <div class="scroll-item">1</div>
+                    <div class="scroll-item">2</div>
+                    <div class="scroll-item">3</div>
+                    <div class="scroll-item">4</div>
+                    <div class="scroll-item">5</div>
+                    <div class="scroll-item">6</div>
+                    <div class="scroll-item">7</div>
+                    <div class="scroll-item">8</div>
+                    <div class="scroll-item">9</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    const scrollWindow = get(".scroll-window")
+
+    
+
+    const onScrollStop = callback => {
+        let isScrolling;
+        scrollWindow.addEventListener(
+            'scroll',
+            e => {
+                clearTimeout(isScrolling);
+                isScrolling = setTimeout(() => {
+                    callback();
+                }, 300);
+            },
+            false
+        );
+    };
+
+    const scrollItems = getAll(".scroll-item")
+    // console.log(scrollItems)
+
+    function getRectTop(div) {
+        const rect = div.getBoundingClientRect()
+        const left = rect.left
+        const top = rect.top
+        const right = rect.right
+        const bottom = rect.bottom
+        const x = rect.x
+        const y = rect.y
+        const width = rect.width
+        const height = rect.height
+        // return `left: ${left}, top: ${top}, right: ${right}, bottom: ${bottom}, x: ${x}, y: ${y}, width: ${width}, height: ${height}`
+        return top
+    }
+
+    function getScrollDistance(div) {
+        const parentPos = getRectTop(scrollWindow)
+        const divPos = getRectTop(div)
+        const relativePos = divPos - parentPos
+        return relativePos
+    }
+
+    let scrollPosition = scrollWindow.scrollTop
+    console.log(scrollPosition)
+    let scrollYCoord = 0
+
+    function findClosestDiv(divs) {
+        const newScrollPosition = scrollWindow.scrollTop
+        console.log(`new scroll position: ${newScrollPosition}`)
+        for (let i = 0; i < divs.length; i++) {
+            const distanceFromTop = getScrollDistance(scrollItems[i])
+            console.log(i, distanceFromTop)
+            // if (345 < distanceFromTop && distanceFromTop < 445) {
+            // console.log("Jump", i, distanceFromTop)
+            //     const scrollYCoord = 5 + ((i - 1) * 200)
+            //     console.log("Jump Coord", scrollYCoord)
+            //     scrollWindow.scroll({top: scrollYCoord, behavior: "smooth"})
+            // }
+            if (145 < distanceFromTop && distanceFromTop < 245 || 245 < distanceFromTop && distanceFromTop < 345) {
+                // console.log('The user has stopped scrolling.')
+                // console.log(`scroll position: ${scrollWindow.scrollTop}`)
+                // console.log("Jump", i, distanceFromTop)
+                
+                
+                
+                scrollYCoord = 5 + ((i - 1) * 200)
+            
+                // if (newScrollPosition > scrollPosition) {
+                //     scrollYCoord = 5 + ((i - 1) * 200)
+                //     console.log("DOWN", scrollYCoord)
+                // } else {
+                //     scrollYCoord = 5 + ((i - 2) * 200)
+                //     console.log("UP", scrollYCoord)
+                // }
+                
+            
+            } else if (distanceFromTop === 345) {
+                if (newScrollPosition < scrollPosition) {
+                    scrollYCoord = 5 + ((i - 2) * 200)
+                    console.log("UP", scrollYCoord)
+                } else {
+                    scrollYCoord = 5 + ((i - 1) * 200)
+                    console.log("DOWN", scrollYCoord)
+                }
+            } 
+        }
+        scrollWindow.scroll({ top: scrollYCoord, behavior: "smooth" })
+        scrollPosition = scrollWindow.scrollTop
+        console.log(`scroll position: ${scrollPosition}`)
+    }
+
+    // scrollWindow.addEventListener("touchend", () => {
+    //     console.log(`scroll position: ${scrollWindow.scrollTop}`)
+    //     findClosestDiv(scrollItems)
+    // })
+
+    // scrollWindow.addEventListener("wheel", () => {
+    //     console.log(`scroll position: ${scrollWindow.scrollTop}`)
+    //     findClosestDiv(scrollItems)
+    // })
+
+    onScrollStop(() => {
+        // console.log("scroll stop event triggered")
+        
+        findClosestDiv(scrollItems)
+    });
+
+</script>
