@@ -35,7 +35,7 @@ function settlePage(selected = false) {
                 "settle",
                 "settle",
                 -1,
-                "Add Settlement",
+                "Add Expense",
                 "black",
                 false
               )
@@ -82,7 +82,7 @@ function settlePage(selected = false) {
                 "settle",
                 "settle",
                 -1,
-                "Add Settlement",
+                "Add Expense",
                 "black",
                 false
               )
@@ -108,7 +108,7 @@ function settlePage(selected = false) {
                 "settle",
                 "settle",
                 -1,
-                "Add Settlement",
+                "Add Expense",
                 "black",
                 false
               )
@@ -170,7 +170,7 @@ function settlePage(selected = false) {
                 "settle",
                 "settle",
                 -1,
-                "Add Settlement",
+                "Add Expense",
                 "black",
                 false
               )
