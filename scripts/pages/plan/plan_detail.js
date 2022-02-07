@@ -2,8 +2,7 @@ function planDetailPage(selected = false) {
     return page(
         selected,
         "plan_detail",
-        "Santa Barbara",
-        ["Details", "Timeline", "Budget"],
+        "Santa Barbara", ["Details", "Timeline", "Budget"],
         "Details",
         // choiceSet("",[
         //     icon("all") + "All",
@@ -12,26 +11,26 @@ function planDetailPage(selected = false) {
         //     icon("going","","going"),
         // ]) +
         dayRangeBlock() +
-            label(
-                "label-name",
-                "Plan Name:" +
-                    input("input-name", "text", `value="Santa Barbara"`) +
-                    div(
-                        "help-text",
-                        `Name was generated automatically, but may be customized here.`
-                    )
-            ) +
-            label(
-                "label-when",
-                "When:<br>" +
-                    input("input-name", "date", `value="Santa Barbara"`) +
-                    "-" +
-                    input("input-name", "date", `value="Santa Barbara"`)
-            ) +
-            cardGroups(coplanners) +
-            activityList(activityData),
+        label(
+            "label-name",
+            "Plan Name:" +
+            input("input-name", "text", `value="Santa Barbara"`) +
+            div(
+                "help-text",
+                `Name was generated automatically, but may be customized here.`
+            )
+        ) +
+        label(
+            "label-when",
+            "When:<br>" +
+            input("input-name", "date", `value="Santa Barbara"`) +
+            "-" +
+            input("input-name", "date", `value="Santa Barbara"`)
+        ) +
+        cardGroups(coplanners) +
+        activityList(activityData),
         "all",
-        "dream"
+        "collect"
     );
 }
 

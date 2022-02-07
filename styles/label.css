@@ -4,7 +4,9 @@ label input {
     /*width: 100%;*/
     /* margin-right: 15px; */
 }
-
+label .row .text{
+    padding-top:3px;
+}
 textarea{
     width: 100%;
     min-height: 12em;
@@ -17,4 +19,15 @@ textarea{
 
 label.search {
     /*background: deeppink;*/
+}
+
+label.Destination{
+    width: 100%;
+}
+
+.black{
+    color:black;
+}
+.page.timeline .is-current-period.card{
+    border-color: green;
 }

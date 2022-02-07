@@ -78,7 +78,7 @@ function card(
 ) {
     return div(
         `card ${kind} ${which}`,
-        img("background top", "images/backgrounds/top-gradient-black.svg") +
+        // img("background top", "images/backgrounds/top-gradient-black.svg") +
         cardSection(cardTitle(title) + contentPanel(content)) +
         (tags || groups || actions
             ? cardSection(
@@ -90,14 +90,15 @@ function card(
                     )
                     : "")
             )
-            : "") +
-        img(
-            "background bottom",
-            "images/backgrounds/bottom-gradient-black.svg"
-        ),
+            : "") ,
+        // img(
+        //     "background bottom",
+        //     "images/backgrounds/bottom-gradient-black.svg"
+        // ),
         attrs +
         ` data-kind="${cleanName(kind)}" data-which="${which}" ` +
-        (image ? `style="background-image: url('${image}');"` : "")
+        (image ? `style="background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.25)), black url('${image}') center/cover no-repeat;"` : "")
+
     );
 }
 
@@ -165,3 +166,14 @@ function activityList(list) {
     }
     return div("activity-list", list.map(activityListItems).join(""));
 }
+
+
+function cardListSection(titleText, action, subtitleText, cards) {
+    return sectionTitle(
+        title("Friday 12/12/2022") +
+        actionItem("add-place", "timeline", -1, "Add", "black")
+    ) +
+        subtitle("Santa Barbara") +
+        cards.join("")
+}
+

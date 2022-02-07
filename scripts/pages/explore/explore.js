@@ -1,13 +1,11 @@
-
 const EXPLORE_DATA = [
     [
         "images/photos/cannon-beach.jpg",
         "Haystack Rock",
         "Cannon Beach, Oregon",
-        "This is an iconic photo opportunity",
-        ["Landmark", "Recommended"],
-        [{people: [peopleList[BF]], title: "Pinned By", groupName: "explorer", subtitle: ""}],
-        ["invite", "schedule", "pin"],
+        "This is an iconic photo opportunity", ["Landmark", "Recommended"],
+        [{ people: [peopleList[BF]], title: "Pinned By", groupName: "explorer", subtitle: "" }],
+        ["invite", "schedule", "collect"],
         "1",
         "place"
     ],
@@ -15,10 +13,8 @@ const EXPLORE_DATA = [
         "images/photos/hanna-levin.png",
         "Hanna Levin",
         "New Taste Match to Follow!",
-        "Hanna Levin has rated over 20 places, including 2 you both love!",
-        ["Influencer", "Recommended"],
-        [
-            {
+        "Hanna Levin has rated over 20 places, including 2 you both love!", ["Influencer", "Recommended"],
+        [{
                 people: [peopleList[BF]],
                 title: "Recommended By",
                 groupName: "Friend"
@@ -34,19 +30,16 @@ const EXPLORE_DATA = [
                 groupName: "Taste Match"
             },
         ],
-        ["pin"],
+        ["collect"],
         "2",
-        "connect",
-        -1
+        "connect", -1
     ],
     [
         "images/explore_bg.png",
         "Loquita",
         "Santa Barbara",
-        "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
-        ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
-        group_of_one,
-        ["invite", "schedule", "pin"],
+        "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.", ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
+        group_of_one, ["invite", "schedule", "collect"],
         "2",
         "dining",
         1
@@ -55,10 +48,8 @@ const EXPLORE_DATA = [
         "images/explore_bg.png",
         "Loquita",
         "Santa Barbara",
-        "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
-        ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
-        group_of_two,
-        ["invite", "schedule", "pin"],
+        "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.", ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
+        group_of_two, ["invite", "schedule", "collect"],
         "2",
         true,
         2
@@ -67,10 +58,8 @@ const EXPLORE_DATA = [
         "images/explore_bg.png",
         "Loquita",
         "Santa Barbara",
-        "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
-        ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
-        group_of_three,
-        ["favorite" , "share", "pin"],
+        "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.", ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
+        group_of_three, ["favorite", "share", "collect"],
         "2",
         true,
         3
@@ -103,8 +92,7 @@ function explorePage(selected = false) {
     return page(
         selected,
         "explore",
-        "Explore",
-        [
+        "Explore", [
             "All",
             "People &#124;" + icon("chevron_down"),
             "Things to Do &#124;" + icon("chevron_down"),
@@ -113,7 +101,10 @@ function explorePage(selected = false) {
         ],
         "All",
         row(lists.join("")),
-        "ALL"
+        "ALL",
+        "",
+        "",
+        "Search the World"
     );
 }
 

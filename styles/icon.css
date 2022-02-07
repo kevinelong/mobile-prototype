@@ -40,17 +40,20 @@
     width: 12px;
     height: 12px;
 }
-.explore.page .card > .card-section > .content-panel > .card-subtitle{
+.explore.page .card .card-inner > .card-section > .content-panel > .card-subtitle{
     font-size: 9px;
 }
+.explore.page .action-item{
+    font-size: 8px;
+}
 .explore.page .action-item.person .icon-frame .icon{
-    width: 18px;
-    height: 18px;
+        width: 24px;
+    height: 24px;
 }
 .action-item .icon,
 .title .action-item.menu .icon {
-    max-width: 18px;
-    max-height: 18px;
-    width: 18px;
-    height: 18px;
+    max-width: 24px;
+    max-height: 24px;
+    width: 24px;
+    height: 24px;
 }

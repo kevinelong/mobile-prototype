@@ -6,6 +6,13 @@ function get(q) {
     return getAll(q)[0];
 }
 
+function currency(number) {
+    if (typeof number === "string") {
+        number = Number(number);
+    }
+    return number.toLocaleString('us-US', { style: 'currency', currency: 'USD' })
+}
+
 function toName(name) {
     return name
         .toLowerCase()
@@ -14,8 +21,8 @@ function toName(name) {
 }
 
 function titleCase(str) {
-    return str.replace("-", " ").toLowerCase().split(' ').map(function (word) {
-        return (word.charAt(0).toUpperCase() + word.slice(1));
+    return str.replace("-", " ").split(' ').map(function(word) {
+        return word === word.toUpperCase() ? word : (word.charAt(0).toUpperCase() + word.slice(1).toLowerCase());
     }).join(' ');
 }
 
@@ -257,4 +264,3 @@ function object_list_to_list_of_lists(raw_data, key_list) {
     });
     return output;
 }
-

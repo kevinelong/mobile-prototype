@@ -1,7 +1,6 @@
-
 .card.connect .content-panel,
 .card.connect .message-panel,
-.card.connect .message-panel > label {
+.card.connect .message-panel>label {
     background: none;
     margin: 0;
     padding: 0;
@@ -11,29 +10,33 @@
 .card.connect .card-people {
     margin: 0.5rem 0;
 }
-.card-people .col{
-    gap:4px;
+
+.card-people .col {
+    gap: 4px;
 }
 
 .plan_detail .card,
-.dream_board .card{
+.collect_board .card {
     min-height: 164px;
     opacity: 1;
     visibility: visible;
     width: 95%;
     height: auto;
+    padding: 12px;
 }
 
 .plan_detail .card .text,
-.dream_board .card .text{
+.collect_board .card .text {
     font-size: 13px;
 }
-.card.connect .content-panel > .row{
+
+.card.connect .content-panel>.row {
     background: #0008;
     padding: 6px;
     border-radius: 6px;
 }
-.card.connect .message-panel{
+
+.card.connect .message-panel {
     background: none;
     padding: 0;
     border-radius: 0;

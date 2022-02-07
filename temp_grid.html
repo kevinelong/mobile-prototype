@@ -35,7 +35,6 @@ component
 `.split("\n").map(p => p ? document.write(`<li` + `nk href="styles/` +
             p.split(" ").join("/") + ".css" +
             `"  rel="stylesheet" type="text/css"/>`) : '');
-
     </script>
     <script>
         `
@@ -53,7 +52,7 @@ components card card_explore
 components card card_connect
 components card card_settle
 components card card_plan
-components card card_dream
+components card card_collect
 
 components card card_people
 
@@ -83,9 +82,9 @@ pages settle settle_list
 pages explore explore_detail
 pages explore explore
 
-pages dream dream
-pages dream dream_board
-pages dream dream_details
+pages collect collect
+pages collect collect_board
+pages collect collect_details
 
 route
 `.split("\n").map(p => p ? document.write(`<scr` + `ipt src="scripts/` +
@@ -97,54 +96,56 @@ route
             background-color: white;
             border: 1px solid black;
         }
+        
         tr:first-child,
-        .row_0{
+        .row_0 {
             background-color: black;
             color: white;
         }
+        
         td {
             border-bottom: 1px solid black;
         }
-        td, th{
+        
+        td,
+        th {
             padding: 0.25rem 0.5rem;
         }
-        td{
-            color:black;
+        
+        td {
+            color: black;
         }
-        th{
+        
+        th {
             text-align: left;
         }
+        
         th:first-child,
         td:first-child,
         th:last-child,
-        td:last-child{
+        td:last-child {
             text-align: right;
         }
     </style>
 
     <script>
-        raw_data = [
-            {
-                id: 1,
-                name: "AAA",
-                amount: 111
-            },
-            {
-                id: 2,
-                name: "BBB",
-                amount: 222
-            },
-            {
-                id: 3,
-                name: "CCC",
-                amount: 333
-            },
-        ]
+        raw_data = [{
+            id: 1,
+            name: "AAA",
+            amount: 111
+        }, {
+            id: 2,
+            name: "BBB",
+            amount: 222
+        }, {
+            id: 3,
+            name: "CCC",
+            amount: 333
+        }, ]
 
 
         const data = object_list_to_list_of_lists(
-            raw_data,
-            ["id", "name", "amount"]
+            raw_data, ["id", "name", "amount"]
         );
 
         // data = [
@@ -164,17 +165,17 @@ route
 </head>
 
 <body cz-shortcut-listen="true">
-<div class="content div">
-    <div class="outer-box div">
-        <div class="inner-content div">
-            <div class="test">
-                <script>
-                    document.write(test());
-                </script>
+    <div class="content div">
+        <div class="outer-box div">
+            <div class="inner-content div">
+                <div class="test">
+                    <script>
+                        document.write(test());
+                    </script>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 </body>
 

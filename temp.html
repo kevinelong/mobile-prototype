@@ -35,7 +35,6 @@ component
 `.split("\n").map(p => p ? document.write(`<li` + `nk href="styles/` +
             p.split(" ").join("/") + ".css" +
             `"  rel="stylesheet" type="text/css"/>`) : '');
-
     </script>
     <script>
         `
@@ -53,7 +52,7 @@ components card card_explore
 components card card_connect
 components card card_settle
 components card card_plan
-components card card_dream
+components card card_collect
 
 components choice choice
 components dialog dialog
@@ -81,9 +80,9 @@ pages settle settle_list
 pages explore explore_detail
 pages explore explore
 
-pages dream dream
-pages dream dream_board
-pages dream dream_details
+pages collect collect
+pages collect collect_board
+pages collect collect_details
 
 route
 `.split("\n").map(p => p ? document.write(`<scr` + `ipt src="scripts/` +
@@ -92,7 +91,6 @@ route
     </script>
 
     <style>
-
     </style>
 
 </head>
@@ -110,5 +108,4 @@ route
 </html>
 
 <script>
-
 </script>

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Vita Explorer</title>
-<!--    <link href="styles/style.css" rel="stylesheet" type="text/css"/>-->
+    <!--    <link href="styles/style.css" rel="stylesheet" type="text/css"/>-->
     <script>
-`
+        `
 tabs
 timeline
 action
@@ -35,9 +36,9 @@ component
 `.split("\n").map(p => p ? document.write(`<li` + `nk href="styles/` +
             p.split(" ").join("/") + ".css" +
             `"  rel="stylesheet" type="text/css"/>`) : '');
-
     </script>
 </head>
+
 <body></body>
 <script>
     //components card card_people
@@ -57,7 +58,7 @@ components card card_explore
 components card card_connect
 components card card_settle
 components card card_plan
-components card card_dream
+components card card_collect
 components card card_timeline
 
 components choice choice
@@ -73,6 +74,8 @@ components toast toast
 components timeline timeline
 components tabs tabs
 
+pages timeline timeline
+
 pages connect connect
 pages connect connect_chat
 pages connect connect_person
@@ -87,9 +90,9 @@ pages settle settle_list
 pages explore explore_detail
 pages explore explore
 
-pages dream dream
-pages dream dream_board
-pages dream dream_details
+pages collect collect
+pages collect collect_board
+pages collect collect_details
 
 route
 main
@@ -97,4 +100,5 @@ main
         p.split(" ").join("/") + ".js" +
         `"></scr` + `ipt>`) : '');
 </script>
+
 </html>

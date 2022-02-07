@@ -22,6 +22,10 @@ function label(className, content, attrs = "") {
     return closedTag(`label`, content, className, attrs);
 }
 
+function checkBox(name, className, isChecked, attrs) {
+    return label(`label-${className}`, row(input(name, "checkbox", attrs + isChecked ? `checked="checked"` : '') + text(name)));
+}
+
 window.onTextInput = (event) => {
     if (event.keyCode === 13) {
         event.preventDefault();

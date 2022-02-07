@@ -5,8 +5,7 @@ function sendInvite() {
 function addContact() {
 
     showDialog(
-        "Add New Contact",
-        [
+        "Add New Contact", [
             label("first", input("first", "text", `placeholder="First Name"`)),
             label("last", input("last", "text", `placeholder="Last Name"`)),
         ].join("") +
@@ -46,8 +45,7 @@ function showSearch(title, index = -1) {
     );
 }
 
-const THINGS_TO_DO = [
-    {
+const THINGS_TO_DO = [{
         name: "Thing 1"
     },
     {
@@ -60,9 +58,14 @@ const THINGS_TO_DO_FILTERS = [
     "Outdoor",
     "Group"
 ];
-
-const RESTAURANTS = [
+const DESTINATIONS = [{
+        name: "Santa Barabara, California USA"
+    },
     {
+        name: "Las Vagas, Nevada USA"
+    }
+]
+const RESTAURANTS = [{
         name: "1"
     },
     {
@@ -75,8 +78,7 @@ const RESTAURANT_FILTERS = [
     "F2",
     "F3"
 ];
-const LODGING = [
-    {
+const LODGING = [{
         name: "1"
     },
     {
@@ -105,17 +107,17 @@ function selectDateRange(name) {
     );
 }
 
-function onClickTabItem(e, name, index){
+function onClickTabItem(e, name, index) {
     const top = e.closest(".tab-set");
     const items = top.querySelectorAll(".tab-item");
     const contents = top.querySelectorAll(".tab-content");
-    items.forEach(item=> item.classList.remove('selected'));
+    items.forEach(item => item.classList.remove('selected'));
     e.classList.add('selected');
     top.children[index].classList.add("selected")
     top.children[index].classList.remove("hidden")
 }
 
-function tabItem(name, index, isSelected=false) {
+function tabItem(name, index, isSelected = false) {
     const selected = isSelected ? "selected" : "";
     return div(
         `tab-item ${selected} ${cleanName(name)}`,
@@ -168,7 +170,7 @@ function showThingsToDo(title = "Filter - Things To Do", index = -1) {
                 value: 0
             }]),
 
-            selectOptionsComponent("Time", [{name: "Any Time", value: 0}]),
+            selectOptionsComponent("Time", [{ name: "Any Time", value: 0 }]),
 
             selectOptionsComponent("Duration", [{
                 name: "Any Duration",
@@ -215,6 +217,15 @@ function showLodging(title = "Filter - Lodging", index = -1) {
     );
 }
 
+function showDestinations(title = "Destination", index = -1) {
+    showDialog(title,
+        contentPanel(
+            search(DESTINATIONS, index) +
+            actionList("filter-actions", ["apply"], false, 0, "black")
+        )
+    );
+}
+
 function showReviewDialog() {
     showDialog(
         "Write Review",
@@ -226,6 +237,36 @@ function showReviewDialog() {
             actionList("", ["cancel", "save"], false, 0, "black")
         )
     )
+}
+/***
+ * a) Destination box and 
+ * b) Date range Calendar 
+ * c) Note for future functionality: 
+ * if a date range of more a single day app asks,
+ *  if user wants to create a Plan?
+ * (so 1 night triggers it)
+ * 
+ */
+
+function showSmartIdeasDialog() {
+    showDialog(
+        "Smart Ideas",
+        contentPanel([
+            label(
+                "Destination", row(
+                    // text("Destination") + 
+                    input("destination", "text", `placeholder="Destination"`) +
+                    actionButton("...", "search-destination"))
+            ),
+            selectDateRange("Date Range:"),
+            checkBox("Add to Plan", "add-to-plan"),
+            actionList("", ["cancel", "apply"], false, 0, "black")
+        ].join(""))
+    )
+}
+
+function showUploadDialog() {
+    showDialog("Upload", input("file", "file", "") + actionButton("upload"))
 }
 
 function showMatchDialog() {
@@ -251,7 +292,7 @@ function showMatchDialog() {
                     <!-- <b>Richard's home - Best Wine tasting in Napa</b> has been booked by Joe Shmoe for
                     all co-planners. -->
                     <b>You and Joe Schmoe</b> both classified <b>Yoichi’s</b> as an Idea in your
-                    <b>Santa Barbara</b> DreamBoards
+                    <b>Santa Barbara</b> Collections
                 </div>
                 <div>
                     You can pay back now or settle at the end of the day.
@@ -279,17 +320,17 @@ function showProfileDialog(target, action, which, index = RUBY) {
     const who = peopleList[index];
     const actions = actionPanel(
         ["block", "friend", "follow"]
-            .map((actionName) =>
-                actionItem(
-                    actionName,
-                    index,
-                    index,
-                    actionName,
-                    "black",
-                    false
-                )
+        .map((actionName) =>
+            actionItem(
+                actionName,
+                index,
+                index,
+                actionName,
+                "black",
+                false
             )
-            .join("")
+        )
+        .join("")
     );
     const other = label("", "Relationship" +
             input("relationship", "text", `placeholder="e.g. Acquaintance, Friend, BFF"`)
@@ -315,8 +356,7 @@ function showProfileDialog(target, action, which, index = RUBY) {
 
     const content = contentPanel(
         person(who) +
-        (index === 0 ? "" : other)
-        ,
+        (index === 0 ? "" : other),
         "profile"
     );
     showDialog(index === 0 ? "Your Profile" : "Connection Profile", content);
@@ -337,7 +377,7 @@ function openPage(target, action, which, id) {
     } else if ("split" === action) {
         showPage("settle_split", "open", id);
     } else if ("board" === action) {
-        showPage("dream", "dream", id);
+        showPage("collect", "collect", id);
     }
 }
 
@@ -350,10 +390,10 @@ TOAST_MESSAGES = {
     book: "Finding the best rate...",
     heart: "Added to your Favorites",
     share: "Shared to your Connections",
-    pin: "Added to Dream Board",
-    plan: "Added to Plan",
+    collect: "Added to your Collection",
+    plan: "Added to your Plan",
     accept: "Accepted Invitation",
-    schedule: "Added to Plan",
+    schedule: "Added to your Plan",
     decline: "Declined Invitation",
     settle: "Payment Settled",
     "remind-all": "Reminders Sent",
@@ -389,6 +429,7 @@ ACTION_PAGES = {
     contact: addContact,
     new: addItem,
     search: addPerson,
+    'search-destination': showDestinations,
     invite: sendInvite,
     more: addPerson,
     hide: hideDialog,
@@ -397,6 +438,8 @@ ACTION_PAGES = {
     show: toggleCollapse,
     person: showProfileDialog,
     match: showMatchDialog,
+    upload: showUploadDialog,
+    'smart-ideas': showSmartIdeasDialog,
     review: showReviewDialog
 };
 

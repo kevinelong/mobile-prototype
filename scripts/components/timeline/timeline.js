@@ -1,25 +1,3 @@
-// function daysInMonth(month, year) {
-//     let date = new Date(Date.UTC(year, month, 5))
-//     let days = []
-//     while (date.getUTCMonth() === month) {
-//         days.push(new Date(date))
-//         date.setUTCDate(date.getUTCDate() + 1)
-//     }
-//     return days
-// }
-// function daysInMonth() {
-//     var dt = new Date();
-//     var month = dt.getMonth();
-//     var year = dt.getFullYear();
-//     daysInMonth = new Date(year, month, 0).getDate();
-//     return daysInMonth
-// }
-// function getDates() {
-//     let date = new Date();
-//     let firstDay = newDate(date.getFullYear)
-//     for
-// }
-
 // ADJUST PARAMETERS OF DATE() IN TODAY1 AND TODAY2 EQUALLY TO TEST DIFFERENT DAYS
 let dates = getDates();
 
@@ -78,28 +56,6 @@ function formatDates(dates) {
     return formattedDates;
 }
 
-// function isTodayWeek(date) {
-//     const num = reverseWeekday(date);
-//     const today = new Date();
-//     // console.log('TODAY', today.getDay())
-//     // console.log('DATE', date)
-//     // console.log('NUM', num)
-//     return num === today.getDay();
-// }
-
-// function isTodayMonth(date) {
-//     const today = new Date();
-//     return date === today.getDate();
-// }
-
-// function isToday(weekday, monthday) {
-//     const todayWeek = isTodayWeek(weekday);
-//     const todayMonth = isTodayMonth(monthday);
-//     return todayWeek && todayMonth;
-
-//     // return 15 === i
-// }
-
 function isToday(dayRaw) {
     let today = new Date()
     today = Math.floor(today.getTime() / 60000)
@@ -143,14 +99,7 @@ function dayBlock(day, dayRaw) {
 }
 
 function dayRangeBlock() {
-    // console.log(dates);
-
     formattedDates = formatDates(dates);
-    // console.log(formattedDates);
-    // console.log(isTodayWeek("Wed"))
-    // console.log(isTodayMonth(26))
-    // console.log(isToday())
-    // console.log(isAdjacentDay(26))
     let output = [];
     for (let i = 0; i < formattedDates.length && dates.length; i++) {
         // console.log(formattedDates[i], dates[i])
@@ -159,12 +108,5 @@ function dayRangeBlock() {
         // console.log(dayRaw)
         output.push(dayBlock(day, dayRaw));
     }
-
-    // for (let i = 0; i < dates.length; i++){
-
-    // }
-
-    return `<div class="timeline">` + output.join("") + "</div>";
+    return `<div class="timeline day-picker">` + output.join("") + "</div>";
 }
-
-
