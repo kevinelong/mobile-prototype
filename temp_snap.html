@@ -198,11 +198,11 @@ route
 
     let scrollPosition = scrollWindow.scrollTop
     console.log(scrollPosition)
+    let scrollYCoord = 0
 
     function findClosestDiv(divs) {
         const newScrollPosition = scrollWindow.scrollTop
         console.log(`new scroll position: ${newScrollPosition}`)
-        let scrollYCoord = 0
         for (let i = 0; i < divs.length; i++) {
             const distanceFromTop = getScrollDistance(scrollItems[i])
             console.log(i, distanceFromTop)
@@ -212,7 +212,7 @@ route
             //     console.log("Jump Coord", scrollYCoord)
             //     scrollWindow.scroll({top: scrollYCoord, behavior: "smooth"})
             // }
-            if (145 < distanceFromTop && distanceFromTop < 245 || 245 < distanceFromTop && distanceFromTop <= 345) {
+            if (145 < distanceFromTop && distanceFromTop < 245 || 245 < distanceFromTop && distanceFromTop < 345) {
                 // console.log('The user has stopped scrolling.')
                 // console.log(`scroll position: ${scrollWindow.scrollTop}`)
                 // console.log("Jump", i, distanceFromTop)
@@ -229,14 +229,15 @@ route
                 //     console.log("UP", scrollYCoord)
                 // }
                 
-            } else if (distanceFromTop === 245) {
+            
+            } else if (distanceFromTop === 345) {
                 if (newScrollPosition < scrollPosition) {
                     scrollYCoord = 5 + ((i - 2) * 200)
                     console.log("UP", scrollYCoord)
                 } else {
                     scrollYCoord = 5 + ((i - 1) * 200)
                     console.log("DOWN", scrollYCoord)
-                } 
+                }
             } 
         }
         scrollWindow.scroll({ top: scrollYCoord, behavior: "smooth" })
