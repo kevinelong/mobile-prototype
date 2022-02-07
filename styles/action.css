@@ -132,12 +132,20 @@
 .title > .action-item{
     background: white;
 }
-.card .action-item {
-    background: #00000033;
+.action-item {
+    background: #88888888;
     border: none;
-    text-shadow: none;
 }
-.action-list .action-item:hover {
-    background: #00000099;
+.action-item:hover {
+    background: #888888ff;
+    border: none;
+}
+
+.activity-list .action-item {
+    background: #00000022;
+    border: none;
+}
+.activity-list .action-item:hover {
+    background: #FFFFFFff;
     border: none;
 }

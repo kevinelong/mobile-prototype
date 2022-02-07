@@ -536,9 +536,12 @@
     .activity-list .collapse .card>* {
         display: none;
     }
-    
+    .activity-list > .row > .row > .action-item  {
+        background-color: transparent;
+    }
     .activity-list>.row {
         border-top: 1px solid #bbb;
+        padding: 1px;
     }
     
     .activity-list .row>.title {

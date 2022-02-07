@@ -10,7 +10,7 @@ function collectBoardPage(selected = false) {
             icon("favorites") + "Favorites",
             icon("going", "", "going"),
         ],
-        "All",
+        icon("all") + "All",
         cardGroups(collecters) +
         activityList(activityData),
         "all",
