@@ -156,6 +156,11 @@
 }
 
 .settle.page .title .action-item {
-  background: white;
-  margin-left: 6px;
-}
+    background: #fff6;
+    margin-left: 6px;
+  }
+  .settle.page .title .action-item:hover {
+    background: #ffff;
+    margin-left: 6px;
+  }
+    

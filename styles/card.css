@@ -50,6 +50,7 @@
         justify-content: space-between;
         height: auto;
         position: relative;
+        transition: all 300ms ease-in-out;
     }
     
     .card-inner {
@@ -58,11 +59,37 @@
         background-size: cover;
         background-position: 50% 50%;
         border-radius: 13px;
+        transition: all 300ms ease-in-out;
     }
     
     .smart .card-inner{
+        background-color: grey;
+    }
+    .smart.early-mornging .card-inner{
+        background-color: darkred;
+    }
+    .smart.breakfast .card-inner{
+        background-color: darkorange;
+    }
+    .smart.morning .card-inner{
         background-color: goldenrod;
     }
+    .smart.lunch .card-inner{
+        background-color: darkgreen;
+    }
+    .smart.afternoon .card-inner{
+        background-color: darkslateblue;
+    }
+    .smart.dinner .card-inner{
+        background-color: indigo;
+    }
+    .smart.evening .card-inner{
+        background-color: darkviolet;
+    }
+    .smart.late-night .card-inner{
+        background-color: black;
+    }
+
     .card.smart .content-panel{
         border-radius: 0;
     }

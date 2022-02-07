@@ -31,9 +31,17 @@ const SMART_IDEAS = {
   ],
   afternoon:[
       "E-Biking Rental", "Outdoor Bars/Pubs","Sailing Tours","Adventure Tours","Standup Paddle", "Beach", "More..."
+  ],
+  evening:[
+    "Japanese Cuisine",
+    "French Cuisine",
+    "Italian Cuisine",
+    "Outdoor Seating",
+    "People Watchiing",
+    "Where Singles Go",
   ]
 };
-function smart(period="lunch", timeRange = "11:00 am - 2:30 pm", currentMood="hungry") {
+function smart(period="lunch", timeRange = "11:00 am - 2:30 pm", currentMood="hungry", places=[]) {
   return smartCard(
     "smart",
     "",
@@ -54,7 +62,8 @@ function smart(period="lunch", timeRange = "11:00 am - 2:30 pm", currentMood="hu
     "2",
     "activity",
     3,
-    period
+    period,
+    places
   );
 }
 const periods = ["breakfast", "lunch", "dinner", "late-night"];
@@ -83,8 +92,9 @@ const timelineContent =
                   actionItem("edit", "", "", "edit", "black")
               )
           ),
-          smart("lunch", "11:00 am - 2:30 pm", "hungry"),
-          smart("afternoon", "2:45 pm - 4:30 pm", "active"),
+          smart("lunch", "11:00 am - 2:30 pm", "hungry",["Check-In to Brasil Cafe","Check into Sports Shop"]),
+          smart("afternoon", "2:45 pm - 4:30 pm", "active",[]),
+          smart("evening", "5:00 pm - 9:30 pm", "romantic",[]),
         ]
       ),
       cardListSection(

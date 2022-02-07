@@ -131,7 +131,8 @@ function smartCardContent(
   id = -1,
   kind2 = "activity",
   booking_index = -1,
-  period = "lunch"
+  period = "lunch",
+  places=[]
 ) {
   let qty = 0;
   if (groups && groups[0] && groups[0].people) {
@@ -177,8 +178,8 @@ function smartCardContent(
       )+
       contentPanel(subtitleText) +
 
-      text("Or you can check-in right here:") +
-      ["Check-In to Brasil Cafe","Check into Sports Shop"].map(place=>actionItem("check-in", place,"",place)).join("")
+      (places.length > 0 ? text("Or you can check-in right here:") : "")+
+      places.map(place=>actionItem("check-in", place,"",place)).join("")
       ,
       (imagePath
         ? `style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), black url('${imagePath}') center/cover no-repeat;"`
@@ -201,7 +202,8 @@ function smartCard(
   id = 0,
   kind = "timeline",
   booking_index = -1,
-  period = "lunch"
+  period = "lunch",
+  places = []
 ) {
   return smartCardContent(
     what,
@@ -218,6 +220,7 @@ function smartCard(
     id,
     kind,
     booking_index,
-    period
+    period,
+    places
   );
 }
