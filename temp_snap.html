@@ -156,7 +156,9 @@ route
 
     const scrollWindow = get(".scroll-window")
 
-    
+    let scrollPosition = scrollWindow.scrollTop
+    console.log(scrollPosition)
+    let scrollYCoord = 0
 
     const onScrollStop = callback => {
         let isScrolling;
@@ -177,14 +179,14 @@ route
 
     function getRectTop(div) {
         const rect = div.getBoundingClientRect()
-        const left = rect.left
+        // const left = rect.left
         const top = rect.top
-        const right = rect.right
-        const bottom = rect.bottom
-        const x = rect.x
-        const y = rect.y
-        const width = rect.width
-        const height = rect.height
+        // const right = rect.right
+        // const bottom = rect.bottom
+        // const x = rect.x
+        // const y = rect.y
+        // const width = rect.width
+        // const height = rect.height
         // return `left: ${left}, top: ${top}, right: ${right}, bottom: ${bottom}, x: ${x}, y: ${y}, width: ${width}, height: ${height}`
         return top
     }
@@ -196,9 +198,7 @@ route
         return relativePos
     }
 
-    let scrollPosition = scrollWindow.scrollTop
-    console.log(scrollPosition)
-    let scrollYCoord = 0
+    
 
     function findClosestDiv(divs) {
         const newScrollPosition = scrollWindow.scrollTop
@@ -212,37 +212,40 @@ route
             //     console.log("Jump Coord", scrollYCoord)
             //     scrollWindow.scroll({top: scrollYCoord, behavior: "smooth"})
             // }
-            if (145 < distanceFromTop && distanceFromTop < 245 || 245 < distanceFromTop && distanceFromTop < 345) {
-                // console.log('The user has stopped scrolling.')
-                // console.log(`scroll position: ${scrollWindow.scrollTop}`)
-                // console.log("Jump", i, distanceFromTop)
+            // if (145 < distanceFromTop && distanceFromTop < 245 || 245 < distanceFromTop && distanceFromTop < 345) {
+            //     // console.log('The user has stopped scrolling.')
+            //     // console.log(`scroll position: ${scrollWindow.scrollTop}`)
+            //     // console.log("Jump", i, distanceFromTop)
                 
-                
-                
-                scrollYCoord = 5 + ((i - 1) * 200)
+            //     scrollYCoord = 5 + ((i - 1) * 200)
             
-                // if (newScrollPosition > scrollPosition) {
-                //     scrollYCoord = 5 + ((i - 1) * 200)
-                //     console.log("DOWN", scrollYCoord)
-                // } else {
-                //     scrollYCoord = 5 + ((i - 2) * 200)
-                //     console.log("UP", scrollYCoord)
-                // }
+            //     // if (newScrollPosition > scrollPosition) {
+            //     //     scrollYCoord = 5 + ((i - 1) * 200)
+            //     //     console.log("DOWN", scrollYCoord)
+            //     // } else {
+            //     //     scrollYCoord = 5 + ((i - 2) * 200)
+            //     //     console.log("UP", scrollYCoord)
+            //     // }
                 
-            
-            } else if (distanceFromTop === 345) {
+            if (145 < distanceFromTop && distanceFromTop < 345) {
+                // } else if (distanceFromTop === 345) {
                 if (newScrollPosition < scrollPosition) {
                     scrollYCoord = 5 + ((i - 2) * 200)
                     console.log("UP", scrollYCoord)
-                } else {
-                    scrollYCoord = 5 + ((i - 1) * 200)
+                } else if (newScrollPosition > scrollPosition) {
+                    scrollYCoord = 5 + ((i) * 200)
                     console.log("DOWN", scrollYCoord)
                 }
-            } 
+                // } 
+                scrollWindow.scroll({ top: scrollYCoord, behavior: "smooth" })
+                scrollPosition = scrollWindow.scrollTop
+                console.log(`scroll position: ${scrollPosition}`)
+                break
+            }
+            
+            
         }
-        scrollWindow.scroll({ top: scrollYCoord, behavior: "smooth" })
-        scrollPosition = scrollWindow.scrollTop
-        console.log(`scroll position: ${scrollPosition}`)
+        
     }
 
     // scrollWindow.addEventListener("touchend", () => {
@@ -257,7 +260,6 @@ route
 
     onScrollStop(() => {
         // console.log("scroll stop event triggered")
-        
         findClosestDiv(scrollItems)
     });
 
