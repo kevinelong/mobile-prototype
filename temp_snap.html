@@ -116,7 +116,7 @@ route
 
         .scroll-window .scroll-item {
             margin: 50px 50px;
-            /* margin-top: 50px; */
+            /* margin-top: 50px; */ 
             height: 150px;
             display: flow-root;
             background-color: black;
@@ -156,9 +156,7 @@ route
 
     const scrollWindow = get(".scroll-window")
 
-    let scrollPosition = scrollWindow.scrollTop
-    console.log(scrollPosition)
-    let scrollYCoord = 0
+    
 
     const onScrollStop = callback => {
         let isScrolling;
@@ -198,11 +196,21 @@ route
         return relativePos
     }
 
-    
+    let scrollPosition = scrollWindow.scrollTop
+    console.log(scrollPosition)
+
+    function scrollToCoord(coord, scrollPosition) {
+        scrollWindow.scroll({ top: coord, behavior: "smooth" })
+        scrollPosition = scrollWindow.scrollTop
+        console.log(`scroll position: ${scrollPosition}`) 
+        return scrollPosition
+    }
 
     function findClosestDiv(divs) {
         const newScrollPosition = scrollWindow.scrollTop
         console.log(`new scroll position: ${newScrollPosition}`)
+        
+        let scrollYCoord = 0
         for (let i = 0; i < divs.length; i++) {
             const distanceFromTop = getScrollDistance(scrollItems[i])
             console.log(i, distanceFromTop)
@@ -217,7 +225,7 @@ route
             //     // console.log(`scroll position: ${scrollWindow.scrollTop}`)
             //     // console.log("Jump", i, distanceFromTop)
                 
-            //     scrollYCoord = 5 + ((i - 1) * 200)
+                
             
             //     // if (newScrollPosition > scrollPosition) {
             //     //     scrollYCoord = 5 + ((i - 1) * 200)
@@ -227,23 +235,22 @@ route
             //     //     console.log("UP", scrollYCoord)
             //     // }
                 
-            if (145 < distanceFromTop && distanceFromTop < 345) {
-                // } else if (distanceFromTop === 345) {
-                if (newScrollPosition < scrollPosition) {
+            if (145 < distanceFromTop && distanceFromTop < 245 || 245 < distanceFromTop && distanceFromTop <= 345) {
+                if (200 < distanceFromTop && distanceFromTop < 330 && distanceFromTop !== 245) {
+                    scrollYCoord = 5 + ((i - 1) * 200)
+                    scrollPosition = scrollToCoord(scrollYCoord)
+                    // } else if (distanceFromTop === 345) {
+                } else if (newScrollPosition < scrollPosition) {
                     scrollYCoord = 5 + ((i - 2) * 200)
                     console.log("UP", scrollYCoord)
+                    scrollPosition = scrollToCoord(scrollYCoord)
                 } else if (newScrollPosition > scrollPosition) {
                     scrollYCoord = 5 + ((i) * 200)
                     console.log("DOWN", scrollYCoord)
+                    scrollPosition = scrollToCoord(scrollYCoord)
                 }
-                // } 
-                scrollWindow.scroll({ top: scrollYCoord, behavior: "smooth" })
-                scrollPosition = scrollWindow.scrollTop
-                console.log(`scroll position: ${scrollPosition}`)
-                break
+            // } 
             }
-            
-            
         }
         
     }
