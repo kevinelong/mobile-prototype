@@ -156,17 +156,16 @@ route
 
     const scrollWindow = get(".scroll-window")
 
-    
-
     const onScrollStop = callback => {
         let isScrolling;
         scrollWindow.addEventListener(
             'scroll',
             e => {
                 clearTimeout(isScrolling);
+                // console.log("Window Scroll Top", e.target.scrollTop);
                 isScrolling = setTimeout(() => {
                     callback();
-                }, 300);
+                }, 500);
             },
             false
         );
@@ -206,6 +205,20 @@ route
         return scrollPosition
     }
 
+    function getDeadZone () {
+        const divHeight = scrollItems[0].offsetHeight
+        console.log(divHeight)
+        const divMarginTop = parseInt(window.getComputedStyle(scrollItems[0]).marginTop)
+        console.log(divMarginTop)
+        deadZoneHeight = divHeight + divMarginTop
+        
+        const deadZoneTop = (scrollWindow.offsetHeight - deadZoneHeight) / 2
+        const deadZoneBottom = scrollWindow.offsetHeight - deadZoneTop
+        return [deadZoneTop, deadZoneBottom]
+    }
+
+    console.log(getDeadZone())
+
     function findClosestDiv(divs) {
         const newScrollPosition = scrollWindow.scrollTop
         console.log(`new scroll position: ${newScrollPosition}`)
@@ -225,32 +238,38 @@ route
             //     // console.log(`scroll position: ${scrollWindow.scrollTop}`)
             //     // console.log("Jump", i, distanceFromTop)
                 
-                
-            
-            //     // if (newScrollPosition > scrollPosition) {
-            //     //     scrollYCoord = 5 + ((i - 1) * 200)
-            //     //     console.log("DOWN", scrollYCoord)
-            //     // } else {
-            //     //     scrollYCoord = 5 + ((i - 2) * 200)
-            //     //     console.log("UP", scrollYCoord)
-            //     // }
-                
-            if (145 < distanceFromTop && distanceFromTop < 245 || 245 < distanceFromTop && distanceFromTop <= 345) {
-                if (200 < distanceFromTop && distanceFromTop < 330 && distanceFromTop !== 245) {
-                    scrollYCoord = 5 + ((i - 1) * 200)
-                    scrollPosition = scrollToCoord(scrollYCoord)
-                    // } else if (distanceFromTop === 345) {
-                } else if (newScrollPosition < scrollPosition) {
-                    scrollYCoord = 5 + ((i - 2) * 200)
-                    console.log("UP", scrollYCoord)
-                    scrollPosition = scrollToCoord(scrollYCoord)
-                } else if (newScrollPosition > scrollPosition) {
+            if (145 < distanceFromTop && distanceFromTop < 245 || 245 < distanceFromTop && distanceFromTop < 345) {
+                scrollYCoord = 5 + ((i - 1) * 200)
+                scrollPosition = scrollToCoord(scrollYCoord)   
+            } else if (distanceFromTop === 145) {
+                if(newScrollPosition > scrollPosition) {
                     scrollYCoord = 5 + ((i) * 200)
                     console.log("DOWN", scrollYCoord)
                     scrollPosition = scrollToCoord(scrollYCoord)
-                }
-            // } 
+                } else {
+                    scrollYCoord = 5 + ((i - 1) * 200)
+                    console.log("UP", scrollYCoord)
+                    scrollPosition = scrollToCoord(scrollYCoord)
+                 }
             }
+            
+            
+                
+            
+                // if (200 < distanceFromTop && distanceFromTop < 330) {
+                //     scrollYCoord = 5 + ((i - 1) * 200)
+                //     scrollPosition = scrollToCoord(scrollYCoord)
+                // } else if (newScrollPosition < scrollPosition) {
+                //     scrollYCoord = 5 + ((i - 2) * 200)
+                //     console.log("UP", scrollYCoord)
+                //     scrollPosition = scrollToCoord(scrollYCoord)
+                // } else if (newScrollPosition > scrollPosition) {
+                //     scrollYCoord = 5 + ((i) * 200)
+                //     console.log("DOWN", scrollYCoord)
+                //     scrollPosition = scrollToCoord(scrollYCoord)
+                // }
+            
+            
         }
         
     }
