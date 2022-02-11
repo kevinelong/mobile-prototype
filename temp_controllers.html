@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Vita Explorer</title>
+    <!--    <link href="styles/style.css" rel="stylesheet" type="text/css"/>-->
+    <script>
+        `
+timeline
+action
+card
+choice
+circle
+content-panel
+detail
+dialog
+hash-tag
+icon
+label
+main-nav
+message
+page
+person
+simple-list
+title
+toast
+cards card-connect
+pages connect
+pages settle
+
+main
+component
+`.split("\n").map(p => p ? document.write(`<li` + `nk href="styles/` +
+            p.split(" ").join("/") + ".css" +
+            `"  rel="stylesheet" type="text/css"/>`) : '');
+    </script>
+    <script>
+        `
+utils
+html
+
+components components
+
+components action action
+components grid
+
+components card card
+components card card_person
+components card card_explore
+components card card_connect
+components card card_settle
+components card card_plan
+components card card_collect
+
+components choice choice
+components dialog dialog
+components hash_tag hash_tag
+components list list
+components main_nav
+components message message
+components money money
+components page
+components search search
+components toast toast
+components timeline timeline
+
+pages connect connect
+pages connect connect_chat
+pages connect connect_person
+
+pages plan plan
+pages plan plan_detail
+
+pages settle settle
+pages settle settle_split
+pages settle settle_list
+
+pages explore explore_detail
+pages explore explore
+
+pages collect collect
+pages collect collect_board
+pages collect collect_details
+
+route
+`.split("\n").map(p => p ? document.write(`<scr` + `ipt src="scripts/` +
+            p.split(" ").join("/") + ".js" +
+            `"></scr` + `ipt>`) : '');
+    </script>
+
+    <style>
+
+        .controllers,
+        .controllers * {
+            display: block;
+        }
+
+        .controllers {
+            background-color: white;
+            color: black;
+        }
+
+        .controllers .form-logo {
+            font-size: 30px;
+            font-weight: bold;
+            color: #F9A831;
+            font-family: Avera Libre;
+            text-align: center;
+            margin-top: 52px;
+            /* line-height: 36px; */
+        }
+
+        .controllers .form-title {
+            font-size: 38px;
+            font-weight: bold;
+            font-family: SF Pro Display;
+            text-align: center;
+            margin-top: 49px;
+        }
+
+        .controllers input[type=text] {
+            border-radius: 0;
+            border: none;
+            box-shadow: none;
+            border-bottom: 1px solid black;
+        }
+
+    </style>
+
+</head>
+
+<body cz-shortcut-listen="true">
+    <div class="content div">
+        <div class="outer-box div">
+            <div class="inner-content div">
+                <div class="controllers">
+                    <div class="form-logo">VITA</div>
+                    <div class="form-title">Plan the best experiences of your life</div>
+                    <input type="text">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+</script>
