@@ -69,14 +69,14 @@ const peopleList = [{
 
 peopleList[RUBY].groups = [{
     people: [peopleList[BF]],
-    title: "Loved By",
+    title: "Friends with",
     groupName: "friend",
     subtitle: ""
 },
 {
     people: [peopleList[BF]],
     title: "Linked To",
-    groupName: "collecter",
+    groupName: "currator",
     subtitle: ""
 },
 {
@@ -95,14 +95,14 @@ peopleList[RUBY].groups = [{
 
 peopleList[JOE].groups = [{
     people: [peopleList[BF]],
-    title: "Loved By",
+    title: "Friends with",
     groupName: "friend",
     subtitle: ""
 },
 {
     people: [peopleList[BF]],
     title: "Linked To",
-    groupName: "collecter",
+    groupName: "currator",
     subtitle: ""
 },
 {
@@ -122,14 +122,14 @@ peopleList[JOE].groups = [{
 
 peopleList[BF].groups = [{
     people: [peopleList[RUBY]],
-    title: "Loved By",
+    title: "Friends with",
     groupName: "friend",
     subtitle: ""
 },
 {
     people: [peopleList[RUBY]],
     title: "Linked To",
-    groupName: "collecter",
+    groupName: "currator",
     subtitle: ""
 },
 {
@@ -173,10 +173,10 @@ group_of_three = [{
 }];
 
 
-collecters = [{
+currators = [{
     people: three_people,
     title: "board linked with",
-    groupName: "collecter",
+    groupName: "currator",
     subtitle: "sharing a total of 23 cards"
 }];
 

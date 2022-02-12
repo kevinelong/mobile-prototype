@@ -81,7 +81,7 @@ function connectPage(selected = false) {
                     [{
                         people: [peopleList[1]],
                         title: "linked with",
-                        groupName: "collecter",
+                        groupName: "currator",
                         subtitle: "23 shared cards"
                     }],
                     2,
