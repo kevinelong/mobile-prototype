@@ -21,7 +21,7 @@ function collectPage(selected = false) {
                 "images/photos/santa_barbara_1500x500.jpg", [{
                     people: peopleList,
                     title: "Linked with",
-                    groupName: "Collector",
+                    groupName: "Curator",
                     subtitle: "23 cards shared"
                 }]
             ),
@@ -29,7 +29,7 @@ function collectPage(selected = false) {
                 "images/photos/paris_france.jpg", [{
                     people: [peopleList[JOE]],
                     title: "Linked with",
-                    groupName: "Collector",
+                    groupName: "Curator",
                     subtitle: "2 cards shared"
                 }]
             ),

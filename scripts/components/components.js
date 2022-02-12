@@ -321,7 +321,7 @@ const activityData = [{
                 people: [{
                     people: [peopleList[RUBY], peopleList[JOE]],
                     title: "Pinned By",
-                    groupName: "Collector",
+                    groupName: "Curator",
                     subtitle: ""
                 }],
                 tags: ["brazilian", "cafe"],
@@ -334,7 +334,7 @@ const activityData = [{
                 people: [{
                     people: [peopleList[RUBY], peopleList[JOE]],
                     title: "Pinned By",
-                    groupName: "Collector",
+                    groupName: "Curator",
                     subtitle: ""
                 }],
                 tags: ["japanese", "sushi", "prix-fixe"]
