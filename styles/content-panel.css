@@ -14,8 +14,8 @@
     width: 100%;
     margin: 0;
     padding: 0;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    /* overflow-y: scroll;
+    overflow-x: hidden; */
     color: #333333;
     background-color: white;
     justify-content: flex-start;
@@ -37,6 +37,9 @@
 }
 
 .dialog .content-panel .circle .text {
+    color: white;
+}
+.dialog .content-panel .circle > .text {
     color: black;
 }
 
