@@ -66,30 +66,84 @@ const peopleList = [{
         groups: [],
     },
 ];
+
+peopleList[RUBY].groups = [{
+    people: [peopleList[BF]],
+    title: "Loved By",
+    groupName: "friend",
+    subtitle: ""
+},
+{
+    people: [peopleList[BF]],
+    title: "Linked To",
+    groupName: "collecter",
+    subtitle: ""
+},
+{
+    people: [peopleList[BF], peopleList[JOE]],
+    title: "Plans With",
+    groupName: "Co-Planner",
+    subtitle: ""
+},
+{
+    people: [peopleList[BF], peopleList[JOE]],
+    title: "Followed By",
+    groupName: "explorer",
+    subtitle: ""
+}
+];
+
+peopleList[JOE].groups = [{
+    people: [peopleList[BF]],
+    title: "Loved By",
+    groupName: "friend",
+    subtitle: ""
+},
+{
+    people: [peopleList[BF]],
+    title: "Linked To",
+    groupName: "collecter",
+    subtitle: ""
+},
+{
+    people: [peopleList[BF], peopleList[RUBY]],
+    title: "Plans With",
+    groupName: "Co-Planner",
+    subtitle: ""
+},
+{
+    people: [peopleList[BF], peopleList[RUBY]],
+    title: "Followed By",
+    groupName: "explorer",
+    subtitle: ""
+}
+];
+
+
 peopleList[BF].groups = [{
-        people: [peopleList[RUBY]],
-        title: "Loved By",
-        groupName: "friend",
-        subtitle: ""
-    },
-    {
-        people: [peopleList[RUBY]],
-        title: "Linked To",
-        groupName: "collecter",
-        subtitle: ""
-    },
-    {
-        people: [peopleList[RUBY], peopleList[JOE]],
-        title: "Plans With",
-        groupName: "Co-Planner",
-        subtitle: ""
-    },
-    {
-        people: [peopleList[RUBY], peopleList[JOE]],
-        title: "Followed By",
-        groupName: "explorer",
-        subtitle: ""
-    }
+    people: [peopleList[RUBY]],
+    title: "Loved By",
+    groupName: "friend",
+    subtitle: ""
+},
+{
+    people: [peopleList[RUBY]],
+    title: "Linked To",
+    groupName: "collecter",
+    subtitle: ""
+},
+{
+    people: [peopleList[RUBY], peopleList[JOE]],
+    title: "Plans With",
+    groupName: "Co-Planner",
+    subtitle: ""
+},
+{
+    people: [peopleList[RUBY], peopleList[JOE]],
+    title: "Followed By",
+    groupName: "explorer",
+    subtitle: ""
+}
 ];
 
 one_person = peopleList.filter((p, i) => i < 1);

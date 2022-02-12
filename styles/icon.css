@@ -15,11 +15,11 @@
     opacity: 99%;
 }
 
-.selected .icon-frame {
+/* .selected .icon-frame {
     background: #F9A831cc;
     opacity: 100%;
     transition: opacity 300ms, width 300ms, background 300ms;
-}
+} */
 
 
 .icon-frame-inner {
@@ -36,7 +36,7 @@
     /*height: 24px;*/
     margin: 0;
 }
-.explore.page .icon{
+.explore.page .card .icon{
     width: 12px;
     height: 12px;
 }

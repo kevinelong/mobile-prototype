@@ -1,5 +1,6 @@
 function action(name, which = "", id = -1, object = {}) {
-    return `onclick="actionClick(this, '${name}','${which}','${id}')" data-object="${JSON.stringify(object).replace(/"/g, "'")}"`;
+    return `onclick="actionClick(this, '${name}','${which}','${id}')"`;
+//    return `onclick="actionClick(this, '${name}','${which}','${id}')" data-object="${JSON.stringify(object).replace(/"/g, "'")}"`;
 }
 
 function actionPanel(content) {

@@ -144,6 +144,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     };
 
     let cardList = get(".timeline.page .card-list");
+    cardList.scrollTop = cardList.querySelectorAll(".is-current-period")[0].offsetTop - 105;
 
     const milliseconds = 300;
     const cardListHeight = cardList.offsetHeight;
@@ -167,6 +168,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         scrolling=true;
         let scrollAmount = cardList.scrollTop;
         let centers = [];
+
 
         [...cardList.querySelectorAll(".card")].forEach(c => {
             const half = Math.floor(c.offsetHeight / 2);
@@ -214,7 +216,8 @@ document.addEventListener("DOMContentLoaded",()=>{
         setTimeout(()=>{
             scrolling=false; 
         },999);
-        console.log(centers);
+
+        //console.log(centers);
     }, milliseconds);
 
 
