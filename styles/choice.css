@@ -28,7 +28,7 @@
     height: auto;
     display: flex;
     flex-direction: row;
-    gap: 0.5rem;
+    gap: 2px;
     padding: 0;
     /*background: #dddddd;*/
     overflow-x: scroll;

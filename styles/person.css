@@ -25,7 +25,7 @@
     width: fit-content;
     height: fit-content;
     background: #ffffffee;
-    border: 1px solid #ffffffee;
+    border: 0px solid #ffffffee;
     border-radius: 15px;
     align-items: center;
     justify-content: center;
@@ -47,8 +47,8 @@
 }
 
 .card-people .circle .text{
-    margin: 0 0 0 1px;
+    margin: 0 0 0 2px;
     padding-top: 2px;
-    font-size: 9px;
+    font-size: 11px;
     white-space: nowrap;
 }
