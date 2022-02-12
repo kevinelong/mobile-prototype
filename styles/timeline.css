@@ -82,23 +82,20 @@
     height: 24px;
 }
 
-.page.timeline .card:focus,
-.page.timeline .card:focus-within,
-.page.timeline .card.is-current-period{
+.page.timeline .card{
+    background-color: white;
+}
+.page.timeline .card{
     background-color: white;
 }
 
-.page.timeline .card.not-current-period{
-    /* background-color: #888888; */
-}
-.page.timeline .card:focus .card-inner,
-.page.timeline .card:focus-within .card-inner,
-.page.timeline .card.is-current-period .card-inner{
+.page.timeline .card.selected .card-inner{
     opacity: 1;
     transition: opacity 100ms ease-in-out;
 }
 
-.card.not-current-period .card-inner{
+.page.timeline .card .card-inner{
+    min-height:120px;
     opacity: 0.55;
     transition: opacity 100ms ease-in-out;
 }
@@ -132,21 +129,15 @@
         display: none;
 }
 
-.card.not-current-period:focus .card-inner > .content-panel,
-.card.not-current-period:focus .card-inner > .row,
-.card.not-current-period:focus .card-inner > .text,
-.card.not-current-period:focus .action-item,
-.card.not-current-period:focus .card-people,
-.card.not-current-period:focus-within .card-inner > .content-panel,
-.card.not-current-period:focus-within .card-inner > .row,
-.card.not-current-period:focus-within .card-inner > .text,
-.card.not-current-period:focus-within .action-item,
-.card.not-current-period:focus-within .card-people{
+.card.not-current-period.selected .card-inner > .content-panel,
+.card.not-current-period.selected .card-inner > .row,
+.card.not-current-period.selected .card-inner > .text,
+.card.not-current-period.selected .action-item,
+.card.not-current-period.selected .card-people{
         display: flex;
 }
 
-.card.not-current-period:focus .card-tags,
-.card.not-current-period:focus-within .card-tags{
+.card.not-current-period.selected .card-tags{
         display: block;
 }
 

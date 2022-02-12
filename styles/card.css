@@ -14,7 +14,9 @@
         overflow-y: scroll;
         overflow-x: hidden;
     }
-    
+    .page.timeline .card-list{
+        padding: 275px 0;
+    }
     .activity-list .collapse .card-list {
         gap: 0;
     }
