@@ -235,6 +235,14 @@ function showDestinations(title = "Destination", index = -1) {
         )
     );
 }
+function showLocations(title = "Current Location", index = -1) {
+    showDialog(title,
+        contentPanel(
+            search(DESTINATIONS, index) +
+            actionList("filter-actions", ["apply"], false, 0, "black")
+        )
+    );
+}
 function showMoodDialog(title = "Mood", index = -1) {
     showDialog(title,
         contentPanel(
@@ -397,7 +405,7 @@ function edit(target, action, which, id){
         showMoodDialog();
     }
     else if(which === "location"){
-        showDestinations();
+        showLocations();
     }
 }
 
