@@ -89,7 +89,7 @@ const timelineContent =
             title("CURRENT TIME: 11:04 am") +
               title(
                 "LOCATION: Santa Barabara" +
-                  actionItem("edit", "", "", "edit", "black")
+                  actionItem("edit", "location", "Santa Barbara", "edit", "black")
               )
           ),
           smart("lunch", "11:00 am - 2:30 pm", "hungry",["Check-In to Brasil Cafe","Check into Sports Shop"]),
