@@ -95,11 +95,14 @@ route
         .controllers,
         .controllers * {
             display: block;
+            font-family: SF Pro Display;
         }
 
         .controllers {
             background-color: white;
             color: black;
+            height: 100%;
+            padding: 42px;
         }
 
         .controllers .form-logo {
@@ -117,14 +120,51 @@ route
             font-weight: bold;
             font-family: SF Pro Display;
             text-align: center;
-            margin-top: 49px;
+            margin: 49px 0;
         }
 
-        .controllers input[type=text] {
+        .controllers input {
+            color: black;
             border-radius: 0;
-            border: none;
+            border: none;   
             box-shadow: none;
+            border-bottom: 1px solid #B8B8B8;
+            width: 100%;
+            margin-top: 12px;
+            padding: 12px 0;
+
+        }
+
+        .controllers input:focus {
+            outline: none;
             border-bottom: 1px solid black;
+        }
+
+        .controllers input::placeholder {
+            color: #B8B8B8;
+            opacity: 1;
+        }
+
+        .controllers .login-button {
+            border-radius: 4px;
+            background-color: #F9A831;
+            color: white;
+            font-weight: bold;
+            margin-top: 40px;
+            border: none;
+            width: 100%;
+            height: 38px;
+        }
+
+        .controllers .link-button {
+            background-color: white;
+            font-size: 12;
+            color: #8F8F8F;
+            margin-top: 8px;
+            width: 100%;
+            height: 38px;
+            border: 2px solid #B8B8B8;
+            border-radius: 4px;
         }
 
     </style>
@@ -138,7 +178,12 @@ route
                 <div class="controllers">
                     <div class="form-logo">VITA</div>
                     <div class="form-title">Plan the best experiences of your life</div>
-                    <input type="text">
+                    <form action="">
+                        <input class="text-input" type="email" placeholder="Email">
+                        <input class="text-input" type="password" name="" id="" placeholder="Password">
+                        <button class="login-button" type="submit">LOGIN</button>
+                    </form>
+                    <button class="link-button">Continue with Google</button>
                 </div>
             </div>
         </div>
