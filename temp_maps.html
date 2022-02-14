@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css' />
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.js'></script>
+    <script type='text/javascript'>
+      function initMap() {
+        var host = 'https://maps.omniscale.net/v2/{id}/style.default/{z}/{x}/{y}.png';
+
+        // var attribution = '&copy; 2022 &middot; <a href="https://maps.omniscale.com/">Omniscale</a> ' +
+        //     '&middot; Map data: <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>';
+
+        let attribution = '' +
+            '';
+
+
+        let map = L.map('map').setView([34.41, -119.69], 15);
+          L.tileLayer(host, {
+            id: 'vitaexplorer-05d4f193',
+            attribution: attribution
+          }).addTo(map);
+        map.attributionControl.setPrefix(false);
+      }
+    </script>
+  </head>
+  <body onload='initMap()'>
+    <div id='map' style='height: 555px; width: 320px;'></div>
+  </body>
+</html>
+
+<!-- 34.241943, -119.889999 -->

@@ -21,6 +21,6 @@ function collectCardNotification(
         "",
         "",
         "",
-        true, [{ people: peopleList, title: "Linked With", groupName: "Collector", subtitle: "23 shared cards" }]
+        true, [{ people: peopleList, title: "Linked With", groupName: "Curator", subtitle: "23 shared cards" }]
     );
 }

@@ -1,6 +1,7 @@
 
 .hash-tag {
-    background: #88888888;
+    color: white;
+    background: darkgoldenrod;
     border-radius: 3px;
     font-size: 0.66rem;
     display: inline-flex;

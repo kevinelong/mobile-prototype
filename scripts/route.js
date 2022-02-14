@@ -58,6 +58,16 @@ const THINGS_TO_DO_FILTERS = [
     "Outdoor",
     "Group"
 ];
+
+const MOODS = [
+    {name:"Romantic"},
+    {name:"Active"},
+    {name:"Relaxed"},
+    {name:"Thirsty"},
+    {name:"Hungry"},
+    {name:"Bored"},
+];
+
 const DESTINATIONS = [{
         name: "Santa Barabara, California USA"
     },
@@ -225,6 +235,22 @@ function showDestinations(title = "Destination", index = -1) {
         )
     );
 }
+function showLocations(title = "Current Location", index = -1) {
+    showDialog(title,
+        contentPanel(
+            search(DESTINATIONS, index) +
+            actionList("filter-actions", ["apply"], false, 0, "black")
+        )
+    );
+}
+function showMoodDialog(title = "Mood", index = -1) {
+    showDialog(title,
+        contentPanel(
+            search(MOODS, index)
+            // actionList("filter-actions", ["apply"], false, 0, "black")
+        )
+    );
+}
 
 function showReviewDialog() {
     showDialog(
@@ -267,6 +293,13 @@ function showSmartIdeasDialog() {
 
 function showUploadDialog() {
     showDialog("Upload", input("file", "file", "") + actionButton("upload"))
+}
+
+function showAddPlaceDialog(a,b,c,d) {
+    showDialog("Add Event on " + d, 
+    label("place", "Where" + input("place","text","placeholder=\"Where?\"") ) +
+    label("place", "When" + input("time", "time") ) + 
+    actionButton("add"))
 }
 
 function showMatchDialog() {
@@ -366,6 +399,16 @@ function collapseCard(target) {
     target.closest(".card").classList.toggle("collapsed");
 }
 
+function edit(target, action, which, id){
+    console.log("edit()", target, action, which, id);
+    if(which === "mood"){
+        showMoodDialog();
+    }
+    else if(which === "location"){
+        showLocations();
+    }
+}
+
 function openPage(target, action, which, id) {
     console.log("openPage", target, action, which, id);
     if ("open" === action && which.toLowerCase().startsWith("http")) {
@@ -402,6 +445,7 @@ TOAST_MESSAGES = {
     paypal: "Payment Settled",
     venmo: "Payment Settled",
     verify: "Verified",
+    notify: "Notification Sent",
     "check-in": "Checked In",
 };
 
@@ -440,6 +484,8 @@ ACTION_PAGES = {
     match: showMatchDialog,
     upload: showUploadDialog,
     'smart-ideas': showSmartIdeasDialog,
+    'add-place': showAddPlaceDialog,
+    'edit': edit,
     review: showReviewDialog
 };
 

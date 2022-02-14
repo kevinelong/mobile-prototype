@@ -156,11 +156,19 @@
 }
 
 .settle.page .title .action-item {
-    background: #fff6;
-    margin-left: 6px;
-  }
-  .settle.page .title .action-item:hover {
-    background: #ffff;
-    margin-left: 6px;
-  }
-    
+  background: #fff6;
+  margin-left: 6px;
+}
+.settle.page .title .action-item:hover {
+  background: #ffff;
+  margin-left: 6px;
+}
+
+.settle.page .header .title .action-item {
+  margin-left: 0;
+}
+
+.settle.page .header .title .action-item:hover {
+  margin-left: 0;
+}
+  

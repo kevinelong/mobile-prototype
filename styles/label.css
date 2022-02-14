@@ -19,6 +19,7 @@ textarea{
 
 label.search {
     /*background: deeppink;*/
+    width: 100%;
 }
 
 label.Destination{

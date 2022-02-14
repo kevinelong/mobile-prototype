@@ -31,6 +31,11 @@ input[type=text]:focus {
     align-items: flex-start;
     gap: 6px;
 }
+
+.card-people .row {
+    gap: 8px;
+}
+
 .center-content{
     align-items: center;
     justify-content: center;
@@ -61,6 +66,10 @@ input[type=text]:focus {
 }
 
 .row .icon-frame {
+    margin-right: 0;
+    align-self: center;
+}
+.titles .row .icon-frame {
     margin-right: 0;
     align-self: flex-start;
 }

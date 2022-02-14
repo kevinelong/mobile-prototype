@@ -171,7 +171,7 @@ function activityList(list) {
 function cardListSection(titleText, action, subtitleText, cards) {
     return sectionTitle(
         title("Friday 12/12/2022") +
-        actionItem("add-place", "timeline", -1, "Add", "black")
+        actionItem("add-place", "timeline", "Friday 12/12/2022", "Add", "black")
     ) +
         subtitle("Santa Barbara") +
         cards.join("")
