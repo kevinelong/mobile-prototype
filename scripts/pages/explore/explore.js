@@ -28,7 +28,11 @@ const EXPLORE_DATA = [
                 people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
                 title: "Recommended By",
                 groupName: "Taste Match"
-            },
+            },            {
+            people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+            title: "Planning with",
+            groupName: "Co-Planner"
+        },
         ],
         ["collect"],
         "2",
