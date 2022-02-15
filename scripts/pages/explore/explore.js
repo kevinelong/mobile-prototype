@@ -13,7 +13,7 @@ const EXPLORE_DATA = [
         "images/photos/hanna-levin.png",
         "Hanna Levin",
         "New Taste Match to Follow!",
-        "Hanna Levin has rated over 20 places, including 2 you both love!", ["Influencer", "Recommended"],
+        "Hanna Levin has rated over 20 places, including 2 you both love!", ["Tapas", "Spanish"],
         [{
                 people: [peopleList[BF]],
                 title: "Recommended By",
