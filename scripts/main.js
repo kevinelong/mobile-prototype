@@ -27,6 +27,11 @@ document.addEventListener("DOMContentLoaded", () => {
         return div("hidden toast", c);
     }
 
+    function mapView(c) {
+        return div("map", c, "id=\"map\"");
+    }
+    // <div id='map' style='height: 555px; width: 320px;'></div>
+
     document.body.innerHTML = content(
         outerBox(
             innerContent() +
@@ -56,6 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
         settleList(),
         settleSplit(),
         settlePage(),
+        mapView()
     ].join("");
 
     const outerBox2 = get(".outer-box");
@@ -220,5 +226,40 @@ document.addEventListener("DOMContentLoaded",()=>{
         //console.log(centers);
     }, milliseconds);
 
+    function initMap() {
+        let host = 'https://maps.omniscale.net/v2/{id}/style.default/{z}/{x}/{y}.png';
+        let attribution = '';
+        let map = L.map('map').setView([34.41, -119.69], 12);
+        L.tileLayer(host, {
+            id: window.location.hostname.indexOf("kevinelong") == -1 ? 'vitaexplorer-05d4f193' : 'kevinelong-github-io-0f6096e4',
+            attribution: attribution
+        }).addTo(map);
+        map.attributionControl.setPrefix(false);
 
+        const data =[
+            {
+                name: "Loquita Santa Barbara",
+                description: "Loquita Santa Barbara<br>5 Friends liked this.",
+                latlong: [34.414843631936535, -119.69157509814653]
+            },
+            {
+                name: "Boathouse at Hendry's Beach",
+                description: "Boathouse at Hendry's Beach<br>14 Friends and 2 Co-Curators liked this.",
+                latlong: [34.408724829930925, -119.74230426640375]
+            },
+            {
+                name: "The Black Sheep",
+                description: "The Black Sheep<br>14 Friends and 2 Co-Curators liked this.",
+                latlong: [34.419441971416056, -119.6969748812218]
+            }
+
+        ]
+        data.forEach((item)=>{
+            let marker = L.marker(item.latlong,{opacity: 0.75, title: item.name});
+            marker.bindPopup(item.description).openPopup();
+            marker.addTo(map);
+        });
+        get("#map").classList.add("hidden")
+    }
+    initMap();
 });
