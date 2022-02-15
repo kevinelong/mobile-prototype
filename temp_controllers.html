@@ -111,7 +111,7 @@ route
             color: #F9A831;
             font-family: Avera Libre;
             text-align: center;
-            margin-top: 52px;
+            /* margin-top: 52px; */
             /* line-height: 36px; */
         }
 
@@ -120,7 +120,7 @@ route
             font-weight: bold;
             font-family: SF Pro Display;
             text-align: center;
-            margin: 49px 0;
+            margin: 48px 0 58px;
         }
 
         .controllers input {
@@ -154,17 +154,40 @@ route
             border: none;
             width: 100%;
             height: 38px;
+            
         }
 
         .controllers .link-button {
             background-color: white;
-            font-size: 12;
+            font-size: 14px;
             color: #8F8F8F;
             margin-top: 8px;
             width: 100%;
             height: 38px;
             border: 2px solid #B8B8B8;
             border-radius: 4px;
+            /* display: inline !important; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .controllers .login-links {
+            text-align: center;
+            margin-top: 24px;
+        }
+
+        .controllers a {
+            display: inline;  
+        }
+
+        .controllers .new-here {
+            color: #B8B8B8;
+        }
+
+        .controllers .sign-up {
+            color: #F9A831;
         }
 
     </style>
@@ -183,7 +206,11 @@ route
                         <input class="text-input" type="password" name="" id="" placeholder="Password">
                         <button class="login-button" type="submit">LOGIN</button>
                     </form>
-                    <button class="link-button">Continue with Google</button>
+                    <button class="link-button"><img src="images\google.png" alt="">Continue with Google</button>
+                    <div class="login-links">
+                        <a href="" class="new-here">New here?</a>
+                        <a href="" class="sign-up">Sign up</a>
+                    </div>
                 </div>
             </div>
         </div>
