@@ -365,9 +365,10 @@ function showProfileDialog(target, action, which, index = RUBY) {
         )
         .join("")
     );
-    const other = label("", "Relationship" +
-            input("relationship", "text", `placeholder="e.g. Acquaintance, Friend, BFF"`)
-        ) +
+    const other =
+        // label("", "Relationship" +
+        //     input("relationship", "text", `placeholder="e.g. Acquaintance, Friend, BFF"`)
+        // ) +
         label("",
             "Shared Plans" +
             div("card-tags", [...[
@@ -392,7 +393,7 @@ function showProfileDialog(target, action, which, index = RUBY) {
         (index === 0 ? "" : other),
         "profile"
     );
-    showDialog(index === 0 ? "Your Profile" : "Connection Profile", content);
+    showDialog(index === 0 ? "Your Profile" : "Profile", content);
 }
 
 function collapseCard(target) {
