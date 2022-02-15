@@ -54,6 +54,7 @@
     justify-content: center;
 }
 
+.page.explore_detail>.content-panel,
 .page.collect_board>.content-panel,
 .page.plan_detail>.content-panel {
     gap: 6px;
