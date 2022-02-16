@@ -19,11 +19,11 @@ const EXPLORE_DATA = [
                 title: "Recommended By",
                 groupName: "Friend"
             },
-            {
-                people: [peopleList[JOE], peopleList[BF]],
-                title: "Recommended By",
-                groupName: "Expert"
-            },
+            // {
+            //     people: [peopleList[JOE], peopleList[BF]],
+            //     title: "Recommended By",
+            //     groupName: "Expert"
+            // },
             {
                 people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
                 title: "Recommended By",
