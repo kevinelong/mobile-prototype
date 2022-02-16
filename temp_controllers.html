@@ -103,9 +103,10 @@ route
             color: black;
             height: 100%;
             padding: 42px;
+            overflow: auto;
         }
 
-        .controllers .form-logo {
+        .controllers .profile-setup.logo {
             font-size: 30px;
             font-weight: bold;
             color: #F9A831;
@@ -115,7 +116,7 @@ route
             /* line-height: 36px; */
         }
 
-        .controllers .form-title {
+        .controllers .profile-setup.slogan {
             font-size: 38px;
             font-weight: bold;
             font-family: SF Pro Display;
@@ -123,7 +124,19 @@ route
             margin: 48px 0 58px;
         }
 
-        .controllers input {
+        .controllers .profile-setup.title {
+            font-size: 32px;
+            font-weight: bold;
+            font-family: SF Pro Display;
+            margin: 48px 0 20px;
+        }
+
+        .controllers .profile-setup.description {
+            font-size: 12px;
+            color: #757575;
+        }
+
+        .controllers .login input {
             color: black;
             border-radius: 0;
             border: none;   
@@ -135,12 +148,12 @@ route
 
         }
 
-        .controllers input:focus {
+        .controllers .login input:focus {
             outline: none;
             border-bottom: 1px solid black;
         }
 
-        .controllers input::placeholder {
+        .controllers .login input::placeholder {
             color: #B8B8B8;
             opacity: 1;
         }
@@ -182,13 +195,54 @@ route
             display: inline;  
         }
 
-        .controllers .new-here {
+        .controllers .login-links.new-here {
             color: #B8B8B8;
         }
 
-        .controllers .sign-up {
+        .controllers .login-links.sign-up {
             color: #F9A831;
         }
+
+        .profile-setup.radio {
+            margin-top: 52px;
+            font-size: 12px;
+            display: flex;
+            gap: 14px;
+        }
+
+        .controllers .profile-setup input {
+            display: inline;
+            opacity: 0;
+            position: fixed;
+            width: 0;
+        }
+
+        .controllers .profile-setup label {
+            /* display: inline-block; */
+            /* background-color: #ddd; */
+            font-size: 12px;
+            border: 1px solid #EAEAEA;
+            border-radius: 16px;
+            height: 32px;
+            /* text-align: center; */
+            line-height: 32px;
+            color: #8F8F8F;
+            padding-left: 20px;
+        }
+
+        .controllers .profile-setup input:checked + label {
+            border: 1px solid #F9A831;
+            color: #F9A831;
+        }
+
+        .controllers .profile-setup label:hover {
+            border: 1px dashed #F9A831;
+            color: #444;
+        }
+
+        /* .controllers .profile-setup input:focus + label {
+            border: 1px dashed blue;
+        } */
 
     </style>
 
@@ -199,17 +253,61 @@ route
         <div class="outer-box div">
             <div class="inner-content div">
                 <div class="controllers">
-                    <div class="form-logo">VITA</div>
-                    <div class="form-title">Plan the best experiences of your life</div>
-                    <form action="">
+                    <div class="profile-setup logo">VITA</div>
+                    <div class="profile-setup slogan">Plan the best experiences of your life</div>
+                    <form class="login" action="">
                         <input class="text-input" type="email" placeholder="Email">
                         <input class="text-input" type="password" name="" id="" placeholder="Password">
                         <button class="login-button" type="submit">LOGIN</button>
                     </form>
                     <button class="link-button"><img src="images\google.png" alt="">Continue with Google</button>
                     <div class="login-links">
-                        <a href="" class="new-here">New here?</a>
-                        <a href="" class="sign-up">Sign up</a>
+                        <a href="" class="login-links new-here">New here?</a>
+                        <a href="" class="login-links sign-up">Sign up</a>
+                    </div>
+                    <div class="profile-setup title">
+                        Tell us a bit about yourself
+                    </div>
+                    <div class="profile-setup description">
+                        Lorem ipsum dolor sit amet?
+                    </div>
+                    <div class="profile-setup radio">
+                        <input type="radio" id="1" name="answer">
+                        <label for="1">Sensibus assueverit</label>
+                        <input type="radio" id="2" name="answer">
+                        <label for="2">Ex duo</label>
+                        <input type="radio" id="3" name="answer">
+                        <label for="3">Id his</label>
+                        <input type="radio" id="4" name="answer">
+                        <label for="4">Has prima</label>
+                        <input type="radio" id="5" name="answer">
+                        <label for="5">Illum fuisset</label>
+                        
+                        <!-- <label class="radio-item">
+                            <input type="radio" name="answer">
+                            Sensibus assueverit
+                        </label>
+
+                        <label class="radio-item">
+                            <input type="radio" name="answer">
+                            Ex duo
+                        </label>
+
+                        <label class="radio-item">
+                            <input type="radio" name="answer">
+                            Id his
+                        </label>
+
+                        <label class="radio-item">
+                            <input type="radio" name="answer">
+                            Has prima
+                        </label>
+
+                        <label class="radio-item">
+                            <input type="radio" name="answer">
+                            Illum fuisset
+                        </label> -->
+
                     </div>
                 </div>
             </div>
