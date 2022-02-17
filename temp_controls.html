@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Vita Explorer</title>
+    <!--    <link href="styles/style.css" rel="stylesheet" type="text/css"/>-->
+    <link href="http://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet">
+    <link href="http://fonts.cdnfonts.com/css/averia-libre" rel="stylesheet">
+    <script>
+        `
+timeline
+action
+card
+choice
+circle
+content-panel
+detail
+dialog
+hash-tag
+icon
+label
+main-nav
+message
+page
+person
+simple-list
+title
+toast
+cards card-connect
+pages connect
+pages settle
+
+main
+component
+`.split("\n").map(p => p ? document.write(`<li` + `nk href="styles/` +
+            p.split(" ").join("/") + ".css" +
+            `"  rel="stylesheet" type="text/css"/>`) : '');
+    </script>
+    <script>
+        `
+utils
+html
+
+components components
+
+components action action
+components grid
+
+components card card
+components card card_person
+components card card_explore
+components card card_connect
+components card card_settle
+components card card_plan
+components card card_collect
+
+components choice choice
+components dialog dialog
+components hash_tag hash_tag
+components list list
+components main_nav
+components message message
+components money money
+components page
+components search search
+components toast toast
+components timeline timeline
+
+pages connect connect
+pages connect connect_chat
+pages connect connect_person
+
+pages plan plan
+pages plan plan_detail
+
+pages settle settle
+pages settle settle_split
+pages settle settle_list
+
+pages explore explore_detail
+pages explore explore
+
+pages collect collect
+pages collect collect_board
+pages collect collect_details
+
+route
+`.split("\n").map(p => p ? document.write(`<scr` + `ipt src="scripts/` +
+            p.split(" ").join("/") + ".js" +
+            `"></scr` + `ipt>`) : '');
+    </script>
+
+    <style>
+        .control-host,
+        .control-host * {
+            /* display: block; */
+            font-family: 'SF Pro Display', sans-serif;
+        }
+
+        .control-host {
+            background-color: white;
+            color: black;
+            padding: 42px;
+            overflow: auto;
+            gap: 40px;
+        }
+
+        .control-host .page1 {
+            min-height: calc(640px - (2 * 42px));
+            gap: 48px;
+        }
+
+        .control-host .page2 {
+            min-height: calc(640px - (2 * 42px));
+        }
+
+        .control-host .logo-control {
+            justify-self: center;
+            font-size: 30px;
+            font-weight: bold;
+            color: #F9A831;
+            font-family: 'Averia Libre', sans-serif;
+            text-align: center;
+            gap: 12px;
+        }
+
+        .control-host .slogan-control {
+            font-size: 38px;
+            font-weight: bold;
+            text-align: center;
+            /* margin: 48px 0 58px; */
+            /* margin-bottom: 10px; */
+            margin-bottom: 30px;
+        }
+
+        .control-host .title-control {
+            font-size: 32px;
+            font-weight: bold;
+            /* margin: 48px 0 20px; */
+        }
+
+        .control-host .question-control {
+            font-size: 12px;
+            color: #757575;
+        }
+
+        .control-host .login-control {
+            gap: 40px;
+        }
+
+        .control-host .login-creds {
+            gap: 12px;
+        }
+
+        .control-host .login-buttons {
+            gap: 8px;
+        }
+
+        .control-host .login-control input {
+            color: black;
+            border-radius: 0;
+            border: none;
+            box-shadow: none;
+            border-bottom: 1px solid #B8B8B8;
+            width: 100%;
+            /* margin-top: 12px; */
+            padding: 12px 0;
+
+        }
+
+        .control-host .login-control input:focus {
+            outline: none;
+            border-bottom: 1px solid black;
+        }
+
+        .control-host .login-control input::placeholder {
+            color: #B8B8B8;
+            opacity: 1;
+        }
+
+        .control-host .login-control .submit-signin {
+            border-radius: 4px;
+            background-color: #F9A831;
+            color: white;
+            font-weight: bold;
+            /* margin-top: 40px; */
+            border: none;
+            width: 100%;
+            height: 38px;
+        }
+
+        .control-host .google-control {
+            background-color: white;
+            font-size: 14px;
+            color: #8F8F8F;
+            min-height: 38px;
+            border: 2px solid #B8B8B8;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .control-host .signup-control {
+            /* border: 1px solid red; */
+            min-height: 38px;
+
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .control-host .signup-control .new-here {
+            color: #B8B8B8;
+        }
+
+        .control-host .signup-control .sign-up {
+            color: #F9A831;
+        }
+
+        .control-host .page2 {
+            gap: 52px;
+        }
+
+        .control-host .question-heading {
+            margin-top: 1em;
+            gap: 20px;
+        }
+
+        .control-host .radio-control {
+            /* margin-top: 52px; */
+            font-size: 12px;
+            gap: 14px;
+        }
+
+        .control-host .radio-control input {
+            display: inline;
+            opacity: 0;
+            position: fixed;
+            width: 0;
+        }
+
+        .control-host .radio-control label {
+            /* display: inline-block; */
+            /* background-color: #ddd; */
+            font-size: 12px;
+            border: 1px solid #EAEAEA;
+            border-radius: 16px;
+            height: 32px;
+            /* text-align: center; */
+            line-height: 32px;
+            color: #8F8F8F;
+            padding-left: 20px;
+        }
+
+        .control-host .radio-control input:checked+label {
+            border: 1px solid #F9A831;
+            color: #F9A831;
+        }
+
+        .control-host .radio-control label:hover {
+            border: 1px dashed #F9A831;
+            color: #444;
+        }
+
+        /* .control-host .radio-control input:focus + label {
+            border: 1px dashed blue;
+        } */
+    </style>
+
+</head>
+
+<body cz-shortcut-listen="true">
+    <div class="content div">
+        <div class="outer-box div">
+            <div class="inner-content div">
+                <div class="control-host">
+                    <div class="page1">
+                    <div class="logo-control">VITA</div>
+                    <div class="slogan-control">Plan the best experiences of your life</div>
+                        <form action="">
+                            <div class="login-control">
+                                <div class="login-creds">
+                                    <input class="email-signin" type="email" placeholder="Email">
+                                    <input class="password-signin" type="password" name="" id="" placeholder="Password">
+                                </div>
+                                <div class="login-buttons">
+                                    <button class="submit-signin" type="submit">LOGIN</button>
+                                    <button class="google-control">
+                                        <img src="images\google.png" alt="">
+                                        Continue with Google
+                                    </button>
+                                    <div class="signup-control">
+                                        <div class="new-here">New here?</div>
+                                        <a href="" class="sign-up">Sign up</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="page2">
+                        <div class="question-heading">
+                            <div class="title-control">
+                                Tell us a bit about yourself
+                            </div>
+                            <div class="question-control">
+                                Lorem ipsum dolor sit amet?
+                            </div>
+                        </div>
+                        <div class="radio-control">
+                            <input type="radio" id="1" name="answer">
+                            <label for="1">Sensibus assueverit</label>
+                            <input type="radio" id="2" name="answer">
+                            <label for="2">Ex duo</label>
+                            <input type="radio" id="3" name="answer">
+                            <label for="3">Id his</label>
+                            <input type="radio" id="4" name="answer">
+                            <label for="4">Has prima</label>
+                            <input type="radio" id="5" name="answer">
+                            <label for="5">Illum fuisset</label>
+
+                            <!-- <label class="radio-item">
+                                <input type="radio" name="answer">
+                                Sensibus assueverit
+                            </label>
+
+                            <label class="radio-item">
+                                <input type="radio" name="answer">
+                                Ex duo
+                            </label>
+
+                            <label class="radio-item">
+                                <input type="radio" name="answer">
+                                Id his
+                            </label>
+
+                            <label class="radio-item">
+                                <input type="radio" name="answer">
+                                Has prima
+                            </label>
+
+                            <label class="radio-item">
+                                <input type="radio" name="answer">
+                                Illum fuisset
+                            </label> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+</script>
