@@ -5,7 +5,10 @@ function exploreDetailPage(selected = false) {
         "Explore Detail",
         [],
         "All",
-        row(cardList([EXPLORE_CARDS[1]])),
+        contentPanel(
+            img("detail", "images/details.png")
+        ),
+        // row(cardList([EXPLORE_CARDS[1]])),
         "ALL",
         "explore",
         "",

@@ -365,9 +365,10 @@ function showProfileDialog(target, action, which, index = RUBY) {
         )
         .join("")
     );
-    const other = label("", "Relationship" +
-            input("relationship", "text", `placeholder="e.g. Acquaintance, Friend, BFF"`)
-        ) +
+    const other =
+        // label("", "Relationship" +
+        //     input("relationship", "text", `placeholder="e.g. Acquaintance, Friend, BFF"`)
+        // ) +
         label("",
             "Shared Plans" +
             div("card-tags", [...[
@@ -392,7 +393,7 @@ function showProfileDialog(target, action, which, index = RUBY) {
         (index === 0 ? "" : other),
         "profile"
     );
-    showDialog(index === 0 ? "Your Profile" : "Connection Profile", content);
+    showDialog(index === 0 ? "Your Profile" : "Profile", content);
 }
 
 function collapseCard(target) {
@@ -480,6 +481,8 @@ ACTION_PAGES = {
     collapse: collapseCard,
     right: hideDialog,
     show: toggleCollapse,
+    'map-on': toggleMap,
+    'map-off': toggleMap,
     person: showProfileDialog,
     match: showMatchDialog,
     upload: showUploadDialog,
@@ -504,6 +507,19 @@ function toggleCollapse(target) {
         return false;
     }
     card_list.classList.toggle("collapse");
+}
+function toggleMap(target) {
+    console.log(target);
+    let img = target.querySelectorAll("img")[0];
+    const src = img.getAttribute("src");
+
+    if (src == "images/icons/icon-map-on.svg" ){
+        img.setAttribute("src", "images/icons/icon-map-off.svg" );
+    }else{
+        img.setAttribute("src", "images/icons/icon-map-on.svg");
+    }
+
+    get('.map').classList.toggle("hidden");
 }
 
 function route(target, action, which = "", index = "") {

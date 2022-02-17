@@ -27,6 +27,12 @@ document.addEventListener("DOMContentLoaded", () => {
         return div("hidden toast", c);
     }
 
+    function mapView(c) {
+        return div("map", c, "id=\"map\"");
+    }
+
+    // <div id='map' style='height: 555px; width: 320px;'></div>
+
     document.body.innerHTML = content(
         outerBox(
             innerContent() +
@@ -38,7 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     get(".main-nav-outer").innerHTML = mainNav(
-        ["explore", "collect", "connect", "timeline", "plan", "settle"],
+        ["explore", "broadcast", "collect", "plan", "settle"],
+        ["connect", "timeline"],
         "timeline"
     );
 
@@ -56,22 +63,23 @@ document.addEventListener("DOMContentLoaded", () => {
         settleList(),
         settleSplit(),
         settlePage(),
+        mapView()
     ].join("");
 
     const outerBox2 = get(".outer-box");
     outerBoxWidth = outerBox2.clientWidth
-        // console.log(outerBoxWidth);
+    // console.log(outerBoxWidth);
 
     const contentPanel = get(".content-panel")
     const cssObjContentPanel = window.getComputedStyle(contentPanel)
     const contentPanelPaddingSides = parseFloat(cssObjContentPanel.paddingLeft) + parseFloat(cssObjContentPanel.paddingRight)
-        // console.log(contentPanelPaddingSides)    
+    // console.log(contentPanelPaddingSides)
 
     timelineWindowWidth = outerBoxWidth - contentPanelPaddingSides
-        // console.log(timelineWindowWidth)
-        // const page = get(".page")
-        // const cssObjPage = window.getComputedStyle(page)
-        // console.log(cssObjPage)
+    // console.log(timelineWindowWidth)
+    // const page = get(".page")
+    // const cssObjPage = window.getComputedStyle(page)
+    // console.log(cssObjPage)
 
     const timeline = get(".timeline");
     const days = timeline.children;
@@ -104,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // const timelineScrollStart = (timelineScrollWidth / 2)
     const timelineScrollStart = (timelineScrollWidth / 2) - (timelineWindowWidth / 2)
-        // console.log(timelineScrollStart)
+    // console.log(timelineScrollStart)
 
     timeline.scrollLeft = timelineScrollStart
 
@@ -128,7 +136,7 @@ listen(
 );
 
 
-document.addEventListener("DOMContentLoaded",()=>{
+document.addEventListener("DOMContentLoaded", () => {
     const onScrollStop = (object, callback, milliseconds) => {
         let timerID;
         object.addEventListener(
@@ -149,8 +157,8 @@ document.addEventListener("DOMContentLoaded",()=>{
     const milliseconds = 300;
     const cardListHeight = cardList.offsetHeight;
     const cardListHeightHalf = Math.floor(cardListHeight / 2);
-    
-    let scrolling=false;
+
+    let scrolling = false;
 
     // const overlay = document.createElement("div");
     // overlay.style.position="absolute";
@@ -161,11 +169,11 @@ document.addEventListener("DOMContentLoaded",()=>{
     // overlay.style.background = "linear-gradient(rgba(0, 0, 0, 0.99), rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.99))";
     // cardList.parentElement.appendChild(overlay);
 
-    onScrollStop(cardList, ()=>{
-        if(scrolling){
+    onScrollStop(cardList, () => {
+        if (scrolling) {
             return;
         }
-        scrolling=true;
+        scrolling = true;
         let scrollAmount = cardList.scrollTop;
         let centers = [];
 
@@ -176,20 +184,23 @@ document.addEventListener("DOMContentLoaded",()=>{
             console.log(delta, scrollAmount, cardListHeightHalf, half, c.offsetTop);
             centers.push([delta, c]);
         });
-        centers.sort((a,b)=>a[0] - b[0]);
-        centers.forEach((c,i) => {
+        centers.sort((a, b) => a[0] - b[0]);
+        centers.forEach((c, i) => {
             let o = c[1];
-            if(i===0){
+            if (i === 0) {
                 o.style.opacity = 1;
                 o.classList.add("selected");
-                console.log( o.offsetTop, cardListHeightHalf, o.offsetHeight);
-                cardList.scroll({ top: 40+(o.offsetTop - cardListHeightHalf) + Math.floor(o.offsetHeight/2), behavior: "smooth" });
-            }else{
+                console.log(o.offsetTop, cardListHeightHalf, o.offsetHeight);
+                cardList.scroll({
+                    top: 40 + (o.offsetTop - cardListHeightHalf) + Math.floor(o.offsetHeight / 2),
+                    behavior: "smooth"
+                });
+            } else {
                 o.classList.remove("selected");
                 o.style.opacity = 0.5;
             }
         });
-        
+
         centers = [];
 
         [...cardList.querySelectorAll(".card")].forEach(c => {
@@ -198,27 +209,69 @@ document.addEventListener("DOMContentLoaded",()=>{
             console.log(delta, scrollAmount, cardListHeightHalf, half, c.offsetTop);
             centers.push([delta, c]);
         });
-        centers.sort((a,b)=>a[0] - b[0]);
-        centers.forEach((c,i) => {
+        centers.sort((a, b) => a[0] - b[0]);
+        centers.forEach((c, i) => {
             let o = c[1];
-            if(i===0){
+            if (i === 0) {
                 o.style.opacity = 1;
                 o.classList.add("selected");
-                console.log( o.offsetTop, cardListHeightHalf, o.offsetHeight);
-                cardList.scroll({ top: 40+(o.offsetTop - cardListHeightHalf) + Math.floor(o.offsetHeight/2), behavior: "smooth" });
-            }else{
+                console.log(o.offsetTop, cardListHeightHalf, o.offsetHeight);
+                cardList.scroll({
+                    top: 40 + (o.offsetTop - cardListHeightHalf) + Math.floor(o.offsetHeight / 2),
+                    behavior: "smooth"
+                });
+            } else {
                 o.classList.remove("selected");
                 o.style.opacity = 0.5;
             }
         });
-        
 
-        setTimeout(()=>{
-            scrolling=false; 
-        },999);
+
+        setTimeout(() => {
+            scrolling = false;
+        }, 999);
 
         //console.log(centers);
     }, milliseconds);
 
+    function initMap() {
+        let host = 'https://maps.omniscale.net/v2/{id}/style.default/{z}/{x}/{y}.png';
+        let attribution = '';
+        let map = L.map('map').setView([34.41, -119.69], 12);
+        L.tileLayer(host, {
+            id: window.location.hostname.indexOf("kevinelong") == -1 ? 'vitaexplorer-05d4f193' : 'kevinelong-github-io-0f6096e4',
+            attribution: attribution
+        }).addTo(map);
+        map.attributionControl.setPrefix(false);
 
+        const data = [
+            {
+                name: "Loquita Santa Barbara",
+                description: "Loquita Santa Barbara<br>5 Friends liked this.",
+                latlong: [34.414843631936535, -119.69157509814653]
+            },
+            {
+                name: "Boathouse at Hendry's Beach",
+                description: "Boathouse at Hendry's Beach<br>14 Friends and 2 Co-Curators liked this.",
+                latlong: [34.408724829930925, -119.74230426640375]
+            },
+            {
+                name: "The Black Sheep",
+                description: "The Black Sheep<br>14 Friends and 2 Co-Curators liked this.",
+                latlong: [34.419441971416056, -119.6969748812218]
+            }
+
+        ]
+        data.forEach((item) => {
+            let marker = L.marker(item.latlong, {
+                opacity: 0.75,
+                title: item.name
+            });
+            marker.bindPopup(item.description).openPopup();
+            marker.addTo(map);
+        });
+        get("#map").classList.add("hidden")
+    }
+
+    initMap();
 });

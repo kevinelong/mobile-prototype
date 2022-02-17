@@ -6,15 +6,27 @@
     padding: 0;
     width: 100%;
 }
+.card.explore .card-people .person-icon{
+    display:none;
+}
+.card.explore .card-people .person-icon:first-child{
+    display:flex;
+}
 
 .card.connect .card-people {
     margin: 0.5rem 0;
 }
 
-.card-people .col {
-    gap: 4px;
+.card.explore>.row>.col>.row>.col{
+    gap: 0px;
 }
-
+.card.explore .card-people .col,
+.card-people .col {
+    gap: 0;
+}
+.card-people>.col>.text{
+    margin-top:6px;
+}
 .plan_detail .card,
 .collect_board .card {
     min-height: 164px;
