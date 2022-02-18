@@ -15,7 +15,7 @@
         overflow-x: hidden;
     }
     .page.timeline .card-list{
-        padding: 275px 0;
+        padding: 120px 0 180px;
     }
     .activity-list .collapse .card-list {
         gap: 0;
@@ -195,8 +195,9 @@
         border-left: 9px solid #0004;
         padding-left: 3px;
         border-radius: 0;
-        background: none;
+        /*background: none;*/
         box-shadow: none;
+        transition: none;
     }
     
     .page.explore_detail .card {
@@ -419,17 +420,17 @@
         font-size: 15pt;
     }
     
-    .card.settle .content-panel,
-    .card.settle .content-panel .text,
-    .settle .title .col .row,
-    .settle.page .card.settle .content-panel>.row {
-        text-align: center;
-        align-self: center;
-        justify-self: center;
-        justify-content: center;
-        justify-items: center;
-        padding: 0;
-    }
+    /*.card.settle .content-panel,*/
+    /*.card.settle .content-panel .text,*/
+    /*.settle .title .col .row,*/
+    /*.settle.page .card.settle .content-panel>.row {*/
+    /*    text-align: center;*/
+    /*    align-self: center;*/
+    /*    justify-self: center;*/
+    /*    justify-content: center;*/
+    /*    justify-items: center;*/
+    /*    padding: 0;*/
+    /*}*/
     
     .settle-who .who,
     .settle-who .amount,

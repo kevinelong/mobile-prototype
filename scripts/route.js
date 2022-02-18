@@ -45,63 +45,6 @@ function showSearch(title, index = -1) {
     );
 }
 
-const THINGS_TO_DO = [{
-        name: "Thing 1"
-    },
-    {
-        name: "Thing 2"
-    }
-];
-const THINGS_TO_DO_FILTERS = [
-    "All",
-    "Indoor",
-    "Outdoor",
-    "Group"
-];
-
-const MOODS = [
-    {name:"Romantic"},
-    {name:"Active"},
-    {name:"Relaxed"},
-    {name:"Thirsty"},
-    {name:"Hungry"},
-    {name:"Bored"},
-];
-
-const DESTINATIONS = [{
-        name: "Santa Barabara, California USA"
-    },
-    {
-        name: "Las Vagas, Nevada USA"
-    }
-]
-const RESTAURANTS = [{
-        name: "1"
-    },
-    {
-        name: "2"
-    }
-];
-const RESTAURANT_FILTERS = [
-    "All",
-    "F1",
-    "F2",
-    "F3"
-];
-const LODGING = [{
-        name: "1"
-    },
-    {
-        name: "2"
-    }
-];
-const LODGING_FILTERS = [
-    "All",
-    "F1",
-    "F2",
-    "F3"
-];
-
 function selectDate(name) {
     return label(
         cleanName(name),

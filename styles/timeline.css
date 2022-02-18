@@ -88,15 +88,17 @@
 .page.timeline .card{
     background-color: white;
 }
-
+.card{
+    transition: opacity 100ms ease-in-out;
+}
 .page.timeline .card.selected .card-inner{
-    opacity: 1;
+    /*opacity: 1;*/
     transition: opacity 100ms ease-in-out;
 }
 
 .page.timeline .card .card-inner{
     min-height:120px;
-    opacity: 0.55;
+    /*opacity: 0.55;*/
     transition: opacity 100ms ease-in-out;
 }
 .timeline .card .card-inner{

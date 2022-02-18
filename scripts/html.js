@@ -10,6 +10,10 @@ function div(className, content, attrs) {
     return closedTag("div", content, className, attrs);
 }
 
+function span(className, content, attrs) {
+    return closedTag("span", content, className, attrs);
+}
+
 function a(text, href, className = "") {
     return closedTag("a", text, className, `href="${href}"`);
 }

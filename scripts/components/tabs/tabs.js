@@ -36,3 +36,10 @@ const tabSet = (name = "", tabList = [], selectedTabName = "") => {
         `onclick="onTabClick(this, event)"`
     );
 };
+/*
+USAGE:
+    tabSet(name, [
+        {name: "Timeline", content: timelineContent},
+        {name: "Messages", content: messagesContent},
+    ], "Timeline")
+ */
