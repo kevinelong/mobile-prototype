@@ -163,9 +163,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const cardListHeight = cardList.offsetHeight;
     const cardListHeightHalf = Math.floor(cardListHeight / 2);
 
-    const milliseconds = 50;
-    const offset = 130;
-    const offset2 = 130;
+    const milliseconds = 250;
+    const offset = 45;
+    const offset2 = 45;
     const divisor = 2;
 
     let scrolling = false;
@@ -204,6 +204,38 @@ document.addEventListener("DOMContentLoaded", () => {
                 o.style.opacity = "0.65";
             }
         });
+
+        scrollAmount = cardList.scrollTop;
+        setTimeout(()=>{
+
+        centers = [];
+
+        [...cardList.querySelectorAll(".card")].forEach(c => {
+            const half = Math.floor(c.offsetHeight / 2);
+            const delta = Math.abs((c.offsetTop + half + offset2) - (scrollAmount + cardListHeightHalf));
+            // console.log(delta, scrollAmount, cardListHeightHalf, half, c.offsetTop);
+            centers.push([delta, c]);
+        });
+        centers.sort((a, b) => a[0] - b[0]);
+        centers.forEach((c, i) => {
+            let o = c[1];
+            if (i === 0) {
+                o.style.opacity = 1;
+                o.classList.add("selected");
+                console.log(Array.from(o.parentNode.children).indexOf(o));
+                // console.log(o.)
+                console.log(o.offsetTop, cardListHeightHalf, o.offsetHeight);
+                cardList.scroll({
+                    top: offset + (o.offsetTop - cardListHeightHalf) + Math.floor(o.offsetHeight / divisor),
+                    behavior: "smooth"
+                });
+            } else {
+                o.classList.remove("selected");
+                o.style.opacity = "0.65";
+            }
+        });
+
+        },310);
 
         setTimeout(() => {
             scrolling = false;

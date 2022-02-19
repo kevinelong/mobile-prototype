@@ -8,12 +8,18 @@
         /*justify-content: start;*/
         align-items: flex-start;
         padding: 0 0 144px 0;
-        gap: 0.25em;
+        gap: 6px;
         background: none;
         height: 555px;
         overflow-y: scroll;
         overflow-x: hidden;
     }
+    .card-list-section{
+        gap: 2px;
+        padding: 0;
+        display: block;
+    }
+
     .page.timeline .card-list{
         padding: 120px 0 180px;
     }
@@ -189,15 +195,19 @@
         width: 100%;
         padding: 12px;
     }
-    
+    .card-inner{
+        margin-left: 3px;
+    }
     .page.timeline .card {
         padding: 0;
+        margin: 6px auto;
+        width: 98%;
         border-left: 9px solid #0004;
-        padding-left: 3px;
         border-radius: 0;
-        /*background: none;*/
+        background: none;
         box-shadow: none;
         transition: none;
+
     }
     
     .page.explore_detail .card {
@@ -610,7 +620,7 @@
     .section-title {
         margin: 0 -0.125em;
         flex-direction: row;
-        background-color: #eeeeee;
+        background: none;
         width: 100%;
         padding: 0.125rem;
         gap: 0.125rem;

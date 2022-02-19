@@ -40,7 +40,7 @@ function timelinePage(selected = false) {
     ];
     const card_content = calendar_days.map(showDay).join('');
 
-    const page_content = actionButton("Smart Ideas", "smart-ideas") + cardList(card_content);
+    const page_content = cardList(card_content);
 
     const choices = ["Go!", "Check-Ins", "Pay/Settle", "Rate/Review", "Verify for Offset", "Memories",];
 

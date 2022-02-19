@@ -29,6 +29,7 @@ function page(
                 // actionItem("person", "me", 0, "", "black")
             ) +
             ((searchMessage !== undefined && searchMessage.length > 0) ? search([], -1, searchMessage) : "") +
+            actionButton("Smart Ideas", "smart-ideas") +
             choiceSet(`${name}-filters`, choiceList, selectedChoice)
         ) +
         contentPanel(

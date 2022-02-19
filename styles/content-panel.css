@@ -2,14 +2,8 @@
     /* min-height: 100vh; */
     height: 555px;
     background-color: #fffffff0;
-    gap: 0.25em;
-    /* padding: 0.25em 0.25em 6em 0.25em */
-    padding-top: 0.25em;
-    padding-right: 0.25em;
-    /*padding-bottom: 96px;*/
-    padding-left: 0.25em;
-    /*margin-bottom:96px;*/
-
+    gap: 0;
+    padding: 0;
 }
 
 .content-panel {

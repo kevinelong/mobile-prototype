@@ -30,6 +30,7 @@
 }
 
 .action-item {
+    width: auto;
     margin: 0;
     /*white-space: nowrap;*/
     font-size: 10px;

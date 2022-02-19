@@ -6,7 +6,7 @@
     opacity: 1;
     visibility: visible;
     transition: opacity 90ms ease-in-out;
-    gap: 3px;
+    gap: 0;
     background-color: #fffe;
 }
 .system-bar{
@@ -27,18 +27,43 @@
     align-self: center;
     justify-self: center;
 }
-.header {
-    gap: 6px;
+.page .header {
+    gap: 0;
     background-color: #fffe;
     position: relative;
     padding: 0;
+    z-index: 200;
+    box-shadow: 0 4px 2px -2px rgba(0,0,0,0.125); /* bottom only */
 }
-.header .action-item .icon,
-.header .title .action-item.menu .icon {
+.page .header>.title{
+    z-index: 300;
+    box-shadow: 0 4px 2px -2px rgba(0,0,0,0.125); /* bottom only */
+}
+.page .header .action-item .icon,
+.page .header .title .action-item.menu .icon {
     max-width: 18px;
     max-height: 18px;
     width: 18px;
     height: 18px;
+}
+
+.page .header .title {
+    padding: 0;
+    margin: 0;
+}
+.page .header .title .row,
+.page .header .title .col{
+    gap:0;
+}
+
+.page .header .title .action-item.menu{
+    margin-right:40px;
+}
+
+.page > .content-panel > .choice-set {
+    /*box-shadow: 1px 1px 3px #000000CC;*/
+    z-index: 200;
+    padding: 0;
 }
 
 .page .header > label .icon-frame,
@@ -52,6 +77,10 @@
     flex-direction: row;
     justify-items: center;
     justify-content: center;
+    padding: 3px;
+}
+.smart-ideas{
+    margin: 3px;
 }
 
 .page.connect .add.message.action-item {

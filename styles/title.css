@@ -7,11 +7,9 @@
 .title {
     width: 100%;
     height: auto;
-    /*background: #F9A831ff;*/
-    background: #eeeeee;
+    background: none;
     padding: 0.2rem;
     font-size: 16px;
-    /*color: #ffffffcc;*/
     color: #333333;
     text-align: center;
     display: flex;
@@ -20,27 +18,6 @@
     align-items: center;
 }
 
-.page .header .title {
-    padding: 0;
-    margin: 0;
-    /*box-shadow: 1px 1px 3px #000000CC;*/
-    box-shadow: none;
-    z-index: 300;
-}
-.page .header .title .row,
-.page .header .title .col{
-    gap:0;
-}
-
-.page .header .title .action-item.menu{
-    margin-right:40px;
-}
-
-.page > .content-panel > .choice-set {
-    /*box-shadow: 1px 1px 3px #000000CC;*/
-    z-index: 200;
-    padding: 0;
-}
 
 .title-middle {
     flex: 2 2;
@@ -49,6 +26,7 @@
     justify-content: center;
     gap: 0.5rem;
     align-self: center;
+    width: auto;
 }
 
 .subtitle-middle {

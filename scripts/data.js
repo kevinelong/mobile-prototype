@@ -12,7 +12,7 @@ function VitaEvent(period = Period(), kind = "dining", currentMood="hungry") {
         duration: period.to,
         imagePath: "",
         titleText: period.name,
-        subtitleText: period.name,
+        subtitleText: "Smart Ideas!",
         content: period.name,
         tags: period.ideas,
         groups: [],

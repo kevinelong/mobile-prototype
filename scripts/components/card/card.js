@@ -90,7 +90,7 @@ function card(
                     )
                     : "")
             )
-            : "") ,
+            : ""),
         // img(
         //     "background bottom",
         //     "images/backgrounds/bottom-gradient-black.svg"
@@ -98,7 +98,6 @@ function card(
         attrs +
         ` data-kind="${cleanName(kind)}" data-which="${which}" ` +
         (image ? `style="background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.25)), black url('${image}') center/cover no-repeat;"` : "")
-
     );
 }
 
@@ -168,9 +167,9 @@ function activityList(list) {
 }
 
 
-function cardListSection(titleText, action, subtitleText="", cards=[]) {
+function cardListSection(titleText, action, subtitleText = "", cards = []) {
     return sectionTitle(title(titleText) +
-        actionItem("add-place", "timeline", titleText, "Add", "black")
-    ) + subtitle(subtitleText) + cards.join("")
+            actionItem("add-place", "timeline", titleText, "Add", "black")
+        ) + subtitle(subtitleText) + cards.join("")
 }
 
