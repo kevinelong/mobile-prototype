@@ -114,7 +114,8 @@ route
 
         .control-host .page2,
         .control-host .page3,
-        .control-host .page4 {
+        .control-host .page4,
+        .control-host .page5 {
             min-height: calc(640px - (2 * 42px));
             gap: 52px;
         }
@@ -170,11 +171,13 @@ route
             width: 100%;
             /* margin-top: 12px; */
             padding: 12px 0;
+        }
 
+        .control-host input:focus {
+            outline: none;
         }
 
         .control-host .login-control input:focus {
-            outline: none;
             border-bottom: 1px solid black;
         }
 
@@ -245,8 +248,13 @@ route
             width: 0;
         }
 
-        .control-host .radio-control label,
-        .control-host .checkbox-control label {
+        .control-host .text-control input{
+            
+        }
+
+        .control-host label,
+        .control-host .text-control input {
+            box-shadow: none;
             /* display: inline-block; */
             /* background-color: #ddd; */
             font-size: 12px;
@@ -256,12 +264,11 @@ route
             /* text-align: center; */
             line-height: 32px;
             color: #8F8F8F;
-            padding-left: 20px;
+            padding: 0 0 0 20px;
         }
 
         .control-host .radio-control input:checked + label, 
         .control-host .checkbox-control input:checked + label {
-            
             background-color: #F9A831;
             color: white;
         }
@@ -275,6 +282,11 @@ route
         /* .control-host .radio-control input:focus + label {
             border: 1px dashed blue;
         } */
+
+        .control-host .text-control input:focus {
+            border: 1px solid #F9A831;
+        }
+
     </style>
 
 </head>
@@ -388,6 +400,19 @@ route
                         <div class="calender-control">
                             <!-- <label for="date">Birthday:</label> -->
                             <input type="date" id="date" name="date" placeholder="Enter a date...">
+                        </div>
+                    </div>
+                    <div class="page5">
+                        <div class="question-heading">
+                            <div class="title-control">
+                                Tell us a bit about yourself
+                            </div>
+                            <div class="question-control">
+                                Lorem ipsum dolor sit amet?
+                            </div>
+                        </div>
+                        <div class="text-control">
+                            <input type="text" placeholder="Iisque vocibus signiferumque vim...">
                         </div>
                     </div>
                 </div>
