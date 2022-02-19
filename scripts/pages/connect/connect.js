@@ -18,19 +18,19 @@ function connectPage(selected = false) {
                 "Friday 12/12/2022",
                 actionItem("add-place", "timeline", -1, "add", "black"),
                 "Santa Barbara",
-                periods.map(sample)
+                getPeriods().map(timelineCard)
             ),
             cardListSection(
                 "Saturday 12/13/2022",
                 actionItem("add-place", "timeline", -1, "add", "black"),
                 "Santa Barbara",
-                periods.map(sample)
+                getPeriods().map(timelineCard)
             ),
             cardListSection(
                 "Sunday 12/14/2022",
                 actionItem("add-place", "timeline", -1, "add", "black"),
                 "Santa Barbara",
-                periods.map(sample)
+                getPeriods().map(timelineCard)
             ),
         ].join("")),
     ].join("");

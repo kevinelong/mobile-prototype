@@ -11,7 +11,7 @@ const ACTION_COMPONENT_MAP = {
     "rate": ratingAction,
 }
 
-function actionItem(name, which = "", index = -1, textValue = "", iconColor = "", hideText = false, qty = 0) {
+function actionItem(name, which = "", index = -1, textValue = "", iconColor = "", hideText = false, qty = 0, small = false) {
     console.log("actionItem", name, which, index);
 
     if (ACTION_COMPONENT_MAP.hasOwnProperty(name)) {
@@ -23,7 +23,7 @@ function actionItem(name, which = "", index = -1, textValue = "", iconColor = ""
     }
 
     return div(
-        `action-item ${name} ${which}`,
+        `action-item ${name} ${which} ${small ? 'small' : ''}`,
         icon(name, iconColor, textValue, hideText),
         action(name, which, index)
     );

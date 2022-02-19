@@ -1,11 +1,11 @@
-.settle.page .content-panel > .row {
-  width: 99%;
-  gap: 1rem;
-  padding: 1rem;
-  align-content: space-evenly;
-  alignment: center;
-  /*flex-direction: ;*/
-}
+/*.settle.page .content-panel > .row {*/
+/*  width: 99%;*/
+/*  gap: 1rem;*/
+/*  padding: 1rem;*/
+/*  align-content: space-evenly;*/
+/*  alignment: center;*/
+/*  !*flex-direction: ;*!*/
+/*}*/
 
 .dashboard-item .action-item {
   background-color: #0001;
@@ -53,9 +53,9 @@
   font-size: 1rem;
 }
 
-.settle .title .action-item .text {
-  display: flex;
-}
+/*.settle .title .action-item .text {*/
+/*  display: flex;*/
+/*}*/
 
 .settle.page > .content-panel > .card-list > .title {
   font-size: 16px;
@@ -146,29 +146,21 @@
   justify-content: space-between;
 }
 
-.settle.page .person-icon .action-item {
-  padding: 0;
-  max-width: 24px;
-}
+/*.settle.page .person-icon .action-item {*/
+/*  padding: 0;*/
+/*  max-width: 24px;*/
+/*}*/
 
-.settle.page .action-item.settle {
-  align-self: flex-end;
-}
+/*.settle.page .action-item.settle {*/
+/*  align-self: flex-end;*/
+/*}*/
 
-.settle.page .title .action-item {
-  background: #fff6;
-  margin-left: 6px;
-}
-.settle.page .title .action-item:hover {
-  background: #ffff;
-  margin-left: 6px;
-}
+/*.settle.page .title .action-item {*/
+/*  background: #fff6;*/
+/*  margin-left: 6px;*/
+/*}*/
+/*.settle.page .title .action-item:hover {*/
+/*  background: #ffff;*/
+/*  margin-left: 6px;*/
+/*}*/
 
-.settle.page .header .title .action-item {
-  margin-left: 0;
-}
-
-.settle.page .header .title .action-item:hover {
-  margin-left: 0;
-}
-  

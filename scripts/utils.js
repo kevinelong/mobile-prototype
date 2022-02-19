@@ -264,3 +264,20 @@ function object_list_to_list_of_lists(raw_data, key_list) {
     });
     return output;
 }
+
+
+const hasPeople = e => e.groups && e.groups[0] && e.groups[0].people;
+const rgba = (r, g, b, a) => `rgba(${r}, ${g}, ${b}, ${a})`;
+const linear = c => `linear-gradient(${c})`;
+const bg = c => `background:${c};`;
+const bgImage = (i, color) => `${color} url('${i}') center/cover no-repeat;`;
+const styleAttr = (c, color) => `style="${c};background-color:${color};"`;
+const gradient = list => linear(list.map(a => rgba(...a)).join(', '));
+const gradStyle = (list, color) => styleAttr(bg(gradient(list)), color);
+const imgStyle = (list, imagePath, color) => styleAttr(bg(gradient(list) + ',  ' + bgImage(imagePath, color)), color);
+const rgbA = (list, n = 0) => list.map(a => [n, n, n, a]);
+
+const isCurrent = ve=>ve.period === getPeriods()[current_period];
+const currentPrefix = ic => ic ? 'is' : 'not';
+const currentClass = ve => `${currentPrefix(isCurrent(ve))}-current-period`;
+const cardStyle = ve=> ve.imagePath ? imgStyle(rgbA([.7, 0, .7]), ve.imagePath, ve.period.color) : gradStyle(rgbA([.7, 0, .7]), ve.period.color);

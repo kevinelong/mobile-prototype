@@ -50,6 +50,13 @@
                 color 300ms ease-in-out,
                 transform 300ms ease-in-out;
 }
+.action-item.small{
+    padding: 0;
+    margin:0;
+    gap:0;
+    font-size:0.8em;
+    background:none;
+}
 .action-item.book{
     background: #F9A831cc;
 }

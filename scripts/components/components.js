@@ -352,3 +352,12 @@ const activityData = [{
         items: []
     }
 ];
+
+function actionButton(content, className, attrs) {
+    return closedTag(
+        "button",
+        content,
+        `action-button ${className}`,
+        `onclick="actionClick('${className}', '${className}', '${className}')" $attrs`
+    );
+}

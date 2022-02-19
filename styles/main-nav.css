@@ -61,6 +61,7 @@
     width: auto;
     height: auto;
     cursor: pointer;
+    min-width: 55px;
 }
 /*#main-nav-tab-connect{*/
 /*    margin-bottom: 1em;*/
