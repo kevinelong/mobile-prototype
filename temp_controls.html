@@ -115,7 +115,8 @@ route
         .control-host .page2,
         .control-host .page3,
         .control-host .page4,
-        .control-host .page5 {
+        .control-host .page5,
+        .control-host .page6 {
             min-height: calc(640px - (2 * 42px));
             gap: 52px;
         }
@@ -287,6 +288,49 @@ route
             border: 1px solid #F9A831;
         }
 
+        .dropbtn {
+            background-color: #3498DB;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropbtn:hover, .dropbtn:focus {
+            background-color: #2980B9;
+        }
+
+        .dropdown-control {
+            position: relative;
+            /* display: inline-block; */
+            min-width: 100%
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            width: 100%;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content p {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content p:hover {
+            background-color: #ddd;
+        }
+
+        .show {
+            display:block;
+        }
+
     </style>
 
 </head>
@@ -415,6 +459,24 @@ route
                             <input type="text" placeholder="Iisque vocibus signiferumque vim...">
                         </div>
                     </div>
+                    <div class="page6">
+                        <div class="question-heading">
+                            <div class="title-control">
+                                Tell us a bit about yourself
+                            </div>
+                            <div class="question-control">
+                                Lorem ipsum dolor sit amet?
+                            </div>
+                        </div>
+                        <div class="dropdown-control">
+                            <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+                            <div class="dropdown-content">
+                                <p>Selection 1</p>
+                                <p>Selection 2</p>
+                                <p>Selection 3</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -424,4 +486,21 @@ route
 </html>
 
 <script>
+
+    function myFunction() {
+        get(".dropdown-content").classList.toggle("show");
+        console.log(get(".dropdown-content"))
+        console.log(getAll(".dropdown-content"))
+    }
+
+    window.onclick = function(event) {
+        if (!event.target.matches(".dropbtn")) {
+            const dropdowns = get(".dropdown-content");
+            
+            if (dropdowns.classList.contains("show")) {
+                dropdowns.classList.remove("show");
+            }
+        }
+    }
+
 </script>
