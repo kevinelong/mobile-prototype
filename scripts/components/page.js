@@ -17,6 +17,7 @@ function page(
             title(
                 actionItem(parent ? "back" : "menu") +
                 div("title-middle", icon(name + "-black", "", caption)) +
+                actionItem("map-off") +
                 cardPerson(peopleList[RUBY])
                 // actionItem("person", "me", 0, "", "black")
             ) +

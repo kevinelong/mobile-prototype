@@ -1,13 +1,15 @@
 .page>.content-panel {
     /* min-height: 100vh; */
-    /*height: 555px;*/
+    height: 555px;
     background-color: #fffffff0;
     gap: 0.25em;
     /* padding: 0.25em 0.25em 6em 0.25em */
     padding-top: 0.25em;
     padding-right: 0.25em;
-    padding-bottom: 6em;
+    /*padding-bottom: 96px;*/
     padding-left: 0.25em;
+    /*margin-bottom:96px;*/
+
 }
 
 .content-panel {
@@ -54,6 +56,7 @@
     justify-content: center;
 }
 
+.page.explore_detail>.content-panel,
 .page.collect_board>.content-panel,
 .page.plan_detail>.content-panel {
     gap: 6px;
@@ -62,6 +65,7 @@
     height: 555px;
     overflow-y: scroll;
     overflow-x: hidden;
+    padding-bottom: 96px;
 }
 
 .page.plan_detail {

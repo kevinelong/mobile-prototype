@@ -7,7 +7,7 @@
         flex-direction: column;
         /*justify-content: start;*/
         align-items: flex-start;
-        padding: 0 0 7rem 0;
+        padding: 0 0 144px 0;
         gap: 0.25em;
         background: none;
         height: 555px;
@@ -337,8 +337,8 @@
     }
     
     .page.explore .card-list {
-        padding: 0;
-        margin: 0;
+        padding: 0 0 144px 0;
+        margin: 0 0 144px 0;
         /*align-self: center;*/
         /*align-items: center;*/
         /*align-content: center;*/

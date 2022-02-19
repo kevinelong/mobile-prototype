@@ -132,6 +132,13 @@
 .title > .action-item{
     background: white;
 }
+.title > .action-item{
+    background: white;
+}
+.header .title > .action-item{
+    background: none;
+}
+
 .action-item {
     background: #88888888;
     border: none;

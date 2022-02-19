@@ -150,3 +150,14 @@ div {
 .help-text{
     font-size: 11px;
 }
+
+.map{
+    width: 360px;
+    height:476px;
+    z-index: 300;
+    margin-top: 118px;
+}
+
+.leaflet-popup-tip-container {
+    top: 100%;
+}
