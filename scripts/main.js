@@ -158,12 +158,15 @@ document.addEventListener("DOMContentLoaded", () => {
     let cardList = get(".timeline.page .card-list");
     const cps = cardList.querySelectorAll(".is-current-period");
     if(cps && cps.length) {
-        cardList.scrollTop = cps[0].offsetTop - 105;
+        cardList.scrollTop = cps[0].offsetTop - 200;
     }
     const cardListHeight = cardList.offsetHeight;
     const cardListHeightHalf = Math.floor(cardListHeight / 2);
 
     const milliseconds = 50;
+    const offset = 130;
+    const offset2 = 130;
+    const divisor = 2;
 
     let scrolling = false;
 
@@ -179,8 +182,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         [...cardList.querySelectorAll(".card")].forEach(c => {
             const half = Math.floor(c.offsetHeight / 2);
-            const delta = Math.abs((c.offsetTop + half + 40) - (scrollAmount + cardListHeightHalf));
-            console.log(delta, scrollAmount, cardListHeightHalf, half, c.offsetTop);
+            const delta = Math.abs((c.offsetTop + half + offset2) - (scrollAmount + cardListHeightHalf));
+            // console.log(delta, scrollAmount, cardListHeightHalf, half, c.offsetTop);
             centers.push([delta, c]);
         });
         centers.sort((a, b) => a[0] - b[0]);
@@ -189,9 +192,11 @@ document.addEventListener("DOMContentLoaded", () => {
             if (i === 0) {
                 o.style.opacity = 1;
                 o.classList.add("selected");
+                console.log(Array.from(o.parentNode.children).indexOf(o));
+                // console.log(o.)
                 console.log(o.offsetTop, cardListHeightHalf, o.offsetHeight);
                 cardList.scroll({
-                    top: 36 + (o.offsetTop - cardListHeightHalf) + Math.floor(o.offsetHeight / 2),
+                    top: offset + (o.offsetTop - cardListHeightHalf) + Math.floor(o.offsetHeight / divisor),
                     behavior: "smooth"
                 });
             } else {
@@ -199,8 +204,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 o.style.opacity = "0.65";
             }
         });
-        setTimeout(onScrollStop,350);
-
 
         setTimeout(() => {
             scrolling = false;
