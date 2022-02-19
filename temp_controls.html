@@ -113,7 +113,8 @@ route
         }
 
         .control-host .page2,
-        .control-host .page3 {
+        .control-host .page3,
+        .control-host .page4 {
             min-height: calc(640px - (2 * 42px));
             gap: 52px;
         }
@@ -260,19 +261,15 @@ route
 
         .control-host .radio-control input:checked + label, 
         .control-host .checkbox-control input:checked + label {
-            border: 1px solid #F9A831;
-            color: #F9A831;
-        }
-
-        .control-host .radio-control input:checked + label {
+            
             background-color: #F9A831;
             color: white;
         }
 
         .control-host .radio-control label:hover,
         .control-host .checkbox-control label:hover {
-            border: 1px dashed #F9A831;
-            color: #444;
+            border: 1px solid #F9A831;
+            color: #F9A831;
         }
 
         /* .control-host .radio-control input:focus + label {
@@ -377,6 +374,20 @@ route
                             <label for="checkbox4">Has prima</label>
                             <input type="checkbox" id="checkbox5" name="checkbox">
                             <label for="checkbox5">Illum fuisset</label>
+                        </div>
+                    </div>
+                    <div class="page4">
+                        <div class="question-heading">
+                            <div class="title-control">
+                                Tell us a bit about yourself
+                            </div>
+                            <div class="question-control">
+                                Lorem ipsum dolor sit amet?
+                            </div>
+                        </div>
+                        <div class="calender-control">
+                            <!-- <label for="date">Birthday:</label> -->
+                            <input type="date" id="date" name="date" placeholder="Enter a date...">
                         </div>
                     </div>
                 </div>
