@@ -23,11 +23,11 @@ body {
     display: flex;
     align-items: flex-start;
     justify-content: left;
-    font-family: sans-serif, Arial;
     font-style: normal;
     font-weight: 500;
     font-size: 11px;
     user-select: none;
+    font-family: 'SF Pro Display', Arial, sans-serif;
 }
 
 div {

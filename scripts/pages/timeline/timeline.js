@@ -26,7 +26,7 @@ function timelinePage(selected = false) {
     const showDay = day => {
         return cardListSection(
             day.when,
-            actionItem("add-place", "timeline", -1, "add", "black"),
+            actionItem("add-place", "timeline", -1, "add-place", "black"),
             day.where,
             day.events.map(timelineCard)
         );
@@ -40,13 +40,8 @@ function timelinePage(selected = false) {
     ];
     const card_content = calendar_days.map(showDay).join('');
 
-    const page_content =
-        row(
-        span("current", "11:04 am - Santa Barbara") +
-            div("subtitle-middle",
-                actionItem("edit", "location", "Santa Barbara", "edit", "black", true, 0, true)
-            )
-        ) +
+    const page_content = div("right", title("11:04 am - Santa Barbara" +
+            actionItem("edit","",-1,"edit","black"))) +
         cardList(card_content);
 
     const choices = ["Go!", "Check-Ins", "Pay/Settle", "Rate/Review", "Verify for Offset", "Memories",];
