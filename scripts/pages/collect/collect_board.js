@@ -8,7 +8,7 @@ function collectBoardPage(selected = false) {
             icon("all") + "All",
             icon("ideas") + "Ideas",
             icon("favorites") + "Favorites",
-            icon("going", "", "going"),
+            icon("going", "", "Going"),
         ],
         icon("all") + "All",
         cardGroups(currators) +

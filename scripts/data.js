@@ -12,8 +12,16 @@ function VitaEvent(period = Period(), kind = "dining", currentMood="hungry") {
         duration: period.to,
         imagePath: "",
         titleText: period.name,
-        subtitleText: "Smart Ideas!",
-        content: period.name,
+        subtitleText: period.ideas.length + " Smart Ideas!",
+        content: period.name +        div("mood",
+        "Current Mood: " +
+                "Hungry") + //ve.currentMood.toUpperCase()
+            actionItem("edit", "mood", "", "Update Mood") +
+            "or Check-In right here!" +
+            actionItem("check-in", "", "", "Experience 1") +
+            actionItem("check-in", "", "", "Experience 2") +
+            actionItem("check-in", "", "", "Experience 3")
+        ,
         tags: period.ideas,
         groups: [],
         actions: ["add"],

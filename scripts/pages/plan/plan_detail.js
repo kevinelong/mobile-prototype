@@ -2,8 +2,8 @@ function planDetailPage(selected = false) {
     return page(
         selected,
         "plan_detail",
-        "Santa Barbara", ["Details", "Timeline", "Budget"],
-        "Details",
+        "Santa Barbara", ["Schedule", "Details", "Budget"],
+        "Schedule",
         // choiceSet("",[
         //     icon("all") + "All",
         //     icon("ideas") + "Ideas",

@@ -1,4 +1,3 @@
-
 function timelineCard(ve = VitaEvent()) {
     let qty = 0;
     if (ve.groups && ve.groups[0] && ve.groups[0].people) {
@@ -42,6 +41,8 @@ function timelineCard(ve = VitaEvent()) {
                             ) + actionItem("upload", "", "", "Upload", "", false)
                         )
                     )
+                ) + col(
+                    ve.content
                 )
             ) +
             row(

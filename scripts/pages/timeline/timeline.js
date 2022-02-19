@@ -40,7 +40,14 @@ function timelinePage(selected = false) {
     ];
     const card_content = calendar_days.map(showDay).join('');
 
-    const page_content = cardList(card_content);
+    const page_content =
+        row(
+        span("current", "11:04 am - Santa Barbara") +
+            div("subtitle-middle",
+                actionItem("edit", "location", "Santa Barbara", "edit", "black", true, 0, true)
+            )
+        ) +
+        cardList(card_content);
 
     const choices = ["Go!", "Check-Ins", "Pay/Settle", "Rate/Review", "Verify for Offset", "Memories",];
 
