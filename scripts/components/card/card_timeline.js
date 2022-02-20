@@ -18,8 +18,8 @@ function timelineCard(ve = VitaEvent()) {
             cardSection(
                 contentPanel(
                     row(
-                        cardSubtitle(`${ve.period.name} ${ve.when ? ve.when : ve.period.from}${ve.duration ? ' ' + ve.duration : '-' + ve.period.to}`) +
-                        actionItem("plan", "", "", "Edit")
+                        cardSubtitle(`${ve.period.name} ${ve.when ? ve.when : ve.period.from}${ve.duration ? ' ' + ve.duration : '-' + ve.period.to}`)
+                        // + actionItem("plan", "", "", "Edit")
                     ) +
                     row(
                         icon(ve.kind) +
