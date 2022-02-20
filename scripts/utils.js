@@ -10,7 +10,7 @@ function currency(number) {
     if (typeof number === "string") {
         number = Number(number);
     }
-    return number.toLocaleString('us-US', { style: 'currency', currency: 'USD' })
+    return number.toLocaleString('us-US', {style: 'currency', currency: 'USD'})
 }
 
 function toName(name) {
@@ -21,7 +21,7 @@ function toName(name) {
 }
 
 function titleCase(str) {
-    return str.replace("-", " ").split(' ').map(function(word) {
+    return str.replace("-", " ").split(' ').map(function (word) {
         return word === word.toUpperCase() ? word : (word.charAt(0).toUpperCase() + word.slice(1).toLowerCase());
     }).join(' ');
 }
@@ -277,7 +277,18 @@ const gradStyle = (list, color) => styleAttr(bg(gradient(list)), color);
 const imgStyle = (list, imagePath, color) => styleAttr(bg(gradient(list) + ',  ' + bgImage(imagePath, color)), color);
 const rgbA = (list, n = 0) => list.map(a => [n, n, n, a]);
 
-const isCurrent = ve=>ve.period === getPeriods()[current_period];
+
+const isCurrent = ve => {
+    const periods = getPeriods();
+    const currentPeriodObject = periods[current_period];
+    // debugger;
+    if(ve.period.from === currentPeriodObject.from) {
+        // debugger;
+        return true;
+    }
+    return false;
+}
+
 const currentPrefix = ic => ic ? 'is' : 'not';
 const currentClass = ve => `${currentPrefix(isCurrent(ve))}-current-period`;
-const cardStyle = ve=> ve.imagePath ? imgStyle(rgbA([.7, 0, .7]), ve.imagePath, ve.period.color) : gradStyle(rgbA([.7, 0, .7]), ve.period.color);
+const cardStyle = ve => ve.imagePath ? imgStyle(rgbA([.7, 0, .7]), ve.imagePath, ve.period.color) : gradStyle(rgbA([.7, 0, .7]), ve.period.color);

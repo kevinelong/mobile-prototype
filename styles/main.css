@@ -160,3 +160,7 @@ div {
 .leaflet-popup-tip-container {
     top: 100%;
 }
+
+#map{
+    z-index: -9999;
+}

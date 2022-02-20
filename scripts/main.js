@@ -137,8 +137,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let cardList = get(".timeline.page .card-list");
     const cps = cardList.querySelectorAll(".is-current-period");
-    if(cps && cps.length) {
-        cardList.scrollTop = cps[0].offsetTop - 200;
+    if(cps && cps.length > 1) {
+        cardList.scrollTop = cps[1].offsetTop - 20;
     }
     const cardListHeight = cardList.offsetHeight;
     const cardListHeightHalf = Math.floor(cardListHeight / 2);
@@ -264,7 +264,8 @@ document.addEventListener("DOMContentLoaded", () => {
             marker.bindPopup(item.description).openPopup();
             marker.addTo(map);
         });
-        get("#map").classList.add("hidden")
+        get("#map").classList.add("hidden");
+        get("#map").style.zIndex = "300";
     }
 
     initMap();
