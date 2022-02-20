@@ -52,6 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
     get(".inner-content").innerHTML = [
         explorePage(),
         exploreDetailPage(),
+        broadcastPage(),
         collectPage(),
         collectBoardPage(),
         planPage(),
