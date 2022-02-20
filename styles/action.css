@@ -134,6 +134,10 @@
     display: none;
 }
 
+.page.settle .title .action-item .text {
+    display: flex;
+}
+
 .action-list {
     background: none;
 }

@@ -50,3 +50,18 @@
     color: white;
     transition: background 300ms, color 300ms;
 }
+
+.connect.page .choice{
+    min-width: 81px;
+}
+
+.collect.page .choice{
+    min-width: 53px;
+}
+.settle.page .choice{
+    min-width: 105px;
+}
+
+.plan.page .choice{
+    min-width: 76px;
+}

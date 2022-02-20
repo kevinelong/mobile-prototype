@@ -7,6 +7,10 @@
     padding: 3px 12px 0 4px;
 }
 
+.header .title .person-icon .text {
+    padding: 0;
+}
+
 .person-icon .icon {
     height: 24px;
     width: 24px;

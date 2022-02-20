@@ -147,7 +147,13 @@
   flex-direction: row;
   justify-content: space-between;
 }
-
+.page.settle>.content-panel>.row{
+  box-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+  padding: 9px;
+}
+.page.settle>.content-panel{
+  padding: 9px;
+}
 /*.settle.page .person-icon .action-item {*/
 /*  padding: 0;*/
 /*  max-width: 24px;*/

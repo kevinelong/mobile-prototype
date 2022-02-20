@@ -472,11 +472,11 @@
     }
     
     .green {
-        color: green;
+        color: #339966;
     }
     
     .red {
-        color: #ff6633;
+        color: #996633;
     }
     
     .black {
@@ -506,7 +506,7 @@
         margin: 0;
         background-color: #ffffffaa;
         font-size: 1em;
-        padding: 0.5rem 1em;
+        padding: 12px 12px;
         border-radius: 0.5em;
     }
     
