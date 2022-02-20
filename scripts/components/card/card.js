@@ -39,7 +39,7 @@ function cardTags(tags) {
     if (!tags || tags.length === 0) {
         return "";
     }
-    return div("card-tags", [...tags].map(hashTagGold).join(""));
+    return div("card-tags", [...tags].map(hashTag).join(""));
 }
 
 function actionList(id, list = [], hideText = false, qty = 0, iconColor = "") {
@@ -74,30 +74,29 @@ function card(
     image = "",
     tags = [],
     which = -1,
-    attrs = ""
+    attrs = "",
+    period = Period()
 ) {
+
+    const ve = VitaEvent(period, kind);
+    ve.imagePath = image;
+
     return div(
         `card ${kind} ${which}`,
-        // img("background top", "images/backgrounds/top-gradient-black.svg") +
+
         cardSection(cardTitle(title) + contentPanel(content)) +
-        (tags || groups || actions
-            ? cardSection(
-                cardTags(tags) +
-                (groups || actions
-                    ? cardQuadrant(
-                        cardGroups(groups) +
-                        actionList(`card-actions`, actions)
-                    )
-                    : "")
-            )
-            : ""),
-        // img(
-        //     "background bottom",
-        //     "images/backgrounds/bottom-gradient-black.svg"
-        // ),
+        (tags || groups || actions ? cardSection(cardTags(tags) +
+            (groups || actions ? cardQuadrant(
+                cardGroups(groups) +
+                actionList(`card-actions`, actions)
+            ) : "")
+        ) : ""),
+
         attrs +
         ` data-kind="${cleanName(kind)}" data-which="${which}" ` +
-        (image ? `style="background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.25)), black url('${image}') center/cover no-repeat;"` : "")
+        cardStyle(ve)
+
+        // (image ? `style="background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.25)), black url('${image}') center/cover no-repeat;"` : "")
     );
 }
 
@@ -169,7 +168,7 @@ function activityList(list) {
 
 function cardListSection(titleText, action, subtitleText = "", cards = []) {
     return sectionTitle(title(titleText) +
-            actionItem("add-place", "timeline", titleText, "Add", "black")
-        ) + subtitle(subtitleText) + cards.join("")
+        actionItem("add-place", "timeline", titleText, "Add", "black")
+    ) + subtitle(subtitleText) + cards.join("")
 }
 

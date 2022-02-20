@@ -21,6 +21,8 @@ function connectCard(
     which = "") {
     const kind = (groups[0].people.length > 1 ? "GROUP-CHAT" : "1-ON-1");
 
+    let period = Period("");
+    period.color = "#663399";
     return card(
         "connect" + " " + kind,
         connectCardTitle(title, subtitle, which, id),
@@ -30,7 +32,8 @@ function connectCard(
         "",
         [],
         0,
-        ` data-kind="${cleanName(kind)}" `
+        ` data-kind="${cleanName(kind)}" `,
+        period
     );
 }
 

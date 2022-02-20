@@ -27,9 +27,13 @@ function settleCard(
     quantity = 1,
     where = "",
     location = "",
-    actions = ["Request Settlement"]
+    actions = ["Request Settlement"],
+    imagePath = "",
+    tags = [],
+    attrs = "",
+    period = Period()
 ) {
-
+    period.color = "#663399";
     const titleContent = div(
         `titles settle ${kind}`,
         cardSubtitle(when) +
@@ -50,7 +54,12 @@ function settleCard(
         "settle",
         titleContent,
         cardContent, [],
-        actions
+        actions,
+        imagePath,
+        tags,
+        which,
+        attrs,
+        period
     );
 }
 

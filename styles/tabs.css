@@ -19,6 +19,7 @@
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
     padding: 0;
+    width: 100%;
 }
 
 .tab-set .tab {
@@ -28,7 +29,7 @@
     align-items: center;
     overflow: visible;
     min-width: 120px;
-    width: max-content;
+    width: 100%;
     justify-content: center;
 }
 

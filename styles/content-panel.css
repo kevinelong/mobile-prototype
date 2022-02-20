@@ -4,8 +4,9 @@
     background-color: #fffffff0;
     gap: 0;
     padding: 0;
-    justify-content: center;
+    /*justify-content: center;*/
     align-items: center;
+    text-shadow: none;
 }
 .settle.page>.content-panel {
     padding-top: 24px;
@@ -21,6 +22,18 @@
     justify-content: flex-start;
     /*align-items: center;*/
     /*font-size: 1.2rem;*/
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.5);
+}
+
+.page.settle .card{
+    background-color: #663399;
+}
+.page.settle > .content-panel {
+    text-shadow: none;
+}
+
+.page.settle .content-panel {
+    text-shadow: none;
 }
 
 .page .content-panel>.row {
@@ -75,7 +88,8 @@
     padding-top: 455px;
 }
 .page.collect_board>.content-panel{
-    padding-top: 260px;
+    padding-top: 0;
+    justify-content: flex-start;
 }
 
 .page.plan_detail {

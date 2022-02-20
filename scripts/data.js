@@ -4,7 +4,8 @@ const Period = () => {
 
 let currentLocation = "Santa Barbara";
 
-function VitaEvent(period = Period(), kind = "dining", currentMood="hungry") {
+function VitaEvent(period = Period(), kind = "dining", currentMood="hungry", color="#999999") {
+    period.color = period.color ? period.color : color;
     return {
         what: period.name,
         when: period.from,
@@ -12,7 +13,7 @@ function VitaEvent(period = Period(), kind = "dining", currentMood="hungry") {
         duration: period.to,
         imagePath: "",
         titleText: period.name,
-        subtitleText: period.ideas.length + " Smart Ideas!",
+        subtitleText: (period && period.ideas) ? period.ideas.length + " Smart Ideas!":"",
         content: period.name + div("current-mood", "Current Mood: " + currentMood.toUpperCase()),
         tags: period.ideas,
         groups: [],
@@ -209,7 +210,6 @@ function Day(when='', events=[]) {
 
     if(!Array.isArray(events)){
         console.log('events' , events);
-        debugger;
         return;
     }
 
