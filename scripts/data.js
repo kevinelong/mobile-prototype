@@ -22,7 +22,7 @@ function VitaEvent(period = Period(), kind = "dining", currentMood="hungry") {
         ,
         tags: period.ideas,
         groups: [],
-        actions: ["add-place"],
+        actions: [],
         id: 0,
         kind: kind,
         booking_index: -1,

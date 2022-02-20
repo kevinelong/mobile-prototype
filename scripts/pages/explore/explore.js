@@ -1,10 +1,37 @@
+/*
+    imagePath = "images/photos/cannon-beach.jpg",
+    title = "",
+    subtitle = "",
+    content = "",
+    tags = [],
+    groups = [],
+    actions = [],
+    id = 0,
+    kind = "explore",
+    booking_index = -1
+ */
 const EXPLORE_DATA = [
     [
         "images/photos/cannon-beach.jpg",
         "Haystack Rock",
         "Cannon Beach, Oregon",
-        "This is an iconic photo opportunity", ["Landmark", "Recommended"],
-        [{ people: [peopleList[BF]], title: "Pinned By", groupName: "explorer", subtitle: "" }],
+        "This is an iconic photo opportunity",
+        ["Landmark", "Recommended"],
+        [{
+            people: [peopleList[BF]],
+            title: "Recommended By",
+            groupName: "Friend"
+        },
+            {
+                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+                title: "Recommended By",
+                groupName: "Taste Match"
+            }, {
+            people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+            title: "Planning with",
+            groupName: "Co-Planner"
+        },
+        ],
         ["invite", "schedule", "collect"],
         "1",
         "place"
@@ -13,26 +40,24 @@ const EXPLORE_DATA = [
         "images/photos/hanna-levin.png",
         "Hanna Levin",
         "New Taste Match to Follow!",
-        "Hanna Levin has rated over 20 places, including 2 you both love!", ["Tapas", "Spanish"],
-        [{
+        "Hanna Levin has rated over 20 places, including 2 you both love!",
+        ["Tapas", "Spanish"],
+        [
+            {
                 people: [peopleList[BF]],
                 title: "Recommended By",
                 groupName: "Friend"
             },
-            // {
-            //     people: [peopleList[JOE], peopleList[BF]],
-            //     title: "Recommended By",
-            //     groupName: "Expert"
-            // },
             {
                 people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
                 title: "Recommended By",
                 groupName: "Taste Match"
-            },            {
-            people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
-            title: "Planning with",
-            groupName: "Co-Planner"
-        },
+            },
+            {
+                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+                title: "Planning with",
+                groupName: "Co-Planner"
+            },
         ],
         ["collect"],
         "2",
@@ -42,8 +67,10 @@ const EXPLORE_DATA = [
         "images/explore_bg.png",
         "Loquita",
         "Santa Barbara",
-        "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.", ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
-        group_of_one, ["invite", "schedule", "collect"],
+        "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
+        ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
+        group_of_one,
+        ["invite", "schedule", "collect"],
         "2",
         "dining",
         1
@@ -52,7 +79,8 @@ const EXPLORE_DATA = [
         "images/explore_bg.png",
         "Loquita",
         "Santa Barbara",
-        "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.", ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
+        "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
+        ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
         group_of_two, ["invite", "schedule", "collect"],
         "2",
         true,
@@ -62,21 +90,64 @@ const EXPLORE_DATA = [
         "images/explore_bg.png",
         "Loquita",
         "Santa Barbara",
-        "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.", ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
-        group_of_three, ["favorite", "share", "collect"],
+        "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
+        ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
+        group_of_three,
+        ["favorite", "share", "collect"],
         "2",
         true,
         3
     ],
+    [
+        "images/photos/constania.jpg",
+        "Constantia Glen",
+        "Santa Barbara",
+        "Wine Tasting Experience",
+        ["Wine Tasting"],
+        [
+            {
+                people: [peopleList[BF]],
+                title: "Recommended By",
+                groupName: "Friend"
+            },
+            {
+                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+                title: "Recommended By",
+                groupName: "Taste Match"
+            },
+            {
+                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+                title: "Planning with",
+                groupName: "Co-Planner"
+            }
+        ],
+        ["favorite", "share", "collect"],
+        "3",
+        "wine",
+        4
+    ],
 ];
-
+/*
+    imagePath = "images/photos/cannon-beach.jpg",
+    title = "",
+    subtitle = "",
+    content = "",
+    tags = [],
+    groups = [],
+    actions = [],
+    id = 0,
+    kind = "explore",
+    booking_index = -1
+ */
 const EXPLORE_CANNON_BEACH = exploreCard(...EXPLORE_DATA[0]);
 const EXPLORE_HANNA_LEVIN = exploreCard(...EXPLORE_DATA[1]);
 const EXPLORE_LOQUITA3 = exploreCard(...EXPLORE_DATA[2]);
 const EXPLORE_LOQUITA2 = exploreCard(...EXPLORE_DATA[3]);
 const EXPLORE_LOQUITA1 = exploreCard(...EXPLORE_DATA[4]);
+const EXPLORE_CONSTANIA = exploreCard(...EXPLORE_DATA[5]);
 
 const EXPLORE_CARDS = [
+    EXPLORE_CONSTANIA,
     EXPLORE_LOQUITA3,
     // EXPLORE_LOQUITA2,
     // EXPLORE_LOQUITA1,
