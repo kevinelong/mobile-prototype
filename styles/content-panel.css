@@ -82,7 +82,8 @@
     /*padding-top: 550px;*/
 }
 .page.explore_detail>.content-panel{
-    padding-top: 550px;
+    padding-top: 0;
+    justify-content: flex-start;
 }
 .page.plan_detail>.content-panel{
     padding-top: 455px;
