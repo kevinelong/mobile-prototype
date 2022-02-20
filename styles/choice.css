@@ -51,17 +51,22 @@
     transition: background 300ms, color 300ms;
 }
 
-.connect.page .choice{
+.connect.page .choice {
     min-width: 81px;
 }
 
-.collect.page .choice{
+.collect.page .choice {
     min-width: 53px;
 }
-.settle.page .choice{
+
+.settle.page .choice {
     min-width: 105px;
 }
 
-.plan.page .choice{
+#plan_detail-filters .choice {
+    min-width: 104px;
+}
+
+.plan.page .choice {
     min-width: 76px;
 }
