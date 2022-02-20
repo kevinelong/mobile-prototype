@@ -67,40 +67,22 @@ document.addEventListener("DOMContentLoaded", () => {
         mapView()
     ].join("");
 
-    const outerBox2 = get(".outer-box");
-    outerBoxWidth = outerBox2.clientWidth
-    // console.log(outerBoxWidth);
+    const outerBoxWidth = get(".outer-box").clientWidth
 
     const contentPanel = get(".content-panel")
     const cssObjContentPanel = window.getComputedStyle(contentPanel)
     const contentPanelPaddingSides = parseFloat(cssObjContentPanel.paddingLeft) + parseFloat(cssObjContentPanel.paddingRight)
-    // console.log(contentPanelPaddingSides)
 
-    timelineWindowWidth = outerBoxWidth - contentPanelPaddingSides
-    // console.log(timelineWindowWidth)
+    const timelineWindowWidth = outerBoxWidth - contentPanelPaddingSides
     // const page = get(".page")
     // const cssObjPage = window.getComputedStyle(page)
-    // console.log(cssObjPage)
 
-    const timeline = get(".timeline");
-    const days = timeline.children;
-
-    // console.log(timeline.scrollWidth)
-    // console.log(timeline.scrollLeft)
-    // console.log(timeline.getBoundingClientRect());
-    // console.log(timeline.offsetWidth)
-    // console.log(days[18].offsetWidth)
-    // console.log(days[18].getBoundingClientRect())
-    // console.log(days[18].clientWidth);
-
-    // console.log( 
-    //     days[18].clientWidth +
-    //         parseFloat(cssObj.marginLeft) +
-    //         parseFloat(cssObj.marginRight)
-    // );
+    const dayPicker = get(".day-picker");
+    const days = dayPicker.children;
 
     let count = 0
     let timelineScrollWidth = 0
+
     for (let i = 0; i < days.length; i++) {
         const cssObjDay = window.getComputedStyle(days[i])
         timelineScrollWidth += days[i].clientWidth +
@@ -109,16 +91,12 @@ document.addEventListener("DOMContentLoaded", () => {
         count += 1
     }
 
-    // console.log(count, timelineScrollWidth)
-
     // const timelineScrollStart = (timelineScrollWidth / 2)
     const timelineScrollStart = (timelineScrollWidth / 2) - (timelineWindowWidth / 2)
-    // console.log(timelineScrollStart)
 
-    timeline.scrollLeft = timelineScrollStart
+    dayPicker.scrollLeft = timelineScrollStart
 
     // const cssObjTimeline = window.getComputedStyle(timeline)
-    // console.log(cssObjTimeline.getPropertyValue("width"))
     // margin = parseFloat(style.marginLeft) + parseFloat(style.marginRight)
 });
 
