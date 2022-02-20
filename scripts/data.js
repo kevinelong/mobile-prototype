@@ -13,13 +13,7 @@ function VitaEvent(period = Period(), kind = "dining", currentMood="hungry") {
         imagePath: "",
         titleText: period.name,
         subtitleText: period.ideas.length + " Smart Ideas!",
-        content: period.name + row( "Current Mood: " + currentMood.toUpperCase() +
-            actionItem("edit", "mood", "", "Update Mood")) +
-            "or Check-In right here!" +
-            row(actionItem("check-in", "", "", "Experience 1") +
-                actionItem("check-in", "", "", "Experience 2") +
-                actionItem("check-in", "", "", "Experience 3"))
-        ,
+        content: period.name + div("current-mood", "Current Mood: " + currentMood.toUpperCase()),
         tags: period.ideas,
         groups: [],
         actions: [],

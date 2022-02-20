@@ -26,7 +26,8 @@ function timelinePage(selected = false) {
     const showDay = day => {
         return cardListSection(
             day.when,
-            actionItem("add-place", "timeline", -1, "add-place", "black"),
+            actionItem("add-place", "timeline", -1, "add-place", "black")+
+            actionItem("check-in", "timeline", -1, "Check-In", "black"),
             day.where,
             day.events.map(timelineCard)
         );

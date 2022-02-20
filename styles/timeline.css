@@ -147,3 +147,8 @@
 .card.not-current-period .row > .card-subtitle{
     display: flex;
 }
+
+.current-mood{
+    text-align: center;
+    width: 100%;
+}

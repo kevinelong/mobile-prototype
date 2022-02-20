@@ -49,6 +49,8 @@ function timelineCard(ve = VitaEvent()) {
                 col(
                     row(col(cardGroups(ve.groups)) + booking) +
                     div("card-actions",
+                        actionItem("check-in", "", "", "Check-In","") +
+                        actionItem("edit", "mood", "", "Update Mood","") +
                         actionItem("add-place", "", "", "Add Place","")
                     ) +
                     actionList(`card-actions`, ve.actions, false, qty)
