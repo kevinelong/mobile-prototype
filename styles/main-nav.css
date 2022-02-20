@@ -119,10 +119,27 @@
     /*background-color: #FFCC00;*/
     background-color: #ef5656;
 }
+
+.main-nav-tab.selected #broadcast .icon-frame {
+    /*background-color: #FFCC00;*/
+    background-color: #aa6600;
+}
+
 .header>.row{
     padding: 1px 3px;
 }
+
+.page.collect_board .choice-set .choice{
+    min-width: 72px;
+}
+.page.collect_board .choice-set .action-item{
+    width:48px;
+    height: 48px;
+}
+
+
 .dialog .choice-set .action-item,
+.page.collect_board .header>.row .action-item,
 .page.explore_detail .header>.row .action-item,
 .page.plan_detail .header>.row .action-item,
 .page.plan .header>.row .action-item,
@@ -166,7 +183,7 @@
 }
 
 .main-nav-tab.selected #settle .icon-frame {
-    background-color: #5623dE;
+    background-color: #9966ff;
 }
 
 .main-nav-outer {
