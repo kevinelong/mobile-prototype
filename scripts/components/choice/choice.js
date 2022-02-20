@@ -8,14 +8,14 @@ function choice(kind, text, selected = false, index = -1) {
 }
 
 function choiceSet(kind, choiceList = [], selectedItem = "") {
-    if(choiceList.length===0){
+    if (choiceList.length === 0) {
         return "";
     }
     return div(
         "choice-set",
         [...choiceList].map(
             (c, i) => choice(kind, c, c === selectedItem, i)
-        ).join(""),
+        ).join("") + actionItem("add", "timeline", -1, "add", "black", false, 0),
         `id="${kind}" class='secondary-nav'`
-    );
+    )
 }

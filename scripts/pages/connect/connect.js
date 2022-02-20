@@ -162,7 +162,7 @@ function connectPage(selected = false) {
         "",
         "",
         "",
-        actionItem("add", "message", -1, "", "black", false),
+        "",
         "Find what?",
         messagesContent
     );

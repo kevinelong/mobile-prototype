@@ -119,6 +119,19 @@
     /*background-color: #FFCC00;*/
     background-color: #ef5656;
 }
+.header>.row{
+    padding: 1px 3px;
+}
+.dialog .choice-set .action-item,
+.page.explore_detail .header>.row .action-item,
+.page.plan_detail .header>.row .action-item,
+.page.plan .header>.row .action-item,
+.page.connect #connect .action-item,
+.page.timeline #timeline-filters .action-item,
+.page.collect #collect-filters .action-item,
+.page.explore #explore-filters .action-item{
+    display: none;
+}
 
 .page.explore .card.explore {
     background-color: #ef5656;

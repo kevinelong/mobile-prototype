@@ -13,7 +13,7 @@ function page(
 ) {
     return div(
         `${name} page ${selected ? "" : "hidden"}`,
-        div("system-bar", div("system-time", "00:00am")) +
+        div("system-bar", div("system-time", "11:35 am")) +
         div("header",
             title(
                 actionItem(parent ? "back" : "menu") +
@@ -24,9 +24,12 @@ function page(
                 cardPerson(peopleList[RUBY])
                 // actionItem("person", "me", 0, "", "black")
             ) +
-            ((searchMessage !== undefined && searchMessage.length > 0) ? search([], -1, searchMessage) : "") +
+            row(
+                ((searchMessage !== undefined && searchMessage.length > 0) ? search([], -1, searchMessage) : "")
+                + actionItem("add", "timeline", -1, "add", "black", false, 0)
+            )+
             // actionButton("Smart Ideas", "smart-ideas") +
-            choiceSet(`${name}-filters`, choiceList, selectedChoice)
+                choiceSet(`${name}-filters`, choiceList, selectedChoice)
         ) +
         contentPanel(
             content +

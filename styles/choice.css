@@ -33,6 +33,7 @@
     /*background: #dddddd;*/
     overflow-x: scroll;
     min-height: 24px;
+    justify-content: space-between;
 }
 
 .page.collect_board .choice-set {

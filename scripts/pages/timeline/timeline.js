@@ -47,5 +47,5 @@ function timelinePage(selected = false) {
 
     const choices = ["Go!", "Check-Ins", "Pay/Settle", "Rate/Review", "Verify for Offset", "Memories",];
 
-    return page(selected, "timeline", "Timeline", choices, "Go!", page_content);
+    return page(selected, "timeline", "Timeline", choices, "Go!", page_content, "","","","Find Scheduled Items");
 }

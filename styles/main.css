@@ -37,7 +37,6 @@ div {
     flex-direction: column;
     position: relative;
     box-sizing: border-box;
-    width: 100%;
 }
 
 .content {

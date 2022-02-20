@@ -7,7 +7,7 @@
         flex-direction: column;
         /*justify-content: start;*/
         align-items: flex-start;
-        padding: 0 0 144px 0;
+        padding: 6px 6px 144px 6px;
         gap: 6px;
         background: none;
         height: 555px;
@@ -175,11 +175,15 @@
     .card .titles .row .col {
         margin-left: 12px;
     }
-    
+
+    .page.explore .action-list .text {
+        display: none;
+    }
+
     .page.explore .card.explore .card-title {
         font-size: 13px
     }
-    
+
     .page.explore .card.explore .row {
         justify-content: space-between;
     }
@@ -514,7 +518,7 @@
         transition: opacity 300ms ease-in-out, padding 300ms ease-in-out, max-height 300ms ease-in-out, max-height 300ms ease-in-out, min-height 300ms ease-in-out, minwidth 300ms ease-in-out;
     }
     
-    .action-item.person .text,
+    /*.action-item.person .text,*/
     .message-item .text,
     .person-icon .text {
         display: none;

@@ -6,7 +6,9 @@
 /*  alignment: center;*/
 /*  !*flex-direction: ;*!*/
 /*}*/
-
+.settle.page .header .row{
+  display: none;
+}
 .dashboard-item .action-item {
   background-color: #0001;
 }

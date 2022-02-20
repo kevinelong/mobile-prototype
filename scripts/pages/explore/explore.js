@@ -123,7 +123,7 @@ const EXPLORE_DATA = [
         ],
         ["favorite", "share", "collect"],
         "3",
-        "wine",
+        "activities",
         4
     ],
 ];
