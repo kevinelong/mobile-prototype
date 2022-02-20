@@ -4,6 +4,8 @@
     background-color: #fffffff0;
     gap: 0;
     padding: 0;
+    justify-content: center;
+    align-items: center;
 }
 .settle.page>.content-panel {
     padding-top: 24px;
@@ -64,6 +66,16 @@
     overflow-y: scroll;
     overflow-x: hidden;
     padding-bottom: 96px;
+    /*padding-top: 550px;*/
+}
+.page.explore_detail>.content-panel{
+    padding-top: 550px;
+}
+.page.plan_detail>.content-panel{
+    padding-top: 455px;
+}
+.page.collect_board>.content-panel{
+    padding-top: 260px;
 }
 
 .page.plan_detail {

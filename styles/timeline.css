@@ -1,7 +1,7 @@
 .day-picker {
     /* padding: 0px 0; */
     height: auto;
-    width: auto;
+    width: 100%; /*  Limit so we can scroll sideways  */
     display: block;
     overflow-x: scroll;
     overflow-y: hidden;

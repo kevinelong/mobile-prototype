@@ -23,6 +23,11 @@
     .page.timeline .card-list{
         padding: 120px 0 180px;
     }
+
+    .activity-list {
+        width: 100%;
+    }
+
     .activity-list .collapse .card-list {
         gap: 0;
     }

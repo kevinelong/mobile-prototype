@@ -13,7 +13,7 @@ function page(
 ) {
     return div(
         `${name} page ${selected ? "" : "hidden"}`,
-        div("system-bar", div("system-time", "11:35 am")) +
+        // div("system-bar", div("system-time", "11:35 am")) +
         div("header",
             title(
                 actionItem(parent ? "back" : "menu") +
