@@ -12,6 +12,7 @@
     padding: 0.25em 0.5em 0.125em;
     width: fit-content;
     box-shadow: 1px 1px 2px black;
+    cursor: pointer;
 }
 
 .hash-tag.red {

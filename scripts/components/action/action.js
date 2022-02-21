@@ -38,6 +38,7 @@ function personItem(name, which, index, person) {
 }
 
 function actionClick(target, action, which = "", index = -1, data = {}) {
+    console.log("click", action, which,index,data,target);
     hideDialog();
     route(target, action, which, index, data);
 }
