@@ -41,7 +41,8 @@ function timelineCard(ve = VitaEvent()) {
                             ) + actionItem("upload", "", "", "Upload", "", false)
                         )
                     )
-                ) + col(
+                ) +
+                col(
                     ve.content
                 )
             ) +
@@ -49,9 +50,11 @@ function timelineCard(ve = VitaEvent()) {
                 col(
                     row(col(cardGroups(ve.groups)) + booking) +
                     div("card-actions",
-                        actionItem("check-in", "", "", "Check-In","") +
-                        actionItem("edit", "mood", "", "Update Mood","") +
-                        actionItem("add-place", "", "", "Add Place","")
+                        actionItem("invite", "", "", "Invite","") +
+                        // actionItem("check-in", "", "", "Check-In","") +
+                        // actionItem("edit", "mood", "", "Update Mood","") +
+                        (isCurrent(ve) ? actionItem( "check-in", "", "", "Add &amp; Check-In","")
+                            : actionItem( "add-place", "", "", "Add",""))
                     ) +
                     actionList(`card-actions`, ve.actions, false, qty)
                 )

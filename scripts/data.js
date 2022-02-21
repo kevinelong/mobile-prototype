@@ -14,7 +14,8 @@ function VitaEvent(period = Period(), kind = "dining", currentMood="hungry", col
         imagePath: "",
         titleText: period.name,
         subtitleText: (period && period.ideas) ? period.ideas.length + " Smart Ideas!":"",
-        content: period.name + div("current-mood", "Current Mood: " + currentMood.toUpperCase()),
+        // content: period.name + div("current-mood", "Current Mood: " + currentMood.toUpperCase()),
+        content: "",
         tags: period.ideas,
         groups: [],
         actions: [],
@@ -279,70 +280,17 @@ const RESTAURANT_FILTERS = [
     "F2",
     "F3"
 ];
-const LODGING = [{
-    name: "1"
-},
+const LODGING = [
     {
-        name: "2"
+        name: "Hilton"
+    },
+    {
+        name: "Marriott"
     }
 ];
 const LODGING_FILTERS = [
     "All",
-    "F1",
-    "F2",
-    "F3"
+    "Luxury",
+    "Standard",
+    "Bed &amp; Breakfast"
 ];
-
-
-/*
-function smart(ve = VitaEvent()) {
-
-    const content = div(
-        "mood",
-        "Current Mood: " +
-        ve.currentMood.toUpperCase() +
-        actionItem("edit", "mood", "", "Update Mood") +
-        "or Check-In right here!" +
-        actionItem("check-in", "", "", "Experience 1") +
-        actionItem("check-in", "", "", "Experience 2") +
-        actionItem("check-in", "", "", "Experience 3")
-    );
-
-    ve.subtitleText = ve.timeRange ? ve.timeRange : ve.period.from + '-' + ve.period.to;
-    ve.titleText = smartTitle(ve);
-
-    return smartCard(ve);
-}
-
- */
-/*
-cardListSection(
-    "Friday 12/12/2022",
-    actionItem("add-place", "timeline", -1, "add", "black"),
-    "Santa Barbara",
-    [
-        timelineCard(VitaEvent(DAILY_PERIODS[BREAKFAST], "dining")),
-        smartCard(ve),
-        smart(DAILY_PERIODS[AFTERNOON_EXPERIENCE], "2:45 pm - 4:30 pm", "active", []),
-        smart(DAILY_PERIODS[EVENING_EXPERIENCE], "5:00 pm - 9:30 pm", "romantic", []),
-    ]
-),
-cardListSection(
-    "Saturday 12/13/2022",
-    actionItem("add-place", "timeline", -1, "add", "black"),
-    "Santa Barbara",
-    DAILY_PERIODS.map(timelineCard)
-),
-cardListSection(
-    "Sunday 12/14/2022",
-    actionItem("add-place", "timeline", -1, "add", "black"),
-    "Santa Barbara",
-    DAILY_PERIODS.map(timelineCard)
-),
- */
-/*
-Smart Recommendations are based on:
-a) distance/time from a previous scheduled/current card and/or future scheduled card.
-b) time of day(mood)
-c) personal profile/interests/lifestyle/app actions
- */

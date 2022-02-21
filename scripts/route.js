@@ -243,13 +243,18 @@ function showUploadDialog() {
     showDialog("Upload", input("file", "file", "") + actionButton("upload"))
 }
 
-function showAddPlaceDialog(a,b,c,d) {
-    showDialog("Add Event on " + d, 
+function showAddPlace(titleText, places=[]) {
+    showDialog(titleText,
     label("place", "Where" + input("place","text","placeholder=\"Where?\"") ) +
     label("place", "When" + input("time", "time") ) + 
     actionButton("add"))
 }
-
+function showAddPlaceDialog(a,b,c,d) {
+    showAddPlace("Find a Place &amp; Time" + d);
+}
+function showAddCheckInDialog(a,b,c,d) {
+    showAddPlace("Add Item &amp; Check-In " + d);
+}
 function showMatchDialog() {
     showDialog("Taste Match",
         `
@@ -438,6 +443,7 @@ ACTION_PAGES = {
     upload: showUploadDialog,
     'smart-ideas': showSmartIdeasDialog,
     'add-place': showAddPlaceDialog,
+    'add-and-checkin': showAddCheckInDialog,
     'edit': edit,
     review: showReviewDialog
 };
