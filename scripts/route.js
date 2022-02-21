@@ -217,13 +217,13 @@ function showReviewDialog() {
  * 
  */
 
-function showSmartIdeasDialog() {
+function showAddEventDialog(titleText="Add Event") {
     showDialog(
-        "Smart Ideas",
+        titleText,
         contentPanel([
             label(
                 "Destination", row(
-                    // text("Destination") + 
+                    // text("Destination") +
                     input("destination", "text", `placeholder="Destination"`) +
                     actionButton("...", "search-destination"))
             ),
@@ -233,6 +233,11 @@ function showSmartIdeasDialog() {
         ].join(""))
     )
 }
+
+function showSmartIdeasDialog() {
+    showAddEventDialog("Smart Ideas");
+}
+
 
 function showUploadDialog() {
     showDialog("Upload", input("file", "file", "") + actionButton("upload"))
@@ -396,13 +401,15 @@ TOAST_MESSAGES = {
 function addItem(target, action, which, id) {
     if ("person" === which) {
         showSearch(`${action} ${which}`, id);
-    }
-
-    if ("message" === which) {
+    }else if ("message" === which) {
         addMessage();
+    }else if ("timeline" === which) {
+        showAddEventDialog("Add to Timeline")
+    }else{
+        showAddEventDialog("Add Item")
     }
 
-    //   console.log("add", ...arguments);
+    console.log("addItem", ...arguments);
 }
 
 ACTION_PAGES = {

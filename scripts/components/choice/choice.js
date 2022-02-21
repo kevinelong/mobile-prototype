@@ -7,7 +7,7 @@ function choice(kind, text, selected = false, index = -1) {
     );
 }
 
-function choiceSet(kind, choiceList = [], selectedItem = "") {
+function choiceSet(kind, choiceList = [], selectedItem = "", pageName) {
     if (choiceList.length === 0) {
         return "";
     }
@@ -15,7 +15,7 @@ function choiceSet(kind, choiceList = [], selectedItem = "") {
         "choice-set",
         [...choiceList].map(
             (c, i) => choice(kind, c, c === selectedItem, i)
-        ).join("") + actionItem("add", "timeline", -1, "add", "black", false, 0),
+        ).join("") + actionItem("add", pageName, -1, "add", "black", false, 0),
         `id="${kind}" class='secondary-nav'`
     )
 }

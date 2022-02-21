@@ -26,10 +26,10 @@ function page(
             ) +
             row(
                 ((searchMessage !== undefined && searchMessage.length > 0) ? search([], -1, searchMessage) : "")
-                + actionItem("add", "timeline", -1, "add", "black", false, 0)
+                + actionItem("add", name, -1, "add", "black", false, 0)
             )+
             // actionButton("Smart Ideas", "smart-ideas") +
-                choiceSet(`${name}-filters`, choiceList, selectedChoice)
+                choiceSet(`${name}-filters`, choiceList, selectedChoice, name)
         ) +
         contentPanel(
             content +

@@ -86,7 +86,7 @@
     justify-content: flex-start;
 }
 .page.plan_detail>.content-panel{
-    padding-top: 455px;
+    /*padding-top: 455px;*/
 }
 .page.collect_board>.content-panel{
     padding-top: 0;
