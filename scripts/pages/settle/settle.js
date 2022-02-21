@@ -50,10 +50,10 @@ function settlePage(selected = false) {
                 ])
             ) +
               col(
-                actionItem("discuss", "discuss", -1, "Discuss", "black", false) +
+                actionItem("open", "connect_chat", -1, "Discuss", "black", false) +
                 actionItem(
-                  "settle",
-                  "settle",
+                  "request",
+                  "settlement",
                   -1,
                   "Request Settlement",
                   "black",
@@ -153,10 +153,10 @@ function settlePage(selected = false) {
                 ])
             ) +
               col(
-                actionItem("discuss", "discuss", -1, "Discuss", "black", false) +
+                actionItem("open", "connect_chat", -1, "Discuss", "black", false) +
                 actionItem(
-                  "settle",
-                  "settle",
+                  "request",
+                  "settlement",
                   -1,
                   "Request Settlement",
                   "black",
@@ -167,8 +167,8 @@ function settlePage(selected = false) {
           title(
             "Tomorrow - Wednesday 12/13/2022" +
               actionItem(
-                "settle",
-                "settle",
+                "add",
+                "expense",
                 -1,
                 "Add Expense",
                 "black",
