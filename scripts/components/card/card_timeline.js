@@ -29,6 +29,7 @@ function timelineCard(ve = VitaEvent()) {
                     cardSubtitle(ve.subtitleText),
                 ) +
                 cardTags(ve.tags) +
+                ((!isCurrent(ve)) ?
                 div(
                     "memories",
                     col(
@@ -41,7 +42,7 @@ function timelineCard(ve = VitaEvent()) {
                             ) + actionItem("upload", "", "", "Upload", "", false)
                         )
                     )
-                ) +
+                ) : "" )+
                 col(
                     ve.content
                 )
