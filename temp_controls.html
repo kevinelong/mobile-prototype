@@ -8,6 +8,8 @@
     <!--    <link href="styles/style.css" rel="stylesheet" type="text/css"/>-->
     <link href="http://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet">
     <link href="http://fonts.cdnfonts.com/css/averia-libre" rel="stylesheet">
+    <link rel="stylesheet" href="styles/libraries/flatpickr.min.css">
+    <script src="scripts/libraries/flatpickr.js"></script>
     <script>
         `
 timeline
@@ -250,7 +252,8 @@ route
         }
 
         .control-host label,
-        .control-host .text-control input {
+        .control-host .text-control input,
+        .control-host .calender-control input {
             box-shadow: none;
             /* display: inline-block; */
             /* background-color: #ddd; */
@@ -262,6 +265,10 @@ route
             line-height: 32px;
             color: #8F8F8F;
             padding: 0 0 0 20px;
+        }
+
+        .flatpickr-calendar * {
+            flex-direction: row;
         }
 
         .control-host .radio-control input:checked + label, 
@@ -279,6 +286,7 @@ route
         /* .control-host .radio-control input:focus + label {
             border: 1px dashed blue;
         } */
+        
 
         .control-host .text-control input:focus {
             border: 1px solid #F9A831;
@@ -504,4 +512,5 @@ route
         }
     }
 
+    flatpickr("#date", {});
 </script>
