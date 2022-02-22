@@ -243,17 +243,21 @@ function showUploadDialog() {
     showDialog("Upload", input("file", "file", "") + actionButton("upload"))
 }
 
-function showAddPlace(titleText, places=[]) {
+function showAddPlace(titleText, places=[], actionText="Add", showWhen= true) {
     showDialog(titleText,
     label("place", "Where" + input("place","text","placeholder=\"Where?\"") ) +
-    label("place", "When" + input("time", "time") ) + 
-    actionButton("add"))
+    places.map(p=>actionItem("right", p,-1,p,"")).join("") +
+        (showWhen ? label("place", "When" + input("time", "time") ):"") +
+    actionButton(actionText))
 }
 function showAddPlaceDialog(a,b,c,d) {
     showAddPlace("Find a Place &amp; Time" + d);
 }
 function showAddCheckInDialog(a,b,c,d) {
-    showAddPlace("Add Item &amp; Check-In " + d);
+    showAddPlace("Add Item &amp; Check-In " + d,
+        ["Loquita", "Pro Sports", "The Creamery"],
+        "Add &amp; Check-In",
+        false);
 }
 function showMatchDialog() {
     showDialog("Taste Match",
@@ -399,8 +403,7 @@ TOAST_MESSAGES = {
     paypal: "Payment Settled",
     venmo: "Payment Settled",
     verify: "Verified",
-    notify: "Notification Sent",
-    "check-in": "Checked In",
+    notify: "Notification Sent"
 };
 
 function addItem(target, action, which, id) {
@@ -417,6 +420,31 @@ function addItem(target, action, which, id) {
     console.log("addItem", ...arguments);
 }
 
+function insertAfter(newNode, referenceNode) {
+    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+}
+
+function handleRight(target, action, which, id){
+    if ("Loquita" === which) {
+        let cardList = get(".timeline.page .card-list");
+        const cps = cardList.querySelectorAll(".is-current-period");
+        if(cps && cps.length > 1) {
+            let ve = VitaEvent(getPeriods()[current_period],"dining");
+            ve.titleText = "Loquita";
+            ve.subtitleText = "";
+            ve.actions=[];
+            ve.tags=[];
+            const div = document.createElement("div");
+            div.innerHTML = timelineCard(ve);
+            let e = div.children[0];
+            e.querySelectorAll(".card-actions")[0].remove();
+            insertAfter(e, cps[1]);
+            cardList.scrollTop = e.offsetTop-100;
+
+        }
+    }
+    hideDialog();
+}
 ACTION_PAGES = {
     back: () => showPage(window.lastPage),
     explore: openPage,
@@ -434,7 +462,7 @@ ACTION_PAGES = {
     more: addPerson,
     hide: hideDialog,
     collapse: collapseCard,
-    right: hideDialog,
+    right: handleRight,
     show: toggleCollapse,
     'map-on': toggleMap,
     'map-off': toggleMap,
@@ -443,7 +471,7 @@ ACTION_PAGES = {
     upload: showUploadDialog,
     'smart-ideas': showSmartIdeasDialog,
     'add-place': showAddPlaceDialog,
-    'add-and-checkin': showAddCheckInDialog,
+    'check-in': showAddCheckInDialog,
     'edit': edit,
     review: showReviewDialog
 };
