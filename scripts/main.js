@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 timerID = setTimeout(() => {
                     callback();
                 }, milliseconds);
-                navigator.vibrate(30);
+                // navigator.vibrate(30);
             },
             false
         );
