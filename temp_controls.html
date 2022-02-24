@@ -138,11 +138,23 @@ route
         } */
 
         .control-host .progress-line {
-            background-color: #F9A831;
+            background-color: #FFEFD8;
             height: 3px;
             width: 100%;
             position: absolute;
             top: 8px;
+            /* flex-direction: row; */
+        }
+
+        /* .control-host .progress-line .line-faded,
+        .control-host .progress-line .line-full {
+            
+        } */
+
+        .control-host .progress-line .line-full {
+            background-color: #F9A831;
+            height: 100%;
+            width: 0px;
         }
 
         .control-host .progress-icon {
@@ -508,7 +520,7 @@ route
                             </div>
                         </div>
                         <div class="dropdown-control">
-                            <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+                            <button onclick="dropToggle()" class="dropbtn">Dropdown</button>
                             <div class="dropdown-content">
                                 <p>Selection 1</p>
                                 <p>Selection 2</p>
@@ -530,6 +542,7 @@ route
     const progressControl = `
         <div class="progress-control">
             <div class="progress-line">
+                <div class="line-full"></div>
                 <img class="progress-icon" src="images/flight_yellow.svg" alt="">
             </div>
         </div>
@@ -542,23 +555,18 @@ route
         planePages.push(controlPages[i])
     }
 
-    console.log(planePages)
-
     for (let i = 1; i < planePages.length; i++) {
         const progressLine = planePages[i].querySelector(".progress-line")
+        const lineFull = planePages[i].querySelector(".line-full")
         const progressIcon = planePages[i].querySelector(".progress-icon")
         const distanceMultiplier = Math.floor(progressLine.offsetWidth / (planePages.length - 1))
         const iconDistance = distanceMultiplier * i
-        console.log(`Icon Distance: ${iconDistance}`)
+        lineFull.style.width = `${iconDistance}px`
         progressIcon.style.left = `${iconDistance}px`
-        console.log(progressIcon.style.left)
-        console.log(progressLine.offsetWidth)
     }
     
-    function myFunction() {
+    function dropToggle() {
         get(".dropdown-content").classList.toggle("show");
-        console.log(get(".dropdown-content"))
-        console.log(getAll(".dropdown-content"))
     }
 
     window.onclick = function (event) {
