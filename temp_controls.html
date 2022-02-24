@@ -143,6 +143,7 @@ route
             width: 100%;
             position: absolute;
             top: 8px;
+            border-radius: 50vh;
             /* flex-direction: row; */
         }
 
@@ -155,6 +156,7 @@ route
             background-color: #F9A831;
             height: 100%;
             width: 0px;
+            border-radius: 50vh;
         }
 
         .control-host .progress-icon {
@@ -561,7 +563,7 @@ route
         const progressIcon = planePages[i].querySelector(".progress-icon")
         const distanceMultiplier = Math.floor(progressLine.offsetWidth / (planePages.length - 1))
         const iconDistance = distanceMultiplier * i
-        lineFull.style.width = `${iconDistance}px`
+        lineFull.style.width = `${iconDistance + 2}px`
         progressIcon.style.left = `${iconDistance}px`
     }
     
