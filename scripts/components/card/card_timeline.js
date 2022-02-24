@@ -55,7 +55,7 @@ function timelineCard(ve = VitaEvent()) {
                         // actionItem("check-in", "", "", "Check-In","") +
                         // actionItem("edit", "mood", "", "Update Mood","") +
                         (isCurrent(ve) ? actionItem( "check-in", "", "", "Add &amp; Check-In","")
-                            : actionItem( "add-place", "", "", "Add",""))
+                            : actionItem( "add-place", "", "", "",""))
                     ) +
                     actionList(`card-actions`, ve.actions, false, qty)
                 )
