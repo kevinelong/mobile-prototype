@@ -14,7 +14,6 @@ function VitaEvent(period = Period(), kind = "dining", currentMood="hungry", col
         imagePath: "",
         titleText: period.name,
         subtitleText: (period && period.ideas) ? period.ideas.length + " Smart Ideas!":"",
-        // content: period.name + div("current-mood", "Current Mood: " + currentMood.toUpperCase()),
         content: "",
         tags: period.ideas,
         groups: [],
@@ -294,3 +293,4 @@ const LODGING_FILTERS = [
     "Standard",
     "Bed &amp; Breakfast"
 ];
+

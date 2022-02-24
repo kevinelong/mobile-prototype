@@ -10,6 +10,18 @@
     kind = "explore",
     booking_index = -1
  */
+/* KEYS IN ORDER:
+    imagePath = "images/photos/cannon-beach.jpg",
+    title = "",
+    subtitle = "",
+    content = "",
+    tags = [],
+    groups = [],
+    actions = [],
+    id = 0,
+    kind = "explore",
+    booking_index = -1
+ */
 const EXPLORE_DATA = [
     [
         "images/photos/cannon-beach.jpg",
@@ -126,6 +138,34 @@ const EXPLORE_DATA = [
         "activities",
         4
     ],
+    [
+        "images/photos/rogue.jpg",
+        "Rogue Brewery",
+        "Astoria Oregon",
+        "Beer Tasting Experience",
+        ["Beer Tasting"],
+        [
+            {
+                people: [peopleList[BF]],
+                title: "Recommended By",
+                groupName: "Friend"
+            },
+            {
+                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+                title: "Recommended By",
+                groupName: "Taste Match"
+            },
+            {
+                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+                title: "Planning with",
+                groupName: "Co-Planner"
+            }
+        ],
+        ["favorite", "share", "collect"],
+        "3",
+        "dining",
+        4
+    ],
 ];
 /*
     imagePath = "images/photos/cannon-beach.jpg",
@@ -145,6 +185,7 @@ const EXPLORE_LOQUITA3 = exploreCard(...EXPLORE_DATA[2]);
 const EXPLORE_LOQUITA2 = exploreCard(...EXPLORE_DATA[3]);
 const EXPLORE_LOQUITA1 = exploreCard(...EXPLORE_DATA[4]);
 const EXPLORE_CONSTANIA = exploreCard(...EXPLORE_DATA[5]);
+const EXPLORE_ROGUE = exploreCard(...EXPLORE_DATA[6]);
 
 const EXPLORE_CARDS = [
     EXPLORE_CONSTANIA,
@@ -153,6 +194,7 @@ const EXPLORE_CARDS = [
     // EXPLORE_LOQUITA1,
     EXPLORE_HANNA_LEVIN,
     EXPLORE_CANNON_BEACH,
+    EXPLORE_ROGUE,
 ];
 
 function explorePage(selected = false) {
@@ -182,5 +224,6 @@ function explorePage(selected = false) {
         "Search the World"
     );
 }
+
 
 // &#124;
