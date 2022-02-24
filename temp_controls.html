@@ -123,6 +123,36 @@ route
             gap: 52px;
         }
 
+        .control-host .progress-control {
+            /* display: inline; */
+            /* width: 100%; */
+            /* position: relative; */
+            height: 19px;
+        }
+
+        /* .control-host .progress-control hr {
+            border: 1px solid #F9A831;
+            width: 100%;
+            position: absolute;
+            top: 9px;
+        } */
+
+        .control-host .progress-line {
+            background-color: #F9A831;
+            height: 3px;
+            width: 100%;
+            position: absolute;
+            top: 8px;
+        }
+
+        .control-host .progress-icon {
+            height: 19px;
+            width: 19px;
+            position: absolute;
+            top: -8px;
+            left: -2px;
+        }
+
         .control-host .logo-control {
             justify-self: center;
             font-size: 30px;
@@ -271,8 +301,8 @@ route
             flex-direction: row;
         }
 
-        .control-host .radio-control input:checked + label, 
-        .control-host .checkbox-control input:checked + label {
+        .control-host .radio-control input:checked+label,
+        .control-host .checkbox-control input:checked+label {
             background-color: #F9A831;
             color: white;
         }
@@ -286,7 +316,7 @@ route
         /* .control-host .radio-control input:focus + label {
             border: 1px dashed blue;
         } */
-        
+
 
         .control-host .text-control input:focus {
             border: 1px solid #F9A831;
@@ -305,7 +335,8 @@ route
             width: 100%;
         }
 
-        .dropbtn:hover, .dropbtn:focus {
+        .dropbtn:hover,
+        .dropbtn:focus {
             border: 1px solid #F9A831;
             color: #F9A831;
         }
@@ -321,7 +352,7 @@ route
             position: absolute;
             background-color: #f1f1f1;
             width: 100%;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
             z-index: 1;
         }
 
@@ -337,9 +368,8 @@ route
         }
 
         .show {
-            display:block;
+            display: block;
         }
-
     </style>
 
 </head>
@@ -349,9 +379,9 @@ route
         <div class="outer-box div">
             <div class="inner-content div">
                 <div class="control-host">
-                    <div class="page1">
-                    <div class="logo-control">VITA</div>
-                    <div class="slogan-control">Plan the best experiences of your life</div>
+                    <div class="control-page page1">
+                        <div class="logo-control">VITA</div>
+                        <div class="slogan-control">Plan the best experiences of your life</div>
                         <form action="">
                             <div class="login-control">
                                 <div class="login-creds">
@@ -372,7 +402,7 @@ route
                             </div>
                         </form>
                     </div>
-                    <div class="page2">
+                    <div class="control-page page2">
                         <div class="question-heading">
                             <div class="title-control">
                                 Tell us a bit about yourself
@@ -419,7 +449,7 @@ route
                             </label> -->
                         </div>
                     </div>
-                    <div class="page3">
+                    <div class="control-page page3">
                         <div class="question-heading">
                             <div class="title-control">
                                 Tell us a bit about yourself
@@ -441,7 +471,7 @@ route
                             <label for="checkbox5">Illum fuisset</label>
                         </div>
                     </div>
-                    <div class="page4">
+                    <div class="control-page page4">
                         <div class="question-heading">
                             <div class="title-control">
                                 Tell us a bit about yourself
@@ -455,7 +485,7 @@ route
                             <input type="date" id="date" name="date" placeholder="Enter a date...">
                         </div>
                     </div>
-                    <div class="page5">
+                    <div class="control-page page5">
                         <div class="question-heading">
                             <div class="title-control">
                                 Tell us a bit about yourself
@@ -468,7 +498,7 @@ route
                             <input type="text" placeholder="Iisque vocibus signiferumque vim...">
                         </div>
                     </div>
-                    <div class="page6">
+                    <div class="control-page page6">
                         <div class="question-heading">
                             <div class="title-control">
                                 Tell us a bit about yourself
@@ -496,16 +526,45 @@ route
 
 <script>
 
+    const controlPages = getAll(".control-page")
+    const progressControl = `
+        <div class="progress-control">
+            <div class="progress-line">
+                <img class="progress-icon" src="images/flight_yellow.svg" alt="">
+            </div>
+        </div>
+    `
+    
+    const planePages = []
+
+    for (let i = 1; i < controlPages.length; i++) {
+        controlPages[i].firstElementChild.insertAdjacentHTML("beforebegin", progressControl)
+        planePages.push(controlPages[i])
+    }
+
+    console.log(planePages)
+
+    for (let i = 1; i < planePages.length; i++) {
+        const progressLine = planePages[i].querySelector(".progress-line")
+        const progressIcon = planePages[i].querySelector(".progress-icon")
+        const distanceMultiplier = Math.floor(progressLine.offsetWidth / (planePages.length - 1))
+        const iconDistance = distanceMultiplier * i
+        console.log(`Icon Distance: ${iconDistance}`)
+        progressIcon.style.left = `${iconDistance}px`
+        console.log(progressIcon.style.left)
+        console.log(progressLine.offsetWidth)
+    }
+    
     function myFunction() {
         get(".dropdown-content").classList.toggle("show");
         console.log(get(".dropdown-content"))
         console.log(getAll(".dropdown-content"))
     }
 
-    window.onclick = function(event) {
+    window.onclick = function (event) {
         if (!event.target.matches(".dropbtn")) {
             const dropdowns = get(".dropdown-content");
-            
+
             if (dropdowns.classList.contains("show")) {
                 dropdowns.classList.remove("show");
             }
