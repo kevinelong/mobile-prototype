@@ -146,6 +146,7 @@
 .page.connect #connect .action-item,
 .page.timeline #timeline-filters .action-item,
 .page.collect #collect-filters .action-item,
+.page.explore .header>.row  .action-item,
 .page.explore #explore-filters .action-item{
     display: none;
 }
