@@ -42,8 +42,9 @@ function timelinePage(selected = false) {
     const card_content = calendar_days.map(showDay).join('');
 
     const page_content = div("right", title("11:04 am - Santa Barbara" +
-            actionItem("edit","",-1,"edit","black"))) +
-        actionButton("Smart Ideas", "smart-ideas") +
+            actionItem("edit","location",-1,"edit","black"))) +
+        // actionButton("Smart Ideas", "smart-ideas") +
+        title("Smart Ideas") +
         cardList(card_content);
 
     const choices = ["Go!", "Check-Ins", "Pay/Settle", "Rate/Review", "Verify for Offset", "Memories",];

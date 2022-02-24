@@ -146,6 +146,7 @@
 .page.connect #connect .action-item,
 .page.timeline #timeline-filters .action-item,
 .page.collect #collect-filters .action-item,
+.page.explore .header>.row  .action-item,
 .page.explore #explore-filters .action-item{
     display: none;
 }
@@ -204,10 +205,6 @@
     user-select: none;
     flex-direction: row;
     margin-top: -2px;
-}
-
-.length-5 .index-2 {
-    margin-top: -40px;
 }
 
 .outer-box>.circle {

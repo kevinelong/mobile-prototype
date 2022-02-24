@@ -411,6 +411,8 @@ function addItem(target, action, which, id) {
         showSearch(`${action} ${which}`, id);
     }else if ("message" === which) {
         addMessage();
+    }else if ("connect" === which) {
+        addParticipant();
     }else if ("timeline" === which) {
         showAddEventDialog("Add to Timeline")
     }else{
