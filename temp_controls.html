@@ -8,6 +8,8 @@
     <!--    <link href="styles/style.css" rel="stylesheet" type="text/css"/>-->
     <link href="http://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet">
     <link href="http://fonts.cdnfonts.com/css/averia-libre" rel="stylesheet">
+    <link rel="stylesheet" href="styles/libraries/flatpickr.min.css">
+    <script src="scripts/libraries/flatpickr.js"></script>
     <script>
         `
 timeline
@@ -119,6 +121,50 @@ route
         .control-host .page6 {
             min-height: calc(640px - (2 * 42px));
             gap: 52px;
+        }
+
+        .control-host .progress-control {
+            /* display: inline; */
+            /* width: 100%; */
+            /* position: relative; */
+            height: 19px;
+        }
+
+        /* .control-host .progress-control hr {
+            border: 1px solid #F9A831;
+            width: 100%;
+            position: absolute;
+            top: 9px;
+        } */
+
+        .control-host .progress-line {
+            background-color: #FFEFD8;
+            height: 3px;
+            width: 100%;
+            position: absolute;
+            top: 8px;
+            border-radius: 50vh;
+            /* flex-direction: row; */
+        }
+
+        /* .control-host .progress-line .line-faded,
+        .control-host .progress-line .line-full {
+            
+        } */
+
+        .control-host .progress-line .line-full {
+            background-color: #F9A831;
+            height: 100%;
+            width: 0px;
+            border-radius: 50vh;
+        }
+
+        .control-host .progress-icon {
+            height: 19px;
+            width: 19px;
+            position: absolute;
+            top: -8px;
+            left: -2px;
         }
 
         .control-host .logo-control {
@@ -249,12 +295,9 @@ route
             width: 0;
         }
 
-        .control-host .text-control input{
-            
-        }
-
         .control-host label,
-        .control-host .text-control input {
+        .control-host .text-control input,
+        .control-host .calender-control input {
             box-shadow: none;
             /* display: inline-block; */
             /* background-color: #ddd; */
@@ -268,8 +311,12 @@ route
             padding: 0 0 0 20px;
         }
 
-        .control-host .radio-control input:checked + label, 
-        .control-host .checkbox-control input:checked + label {
+        .flatpickr-calendar * {
+            flex-direction: row;
+        }
+
+        .control-host .radio-control input:checked+label,
+        .control-host .checkbox-control input:checked+label {
             background-color: #F9A831;
             color: white;
         }
@@ -284,26 +331,33 @@ route
             border: 1px dashed blue;
         } */
 
+
         .control-host .text-control input:focus {
             border: 1px solid #F9A831;
         }
 
-        .dropbtn {
-            background-color: #3498DB;
-            color: white;
-            padding: 16px;
-            font-size: 16px;
-            border: none;
+        .control-host .dropbtn {
+            background-color: white;
+            border-radius: 16px;
+            border: 1px solid #EAEAEA;
+            color: #8F8F8F;
+            height: 32px;
+            /* padding: 16px; */
+            font-size: 12px;
+            /* border: none; */
             cursor: pointer;
+            width: 100%;
         }
 
-        .dropbtn:hover, .dropbtn:focus {
-            background-color: #2980B9;
+        .dropbtn:hover,
+        .dropbtn:focus {
+            border: 1px solid #F9A831;
+            color: #F9A831;
         }
 
         .dropdown-control {
             position: relative;
-            /* display: inline-block; */
+            display: inline-block;
             min-width: 100%
         }
 
@@ -312,7 +366,7 @@ route
             position: absolute;
             background-color: #f1f1f1;
             width: 100%;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
             z-index: 1;
         }
 
@@ -328,9 +382,8 @@ route
         }
 
         .show {
-            display:block;
+            display: block;
         }
-
     </style>
 
 </head>
@@ -340,9 +393,9 @@ route
         <div class="outer-box div">
             <div class="inner-content div">
                 <div class="control-host">
-                    <div class="page1">
-                    <div class="logo-control">VITA</div>
-                    <div class="slogan-control">Plan the best experiences of your life</div>
+                    <div class="control-page page1">
+                        <div class="logo-control">VITA</div>
+                        <div class="slogan-control">Plan the best experiences of your life</div>
                         <form action="">
                             <div class="login-control">
                                 <div class="login-creds">
@@ -363,7 +416,7 @@ route
                             </div>
                         </form>
                     </div>
-                    <div class="page2">
+                    <div class="control-page page2">
                         <div class="question-heading">
                             <div class="title-control">
                                 Tell us a bit about yourself
@@ -410,7 +463,7 @@ route
                             </label> -->
                         </div>
                     </div>
-                    <div class="page3">
+                    <div class="control-page page3">
                         <div class="question-heading">
                             <div class="title-control">
                                 Tell us a bit about yourself
@@ -432,7 +485,7 @@ route
                             <label for="checkbox5">Illum fuisset</label>
                         </div>
                     </div>
-                    <div class="page4">
+                    <div class="control-page page4">
                         <div class="question-heading">
                             <div class="title-control">
                                 Tell us a bit about yourself
@@ -446,7 +499,7 @@ route
                             <input type="date" id="date" name="date" placeholder="Enter a date...">
                         </div>
                     </div>
-                    <div class="page5">
+                    <div class="control-page page5">
                         <div class="question-heading">
                             <div class="title-control">
                                 Tell us a bit about yourself
@@ -459,7 +512,7 @@ route
                             <input type="text" placeholder="Iisque vocibus signiferumque vim...">
                         </div>
                     </div>
-                    <div class="page6">
+                    <div class="control-page page6">
                         <div class="question-heading">
                             <div class="title-control">
                                 Tell us a bit about yourself
@@ -469,7 +522,7 @@ route
                             </div>
                         </div>
                         <div class="dropdown-control">
-                            <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+                            <button onclick="dropToggle()" class="dropbtn">Dropdown</button>
                             <div class="dropdown-content">
                                 <p>Selection 1</p>
                                 <p>Selection 2</p>
@@ -487,20 +540,46 @@ route
 
 <script>
 
-    function myFunction() {
-        get(".dropdown-content").classList.toggle("show");
-        console.log(get(".dropdown-content"))
-        console.log(getAll(".dropdown-content"))
+    const controlPages = getAll(".control-page")
+    const progressControl = `
+        <div class="progress-control">
+            <div class="progress-line">
+                <div class="line-full"></div>
+                <img class="progress-icon" src="images/flight_yellow.svg" alt="">
+            </div>
+        </div>
+    `
+    
+    const planePages = []
+
+    for (let i = 1; i < controlPages.length; i++) {
+        controlPages[i].firstElementChild.insertAdjacentHTML("beforebegin", progressControl)
+        planePages.push(controlPages[i])
     }
 
-    window.onclick = function(event) {
+    for (let i = 1; i < planePages.length; i++) {
+        const progressLine = planePages[i].querySelector(".progress-line")
+        const lineFull = planePages[i].querySelector(".line-full")
+        const progressIcon = planePages[i].querySelector(".progress-icon")
+        const distanceMultiplier = Math.floor(progressLine.offsetWidth / (planePages.length - 1))
+        const iconDistance = distanceMultiplier * i
+        lineFull.style.width = `${iconDistance + 2}px`
+        progressIcon.style.left = `${iconDistance}px`
+    }
+    
+    function dropToggle() {
+        get(".dropdown-content").classList.toggle("show");
+    }
+
+    window.onclick = function (event) {
         if (!event.target.matches(".dropbtn")) {
             const dropdowns = get(".dropdown-content");
-            
+
             if (dropdowns.classList.contains("show")) {
                 dropdowns.classList.remove("show");
             }
         }
     }
 
+    flatpickr("#date", {});
 </script>

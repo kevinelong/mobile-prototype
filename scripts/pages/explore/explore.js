@@ -22,6 +22,25 @@
     kind = "explore",
     booking_index = -1
  */
+
+const DEFAULT_GROUPS = [
+    {
+        people: [peopleList[BF]],
+        title: "Recommended By",
+        groupName: "Friend",
+    },
+    {
+        people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+        title: "Recommended By",
+        groupName: "Taste Match",
+    },
+    {
+        people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+        title: "Planning with",
+        groupName: "Co-Planner",
+    },
+];
+
 const EXPLORE_DATA = [
     [
         "images/photos/cannon-beach.jpg",
@@ -29,24 +48,26 @@ const EXPLORE_DATA = [
         "Cannon Beach, Oregon",
         "This is an iconic photo opportunity",
         ["Landmark", "Recommended"],
-        [{
-            people: [peopleList[BF]],
-            title: "Recommended By",
-            groupName: "Friend"
-        },
+        [
+            {
+                people: [peopleList[BF]],
+                title: "Recommended By",
+                groupName: "Friend",
+            },
             {
                 people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
                 title: "Recommended By",
-                groupName: "Taste Match"
-            }, {
-            people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
-            title: "Planning with",
-            groupName: "Co-Planner"
-        },
+                groupName: "Taste Match",
+            },
+            {
+                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+                title: "Planning with",
+                groupName: "Co-Planner",
+            },
         ],
         ["invite", "schedule", "collect"],
         "1",
-        "place"
+        "place",
     ],
     [
         "images/photos/hanna-levin.png",
@@ -58,22 +79,23 @@ const EXPLORE_DATA = [
             {
                 people: [peopleList[BF]],
                 title: "Recommended By",
-                groupName: "Friend"
+                groupName: "Friend",
             },
             {
                 people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
                 title: "Recommended By",
-                groupName: "Taste Match"
+                groupName: "Taste Match",
             },
             {
                 people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
                 title: "Planning with",
-                groupName: "Co-Planner"
+                groupName: "Co-Planner",
             },
         ],
         ["collect"],
         "2",
-        "connect", -1
+        "connect",
+        -1,
     ],
     [
         "images/explore_bg.png",
@@ -85,7 +107,7 @@ const EXPLORE_DATA = [
         ["invite", "schedule", "collect"],
         "2",
         "dining",
-        1
+        1,
     ],
     [
         "images/explore_bg.png",
@@ -93,10 +115,11 @@ const EXPLORE_DATA = [
         "Santa Barbara",
         "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
         ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
-        group_of_two, ["invite", "schedule", "collect"],
+        group_of_two,
+        ["invite", "schedule", "collect"],
         "2",
         true,
-        2
+        2,
     ],
     [
         "images/explore_bg.png",
@@ -108,7 +131,7 @@ const EXPLORE_DATA = [
         ["favorite", "share", "collect"],
         "2",
         true,
-        3
+        3,
     ],
     [
         "images/photos/constania.jpg",
@@ -120,26 +143,26 @@ const EXPLORE_DATA = [
             {
                 people: [peopleList[BF]],
                 title: "Recommended By",
-                groupName: "Friend"
+                groupName: "Friend",
             },
             {
                 people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
                 title: "Recommended By",
-                groupName: "Taste Match"
+                groupName: "Taste Match",
             },
             {
                 people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
                 title: "Planning with",
-                groupName: "Co-Planner"
-            }
+                groupName: "Co-Planner",
+            },
         ],
         ["favorite", "share", "collect"],
         "3",
         "activities",
-        4
+        4,
     ],
     [
-        "images/photos/rogue.jpg",
+        "images/photos/beer_group.jpg",
         "Rogue Brewery",
         "Astoria Oregon",
         "Beer Tasting Experience",
@@ -148,24 +171,60 @@ const EXPLORE_DATA = [
             {
                 people: [peopleList[BF]],
                 title: "Recommended By",
-                groupName: "Friend"
+                groupName: "Friend",
             },
             {
                 people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
                 title: "Recommended By",
-                groupName: "Taste Match"
+                groupName: "Taste Match",
             },
             {
                 people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
                 title: "Planning with",
-                groupName: "Co-Planner"
-            }
+                groupName: "Co-Planner",
+            },
         ],
+        ["favorite", "share", "collect"],
+        "3",
+        "dining",
+        4,
+    ],
+    [
+        "images/photos/brasil_arts_cafe.jpeg",
+        "Brasil Arts Cafe",
+        "Santa Barbara",
+        "the perfect blend of traditional Brazilian fare & one-of-a-kind Açai, Juice, and Smoothie creations.",
+        ["Brazilian", "Cafe"],
+        DEFAULT_GROUPS,
+        ["favorite", "share", "collect"],
+        "3",
+        "dining",
+        4,
+    ],
+    [
+        "images/photos/yoichis.jpg",
+        "Yoichi's",
+        "Santa Barbara",
+        "A prix-fixe only spot featuring traditional Japanese small plates &amp; sushi in an intimate setting.",
+        ["Japanese", "Sushi", "Prix fixe"],
+        DEFAULT_GROUPS,
         ["favorite", "share", "collect"],
         "3",
         "dining",
         4
     ],
+    [
+        "images/photos/los_agaves.jpg",
+        "Los Agaves",
+        "Santa Barbara",
+        "The bold flavors of Mexico, an authentic dining experience, high-quality ingredients.",
+        ["Mexican", "Family", "Catering", "Restaurant"],
+        DEFAULT_GROUPS,
+        ["favorite", "share", "collect"],
+        "3",
+        "dining",
+        4
+    ]
 ];
 /*
     imagePath = "images/photos/cannon-beach.jpg",
@@ -186,6 +245,9 @@ const EXPLORE_LOQUITA2 = exploreCard(...EXPLORE_DATA[3]);
 const EXPLORE_LOQUITA1 = exploreCard(...EXPLORE_DATA[4]);
 const EXPLORE_CONSTANIA = exploreCard(...EXPLORE_DATA[5]);
 const EXPLORE_ROGUE = exploreCard(...EXPLORE_DATA[6]);
+const EXPLORE_BRASIL = exploreCard(...EXPLORE_DATA[7]);
+const EXPLORE_YOICHIS = exploreCard(...EXPLORE_DATA[8]);
+const EXPLORE_LOS_AGAVES = exploreCard(...EXPLORE_DATA[9]);
 
 const EXPLORE_CARDS = [
     EXPLORE_CONSTANIA,
@@ -195,6 +257,9 @@ const EXPLORE_CARDS = [
     EXPLORE_HANNA_LEVIN,
     EXPLORE_CANNON_BEACH,
     EXPLORE_ROGUE,
+    EXPLORE_BRASIL,
+    EXPLORE_YOICHIS,
+    EXPLORE_LOS_AGAVES,
 ];
 
 function explorePage(selected = false) {
@@ -209,12 +274,13 @@ function explorePage(selected = false) {
     return page(
         selected,
         "explore",
-        "Explore", [
+        "Explore",
+        [
             "All",
             "People &#124;" + icon("chevron_down"),
             "Things to Do &#124;" + icon("chevron_down"),
             "Restaurants &#124;" + icon("chevron_down"),
-            "Lodging &#124;" + icon("chevron_down")
+            "Lodging &#124;" + icon("chevron_down"),
         ],
         "All",
         row(lists.join("")),
@@ -224,6 +290,5 @@ function explorePage(selected = false) {
         "Search the World"
     );
 }
-
 
 // &#124;
