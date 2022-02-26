@@ -201,6 +201,19 @@ function showDestinations(title = "Destination", index = -1) {
     );
 }
 
+function showAddCollection() {
+    showDialog("Create Collection for Location",
+        choiceSet("location", ["All", "Nearby", "Recent"], "All") +
+        contentPanel(
+            search([...DESTINATIONS, "Other"], -1) +
+            actionList("filter-actions", [
+                "Apply",
+                "Cancel",
+            ], false, 0, "black")
+        )
+    );
+}
+
 function showLocations(title = "Current Location", index = -1) {
     showDialog(title,
         contentPanel(
@@ -461,6 +474,8 @@ function addItem(target, action, which, id) {
         addMessage();
     } else if ("connect" === which) {
         addParticipant();
+    } else if ("collect" === which) {
+        showAddCollection();
     } else if ("timeline" === which) {
         showSchedule(target, action, which, id)
         // showAddEventDialog("Add to Timeline")
