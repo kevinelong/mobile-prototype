@@ -28,6 +28,12 @@ function row(content, attrs = "") {
     return div("row", content, attrs);
 }
 
+
+function rangeRow(content, attrs = "") {
+    return div("range-row", content, attrs);
+}
+
+
 function col(content) {
     return div("col", content);
 }

@@ -45,19 +45,40 @@ function showSearch(title, index = -1) {
     );
 }
 
-function selectDate(name) {
+function labeledInput(name = "", inputType = "text") {
     return label(
         cleanName(name),
-        text(name) +
-        input(name, "date")
+        (name ? text(name) : "") +
+        input(name, inputType)
     );
 }
 
-function selectDateRange(name) {
-    return label(cleanName(name),
-        text(name) +
-        row(selectDate("From") + " - " + selectDate("To"))
+function selectDate(name = "") {
+    return labeledInput(name, "date");
+}
+
+function selectTime(name = "") {
+    return labeledInput(name, "time");
+}
+
+function labeledRange(name = "", inputType = "date", fromText = "From", toText = "To") {
+    return label(
+        cleanName(name),
+        (name ? text(name) : "") +
+        rangeRow(
+            labeledInput(fromText, inputType) +
+            " - " +
+            labeledInput(toText, inputType)
+        )
     );
+}
+
+function selectDateRange(name = "") {
+    return labeledRange(name, "date");
+}
+
+function selectTimeRange(name = "") {
+    return labeledRange(name, "time");
 }
 
 function onClickTabItem(e, name, index) {
@@ -77,6 +98,7 @@ function tabItem(name, index, isSelected = false) {
         name,
         ` onclick="onClickTabItem(this,'${cleanName(name)}','${index}')" `);
 }
+
 //
 // function tabContent(name, index= 0, content, isHidden=true) {
 //     const hidden = isHidden ? "hidden" : "";
@@ -123,7 +145,7 @@ function showThingsToDo(title = "Filter - Things To Do", index = -1) {
                 value: 0
             }]),
 
-            selectOptionsComponent("Time", [{ name: "Any Time", value: 0 }]),
+            selectOptionsComponent("Time", [{name: "Any Time", value: 0}]),
 
             selectOptionsComponent("Duration", [{
                 name: "Any Duration",
@@ -178,6 +200,7 @@ function showDestinations(title = "Destination", index = -1) {
         )
     );
 }
+
 function showLocations(title = "Current Location", index = -1) {
     showDialog(title,
         contentPanel(
@@ -186,6 +209,7 @@ function showLocations(title = "Current Location", index = -1) {
         )
     );
 }
+
 function showMoodDialog(title = "Mood", index = -1) {
     showDialog(title,
         contentPanel(
@@ -207,17 +231,18 @@ function showReviewDialog() {
         )
     )
 }
+
 /***
- * a) Destination box and 
- * b) Date range Calendar 
- * c) Note for future functionality: 
+ * a) Destination box and
+ * b) Date range Calendar
+ * c) Note for future functionality:
  * if a date range of more a single day app asks,
  *  if user wants to create a Plan?
  * (so 1 night triggers it)
- * 
+ *
  */
 
-function showAddEventDialog(titleText="Add Event") {
+function showAddEventDialog(titleText = "Add Event") {
     showDialog(
         titleText,
         contentPanel([
@@ -243,22 +268,46 @@ function showUploadDialog() {
     showDialog("Upload", input("file", "file", "") + actionButton("upload"))
 }
 
-function showAddPlace(titleText, places=[], actionText="Add", showWhen= true) {
+function showAddPlace(titleText, places = [], actionText = "Add", showWhen = true) {
     showDialog(titleText,
-    label("place", "Where" + input("place","text","placeholder=\"Where?\"") ) +
-    places.map(p=>actionItem("right", p,-1,p,"")).join("") +
-        (showWhen ? label("place", "When" + input("time", "time") ):"") +
-    actionButton(actionText))
+        label("place", "Where" + input("place", "text", "placeholder=\"Where?\"")) +
+        places.map(p => actionItem("right", p, -1, p, "")).join("") +
+        (showWhen ? label("place", "When" + input("time", "time")) : "") +
+        actionButton(actionText));
 }
-function showAddPlaceDialog(a,b,c,d) {
+
+function showScheduleDialog(titleText = "Schedule an Experience", places = [], actionText = "Add") {
+    showDialog(
+        titleText,
+        label("place",
+            input("place", "text", "placeholder=\"Type name of experience or address\"")
+        ) +
+        places.map(p => actionItem("right", p, -1, p, "")).join("") +
+        selectDateRange("Date Range:") +
+        checkBox("Fills all periods in each day above.", "all-periods") +
+        selectTimeRange("When?") +
+        actionPanel(
+            actionButton("Cancel") +
+            actionButton("Apply")
+        )
+    );
+}
+
+function showSchedule(target, action, which, index) {
+    showScheduleDialog("Schedule an Experience", places = [], actionText = "Add Experience");
+}
+
+function showAddPlaceDialog(target, action, which, index) {
     showAddPlace("Find a Place &amp; Time" + d);
 }
-function showAddCheckInDialog(a,b,c,d) {
+
+function showAddCheckInDialog(target, action, which, index) {
     showAddPlace("Add Item &amp; Check-In " + d,
         ["Loquita", "Pro Sports", "The Creamery"],
         "Add &amp; Check-In",
         false);
 }
+
 function showMatchDialog() {
     showDialog("Taste Match",
         `
@@ -310,17 +359,17 @@ function showProfileDialog(target, action, which, index = RUBY) {
     const who = peopleList[index];
     const actions = actionPanel(
         ["block", "friend", "follow"]
-        .map((actionName) =>
-            actionItem(
-                actionName,
-                index,
-                index,
-                actionName,
-                "black",
-                false
+            .map((actionName) =>
+                actionItem(
+                    actionName,
+                    index,
+                    index,
+                    actionName,
+                    "black",
+                    false
+                )
             )
-        )
-        .join("")
+            .join("")
     );
     const other =
         // label("", "Relationship" +
@@ -357,12 +406,11 @@ function collapseCard(target) {
     target.closest(".card").classList.toggle("collapsed");
 }
 
-function edit(target, action, which, id){
+function edit(target, action, which, id) {
     console.log("edit()", target, action, which, id);
-    if(which === "mood"){
+    if (which === "mood") {
         showMoodDialog();
-    }
-    else if(which === "location"){
+    } else if (which === "location") {
         showLocations();
     }
 }
@@ -394,7 +442,7 @@ TOAST_MESSAGES = {
     collect: "Added to your Collection",
     plan: "Added to your Plan",
     accept: "Accepted Invitation",
-    schedule: "Added to your Plan",
+    // schedule: "Added to your Plan",
     decline: "Declined Invitation",
     settle: "Payment Settled",
     "remind-all": "Reminders Sent",
@@ -409,13 +457,14 @@ TOAST_MESSAGES = {
 function addItem(target, action, which, id) {
     if ("person" === which) {
         showSearch(`${action} ${which}`, id);
-    }else if ("message" === which) {
+    } else if ("message" === which) {
         addMessage();
-    }else if ("connect" === which) {
+    } else if ("connect" === which) {
         addParticipant();
-    }else if ("timeline" === which) {
-        showAddEventDialog("Add to Timeline")
-    }else{
+    } else if ("timeline" === which) {
+        showSchedule(target, action, which, id)
+        // showAddEventDialog("Add to Timeline")
+    } else {
         showAddEventDialog("Add Item")
     }
 
@@ -426,27 +475,28 @@ function insertAfter(newNode, referenceNode) {
     referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
 }
 
-function handleRight(target, action, which, id){
+function handleRight(target, action, which, id) {
     if ("Loquita" === which) {
         let cardList = get(".timeline.page .card-list");
         const cps = cardList.querySelectorAll(".is-current-period");
-        if(cps && cps.length > 1) {
-            let ve = VitaEvent(getPeriods()[current_period],"dining");
+        if (cps && cps.length > 1) {
+            let ve = VitaEvent(getPeriods()[current_period], "dining");
             ve.titleText = "Loquita";
             ve.subtitleText = "";
-            ve.actions=[];
-            ve.tags=[];
+            ve.actions = [];
+            ve.tags = [];
             const div = document.createElement("div");
             div.innerHTML = timelineCard(ve);
             let e = div.children[0];
             e.querySelectorAll(".card-actions")[0].remove();
             insertAfter(e, cps[1]);
-            cardList.scrollTop = e.offsetTop-100;
+            cardList.scrollTop = e.offsetTop - 100;
 
         }
     }
     hideDialog();
 }
+
 ACTION_PAGES = {
     back: () => showPage(window.lastPage),
     explore: openPage,
@@ -494,14 +544,15 @@ function toggleCollapse(target) {
     }
     card_list.classList.toggle("collapse");
 }
+
 function toggleMap(target) {
     console.log(target);
     let img = target.querySelectorAll("img")[0];
     const src = img.getAttribute("src");
 
-    if (src == "images/icons/icon-map-on.svg" ){
-        img.setAttribute("src", "images/icons/icon-map-off.svg" );
-    }else{
+    if (src == "images/icons/icon-map-on.svg") {
+        img.setAttribute("src", "images/icons/icon-map-off.svg");
+    } else {
         img.setAttribute("src", "images/icons/icon-map-on.svg");
     }
 
