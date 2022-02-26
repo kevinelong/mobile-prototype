@@ -1,12 +1,9 @@
-
 function smartTitle(ve) {
     if (ve.period.ideas.length <= 0) {
         return "";
     }
     return `${ve.period.ideas.length} Smart Ideas for You!`;
 }
-
-
 
 
 function timelinePage(selected = false) {
@@ -26,7 +23,7 @@ function timelinePage(selected = false) {
     const showDay = day => {
         return cardListSection(
             day.when,
-            actionItem("add-place", "timeline", -1, "add-place", "black")+
+            actionItem("add-place", "timeline", -1, "add-place", "black") +
             actionItem("check-in", "timeline", -1, "Check-In", "black"),
             day.where,
             day.events.map(timelineCard)
@@ -41,13 +38,42 @@ function timelinePage(selected = false) {
     ];
     const card_content = calendar_days.map(showDay).join('');
 
-    const page_content = div("right", title("11:04 am - Santa Barbara" +
-            actionItem("edit","location",-1,"edit","black"))) +
+    const page_content =
+        div("right",
+            title("11:04 am - Santa Barbara" +
+                actionItem("edit", "location", -1, "edit", "black")
+            )
+        ) +
         // actionButton("Smart Ideas", "smart-ideas") +
         title("Smart Ideas") +
         cardList(card_content);
 
-    const choices = ["Go!", "Check-Ins", "Pay/Settle", "Rate/Review", "Verify for Offset", "Memories",];
+    const choices = [
+        "Go!",
+        "Check-Ins",
+        "Pay/Settle",
+        "Rate/Review",
+        "Verify for Offset",
+        "Memories",
+    ];
+    const defaultChoice = "Go!";
 
-    return page(selected, "timeline", "Timeline", choices, "Go!", page_content, "","","","Find Scheduled Items");
+    const pushSecondaryNavChoicesAboveSearchFilter = true;
+    const tabs = "";
+    const searchMessage = "Find Scheduled Items";
+
+    return page(
+        selected,
+        "timeline",
+        "Timeline",
+        choices,
+        defaultChoice,
+        page_content,
+        "",
+        "",
+        "",
+        searchMessage,
+        tabs,
+        pushSecondaryNavChoicesAboveSearchFilter
+    );
 }

@@ -9,8 +9,10 @@ function page(
     parent = "",
     actionContent = "",
     searchMessage = "",
-    tabs = ""
+    tabs = "",
+    pushSecondaryNavChoicesAboveSearchFilter = false
 ) {
+    const filters = choiceSet(`${name}-filters`, choiceList, selectedChoice, name);
     return div(
         `${name} page ${selected ? "" : "hidden"}`,
         // div("system-bar", div("system-time", "11:35 am")) +
@@ -24,12 +26,12 @@ function page(
                 cardPerson(peopleList[RUBY])
                 // actionItem("person", "me", 0, "", "black")
             ) +
+            (pushSecondaryNavChoicesAboveSearchFilter ? filters : "") +
             row(
                 ((searchMessage !== undefined && searchMessage.length > 0) ? search([], -1, searchMessage) : "")
                 + actionItem("add", name, -1, "add", "black", false, 0)
-            )+
-            // actionButton("Smart Ideas", "smart-ideas") +
-                choiceSet(`${name}-filters`, choiceList, selectedChoice, name)
+            ) +
+            (!pushSecondaryNavChoicesAboveSearchFilter ? filters : "")
         ) +
         contentPanel(
             content +
