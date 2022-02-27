@@ -210,3 +210,12 @@ footer button {
 .dialog label {
     font-size: 14px;
 }
+
+.dialog label.name{
+    width: 100%;
+}
+
+select.select.category option,
+select.select.category{
+    width:100%;
+}

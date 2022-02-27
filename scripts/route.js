@@ -214,6 +214,32 @@ function showAddCollection() {
     );
 }
 
+function showAddCard() {
+    showDialog("Add Something to Board",
+        selectOptionsComponent("Category", activityData) +
+        radioComponent("Card Type", [
+            {
+                name: "Favorite",
+                value: "Favorite"
+            },
+            {
+                name: "Going",
+                value: "Going"
+            },
+        ]) +
+        contentPanel(
+            label(
+                `name`,
+                input("name", "text", `placeholder="Add Card Name, Address, or Coordinates."`)
+            ) +
+            actionList("filter-actions", [
+                "Add",
+                "Cancel",
+            ], false, 0, "black")
+        )
+    );
+}
+
 function showLocations(title = "Current Location", index = -1) {
     showDialog(title,
         contentPanel(
@@ -476,6 +502,8 @@ function addItem(target, action, which, id) {
         addParticipant();
     } else if ("collect" === which) {
         showAddCollection();
+    } else if ("collect_board" === which) {
+        showAddCard();
     } else if ("timeline" === which) {
         showSchedule(target, action, which, id)
         // showAddEventDialog("Add to Timeline")

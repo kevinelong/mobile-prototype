@@ -55,6 +55,18 @@ function option(name, value) {
     );
 }
 
+function radioInput(name = "", value = "", attrs = "") {
+    return label("radio-input",
+        row(
+            tag(
+                "input",
+                name,
+                `name="${name}" value="${value}" type="radio" ${attrs}`
+            ) + text(value)
+        )
+    );
+}
+
 function select(name, optionList) {
     return closedTag(
         `select ${name}`,
@@ -62,11 +74,24 @@ function select(name, optionList) {
     );
 }
 
+function radioControl(name, list) {
+    return div(
+        `radio-control ${name}`,
+        list.map(o => radioInput(name, o.value, `data-name="${o.name}"`)).join("")
+    );
+}
 
 function selectOptionsComponent(name, optionList) {
     return label("select-options-component",
         text(name) +
         select(cleanName(name), optionList)
+    )
+}
+
+function radioComponent(name, optionList) {
+    return label("radio-component",
+        text(name) +
+        radioControl(cleanName(name), optionList)
     )
 }
 

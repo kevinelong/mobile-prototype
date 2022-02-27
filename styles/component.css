@@ -16,6 +16,17 @@ input[type=text] {
 input[type=text]:focus {
     border: none;
 }
+.radio-input .row{
+    /*justify-content: center;*/
+    align-content: center;
+}
+input[type=radio] {
+    /*align-self: center;*/
+    /*justify-self: center;*/
+    margin-top:3px;
+    margin-left:0.5em;
+}
+
 .col {
     display: flex;
     flex-direction: column;
