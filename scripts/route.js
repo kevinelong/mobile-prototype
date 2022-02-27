@@ -1,3 +1,5 @@
+const applyOrCancel = ["Apply", "Cancel"];
+
 function sendInvite() {
     showSearch("Send Invitation");
 }
@@ -114,18 +116,21 @@ function tabItem(name, index, isSelected = false) {
 //         )
 //     );
 // }
+function subcategoryChoices() {
+    return label("refine-filter",
+        text("Refine Filter:") +
+        choiceSet("subcategory-choices", [
+            icon("activity") + "Instant Book",
+            icon("collect") + "Personal Feed",
+            icon("connect") + "Broadcast",
+        ], icon("activity") + "Instant Book")
+    );
+}
 
 function showThingsToDo(title = "Filter - Things To Do", index = -1) {
     showDialog(title,
         contentPanel([
-            label("refine-filter",
-                text("Refine Filter:") +
-                choiceSet("to-do-subcategory-choices", [
-                    "Discover",
-                    "Broadcast",
-                    "Instant Book"
-                ], "Instant Book")
-            ),
+            subcategoryChoices(),
             //
             // tabSet("explore-filter-tabs", [
             //     tabItem("A", "AAA"),
@@ -167,7 +172,7 @@ function showThingsToDo(title = "Filter - Things To Do", index = -1) {
                 choiceSet("keywords", ["PKW1", "PKW2", "PKW3"])
             ),
 
-            actionList("filter-actions", ["apply"], false, 0, "black"),
+            actionList("filter-actions", applyOrCancel, false, 0, "black"),
         ].join(""))
     );
 }
@@ -175,9 +180,11 @@ function showThingsToDo(title = "Filter - Things To Do", index = -1) {
 function showRestaurants(title = "Filter - Restaurants", index = -1) {
     showDialog(title,
         contentPanel(
-            choiceSet("search-filter", RESTAURANT_FILTERS) +
+            subcategoryChoices() +
+            // choiceSet("search-filter", RESTAURANT_FILTERS) +
+            // search([], index) +
             search(RESTAURANTS, index) +
-            actionList("filter-actions", ["apply"], false, 0, "black")
+            actionList("filter-actions", applyOrCancel, false, 0, "black")
         )
     );
 }
@@ -185,9 +192,11 @@ function showRestaurants(title = "Filter - Restaurants", index = -1) {
 function showLodging(title = "Filter - Lodging", index = -1) {
     showDialog(title,
         contentPanel(
+            subcategoryChoices() +
             choiceSet("search-filter", LODGING_FILTERS) +
-            search(LODGING, index) +
-            actionList("filter-actions", ["apply"], false, 0, "black")
+            search([], index) +
+            // search(LODGING, index) +
+            actionList("filter-actions", applyOrCancel, false, 0, "black")
         )
     );
 }
@@ -196,7 +205,7 @@ function showDestinations(title = "Destination", index = -1) {
     showDialog(title,
         contentPanel(
             search(DESTINATIONS, index) +
-            actionList("filter-actions", ["apply"], false, 0, "black")
+            actionList("filter-actions", applyOrCancel, false, 0, "black")
         )
     );
 }
@@ -206,10 +215,7 @@ function showAddCollection() {
         choiceSet("location", ["All", "Nearby", "Recent"], "All") +
         contentPanel(
             search([...DESTINATIONS, "Other"], -1) +
-            actionList("filter-actions", [
-                "Apply",
-                "Cancel",
-            ], false, 0, "black")
+            actionList("filter-actions", applyOrCancel, false, 0, "black")
         )
     );
 }

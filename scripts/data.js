@@ -4,7 +4,7 @@ const Period = () => {
 
 let currentLocation = "Santa Barbara";
 
-function VitaEvent(period = Period(), kind = "dining", currentMood="hungry", color="#999999") {
+function VitaEvent(period = Period(), kind = "dining", currentMood = "hungry", color = "#999999") {
     period.color = period.color ? period.color : color;
     return {
         what: period.name,
@@ -13,7 +13,7 @@ function VitaEvent(period = Period(), kind = "dining", currentMood="hungry", col
         duration: period.to,
         imagePath: "",
         titleText: period.name,
-        subtitleText: (period && period.ideas) ? period.ideas.length + " Smart Ideas!":"",
+        subtitleText: (period && period.ideas) ? period.ideas.length + " Smart Ideas!" : "",
         content: "",
         tags: period.ideas,
         groups: [],
@@ -49,7 +49,9 @@ const LATE_NIGHT = 7;
 8) late night experience 12:00am – 3:00am
  */
 //Ensure every period has all the default VitaEvent properties.
-const injectVitaEventProps = periods => periods.map(p => {return{...p, ...VitaEvent(p), events:[]}});
+const injectVitaEventProps = periods => periods.map(p => {
+    return {...p, ...VitaEvent(p), events: []}
+});
 
 const getPeriods = () => injectVitaEventProps([
     {
@@ -206,21 +208,21 @@ const getPeriods = () => injectVitaEventProps([
 let current_period = LUNCH;
 
 
-function Day(when='', events=[]) {
+function Day(when = '', events = []) {
 
-    if(!Array.isArray(events)){
-        console.log('events' , events);
+    if (!Array.isArray(events)) {
+        console.log('events', events);
         return;
     }
 
     let periods = getPeriods();
 
-    periods.forEach((p)=>{
-       events.forEach((e)=>{
-           if(e.when > p.from && e.when < p.to){
-               p.events.push(e);
-           }
-       });
+    periods.forEach((p) => {
+        events.forEach((e) => {
+            if (e.when > p.from && e.when < p.to) {
+                p.events.push(e);
+            }
+        });
     });
 
     return {
@@ -251,33 +253,43 @@ const THINGS_TO_DO_FILTERS = [
 ];
 
 const MOODS = [
-    {name:"Romantic"},
-    {name:"Active"},
-    {name:"Relaxed"},
-    {name:"Thirsty"},
-    {name:"Hungry"},
-    {name:"Bored"},
+    {name: "Romantic"},
+    {name: "Active"},
+    {name: "Relaxed"},
+    {name: "Thirsty"},
+    {name: "Hungry"},
+    {name: "Bored"},
 ];
 
 const DESTINATIONS = [{
     name: "Santa Barbara, California USA"
 },
     {
-        name: "Las Vagas, Nevada USA"
+        name: "Las Vegas, Nevada USA"
     }
 ]
-const RESTAURANTS = [{
-    name: "1"
-},
+const RESTAURANTS = [
     {
-        name: "2"
+        name: "Loquita"
+    },
+    {
+        name: "Los Agaves"
+    },
+    {
+        name: "Santo Mezcal"
+    },
+    {
+        name: "La Super-Rica Taqueria"
     }
 ];
 const RESTAURANT_FILTERS = [
     "All",
-    "F1",
-    "F2",
-    "F3"
+    "Mexican",
+    "Chinese",
+    "Indian",
+    "Italian",
+    "Thai",
+    "American",
 ];
 const LODGING = [
     {
