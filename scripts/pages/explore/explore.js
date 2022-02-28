@@ -70,7 +70,7 @@ const EXPLORE_DATA = [
         "1",
         "place",
         -1,
-        "100%"
+        "85%"
     ],
     [
         "images/photos/hanna-levin.png",
@@ -196,7 +196,7 @@ const EXPLORE_DATA = [
         "3",
         "dining",
         4,
-        "98%"
+        "85%"
     ],
     [
         "images/photos/brasil_arts_cafe.jpeg",
