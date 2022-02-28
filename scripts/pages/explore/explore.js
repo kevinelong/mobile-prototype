@@ -167,7 +167,7 @@ const EXPLORE_DATA = [
         "3",
         "activities",
         4,
-        "99%"
+        "100%"
     ],
     [
         "images/photos/beer_group.jpg",
