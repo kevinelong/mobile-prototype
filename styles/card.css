@@ -57,7 +57,7 @@
         background-repeat: no-repeat;
         background-size: cover;
         background-position: 50% 50%;
-        /*text-shadow: 1px 1px 0 black;*/
+        text-shadow: 1px 1px 0 black;
         flex-direction: column;
         align-content: space-between;
         justify-content: space-between;

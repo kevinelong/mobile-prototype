@@ -369,23 +369,23 @@
                     <div class="control-host">
                         <div class="control-page page1">
                             <div class="logo-control">VITA</div>
-                            <div class="slogan-control">Plan the best experiences of your life</div>
+                            <div class="slogan-control">Sign-Up</div>
                             <form action="">
                                 <div class="login-control">
                                     <div class="login-creds">
-                                        <input class="email-signin" type="text" placeholder="User-name" name="username">
+                                        <input class="email-signin" type="text" placeholder="Email" name="username">
                                         <input class="password-signin" type="password" name="password" id=""
                                                placeholder="Password">
                                     </div>
                                     <div class="login-buttons">
-                                        <button class="submit-signin" type="submit" onclick="handleSubmit()">LOGIN</button>
+                                        <button class="submit-signin" type="submit" onclick="handleSubmit()">SIGN-UP</button>
                                         <button class="google-control">
                                             <img src="images\google.png" alt="">
                                             Continue with Google
                                         </button>
                                         <div class="signup-control">
-                                            <div class="new-here">New here?</div>
-                                            <a href="signup.html" class="sign-up">Sign up</a>
+                                            <div class="new-here">Have an account?</div>
+                                            <a href="index.html" class="sign-up">Login</a>
                                         </div>
                                     </div>
                                 </div>
@@ -411,9 +411,9 @@
     async function main(text) {
         const result = await sha256(text + "_v");
         //   console.log(result);
-        if (result === "cef8213b097acde521a6b9b8ea03205305b8b6b1ea5b66d4383c4a855f366fec") {
-            self.location = "main.html";
-        }
+        // if (result === "cef8213b097acde521a6b9b8ea03205305b8b6b1ea5b66d4383c4a855f366fec") {
+            self.location = "tm1.html";
+        // }
     }
 
     function handleSubmit() {

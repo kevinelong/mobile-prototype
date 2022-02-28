@@ -16,8 +16,8 @@
 
         /* Hide scrollbar for IE, Edge and Firefox */
         * {
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none; /* Firefox */
         }
 
         body {
@@ -202,6 +202,34 @@
             opacity: 1;
         }
 
+        .control-host .step-nav{
+            flex-direction: row;
+            display: flex;
+            justify-content: space-between;
+            align-content: center;
+            width: 100%;
+        }
+
+        .control-host button {
+            border-radius: 4px;
+            background-color: #F9A831;
+            color: white;
+            font-weight: bold;
+            /* margin-top: 40px; */
+            border: none;
+            /*width: 100%;*/
+            min-height: 38px;
+            min-width: 38px;
+            border-radius: 38px;
+        }
+
+        .control-host a,
+        .control-host button {
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+
         .control-host .login-control .submit-signin {
             border-radius: 4px;
             background-color: #F9A831;
@@ -358,69 +386,41 @@
 <body>
 
 <div style="font-family:sans-serif;height:100vh;display:flex;align-items:center;justify-content:center;">
-    <form name="login" onsubmit="return handleSubmit()">
-<!--        <label>User Name:<br><input name="username"></label><br>-->
-<!--        <label>Password:<br><input name="password" type="password"></label><br>-->
-<!--        <input type="submit" value="LOGIN">-->
-
-        <div class="content div">
-            <div class="outer-box div">
-                <div class="inner-content div">
-                    <div class="control-host">
-                        <div class="control-page page1">
-                            <div class="logo-control">VITA</div>
-                            <div class="slogan-control">Plan the best experiences of your life</div>
-                            <form action="">
-                                <div class="login-control">
-                                    <div class="login-creds">
-                                        <input class="email-signin" type="text" placeholder="User-name" name="username">
-                                        <input class="password-signin" type="password" name="password" id=""
-                                               placeholder="Password">
-                                    </div>
-                                    <div class="login-buttons">
-                                        <button class="submit-signin" type="submit" onclick="handleSubmit()">LOGIN</button>
-                                        <button class="google-control">
-                                            <img src="images\google.png" alt="">
-                                            Continue with Google
-                                        </button>
-                                        <div class="signup-control">
-                                            <div class="new-here">New here?</div>
-                                            <a href="signup.html" class="sign-up">Sign up</a>
-                                        </div>
-                                    </div>
+    <div class="content div">
+        <div class="outer-box div">
+            <div class="inner-content div">
+                <div class="control-host">
+                    <div class="control-page page1">
+                        <div class="control-page page2">
+                            <div class="question-heading">
+                                <div class="title-control">
+                                    Thank you!
                                 </div>
-                            </form>
+                                <div class="question-control">
+                                    Click next to start Exploring your personalized feed!
+                                </div>
+                            </div>
+                            <div class="step-nav">
+                                <a href="main.html" style="text-decoration: none;">
+<!--                                    <button> Skip</button>-->
+                                </a>
+                                <a href="main.html" style="text-decoration: none;">
+                                    <button>
+                                        <svg style="display:flex;justify-self:center;align-self: center;"
+                                             xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                             width="24" height="24" viewBox="0 0 24 24">
+                                            <path fill="white"
+                                                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/>
+                                        </svg>
+                                    </button>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-    </form>
+    </div>
 </div>
-
-<script>
-
-    async function sha256(source) {
-        const sourceBytes = new TextEncoder().encode(source);
-        const digest = await crypto.subtle.digest("SHA-256", sourceBytes);
-        const resultBytes = [...new Uint8Array(digest)];
-        return resultBytes.map(x => parseInt(x).toString(16).padStart(2, '0')).join("");
-    }
-
-    async function main(text) {
-        const result = await sha256(text + "_v");
-        //   console.log(result);
-        if (result === "cef8213b097acde521a6b9b8ea03205305b8b6b1ea5b66d4383c4a855f366fec") {
-            self.location = "main.html";
-        }
-    }
-
-    function handleSubmit() {
-        main(document.getElementsByName("login")[0].password.value)
-        return false;
-    }
-
-</script>
 </body>
 </html>

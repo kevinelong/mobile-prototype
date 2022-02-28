@@ -34,7 +34,8 @@ function exploreCardContent(
     tags = [],
     id = -1,
     kind2 = "",
-    booking_index = -1
+    booking_index = -1,
+    match_percent = "100%"
 ) {
 
     let qty = 0;
@@ -56,13 +57,14 @@ function exploreCardContent(
         ) +
         row(
             col(
+                text(`${match_percent} match`) +
                 row(
                     col(cardGroups(groups)) +
                     booking
                 ) +
                 actionList(`card-actions`, actions, false, qty)
             )
-        ) 
+        )
         // img(
         //     "background bottom",
         //     "images/backgrounds/bottom-gradient-black.svg"
@@ -84,7 +86,8 @@ function exploreCard(
     actions = [],
     id = 0,
     kind = "explore",
-    booking_index = -1
+    booking_index = -1,
+    match_percent = "100%"
 ) {
     return exploreCardContent(
         "explore",
@@ -104,7 +107,8 @@ function exploreCard(
         tags,
         id,
         kind,
-        booking_index
+        booking_index,
+        match_percent
     );
 }
 

@@ -20,7 +20,8 @@
     actions = [],
     id = 0,
     kind = "explore",
-    booking_index = -1
+    booking_index = -1,
+    match_percent = "100%"
  */
 
 const DEFAULT_GROUPS = [
@@ -68,6 +69,8 @@ const EXPLORE_DATA = [
         ["invite", "schedule", "collect"],
         "1",
         "place",
+        -1,
+        "100%"
     ],
     [
         "images/photos/hanna-levin.png",
@@ -96,6 +99,7 @@ const EXPLORE_DATA = [
         "2",
         "connect",
         -1,
+        "100%"
     ],
     [
         "images/explore_bg.png",
@@ -108,6 +112,7 @@ const EXPLORE_DATA = [
         "2",
         "dining",
         1,
+        "100%"
     ],
     [
         "images/explore_bg.png",
@@ -118,8 +123,9 @@ const EXPLORE_DATA = [
         group_of_two,
         ["invite", "schedule", "collect"],
         "2",
-        true,
+        "dining",
         2,
+        "100%"
     ],
     [
         "images/explore_bg.png",
@@ -130,8 +136,9 @@ const EXPLORE_DATA = [
         group_of_three,
         ["favorite", "share", "collect"],
         "2",
-        true,
+        "dining",
         3,
+        "100%"
     ],
     [
         "images/photos/constania.jpg",
@@ -160,6 +167,7 @@ const EXPLORE_DATA = [
         "3",
         "activities",
         4,
+        "99%"
     ],
     [
         "images/photos/beer_group.jpg",
@@ -188,6 +196,7 @@ const EXPLORE_DATA = [
         "3",
         "dining",
         4,
+        "98%"
     ],
     [
         "images/photos/brasil_arts_cafe.jpeg",
@@ -200,6 +209,7 @@ const EXPLORE_DATA = [
         "3",
         "dining",
         4,
+        "97%"
     ],
     [
         "images/photos/yoichis.jpg",
@@ -211,7 +221,8 @@ const EXPLORE_DATA = [
         ["favorite", "share", "collect"],
         "3",
         "dining",
-        4
+        4,
+        "95%"
     ],
     [
         "images/photos/los_agaves.jpg",
@@ -223,7 +234,8 @@ const EXPLORE_DATA = [
         ["favorite", "share", "collect"],
         "3",
         "dining",
-        4
+        4,
+        "90%"
     ]
 ];
 /*
@@ -236,7 +248,8 @@ const EXPLORE_DATA = [
     actions = [],
     id = 0,
     kind = "explore",
-    booking_index = -1
+    booking_index = -1,
+    match_percent = "100%"
  */
 const EXPLORE_CANNON_BEACH = exploreCard(...EXPLORE_DATA[0]);
 const EXPLORE_HANNA_LEVIN = exploreCard(...EXPLORE_DATA[1]);

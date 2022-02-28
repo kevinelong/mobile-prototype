@@ -46,18 +46,18 @@ document.addEventListener("DOMContentLoaded", () => {
     get(".main-nav-outer").innerHTML = mainNav(
         ["explore", "broadcast", "collect", "plan", "settle"],
         ["connect", "timeline"],
-        "timeline"
+        "explore"
     );
 
     get(".inner-content").innerHTML = [
-        explorePage(),
+        explorePage(true),
         exploreDetailPage(),
         broadcastPage(),
         collectPage(),
         collectBoardPage(),
         planPage(),
         planDetailPage(),
-        timelinePage(true),
+        timelinePage(),
         connectPage(),
         connectChatPage(),
         connectPersonPage(),
