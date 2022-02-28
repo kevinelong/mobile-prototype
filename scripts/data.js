@@ -306,3 +306,457 @@ const LODGING_FILTERS = [
     "Bed &amp; Breakfast"
 ];
 
+
+const PATH_STATIC = "";
+const PATH_IMAGES = `${PATH_STATIC}images/`;
+
+const PATH_ICONS = `${PATH_IMAGES}/icons/`;
+const PREFIX_ICONS = `${PATH_ICONS}/icon-`;
+const SUFFIX_ICONS = `.svg`;
+
+const PATH_FACES = `${PATH_IMAGES}/faces/`;
+const PREFIX_FACES = `${PATH_FACES}/face`;
+const SUFFIX_FACES = `.png`;
+
+const RUBY = 0;
+const JOE = 1;
+const BF = 2;
+
+const peopleList = [{
+    id: 1,
+    name: "Ruby Red",
+    isCurrentUser: true,
+    groups: [],
+},
+    {
+        id: 2,
+        name: "Joe Shmoe",
+        isCurrentUser: false,
+        groups: [],
+    },
+    {
+        id: 3,
+        name: "Betty Ford",
+        isCurrentUser: false,
+        groups: [],
+    },
+];
+
+peopleList[RUBY].groups = [{
+    people: [peopleList[BF]],
+    title: "Friends with",
+    groupName: "friend",
+    subtitle: ""
+},
+    {
+        people: [peopleList[BF]],
+        title: "Linked To",
+        groupName: "currator",
+        subtitle: ""
+    },
+    {
+        people: [peopleList[BF], peopleList[JOE]],
+        title: "Plans With",
+        groupName: "Co-Planner",
+        subtitle: ""
+    },
+    {
+        people: [peopleList[BF], peopleList[JOE]],
+        title: "Followed By",
+        groupName: "explorer",
+        subtitle: ""
+    }
+];
+
+peopleList[JOE].groups = [{
+    people: [peopleList[BF]],
+    title: "Friends with",
+    groupName: "friend",
+    subtitle: ""
+},
+    {
+        people: [peopleList[BF]],
+        title: "Linked To",
+        groupName: "currator",
+        subtitle: ""
+    },
+    {
+        people: [peopleList[BF], peopleList[RUBY]],
+        title: "Plans With",
+        groupName: "Co-Planner",
+        subtitle: ""
+    },
+    {
+        people: [peopleList[BF], peopleList[RUBY]],
+        title: "Followed By",
+        groupName: "explorer",
+        subtitle: ""
+    }
+];
+
+
+peopleList[BF].groups = [{
+    people: [peopleList[RUBY]],
+    title: "Friends with",
+    groupName: "friend",
+    subtitle: ""
+},
+    {
+        people: [peopleList[RUBY]],
+        title: "Linked To",
+        groupName: "currator",
+        subtitle: ""
+    },
+    {
+        people: [peopleList[RUBY], peopleList[JOE]],
+        title: "Plans With",
+        groupName: "Co-Planner",
+        subtitle: ""
+    },
+    {
+        people: [peopleList[RUBY], peopleList[JOE]],
+        title: "Followed By",
+        groupName: "explorer",
+        subtitle: ""
+    }
+];
+
+one_person = peopleList.filter((p, i) => i < 1);
+two_people = peopleList.filter((p, i) => i < 2);
+three_people = peopleList.filter((p, i) => i < 3);
+
+group_of_one = [{
+    people: one_person,
+    title: "Recommended By",
+    // title: one_person.map(p => p.name).join(", "),
+    groupName: "Friend",
+    subtitle: ""
+}];
+
+group_of_two = [{
+    people: two_people,
+    title: "Recommended By",
+    groupName: "Friend",
+    subtitle: ""
+}];
+
+group_of_three = [{
+    people: three_people,
+    title: "Recommended By",
+    groupName: "Friend",
+    subtitle: ""
+}];
+
+
+currators = [{
+    people: three_people,
+    title: "board linked with",
+    groupName: "currator",
+    subtitle: "sharing a total of 23 cards"
+}];
+
+coplanners = [{
+    people: three_people,
+    title: "planned with",
+    groupName: "co-planner",
+    subtitle: "plan contains 23 cards"
+}];
+
+let messageListExample = [{
+    text: "Hey girl welcome!",
+    person: peopleList[RUBY],
+},
+    {
+        text: "Hi! Thanks for the invite",
+        person: peopleList[BF],
+    },
+    {
+        text: "So... I have a long weekend in 2 weeks. Thinkin' of taking that trip to Santa Barbara I have been telling you about.",
+        person: peopleList[RUBY],
+    },
+    {
+        text: "What do you think? Wanna join me?",
+        person: peopleList[RUBY],
+    },
+    {
+        text: "I don't have a long weekend :(",
+        person: peopleList[BF],
+    },
+    {
+        text: "BUT I can join you on Saturday and Sunday",
+        person: peopleList[BF],
+    },
+    {
+        text: "??",
+        person: peopleList[BF],
+    },
+];
+
+
+const DEFAULT_GROUPS = [
+    {
+        people: [peopleList[BF]],
+        title: "Recommended By",
+        groupName: "Friend",
+    },
+    {
+        people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+        title: "Recommended By",
+        groupName: "Taste Match",
+    },
+    {
+        people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+        title: "Planning with",
+        groupName: "Co-Planner",
+    },
+];
+
+const EXPLORE_DATA = [
+    [
+        "images/photos/cannon-beach.jpg",
+        "Haystack Rock",
+        "Cannon Beach, Oregon",
+        "This is an iconic photo opportunity",
+        ["Landmark", "Recommended"],
+        [
+            {
+                people: [peopleList[BF]],
+                title: "Recommended By",
+                groupName: "Friend",
+            },
+            {
+                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+                title: "Recommended By",
+                groupName: "Taste Match",
+            },
+            {
+                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+                title: "Planning with",
+                groupName: "Co-Planner",
+            },
+        ],
+        ["invite", "schedule", "collect"],
+        "1",
+        "place",
+        -1,
+        "85%"
+    ],
+    [
+        "images/photos/hanna-levin.png",
+        "Hanna Levin",
+        "New Taste Match to Follow!",
+        "Hanna Levin has rated over 20 places, including 2 you both love!",
+        ["Tapas", "Spanish"],
+        [
+            {
+                people: [peopleList[BF]],
+                title: "Recommended By",
+                groupName: "Friend",
+            },
+            {
+                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+                title: "Recommended By",
+                groupName: "Taste Match",
+            },
+            {
+                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+                title: "Planning with",
+                groupName: "Co-Planner",
+            },
+        ],
+        ["collect"],
+        "2",
+        "connect",
+        -1,
+        "100%"
+    ],
+    [
+        "images/explore_bg.png",
+        "Loquita",
+        "Santa Barbara",
+        "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
+        ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
+        group_of_one,
+        ["invite", "schedule", "collect"],
+        "2",
+        "dining",
+        1,
+        "100%"
+    ],
+    [
+        "images/explore_bg.png",
+        "Loquita",
+        "Santa Barbara",
+        "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
+        ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
+        group_of_two,
+        ["invite", "schedule", "collect"],
+        "2",
+        "dining",
+        2,
+        "100%"
+    ],
+    [
+        "images/explore_bg.png",
+        "Loquita",
+        "Santa Barbara",
+        "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
+        ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
+        group_of_three,
+        ["favorite", "share", "collect"],
+        "2",
+        "dining",
+        3,
+        "100%"
+    ],
+    [
+        "images/photos/constania.jpg",
+        "Constantia Glen",
+        "Santa Barbara",
+        "Wine Tasting Experience",
+        ["Wine Tasting"],
+        [
+            {
+                people: [peopleList[BF]],
+                title: "Recommended By",
+                groupName: "Friend",
+            },
+            {
+                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+                title: "Recommended By",
+                groupName: "Taste Match",
+            },
+            {
+                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+                title: "Planning with",
+                groupName: "Co-Planner",
+            },
+        ],
+        ["favorite", "share", "collect"],
+        "3",
+        "activities",
+        4,
+        "100%"
+    ],
+    [
+        "images/photos/beer_group.jpg",
+        "Rogue Brewery",
+        "Astoria Oregon",
+        "Beer Tasting Experience",
+        ["Beer Tasting"],
+        [
+            {
+                people: [peopleList[BF]],
+                title: "Recommended By",
+                groupName: "Friend",
+            },
+            {
+                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+                title: "Recommended By",
+                groupName: "Taste Match",
+            },
+            {
+                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+                title: "Planning with",
+                groupName: "Co-Planner",
+            },
+        ],
+        ["favorite", "share", "collect"],
+        "3",
+        "dining",
+        4,
+        "85%"
+    ],
+    [
+        "images/photos/brasil_arts_cafe.jpeg",
+        "Brasil Arts Cafe",
+        "Santa Barbara",
+        "the perfect blend of traditional Brazilian fare & one-of-a-kind Açai, Juice, and Smoothie creations.",
+        ["Brazilian", "Cafe"],
+        DEFAULT_GROUPS,
+        ["favorite", "share", "collect"],
+        "3",
+        "dining",
+        4,
+        "97%"
+    ],
+    [
+        "images/photos/yoichis.jpg",
+        "Yoichi's",
+        "Santa Barbara",
+        "A prix-fixe only spot featuring traditional Japanese small plates &amp; sushi in an intimate setting.",
+        ["Japanese", "Sushi", "Prix fixe"],
+        DEFAULT_GROUPS,
+        ["favorite", "share", "collect"],
+        "3",
+        "dining",
+        4,
+        "95%"
+    ],
+    [
+        "images/photos/los_agaves.jpg",
+        "Los Agaves",
+        "Santa Barbara",
+        "The bold flavors of Mexico, an authentic dining experience, high-quality ingredients.",
+        ["Mexican", "Family", "Catering", "Restaurant"],
+        DEFAULT_GROUPS,
+        ["favorite", "share", "collect"],
+        "3",
+        "dining",
+        4,
+        "90%"
+    ]
+];
+
+const activityData = [{
+    icon: "activities-black",
+    name: "Things to Do",
+    items: []
+},
+    {
+        icon: "landscape-black",
+        name: "Places to See",
+        items: []
+    },
+    {
+        icon: "dining-black",
+        name: "Restaurants",
+        items: [{
+            kind: "food",
+            title: "Brasil Arts Cafe",
+            description: "the perfect blend of traditional Brazilian fare & one-of-a-kind Açai, Juice, and Smoothie creations",
+            image: "images/photos/brasil_arts_cafe.jpeg",
+            people: [{
+                people: [peopleList[RUBY], peopleList[JOE]],
+                title: "Pinned By",
+                groupName: "Curator",
+                subtitle: ""
+            }],
+            tags: ["brazilian", "cafe"],
+        },
+            {
+                kind: "food",
+                title: "Yoichi's",
+                description: "A prix-fixe only spot featuring traditional Japanese small plates &amp; sushi in an intimate setting.",
+                image: "images/photos/yoichis.jpg",
+                people: [{
+                    people: [peopleList[RUBY], peopleList[JOE]],
+                    title: "Pinned By",
+                    groupName: "Curator",
+                    subtitle: ""
+                }],
+                tags: ["japanese", "sushi", "prix-fixe"]
+            }
+        ]
+    },
+    {
+        icon: "lodging-black",
+        name: "Lodging",
+        items: []
+    },
+    {
+        icon: "transportation-black",
+        name: "Transportation",
+        items: []
+    }
+];
