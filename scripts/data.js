@@ -711,6 +711,32 @@ const EXPLORE_DATA = [
         4,
         "90%",
     ],
+    [
+        "images/photos/santo_mezcal.jpg",
+        "Santo Mezcal",
+        "Santa Barbara",
+        "Modern Mexican Cuisine and Mixology.",
+        ["Mexican", "Happy Hour", "Catering", "Restaurant"],
+        DEFAULT_GROUPS,
+        ["favorite", "share", "collect"],
+        "3",
+        "dining",
+        4,
+        "90%",
+    ],
+    [
+        "images/photos/la_super-rica_taqueria.jpg",
+        "La Super-Rica Taqueria",
+        "Santa Barbara",
+        "Celebrated Mexican spot for fish tacos, tamales & more served up in modest digs with patio seating.",
+        ["Mexican", "Dine-in", "Takeout", "Restaurant"],
+        DEFAULT_GROUPS,
+        ["favorite", "share", "collect"],
+        "3",
+        "dining",
+        4,
+        "90%",
+    ],
 ];
 
 const activityData = [
@@ -728,39 +754,38 @@ const activityData = [
         icon: "dining-black",
         name: "Restaurants",
         items: [
-            // {
-            //     kind: "food",
-            //     title: "Brasil Arts Cafe",
-            //     description:
-            //         "the perfect blend of traditional Brazilian fare & one-of-a-kind Açai, Juice, and Smoothie creations",
-            //     image: "images/photos/brasil_arts_cafe.jpeg",
-            //     people: [
-            //         {
-            //             people: [peopleList[RUBY], peopleList[JOE]],
-            //             title: "Pinned By",
-            //             groupName: "Curator",
-            //             subtitle: "",
-            //         },
-            //     ],
-            //     tags: ["brazilian", "cafe"],
-            // },
-            // {
-            //     kind: "food",
-            //     title: "Yoichi's",
-            //     description:
-            //         "A prix-fixe only spot featuring traditional Japanese small plates &amp; sushi in an intimate setting.",
-            //     image: "images/photos/yoichis.jpg",
-            //     people: [
-            //         {
-            //             people: [peopleList[RUBY], peopleList[JOE]],
-            //             title: "Pinned By",
-            //             groupName: "Curator",
-            //             subtitle: "",
-            //         },
-            //     ],
-            //     tags: ["japanese", "sushi", "prix-fixe"],
-            // },
-            addRestaurants()
+            {
+                kind: "food",
+                title: "Brasil Arts Cafe",
+                description:
+                    "the perfect blend of traditional Brazilian fare & one-of-a-kind Açai, Juice, and Smoothie creations",
+                image: "images/photos/brasil_arts_cafe.jpeg",
+                people: [
+                    {
+                        people: [peopleList[RUBY], peopleList[JOE]],
+                        title: "Pinned By",
+                        groupName: "Curator",
+                        subtitle: "",
+                    },
+                ],
+                tags: ["brazilian", "cafe"],
+            },
+            {
+                kind: "food",
+                title: "Yoichi's",
+                description:
+                    "A prix-fixe only spot featuring traditional Japanese small plates &amp; sushi in an intimate setting.",
+                image: "images/photos/yoichis.jpg",
+                people: [
+                    {
+                        people: [peopleList[RUBY], peopleList[JOE]],
+                        title: "Pinned By",
+                        groupName: "Curator",
+                        subtitle: "",
+                    },
+                ],
+                tags: ["japanese", "sushi", "prix-fixe"],
+            },
         ],
     },
     {
@@ -787,3 +812,4 @@ function addRestaurants() {
         }
     }
 }
+
