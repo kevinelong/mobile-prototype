@@ -799,3 +799,17 @@ const activityData = [
         items: [],
     },
 ];
+
+function addRestaurants() {
+    for (let i = 0; i < EXPLORE_DATA.length; i++) {
+        activityData[2].items = {
+            kind: "food",
+            title: EXPLORE_DATA[i][2],
+            description: EXPLORE_DATA[i][3],
+            image: EXPLORE_DATA[i][0],
+            people: [...EXPLORE_DATA[i][5]],
+            tags: EXPLORE_DATA[6],
+        }
+    }
+}
+
