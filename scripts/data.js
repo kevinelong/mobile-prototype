@@ -754,38 +754,38 @@ const activityData = [
         icon: "dining-black",
         name: "Restaurants",
         items: [
-            {
-                kind: "food",
-                title: "Brasil Arts Cafe",
-                description:
-                    "the perfect blend of traditional Brazilian fare & one-of-a-kind Açai, Juice, and Smoothie creations",
-                image: "images/photos/brasil_arts_cafe.jpeg",
-                people: [
-                    {
-                        people: [peopleList[RUBY], peopleList[JOE]],
-                        title: "Pinned By",
-                        groupName: "Curator",
-                        subtitle: "",
-                    },
-                ],
-                tags: ["brazilian", "cafe"],
-            },
-            {
-                kind: "food",
-                title: "Yoichi's",
-                description:
-                    "A prix-fixe only spot featuring traditional Japanese small plates &amp; sushi in an intimate setting.",
-                image: "images/photos/yoichis.jpg",
-                people: [
-                    {
-                        people: [peopleList[RUBY], peopleList[JOE]],
-                        title: "Pinned By",
-                        groupName: "Curator",
-                        subtitle: "",
-                    },
-                ],
-                tags: ["japanese", "sushi", "prix-fixe"],
-            },
+            // {
+            //     kind: "food",
+            //     title: "Brasil Arts Cafe",
+            //     description:
+            //         "the perfect blend of traditional Brazilian fare & one-of-a-kind Açai, Juice, and Smoothie creations",
+            //     image: "images/photos/brasil_arts_cafe.jpeg",
+            //     people: [
+            //         {
+            //             people: [peopleList[RUBY], peopleList[JOE]],
+            //             title: "Pinned By",
+            //             groupName: "Curator",
+            //             subtitle: "",
+            //         },
+            //     ],
+            //     tags: ["brazilian", "cafe"],
+            // },
+            // {
+            //     kind: "food",
+            //     title: "Yoichi's",
+            //     description:
+            //         "A prix-fixe only spot featuring traditional Japanese small plates &amp; sushi in an intimate setting.",
+            //     image: "images/photos/yoichis.jpg",
+            //     people: [
+            //         {
+            //             people: [peopleList[RUBY], peopleList[JOE]],
+            //             title: "Pinned By",
+            //             groupName: "Curator",
+            //             subtitle: "",
+            //         },
+            //     ],
+            //     tags: ["japanese", "sushi", "prix-fixe"],
+            // },
         ],
     },
     {
@@ -802,14 +802,15 @@ const activityData = [
 
 function addRestaurants() {
     for (let i = 0; i < EXPLORE_DATA.length; i++) {
-        activityData[2].items = {
+        activityData[2].items.push({
             kind: "food",
-            title: EXPLORE_DATA[i][2],
+            title: EXPLORE_DATA[i][1],
             description: EXPLORE_DATA[i][3],
             image: EXPLORE_DATA[i][0],
             people: [...EXPLORE_DATA[i][5]],
             tags: EXPLORE_DATA[6],
-        }
+        });
     }
 }
 
+addRestaurants();
