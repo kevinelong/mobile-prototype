@@ -6,7 +6,7 @@ let currentLocation = "Santa Barbara";
 
 function VitaEvent(
     period = Period(),
-    kind = "dining",
+    kind = "restaurants",
     currentMood = "hungry",
     color = "#999999"
 ) {
@@ -751,7 +751,7 @@ const activityData = [
         items: [],
     },
     {
-        icon: "dining-black",
+        icon: "restaurants-black",
         name: "Restaurants",
         items: [
             // {
