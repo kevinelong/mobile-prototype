@@ -128,10 +128,10 @@ function activityCard(item = {}, index = -1) {
     return card(
         "activity",
         item.title,
-        item.description,
-        item.people,
+        item.subtitle + "<br>" + item.content,
+        item.groups,
         [],
-        item.image,
+        item.imagePath,
         item.tags,
         index,
         "recommended"

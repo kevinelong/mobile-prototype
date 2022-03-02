@@ -639,7 +639,7 @@ const EXPLORE_DATA = [
         ],
         ["favorite", "share", "collect"],
         5,
-        "activities",
+        "things-to-do",
         4,
         "100%",
     ],
@@ -741,7 +741,7 @@ const EXPLORE_DATA = [
 
 const activityData = [
     {
-        icon: "activities-black",
+        icon: "things-to-do-black",
         name: "Things to Do",
         items: [],
     },
@@ -798,33 +798,66 @@ const activityData = [
         name: "Transportation",
         items: [],
     },
+    {
+        icon: "connect-black",
+        name: "Connect",
+        items: [],
+    },
 ];
 
+function cardData(
+    imagePath = "images/photos/cannon-beach.jpg",
+    title = "",
+    subtitle = "",
+    content = "",
+    tags = [],
+    groups = [],
+    actions = [],
+    id = 0,
+    kind = "explore",
+    booking_index = -1,
+    match_percent = "100%"
+) {
+    return {
+        imagePath: imagePath,
+        title: title,
+        subtitle: subtitle,
+        content: content,
+        tags: tags,
+        groups: groups,
+        actions: actions,
+        id: id,
+        kind: kind,
+        booking_index: booking_index,
+        match_percent: match_percent
+    }
+}
+
+const activityMap = {
+    "things-to-do": activityData[0],
+    "places-to-see": activityData[1],
+    "restaurants": activityData[2],
+    "lodging": activityData[3],
+    "transportation": activityData[4],
+    "connect": activityData[5]
+};
+
 function addRestaurants() {
-
-    
-
-    EXPLORE_DATA.forEach((item) => {
-        const dataMap = {
-            kind: item[8],
-            title: item[1],
-            description: item[3],
-            image: item[0],
-            people: item[5],
-            tags: item[6],
-        };
-        console.log("EXPLORE_DATA", dataMap)
-        if (item[8] === "things-to-do") {
-            activityData[0].items.push(dataMap);
-        } else if(item[8] === "places-to-see") {
-            activityData[1].items.push(dataMap);
-        } else if(item[8] === "restaurants") {
-            activityData[2].items.push(dataMap);
-        } else if(item[8] === "lodging") {
-            activityData[3].items.push(dataMap);
-        } else if(item[8] === "transportation") {
-            activityData[4].items.push(dataMap);
-        }
+    EXPLORE_DATA.map(list => cardData(...list)).forEach(item => {
+        
+        console.log(item.kind)
+        activityMap[item.kind].items.push(item)
+        // if (item[8] === "things-to-do") {
+        //     activityData[0].items.push(dataMap);
+        // } else if(item[8] === "places-to-see") {
+        //     activityData[1].items.push(dataMap);
+        // } else if(item[8] === "restaurants") {
+        //     activityData[2].items.push(dataMap);
+        // } else if(item[8] === "lodging") {
+        //     activityData[3].items.push(dataMap);
+        // } else if(item[8] === "transportation") {
+        //     activityData[4].items.push(dataMap);
+        // }
         // activityData.forEach((tab) => {
         //     console.log("EXPLORE_DATA", tab)
         //     if (item[8] === "restaurants") {
