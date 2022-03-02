@@ -541,8 +541,8 @@ const EXPLORE_DATA = [
             },
         ],
         ["invite", "schedule", "collect"],
-        "1",
-        "place",
+        0,
+        "places-to-see",
         -1,
         "85%",
     ],
@@ -570,7 +570,7 @@ const EXPLORE_DATA = [
             },
         ],
         ["collect"],
-        "2",
+        1,
         "connect",
         -1,
         "100%",
@@ -583,8 +583,8 @@ const EXPLORE_DATA = [
         ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
         group_of_one,
         ["invite", "schedule", "collect"],
-        "2",
-        "dining",
+        2,
+        "restaurants",
         1,
         "100%",
     ],
@@ -596,8 +596,8 @@ const EXPLORE_DATA = [
         ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
         group_of_two,
         ["invite", "schedule", "collect"],
-        "2",
-        "dining",
+        3,
+        "restaurants",
         2,
         "100%",
     ],
@@ -609,8 +609,8 @@ const EXPLORE_DATA = [
         ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
         group_of_three,
         ["favorite", "share", "collect"],
-        "2",
-        "dining",
+        4,
+        "restaurants",
         3,
         "100%",
     ],
@@ -638,7 +638,7 @@ const EXPLORE_DATA = [
             },
         ],
         ["favorite", "share", "collect"],
-        "3",
+        5,
         "activities",
         4,
         "100%",
@@ -667,8 +667,8 @@ const EXPLORE_DATA = [
             },
         ],
         ["favorite", "share", "collect"],
-        "3",
-        "dining",
+        6,
+        "restaurants",
         4,
         "85%",
     ],
@@ -680,8 +680,8 @@ const EXPLORE_DATA = [
         ["Brazilian", "Cafe"],
         DEFAULT_GROUPS,
         ["favorite", "share", "collect"],
-        "3",
-        "dining",
+        7,
+        "restaurants",
         4,
         "97%",
     ],
@@ -693,8 +693,8 @@ const EXPLORE_DATA = [
         ["Japanese", "Sushi", "Prix fixe"],
         DEFAULT_GROUPS,
         ["favorite", "share", "collect"],
-        "3",
-        "dining",
+        8,
+        "restaurants",
         4,
         "95%",
     ],
@@ -706,8 +706,8 @@ const EXPLORE_DATA = [
         ["Mexican", "Family", "Catering", "Restaurant"],
         DEFAULT_GROUPS,
         ["favorite", "share", "collect"],
-        "3",
-        "dining",
+        9,
+        "restaurants",
         4,
         "90%",
     ],
@@ -719,8 +719,8 @@ const EXPLORE_DATA = [
         ["Mexican", "Happy Hour", "Catering", "Restaurant"],
         DEFAULT_GROUPS,
         ["favorite", "share", "collect"],
-        "3",
-        "dining",
+        10,
+        "restaurants",
         4,
         "90%",
     ],
@@ -732,8 +732,8 @@ const EXPLORE_DATA = [
         ["Mexican", "Dine-in", "Takeout", "Restaurant"],
         DEFAULT_GROUPS,
         ["favorite", "share", "collect"],
-        "3",
-        "dining",
+        11,
+        "restaurants",
         4,
         "90%",
     ],
@@ -801,16 +801,85 @@ const activityData = [
 ];
 
 function addRestaurants() {
-    for (let i = 0; i < EXPLORE_DATA.length; i++) {
-        activityData[2].items.push({
-            kind: "food",
-            title: EXPLORE_DATA[i][1],
-            description: EXPLORE_DATA[i][3],
-            image: EXPLORE_DATA[i][0],
-            people: [...EXPLORE_DATA[i][5]],
-            tags: EXPLORE_DATA[6],
-        });
-    }
+
+    
+
+    EXPLORE_DATA.forEach((item) => {
+        const dataMap = {
+            kind: item[8],
+            title: item[1],
+            description: item[3],
+            image: item[0],
+            people: item[5],
+            tags: item[6],
+        };
+        console.log("EXPLORE_DATA", dataMap)
+        if (item[8] === "things-to-do") {
+            activityData[0].items.push(dataMap);
+        } else if(item[8] === "places-to-see") {
+            activityData[1].items.push(dataMap);
+        } else if(item[8] === "restaurants") {
+            activityData[2].items.push(dataMap);
+        } else if(item[8] === "lodging") {
+            activityData[3].items.push(dataMap);
+        } else if(item[8] === "transportation") {
+            activityData[4].items.push(dataMap);
+        }
+        // activityData.forEach((tab) => {
+        //     console.log("EXPLORE_DATA", tab)
+        //     if (item[8] === "restaurants") {
+        //         tab.items.push(dataMap);
+        //     }
+        // });
+    });
+
+    // activityData.forEach(data => {
+    //     EXPLORE_DATA.forEach(item => {
+    //         const dataMap = {
+    //             kind: item[8],
+    //             title: item[1],
+    //             description: item[3],
+    //             image: item[0],
+    //             people: [...item[5]],
+    //             tags: item[6],
+    //         };
+    //         if (item[8] === "things-to-do") {
+    //             data.items.push(dataMap)
+    //         } else if (item[8] === "places-to-see") {
+    //             data.items.push(dataMap)
+    //         } else if (item[8] === "restaurants") {
+    //             data.items.push(dataMap)
+    //         } else if (item[8] === "lodging") {
+    //             data.items.push(dataMap)
+    //         } else if (item[8] === "transportation") {
+    //             data.items.push(dataMap)
+    //         }
+    //     })
+    // })
+    
+    // for (let i = 0; i < EXPLORE_DATA.length; i++) {
+    //     const dataMap = {
+    //         kind: EXPLORE_DATA[i][8],
+    //         title: EXPLORE_DATA[i][1],
+    //         description: EXPLORE_DATA[i][3],
+    //         image: EXPLORE_DATA[i][0],
+    //         people: [...EXPLORE_DATA[i][5]],
+    //         tags: EXPLORE_DATA[6],
+    //     };
+    //     console.log("EXPLORE_DATA", dataMap)
+    //     if (EXPLORE_DATA[i][8] === "things-to-do") {
+    //         activityData[0].items.push(dataMap);
+    //     } else if(EXPLORE_DATA[i][8] === "places-to-see") {
+    //         activityData[1].items.push(dataMap);
+    //     } else if(EXPLORE_DATA[i][8] === "restaurants") {
+    //         activityData[2].items.push(dataMap);
+    //     } else if(EXPLORE_DATA[i][8] === "lodging") {
+    //         activityData[3].items.push(dataMap);
+    //     } else if(EXPLORE_DATA[i][8] === "transportation") {
+    //         activityData[4].items.push(dataMap);
+    //     }
+    // }
 }
 
 addRestaurants();
+
