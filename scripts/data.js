@@ -518,90 +518,6 @@ const DEFAULT_GROUPS = [
 
 const EXPLORE_DATA = [
     [
-        "images/photos/cannon-beach.jpg",
-        "Haystack Rock",
-        "Cannon Beach, Oregon",
-        "This is an iconic photo opportunity",
-        ["Landmark", "Recommended"],
-        [
-            {
-                people: [peopleList[BF]],
-                title: "Recommended By",
-                groupName: "Friend",
-            },
-            {
-                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
-                title: "Recommended By",
-                groupName: "Taste Match",
-            },
-            {
-                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
-                title: "Planning with",
-                groupName: "Co-Planner",
-            },
-        ],
-        ["invite", "schedule", "collect"],
-        0,
-        "places-to-see",
-        -1,
-        "85%",
-    ],
-    [
-        "images/photos/hanna-levin.png",
-        "Hanna Levin",
-        "New Taste Match to Follow!",
-        "Hanna Levin has rated over 20 places, including 2 you both love!",
-        ["Tapas", "Spanish"],
-        [
-            {
-                people: [peopleList[BF]],
-                title: "Recommended By",
-                groupName: "Friend",
-            },
-            {
-                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
-                title: "Recommended By",
-                groupName: "Taste Match",
-            },
-            {
-                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
-                title: "Planning with",
-                groupName: "Co-Planner",
-            },
-        ],
-        ["collect"],
-        1,
-        "connect",
-        -1,
-        "100%",
-    ],
-    [
-        "images/explore_bg.png",
-        "Loquita",
-        "Santa Barbara",
-        "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
-        ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
-        group_of_one,
-        ["invite", "schedule", "collect"],
-        2,
-        "restaurants",
-        1,
-        "100%",
-    ],
-    [
-        "images/explore_bg.png",
-        "Loquita",
-        "Santa Barbara",
-        "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
-        ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
-        group_of_two,
-        ["invite", "schedule", "collect"],
-        3,
-        "restaurants",
-        2,
-        "100%",
-    ],
-    [
         "images/explore_bg.png",
         "Loquita",
         "Santa Barbara",
@@ -614,64 +530,8 @@ const EXPLORE_DATA = [
         3,
         "100%",
     ],
-    [
-        "images/photos/constania.jpg",
-        "Constantia Glen",
-        "Santa Barbara",
-        "Wine Tasting Experience",
-        ["Wine Tasting"],
-        [
-            {
-                people: [peopleList[BF]],
-                title: "Recommended By",
-                groupName: "Friend",
-            },
-            {
-                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
-                title: "Recommended By",
-                groupName: "Taste Match",
-            },
-            {
-                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
-                title: "Planning with",
-                groupName: "Co-Planner",
-            },
-        ],
-        ["favorite", "share", "collect"],
-        5,
-        "things-to-do",
-        4,
-        "100%",
-    ],
-    [
-        "images/photos/beer_group.jpg",
-        "Rogue Brewery",
-        "Astoria Oregon",
-        "Beer Tasting Experience",
-        ["Beer Tasting"],
-        [
-            {
-                people: [peopleList[BF]],
-                title: "Recommended By",
-                groupName: "Friend",
-            },
-            {
-                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
-                title: "Recommended By",
-                groupName: "Taste Match",
-            },
-            {
-                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
-                title: "Planning with",
-                groupName: "Co-Planner",
-            },
-        ],
-        ["favorite", "share", "collect"],
-        6,
-        "restaurants",
-        4,
-        "85%",
-    ],
+
+
     [
         "images/photos/brasil_arts_cafe.jpeg",
         "Brasil Arts Cafe",
@@ -737,6 +597,122 @@ const EXPLORE_DATA = [
         4,
         "90%",
     ],
+    [
+        "images/photos/constania.jpg",
+        "Constantia Glen",
+        "Santa Barbara",
+        "Wine Tasting Experience",
+        ["Wine Tasting"],
+        [
+            {
+                people: [peopleList[BF]],
+                title: "Recommended By",
+                groupName: "Friend",
+            },
+            {
+                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+                title: "Recommended By",
+                groupName: "Taste Match",
+            },
+            {
+                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+                title: "Planning with",
+                groupName: "Co-Planner",
+            },
+        ],
+        ["favorite", "share", "collect"],
+        5,
+        "things-to-do",
+        4,
+        "100%",
+    ],
+    [
+        "images/photos/hanna-levin.png",
+        "Hanna Levin",
+        "New Taste Match to Follow!",
+        "Hanna Levin has rated over 20 places, including 2 you both love!",
+        ["Tapas", "Spanish"],
+        [
+            {
+                people: [peopleList[BF]],
+                title: "Recommended By",
+                groupName: "Friend",
+            },
+            {
+                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+                title: "Recommended By",
+                groupName: "Taste Match",
+            },
+            {
+                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+                title: "Planning with",
+                groupName: "Co-Planner",
+            },
+        ],
+        ["collect"],
+        1,
+        "people",
+        -1,
+        "100%",
+    ],
+    [
+        "images/photos/cannon-beach.jpg",
+        "Haystack Rock",
+        "Cannon Beach, Oregon",
+        "This is an iconic photo opportunity",
+        ["Landmark", "Recommended"],
+        [
+            {
+                people: [peopleList[BF]],
+                title: "Recommended By",
+                groupName: "Friend",
+            },
+            {
+                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+                title: "Recommended By",
+                groupName: "Taste Match",
+            },
+            {
+                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+                title: "Planning with",
+                groupName: "Co-Planner",
+            },
+        ],
+        ["invite", "schedule", "collect"],
+        0,
+        "places-to-see",
+        -1,
+        "85%",
+    ],
+    [
+        "images/photos/beer_group.jpg",
+        "Rogue Brewery",
+        "Astoria Oregon",
+        "Beer Tasting Experience",
+        ["Beer Tasting"],
+        [
+            {
+                people: [peopleList[BF]],
+                title: "Recommended By",
+                groupName: "Friend",
+            },
+            {
+                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+                title: "Recommended By",
+                groupName: "Taste Match",
+            },
+            {
+                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+                title: "Planning with",
+                groupName: "Co-Planner",
+            },
+        ],
+        ["favorite", "share", "collect"],
+        6,
+        "restaurants",
+        4,
+        "85%",
+    ],
 ];
 
 const activityData = [
@@ -753,40 +729,7 @@ const activityData = [
     {
         icon: "restaurants-black",
         name: "Restaurants",
-        items: [
-            // {
-            //     kind: "food",
-            //     title: "Brasil Arts Cafe",
-            //     description:
-            //         "the perfect blend of traditional Brazilian fare & one-of-a-kind Açai, Juice, and Smoothie creations",
-            //     image: "images/photos/brasil_arts_cafe.jpeg",
-            //     people: [
-            //         {
-            //             people: [peopleList[RUBY], peopleList[JOE]],
-            //             title: "Pinned By",
-            //             groupName: "Curator",
-            //             subtitle: "",
-            //         },
-            //     ],
-            //     tags: ["brazilian", "cafe"],
-            // },
-            // {
-            //     kind: "food",
-            //     title: "Yoichi's",
-            //     description:
-            //         "A prix-fixe only spot featuring traditional Japanese small plates &amp; sushi in an intimate setting.",
-            //     image: "images/photos/yoichis.jpg",
-            //     people: [
-            //         {
-            //             people: [peopleList[RUBY], peopleList[JOE]],
-            //             title: "Pinned By",
-            //             groupName: "Curator",
-            //             subtitle: "",
-            //         },
-            //     ],
-            //     tags: ["japanese", "sushi", "prix-fixe"],
-            // },
-        ],
+        items: [],
     },
     {
         icon: "lodging-black",
@@ -800,7 +743,7 @@ const activityData = [
     },
     {
         icon: "connect-black",
-        name: "Connect",
+        name: "People",
         items: [],
     },
 ];
@@ -839,80 +782,9 @@ const activityMap = {
     "restaurants": activityData[2],
     "lodging": activityData[3],
     "transportation": activityData[4],
-    "connect": activityData[5]
+    "people": activityData[5]
 };
 
-function addRestaurants() {
-    EXPLORE_DATA.map(list => cardData(...list)).forEach(item => {
-        
-        console.log(item.kind)
-        activityMap[item.kind].items.push(item)
-        // if (item[8] === "things-to-do") {
-        //     activityData[0].items.push(dataMap);
-        // } else if(item[8] === "places-to-see") {
-        //     activityData[1].items.push(dataMap);
-        // } else if(item[8] === "restaurants") {
-        //     activityData[2].items.push(dataMap);
-        // } else if(item[8] === "lodging") {
-        //     activityData[3].items.push(dataMap);
-        // } else if(item[8] === "transportation") {
-        //     activityData[4].items.push(dataMap);
-        // }
-        // activityData.forEach((tab) => {
-        //     console.log("EXPLORE_DATA", tab)
-        //     if (item[8] === "restaurants") {
-        //         tab.items.push(dataMap);
-        //     }
-        // });
-    });
-
-    // activityData.forEach(data => {
-    //     EXPLORE_DATA.forEach(item => {
-    //         const dataMap = {
-    //             kind: item[8],
-    //             title: item[1],
-    //             description: item[3],
-    //             image: item[0],
-    //             people: [...item[5]],
-    //             tags: item[6],
-    //         };
-    //         if (item[8] === "things-to-do") {
-    //             data.items.push(dataMap)
-    //         } else if (item[8] === "places-to-see") {
-    //             data.items.push(dataMap)
-    //         } else if (item[8] === "restaurants") {
-    //             data.items.push(dataMap)
-    //         } else if (item[8] === "lodging") {
-    //             data.items.push(dataMap)
-    //         } else if (item[8] === "transportation") {
-    //             data.items.push(dataMap)
-    //         }
-    //     })
-    // })
-    
-    // for (let i = 0; i < EXPLORE_DATA.length; i++) {
-    //     const dataMap = {
-    //         kind: EXPLORE_DATA[i][8],
-    //         title: EXPLORE_DATA[i][1],
-    //         description: EXPLORE_DATA[i][3],
-    //         image: EXPLORE_DATA[i][0],
-    //         people: [...EXPLORE_DATA[i][5]],
-    //         tags: EXPLORE_DATA[6],
-    //     };
-    //     console.log("EXPLORE_DATA", dataMap)
-    //     if (EXPLORE_DATA[i][8] === "things-to-do") {
-    //         activityData[0].items.push(dataMap);
-    //     } else if(EXPLORE_DATA[i][8] === "places-to-see") {
-    //         activityData[1].items.push(dataMap);
-    //     } else if(EXPLORE_DATA[i][8] === "restaurants") {
-    //         activityData[2].items.push(dataMap);
-    //     } else if(EXPLORE_DATA[i][8] === "lodging") {
-    //         activityData[3].items.push(dataMap);
-    //     } else if(EXPLORE_DATA[i][8] === "transportation") {
-    //         activityData[4].items.push(dataMap);
-    //     }
-    // }
-}
-
-addRestaurants();
-
+EXPLORE_DATA.map(list => cardData(...list)).forEach(item => {
+    activityMap[item.kind].items.push(item)
+});
