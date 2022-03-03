@@ -359,10 +359,6 @@
 
 <div style="font-family:sans-serif;height:100vh;display:flex;align-items:center;justify-content:center;">
     <form name="login" onsubmit="return handleSubmit()">
-<!--        <label>User Name:<br><input name="username"></label><br>-->
-<!--        <label>Password:<br><input name="password" type="password"></label><br>-->
-<!--        <input type="submit" value="LOGIN">-->
-
         <div class="content div">
             <div class="outer-box div">
                 <div class="inner-content div">
@@ -410,10 +406,7 @@
 
     async function main(text) {
         const result = await sha256(text + "_v");
-        //   console.log(result);
-        // if (result === "cef8213b097acde521a6b9b8ea03205305b8b6b1ea5b66d4383c4a855f366fec") {
-            self.location = "tm1.html";
-        // }
+        self.location = "taste_match.html";
     }
 
     function handleSubmit() {
