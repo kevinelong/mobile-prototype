@@ -71,7 +71,7 @@ function settlePage(selected = false) {
             "9:33 am yesterday, Tuesday 12/12/2022",
             "pay",
             -1,
-            "dining",
+            "restaurants",
             3,
             "The Boathouse Beach Cafe",
             "Santa Barbara, California USA"
@@ -138,7 +138,7 @@ function settlePage(selected = false) {
             "8:47 pm yesterday, Tuesday 12/12/2022",
             "pay",
             -1,
-            "dining",
+            "restaurants",
             3,
             "The Lark Restaurant",
             "Santa Barbara, California USA"

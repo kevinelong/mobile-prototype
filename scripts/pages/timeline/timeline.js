@@ -18,7 +18,7 @@ function timelinePage(selected = false) {
     ve.titleText = "Brasil Arts Cafe";
     ve.actions = [];
     ve.tags = ["South-American"];
-    ve.kind = "dining";
+    ve.kind = "restaurants";
 
     const showDay = day => {
         return cardListSection(
@@ -31,7 +31,7 @@ function timelinePage(selected = false) {
     }
     const calendar_days = [
         Day("Yesterday - " + yesterdayDate.toDateString(), [
-            VitaEvent(getPeriods()[BREAKFAST], "dining"),
+            VitaEvent(getPeriods()[BREAKFAST], "restaurants"),
         ]),
         Day("Today - " + todayDate.toDateString(), getPeriods()),
         Day("Tomorrow - " + tomorrowDate.toDateString(), getPeriods()),
