@@ -529,7 +529,7 @@ function handleRight(target, action, which, id) {
         let cardList = get(".timeline.page .card-list");
         const cps = cardList.querySelectorAll(".is-current-period");
         if (cps && cps.length > 1) {
-            let ve = VitaEvent(getPeriods()[current_period], "dining");
+            let ve = VitaEvent(getPeriods()[current_period], "restaurants");
             ve.titleText = "Loquita";
             ve.subtitleText = "";
             ve.actions = [];
