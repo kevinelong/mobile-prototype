@@ -531,7 +531,6 @@ const EXPLORE_DATA = [
         "100%",
     ],
 
-
     [
         "images/photos/brasil_arts_cafe.jpeg",
         "Brasil Arts Cafe",
@@ -549,7 +548,7 @@ const EXPLORE_DATA = [
         "images/photos/yoichis.jpg",
         "Yoichi's",
         "Santa Barbara",
-        "A prix-fixe only spot featuring traditional Japanese small plates &amp; sushi in an intimate setting.",
+        "A prix fixe only spot featuring traditional Japanese small plates &amp; sushi in an intimate setting.",
         ["Japanese", "Sushi", "Prix fixe"],
         DEFAULT_GROUPS,
         ["favorite", "share", "collect"],
@@ -598,11 +597,11 @@ const EXPLORE_DATA = [
         "90%",
     ],
     [
-        "images/photos/constania.jpg",
-        "Constantia Glen",
-        "Santa Barbara",
-        "Wine Tasting Experience",
-        ["Wine Tasting"],
+        "images/photos/constantia.jpg",
+        "Constantia Glen Winery",
+        "Constantania Valley",
+        "Wine tasting",
+        ["drinks", "date ideas", "weekend getaways", "wine tasting"],
         [
             {
                 people: [peopleList[BF]],
@@ -621,10 +620,10 @@ const EXPLORE_DATA = [
             },
         ],
         ["favorite", "share", "collect"],
-        5,
+        7,
         "things-to-do",
         4,
-        "100%",
+        "85%",
     ],
     [
         "images/photos/hanna-levin.png",
@@ -685,10 +684,10 @@ const EXPLORE_DATA = [
         "85%",
     ],
     [
-        "images/photos/beer_group.jpg",
+        "images/photos/rogue_astoria.jpg",
         "Rogue Brewery",
         "Astoria Oregon",
-        "Beer Tasting Experience",
+        "Beer tasting experience",
         ["Beer Tasting"],
         [
             {
@@ -710,6 +709,93 @@ const EXPLORE_DATA = [
         ["favorite", "share", "collect"],
         6,
         "restaurants",
+        4,
+        "85%",
+    ],
+    // [
+    //     "images/photos/richards_home.jpg",
+    //     "Richard's Home",
+    //     "Napa Valley",
+    //     "Best wine tasting in Napa",
+    //     ["drinks", "date ideas", "wine tasting"],
+    //     [
+    //         {
+    //             people: [peopleList[BF]],
+    //             title: "Recommended By",
+    //             groupName: "Friend",
+    //         },
+    //         {
+    //             people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+    //             title: "Recommended By",
+    //             groupName: "Taste Match",
+    //         },
+    //         {
+    //             people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+    //             title: "Planning with",
+    //             groupName: "Co-Planner",
+    //         },
+    //     ],
+    //     ["favorite", "share", "collect"],
+    //     8,
+    //     "things-to-do",
+    //     4,
+    //     "85%",
+    // ],
+    [
+        "images/photos/camel_valley_wines.jpg",
+        "Camel Valley Wines",
+        "Constantania Valley",
+        "Tour with the locals",
+        ["wine tasting"],
+        [
+            {
+                people: [peopleList[BF]],
+                title: "Recommended By",
+                groupName: "Friend",
+            },
+            {
+                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+                title: "Recommended By",
+                groupName: "Taste Match",
+            },
+            {
+                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+                title: "Planning with",
+                groupName: "Co-Planner",
+            },
+        ],
+        ["favorite", "share", "collect"],
+        9,
+        "things-to-do",
+        4,
+        "85%",
+    ],
+    [
+        "images/photos/gargiulo_vineyards.jpg",
+        "Gargiulo Vineyards",
+        "Napa Valley",
+        "Our winemaking philosophy centers around capturing the most vivid essence with every vintage.",
+        ["drinks", "wine tasting"],
+        [
+            {
+                people: [peopleList[BF]],
+                title: "Recommended By",
+                groupName: "Friend",
+            },
+            {
+                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+                title: "Recommended By",
+                groupName: "Taste Match",
+            },
+            {
+                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+                title: "Planning with",
+                groupName: "Co-Planner",
+            },
+        ],
+        ["favorite", "share", "collect"],
+        10,
+        "things-to-do",
         4,
         "85%",
     ],
