@@ -49,7 +49,7 @@ function exploreCardContent(
     }
     // const booking = "";
     return div(
-        `card ${kind}`,
+        `card ${kind} ${kind2}`,
         // img("background top", "images/backgrounds/top-gradient-black.svg") +
         cardSection(
             contentPanel(body) +

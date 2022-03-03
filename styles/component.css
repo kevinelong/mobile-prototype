@@ -118,6 +118,23 @@ input[type=radio] {
     justify-content: right;
 }
 .hidden {
+    min-height: 0;
+    min-width: 0;
+    height: 0;
+    width: 0;
+    opacity: 0;
+    visibility: collapse;
+    transition: opacity 300ms ease-in-out,
+    height 300ms ease-in-out,
+    width 300ms ease-in-out;
+}
+
+.page.explore .card.hidden {
+    margin:0;
+    padding:0;
+    gap:0;
+    min-height: 0;
+    min-width: 0;
     height: 0;
     width: 0;
     opacity: 0;
