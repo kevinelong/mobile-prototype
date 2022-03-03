@@ -101,21 +101,6 @@ function tabItem(name, index, isSelected = false) {
         ` onclick="onClickTabItem(this,'${cleanName(name)}','${index}')" `);
 }
 
-//
-// function tabContent(name, index= 0, content, isHidden=true) {
-//     const hidden = isHidden ? "hidden" : "";
-//     return div(`tab-content ${hidden} ${cleanName(name)}`, content);
-// }
-//
-// function tabSet(name, list) {
-//     return div(
-//         `tab-set ${cleanName(name)}`,
-//         col(
-//             row(list.map(tabItem).join("")) +
-//             row(list.map(tabContent).join(""))
-//         )
-//     );
-// }
 function subcategoryChoices() {
     return label("refine-filter",
         text("Refine Filter:") +
@@ -172,7 +157,7 @@ function showThingsToDo(title = "Filter - Things To Do", index = -1) {
                 choiceSet("keywords", ["PKW1", "PKW2", "PKW3"])
             ),
 
-            actionList("filter-actions", applyOrCancel, false, 0, "black"),
+            actionList("filter-things-to-do", applyOrCancel, false, 0, "black"),
         ].join(""))
     );
 }
@@ -184,7 +169,7 @@ function showRestaurants(title = "Filter - Restaurants", index = -1) {
             // choiceSet("search-filter", RESTAURANT_FILTERS) +
             // search([], index) +
             search(RESTAURANTS, index) +
-            actionList("filter-actions", applyOrCancel, false, 0, "black")
+            actionList("filter-actions-restaurants", applyOrCancel, false, 0, "black")
         )
     );
 }
@@ -196,7 +181,7 @@ function showLodging(title = "Filter - Lodging", index = -1) {
             choiceSet("search-filter", LODGING_FILTERS) +
             search([], index) +
             // search(LODGING, index) +
-            actionList("filter-actions", applyOrCancel, false, 0, "black")
+            actionList("filter-actions-lodging", applyOrCancel, false, 0, "black")
         )
     );
 }
@@ -205,7 +190,7 @@ function showDestinations(title = "Destination", index = -1) {
     showDialog(title,
         contentPanel(
             search(DESTINATIONS, index) +
-            actionList("filter-actions", applyOrCancel, false, 0, "black")
+            actionList("filter-actions-select-destination", applyOrCancel, false, 0, "black")
         )
     );
 }
@@ -215,7 +200,7 @@ function showAddCollection() {
         choiceSet("location", ["All", "Nearby", "Recent"], "All") +
         contentPanel(
             search([...DESTINATIONS, "Other"], -1) +
-            actionList("filter-actions", applyOrCancel, false, 0, "black")
+            actionList("filter-actions-add-collection", applyOrCancel, false, 0, "black")
         )
     );
 }
@@ -238,7 +223,7 @@ function showAddCard() {
                 `name`,
                 input("name", "text", `placeholder="Add Card Name, Address, or Coordinates."`)
             ) +
-            actionList("filter-actions", [
+            actionList("filter-actions-add-to-board", [
                 "Add",
                 "Cancel",
             ], false, 0, "black")
@@ -250,7 +235,7 @@ function showLocations(title = "Current Location", index = -1) {
     showDialog(title,
         contentPanel(
             search(DESTINATIONS, index) +
-            actionList("filter-actions", ["apply"], false, 0, "black")
+            actionList("filter-actions-locations", ["apply"], false, 0, "black")
         )
     );
 }
@@ -546,7 +531,23 @@ function handleRight(target, action, which, id) {
     hideDialog();
 }
 
+function apply(target, action, which, id){
+    if ("filter-things-to-do" === which){
+        getAll(".page.explore .explore.card").map(hideElement);
+        getAll(".page.explore .explore.card.things-to-do").map(showElement);
+    }else if ("filter-actions-restaurants" === which){
+        getAll(".page.explore .explore.card").map(hideElement);
+        getAll(".page.explore .explore.card.restaurants").map(showElement);
+    }else if ("filter-actions-lodging" === which){
+        getAll(".page.explore .explore.card").map(hideElement);
+        getAll(".page.explore .explore.card.filter-actions-lodging").map(showElement);
+    }else{
+        console.log(`APPLY ${target} ${action} ${which} ${id}?`)
+    }
+}
+
 ACTION_PAGES = {
+    apply: apply,
     back: () => showPage(window.lastPage),
     explore: openPage,
     open: openPage,
@@ -609,15 +610,16 @@ function toggleMap(target) {
 }
 
 function route(target, action, which = "", index = "") {
+    const lower = action.toLowerCase();
     console.log("ROUTE", target, action, which, index)
-    if (TOAST_MESSAGES.hasOwnProperty(action)) {
-        return showToast(TOAST_MESSAGES[action]);
-    } else if (ACTION_PAGES.hasOwnProperty(action)) {
-        console.log("ACTION: " + action, which, index);
-        const f = ACTION_PAGES[action];
+    if (TOAST_MESSAGES.hasOwnProperty(lower)) {
+        return showToast(TOAST_MESSAGES[lower]);
+    } else if (ACTION_PAGES.hasOwnProperty(lower)) {
+        console.log("ACTION: " + lower, which, index);
+        const f = ACTION_PAGES[lower];
         console.log(f);
-        return f(target, action, which, index);
+        return f(target, lower, which, index);
     } else {
-        console.log("UNKNOWN ACTION:" + action);
+        console.log("UNKNOWN ACTION:" + lower);
     }
 }

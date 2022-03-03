@@ -1,5 +1,5 @@
 function getAll(q) {
-    return document.querySelectorAll(q);
+    return [...(document.querySelectorAll(q))];
 }
 
 function get(q) {
@@ -153,7 +153,9 @@ function applyConnectFilter(e, id, index, text) {
 
 function applyExploreFilter(e, id, index, text) {
     console.log("applyExploreFilter", e, id, index, text);
-    if (1 === index) {
+    if (0 === index) {
+        getAll(".page.explore .explore.card").map(showElement);
+    } else if (1 === index) {
         showSearch("Filter");
     } else if (2 === index) {
         showThingsToDo();
@@ -162,6 +164,7 @@ function applyExploreFilter(e, id, index, text) {
     } else if (4 === index) {
         showLodging();
     } else {
+
         console.log("INVALID ID: " + id);
     }
 }
@@ -282,7 +285,7 @@ const isCurrent = ve => {
     const periods = getPeriods();
     const currentPeriodObject = periods[current_period];
     // debugger;
-    if(ve.period.from === currentPeriodObject.from) {
+    if (ve.period.from === currentPeriodObject.from) {
         // debugger;
         return true;
     }

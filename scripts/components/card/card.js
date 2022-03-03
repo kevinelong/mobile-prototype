@@ -44,12 +44,12 @@ function cardTags(tags) {
 
 function actionList(id, list = [], hideText = false, qty = 0, iconColor = "") {
     return div(
-        "action-list",
+        `action-list ${id}`,
         [...list].reverse()
             .map((c) =>
                 actionItem(
                     c,
-                    c,
+                    id,
                     -1,
                     titleCase(c),
                     iconColor,
