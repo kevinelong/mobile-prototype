@@ -47,6 +47,8 @@ const EXPLORE_ROGUE = exploreCard(...EXPLORE_DATA[6]);
 const EXPLORE_BRASIL = exploreCard(...EXPLORE_DATA[7]);
 const EXPLORE_YOICHIS = exploreCard(...EXPLORE_DATA[8]);
 const EXPLORE_LOS_AGAVES = exploreCard(...EXPLORE_DATA[9]);
+const EXPLORE_SANTO_MEZCAL = exploreCard(...EXPLORE_DATA[10]);
+const EXPLORE_SUPER_RICA = exploreCard(...EXPLORE_DATA[11]);
 
 const EXPLORE_CARDS = [
     EXPLORE_CONSTANIA,
@@ -57,6 +59,8 @@ const EXPLORE_CARDS = [
     EXPLORE_LOS_AGAVES,
     EXPLORE_CANNON_BEACH,
     EXPLORE_ROGUE,
+    EXPLORE_SANTO_MEZCAL,
+    EXPLORE_SUPER_RICA,
 ];
 
 function explorePage(selected = false) {
