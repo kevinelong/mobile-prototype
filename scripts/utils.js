@@ -156,15 +156,22 @@ function applyExploreFilter(e, id, index, text) {
     if (0 === index) {
         getAll(".page.explore .explore.card").map(showElement);
     } else if (1 === index) {
+        getAll(".page.explore .explore.card").map(hideElement);
+        getAll(".page.explore .explore.card.people").map(showElement);
         showSearch("Filter");
     } else if (2 === index) {
+        getAll(".page.explore .explore.card").map(hideElement);
+        getAll(".page.explore .explore.card.things-to-do").map(showElement);
         showThingsToDo();
     } else if (3 === index) {
+        getAll(".page.explore .explore.card").map(hideElement);
+        getAll(".page.explore .explore.card.restaurants").map(showElement);
         showRestaurants();
     } else if (4 === index) {
+        getAll(".page.explore .explore.card").map(hideElement);
+        getAll(".page.explore .explore.card.filter-actions-lodging").map(showElement);
         showLodging();
     } else {
-
         console.log("INVALID ID: " + id);
     }
 }
