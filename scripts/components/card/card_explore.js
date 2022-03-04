@@ -93,14 +93,15 @@ function exploreCard(
         "explore",
         div(
             "titles explore",
-            cardTitle(title) + cardSubtitle(subtitle)
+            cardTitle(title) + cardSubtitle(content) + cardSubtitle(subtitle)
         ),
         row(
             icon(kind) +
             cardTitle(title) +
             actionItem("open", "explore_detail", id, "")
         ) +
-        cardSubtitle(subtitle),
+        cardSubtitle(subtitle)+
+        cardSubtitle(content),
         groups,
         actions,
         imagePath,

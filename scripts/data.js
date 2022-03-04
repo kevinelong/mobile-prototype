@@ -521,7 +521,8 @@ const EXPLORE_DATA = [
         "images/explore_bg.png",
         "Loquita",
         "Santa Barbara",
-        "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
+        // "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
+        "Authentic Spanish Food",
         ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
         group_of_three,
         ["favorite", "share", "collect"],
@@ -535,7 +536,8 @@ const EXPLORE_DATA = [
         "images/photos/brasil_arts_cafe.jpeg",
         "Brasil Arts Cafe",
         "Santa Barbara",
-        "the perfect blend of traditional Brazilian fare & one-of-a-kind Açai, Juice, and Smoothie creations.",
+        // "the perfect blend of traditional Brazilian fare & one-of-a-kind Açai, Juice, and Smoothie creations.",
+        "Traditional Brazilian Fare",
         ["Brazilian", "Cafe"],
         DEFAULT_GROUPS,
         ["favorite", "share", "collect"],
@@ -548,7 +550,8 @@ const EXPLORE_DATA = [
         "images/photos/yoichis.jpg",
         "Yoichi's",
         "Santa Barbara",
-        "A prix fixe only spot featuring traditional Japanese small plates &amp; sushi in an intimate setting.",
+        // "A prix fixe only spot featuring traditional Japanese small plates &amp; sushi in an intimate setting.",
+        "Sushi in an intimate setting",
         ["Japanese", "Sushi", "Prix fixe"],
         DEFAULT_GROUPS,
         ["favorite", "share", "collect"],
@@ -561,7 +564,8 @@ const EXPLORE_DATA = [
         "images/photos/los_agaves.jpg",
         "Los Agaves",
         "Santa Barbara",
-        "The bold flavors of Mexico, an authentic dining experience, high-quality ingredients.",
+        // "The bold flavors of Mexico, an authentic dining experience, high-quality ingredients.",
+        "Flavors of Mexico",
         ["Mexican", "Family", "Catering", "Restaurant"],
         DEFAULT_GROUPS,
         ["favorite", "share", "collect"],
@@ -574,7 +578,7 @@ const EXPLORE_DATA = [
         "images/photos/santo_mezcal.jpg",
         "Santo Mezcal",
         "Santa Barbara",
-        "Modern Mexican Cuisine and Mixology.",
+        "Modern Mexican Cuisine",
         ["Mexican", "Happy Hour", "Catering", "Restaurant"],
         DEFAULT_GROUPS,
         ["favorite", "share", "collect"],
@@ -587,7 +591,8 @@ const EXPLORE_DATA = [
         "images/photos/la_super-rica_taqueria.jpg",
         "La Super-Rica Taqueria",
         "Santa Barbara",
-        "Celebrated Mexican spot for fish tacos, tamales & more served up in modest digs with patio seating.",
+        // "Celebrated Mexican spot for fish tacos, tamales & more served up in modest digs with patio seating.",
+        "Celebrated Mexican Spot",
         ["Mexican", "Dine-in", "Takeout", "Restaurant"],
         DEFAULT_GROUPS,
         ["favorite", "share", "collect"],
@@ -598,10 +603,10 @@ const EXPLORE_DATA = [
     ],
     [
         "images/photos/constantia.jpg",
-        "Constantia Glen Winery",
-        "Constantania Valley",
-        "Wine tasting",
-        ["drinks", "date ideas", "weekend getaways", "wine tasting"],
+        "Bridlewood Estate",
+        "Santa Barbara",
+        "Wine & Food Testing Tour",
+        ["Food &amp; Wine Pairing", "date ideas", "weekend getaways", "wine tasting"],
         [
             {
                 people: [peopleList[BF]],
@@ -629,7 +634,7 @@ const EXPLORE_DATA = [
         "images/photos/hanna-levin.png",
         "Hanna Levin",
         "New Taste Match to Follow!",
-        "Hanna Levin has rated over 20 places, including 2 you both love!",
+        "23 Similar Tastes",
         ["Tapas", "Spanish"],
         [
             {
@@ -714,10 +719,10 @@ const EXPLORE_DATA = [
     ],
     [
         "images/photos/camel_valley_wines.jpg",
-        "Camel Valley Wines",
-        "Constantania Valley",
-        "Tour with the locals",
-        ["wine tasting"],
+        "Stolpman Vineyard",
+        "Santa Barbara",
+        "Wine Tasting and Horse Back Riding Tour",
+        ["Food &amp; Wine Tasting Tour", "wine tasting"],
         [
             {
                 people: [peopleList[BF]],
@@ -743,10 +748,10 @@ const EXPLORE_DATA = [
     ],
     [
         "images/photos/gargiulo_vineyards.jpg",
-        "Gargiulo Vineyards",
+        "Rusack Winery",
         "Napa Valley",
-        "Our winemaking philosophy centers around capturing the most vivid essence with every vintage.",
-        ["drinks", "wine tasting"],
+        "Make Your Own Wine Experience",
+        ["Food &amp; Wine Tasting Tour", "wine tasting"],
         [
             {
                 people: [peopleList[BF]],
@@ -776,11 +781,11 @@ const ADItem = (id, icon, name, items = []) => {return {id: id, icon: icon, name
 
 const activityData = [
     ADItem("things-to-do", "things-to-do-black", "Things to Do", []),
-    ADItem("landscape", "landscape-black", "Places to See", []),
+    ADItem("places-to-see", "landscape-black", "Places to See", []),
     ADItem("restaurants", "restaurants-black", "Restaurants", []),
     ADItem("lodging", "lodging-black", "Lodging", []),
     ADItem("transportation", "transportation-black", "Transportation", []),
-    ADItem("connect", "connect-black", "People", []),
+    ADItem("people", "connect-black", "People", []),
 ];
 
 function cardData(
