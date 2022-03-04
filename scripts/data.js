@@ -772,37 +772,15 @@ const EXPLORE_DATA = [
     ],
 ];
 
+const ADItem = (id, icon, name, items = []) => {return {id: id, icon: icon, name: name, items: items}}
+
 const activityData = [
-    {
-        icon: "things-to-do-black",
-        name: "Things to Do",
-        items: [],
-    },
-    {
-        icon: "landscape-black",
-        name: "Places to See",
-        items: [],
-    },
-    {
-        icon: "restaurants-black",
-        name: "Restaurants",
-        items: [],
-    },
-    {
-        icon: "lodging-black",
-        name: "Lodging",
-        items: [],
-    },
-    {
-        icon: "transportation-black",
-        name: "Transportation",
-        items: [],
-    },
-    {
-        icon: "connect-black",
-        name: "People",
-        items: [],
-    },
+    ADItem("things-to-do", "things-to-do-black", "Things to Do", []),
+    ADItem("landscape", "landscape-black", "Places to See", []),
+    ADItem("restaurants", "restaurants-black", "Restaurants", []),
+    ADItem("lodging", "lodging-black", "Lodging", []),
+    ADItem("transportation", "transportation-black", "Transportation", []),
+    ADItem("connect", "connect-black", "People", []),
 ];
 
 function cardData(
@@ -833,14 +811,9 @@ function cardData(
     }
 }
 
-const activityMap = {
-    "things-to-do": activityData[0],
-    "places-to-see": activityData[1],
-    "restaurants": activityData[2],
-    "lodging": activityData[3],
-    "transportation": activityData[4],
-    "people": activityData[5]
-};
+let activityMap = {};
+
+activityData.map(a => a.id).forEach((c, i) => activityMap[c] = activityData[i]);
 
 EXPLORE_DATA.map(list => cardData(...list)).forEach(item => {
     activityMap[item.kind].items.push(item)
