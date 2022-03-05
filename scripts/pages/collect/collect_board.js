@@ -11,7 +11,8 @@ function collectBoardPage(selected = false) {
             icon("going", "", "Going"),
         ],
         icon("all") + "All",
-        cardGroups(currators) +
+        // cardGroups(currators) +
+        mapPanel() +
         activityList(activityData),
         "all",
         "collect"

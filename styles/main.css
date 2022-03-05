@@ -164,3 +164,12 @@ div {
 #map{
     z-index: -9999;
 }
+
+.map-panel{
+    background: lightblue;
+    width: 100%;
+    min-height: 180px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}

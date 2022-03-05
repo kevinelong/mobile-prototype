@@ -208,7 +208,8 @@ footer button {
     margin: 0;
 }
 .dialog label {
-    font-size: 14px;
+    font-size: 11px;
+    min-width: 45%;
 }
 
 .dialog label.name{

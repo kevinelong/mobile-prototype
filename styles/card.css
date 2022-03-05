@@ -1,5 +1,5 @@
     .card-subtitle {
-        margin-bottom: 0.125rem;
+        margin-bottom: 3px;
     }
     
     .card-list {
@@ -125,7 +125,18 @@
         overflow-y: hidden;
         overflow-x: scroll;
     }
-    
+    .page.explore .hash-tag{
+        font-size: 7px;
+    }
+    .explore.page .action-item.book {
+        font-size: 7px;
+    }
+    .page.explore .card-people .circle .text {
+        margin: 0 0 0 1px;
+        padding-top: 1px;
+        font-size: 9px;
+        white-space: nowrap;
+    }
     .page.explore .card.collapsed .card-tags,
     .page.explore .card.collapsed .card-people,
     .page.explore .card.collapsed .content-panel {
@@ -237,8 +248,8 @@
     }
     
     .page.explore .card {
-        min-height: 293px;
-        transition: opacity 300ms ease-in-out, min-height 300ms ease-in-out;
+        min-height: 276px;
+        transition: opacity 200ms ease-in-out, min-height 200ms ease-in-out;
         padding: 6px;
         width: 100%;
     }
@@ -295,7 +306,7 @@
     }
     
     .card-subtitle {
-        font-size: 11px;
+        font-size: 0.8em;
     }
     
     .card-text {
@@ -357,7 +368,7 @@
     }
     
     .page.explore .card-list {
-        padding: 6px 6px 144px 6px;
+        padding: 6px 6px 300px 6px;
         /*margin: 0 0 144px 0;*/
         /*align-self: center;*/
         /*align-items: center;*/

@@ -35,7 +35,7 @@ function exploreCardContent(
     id = -1,
     kind2 = "",
     booking_index = -1,
-    match_percent = "100%"
+    match_percent = 100
 ) {
 
     let qty = 0;
@@ -57,7 +57,7 @@ function exploreCardContent(
         ) +
         row(
             col(
-                text(`${match_percent} match`) +
+                text(`${match_percent}% match`) +
                 row(
                     col(cardGroups(groups)) +
                     booking
@@ -87,7 +87,7 @@ function exploreCard(
     id = 0,
     kind = "explore",
     booking_index = -1,
-    match_percent = "100%"
+    match_percent = 100
 ) {
     return exploreCardContent(
         "explore",

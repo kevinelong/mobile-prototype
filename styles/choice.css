@@ -5,7 +5,7 @@
     margin: 0;
     padding: 1px 6px 1px;
     white-space: nowrap;
-    font-size: 14px;
+    font-size: 9px;
     user-select: none;
     cursor: pointer;
     display: inline-flex;
@@ -15,6 +15,11 @@
     /* align vertical */
     min-height: 24px;
     gap: 3px;
+    flex-direction: row;
+}
+
+#explore-filters .choice{
+    border-radius: 3px;
 }
 
 .choice.selected {
@@ -45,6 +50,9 @@
     flex-direction: row;
 }
 
+#range .choice{
+    min-width: 55px;
+}
 .explore.page .choice.selected {
     background: #F9A831;
     color: white;

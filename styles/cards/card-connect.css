@@ -25,11 +25,12 @@
     gap: 0;
 }
 .card-people>.col>.text{
-    margin-top:6px;
+    margin-top: 3px;
+    font-size: 0.8em;
 }
 .plan_detail .card,
 .collect_board .card {
-    min-height: 164px;
+    min-height: 320px;
     opacity: 1;
     visibility: visible;
     width: 95%;
@@ -39,7 +40,7 @@
 
 .plan_detail .card .text,
 .collect_board .card .text {
-    font-size: 13px;
+    font-size: 9px;
 }
 
 .card.connect .content-panel>.row {

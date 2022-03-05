@@ -529,7 +529,7 @@ const EXPLORE_DATA = [
         0,
         "restaurants",
         3,
-        "100%",
+        100,
     ],
 
     [
@@ -544,7 +544,7 @@ const EXPLORE_DATA = [
         1,
         "restaurants",
         4,
-        "97%",
+        97,
     ],
     [
         "images/photos/yoichis.jpg",
@@ -558,7 +558,7 @@ const EXPLORE_DATA = [
         2,
         "restaurants",
         4,
-        "95%",
+        95,
     ],
     [
         "images/photos/los_agaves.jpg",
@@ -572,7 +572,7 @@ const EXPLORE_DATA = [
         3,
         "restaurants",
         4,
-        "90%",
+        90,
     ],
     [
         "images/photos/santo_mezcal.jpg",
@@ -585,7 +585,7 @@ const EXPLORE_DATA = [
         4,
         "restaurants",
         4,
-        "90%",
+        90,
     ],
     [
         "images/photos/la_super-rica_taqueria.jpg",
@@ -599,7 +599,7 @@ const EXPLORE_DATA = [
         5,
         "restaurants",
         4,
-        "90%",
+        90,
     ],
     [
         "images/photos/constantia.jpg",
@@ -628,14 +628,14 @@ const EXPLORE_DATA = [
         6,
         "things-to-do",
         4,
-        "85%",
+        85,
     ],
     [
         "images/photos/hanna-levin.png",
         "Hanna Levin",
         "New Taste Match to Follow!",
         "23 Similar Tastes",
-        ["Tapas", "Spanish"],
+        ["Taste-Match", "World Traveler"],
         [
             {
                 people: [peopleList[BF]],
@@ -657,7 +657,7 @@ const EXPLORE_DATA = [
         7,
         "people",
         -1,
-        "100%",
+        100,
     ],
     [
         "images/photos/cannon-beach.jpg",
@@ -686,7 +686,7 @@ const EXPLORE_DATA = [
         8,
         "places-to-see",
         -1,
-        "85%",
+        85,
     ],
     [
         "images/photos/rogue_astoria.jpg",
@@ -715,7 +715,7 @@ const EXPLORE_DATA = [
         9,
         "restaurants",
         4,
-        "85%",
+        85,
     ],
     [
         "images/photos/camel_valley_wines.jpg",
@@ -744,7 +744,7 @@ const EXPLORE_DATA = [
         10,
         "things-to-do",
         4,
-        "85%",
+        85,
     ],
     [
         "images/photos/gargiulo_vineyards.jpg",
@@ -773,7 +773,7 @@ const EXPLORE_DATA = [
         11,
         "things-to-do",
         4,
-        "85%",
+        85,
     ],
 ];
 
@@ -799,7 +799,7 @@ function cardData(
     id = 0,
     kind = "explore",
     booking_index = -1,
-    match_percent = "100%"
+    match_percent = 100
 ) {
     return {
         imagePath: imagePath,

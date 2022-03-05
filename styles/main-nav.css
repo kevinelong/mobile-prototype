@@ -132,10 +132,10 @@
 .page.collect_board .choice-set .choice{
     min-width: 72px;
 }
-.page.collect_board .choice-set .action-item{
-    width:48px;
-    height: 48px;
-}
+/*.page.collect_board .choice-set .action-item{*/
+/*    width:48px;*/
+/*    height: 48px;*/
+/*}*/
 
 
 .dialog .choice-set .action-item,

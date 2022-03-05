@@ -4,6 +4,8 @@ function explorePage(selected = false) {
     let lists = [];
     lists.push(cardList(EXPLORE_CARDS.join("")));
 
+    const content = mapPanel() + row(lists.join(""));
+
     return page(
         selected,
         "explore",
@@ -16,10 +18,13 @@ function explorePage(selected = false) {
             "Lodging &#124;" + icon("chevron_down"),
         ],
         "All",
-        row(lists.join("")),
+        content,
         "ALL",
         "",
         "",
-        "Search the World"
+        "Search the World",
+        "",
+        false,
+        choiceSet("range", ["Nearby", "Local", "Region"], "Nearby")
     );
 }

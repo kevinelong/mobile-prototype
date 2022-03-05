@@ -130,3 +130,7 @@ function actionButton(content, className, attrs) {
         `onclick="actionClick('${className}', '${className}', '${className}')" $attrs`
     );
 }
+
+function mapPanel(){
+    return div("map-panel", icon("pin") );
+}

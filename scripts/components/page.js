@@ -10,7 +10,8 @@ function page(
     actionContent = "",
     searchMessage = "",
     tabs = "",
-    pushSecondaryNavChoicesAboveSearchFilter = false
+    pushSecondaryNavChoicesAboveSearchFilter = false,
+    preSearchContent = ""
 ) {
     const filters = choiceSet(`${name}-filters`, choiceList, selectedChoice, name);
     return div(
@@ -28,7 +29,7 @@ function page(
             ) +
             (pushSecondaryNavChoicesAboveSearchFilter ? filters : "") +
             row(
-                ((searchMessage !== undefined && searchMessage.length > 0) ? search([], -1, searchMessage) : "")
+                ((searchMessage !== undefined && searchMessage.length > 0) ? preSearchContent + search([], -1, searchMessage) : "")
                 + actionItem("add", name, -1, "add", "black", false, 0)
             ) +
             (!pushSecondaryNavChoicesAboveSearchFilter ? filters : "")
