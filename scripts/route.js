@@ -315,7 +315,7 @@ function showScheduleDialog(titleText = "Schedule an Experience", places = [], a
         ) +
         places.map(p => actionItem("right", p, -1, p, "")).join("") +
         selectDateRange("Date Range:") +
-        checkBox("Fills all periods in each day above.", "all-periods") +
+        // checkBox("Fills all periods in each day above.", "all-periods") +
         selectTimeRange("When?") +
         actionPanel(
             actionButton("Cancel") +
