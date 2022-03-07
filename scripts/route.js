@@ -162,6 +162,25 @@ function showThingsToDo(title = "Filter - Things To Do", index = -1) {
     );
 }
 
+function showPeople(title = "Filter - People", index = -1) {
+    showDialog(title,
+        contentPanel([
+            subcategoryChoices(),
+            `
+            <b> TODO Add the people content. </b>
+            `,
+
+            label("keywords",
+                text("Keywords:") +
+                choiceSet("keywords", ["KW1", "KW2", "KW3"])
+            ),
+
+
+            actionList("filter-people", applyOrCancel, false, 0, "black"),
+        ].join(""))
+    );
+}
+
 function showRestaurants(title = "Filter - Restaurants", index = -1) {
     showDialog(title,
         contentPanel(
@@ -438,7 +457,7 @@ function collapseCard(target) {
 }
 
 function edit(target, action, which, id) {
-    console.log("edit()", target, action, which, id);
+    // console.log("edit()", target, action, which, id);
     if (which === "mood") {
         showMoodDialog();
     } else if (which === "location") {
@@ -447,7 +466,7 @@ function edit(target, action, which, id) {
 }
 
 function openPage(target, action, which, id) {
-    console.log("openPage", target, action, which, id);
+    // console.log("openPage", target, action, which, id);
     if ("open" === action && which.toLowerCase().startsWith("http")) {
         window.open(which, "_self");
     } else if ("open" === action || "explore" === action) {
@@ -505,7 +524,7 @@ function addItem(target, action, which, id) {
         // showAddEventDialog("Add Item")
     }
 
-    console.log("addItem", ...arguments);
+    // console.log("addItem", ...arguments);
 }
 
 function insertAfter(newNode, referenceNode) {
@@ -545,7 +564,7 @@ function apply(target, action, which, id){
         getAll(".page.explore .explore.card").map(hideElement);
         getAll(".page.explore .explore.card.filter-actions-lodging").map(showElement);
     }else{
-        console.log(`APPLY ${target} ${action} ${which} ${id}?`)
+        // console.log(`APPLY ${target} ${action} ${which} ${id}?`)
     }
 }
 
@@ -599,7 +618,7 @@ function toggleCollapse(target) {
 }
 
 function toggleMap(target) {
-    console.log(target);
+    // console.log(target);
     let img = target.querySelectorAll("img")[0];
     const src = img.getAttribute("src");
 
@@ -614,15 +633,15 @@ function toggleMap(target) {
 
 function route(target, action, which = "", index = "") {
     const lower = action.toLowerCase();
-    console.log("ROUTE", target, action, which, index)
+    // console.log("ROUTE", target, action, which, index)
     if (TOAST_MESSAGES.hasOwnProperty(lower)) {
         return showToast(TOAST_MESSAGES[lower]);
     } else if (ACTION_PAGES.hasOwnProperty(lower)) {
-        console.log("ACTION: " + lower, which, index);
+        // console.log("ACTION: " + lower, which, index);
         const f = ACTION_PAGES[lower];
-        console.log(f);
+        // console.log(f);
         return f(target, lower, which, index);
     } else {
-        console.log("UNKNOWN ACTION:" + lower);
+        // console.log("UNKNOWN ACTION:" + lower);
     }
 }

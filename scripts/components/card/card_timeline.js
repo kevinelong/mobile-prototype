@@ -3,7 +3,7 @@ function timelineCard(ve = VitaEvent()) {
     if (ve.groups && ve.groups[0] && ve.groups[0].people) {
         qty = ve.groups[0].people.length;
     }
-    console.log("booking_index", ve.booking_index);
+    // console.log("booking_index", ve.booking_index);
 
     let booking = "";
 

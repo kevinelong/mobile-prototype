@@ -204,7 +204,7 @@ function mapActivityCard(item = {}, index = -1) {
 }
 
 function titleRow(name, icon, index, collapse = true) {
-    console.log("titleRow", name, icon, index, collapse);
+    // console.log("titleRow", name, icon, index, collapse);
     return row(
         row(
             actionItem(icon, index, index) +
@@ -217,7 +217,7 @@ function titleRow(name, icon, index, collapse = true) {
 }
 
 function activityListItems(list, index, collapse = true) {
-    console.log("activityListItems", list, index);
+    // console.log("activityListItems", list, index);
     if (!list) {
         return "";
     }

@@ -196,20 +196,20 @@ route
     }
 
     let scrollPosition = scrollWindow.scrollTop
-    console.log(scrollPosition)
+    // console.log(scrollPosition)
 
     function scrollToCoord(coord, scrollPosition) {
         scrollWindow.scroll({ top: coord, behavior: "smooth" })
         scrollPosition = scrollWindow.scrollTop
-        console.log(`scroll position: ${scrollPosition}`) 
+        // console.log(`scroll position: ${scrollPosition}`)
         return scrollPosition
     }
 
     function getDeadZone () {
         const divHeight = scrollItems[0].offsetHeight
-        console.log(divHeight)
+        // console.log(divHeight)
         const divMarginTop = parseInt(window.getComputedStyle(scrollItems[0]).marginTop)
-        console.log(divMarginTop)
+        // console.log(divMarginTop)
         deadZoneHeight = divHeight + divMarginTop
         
         const deadZoneTop = (scrollWindow.offsetHeight - deadZoneHeight) / 2
@@ -217,20 +217,20 @@ route
         return [deadZoneTop, deadZoneBottom]
     }
 
-    console.log(getDeadZone())
+    // console.log(getDeadZone())
 
     function findClosestDiv(divs) {
         const newScrollPosition = scrollWindow.scrollTop
-        console.log(`new scroll position: ${newScrollPosition}`)
+        // console.log(`new scroll position: ${newScrollPosition}`)
         
         let scrollYCoord = 0
         for (let i = 0; i < divs.length; i++) {
             const distanceFromTop = getScrollDistance(scrollItems[i])
-            console.log(i, distanceFromTop)
+            // console.log(i, distanceFromTop)
             // if (345 < distanceFromTop && distanceFromTop < 445) {
             // console.log("Jump", i, distanceFromTop)
             //     const scrollYCoord = 5 + ((i - 1) * 200)
-            //     console.log("Jump Coord", scrollYCoord)
+            //     // console.log("Jump Coord", scrollYCoord)
             //     scrollWindow.scroll({top: scrollYCoord, behavior: "smooth"})
             // }
             // if (145 < distanceFromTop && distanceFromTop < 245 || 245 < distanceFromTop && distanceFromTop < 345) {
@@ -244,11 +244,11 @@ route
             } else if (distanceFromTop === 145) {
                 if(newScrollPosition > scrollPosition) {
                     scrollYCoord = 5 + ((i) * 200)
-                    console.log("DOWN", scrollYCoord)
+                    // console.log("DOWN", scrollYCoord)
                     scrollPosition = scrollToCoord(scrollYCoord)
                 } else {
                     scrollYCoord = 5 + ((i - 1) * 200)
-                    console.log("UP", scrollYCoord)
+                    // console.log("UP", scrollYCoord)
                     scrollPosition = scrollToCoord(scrollYCoord)
                  }
             }
@@ -261,11 +261,11 @@ route
                 //     scrollPosition = scrollToCoord(scrollYCoord)
                 // } else if (newScrollPosition < scrollPosition) {
                 //     scrollYCoord = 5 + ((i - 2) * 200)
-                //     console.log("UP", scrollYCoord)
+                //     // console.log("UP", scrollYCoord)
                 //     scrollPosition = scrollToCoord(scrollYCoord)
                 // } else if (newScrollPosition > scrollPosition) {
                 //     scrollYCoord = 5 + ((i) * 200)
-                //     console.log("DOWN", scrollYCoord)
+                //     // console.log("DOWN", scrollYCoord)
                 //     scrollPosition = scrollToCoord(scrollYCoord)
                 // }
             
@@ -275,12 +275,12 @@ route
     }
 
     // scrollWindow.addEventListener("touchend", () => {
-    //     console.log(`scroll position: ${scrollWindow.scrollTop}`)
+    //     // console.log(`scroll position: ${scrollWindow.scrollTop}`)
     //     findClosestDiv(scrollItems)
     // })
 
     // scrollWindow.addEventListener("wheel", () => {
-    //     console.log(`scroll position: ${scrollWindow.scrollTop}`)
+    //     // console.log(`scroll position: ${scrollWindow.scrollTop}`)
     //     findClosestDiv(scrollItems)
     // })
 

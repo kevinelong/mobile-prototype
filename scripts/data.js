@@ -215,7 +215,7 @@ let current_period = LUNCH;
 
 function Day(when = "", events = []) {
     if (!Array.isArray(events)) {
-        console.log("events", events);
+        // console.log("events", events);
         return;
     }
 

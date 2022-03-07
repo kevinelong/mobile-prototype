@@ -42,7 +42,7 @@ function exploreCardContent(
     if (groups && groups[0] && groups[0].people) {
         qty = groups[0].people.length;
     }
-    console.log("booking_index", booking_index)
+    // console.log("booking_index", booking_index)
     let booking = "";
     if (booking_index >= 0) {
         booking = actionItem("book", "book", -1, "Book Now!");

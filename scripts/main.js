@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const onScrollStop = (object, callback, milliseconds) => {
         let timerID;
         if(typeof object === "undefined"){
-            console.log("no object")
+            // console.log("no object")
             return;
         }
         object.addEventListener(
@@ -172,9 +172,9 @@ document.addEventListener("DOMContentLoaded", () => {
             if (i === 0) {
                 o.style.opacity = 1;
                 o.classList.add("selected");
-                console.log(Array.from(o.parentNode.children).indexOf(o));
+                // console.log(Array.from(o.parentNode.children).indexOf(o));
                 // console.log(o.)
-                console.log(o.offsetTop, cardListHeightHalf, o.offsetHeight);
+                // console.log(o.offsetTop, cardListHeightHalf, o.offsetHeight);
                 cardList.scroll({
                     top: offset + (o.offsetTop - cardListHeightHalf) + Math.floor(o.offsetHeight / divisor),
                     behavior: "smooth"
@@ -202,9 +202,9 @@ document.addEventListener("DOMContentLoaded", () => {
             if (i === 0) {
                 o.style.opacity = 1;
                 o.classList.add("selected");
-                console.log(Array.from(o.parentNode.children).indexOf(o));
+                // console.log(Array.from(o.parentNode.children).indexOf(o));
                 // console.log(o.)
-                console.log(o.offsetTop, cardListHeightHalf, o.offsetHeight);
+                // console.log(o.offsetTop, cardListHeightHalf, o.offsetHeight);
                 cardList.scroll({
                     top: offset + (o.offsetTop - cardListHeightHalf) + Math.floor(o.offsetHeight / divisor),
                     behavior: "smooth"

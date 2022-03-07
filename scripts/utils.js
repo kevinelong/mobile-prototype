@@ -27,7 +27,7 @@ function titleCase(str) {
 }
 
 function selectItem(e, id, index, text) {
-    console.log("select", e, id, index, text);
+    // console.log("select", e, id, index, text);
     [...e.parentElement.children].forEach((s) =>
         s.classList.remove("selected")
     );
@@ -78,7 +78,7 @@ function show(selector) {
 function hide(selector) {
     const e = get(selector);
     if (!e) {
-        console.log(`selector '${selector}' not matched.`)
+        // console.log(`selector '${selector}' not matched.`)
         return;
     }
     e.classList.add("hidden");
@@ -118,7 +118,7 @@ function cleanName(n) {
 }
 
 function applyConnectFilter(e, id, index, text) {
-    console.log("applyConnectFilter", e, id, index, text)
+    // console.log("applyConnectFilter", e, id, index, text)
     const cp = e.closest(".page");
     if (!cp) {
         return;
@@ -152,13 +152,13 @@ function applyConnectFilter(e, id, index, text) {
 }
 
 function applyExploreFilter(e, id, index, text) {
-    console.log("applyExploreFilter", e, id, index, text);
+    // console.log("applyExploreFilter", e, id, index, text);
     if (0 === index) {
         getAll(".page.explore .explore.card").map(showElement);
     } else if (1 === index) {
         getAll(".page.explore .explore.card").map(hideElement);
         getAll(".page.explore .explore.card.people").map(showElement);
-        showSearch("Filter");
+        showPeople("Filter");
     } else if (2 === index) {
         getAll(".page.explore .explore.card").map(hideElement);
         getAll(".page.explore .explore.card.things-to-do").map(showElement);
@@ -172,7 +172,7 @@ function applyExploreFilter(e, id, index, text) {
         getAll(".page.explore .explore.card.filter-actions-lodging").map(showElement);
         showLodging();
     } else {
-        console.log("INVALID ID: " + id);
+        // console.log("INVALID ID: " + id);
     }
 }
 
@@ -204,7 +204,7 @@ function applyFilter(e, id, index, text) {
 
 function applyFilterText(parentElement, childClass, searchText) {
 
-    console.log("applyFilterText", parentElement, childClass, searchText);
+    // console.log("applyFilterText", parentElement, childClass, searchText);
 
     if (!parentElement) {
         return;
