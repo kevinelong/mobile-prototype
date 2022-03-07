@@ -148,6 +148,8 @@ div {
 
 .help-text{
     font-size: 11px;
+    margin: 6px 9px;
+    text-justify: newspaper;
 }
 
 .map{
@@ -172,4 +174,158 @@ div {
     display: flex;
     justify-content: center;
     align-content: center;
+    align-items: center;
+    position: relative;
+}
+.map-preview{
+    position: absolute;
+    top: 12px;
+    left: 0;
+    right: 0;
+    /*background-color: white;*/
+    /*border: 1px solid black;*/
+    border-radius: 0px;
+    max-height: 90px;
+    overflow: hidden;
+}
+
+.page.collect_board .map-preview .card ,
+.page.explore .map-preview .card {
+    min-height: 0;
+    gap: 6px;
+    padding: 4px;
+    width: fit-content;
+    border-radius: 6px;
+}
+
+.map-panel .action-item.pin {
+    margin-top: 52px;
+}
+
+.explore.collect_board .map-preview .title,
+.explore.collect_board .map-preview .action-item.book,
+.explore.collect_board .map-preview .card .card-title,
+.explore.page .map-preview .title,
+.explore.page .map-preview .action-item.book,
+.explore.page .map-preview .card .card-title{
+    font-size: 11px;
+}
+
+.page.collect_board .map-preview .card .content-panel,
+.page.explore .map-preview .card .content-panel{
+    padding: 1px;
+}
+
+.page.collect_board .map-preview .title > .action-item,
+.page.explore .map-preview .title > .action-item {
+    background: none;
+}
+
+.page.collect_board .map-preview .card .row,
+.page.explore .map-preview .card .row{
+    justify-content: center;
+}
+
+.page.collect_board .map-preview .card .title,
+.page.explore .map-preview .card .title {
+    padding: 1px;
+}
+
+.page.collect_board .map-preview .card .title .action-item,
+.page.explore .map-preview .card .title .action-item{
+    padding: 2px;
+}
+
+.page.collect_board .map-preview .card .preview-actions,
+.page.explore .map-preview .card .preview-actions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.page.collect_board .map-preview .card .card-people,
+.page.explore .map-preview .card .card-people {
+    margin-top: -1px;
+    align-self: flex-end;
+}
+
+/*.page.explore .map-preview .card .col,*/
+/*.page.explore .map-preview .card .col:last-child {*/
+/*    flex-direction: row;*/
+/*}*/
+
+.page.collect_board .map-preview .card .person-icon,
+.page.explore .map-preview .card .person-icon {
+    display: none;
+}
+
+.page.collect_board .map-preview .card .person-icon:first-child,
+.page.explore .map-preview .card .person-icon:first-child {
+     display: flex;
+}
+
+.page.collect_board .map-preview .hash-tag,
+.page.explore .map-preview .hash-tag {
+    font-size: 7px;
+}
+
+.page.collect_board .map-preview .card .title  .icon,
+.explore.page .map-preview .card .title  .icon {
+    width: 12px;
+    height: 12px;
+}
+
+.explore.page .map-preview .card .title,
+.page.collect_board .map-preview .card .title{
+    font-size: 11px;
+}
+
+.action-item.small {
+    padding: 2px 3px;
+    margin: 1px;
+    gap: 1px;
+    /*background: none;*/
+    border-radius: 3px;
+    font-size: 11px;
+}
+
+.action-item.book{
+    background: #F9A831cc;
+}
+.action-item.book:hover{
+    background: #F9A831FF;
+}
+.card-title .action-item{
+    background: none;
+}
+
+.map-preview .card .action-item .icon,
+.map-preview .card .title .action-item.menu .icon {
+    max-width: 12px;
+    max-height: 12px;
+    width: 12px;
+    height: 12px;
+}
+
+.plan_detail .card .text,
+.collect_board .card .text {
+    font-size: 11px;
+}
+
+.collect_board #range .choice {
+    /*min-width: 86px;*/
+}
+
+.button {
+    width: calc(100% - 12px);
+    line-height: 3em;
+    color: white;
+    background: goldenrod;
+    border-style: none;
+    border-radius: 6px;
+    margin: 3px 6px;
+}
+
+.collect.page .header .action-item .text {
+    display: initial;
 }

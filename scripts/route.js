@@ -196,11 +196,12 @@ function showDestinations(title = "Destination", index = -1) {
 }
 
 function showAddCollection() {
-    showDialog("Create Collection for Location",
-        choiceSet("location", ["All", "Nearby", "Recent"], "All") +
+    showDialog("Create a Collection",
+        choiceSet("dp", ["Destination", "Pursuit"], "") +
         contentPanel(
-            search([...DESTINATIONS, "Other"], -1) +
-            actionList("filter-actions-add-collection", applyOrCancel, false, 0, "black")
+            search([], -1, "Type a Destination or a Pursuit") +
+
+            actionList("filter-actions-select-destination", applyOrCancel, false, 0, "black")
         )
     );
 }
@@ -491,15 +492,17 @@ function addItem(target, action, which, id) {
         addMessage();
     } else if ("connect" === which) {
         addParticipant();
-    } else if ("collect" === which) {
+    } else if ("collection" === which) {
         showAddCollection();
     } else if ("collect_board" === which) {
+        showAddCard();
+    } else if ("cardItem" === which) {
         showAddCard();
     } else if ("timeline" === which) {
         showSchedule(target, action, which, id)
         // showAddEventDialog("Add to Timeline")
     } else {
-        showAddEventDialog("Add Item")
+        // showAddEventDialog("Add Item")
     }
 
     console.log("addItem", ...arguments);

@@ -60,6 +60,8 @@
 
 .content-panel .card-people {
     margin-top: -1px;
+    align-self: flex-start;
+
     /*align-content: center;*/
     /*justify-content: center;*/
 }

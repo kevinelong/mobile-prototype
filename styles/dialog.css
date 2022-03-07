@@ -67,6 +67,7 @@
 
 .dialog .choice-set {
     background: none;
+    justify-content: space-around;
 }
 
 .dialog .title,

@@ -41,9 +41,9 @@
     justify-content: space-between;
 }
 
-.page.collect_board .choice-set {
-    min-height: 48px;
-}
+/*.page.collect_board .choice-set {*/
+/*    min-height: 48px;*/
+/*}*/
 
 .explore.page .choice {
     background: black;
@@ -64,7 +64,7 @@
 }
 
 .collect.page .choice {
-    min-width: 53px;
+    min-width: 86px;
 }
 
 .settle.page .choice {

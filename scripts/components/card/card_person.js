@@ -10,6 +10,7 @@ function cardPerson(person, index = 0, limit = 3, which = -1) {
 
 const PLURALS = {
     "taste match": "Taste Matches",
+    "person": "People",
     "match": "matches"
 }
 
@@ -43,4 +44,17 @@ function cardPeople(group, limit = -1, index, all) {
 
 function cardGroups(groups, limit = 0) {
     return groups.map((g, i, all) => cardPeople(g, limit, i, all)).join("");
+}
+
+function cardSummary(groups, limit = 0) {
+    let result = [];
+    groups.reduce(function(r, v) {
+        if (!r[v.title]) {
+            r[v.title] = { title: v.title, qty: 0 };
+            result.push(r[v.title])
+        }
+        r[v.title].qty += v.people.length;
+        return r;
+    }, {});
+    return result.map(g => `${g.title} ${g.qty}`).join(", ");
 }

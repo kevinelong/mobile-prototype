@@ -15,8 +15,7 @@ function planDetailPage(selected = false) {
             "label-name",
             "Plan Name:" +
             input("input-name", "text", `value="Santa Barbara"`) +
-            div(
-                "help-text",
+            helpText(
                 `Name was generated automatically, but may be customized here.`
             )
         ) +
@@ -28,7 +27,7 @@ function planDetailPage(selected = false) {
             input("input-name", "date", `value="Santa Barbara"`)
         ) +
         cardGroups(coplanners) +
-        activityList(activityData),
+        activityList(activityData, true),
         "all",
         "collect"
     );

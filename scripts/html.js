@@ -18,6 +18,14 @@ function a(text, href, className = "") {
     return closedTag("a", text, className, `href="${href}"`);
 }
 
+function button(text, attrs, className = "") {
+    return closedTag("button", text, `button ${className}`, attrs);
+}
+
+function helpText(text, className = "") {
+    return closedTag("div", text, `help-text ${className}`);
+}
+
 function img(className, src = "", attrs = "") {
     return tag("img", `${className} image`, `src="${src}" ${attrs}`);
 }

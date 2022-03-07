@@ -11,12 +11,14 @@ function page(
     searchMessage = "",
     tabs = "",
     pushSecondaryNavChoicesAboveSearchFilter = false,
-    preSearchContent = ""
+    preSearchContent = "",
+    headerAction = ""
 ) {
+    const addAction= actionItem("add", name, -1, "Add", "black", false, 0);
+    headerAction = headerAction ? headerAction : addAction;
     const filters = choiceSet(`${name}-filters`, choiceList, selectedChoice, name);
     return div(
         `${name} page ${selected ? "" : "hidden"}`,
-        // div("system-bar", div("system-time", "11:35 am")) +
         div("header",
             title(
                 actionItem(parent ? "back" : "menu") +
@@ -25,12 +27,12 @@ function page(
                 ) +
                 actionItem("map-off") +
                 cardPerson(peopleList[RUBY])
-                // actionItem("person", "me", 0, "", "black")
             ) +
             (pushSecondaryNavChoicesAboveSearchFilter ? filters : "") +
             row(
-                ((searchMessage !== undefined && searchMessage.length > 0) ? preSearchContent + search([], -1, searchMessage) : "")
-                + actionItem("add", name, -1, "add", "black", false, 0)
+                preSearchContent +
+                ((searchMessage !== undefined && searchMessage.length > 0) ? search([], -1, searchMessage) : "")
+                + headerAction
             ) +
             (!pushSecondaryNavChoicesAboveSearchFilter ? filters : "")
         ) +

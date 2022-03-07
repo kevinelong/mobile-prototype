@@ -24,8 +24,8 @@ function contentPanel(content, className = "") {
     return content ? div(`content-panel ${className}`, content) : "";
 }
 
-function row(content, attrs = "") {
-    return div("row", content, attrs);
+function row(content, attrs = "", className="") {
+    return div(`row${className?className:""}`, content, attrs);
 }
 
 
@@ -131,6 +131,12 @@ function actionButton(content, className, attrs) {
     );
 }
 
+function mapPreview(){
+    return div("map-preview",
+        mapActivityCard(activityData[0].items[0])
+    )
+}
+
 function mapPanel(){
-    return div("map-panel", icon("pin") );
+    return div("map-panel", actionItem("pin") + mapPreview());
 }

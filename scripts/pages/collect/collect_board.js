@@ -1,20 +1,51 @@
 function collectBoardPage(selected = false) {
-
-
     return page(
         selected,
         "collect_board",
-        "Santa Barbara", [
+        "Santa Barbara",
+        [
             icon("all") + "All",
             icon("ideas") + "Ideas",
             icon("favorites") + "Favorites",
             icon("going", "", "Going"),
         ],
         icon("all") + "All",
-        // cardGroups(currators) +
+        // cardGroups(curators) +
         mapPanel() +
-        activityList(activityData),
+        button(
+            "Collect All Pins",
+            "collectAllPins()",
+            "collect-all"
+        ) +
+        activityList(activityData, true),
         "all",
-        "collect"
+        "collect",
+        "",
+        "",
+        "",
+        false,
+        col(
+            row(
+                choiceSet(
+                    "range",
+                    [
+                        "Nearby",
+                        "Local",
+                        "Region",
+                        "Country"
+                    ],
+                    "Nearby"
+                ) +
+                select(
+                    "my-collections",
+                    [
+                        {name: "My Collections"},
+                        {name: "Santa Barbara"},
+                        {name: "Paris"},
+                        {name: "Las Vegas"}
+                    ]
+                )
+            )
+        )
     );
 }

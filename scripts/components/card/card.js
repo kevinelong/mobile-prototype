@@ -61,8 +61,8 @@ function actionList(id, list = [], hideText = false, qty = 0, iconColor = "") {
     );
 }
 
-function cardList(content) {
-    return div("card-list", content);
+function cardList(content, collapse = false) {
+    return div("card-list" + (collapse ? " collapse" : ""), content);
 }
 
 function card(
@@ -95,8 +95,50 @@ function card(
         attrs +
         ` data-kind="${cleanName(kind)}" data-which="${which}" ` +
         cardStyle(ve)
+    );
+}
 
-        // (image ? `style="background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.25)), black url('${image}') center/cover no-repeat;"` : "")
+function mapCard(
+    kind,
+    match_percent,
+    content = "",
+    groups = [],
+    actions = [],
+    image = "",
+    tags = [],
+    which = -1,
+    attrs = "",
+    period = Period()
+) {
+
+    const ve = VitaEvent(period, kind);
+    ve.imagePath = image;
+
+    return div(
+        `card ${kind} ${which}`,
+        title(
+            icon(kind) +
+            cardTags(tags) +
+            actionItem("open", "explore_detail", -1, "", "", true)
+        ) +
+        row(
+            content
+        ) +
+        row(
+            cardSummary(groups)
+        ) +
+        div("preview-actions",
+            // div("match_percent", match_percent + "% match") +
+            actionItem("alternatives", "preview", -1, "Alternatives", "", false, 0, true) +
+            actionItem("Share", "add", -1, "Share", "", true, 0, true) +
+            actionItem("Message", "add", -1, "Invite", "", true, 0, true) +
+            // actionItem("Connect", "add", -1, "Connect", "",true,0,true) +
+            actionItem("map-on-white", "map-on", -1, "Directions", "", true, 0, true) +
+            actionItem("book", "book", -1, "Book Now!", "", false, 0, true)
+        ),
+        attrs +
+        ` data-kind="${cleanName(kind)}" data-which="${which}" ` +
+        cardStyle(ve)
     );
 }
 
@@ -138,31 +180,64 @@ function activityCard(item = {}, index = -1) {
     );
 }
 
-function titleRow(name, icon, index) {
-    console.log("titleRow", name, icon, index);
+function mapActivityCard(item = {}, index = -1) {
+    return mapCard(
+        item.kind,
+        item.match_percent,
+        [
+            item.title,
+            item.subtitle,
+            item.content
+        ].join("-"),
+        item.groups,
+        [],
+        item.imagePath,
+        item.tags,
+        index,
+        "recommended"
+    );
+}
+
+function titleRow(name, icon, index, collapse = true) {
+    console.log("titleRow", name, icon, index, collapse);
     return row(
         row(
             actionItem(icon, index, index) +
             title(name)
         ) +
-        actionItem("show")
+        actionItem("show"),
+        "",
+        collapse ? " collapse" : ""
     )
 }
 
-function activityListItems(list, index) {
+function activityListItems(list, index, collapse = true) {
     console.log("activityListItems", list, index);
     if (!list) {
         return "";
     }
-    return titleRow(list.name, list.icon, index) +
-        cardList(list.items.map(activityCard).join(""));
+    return titleRow(
+            list.name + circle("(" + list.items.length + ")"),
+            list.icon,
+            index,
+            collapse
+        ) +
+        cardList(
+            list.items.map(activityCard).join(""),
+            collapse
+        );
 }
 
-function activityList(list) {
+function activityList(list, collapse = true) {
     if (!list) {
         return "";
     }
-    return div("activity-list", list.map(activityListItems).join(""));
+    return div(
+        "activity-list",
+        list.map(
+            (items, index) => activityListItems(items, index, collapse)
+        ).join("")
+    );
 }
 
 
