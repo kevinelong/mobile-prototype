@@ -52,8 +52,8 @@ function exploreCardContent(
         `card ${kind} ${kind2}`,
         // img("background top", "images/backgrounds/top-gradient-black.svg") +
         cardSection(
-            contentPanel(body) +
-            cardTags(tags)
+            cardTags(tags) +
+            contentPanel(body)
         ) +
         row(
             col(

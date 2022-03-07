@@ -84,8 +84,12 @@ function card(
     return div(
         `card ${kind} ${which}`,
 
-        cardSection(cardTitle(title) + contentPanel(content)) +
-        (tags || groups || actions ? cardSection(cardTags(tags) +
+        cardSection(
+            cardTags(tags) +
+            cardTitle(title) +
+            contentPanel(content)
+        ) +
+        (groups || actions ? cardSection(
             (groups || actions ? cardQuadrant(
                 cardGroups(groups) +
                 actionList(`card-actions`, actions)
@@ -155,9 +159,10 @@ function detail(
     return div(
         `detail ${kind} ${which}`,
         img("detail-image", imagePath) +
+        cardTags(tags) +
         cardSection(cardTitle(body)) +
         cardSection(
-            cardTags(tags) +
+
             cardQuadrant(
                 cardGroups(groups) +
                 actionList(`card-actions`, actions)
