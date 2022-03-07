@@ -140,3 +140,10 @@ function mapPreview(){
 function mapPanel(){
     return div("map-panel", actionItem("pin") + mapPreview());
 }
+
+function hashTags(tags) {
+    if (!tags || tags.length === 0) {
+        return "";
+    }
+    return div("card-tags", [...tags].map(hashTag).join(""));
+}

@@ -329,3 +329,8 @@ div {
 .collect.page .header .action-item .text {
     display: initial;
 }
+
+input[type="text"].tag-input {
+    margin: 6px 0;
+    width: 100%;
+}

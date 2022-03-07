@@ -158,7 +158,7 @@ function applyExploreFilter(e, id, index, text) {
     } else if (1 === index) {
         getAll(".page.explore .explore.card").map(hideElement);
         getAll(".page.explore .explore.card.people").map(showElement);
-        showPeople("Filter");
+        showPeople();
     } else if (2 === index) {
         getAll(".page.explore .explore.card").map(hideElement);
         getAll(".page.explore .explore.card.things-to-do").map(showElement);
