@@ -2,10 +2,10 @@ TASTE_MATCH_PAGES.add("birthday", Pane( `
 <div class="taste-match-page page1">
     <div class="question-heading">
         <div class="title-control">
-Demographics
+            Demographics
         </div>
         <div class="question-control">
-When were you born?
+            When were you born?
         </div>
     </div>
     
@@ -16,7 +16,7 @@ When were you born?
         [
             PaneAction("BACK", "gender"),
             PaneAction("SKIP", "thanks"),
-            PaneAction("NEXT", "thanks"),
+            PaneAction("NEXT", "city"),
         ]
     )
 );
