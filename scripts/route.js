@@ -251,6 +251,23 @@ function showPeople(title = "Filter - People", index = -1) {
                             `placeholder="Add keyword..."`
                         )
                 ),
+                // `
+                // <label class="switch">
+                //     <input type="checkbox">
+                //     <span class="slider"></span>
+                // </label>
+                // `,
+                div(
+                    "boolean-choices",
+                    label(
+                        "switch",
+                        input("", "checkbox") + span("slider", "")
+                    ) +
+                        label(
+                            "switch",
+                            input("", "checkbox") + span("slider round", "")
+                        )
+                ),
 
                 // `
                 // <label class="gender label">
