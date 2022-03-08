@@ -10,7 +10,7 @@ function div(className, content, attrs) {
     return closedTag("div", content, className, attrs);
 }
 
-function span(className, content, attrs) {
+function span(className, content="", attrs="") {
     return closedTag("span", content, className, attrs);
 }
 
@@ -110,4 +110,21 @@ function textarea(name, content = "", attrs = "") {
         content,
         `name="${name}" onkeypress="onTextInput(event);" ${attrs}`
     );
+}
+
+function checkbox(name=""){
+    return input(name, "checkbox");
+}
+
+function toggleItem(text) {
+    return label(
+        "toggle-switch",
+        input("", "checkbox") +
+        span("toggle-target round") +
+        div("toggle-text", text)
+    );
+}
+
+function toggleSet(list=[""]){
+    return list.map(toggleItem).join("");
 }
