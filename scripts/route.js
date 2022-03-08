@@ -261,12 +261,22 @@ function showPeople(title = "Filter - People", index = -1) {
                     "boolean-choices",
                     label(
                         "switch",
-                        input("", "checkbox") + span("slider", "")
-                    ) +
+                        input("", "checkbox") + span("slider round", "")
+                    ) + span("", "Must Have Collections")
+                ),
+                div(
+                    "boolean-choices",
                         label(
                             "switch",
                             input("", "checkbox") + span("slider round", "")
-                        )
+                        ) + span("", "Offers Tours")
+                ),
+                div(
+                    "boolean-choices",
+                        label(
+                            "switch",
+                            input("", "checkbox") + span("slider round", "")
+                        ) + span("", "Nearby")
                 ),
 
                 // `

@@ -229,11 +229,14 @@ document.addEventListener("DOMContentLoaded", () => {
         if( tl === "undefined"){
             return setTimeout(initMap, 500);
         }
-        let host = 'https://maps.omniscale.net/v2/{id}/style.default/{z}/{x}/{y}.png';
-        let attribution = '';
+        // let host = 'https://maps.omniscale.net/v2/{id}/style.default/{z}/{x}/{y}.png';
+        let host = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+        let attribution = '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>';
         let map = L.map('map').setView([34.41, -119.69], 12);
+        // const id = window.location.hostname.indexOf("kevinelong") == -1 && window.location.hostname.indexOf("localhost") == -1 ? 'vitaexplorer-05d4f193' : 'kevinelong-github-io-0f6096e4';
+        // console.log("MAP API KEY: "+ id);
         L.tileLayer(host, {
-            id: window.location.hostname.indexOf("kevinelong") == -1 ? 'vitaexplorer-05d4f193' : 'kevinelong-github-io-0f6096e4',
+            // id: id,
             attribution: attribution
         }).addTo(map);
         map.attributionControl.setPrefix(false);

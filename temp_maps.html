@@ -1,51 +1,91 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <style>
+    html, body {
+      height: 100%;
+      padding: 0;
+      margin: 0;
+    }
+    #map {
+      /* configure the size of the map */
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+  // initialize Leaflet
+  var map = L.map('map').setView({lon: 0, lat: 0}, 2);
 
-    <!--    <link rel='stylesheet' href='styles/libraries/leaflet.css' />-->
-<!--    <script src='scripts/libraries/leaflet.js'></script>-->
-    <script type='text/javascript'>
-      function initMap() {
-        let host = 'https://maps.omniscale.net/v2/{id}/style.default/{z}/{x}/{y}.png';
-        let attribution = '';
-        let map = L.map('map').setView([34.41, -119.69], 12);
-          L.tileLayer(host, {
-            id: window.location.hostname.indexOf("kevinelong") == -1 ? 'vitaexplorer-05d4f193' : 'kevinelong-github-io-0f6096e4',
-            attribution: attribution
-          }).addTo(map);
-        map.attributionControl.setPrefix(false);
+  // add the OpenStreetMap tiles
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+  }).addTo(map);
 
-        const data =[
-          {
-            name: "Loquita Santa Barbara",
-            description: "Loquita Santa Barbara<br>5 Friends liked this.",
-            latlong: [34.414843631936535, -119.69157509814653]
-          },
-          {
-            name: "Boathouse at Hendry's Beach",
-            description: "Boathouse at Hendry's Beach<br>14 Friends and 2 Co-Curators liked this.",
-            latlong: [34.408724829930925, -119.74230426640375]
-          },
-          {
-            name: "The Black Sheep",
-            description: "The Black Sheep<br>14 Friends and 2 Co-Curators liked this.",
-            latlong: [34.419441971416056, -119.6969748812218]
-          }
+  // show the scale bar on the lower left corner
+  L.control.scale({imperial: true, metric: true}).addTo(map);
 
-        ]
-        data.forEach((item)=>{
-          let marker = L.marker(item.latlong,{opacity: 0.75, title: item.name});
-          marker.bindPopup(item.description).openPopup();
-          marker.addTo(map);
-        });
-      }
-    </script>
-  </head>
-  <body onload='initMap()'>
-    <div id='map' style='height: 555px; width: 320px;'></div>
-  </body>
+  // show a marker on the map
+  L.marker({lon: 0, lat: 0}).bindPopup('The center of the world').addTo(map);
+</script>
+</body>
 </html>
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--  <head>-->
+<!--    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />-->
+<!--    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>-->
 
-<!-- 34.241943, -119.889999 -->
+<!--    &lt;!&ndash;    <link rel='stylesheet' href='styles/libraries/leaflet.css' />&ndash;&gt;-->
+<!--&lt;!&ndash;    <script src='scripts/libraries/leaflet.js'></script>&ndash;&gt;-->
+<!--    <script type='text/javascript'>-->
+<!--      function initMap() {-->
+<!--        let host = 'https://maps.omniscale.net/v2/{id}/style.default/{z}/{x}/{y}.png';-->
+<!--        let attribution = '';-->
+<!--        let map = L.map('map').setView([34.41, -119.69], 12);-->
+<!--          L.tileLayer(host, {-->
+<!--            id: window.location.hostname.indexOf("kevinelong") == -1 ? 'vitaexplorer-05d4f193' : 'kevinelong-github-io-0f6096e4',-->
+<!--            attribution: attribution-->
+<!--          }).addTo(map);-->
+<!--        map.attributionControl.setPrefix(false);-->
+
+<!--        const data =[-->
+<!--          {-->
+<!--            name: "Loquita Santa Barbara",-->
+<!--            description: "Loquita Santa Barbara<br>5 Friends liked this.",-->
+<!--            latlong: [34.414843631936535, -119.69157509814653]-->
+<!--          },-->
+<!--          {-->
+<!--            name: "Boathouse at Hendry's Beach",-->
+<!--            description: "Boathouse at Hendry's Beach<br>14 Friends and 2 Co-Curators liked this.",-->
+<!--            latlong: [34.408724829930925, -119.74230426640375]-->
+<!--          },-->
+<!--          {-->
+<!--            name: "The Black Sheep",-->
+<!--            description: "The Black Sheep<br>14 Friends and 2 Co-Curators liked this.",-->
+<!--            latlong: [34.419441971416056, -119.6969748812218]-->
+<!--          }-->
+
+<!--        ]-->
+<!--        data.forEach((item)=>{-->
+<!--          let marker = L.marker(item.latlong,{opacity: 0.75, title: item.name});-->
+<!--          marker.bindPopup(item.description).openPopup();-->
+<!--          marker.addTo(map);-->
+<!--        });-->
+<!--      }-->
+<!--    </script>-->
+<!--  </head>-->
+<!--  <body onload='initMap()'>-->
+<!--    <div id='map' style='height: 555px; width: 320px;'></div>-->
+<!--  </body>-->
+<!--</html>-->
+
+<!--&lt;!&ndash; 34.241943, -119.889999 &ndash;&gt;-->
