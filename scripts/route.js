@@ -5,28 +5,28 @@ function sendInvite() {
 }
 
 function addContact() {
-
     showDialog(
-        "Add New Contact", [
+        "Add New Contact",
+        [
             label("first", input("first", "text", `placeholder="First Name"`)),
             label("last", input("last", "text", `placeholder="Last Name"`)),
         ].join("") +
-        actionPanel(
-            actionItem("cancel", "contact", -1, "Cancel", "black") +
-            actionItem("save", "contact", -1, "Save", "black")
-        )
-    )
+            actionPanel(
+                actionItem("cancel", "contact", -1, "Cancel", "black") +
+                    actionItem("save", "contact", -1, "Save", "black")
+            )
+    );
 }
 
 function createGroup() {
     showDialog(
         "Create Group",
         label("name", input("name", "text", `placeholder="Name"`)) +
-        actionPanel(
-            actionItem("cancel", "contact", -1, "Cancel", "black") +
-            actionItem("save", "contact", -1, "Save", "black")
-        )
-    )
+            actionPanel(
+                actionItem("cancel", "contact", -1, "Cancel", "black") +
+                    actionItem("save", "contact", -1, "Save", "black")
+            )
+    );
 }
 
 function addParticipant() {
@@ -38,11 +38,23 @@ function addPerson() {
 }
 
 function showSearch(title, index = -1) {
-    showDialog(title,
+    showDialog(
+        title,
         contentPanel(
-            choiceSet("search-filter", ["All", "Connections", "Groups", "Contacts"]) +
-            search(peopleList, index) +
-            actionList("filter", ["Create New Group", "Add New Contact"], false, 0, "black")
+            choiceSet("search-filter", [
+                "All",
+                "Connections",
+                "Groups",
+                "Contacts",
+            ]) +
+                search(peopleList, index) +
+                actionList(
+                    "filter",
+                    ["Create New Group", "Add New Contact"],
+                    false,
+                    0,
+                    "black"
+                )
         )
     );
 }
@@ -50,8 +62,7 @@ function showSearch(title, index = -1) {
 function labeledInput(name = "", inputType = "text") {
     return label(
         cleanName(name),
-        (name ? text(name) : "") +
-        input(name, inputType)
+        (name ? text(name) : "") + input(name, inputType)
     );
 }
 
@@ -63,15 +74,20 @@ function selectTime(name = "") {
     return labeledInput(name, "time");
 }
 
-function labeledRange(name = "", inputType = "date", fromText = "From", toText = "To") {
+function labeledRange(
+    name = "",
+    inputType = "date",
+    fromText = "From",
+    toText = "To"
+) {
     return label(
         cleanName(name),
         (name ? text(name) : "") +
-        rangeRow(
-            labeledInput(fromText, inputType) +
-            " - " +
-            labeledInput(toText, inputType)
-        )
+            rangeRow(
+                labeledInput(fromText, inputType) +
+                    " - " +
+                    labeledInput(toText, inputType)
+            )
     );
 }
 
@@ -87,10 +103,10 @@ function onClickTabItem(e, name, index) {
     const top = e.closest(".tab-set");
     const items = top.querySelectorAll(".tab-item");
     const contents = top.querySelectorAll(".tab-content");
-    items.forEach(item => item.classList.remove('selected'));
-    e.classList.add('selected');
-    top.children[index].classList.add("selected")
-    top.children[index].classList.remove("hidden")
+    items.forEach((item) => item.classList.remove("selected"));
+    e.classList.add("selected");
+    top.children[index].classList.add("selected");
+    top.children[index].classList.remove("hidden");
 }
 
 function tabItem(name, index, isSelected = false) {
@@ -98,170 +114,302 @@ function tabItem(name, index, isSelected = false) {
     return div(
         `tab-item ${selected} ${cleanName(name)}`,
         name,
-        ` onclick="onClickTabItem(this,'${cleanName(name)}','${index}')" `);
+        ` onclick="onClickTabItem(this,'${cleanName(name)}','${index}')" `
+    );
 }
 
 function subcategoryChoices() {
-    return label("refine-filter",
+    return label(
+        "refine-filter",
         text("Refine Filter:") +
-        choiceSet("subcategory-choices", [
-            icon("activity") + "Instant Book",
-            icon("collect") + "Personal Feed",
-            icon("connect") + "Broadcast",
-        ], icon("activity") + "Instant Book")
+            choiceSet(
+                "subcategory-choices",
+                [
+                    icon("activity") + "Instant Book",
+                    icon("collect") + "Personal Feed",
+                    icon("connect") + "Broadcast",
+                ],
+                icon("activity") + "Instant Book"
+            )
     );
 }
 
 function showThingsToDo(title = "Filter - Things To Do", index = -1) {
-    showDialog(title,
-        contentPanel([
-            subcategoryChoices(),
-            //
-            // tabSet("explore-filter-tabs", [
-            //     tabItem("A", "AAA"),
-            //     tabItem("B", "BBB"),
-            //     tabItem("C", "CCC"),
-            // ]) +
+    showDialog(
+        title,
+        contentPanel(
+            [
+                subcategoryChoices(),
+                //
+                // tabSet("explore-filter-tabs", [
+                //     tabItem("A", "AAA"),
+                //     tabItem("B", "BBB"),
+                //     tabItem("C", "CCC"),
+                // ]) +
 
-            selectDateRange("Date Range:"),
+                selectDateRange("Date Range:"),
 
-            selectOptionsComponent("# Adults", [{
-                name: "Any Number",
-                value: 0
-            }]),
+                selectOptionsComponent("# Adults", [
+                    {
+                        name: "Any Number",
+                        value: 0,
+                    },
+                ]),
 
-            selectOptionsComponent("# Kids", [{
-                name: "Any Number",
-                value: 0
-            }]),
+                selectOptionsComponent("# Kids", [
+                    {
+                        name: "Any Number",
+                        value: 0,
+                    },
+                ]),
 
-            selectOptionsComponent("Time", [{name: "Any Time", value: 0}]),
+                selectOptionsComponent("Time", [
+                    { name: "Any Time", value: 0 },
+                ]),
 
-            selectOptionsComponent("Duration", [{
-                name: "Any Duration",
-                value: 0
-            }]),
+                selectOptionsComponent("Duration", [
+                    {
+                        name: "Any Duration",
+                        value: 0,
+                    },
+                ]),
 
-            selectOptionsComponent("Budget", [{
-                name: "Any Budget",
-                value: 0
-            }]),
+                selectOptionsComponent("Budget", [
+                    {
+                        name: "Any Budget",
+                        value: 0,
+                    },
+                ]),
 
-            label("keywords",
-                text("Keywords:") +
-                choiceSet("keywords", ["KW1", "KW2", "KW3"])
-            ),
+                label(
+                    "keywords",
+                    text("Keywords:") +
+                        choiceSet("keywords", ["KW1", "KW2", "KW3"])
+                ),
 
-            label("personal-keywords",
-                text("Personal Keywords:") +
-                choiceSet("keywords", ["PKW1", "PKW2", "PKW3"])
-            ),
+                label(
+                    "personal-keywords",
+                    text("Personal Keywords:") +
+                        choiceSet("keywords", ["PKW1", "PKW2", "PKW3"])
+                ),
 
-            actionList("filter-things-to-do", applyOrCancel, false, 0, "black"),
-        ].join(""))
+                actionList(
+                    "filter-things-to-do",
+                    applyOrCancel,
+                    false,
+                    0,
+                    "black"
+                ),
+            ].join("")
+        )
     );
 }
 
 function showPeople(title = "Filter - People", index = -1) {
-    showDialog(title,
-        contentPanel([
-            subcategoryChoices(),
-            `
-            <b> TODO Add the people content. </b>
-            `,
+    showDialog(
+        title,
+        contentPanel(
+            [
+                subcategoryChoices(),
+                label(
+                    "categories",
+                    text("Categories:") +
+                        choiceSet(
+                            "categories",
+                            [
+                                "All",
+                                "Friends",
+                                "TasteMatch",
+                                "Experts",
+                                "Guides",
+                                "Travel Agents",
+                            ],
+                            "All"
+                        )
+                ),
+                label(
+                    "genders",
+                    text("Genders:") +
+                        choiceSet("genders", ["Both", "Male", "Female"], "Both")
+                ),
+                label(
+                    "tags",
+                    text("Tags:") +
+                        input(
+                            "tag-input",
+                            "text",
+                            `placeholder="Add tag name..."`
+                        ) +
+                        hashTags(["TasteMatch", "Foodie"])
+                ),
+                label(
+                    "keywords",
+                    text("Keywords:") +
+                        input(
+                            "keyword-input",
+                            "text",
+                            `placeholder="Add keyword..."`
+                        )
+                ),
+                // `
+                // <label class="switch">
+                //     <input type="checkbox">
+                //     <span class="slider"></span>
+                // </label>
+                // `,
+                div(
+                    "boolean-choices",
+                    label(
+                        "switch",
+                        input("", "checkbox") + span("slider", "")
+                    ) +
+                        label(
+                            "switch",
+                            input("", "checkbox") + span("slider round", "")
+                        )
+                ),
 
-            label("keywords",
-                text("Keywords:") +
-                choiceSet("keywords", ["KW1", "KW2", "KW3"])
-            ),
+                // `
+                // <label class="gender label">
+                //     <div class="text wc-1 undefined div">Genders:</div>
+                //         <div class="choice-set div">
+                //             <div class="choice div" onclick="selectItem(this,'genders',0,'male');" data-kind="genders" data-choice="male">Male</div>
+                //             <div class="choice div" onclick="selectItem(this,'genders',0,'female');" data-kind="genders" data-choice="female">Female</div>
+                //             <div class="choice div" onclick="selectItem(this,'genders',0,'both');" data-kind="genders" data-choice="both">Both</div>
+                //         </div>
+                // </label>
+                // `,
 
-
-            actionList("filter-people", applyOrCancel, false, 0, "black"),
-        ].join(""))
+                actionList("filter-people", applyOrCancel, false, 0, "black"),
+            ].join("")
+        )
     );
 }
 
 function showRestaurants(title = "Filter - Restaurants", index = -1) {
-    showDialog(title,
+    showDialog(
+        title,
         contentPanel(
             subcategoryChoices() +
-            // choiceSet("search-filter", RESTAURANT_FILTERS) +
-            // search([], index) +
-            search(RESTAURANTS, index) +
-            actionList("filter-actions-restaurants", applyOrCancel, false, 0, "black")
+                // choiceSet("search-filter", RESTAURANT_FILTERS) +
+                // search([], index) +
+                search(RESTAURANTS, index) +
+                actionList(
+                    "filter-actions-restaurants",
+                    applyOrCancel,
+                    false,
+                    0,
+                    "black"
+                )
         )
     );
 }
 
 function showLodging(title = "Filter - Lodging", index = -1) {
-    showDialog(title,
+    showDialog(
+        title,
         contentPanel(
             subcategoryChoices() +
-            choiceSet("search-filter", LODGING_FILTERS) +
-            search([], index) +
-            // search(LODGING, index) +
-            actionList("filter-actions-lodging", applyOrCancel, false, 0, "black")
+                choiceSet("search-filter", LODGING_FILTERS) +
+                search([], index) +
+                // search(LODGING, index) +
+                actionList(
+                    "filter-actions-lodging",
+                    applyOrCancel,
+                    false,
+                    0,
+                    "black"
+                )
         )
     );
 }
 
 function showDestinations(title = "Destination", index = -1) {
-    showDialog(title,
+    showDialog(
+        title,
         contentPanel(
             search(DESTINATIONS, index) +
-            actionList("filter-actions-select-destination", applyOrCancel, false, 0, "black")
+                actionList(
+                    "filter-actions-select-destination",
+                    applyOrCancel,
+                    false,
+                    0,
+                    "black"
+                )
         )
     );
 }
 
 function showAddCollection() {
-    showDialog("Create a Collection",
+    showDialog(
+        "Create a Collection",
         choiceSet("dp", ["Destination", "Pursuit"], "") +
-        contentPanel(
-            search([], -1, "Type a Destination or a Pursuit") +
-
-            actionList("filter-actions-select-destination", applyOrCancel, false, 0, "black")
-        )
+            contentPanel(
+                search([], -1, "Type a Destination or a Pursuit") +
+                    actionList(
+                        "filter-actions-select-destination",
+                        applyOrCancel,
+                        false,
+                        0,
+                        "black"
+                    )
+            )
     );
 }
 
 function showAddCard() {
-    showDialog("Add Something to Board",
+    showDialog(
+        "Add Something to Board",
         selectOptionsComponent("Category", activityData) +
-        radioComponent("Card Type", [
-            {
-                name: "Favorite",
-                value: "Favorite"
-            },
-            {
-                name: "Going",
-                value: "Going"
-            },
-        ]) +
-        contentPanel(
-            label(
-                `name`,
-                input("name", "text", `placeholder="Add Card Name, Address, or Coordinates."`)
-            ) +
-            actionList("filter-actions-add-to-board", [
-                "Add",
-                "Cancel",
-            ], false, 0, "black")
-        )
+            radioComponent("Card Type", [
+                {
+                    name: "Favorite",
+                    value: "Favorite",
+                },
+                {
+                    name: "Going",
+                    value: "Going",
+                },
+            ]) +
+            contentPanel(
+                label(
+                    `name`,
+                    input(
+                        "name",
+                        "text",
+                        `placeholder="Add Card Name, Address, or Coordinates."`
+                    )
+                ) +
+                    actionList(
+                        "filter-actions-add-to-board",
+                        ["Add", "Cancel"],
+                        false,
+                        0,
+                        "black"
+                    )
+            )
     );
 }
 
 function showLocations(title = "Current Location", index = -1) {
-    showDialog(title,
+    showDialog(
+        title,
         contentPanel(
             search(DESTINATIONS, index) +
-            actionList("filter-actions-locations", ["apply"], false, 0, "black")
+                actionList(
+                    "filter-actions-locations",
+                    ["apply"],
+                    false,
+                    0,
+                    "black"
+                )
         )
     );
 }
 
 function showMoodDialog(title = "Mood", index = -1) {
-    showDialog(title,
+    showDialog(
+        title,
         contentPanel(
             search(MOODS, index)
             // actionList("filter-actions", ["apply"], false, 0, "black")
@@ -273,13 +421,10 @@ function showReviewDialog() {
     showDialog(
         "Write Review",
         contentPanel(
-            label(
-                "review",
-                text("Review") + textarea("review")
-            ) +
-            actionList("", ["cancel", "save"], false, 0, "black")
+            label("review", text("Review") + textarea("review")) +
+                actionList("", ["cancel", "save"], false, 0, "black")
         )
-    )
+    );
 }
 
 /***
@@ -295,56 +440,82 @@ function showReviewDialog() {
 function showAddEventDialog(titleText = "Add Event") {
     showDialog(
         titleText,
-        contentPanel([
-            label(
-                "Destination", row(
-                    // text("Destination") +
-                    input("destination", "text", `placeholder="Destination"`) +
-                    actionButton("...", "search-destination"))
-            ),
-            selectDateRange("Date Range:"),
-            checkBox("Add to Plan", "add-to-plan"),
-            actionList("", ["cancel", "apply"], false, 0, "black")
-        ].join(""))
-    )
+        contentPanel(
+            [
+                label(
+                    "Destination",
+                    row(
+                        // text("Destination") +
+                        input(
+                            "destination",
+                            "text",
+                            `placeholder="Destination"`
+                        ) + actionButton("...", "search-destination")
+                    )
+                ),
+                selectDateRange("Date Range:"),
+                checkBox("Add to Plan", "add-to-plan"),
+                actionList("", ["cancel", "apply"], false, 0, "black"),
+            ].join("")
+        )
+    );
 }
 
 function showSmartIdeasDialog() {
     showAddEventDialog("Smart Ideas");
 }
 
-
 function showUploadDialog() {
-    showDialog("Upload", input("file", "file", "") + actionButton("upload"))
+    showDialog("Upload", input("file", "file", "") + actionButton("upload"));
 }
 
-function showAddPlace(titleText, places = [], actionText = "Add", showWhen = true) {
-    showDialog(titleText,
-        label("place", "Where" + input("place", "text", "placeholder=\"Where?\"")) +
-        places.map(p => actionItem("right", p, -1, p, "")).join("") +
-        (showWhen ? label("place", "When" + input("time", "time")) : "") +
-        actionButton(actionText));
-}
-
-function showScheduleDialog(titleText = "Schedule an Experience", places = [], actionText = "Add") {
+function showAddPlace(
+    titleText,
+    places = [],
+    actionText = "Add",
+    showWhen = true
+) {
     showDialog(
         titleText,
-        label("place",
-            input("place", "text", "placeholder=\"Type name of experience or address\"")
+        label(
+            "place",
+            "Where" + input("place", "text", 'placeholder="Where?"')
         ) +
-        places.map(p => actionItem("right", p, -1, p, "")).join("") +
-        selectDateRange("Date Range:") +
-        // checkBox("Fills all periods in each day above.", "all-periods") +
-        selectTimeRange("When?") +
-        actionPanel(
-            actionButton("Cancel") +
-            actionButton("Apply")
-        )
+            places.map((p) => actionItem("right", p, -1, p, "")).join("") +
+            (showWhen ? label("place", "When" + input("time", "time")) : "") +
+            actionButton(actionText)
+    );
+}
+
+function showScheduleDialog(
+    titleText = "Schedule an Experience",
+    places = [],
+    actionText = "Add"
+) {
+    showDialog(
+        titleText,
+        label(
+            "place",
+            input(
+                "place",
+                "text",
+                'placeholder="Type name of experience or address"'
+            )
+        ) +
+            places.map((p) => actionItem("right", p, -1, p, "")).join("") +
+            selectDateRange("Date Range:") +
+            // checkBox("Fills all periods in each day above.", "all-periods") +
+            selectTimeRange("When?") +
+            actionPanel(actionButton("Cancel") + actionButton("Apply"))
     );
 }
 
 function showSchedule(target, action, which, index) {
-    showScheduleDialog("Schedule an Experience", places = [], actionText = "Add Experience");
+    showScheduleDialog(
+        "Schedule an Experience",
+        (places = []),
+        (actionText = "Add Experience")
+    );
 }
 
 function showAddPlaceDialog(target, action, which, index) {
@@ -352,14 +523,17 @@ function showAddPlaceDialog(target, action, which, index) {
 }
 
 function showAddCheckInDialog(target, action, which, index) {
-    showAddPlace("Add Item &amp; Check-In " + d,
+    showAddPlace(
+        "Add Item &amp; Check-In " + d,
         ["Loquita", "Pro Sports", "The Creamery"],
         "Add &amp; Check-In",
-        false);
+        false
+    );
 }
 
 function showMatchDialog() {
-    showDialog("Taste Match",
+    showDialog(
+        "Taste Match",
         `
         <div class="dialog-content">
             <header>
@@ -410,14 +584,7 @@ function showProfileDialog(target, action, which, index = RUBY) {
     const actions = actionPanel(
         ["block", "friend", "follow"]
             .map((actionName) =>
-                actionItem(
-                    actionName,
-                    index,
-                    index,
-                    actionName,
-                    "black",
-                    false
-                )
+                actionItem(actionName, index, index, actionName, "black", false)
             )
             .join("")
     );
@@ -425,28 +592,53 @@ function showProfileDialog(target, action, which, index = RUBY) {
         // label("", "Relationship" +
         //     input("relationship", "text", `placeholder="e.g. Acquaintance, Friend, BFF"`)
         // ) +
-        label("",
+        label(
+            "",
             "Shared Plans" +
-            div("card-tags", [...[
-                "Brunch - Sunday March 3rd 2022"
-            ]].map(hashTag).join(""))
+                div(
+                    "card-tags",
+                    [...["Brunch - Sunday March 3rd 2022"]]
+                        .map(hashTag)
+                        .join("")
+                )
         ) +
-        label("",
+        label(
+            "",
             "Interests" +
-            div("card-tags", [...[
-                "Skiing", "Fine Dining - Shared", "Wine Tasting - Shared"
-            ]].map(hashTag).join(""))) +
-        label("",
+                div(
+                    "card-tags",
+                    [
+                        ...[
+                            "Skiing",
+                            "Fine Dining - Shared",
+                            "Wine Tasting - Shared",
+                        ],
+                    ]
+                        .map(hashTag)
+                        .join("")
+                )
+        ) +
+        label(
+            "",
             "Boards" +
-            div("card-tags", [...[
-                "Santa Barbara - Linked", "Paris - Shared. Link?", "Seattle"
-            ]].map(hashTag).join(""))) +
+                div(
+                    "card-tags",
+                    [
+                        ...[
+                            "Santa Barbara - Linked",
+                            "Paris - Shared. Link?",
+                            "Seattle",
+                        ],
+                    ]
+                        .map(hashTag)
+                        .join("")
+                )
+        ) +
         cardGroups(who.groups) +
-        ((index === 0) ? "" : actions);
+        (index === 0 ? "" : actions);
 
     const content = contentPanel(
-        person(who) +
-        (index === 0 ? "" : other),
+        person(who) + (index === 0 ? "" : other),
         "profile"
     );
     showDialog(index === 0 ? "Your Profile" : "Profile", content);
@@ -501,7 +693,7 @@ TOAST_MESSAGES = {
     paypal: "Payment Settled",
     venmo: "Payment Settled",
     verify: "Verified",
-    notify: "Notification Sent"
+    notify: "Notification Sent",
 };
 
 function addItem(target, action, which, id) {
@@ -518,7 +710,7 @@ function addItem(target, action, which, id) {
     } else if ("cardItem" === which) {
         showAddCard();
     } else if ("timeline" === which) {
-        showSchedule(target, action, which, id)
+        showSchedule(target, action, which, id);
         // showAddEventDialog("Add to Timeline")
     } else {
         // showAddEventDialog("Add Item")
@@ -547,23 +739,24 @@ function handleRight(target, action, which, id) {
             e.querySelectorAll(".card-actions")[0].remove();
             insertAfter(e, cps[1]);
             cardList.scrollTop = e.offsetTop - 100;
-
         }
     }
     hideDialog();
 }
 
-function apply(target, action, which, id){
-    if ("filter-things-to-do" === which){
+function apply(target, action, which, id) {
+    if ("filter-things-to-do" === which) {
         getAll(".page.explore .explore.card").map(hideElement);
         getAll(".page.explore .explore.card.things-to-do").map(showElement);
-    }else if ("filter-actions-restaurants" === which){
+    } else if ("filter-actions-restaurants" === which) {
         getAll(".page.explore .explore.card").map(hideElement);
         getAll(".page.explore .explore.card.restaurants").map(showElement);
-    }else if ("filter-actions-lodging" === which){
+    } else if ("filter-actions-lodging" === which) {
         getAll(".page.explore .explore.card").map(hideElement);
-        getAll(".page.explore .explore.card.filter-actions-lodging").map(showElement);
-    }else{
+        getAll(".page.explore .explore.card.filter-actions-lodging").map(
+            showElement
+        );
+    } else {
         // console.log(`APPLY ${target} ${action} ${which} ${id}?`)
     }
 }
@@ -581,23 +774,23 @@ ACTION_PAGES = {
     contact: addContact,
     new: addItem,
     search: addPerson,
-    'search-destination': showDestinations,
+    "search-destination": showDestinations,
     invite: sendInvite,
     more: addPerson,
     hide: hideDialog,
     collapse: collapseCard,
     right: handleRight,
     show: toggleCollapse,
-    'map-on': toggleMap,
-    'map-off': toggleMap,
+    "map-on": toggleMap,
+    "map-off": toggleMap,
     person: showProfileDialog,
     match: showMatchDialog,
     upload: showUploadDialog,
-    'smart-ideas': showSmartIdeasDialog,
-    'add-place': showAddPlaceDialog,
-    'check-in': showAddCheckInDialog,
-    'edit': edit,
-    review: showReviewDialog
+    "smart-ideas": showSmartIdeasDialog,
+    "add-place": showAddPlaceDialog,
+    "check-in": showAddCheckInDialog,
+    edit: edit,
+    review: showReviewDialog,
 };
 
 function toggleCollapse(target) {
@@ -628,7 +821,7 @@ function toggleMap(target) {
         img.setAttribute("src", "images/icons/icon-map-on.svg");
     }
 
-    get('.map').classList.toggle("hidden");
+    get(".map").classList.toggle("hidden");
 }
 
 function route(target, action, which = "", index = "") {
