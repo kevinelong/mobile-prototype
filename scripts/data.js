@@ -530,6 +530,7 @@ const EXPLORE_DATA = [
         "restaurants",
         3,
         100,
+        [34.41421031876199, -119.69164738460584],
     ],
 
     [
@@ -545,6 +546,7 @@ const EXPLORE_DATA = [
         "restaurants",
         4,
         97,
+        [34.42427273044929, -119.70538318430323],
     ],
     [
         "images/photos/yoichis.jpg",
@@ -559,6 +561,7 @@ const EXPLORE_DATA = [
         "restaurants",
         4,
         95,
+        [34.42715715496026, -119.70249364197355],
     ],
     [
         "images/photos/los_agaves.jpg",
@@ -573,6 +576,7 @@ const EXPLORE_DATA = [
         "restaurants",
         4,
         90,
+        [34.4375036989364, -119.72734258675358],
     ],
     [
         "images/photos/santo_mezcal.jpg",
@@ -586,6 +590,7 @@ const EXPLORE_DATA = [
         "restaurants",
         4,
         90,
+        [34.4134427932841, -119.69127914319921],
     ],
     [
         "images/photos/la_super-rica_taqueria.jpg",
@@ -600,13 +605,19 @@ const EXPLORE_DATA = [
         "restaurants",
         4,
         90,
+        [34.42790056991083, -119.68722191681411],
     ],
     [
         "images/photos/constantia.jpg",
         "Bridlewood Estate",
         "Santa Barbara",
         "Wine & Food Testing Tour",
-        ["Food &amp; Wine Pairing", "date ideas", "weekend getaways", "wine tasting"],
+        [
+            "Food &amp; Wine Pairing",
+            "date ideas",
+            "weekend getaways",
+            "wine tasting",
+        ],
         [
             {
                 people: [peopleList[BF]],
@@ -629,6 +640,7 @@ const EXPLORE_DATA = [
         "things-to-do",
         4,
         85,
+        [0, 0],
     ],
     [
         "images/photos/hanna-levin.png",
@@ -643,7 +655,7 @@ const EXPLORE_DATA = [
                 groupName: "Mutual Friend",
             },
             {
-                people:[peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
                 title: "Collected",
                 groupName: "Time",
             },
@@ -653,6 +665,7 @@ const EXPLORE_DATA = [
         "people",
         -1,
         97,
+        [0, 0],
     ],
     [
         "images/photos/cannon-beach.jpg",
@@ -682,6 +695,7 @@ const EXPLORE_DATA = [
         "places-to-see",
         -1,
         85,
+        [45.884161669751066, -123.96863053734513],
     ],
     [
         "images/photos/rogue_astoria.jpg",
@@ -711,6 +725,7 @@ const EXPLORE_DATA = [
         "restaurants",
         4,
         85,
+        [46.196750395147454, -123.79762603067174],
     ],
     [
         "images/photos/camel_valley_wines.jpg",
@@ -735,11 +750,12 @@ const EXPLORE_DATA = [
         "things-to-do",
         4,
         85,
+        [34.64230332164125, -120.43610020209037],
     ],
     [
         "images/photos/gargiulo_vineyards.jpg",
         "Rusack Winery",
-        "Napa Valley",
+        "Napa Valley Solvang",
         "Make Your Own Wine Experience",
         ["Food &amp; Wine Tasting Tour", "wine tasting"],
         [
@@ -764,6 +780,7 @@ const EXPLORE_DATA = [
         "things-to-do",
         4,
         85,
+        [34.638058462065956, -120.14186578859605],
     ],
 ];
 

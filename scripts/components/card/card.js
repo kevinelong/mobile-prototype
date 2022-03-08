@@ -181,7 +181,8 @@ function activityCard(item = {}, index = -1) {
         item.imagePath,
         item.tags,
         index,
-        "recommended"
+        "recommended",
+        [],
     );
 }
 
