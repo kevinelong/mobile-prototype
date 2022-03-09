@@ -335,6 +335,11 @@
         justify-content: space-between;
         width: 100%;
     }
+    .page.collect_board .card-title {
+        align-content: center;
+        justify-content: flex-start;
+        align-items: center;
+    }
     
     .card-title-text {
         padding: 3px 6px;
@@ -531,6 +536,7 @@
     }
     
     .card-list .card {
+        width: 348px;
         transition: opacity 300ms ease-in-out, padding 300ms ease-in-out, max-height 300ms ease-in-out, max-height 300ms ease-in-out, min-height 300ms ease-in-out, minwidth 300ms ease-in-out;
     }
     
@@ -646,4 +652,10 @@
         gap: 0.125rem;
         justify-content: space-between;
         align-content: space-between;
+    }
+
+    .titles{
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 12px;
     }

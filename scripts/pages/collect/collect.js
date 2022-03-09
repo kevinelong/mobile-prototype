@@ -1,12 +1,18 @@
 function collectCard(title, subtitle = "", actions = [], which = "", id = 0, image = "", groups = []) {
-    const kind = "board"
+    const kind = "collect";
     return card(
         kind,
-        cardTitles(kind, title, subtitle, which, id),
+        title,
+        subtitle,
         "",
         groups,
         actions,
-        image
+        image,
+        [],
+        which,
+        "",
+        "",
+        "collect_board"
     );
 }
 

@@ -53,13 +53,16 @@ function settleCard(
     return card(
         "settle",
         titleContent,
+        "",
         cardContent, [],
         actions,
         imagePath,
         tags,
         which,
         attrs,
-        period
+        period,
+        "settle_split",
+
     );
 }
 

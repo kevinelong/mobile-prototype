@@ -93,14 +93,10 @@ function exploreCard(
         "explore",
         div(
             "titles explore",
-            cardTitle(title) + cardSubtitle(content) + cardSubtitle(subtitle)
-        ),
-        row(
-            icon(kind) +
             cardTitle(title) +
-            actionItem("open", "explore_detail", id, "")
-        ) +
-        cardSubtitle(subtitle)+
+            cardSubtitle(content) + cardSubtitle(subtitle)
+        ),
+        cardTitles(kind, title, subtitle, "explore_detail", id) +
         cardSubtitle(content),
         groups,
         actions,
@@ -144,25 +140,16 @@ function exploreDetail(
 function exploreCardNotification(quantity, groups = []) {
     return card(
         "explore",
-        div(
-            "titles explore",
-            row(
-                icon("explore") +
-                col(
-                    cardTitle("Explore") +
-                    cardSubtitle(`Santa Barbara, +12 more`)
-                )
-            )
-        ) +
-        actionItem(
-            "open",
-            "explore",
-            "",
-            ""
-        ),
+        "Explore",
+        `Santa Barbara, +12 more`,
         text(`${quantity} new cards from people you love!`),
         groups,
         ["explore"],
-        ""
+        "",
+        [],
+        -1,
+        "",
+        "",
+        "explore_detail"
     );
 }
