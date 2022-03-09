@@ -16,7 +16,7 @@ TASTE_MATCH_PAGES.add("bucket-list", Pane( `
         [
             PaneAction("BACK", "planning2"),
             PaneAction("SKIP", "thanks"),
-            PaneAction("NEXT", "thanks"),
+            PaneAction("NEXT", "trips"),
         ]
     )
 );
