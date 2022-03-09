@@ -19,12 +19,20 @@
 .taste-match-page {
     gap: 40px;
 }
-
+.pane-content{
+    margin-bottom: 40px;
+    overflow-y: scroll;
+    height: max-content;
+}
 .pane-actions {
     display: flex;
     justify-content: space-between;
     flex-direction: row-reverse;
-    width: 100%;
+    width: calc(100% - 40px);
+    position: absolute;
+    bottom:20px;
+    left:20px;
+    right:20px;
 }
 
 /*.taste-match .page1 {*/
@@ -332,4 +340,8 @@
 
 .taste-match .show {
     display: block;
+}
+
+.taste-match .interests-list{
+    gap:6px;
 }

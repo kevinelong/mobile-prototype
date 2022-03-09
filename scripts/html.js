@@ -18,6 +18,10 @@ function a(text, href, className = "") {
     return closedTag("a", text, className, `href="${href}"`);
 }
 
+function p(content="", className=""){
+    return `<p ${className ? 'class="' + className +'"' : ""}>${content}</p>`;
+}
+
 function button(text, attrs, className = "") {
     return closedTag("button", text, `button ${className}`, attrs);
 }
@@ -86,6 +90,16 @@ function radioControl(name, list) {
     return div(
         `radio-control ${name}`,
         list.map(o => radioInput(name, o.value, `data-name="${o.name}"`)).join("")
+    );
+}
+
+function checkboxControl(textValue="", name = "", checked = "", attrs = "") {
+    name = name ? cleanName(name) : cleanName(textValue);
+    checked = checked ? `checked="checked"` : "";
+    return div("checkbox-control",
+            tag("input", name,
+                `name="${name}" id="${name}" ${checked}" type="checkbox" ${attrs}`
+            ) + label("label-"+name, textValue, "for=" + name)
     );
 }
 
