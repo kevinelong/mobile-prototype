@@ -644,7 +644,7 @@ const EXPLORE_DATA = [
     ],
     [
         "images/photos/hanna-levin.png",
-        "Hanna Levin",
+        "Hanna Levin &#128994;",
         "New Taste Match to Follow!",
         "23 Similar Tastes <a href=''>View All</a>",
         ["Local Guide", "Taste-Match"],
