@@ -8,16 +8,16 @@ TASTE_MATCH_PAGES.add("trips2", Pane( `
             how much do you like to spend? Select all that apply.
         </div>
     </div>
-    <div class="radio-control">
-        <input type="radio" id="trips2-1" name="trips2">
+    <div class="checkbox-control">
+        <input type="checkbox" id="trips2-1" name="trips2">
         <label for="trips2-1">I like to budget travel</label>
-        <input type="radio" id="trips2-2" name="trips2">
+        <input type="checkbox" id="trips2-2" name="trips2">
         <label for="trips2-2">I like to spend moderately</label>
-        <input type="radio" id="trips2-3" name="trips2">
+        <input type="checkbox" id="trips2-3" name="trips2">
         <label for="trips2-3">I like luxury travel</label>
-        <input type="radio" id="trips2-4" name="trips2">
+        <input type="checkbox" id="trips2-4" name="trips2">
         <label for="trips2-4">Depends on the type of trip</label>
-        <input type="radio" id="trips2-5" name="trips2">
+        <input type="checkbox" id="trips2-5" name="trips2">
         <label for="trips2-5">Depends on who I'm with</label>
     </div>
 </div>

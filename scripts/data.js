@@ -941,3 +941,65 @@ const INTERESTS = [
     "Snorkeling/Diving",
     "Climbing",
 ].sort();
+
+const CUISINES = [
+    "Indian",
+    "Soul",
+    "Cajun",
+    "Greek",
+    "Chinese",
+    "Arab",
+    "Japanese",
+    "American",
+    "Thai",
+    "Mediterranean",
+    "Moroccan",
+    "French",
+    "Spanish",
+    "Korean",
+    "German",
+    "Vietnamese",
+    "Turkish",
+    "Mexican",
+    "Italian",
+    "Australian",
+].sort();
+
+const WHITE_WINE_BRANDS = [
+    "Kim Crawford Wines",
+    "Santa Margherita",
+    "Bota Box Wines",
+    "La Crema Wines",
+    "Whitehaven",
+    "Black Box Wines",
+    "JaM Cellars",
+    "Franzia",
+    "Cloudy Bay",
+    "Barefoot",
+]
+
+const RED_WINE_BRANDS = [
+    "Josh Cellars",
+    "Meiomi Wines",
+    "Bota Box Wines",
+    "Decoy Wines",
+    "La Crema Wines",
+    "Bread & Butter",
+    "Josh Cellars",
+    "Bota Box Wines",
+    "The Pinot Project",
+    "Zaccagnini",
+]
+
+const ROSE_WINE_BRANDS = [
+    "Chateau d'Esclans",
+    "Apothic",
+    "Josh Cellars",
+    "Chateau Ste. Michelle",
+    "Franzia",
+    "The Pinot Project",
+    "Miraval",
+    "BABE",
+    "Rose All Day",
+    "Luc Belaire",
+]

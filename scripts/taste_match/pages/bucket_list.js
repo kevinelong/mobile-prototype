@@ -1,4 +1,4 @@
-TASTE_MATCH_PAGES.add("bucket-list", Pane( `
+TASTE_MATCH_PAGES.add("bucket_list", Pane( `
 <div class="taste-match-page page1">
     <div class="question-heading">
         <div class="title-control">

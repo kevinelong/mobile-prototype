@@ -1,4 +1,4 @@
-const list = INTERESTS.map(s => checkboxControl(s)).join("\n");
+const interestsList = INTERESTS.map(s => checkboxControl(s)).join("\n");
 //const list = INTERESTS.map(s => p(s)).join("\n");
 
 TASTE_MATCH_PAGES.add("interests", Pane(`
@@ -15,7 +15,7 @@ TASTE_MATCH_PAGES.add("interests", Pane(`
         </div>
     </div>
     <div class="interests-list">
-    ${list}
+    ${interestsList}
     </div>
 </div>
 `,

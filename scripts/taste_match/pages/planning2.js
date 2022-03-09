@@ -9,23 +9,23 @@ TASTE_MATCH_PAGES.add("planning2", Pane( `
         </div>
     </div>
     <div class="checkbox-control">
-        <input type="checkbox" id="checkbox1" name="checkbox">
-        <label for="checkbox1">Google, Yelp, or Open Table</label>
-        <input type="checkbox" id="checkbox2" name="checkbox">
-        <label for="checkbox2">AirBnB Experiences</label>
-        <input type="checkbox" id="checkbox3" name="checkbox">
-        <label for="checkbox3">Trip Advisor</label>
-        <input type="checkbox" id="checkbox4" name="checkbox">
-        <label for="checkbox4">Ask my friends who what I’m researching</label>
-        <input type="checkbox" id="checkbox5" name="checkbox">
-        <label for="checkbox5">I let other people do the planning</label>
+        <input type="checkbox" id="planning2-1" name="planning2">
+        <label for="planning2-1">Google, Yelp, or Open Table</label>
+        <input type="checkbox" id="planning2-2" name="planning2">
+        <label for="planning2-2">AirBnB Experiences</label>
+        <input type="checkbox" id="planning2-3" name="planning2">
+        <label for="planning2-3">Trip Advisor</label>
+        <input type="checkbox" id="planning2-4" name="planning2">
+        <label for="planning2-4">Ask my friends who what I’m researching</label>
+        <input type="checkbox" id="planning2-5" name="planning2">
+        <label for="planning2-5">I let other people do the planning</label>
     </div>
 </div>
 `,
         [
             PaneAction("BACK", "planning"),
             PaneAction("SKIP", "thanks"),
-            PaneAction("NEXT", "bucket-list"),
+            PaneAction("NEXT", "bucket_list"),
         ]
     )
 );

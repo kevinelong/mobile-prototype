@@ -9,7 +9,7 @@ TASTE_MATCH_PAGES.add("thanks", Pane( `
 </div>
 `,
         [
-            PaneAction("BACK", "bucket-list"),
+            PaneAction("BACK", "drink2"),
             PaneAction("CONTINUE", "main.html"),
             // PaneAction("NEXT", `main.html`),
         ]

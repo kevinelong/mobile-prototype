@@ -5,21 +5,21 @@ TASTE_MATCH_PAGES.add("trips", Pane( `
             On trips...
         </div>
         <div class="question-control">
-            what do you splurge on?
+            what do you splurge on? Select all that apply
         </div>
     </div>
-    <div class="radio-control">
-        <input type="radio" id="trips-1" name="trips">
+    <div class="checkbox-control">
+        <input type="checkbox" id="trips-1" name="trips">
         <label for="trips-1">I'll splurge on experiences</label>
-        <input type="radio" id="trips-2" name="trips">
+        <input type="checkbox" id="trips-2" name="trips">
         <label for="trips-2">I'll splurge on meals</label>
-        <input type="radio" id="trips-3" name="trips">
+        <input type="checkbox" id="trips-3" name="trips">
         <label for="trips-3">I'll splurge on lodging</label>
     </div>
 </div>
 `,
         [
-            PaneAction("BACK", "bucket-list"),
+            PaneAction("BACK", "bucket_list"),
             PaneAction("SKIP", "thanks"),
             PaneAction("NEXT", "trips2"),
         ]
