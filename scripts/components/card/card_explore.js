@@ -27,6 +27,7 @@
 function exploreCardContent(
     kind,
     title,
+    subtitle,
     body = "",
     groups = [],
     actions = "",
@@ -53,7 +54,7 @@ function exploreCardContent(
         // img("background top", "images/backgrounds/top-gradient-black.svg") +
         cardSection(
             cardTags(tags) +
-            contentPanel(body)
+            cardTitles("explore", title,subtitle,-1,"explore_details")
         ) +
         row(
             col(
@@ -91,17 +92,9 @@ function exploreCard(
 ) {
     return exploreCardContent(
         "explore",
-        div(
-            "titles explore",
-            cardTitle(title) + cardSubtitle(content) + cardSubtitle(subtitle)
-        ),
-        row(
-            icon(kind) +
-            cardTitle(title) +
-            actionItem("open", "explore_detail", id, "")
-        ) +
-        cardSubtitle(subtitle)+
-        cardSubtitle(content),
+        title,
+        subtitle,
+        "",
         groups,
         actions,
         imagePath,
@@ -144,25 +137,16 @@ function exploreDetail(
 function exploreCardNotification(quantity, groups = []) {
     return card(
         "explore",
-        div(
-            "titles explore",
-            row(
-                icon("explore") +
-                col(
-                    cardTitle("Explore") +
-                    cardSubtitle(`Santa Barbara, +12 more`)
-                )
-            )
-        ) +
-        actionItem(
-            "open",
-            "explore",
-            "",
-            ""
-        ),
+        "Explore",
+        `Santa Barbara, +12 more`,
         text(`${quantity} new cards from people you love!`),
         groups,
         ["explore"],
-        ""
+        "",
+        [],
+        -1,
+        "",
+        "",
+        "explore_detail"
     );
 }

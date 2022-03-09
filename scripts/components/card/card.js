@@ -22,12 +22,17 @@ function cardSubtitle(content) {
     return content ? div("card-subtitle", content) : "";
 }
 
-function cardTitles(kind, title, subtitle = "", which = "", id = 0) {
+function cardTitles(kind, title, subtitle = "", which = "", id = 0, page = "") {
+    page = page ? page : kind;
     return (
         div(
             "titles",
-            row(icon(kind) + col(cardTitle(title) + cardSubtitle(subtitle)))
-        ) + actionItem("open", which, id)
+
+            icon(kind) +
+            col(cardTitle(title) + cardSubtitle(subtitle)
+            ) +
+            actionItem("open", page, id)
+        )
     );
 }
 
@@ -66,8 +71,9 @@ function cardList(content, collapse = false) {
 }
 
 function card(
-    kind,
-    title,
+    kind = "explore",
+    titleText = "",
+    subtitleText = "",
     content = "",
     groups = [],
     actions = [],
@@ -75,31 +81,37 @@ function card(
     tags = [],
     which = -1,
     attrs = "",
-    period = Period()
+    period = "",
+    page = "",
+    match_percent = "",
+    booking_index = -1
 ) {
-
+    period = period ? period : Period();
     const ve = VitaEvent(period, kind);
     ve.imagePath = image;
 
+    let booking = "";
+    if (booking_index >= 0) {
+        booking = actionItem("book", "book", booking_index, "Book Now!");
+    }
+    const match = match_percent ? text(`${match_percent}% match`) : "";
+    const groupsContent = groups ? col(cardGroups(groups)) : "";
+
     return div(
         `card ${kind} ${which}`,
-
         cardSection(
             cardTags(tags) +
-            cardTitle(title) +
+            cardTitles(kind, titleText, subtitleText, which, -1, page),
             contentPanel(content)
         ) +
-        (groups || actions ? cardSection(
-            (groups || actions ? cardQuadrant(
-                cardGroups(groups) +
-                actionList(`card-actions`, actions)
-            ) : "")
-        ) : ""),
-
+        match +
+        groupsContent +
+        booking +
+        actionList(`card-actions`, actions),
         attrs +
         ` data-kind="${cleanName(kind)}" data-which="${which}" ` +
         cardStyle(ve)
-    );
+    )
 }
 
 function mapCard(
@@ -162,7 +174,6 @@ function detail(
         cardTags(tags) +
         cardSection(cardTitle(body)) +
         cardSection(
-
             cardQuadrant(
                 cardGroups(groups) +
                 actionList(`card-actions`, actions)
@@ -175,7 +186,8 @@ function activityCard(item = {}, index = -1) {
     return card(
         "activity",
         item.title,
-        item.subtitle + "<br>" + item.content,
+        item.subtitle,
+        item.content,
         item.groups,
         [],
         item.imagePath,
@@ -183,6 +195,7 @@ function activityCard(item = {}, index = -1) {
         index,
         "recommended",
         [],
+        "explore_detail"
     );
 }
 

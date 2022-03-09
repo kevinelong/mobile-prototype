@@ -1,7 +1,7 @@
-function connectCardTitle(title, subtitle, which = "", id = 0) {
+function connectCardTitle(title, subtitleText, which = "", id = 0) {
     return div(
         "titles",
-        row(icon("people") + col(cardTitle(title) + cardSubtitle(subtitle)))
+        row(icon("people") + col(cardTitle(title) + cardSubtitle(subtitleText)))
     ) + actionItem("open", which, id)
 }
 
@@ -25,7 +25,8 @@ function connectCard(
     period.color = "#663399";
     return card(
         "connect" + " " + kind,
-        connectCardTitle(title, subtitle, which, id),
+        title,
+        subtitle,
         connectCardContent(messageList),
         groups,
         ["add-participant"],
