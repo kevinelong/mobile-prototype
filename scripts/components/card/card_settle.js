@@ -34,34 +34,35 @@ function settleCard(
     period = Period()
 ) {
     period.color = "#663399";
-    const titleContent = div(
-        `titles settle ${kind}`,
-        cardSubtitle(when) +
-        row(
-            icon(which) +
-            col(
-                cardTitle(`${titleCase(where)}`) +
-                cardSubtitle(`${titleCase(location)}`)
-            ) +
-            actionItem("open", "settle_list", index)),
-    );
+    // const titleContent = div(
+    //     `titles settle ${kind}`,
+    //     cardSubtitle(when) +
+    //     row(
+    //         icon(which) +
+    //         col(
+    //             cardTitle(`${titleCase(where)}`) +
+    //             cardSubtitle(`${titleCase(location)}`)
+    //         ) +
+    //         actionItem("open", "settle_list", index)),
+    // );
 
     const color = ((amount > 0) ? "green" : ((amount < 0) ? "red" : "black"));
     const amountText = currency(amount);
     const cardContent = title(amountText, color) + settleGroup(who);
 
     return card(
-        "settle",
-        titleContent,
-        "",
-        cardContent, [],
+        which,
+        where,
+        location,
+        cardContent,
+        [],
         actions,
         imagePath,
         tags,
         which,
         attrs,
         period,
-        "settle_split",
+        "settle_list",
 
     );
 }
