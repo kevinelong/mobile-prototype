@@ -27,6 +27,7 @@
 function exploreCardContent(
     kind,
     title,
+    subtitle,
     body = "",
     groups = [],
     actions = "",
@@ -53,7 +54,7 @@ function exploreCardContent(
         // img("background top", "images/backgrounds/top-gradient-black.svg") +
         cardSection(
             cardTags(tags) +
-            contentPanel(body)
+            cardTitles("explore", title,subtitle,-1,"explore_details")
         ) +
         row(
             col(
@@ -91,13 +92,9 @@ function exploreCard(
 ) {
     return exploreCardContent(
         "explore",
-        div(
-            "titles explore",
-            cardTitle(title) +
-            cardSubtitle(content) + cardSubtitle(subtitle)
-        ),
-        cardTitles(kind, title, subtitle, "explore_detail", id) +
-        cardSubtitle(content),
+        title,
+        subtitle,
+        "",
         groups,
         actions,
         imagePath,
