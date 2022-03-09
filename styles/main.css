@@ -177,6 +177,9 @@ div {
     align-items: center;
     position: relative;
 }
+.collect_board .map-panel{
+    min-height: 326px;
+}
 .map-preview{
     position: absolute;
     top: 12px;

@@ -3,20 +3,28 @@ function collectBoardPage(selected = false) {
         selected,
         "collect_board",
         "Santa Barbara",
-        [
-            icon("all") + "All",
-            icon("ideas") + "Ideas",
-            icon("favorites") + "Favorites",
-            icon("going", "", "Going"),
-        ],
-        icon("all") + "All",
+        [],
+        "",
         // cardGroups(curators) +
-        mapPanel() +
         button(
             "Collect All Pins",
             "collectAllPins()",
             "collect-all"
         ) +
+        choiceSet("collect",[
+            icon("all") + "All",
+            icon("ideas") + "Ideas",
+            icon("favorites") + "Favorites",
+            icon("going", "", "Going"),
+        ], icon("all") + "All") +
+        mapPanel() +
+        choiceSet("activities-list", [
+                "All",
+                "People",
+                "Things to Do",
+                "Restaurants",
+                "Lodging"
+            ], "All") +
         activityList(activityData, true),
         "all",
         "collect",
