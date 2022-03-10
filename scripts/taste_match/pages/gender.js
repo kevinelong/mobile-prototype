@@ -9,16 +9,16 @@ TASTE_MATCH_PAGES.add("gender", Pane( `
         </div>
     </div>
     <div class="radio-control">
-        <input type="radio" id="radio1" name="radio">
-        <label for="radio1">Man</label>
-        <input type="radio" id="radio2" name="radio">
-        <label for="radio2">Woman</label>
-        <input type="radio" id="radio3" name="radio">
-        <label for="radio3">Non-Binary</label>
-        <input type="radio" id="radio4" name="radio">
-        <label for="radio4">Transgender</label>
-        <input type="radio" id="radio5" name="radio">
-        <label for="radio5">Other</label>
+        <input type="radio" id="gender-1" name="gender">
+        <label for="gender-1">Man</label>
+        <input type="radio" id="gender-2" name="gender">
+        <label for="gender-2">Woman</label>
+        <input type="radio" id="gender-3" name="gender">
+        <label for="gender-3">Non-Binary</label>
+        <input type="radio" id="gender-4" name="gender">
+        <label for="gender-4">Transgender</label>
+        <input type="radio" id="gender-5" name="gender">
+        <label for="gender-5">Other</label>
     </div>
 </div>
 `,

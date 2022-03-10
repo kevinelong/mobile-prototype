@@ -1,4 +1,4 @@
-TASTE_MATCH_PAGES.add("bucket-list", Pane( `
+TASTE_MATCH_PAGES.add("bucket_list", Pane( `
 <div class="taste-match-page page1">
     <div class="question-heading">
         <div class="title-control">
@@ -16,7 +16,7 @@ TASTE_MATCH_PAGES.add("bucket-list", Pane( `
         [
             PaneAction("BACK", "planning2"),
             PaneAction("SKIP", "thanks"),
-            PaneAction("NEXT", "thanks"),
+            PaneAction("NEXT", "trips"),
         ]
     )
 );
