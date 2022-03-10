@@ -144,13 +144,11 @@ function mapCard(
             cardSummary(groups)
         ) +
         div("preview-actions",
-            // div("match_percent", match_percent + "% match") +
             actionItem("alternatives", "preview", -1, "Alternatives", "", false, 0, true) +
             actionItem("Share", "add", -1, "Share", "", true, 0, true) +
             actionItem("Message", "add", -1, "Invite", "", true, 0, true) +
-            // actionItem("Connect", "add", -1, "Connect", "",true,0,true) +
-            actionItem("map-on-white", "map-on", -1, "Directions", "", true, 0, true) +
-            actionItem("book", "book", -1, "Book Now!", "", false, 0, true)
+            actionItem("Directions", "map-on", -1, "Directions", "", true, 0, true) +
+            actionItem("Book", "book", -1, "Book Now!", "", false, 0, true)
         ),
         attrs +
         ` data-kind="${cleanName(kind)}" data-which="${which}" ` +

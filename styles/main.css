@@ -189,7 +189,7 @@ div {
     /*border: 1px solid black;*/
     border-radius: 0px;
     max-height: 90px;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 .page.collect_board .map-preview .card ,
@@ -413,3 +413,38 @@ input[type="text"].tag-input {
 .toggle-text{
     margin-left: 32px;
 }
+
+.tooltip {
+    position: relative;
+    /*display: inline-block;*/
+}
+
+.tooltip .tooltiptext {
+    font-size: 0.7em;
+    visibility: hidden;
+    background-color: #00000088;
+    color: white;
+    text-align: center;
+    padding: 1px 1px;
+    border-radius: 2px;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    /*width: 60px;*/
+    /*margin-left: -30px; !* Use half of the width (120/2 = 60), to center the tooltip *!*/
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.tooltip .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+}
+

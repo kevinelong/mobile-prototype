@@ -54,7 +54,7 @@ function exploreCardContent(
         // img("background top", "images/backgrounds/top-gradient-black.svg") +
         cardSection(
             cardTags(tags) +
-            cardTitles("explore", title,subtitle,-1,"explore_details")
+            cardTitles("explore", title, subtitle,-1,-1,"explore_detail")
         ) +
         row(
             col(
@@ -63,7 +63,7 @@ function exploreCardContent(
                     col(cardGroups(groups)) +
                     booking
                 ) +
-                actionList(`card-actions`, actions, false, qty)
+                actionList(`card-actions`, actions, true, qty)
             )
         )
         // img(

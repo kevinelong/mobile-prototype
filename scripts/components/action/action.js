@@ -1,5 +1,5 @@
 function action(name, which = "", id = -1, object = {}) {
-    return `onclick="actionClick(this, '${name}','${which}','${id}')"`;
+    return `onclick="actionClick(this, '${name}','${which}','${id}')" alt="${name}"`;
 //    return `onclick="actionClick(this, '${name}','${which}','${id}')" data-object="${JSON.stringify(object).replace(/"/g, "'")}"`;
 }
 
@@ -21,12 +21,13 @@ function actionItem(name, which = "", index = -1, textValue = "", iconColor = ""
     if ("favorite" === name) {
         textValue = qty ? qty : textValue;
     }
-
-    return div(
+    const content = div(
         `action-item ${name} ${which} ${small ? 'small' : ''}`,
         icon(name, iconColor, textValue, hideText),
         action(name, which, index)
     );
+
+    return !hideText ? content : tooltip(name, content);
 }
 
 function personItem(name, which, index, person) {

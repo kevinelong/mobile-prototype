@@ -10,7 +10,7 @@ function div(className, content, attrs) {
     return closedTag("div", content, className, attrs);
 }
 
-function span(className, content="", attrs="") {
+function span(className, content = "", attrs = "") {
     return closedTag("span", content, className, attrs);
 }
 
@@ -18,8 +18,8 @@ function a(text, href, className = "") {
     return closedTag("a", text, className, `href="${href}"`);
 }
 
-function p(content="", className=""){
-    return `<p ${className ? 'class="' + className +'"' : ""}>${content}</p>`;
+function p(content = "", className = "") {
+    return `<p ${className ? 'class="' + className + '"' : ""}>${content}</p>`;
 }
 
 function button(text, attrs, className = "") {
@@ -93,13 +93,13 @@ function radioControl(name, list) {
     );
 }
 
-function checkboxControl(textValue="", name = "", checked = "", attrs = "") {
+function checkboxControl(textValue = "", name = "", checked = "", attrs = "") {
     name = name ? cleanName(name) : cleanName(textValue);
     checked = checked ? `checked="checked"` : "";
     return div("checkbox-control",
-            tag("input", name,
-                `name="${name}" id="${name}" ${checked}" type="checkbox" ${attrs}`
-            ) + label("label-"+name, textValue, "for=" + name)
+        tag("input", name,
+            `name="${name}" id="${name}" ${checked}" type="checkbox" ${attrs}`
+        ) + label("label-" + name, textValue, "for=" + name)
     );
 }
 
@@ -126,7 +126,7 @@ function textarea(name, content = "", attrs = "") {
     );
 }
 
-function checkbox(name=""){
+function checkbox(name = "") {
     return input(name, "checkbox");
 }
 
@@ -139,6 +139,8 @@ function toggleItem(text) {
     );
 }
 
-function toggleSet(list=[""]){
+function toggleSet(list = [""]) {
     return list.map(toggleItem).join("");
 }
+
+const tooltip = (tip, content) => div("tooltip", content + span("tooltiptext", tip));

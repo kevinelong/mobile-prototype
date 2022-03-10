@@ -46,7 +46,7 @@ function showSearch(title, index = -1) {
                 "Connections",
                 "Groups",
                 "Contacts",
-            ]) +
+            ], "All") +
             search(peopleList, index) +
             actionList(
                 "filter",
@@ -629,7 +629,6 @@ function collapseCard(target) {
 }
 
 function edit(target, action, which, id) {
-    // console.log("edit()", target, action, which, id);
     if (which === "mood") {
         showMoodDialog();
     } else if (which === "location") {
@@ -638,7 +637,6 @@ function edit(target, action, which, id) {
 }
 
 function openPage(target, action, which, id) {
-    // console.log("openPage", target, action, which, id);
     if ("open" === action && which.toLowerCase().startsWith("http")) {
         window.open(which, "_self");
     } else if ("open" === action || "explore" === action) {
@@ -649,6 +647,8 @@ function openPage(target, action, which, id) {
         showPage("settle_split", "open", id);
     } else if ("board" === action) {
         showPage("collect", "collect", id);
+    }else{
+        console.log("can't openPage", target, action, which, id);
     }
 }
 
@@ -693,10 +693,8 @@ function addItem(target, action, which, id) {
         showSchedule(target, action, which, id);
         // showAddEventDialog("Add to Timeline")
     } else {
-        // showAddEventDialog("Add Item")
+        console.log("can't addItem", ...arguments);
     }
-
-    // console.log("addItem", ...arguments);
 }
 
 function insertAfter(newNode, referenceNode) {
@@ -791,7 +789,6 @@ function toggleCollapse(target) {
 }
 
 function toggleMap(target) {
-    // console.log(target);
     let img = target.querySelectorAll("img")[0];
     const src = img.getAttribute("src");
 
@@ -806,15 +803,13 @@ function toggleMap(target) {
 
 function route(target, action, which = "", index = "") {
     const lower = action.toLowerCase();
-    // console.log("ROUTE", target, action, which, index)
+
     if (TOAST_MESSAGES.hasOwnProperty(lower)) {
         return showToast(TOAST_MESSAGES[lower]);
     } else if (ACTION_PAGES.hasOwnProperty(lower)) {
-        // console.log("ACTION: " + lower, which, index);
         const f = ACTION_PAGES[lower];
-        // console.log(f);
         return f(target, lower, which, index);
     } else {
-        // console.log("UNKNOWN ACTION:" + lower);
+        console.log("UNKNOWN ACTION:" + lower);
     }
 }

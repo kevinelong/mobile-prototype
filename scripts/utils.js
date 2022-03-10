@@ -47,12 +47,12 @@ function hideElement(e) {
 
 function showPage(pageName, action = "", id = "") {
     if ("" === pageName) {
-        //   console.log("Missing pageName: " + pageName);
+        console.log("Missing pageName: " + pageName);
         return;
     }
     const page = get(`.page.${pageName}`);
     if (!page) {
-        //   console.log("No such page element: " + pageName);
+        console.log("No such page element: " + pageName);
         return;
     }
     const parts = pageName.split("_");

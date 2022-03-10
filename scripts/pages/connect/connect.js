@@ -109,6 +109,16 @@ function connectPage(selected = false) {
                         subtitle: ""
                     }], ["decline", "counter", "accept"]
                 ),
+                planCard(
+                    "Check In and Rate",
+                    "Brasil Arts Cafe",
+                    "Check in and rate to earn Vita Rewards", [], ["rate", "review", "check-in"]
+                ),
+                planCard(
+                    "Verify",
+                    "Yesterday's Transportation",
+                    "Verify to earn Vita Rewards", [], ["verify"]
+                ),
                 /* settleCard(
                     [peopleList[BF]],
                     "$123.45",
@@ -141,16 +151,6 @@ function connectPage(selected = false) {
                     "Santa Barbara",
                     ["accept"],
                 ),*/
-                planCard(
-                    "Check In and Rate",
-                    "Brasil Arts Cafe",
-                    "Check in and rate to earn Vita Rewards", [], ["rate", "review", "check-in"]
-                ),
-                planCard(
-                    "Verify",
-                    "Yesterday's Transportation",
-                    "Verify to earn Vita Rewards", [], ["verify"]
-                ),
             ].join("")
         );
 
