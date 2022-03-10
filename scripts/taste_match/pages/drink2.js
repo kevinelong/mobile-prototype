@@ -31,7 +31,7 @@ TASTE_MATCH_PAGES.add("drink2", Pane(`
         [
             PaneAction("BACK", "drink"),
             PaneAction("SKIP", "thanks"),
-            PaneAction("NEXT", "thanks"),
+            PaneAction("NEXT", "music"),
         ]
     )
 );

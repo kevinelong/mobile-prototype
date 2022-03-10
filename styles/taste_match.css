@@ -167,7 +167,7 @@
     width: 100%;
 }
 
-.taste-match button {
+.taste-match .pane-actions button {
     background-color: #F9A831;
     color: white;
     font-weight: bold;
@@ -180,14 +180,19 @@
     padding: 1em;
 }
 
-.taste-match a,
+/* .taste-match a,
 .taste-match button {
     justify-content: center;
     align-items: center;
     display: flex;
+} */
+
+.taste-match .button-control button {
+
 }
 
-.taste-match .login-control .submit-signin {
+.taste-match .login-control .submit-signin,
+.taste-match .button-control .button-import {
     border-radius: 4px;
     background-color: #F9A831;
     color: white;
@@ -198,7 +203,8 @@
     height: 38px;
 }
 
-.taste-match .google-control {
+.taste-match .google-control,
+.taste-match .button-control .button-skip {
     background-color: white;
     font-size: 14px;
     color: #8F8F8F;
