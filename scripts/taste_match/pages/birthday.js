@@ -8,9 +8,10 @@ TASTE_MATCH_PAGES.add("birthday", Pane( `
             When were you born?
         </div>
     </div>
-    
-    TODO ADD DATE CONTROL
-    
+    <div class="calender-control">
+        <!-- <label for="date">Birthday:</label> -->
+        <input type="date" id="date" name="date" placeholder="Enter a date...">
+    </div>
 </div>
 `,
         [

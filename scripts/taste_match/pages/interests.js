@@ -14,8 +14,8 @@ TASTE_MATCH_PAGES.add("interests", Pane(`
             Pick at least 4...
         </div>
     </div>
-    <div class="interests-list">
-    ${interestsList}
+    <div class="checkbox-control">
+        ${interestsList}
     </div>
 </div>
 `,
@@ -27,19 +27,19 @@ TASTE_MATCH_PAGES.add("interests", Pane(`
     )
 );
 
-function dropToggle() {
-    get(".dropdown-content").classList.toggle("show");
-}
+// function dropToggle() {
+//     get(".dropdown-content").classList.toggle("show");
+// }
 
-window.onclick = function (event) {
-    if (!event.target.matches(".dropbtn")) {
-        const dropdowns = get(".dropdown-content");
+// window.onclick = function (event) {
+//     if (!event.target.matches(".dropbtn")) {
+//         const dropdowns = get(".dropdown-content");
 
-        if (dropdowns.classList.contains("show")) {
-            dropdowns.classList.remove("show");
-        }
-    }
-}
+//         if (dropdowns.classList.contains("show")) {
+//             dropdowns.classList.remove("show");
+//         }
+//     }
+// }
 
 
 

@@ -11,7 +11,7 @@ TASTE_MATCH_PAGES.add("food2", Pane(`
         </div>
     </div>
     TODO SLIDERS: OCCASIONALLY <= => EVERY WEEK
-    <div class="interests-list">
+    <div class="checkbox-control">
         ${food2List}
     </div>
 </div>
