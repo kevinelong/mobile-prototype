@@ -7,7 +7,7 @@ TASTE_MATCH_PAGES.add("connect2", Pane(`
            Choose Contacts
         </div>
     </div>
-    <div class="interests-list">
+    <div class="checkbox-control">
         ${contactsList}
     </div>
 </div>

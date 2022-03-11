@@ -180,12 +180,12 @@
     padding: 1em;
 }
 
-/* .taste-match a,
+.taste-match a,
 .taste-match button {
     justify-content: center;
     align-items: center;
     display: flex;
-} */
+}
 
 .taste-match .button-control button {
 

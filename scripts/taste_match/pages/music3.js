@@ -10,7 +10,7 @@ TASTE_MATCH_PAGES.add("music3", Pane(`
             Select all musicians/bands you enjoy so we can match you with the best music experiences
         </div>
     </div>
-    <div class="interests-list">
+    <div class="checkbox-control">
         ${bandsList}
     </div>
 </div>

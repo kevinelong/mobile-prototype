@@ -96,7 +96,7 @@ function radioControl(name, list) {
 function checkboxControl(textValue = "", name = "", checked = "", attrs = "") {
     name = name ? cleanName(name) : cleanName(textValue);
     checked = checked ? `checked="checked"` : "";
-    return div("checkbox-control",
+    return div("checkbox-pair",
         tag("input", name,
             `name="${name}" id="${name}" ${checked}" type="checkbox" ${attrs}`
         ) + label("label-" + name, textValue, "for=" + name)

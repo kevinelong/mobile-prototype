@@ -14,15 +14,15 @@ TASTE_MATCH_PAGES.add("drink2", Pane(`
             Choose your favorite wine brands
         </div> 
     </div>
-    <div class="interests-list">
+    <div class="checkbox-control">
         Select all your favorite white wine brands...
         ${whiteWineBrandsList}
     </div>
-    <div class="interests-list">
+    <div class="checkbox-control">
         Select all your favorite red wine brands...
         ${redWineBrandsList}
     </div>
-    <div class="interests-list">
+    <div class="checkbox-control">
         Select all your favorite rosé wine brands...
         ${roseWineBrandsList}
     </div>
