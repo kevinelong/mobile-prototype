@@ -50,8 +50,9 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     get(".inner-content").innerHTML = [
-        explorePage(true),
+        explorePage(false),
         exploreDetailPage(),
+        exploreFakePage(true),
         broadcastPage(),
         collectPage(),
         collectBoardPage(),
