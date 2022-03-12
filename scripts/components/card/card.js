@@ -109,7 +109,7 @@ function card(
         groupsContent +
         booking +
         actionList(`card-actions`, actions),
-        
+
         action("open", page, -1) +
         actionAttribute +
         attrs +
@@ -227,7 +227,7 @@ function titleRow(name, icon, index, collapse = true) {
             title(name)
         ) +
         actionItem("show"),
-        "",
+        action("show"),
         collapse ? " collapse" : ""
     )
 }
