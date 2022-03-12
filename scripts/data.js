@@ -8,7 +8,7 @@ function VitaEvent(
     period = Period(),
     kind = "restaurants",
     currentMood = "hungry",
-    color = "#999999"
+    color = "#336699"
 ) {
     period.color = period.color ? period.color : color;
     return {

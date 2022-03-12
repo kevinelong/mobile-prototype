@@ -103,10 +103,10 @@ function checkboxControl(textValue = "", name = "", checked = "", attrs = "") {
     );
 }
 
-function selectOptionsComponent(name, optionList) {
+function selectOptionsComponent(displayName, optionList) {
     return label("select-options-component",
-        text(name) +
-        select(cleanName(name), optionList)
+        (displayName ? text(displayName) : "") +
+        select(cleanName(displayName), optionList)
     )
 }
 

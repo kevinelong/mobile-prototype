@@ -27,7 +27,7 @@
 .card .content-panel{
     text-shadow: 1px 1px 0px rgba(0,0,0,0.5);
 }
-.page.settle .card{
+.page .settle.card{
     background-color: #663399;
 }
 .page.settle > .content-panel {

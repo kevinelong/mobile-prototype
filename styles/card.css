@@ -36,7 +36,12 @@
         flex-direction: row;
         gap: 0.25rem;
     }
-    
+    .card select,
+    .card option{
+        background-color: #0008;
+        color: white;
+        border: none;
+    }
     .image {
         background-repeat: no-repeat;
         background-size: cover;

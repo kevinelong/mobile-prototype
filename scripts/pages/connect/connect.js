@@ -45,6 +45,21 @@ function connectPage(selected = false) {
         ) +
         cardList(
             [
+                card(
+                    "settle",
+                    "Pay",
+                    "End of Day Settlement – Net All Items<br>Yesterday, Tuesday 12/12/2022 12:01 pm",
+                    title("You Owe $267") + button("Pay $267"),
+                    [
+                        {
+                            people: three_people,
+                            title: "Split with",
+                            groupName: "participants",
+                            subtitle: "",
+                        },
+                    ],
+                    ["Split", "Auto&dash;Split Settings", "Review Day"].reverse()
+                ),
                 connectCard(
                     [],
                     "I can join you on Saturday and Sunday",

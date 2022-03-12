@@ -58,6 +58,20 @@ function exploreCardContent(
         ) +
         row(
             col(
+                (kind2 === "people" ? a("Local Guide") +
+                selectOptionsComponent("",[
+                    {name:"10 Collections:"},
+                    {name:"Santa Barbara, CA"},
+                    {name:"Portland, OR"},
+                    {name:"New York, NY"},
+                    {name:"Austin, TX"},
+                    {name:"San Francisco, CA"},
+                    {name:"Los Angeles, CA"},
+                    {name:"Seattle, WA"},
+                    {name:"Vancouver, BC"},
+                    {name:"Anchorage, AK"},
+                    {name:"Paris, FR"}
+                ]):"") +
                 text(`${match_percent}% match`) +
                 row(
                     col(cardGroups(groups)) +
