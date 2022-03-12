@@ -8,7 +8,6 @@ TASTE_MATCH_PAGES.add("free_time", Pane( `
             Select all that apply
         </div>
     </div>
-    TODO SLIDERS: OCCASIONALLY <= => VERY FREQUENTLY
     <div class="checkbox-control">
         <input type="checkbox" id="free_time-1" name="free_time">
         <label for="free_time-1">Relaxing in nature</label>
@@ -35,7 +34,9 @@ TASTE_MATCH_PAGES.add("free_time", Pane( `
     </div>
 </div>
 `,
-        [
+    // DEFERRED SLIDERS: OCCASIONALLY <= => VERY FREQUENTLY
+
+    [
             PaneAction("BACK", "trips4"),
             PaneAction("SKIP", "thanks"),
             PaneAction("NEXT", "free_time_plan"),

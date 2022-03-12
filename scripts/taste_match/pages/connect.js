@@ -10,6 +10,8 @@ TASTE_MATCH_PAGES.add("connect", Pane(`
         </div>
         <div class="button-control">
             <button type="submit" class="button-skip">Skip</button>
+        </div>
+        <div class="button-control">
             <button type="submit" class="button-import">Import Contacts</button>
         </div>
     </div>

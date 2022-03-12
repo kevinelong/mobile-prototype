@@ -2,10 +2,10 @@ TASTE_MATCH_PAGES.add("free_time_plan4", Pane( `
 <div class="taste-match-page page1">
     <div class="question-heading">
         <div class="title-control">
-            Share how you plan your free time so we can match you with amazing experiences
+            Share how you plan your free time,
         </div>
         <div class="question-control">
-            How many vacations do you take each year that are 2-3 nights in length?
+             so we can match you with amazing experiences.
         </div>
     </div>
     <div class="radio-control">

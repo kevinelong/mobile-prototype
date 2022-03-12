@@ -2,7 +2,10 @@ TASTE_MATCH_PAGES.add("free_time_plan2", Pane( `
 <div class="taste-match-page page1">
     <div class="question-heading">
         <div class="title-control">
-            Share how you plan your free time so we can match you with amazing experiences
+            Share how you plan your free time,
+        </div>
+        <div class="question-control">
+             so we can match you with amazing experiences.
         </div>
         <div class="question-control">
             On average, how many experiences do you engage in outside your home per month that DO NOT include meals or exercise?
