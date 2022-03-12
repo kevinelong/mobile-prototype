@@ -85,10 +85,9 @@ function exploreCardContent(
         //     "images/backgrounds/bottom-gradient-black.svg"
         // )
         ,
-        image ? `style="background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.25)), black url('${image}') center/cover no-repeat;"` : ""
-
-        // image ? `style="background-image: url('${image}');"` : ""
-    ) //+ cardTitle(title);
+        (image ? `style="background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.25)), black url('${image}') center/cover no-repeat;"` : "") +
+        action("open", "explore_detail", id)
+    )
 }
 
 function exploreCard(

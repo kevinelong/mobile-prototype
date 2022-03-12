@@ -127,7 +127,7 @@ function actionButton(content, className, attrs) {
         "button",
         content,
         `action-button ${className}`,
-        `onclick="actionClick('${className}', '${className}', '${className}')" $attrs`
+        `onclick="actionClick(event, '${className}', '${className}', '${className}')" $attrs`
     );
 }
 

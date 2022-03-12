@@ -29,7 +29,7 @@ function connectCard(
         subtitle,
         connectCardContent(messageList),
         groups,
-        ["add-participant"],
+        ["Participants"],
         "",
         [],
         0,

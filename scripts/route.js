@@ -542,14 +542,14 @@ function showMatchDialog() {
                 </div>
             </main>
             <footer>
-                <button class="link" onclick="actionClick(this, 'close','',-1)">
+                <button class="link" onclick="actionClick(event, this, 'close','',-1)">
                     Don't Show Again
                 </button>
                 <div>
-                    <button onclick="actionClick(this, 'close','',-1)">
+                    <button onclick="actionClick(event, this, 'close','',-1)">
                         Dismiss
                     </button>
-                    <button onclick="actionClick(this, 'close','',-1)">
+                    <button onclick="actionClick(event, this, 'close','',-1)">
                         Open Board
                     </button>
                 </div>

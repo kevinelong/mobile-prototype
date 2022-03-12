@@ -1,6 +1,6 @@
 function action(name, which = "", id = -1, object = {}) {
-    return `onclick="actionClick(this, '${name}','${which}','${id}')" alt="${name}"`;
-//    return `onclick="actionClick(this, '${name}','${which}','${id}')" data-object="${JSON.stringify(object).replace(/"/g, "'")}"`;
+    return `onclick="actionClick(event, this, '${name}','${which}','${id}')" alt="${name}"`;
+//    return `onclick="actionClick(event, this, '${name}','${which}','${id}')" data-object="${JSON.stringify(object).replace(/"/g, "'")}"`;
 }
 
 function actionPanel(content) {
@@ -38,7 +38,18 @@ function personItem(name, which, index, person) {
     );
 }
 
-function actionClick(target, action, which = "", index = -1, data = {}) {
+function actionClick(e, target, action, which = "", index = -1, data = {}) {
+    if (!e)
+        e = window.event;
+
+    //IE9 & Other Browsers
+    if (e.stopPropagation) {
+        e.stopPropagation();
+    }
+    //IE8 and Lower
+    else {
+        e.cancelBubble = true;
+    }
     // console.log("click", action, which,index,data,target);
     hideDialog();
     route(target, action, which, index, data);
