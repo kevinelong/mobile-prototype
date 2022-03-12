@@ -102,7 +102,7 @@ function card(
         `card ${kind} ${which}`,
         cardSection(
             cardTags(tags) +
-            cardTitles(kind, titleText, subtitleText, which, -1, page),
+            cardTitles(kind, titleText, subtitleText, which, -1, page) +
             contentPanel(content)
         ) +
         match +
