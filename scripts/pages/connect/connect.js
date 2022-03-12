@@ -58,7 +58,13 @@ function connectPage(selected = false) {
                             subtitle: "",
                         },
                     ],
-                    ["Split", "Auto&dash;Split Settings", "Review Day"].reverse()
+                    ["Split", "Auto&dash;Split Settings", "Review Day"].reverse(),
+                    "",
+                    [],
+                    "settle_list",
+                    "",
+                    "",
+                    "settle_list"
                 ),
                 connectCard(
                     [],

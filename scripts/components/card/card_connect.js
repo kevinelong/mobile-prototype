@@ -34,7 +34,8 @@ function connectCard(
         [],
         0,
         ` data-kind="${cleanName(kind)}" `,
-        period
+        period,
+        "connect_chat",
     );
 }
 

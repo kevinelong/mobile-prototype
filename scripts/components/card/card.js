@@ -84,7 +84,8 @@ function card(
     period = "",
     page = "",
     match_percent = "",
-    booking_index = -1
+    booking_index = -1,
+    actionAttribute= ""
 ) {
     period = period ? period : Period();
     const ve = VitaEvent(period, kind);
@@ -108,6 +109,9 @@ function card(
         groupsContent +
         booking +
         actionList(`card-actions`, actions),
+        
+        action("open", page, -1) +
+        actionAttribute +
         attrs +
         ` data-kind="${cleanName(kind)}" data-which="${which}" ` +
         cardStyle(ve)
