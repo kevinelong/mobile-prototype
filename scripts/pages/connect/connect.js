@@ -185,6 +185,9 @@ function connectPage(selected = false) {
         "",
         "",
         "Find what?",
-        messagesContent
+        messagesContent,
+        false,
+        "",
+        actionItem("add", "message", -1, "Message", "black", false, 0)
     );
 }
