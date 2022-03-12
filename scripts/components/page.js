@@ -25,7 +25,7 @@ function page(
                 col(
                     div("title-middle", icon(name + "-black", "", caption))
                 ) +
-                actionItem("map-off") +
+                // actionItem("map-off") +
                 cardPerson(peopleList[RUBY])
             ) +
             (pushSecondaryNavChoicesAboveSearchFilter ? filters : "") +
