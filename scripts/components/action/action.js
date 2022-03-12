@@ -39,6 +39,9 @@ function personItem(name, which, index, person) {
 }
 
 function actionClick(e, target, action, which = "", index = -1, data = {}) {
+    if (e.target != target && e.target.tagName.toUpperCase() != "IMG"){
+        return false;
+    }
     if (!e)
         e = window.event;
 

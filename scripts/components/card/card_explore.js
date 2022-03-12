@@ -58,7 +58,7 @@ function exploreCardContent(
         ) +
         row(
             col(
-                (kind2 === "people" ? a("Local Guide") +
+                (kind2 === "people" ? a("Local Guide", "#") +
                 selectOptionsComponent("",[
                     {name:"10 Collections:"},
                     {name:"Santa Barbara, CA"},
