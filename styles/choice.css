@@ -34,10 +34,10 @@
     display: flex;
     flex-direction: row;
     gap: 2px;
-    padding: 3px;
+    padding: 6px 6px 3px;
     /*background: #dddddd;*/
     overflow-x: scroll;
-    min-height: 24px;
+    min-height: 30px;
     justify-content: space-between;
 }
 
@@ -60,7 +60,7 @@
 }
 
 .connect.page .choice {
-    min-width: 81px;
+    min-width: 112px;
 }
 
 .collect.page .choice {

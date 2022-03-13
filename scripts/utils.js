@@ -118,37 +118,22 @@ function cleanName(n) {
 }
 
 function applyConnectFilter(e, id, index, text) {
-    // console.log("applyConnectFilter", e, id, index, text)
+    console.log("applyConnectFilter", e, id, index, text)
+
     const cp = e.closest(".page");
     if (!cp) {
         return;
     }
 
-    const cards = cp.querySelectorAll(".card");
     text = cleanName(text);
+    const ts = cp.getElementsByClassName("tab-set")[0];
 
-    cards.forEach(c => {
+    if ("NOTIFICATIONS" === text) {
+        return hideElement(ts);
+    }else{
+        return showElement(ts);
+    }
 
-        if ("ALL" === text) {
-            return showElement(c);
-        }
-
-        if (!e.dataset.choice || !c.dataset.kind) {
-            return hideElement(c);
-        }
-
-        let kind = cleanName(c.dataset.kind);
-        let choiceName = cleanName(e.dataset.choice);
-        if (choiceName === kind) {
-            return showElement(c);
-        }
-
-        if ("NOTIFICATIONS" === choiceName && !["1-ON-1", "GROUP-CHAT"].includes(kind)) {
-            return showElement(c);
-        }
-
-        hideElement(c);
-    });
 }
 
 function applyExploreFilter(e, id, index, text) {
