@@ -357,3 +357,9 @@
 .taste-match .interests-list{
     gap:6px;
 }
+
+.taste-match .place-card {
+    display: inline-block;
+    /* max-width: 100px; */
+    background-color: aquamarine;
+}
