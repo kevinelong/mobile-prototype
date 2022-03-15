@@ -1,5 +1,5 @@
 const Period = () => {
-    return { name: "", from: "", to: "", color: "", ideas: [] };
+    return {name: "", from: "", to: "", color: "", ideas: []};
 };
 
 let currentLocation = "Santa Barbara";
@@ -55,7 +55,7 @@ const LATE_NIGHT = 7;
 //Ensure every period has all the default VitaEvent properties.
 const injectVitaEventProps = (periods) =>
     periods.map((p) => {
-        return { ...p, ...VitaEvent(p), events: [] };
+        return {...p, ...VitaEvent(p), events: []};
     });
 
 const getPeriods = () =>
@@ -251,12 +251,12 @@ const THINGS_TO_DO = [
 const THINGS_TO_DO_FILTERS = ["All", "Indoor", "Outdoor", "Group"];
 
 const MOODS = [
-    { name: "Romantic" },
-    { name: "Active" },
-    { name: "Relaxed" },
-    { name: "Thirsty" },
-    { name: "Hungry" },
-    { name: "Bored" },
+    {name: "Romantic"},
+    {name: "Active"},
+    {name: "Relaxed"},
+    {name: "Thirsty"},
+    {name: "Hungry"},
+    {name: "Bored"},
 ];
 
 const DESTINATIONS = [
@@ -467,36 +467,40 @@ coplanners = [
     },
 ];
 
-let messageListExample = [
-    {
-        text: "Hey girl welcome!",
-        person: peopleList[RUBY],
-    },
-    {
-        text: "Hi! Thanks for the invite",
-        person: peopleList[BF],
-    },
-    {
-        text: "So... I have a long weekend in 2 weeks. Thinkin' of taking that trip to Santa Barbara I have been telling you about.",
-        person: peopleList[RUBY],
-    },
-    {
-        text: "What do you think? Wanna join me?",
-        person: peopleList[RUBY],
-    },
-    {
-        text: "I don't have a long weekend :(",
-        person: peopleList[BF],
-    },
-    {
-        text: "BUT I can join you on Saturday and Sunday",
-        person: peopleList[BF],
-    },
-    {
-        text: "??",
-        person: peopleList[BF],
-    },
-];
+let messageListExample = {
+    members: [peopleList[BF], peopleList[JOE], peopleList[RUBY]],
+    messages: [
+        {
+            text: "Hey girl welcome!",
+            person: peopleList[RUBY],
+        }
+        ,
+        {
+            text: "Hi! Thanks for the invite",
+            person: peopleList[BF],
+        },
+        {
+            text: "So... I have a long weekend in 2 weeks. Thinkin' of taking that trip to Santa Barbara I have been telling you about.",
+            person: peopleList[RUBY],
+        },
+        {
+            text: "What do you think? Wanna join me?",
+            person: peopleList[RUBY],
+        },
+        {
+            text: "I don't have a long weekend :(",
+            person: peopleList[BF],
+        },
+        {
+            text: "BUT I can join you on Saturday and Sunday",
+            person: peopleList[BF],
+        },
+        {
+            text: "??",
+            person: peopleList[BF],
+        }
+    ]
+};
 
 const DEFAULT_GROUPS = [
     {
@@ -845,7 +849,9 @@ const EXPLORE_DATA = [
     ],
 ];
 
-const ADItem = (id, icon, name, items = []) => {return {id: id, icon: icon, name: name, items: items}}
+const ADItem = (id, icon, name, items = []) => {
+    return {id: id, icon: icon, name: name, items: items}
+}
 
 const activityData = [
     ADItem("things-to-do", "things-to-do-black", "Things to Do", []),

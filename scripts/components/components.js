@@ -113,7 +113,10 @@ function person(person) {
 function inputMessage() {
     return label(
         "input-message",
-        input("message-input", "text", `placeholder="Type a message..."`)
+        row(
+            input("message-input", "text", `placeholder="Type a message..."`) +
+            actionItem("add")
+        )
     );
 }
 
