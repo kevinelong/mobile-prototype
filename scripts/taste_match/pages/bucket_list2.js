@@ -12,12 +12,32 @@ TASTE_MATCH_PAGES.add("bucket_list2", Pane( `
         </div>
     </div>
     <div class="known-places">
-        <div>
-            Santa Barbara
-            <div>Brasil Arts Cafe</div>
-            <div>Yoichi's</div>
+        <div class="known-place">
+            Santa Barbara, CA
+            <div class="button-plus"></div>
         </div>
-    </div>
+            <div class="known-exp">
+                Brasil Arts Cafe
+                <div class="button-minus"></div>
+            </div>
+            <div class="known-exp">
+                Yoichi's
+                <div class="button-minus"></div>
+            </div>
+        <div class="known-place">
+            Oregon
+            <div class="button-plus"></div>
+        </div>
+            <div class="known-exp">
+                Haystack Rock
+                <div class="button-minus"></div>
+            </div>
+            <div class="known-exp">
+                Rogue Brewery
+                <div class="button-minus"></div>
+            </div>
+    </div> 
+    
 </div>
 `,
         [

@@ -15,7 +15,7 @@ TASTE_MATCH_PAGES.add("bucket_list", Pane( `
     <div class="place-card">
         <span>Napa Valley, CA</span>
     </div>
-    </div>
+</div>
 `,
         [
             PaneAction("BACK", "planning2"),
