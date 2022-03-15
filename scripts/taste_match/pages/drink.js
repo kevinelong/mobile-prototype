@@ -2,7 +2,7 @@ TASTE_MATCH_PAGES.add("drink", Pane( `
 <div class="taste-match-page page1">
     <div class="question-heading">
         <div class="title-control">
-            What do you like to drink?
+            Drink
         </div>
         <div class="question-control">
             Select all types of beverages you enjoy...

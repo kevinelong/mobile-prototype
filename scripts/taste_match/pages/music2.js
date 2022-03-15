@@ -2,7 +2,7 @@ TASTE_MATCH_PAGES.add("music2", Pane( `
 <div class="taste-match-page page1">
     <div class="question-heading">
         <div class="title-control">
-            Your taste in music
+            Music
         </div>
         <div class="question-control">
             Select all musical genres you enjoy...

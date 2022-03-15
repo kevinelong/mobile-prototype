@@ -4,13 +4,10 @@ TASTE_MATCH_PAGES.add("food2", Pane(`
 <div class="taste-match-page page1">
     <div class="question-heading">
         <div class="title-control">
-            Tell us about your eating habits,
+            Food
         </div>
         <div class="question-control">
-             so we can match you with the best food experiences:
-        </div>
-        <div class="question-control">
-            Select your favorite cuisines...
+            What are your favorite cuisines? Select all that apply.
         </div>
     </div>
     <div class="checkbox-control">

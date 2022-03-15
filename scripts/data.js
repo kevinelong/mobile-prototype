@@ -1195,3 +1195,31 @@ const CONTACTS = [
     `Dulcie Veeta`,
     `Abby Normal`,
 ].sort()
+
+const tasteMatchPages = getAll(".taste-match-page")
+console.log(tasteMatchPages)
+const progressControl = `
+    <div class="progress-control">
+        <div class="progress-line">
+            <div class="line-full"></div>
+            <img class="progress-icon" src="images/flight_yellow.svg" alt="">
+        </div>
+    </div>
+`
+    
+const planePages = []
+
+for (let i = 1; i < tasteMatchPages.length; i++) {
+    tasteMatchPages[i].firstElementChild.insertAdjacentHTML("beforebegin", progressControl)
+    planePages.push(tasteMatchPages[i])
+}
+
+for (let i = 1; i < planePages.length; i++) {
+    const progressLine = planePages[i].querySelector(".progress-line")
+    const lineFull = planePages[i].querySelector(".line-full")
+    const progressIcon = planePages[i].querySelector(".progress-icon")
+    const distanceMultiplier = Math.floor(progressLine.offsetWidth / (planePages.length - 1))
+    const iconDistance = distanceMultiplier * i
+    lineFull.style.width = `${iconDistance + 2}px`
+    progressIcon.style.left = `${iconDistance}px`
+}

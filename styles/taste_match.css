@@ -498,3 +498,17 @@
     width: 30px;
     /* font-size: 0; */
 }
+
+.taste-match .pane.connect .pane-content{
+    height: 100%;
+}
+
+.taste-match .pane.connect .taste-match-page {
+    height: 100%;
+    justify-content: space-between;
+}
+
+.taste-match .pane.connect .connect-buttons {
+    gap: 1em;
+    padding-bottom: 1em;
+}

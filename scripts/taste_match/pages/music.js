@@ -2,10 +2,10 @@ TASTE_MATCH_PAGES.add("music", Pane( `
 <div class="taste-match-page page1">
     <div class="question-heading">
         <div class="title-control">
-            Tell us a bit about yourself
+            Music
         </div>
         <div class="question-control">
-            Your taste in music
+            What is your favorite type of music venue?
         </div>
     </div>
     <div class="radio-control">
@@ -14,7 +14,7 @@ TASTE_MATCH_PAGES.add("music", Pane( `
         <input type="radio" id="music-2" name="music">
         <label for="music-2">I enjoy large live music events</label>
         <input type="radio" id="music-3" name="music">
-        <label for="music-3">I ejoy small music venues</label>
+        <label for="music-3">I enjoy small music venues</label>
         <input type="radio" id="music-4" name="music">
         <label for="music-4">No, I don't like live music experiences</label>   
     </div>
