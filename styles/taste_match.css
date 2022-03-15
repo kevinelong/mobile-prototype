@@ -371,25 +371,42 @@
     gap: 1em;
 }
 
-.taste-match .known-place,
+.taste-match .known-place {
+    flex-direction: row;
+    font-size: 14px;
+    /* justify-content: space-evenly; */
+    /* gap: 1em; */
+}
+
 .taste-match .known-exp {
-    border: 1px solid black;
+    flex-direction: row;
+}
+
+.taste-match .known-place-tab,
+.taste-match .known-exp-tab {
+    border: 1px solid #F9A831;;
     background-color: white;
     height: 32px;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding-left: 8px;
+    border-radius: 50vh;
+    width: 100%;
 }
 
-.taste-match .known-place {
+.taste-match .known-place-tab {
     background-color: #ddd;
+    height: 32px;
 }
 
 .taste-match .known-exp {
     /* margin: 0 32px; */
     margin-left: 32px;
-    margin-right: 2px;
+    margin-right: 32px;
+}
+
+.taste-match .known-exp-tab {
     height: 24px;
 }
 
@@ -422,11 +439,11 @@
     /* position: absolute; */
     /* width: 35px; 
     height: 35px; */
-    min-height: 100%;
+    /* min-height: 100%;
     width: 30px;
     background: #fff;
     cursor: pointer;
-    border: 2px solid #095776;
+    border: 2px solid #095776; */
 
     /* Mittig */
     /* top: 50%;
@@ -435,7 +452,7 @@
 
 }
 
-.taste-match .button-minus {
+/* .taste-match .button-minus {
     width: 24px;
 }
 
@@ -471,4 +488,13 @@
 .taste-match .button-plus:hover {
     background-color: #095776;
     transition: 0.2s;
+} */
+
+.taste-match .button-plus,
+.taste-match .button-minus {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 30px;
+    /* font-size: 0; */
 }
