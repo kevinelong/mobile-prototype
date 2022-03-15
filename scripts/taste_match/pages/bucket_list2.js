@@ -2,7 +2,7 @@ TASTE_MATCH_PAGES.add("bucket_list2", Pane( `
 <div class="taste-match-page page1">
     <div class="question-heading">
         <div class="title-control">
-            Bucket-list
+            Familiar Places
         </div>
         <div class="question-control">
             Tell us about a place you are familiar with so we can get to know you
