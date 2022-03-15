@@ -1,4 +1,19 @@
-.main-nav {
+.main-nav{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background: white;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: end;
+    padding: 0;
+    z-index: 500;
+    box-shadow: -1px -1px 3px #000c;
+}
+
+.main-nav.normal-tabs{
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -15,7 +30,7 @@
 #main-nav-tab-collect{
     /*margin: 0 48px;*/
 }
-.promoted-tabs {
+.main-nav.promoted-tabs {
     display: flex;
     justify-self: center;
     align-self: center;

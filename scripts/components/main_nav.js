@@ -17,12 +17,12 @@ function mainNavTab(text = "", selected = false, icon = "compass", index) {
 
 function mainNav(tabNames = [""], promotedTabs = [""], selectedItem = "") {
     return div(
-            `main-nav length-${tabNames.length}`,
+            `main-nav normal-tabs length-${tabNames.length}`,
             [...tabNames]
                 .map((t, i) => mainNavTab(t.toUpperCase(), t === selectedItem, t, i))
                 .join("")
         ) +
-        div(`promoted-tabs length-${tabNames.length}`,
+        div(`main-nav promoted-tabs length-${tabNames.length}`,
             [...promotedTabs]
                 .map((t, i) => mainNavTab(t.toUpperCase(), t === selectedItem, t, i))
                 .join("")
