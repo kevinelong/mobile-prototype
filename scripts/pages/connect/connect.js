@@ -2,40 +2,39 @@ function connectPage(selected = false) {
     const defaultLocation = "Santa Barbara";
     const itemCount = 11;
 
-    // const timelineContent = [
-    //     choiceSet(
-    //         "timeline", [
-    //             "Go!",
-    //             "Check-Ins",
-    //             "Pay/Settle",
-    //             "Rate/Review",
-    //             "Verify for Offset",
-    //             "Memories"
-    //         ],
-    //         "Go!"
-    //     ),
-    //     cardList([
-    //         cardListSection(
-    //             "Friday 12/12/2022",
-    //             actionItem("add-place", "timeline", -1, "add", "black"),
-    //             "Santa Barbara",
-    //             getPeriods().map(timelineCard)
-    //         ),
-    //         cardListSection(
-    //             "Saturday 12/13/2022",
-    //             actionItem("add-place", "timeline", -1, "add", "black"),
-    //             "Santa Barbara",
-    //             getPeriods().map(timelineCard)
-    //         ),
-    //         cardListSection(
-    //             "Sunday 12/14/2022",
-    //             actionItem("add-place", "timeline", -1, "add", "black"),
-    //             "Santa Barbara",
-    //             getPeriods().map(timelineCard)
-    //         ),
-    //     ].join("")),
-    // ].join("");
+    const chatContent = cardList(
+        [
+            connectCard(
+                {messages:[],members:[]},
+                "I can join you on Saturday and Sunday",
+                "Thursday June 17th 10:23am",
+                0, [{
+                    people: [peopleList[BF]],
+                    title: "Connecting with",
+                    groupName: "Participant",
+                    subtitle: "in 1 on 1 conversation."
+                }],
+                "connect_chat"
+            ),
+        ].join("")
+    );
 
+    const groupContent = cardList(
+        [
+            connectCard(
+                messageListExample,
+                "Group Chat",
+                peopleList.map(p => p.name).join(", "),
+                0, [{
+                    people: peopleList,
+                    title: "Connecting with",
+                    groupName: "Participant",
+                    subtitle: "in group conversation."
+                }],
+                "connect_chat"
+            ),
+        ].join("")
+    );
     const notificationsContent = cardList(
         [
             card(
@@ -109,72 +108,7 @@ function connectPage(selected = false) {
                 "Yesterday's Transportation",
                 "Verify to earn Vita Rewards", [], ["verify"]
             ),
-            /* settleCard(
-                [peopleList[BF]],
-                "$123.45",
-                "Yesterday 12/12/2022",
-                "Pay",
-                -1,
-                "NET - All Items",
-                13,
-                "Santa Barbara"
-            ),
-            settleCard(
-                [peopleList[JOE]],
-                "$80.00",
-                "Yesterday 11/21/2022",
-                "Received",
-                -1,
-                "Golf",
-                3,
-                "Santa Barbara",
-                ["acknowledge"]
-            ),
-            settleCard(
-                [peopleList[BF]],
-                "$12.34",
-                "Yesterday 11/21/2022",
-                "received",
-                -1,
-                "Coffee",
-                4,
-                "Santa Barbara",
-                ["accept"],
-            ),*/
-        ].join("")
-    );
 
-    const chatContent = cardList(
-        [
-            connectCard(
-                [],
-                "I can join you on Saturday and Sunday",
-                "Thursday June 17th 10:23am",
-                0, [{
-                    people: [peopleList[BF]],
-                    title: "Connecting with",
-                    groupName: "Participant",
-                    subtitle: "in 1 on 1 conversation."
-                }],
-                "connect_chat"
-            ),
-        ].join("")
-    );
-
-    const groupContent = cardList(
-        [
-            connectCard(
-                messageListExample,
-                "Group Chat",
-                peopleList.map(p => p.name).join(", "),
-                0, [{
-                    people: peopleList,
-                    title: "Connecting with",
-                    groupName: "Participant",
-                    subtitle: "in group conversation."
-                }],
-                "connect_chat"
-            ),
         ].join("")
     );
 
@@ -207,3 +141,71 @@ function connectPage(selected = false) {
         actionItem("add", "message", -1, "Message", "black", false, 0)
     );
 }
+
+
+// const timelineContent = [
+//     choiceSet(
+//         "timeline", [
+//             "Go!",
+//             "Check-Ins",
+//             "Pay/Settle",
+//             "Rate/Review",
+//             "Verify for Offset",
+//             "Memories"
+//         ],
+//         "Go!"
+//     ),
+//     cardList([
+//         cardListSection(
+//             "Friday 12/12/2022",
+//             actionItem("add-place", "timeline", -1, "add", "black"),
+//             "Santa Barbara",
+//             getPeriods().map(timelineCard)
+//         ),
+//         cardListSection(
+//             "Saturday 12/13/2022",
+//             actionItem("add-place", "timeline", -1, "add", "black"),
+//             "Santa Barbara",
+//             getPeriods().map(timelineCard)
+//         ),
+//         cardListSection(
+//             "Sunday 12/14/2022",
+//             actionItem("add-place", "timeline", -1, "add", "black"),
+//             "Santa Barbara",
+//             getPeriods().map(timelineCard)
+//         ),
+//     ].join("")),
+// ].join("");
+
+/* settleCard(
+                [peopleList[BF]],
+                "$123.45",
+                "Yesterday 12/12/2022",
+                "Pay",
+                -1,
+                "NET - All Items",
+                13,
+                "Santa Barbara"
+            ),
+            settleCard(
+                [peopleList[JOE]],
+                "$80.00",
+                "Yesterday 11/21/2022",
+                "Received",
+                -1,
+                "Golf",
+                3,
+                "Santa Barbara",
+                ["acknowledge"]
+            ),
+            settleCard(
+                [peopleList[BF]],
+                "$12.34",
+                "Yesterday 11/21/2022",
+                "received",
+                -1,
+                "Coffee",
+                4,
+                "Santa Barbara",
+                ["accept"],
+            ),*/

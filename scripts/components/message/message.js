@@ -14,16 +14,13 @@ function messageItem(message_item, isSamePerson) {
 
 function messagePanel(messageList) {
     let lastItem = {person: {id: 0}};
-    //   console.log(lastItem)
     return div(
         "message-panel",
-        [...messageList]
-            .map((message_item) => {
+        [...messageList].map(message_item => {
                 const OUTPUT = messageItem(message_item, message_item.person.id === lastItem.person.id);
                 lastItem = message_item;
                 return OUTPUT;
-            })
-            .join("") + inputMessage()
+            }).join("") + inputMessage()
     );
 }
 

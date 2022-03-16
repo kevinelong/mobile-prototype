@@ -84,8 +84,17 @@ function hide(selector) {
     e.classList.add("hidden");
 }
 
+
+function selectItemMainNav(e, id, index, text) {
+    // debugger;
+    const all = getAll(".main-nav .main-nav-tab");
+    all.forEach(s => s.classList.remove("selected"));
+    e.classList.add("selected");
+    applyFilter(e, id, index, text);
+}
+
 function selectPage(e) {
-    selectItem(e);
+    selectItemMainNav(e);
     const name = toName(e.id);
     const parts = name.split("-");
     if (parts.length < 2) return;
@@ -130,7 +139,7 @@ function applyConnectFilter(e, id, index, text) {
 
     if ("NOTIFICATIONS" === text) {
         return hideElement(ts);
-    }else{
+    } else {
         return showElement(ts);
     }
 

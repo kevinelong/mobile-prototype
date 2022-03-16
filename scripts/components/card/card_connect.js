@@ -5,15 +5,15 @@ function connectCardTitle(title, subtitleText, which = "", id = 0) {
     ) + actionItem("open", which, id)
 }
 
-function connectCardContent(groups, messageList = []) {
+function connectCardContent(groups, messageList = {messages:[],members:[]}) {
     return [
-        messagePanel(messageList.slice(-3)),
+        messagePanel(messageList.messages.slice(-3)),
         // actionItem("add", "person", -1, "Add Person", "", false),
     ].join("");
 }
 
 function connectCard(
-    messageList = [],
+    messageList = {messages:[],members:[]},
     title = "",
     subtitle = "",
     id = 0,
