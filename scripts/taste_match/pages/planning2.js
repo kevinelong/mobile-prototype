@@ -2,10 +2,10 @@ TASTE_MATCH_PAGES.add("planning2", Pane( `
 <div class="taste-match-page page1">
     <div class="question-heading">
         <div class="title-control">
-            How do you plan your free time in your home town?
+            Planning
         </div>
         <div class="question-control">
-            Select all that apply
+        How do you plan your free time in your home town? Select all that apply.
         </div>
     </div>
     <div class="checkbox-control">

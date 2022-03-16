@@ -8,11 +8,13 @@ TASTE_MATCH_PAGES.add("connect", Pane(`
                 Vita is better with friends. Connect with family and friends so you can discover ieas and start planning together.
             </div>
         </div>
-        <div class="button-control">
-            <button type="submit" class="button-skip">Skip</button>
-        </div>
-        <div class="button-control">
-            <button type="submit" class="button-import">Import Contacts</button>
+        <div class="connect-buttons">
+            <div class="button-control">
+                <button type="submit" class="button-skip">Skip</button>
+            </div>
+            <div class="button-control">
+                <button type="submit" class="button-import">Import Contacts</button>
+            </div>
         </div>
     </div>
     `,

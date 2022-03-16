@@ -8,10 +8,7 @@ TASTE_MATCH_PAGES.add("interests", Pane(`
             Interests
         </div>
         <div class="question-control">
-            What are your interests?
-        </div>
-        <div class="question-control">
-            Pick at least 4...
+            What are your interests? Pick at least 4.
         </div>
     </div>
     <div class="checkbox-control">

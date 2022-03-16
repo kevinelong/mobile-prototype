@@ -2,10 +2,10 @@ TASTE_MATCH_PAGES.add("free_time", Pane( `
 <div class="taste-match-page page1">
     <div class="question-heading">
         <div class="title-control">
-            In my home town when I’m not working I’m…
+            Free time
         </div>
         <div class="question-control">
-            Select all that apply
+        What do you like to do in your home town when you're not working? Select all that apply.
         </div>
     </div>
     <div class="checkbox-control">

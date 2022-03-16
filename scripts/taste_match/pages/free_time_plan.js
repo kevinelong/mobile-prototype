@@ -2,10 +2,7 @@ TASTE_MATCH_PAGES.add("free_time_plan", Pane( `
 <div class="taste-match-page page1">
     <div class="question-heading">
         <div class="title-control">
-            Share how you plan your free time,
-        </div>
-        <div class="question-control">
-             so we can match you with amazing experiences.
+            Habits
         </div>
         <div class="question-control">
             How many meals do you eat out per month on average?

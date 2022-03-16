@@ -17,7 +17,7 @@ function onPaneAction(pane) {
 
 function paneAction(a) {
     let content = a.name;
-    let href = `javascript:onPaneAction('${a.pane}');return false;`;
+    let href = `onPaneAction('${a.pane}')`;
 
     if(a.pane.indexOf(".html") !== -1){
         href = a.pane;
@@ -44,13 +44,9 @@ function paneAction(a) {
 
 
     return `
-<div class="pane-action" onclick="onPaneAction('${a.pane}')">
-    <a href="${href}" style="text-decoration: none;">
-        <button>
-            ${content}                   
-        </button>
-    </a>
-</div>`;
+<button class="pane-action" onclick="onPaneAction('${a.pane}')"> 
+    ${content}                   
+</button>`;
 }
 
 function pane(name, p, start) {
