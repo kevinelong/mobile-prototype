@@ -50,10 +50,14 @@
 /*}*/
 
 .taste-match .progress-control {
+   
+    /* position: absolute;
+    top: 0; */
     /* display: inline; */
     /* width: 100%; */
     /* position: relative; */
-    height: 19px;
+    min-height: 19px;
+    align-items: center;
 }
 
 /* .taste-match .progress-control hr {
@@ -66,10 +70,11 @@
 .taste-match .progress-line {
     background-color: #FFEFD8;
     height: 3px;
-    width: 100%;
+    width: 98%;
     position: absolute;
     top: 8px;
     border-radius: 50vh;
+    display: inline-block;
     /* flex-direction: row; */
 }
 
@@ -503,6 +508,10 @@
     height: 100%;
 }
 
+.taste-match .taste-match-page {
+    /* margin-top: 19px; */
+}
+
 .taste-match .pane.connect .taste-match-page {
     height: 100%;
     justify-content: space-between;
@@ -511,4 +520,8 @@
 .taste-match .pane.connect .connect-buttons {
     gap: 1em;
     padding-bottom: 1em;
+}
+
+.taste-match .progress-control {
+
 }
