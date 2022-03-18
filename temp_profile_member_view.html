@@ -130,11 +130,23 @@ route
       font-size: 1em;
     }
 
-    .profile-host .profile-connections {
-      height: 10%;
+    .profile-host .button-nav.profile {
+      background-color: #F9A831;
     }
 
+    .profile-host .button-nav.settings {
+      background-color: grey;
+    }
 
+    .profile-host .connections-profile {
+      height: 10%;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+
+    .profile-host .connections-friends {
+      /* flex-direction: column; */
+    }
 
     .profile-host .profile-main {
       border: 1px solid black;
@@ -145,7 +157,6 @@ route
       border: 1px solid black;
       height: 20%;
     }
-
   </style>
 
 </head>
@@ -164,30 +175,35 @@ route
                 Settings
               </button>
             </div>
-            <div class="profile-connections">
+            <div class="connections-profile">
               <div class="connections-friends">
-                <div class="friends-title"></div>
+                <div class="friends-title">Friends with</div>
                 <div class="friends-people">
-                  <img class="people-img" src="" alt="">
+                  <img class="people-img" src="images/faces/face1.png" alt="">
                   <div class="people-count"></div>
                 </div>
               </div>
               <div class="connections-followed">
-                <div class="friends-title"></div>
+                <div class="friends-title">Followed by</div>
                 <div class="friends-people">
-                  <img class="people-img" src="" alt="">
+                  <img class="people-img" src="images/faces/face1.png" alt="">
+                  <img class="people-img" src="images/faces/face2.png" alt="">
                   <div class="people-count"></div>
                 </div>
               </div>
               <div class="connections-following">
-                <div class="friends-title"></div>
+                <div class="friends-title">Following</div>
                 <div class="friends-people">
-                  <img class="people-img" src="" alt="">
+                  <img class="people-img" src="images/faces/face1.png" alt="">
+                  <img class="people-img" src="images/faces/face2.png" alt="">
                   <div class="people-count"></div>
                 </div>
               </div>
             </div>
-            <div class="profile-main"></div>
+            <div class="profile-main">
+              <!-- <script>cardPerson(peopleList[0].name)</script> -->
+            </div>
+
             <div class="profile-misc"></div>
           </div>
         </div>
