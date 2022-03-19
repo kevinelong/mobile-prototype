@@ -78,12 +78,18 @@ function show(selector) {
 function hide(selector) {
     const e = get(selector);
     if (!e) {
-        // console.log(`selector '${selector}' not matched.`)
         return;
     }
     e.classList.add("hidden");
 }
 
+function hideAll(selector) {
+    const e = getAll(selector);
+    if (!e) {
+        return;
+    }
+    e.forEach(i=> i.classList.add("hidden"));
+}
 
 function selectItemMainNav(e, id, index, text) {
     // debugger;
@@ -133,16 +139,10 @@ function applyConnectFilter(e, id, index, text) {
     if (!cp) {
         return;
     }
-
+    debugger;
     text = cleanName(text);
-    const ts = cp.getElementsByClassName("tab-set")[0];
-
-    if ("NOTIFICATIONS" === text) {
-        return hideElement(ts);
-    } else {
-        return showElement(ts);
-    }
-
+    hideAll(".page.connect .tab-set");
+    show(`.page.connect .tab-set.${text}`);
 }
 
 function applyExploreFilter(e, id, index, text) {

@@ -6,7 +6,16 @@
     color: black;
     flex-direction: row;
     overflow-x: scroll;
-    overflow-y: hidden;
+    overflow-y: visible;
+    align-items: center;
+    margin: 0 3px;
+}
+.tab-set > .tab-row:first-of-type {
+    gap: 3px;
+}
+
+.tab-set > .tab-row .action-item{
+    /*margin: 0 6px;*/
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -51,6 +60,7 @@
 
     /*height: 555px;*/
     overflow-y: scroll;
+    width: 100%;
 }
 
 .page.connect .tab-content {

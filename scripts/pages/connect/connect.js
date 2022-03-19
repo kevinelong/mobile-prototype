@@ -5,7 +5,7 @@ function connectPage(selected = false) {
     const chatContent = cardList(
         [
             connectCard(
-                {messages:[],members:[]},
+                {messages: [], members: []},
                 "I can join you on Saturday and Sunday",
                 "Thursday June 17th 10:23am",
                 0, [{
@@ -112,33 +112,40 @@ function connectPage(selected = false) {
         ].join("")
     );
 
-    const messagesContent = choiceSet(
-            "connect", [
-                "Conversations",
-                "Notifications",
-                "People",
-            ], "Conversations"
-        ) +
-        tabSet("chat", [
-            {name: "1 on 1", content: chatContent},
-            {name: "Group Chat", content: groupContent},
-        ], "1 on 1") +
-        notificationsContent;
+    const preTabs=actionItem("search", "", -1, "search", "black", true);
+    const postTabs=actionItem("sort", "", -1, "sort", "black", true);
+
+    const messagesContent = tabSet("conversations", [
+        {name: "1 on 1", content: chatContent},
+        {name: "Group Chat", content: groupContent},
+    ], "1 on 1", preTabs, postTabs);
+
+    let contactsContent = button("Add Contact")
+    let groupsContent = button("New Group")
+
+    const peopleContent = tabSet("people", [
+            {name: "Contacts", content: contactsContent},
+            {name: "Groups", content: groupsContent},
+        ], "Contacts", preTabs, postTabs);
+
 
     return page(
         selected,
         "connect",
-        "Connect", [],
-        "All",
+        "Connect",
+        ["Conversations", "Notifications", "People"],
+        "Conversations",
         "",
         "",
         "",
+        actionItem("chat", "message", -1, "", "black", true, 0),
         "",
-        "Find what?",
-        messagesContent,
+        messagesContent + peopleContent + notificationsContent,
         false,
         "",
-        actionItem("add", "message", -1, "Message", "black", false, 0)
+        "",
+        actionItem("chat", "message", -1, "", "black", true, 0),
+
     );
 }
 

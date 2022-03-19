@@ -7,15 +7,16 @@ function choice(kind, text, selected = false, index = -1) {
     );
 }
 
-function choiceSet(kind, choiceList = [], selectedItem = "", pageName) {
+function choiceSet(kind, choiceList = [], selectedItem = "", pageName, prefix="", postfix="") {
     if (choiceList.length === 0) {
         return "";
     }
     return div(
         "choice-set",
+        prefix +
         [...choiceList].map(
             (c, i) => choice(kind, c, c === selectedItem, i)
-        ).join("") + actionItem("add", pageName, -1, "add", "black", false, 0),
+        ).join("") + postfix,
         `id="${kind}" class='secondary-nav'`
     )
 }
