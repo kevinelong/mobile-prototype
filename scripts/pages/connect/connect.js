@@ -112,8 +112,8 @@ function connectPage(selected = false) {
         ].join("")
     );
 
-    const preTabs=actionItem("search", "", -1, "search", "black", true);
-    const postTabs=actionItem("sort", "", -1, "sort", "black", true);
+    const preTabs = actionItem("search", "", -1, "search", "black", true);
+    const postTabs = actionItem("sort", "", -1, "sort", "black", true);
 
     const messagesContent = tabSet("conversations", [
         {name: "1 on 1", content: chatContent},
@@ -124,9 +124,9 @@ function connectPage(selected = false) {
     let groupsContent = button("New Group")
 
     const peopleContent = tabSet("people", [
-            {name: "Contacts", content: contactsContent},
-            {name: "Groups", content: groupsContent},
-        ], "Contacts", preTabs, postTabs);
+        {name: "Groups", content: groupsContent},
+        {name: "Contacts", content: contactsContent},
+    ], "Groups", preTabs, postTabs);
 
 
     return page(
@@ -145,7 +145,6 @@ function connectPage(selected = false) {
         "",
         "",
         actionItem("chat", "message", -1, "", "black", true, 0),
-
     );
 }
 
