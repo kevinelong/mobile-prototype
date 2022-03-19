@@ -133,13 +133,11 @@ function cleanName(n) {
 }
 
 function applyConnectFilter(e, id, index, text) {
-    console.log("applyConnectFilter", e, id, index, text)
-
+    //console.log("applyConnectFilter", e, id, index, text)
     const cp = e.closest(".page");
     if (!cp) {
         return;
     }
-    debugger;
     text = cleanName(text);
     hideAll(".page.connect .tab-set");
     show(`.page.connect .tab-set.${text}`);
