@@ -129,7 +129,12 @@ function connectPage(selected = false) {
             ].join("")
         );
 
-    let groupsContent = button("New Group")
+    let groupsContent = button("New Group") +
+        cardList(
+            [
+                cardGroup(peopleList),
+            ].join("")
+        );
 
 
     const peopleContent = tabSet("people", [

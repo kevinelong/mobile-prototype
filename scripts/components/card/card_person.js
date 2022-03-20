@@ -16,6 +16,20 @@ function cardContact(person, tags = []) {
     );
 }
 
+function cardGroup(peopleList) {
+    return div(
+        "card contact",
+        row(
+            icon("people","black") +
+            hashTags(peopleList.map(p=>p.name)) +
+            actionItem("chat")
+        ) +
+        row(
+            actionItem("add","participant", -1, "Add Participant")
+        )
+    );
+}
+
 const PLURALS = {
     "taste match": "Taste Matches",
     "person": "People",
