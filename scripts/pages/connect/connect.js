@@ -120,8 +120,17 @@ function connectPage(selected = false) {
         {name: "Group Chat", content: groupContent},
     ], "1 on 1", preTabs, postTabs);
 
-    let contactsContent = button("Add Contact")
+    let contactsContent = button("Add Contact") +
+        cardList(
+            [
+                cardContact(peopleList[BF],["Friend",  "Phone"]),
+                cardContact(peopleList[JOE],["Friend",  "Facebook", "Instagram"]),
+                cardContact(peopleList[RUBY],["Expert"]),
+            ].join("")
+        );
+
     let groupsContent = button("New Group")
+
 
     const peopleContent = tabSet("people", [
         {name: "Groups", content: groupsContent},

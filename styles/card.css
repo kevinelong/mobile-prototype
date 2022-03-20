@@ -1,666 +1,704 @@
-    .card-subtitle {
-        margin-bottom: 3px;
-    }
-    
-    .card-list {
-        width: 100%;
-        flex-direction: column;
-        /*justify-content: start;*/
-        align-items: flex-start;
-        padding: 6px 6px 144px 6px;
-        gap: 6px;
-        background: none;
-        height: 555px;
-        overflow-y: scroll;
-        overflow-x: hidden;
-    }
-    .card-list-section{
-        gap: 2px;
-        padding: 0;
-        display: block;
-    }
+.card-subtitle {
+    margin-bottom: 3px;
+}
 
-    .page.timeline .card-list{
-        padding: 120px 0 180px;
-    }
+.card-list {
+    width: 100%;
+    flex-direction: column;
+    /*justify-content: start;*/
+    align-items: flex-start;
+    padding: 6px 6px 144px 6px;
+    gap: 6px;
+    background: none;
+    height: 555px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
 
-    .activity-list {
-        width: 100%;
-    }
+.card-list-section {
+    gap: 2px;
+    padding: 0;
+    display: block;
+}
 
-    .activity-list .collapse .card-list {
-        gap: 0;
-    }
-    
-    .card-people {
-        flex-direction: row;
-        gap: 0.25rem;
-    }
-    .card select,
-    .card option{
-        background-color: #0008;
-        color: white;
-        border: none;
-    }
-    .image {
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: 50% 50%;
-    }
-    
-    .card {
-        border-radius: 13px;
-        background-color: #FFF3;
-        color: #FFFFFF;
-        padding: 0;
-        margin: 0;
-        /*width: auto;*/
-        /*width: calc(100% - 16px);*/
-        width: 100%;
-        align-self: center;
-        user-select: none;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: 50% 50%;
-        text-shadow: 1px 1px 0 black;
-        flex-direction: column;
-        align-content: space-between;
-        justify-content: space-between;
-        height: auto;
-        position: relative;
-        transition: all 300ms ease-in-out;
-    }
-    
-    .card-inner {
-        padding: 15px;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: 50% 50%;
-        border-radius: 13px;
-        transition: all 300ms ease-in-out;
-    }
-    
-    .smart .card-inner{
-        background-color: grey;
-    }
-    .smart.early-mornging .card-inner{
-        background-color: darkred;
-    }
-    .smart.breakfast .card-inner{
-        background-color: darkorange;
-    }
-    .smart.morning .card-inner{
-        background-color: goldenrod;
-    }
-    .smart.lunch .card-inner{
-        background-color: darkgreen;
-    }
-    .smart.afternoon .card-inner{
-        background-color: darkslateblue;
-    }
-    .smart.dinner .card-inner{
-        background-color: indigo;
-    }
-    .smart.evening .card-inner{
-        background-color: darkviolet;
-    }
-    .smart.late-night .card-inner{
-        background-color: black;
-    }
+.page.timeline .card-list {
+    padding: 120px 0 180px;
+}
 
-    .card.smart .content-panel{
-        border-radius: 0;
-    }
-    .smart .card-tags{
-        white-space: normal;
-        flex-direction: row;
-        width:auto;
-    }
-    .smart .hash-tag.gold{
-        padding: 0.25rem 0.5rem;
-        border-radius: 12px;
-        background-color: white;
-        color: black;
-    }
+.activity-list {
+    width: 100%;
+}
 
-    .card-tags {
-        display: block;
-        margin: 0px 0;
-        white-space: nowrap;
-        overflow-y: hidden;
-        overflow-x: scroll;
-    }
-    .page.explore .hash-tag{
-        font-size: 7px;
-    }
-    .explore.page .action-item.book {
-        font-size: 7px;
-    }
-    .page.explore .card-people .circle .text {
-        margin: 0 0 0 1px;
-        padding-top: 1px;
-        font-size: 9px;
-        white-space: nowrap;
-    }
-    .page.explore .card.collapsed .card-tags,
-    .page.explore .card.collapsed .card-people,
-    .page.explore .card.collapsed .content-panel {
-        display: none;
-    }
-    
-    .page.explore .card .action-list .icon {
-        width: 12px;
-        height: 12px;
-        transition: width 300ms ease-in-out, height 300ms ease-in-out;
-    }
-    
-    .page.explore .card .background.image {
-        opacity: 0.50;
-    }
-    
-    .page.explore .card.collapsed .background.image {
-        opacity: 0.20;
-    }
-    
-    .page.explore .card.collapsed {
-        min-height: 92px;
-    }
-    
-    .page.explore .card-list>.card-title {
-        margin-bottom: 1rem;
-        flex-direction: column;
-    }
-    
-    .page .card-list>.card-title {
-        display: none;
-    }
-    
-    .page.explore .card-list>.card-title {
-        display: flex;
-    }
-    
-    .page.explore .card-list>.card-title .card-title {
-        font-weight: bolder;
-        font-size: 11px;
-    }
-    
-    .card.explore .content-panel {
-        background-color: #0006;
-    }
-    
-    .page.explore .card.explore .icon {
-        position: static;
-        margin: 0;
-    }
-    
-    .card .titles .row .col {
-        margin-left: 12px;
-    }
+.activity-list .collapse .card-list {
+    gap: 0;
+}
 
-    .page.explore .action-list .text {
-        display: none;
-    }
+.card-people {
+    flex-direction: row;
+    gap: 0.25rem;
+}
 
-    .page.explore .card.explore .card-title {
-        font-size: 12px
-    }
+.card select,
+.card option {
+    background-color: #0008;
+    color: white;
+    border: none;
+}
 
-    .page.explore .card.explore .row {
-        justify-content: space-between;
-    }
-    
-    .page.explore .card.explore .content-panel .action-item {
-        padding: 0;
-    }
-    
-    .page .card {
-        /*min-height: 60px;*/
-        /*background-size: 72%;*/
-        box-shadow: 2px 2px 4px 1px #00000088;
-        width: 100%;
-        padding: 12px;
-    }
-    .card-inner{
-        margin-left: 3px;
-    }
-    .page.timeline .card {
-        padding: 0;
-        margin: 6px auto;
-        width: 98%;
-        border-left: 9px solid #0004;
-        border-radius: 0;
-        background: none;
-        box-shadow: none;
-        transition: none;
+.image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+}
 
-    }
-    
-    .page.explore_detail .card {
-        min-height: 466px;
-    }
-    
-    .page.explore_detail .card .action-item.open {
-        display: none;
-    }
-    
-    .page.collect .card {
-        /* background-blend-mode: darken; */
-        /*filter: brightness(50%);*/
-    }
-    
-    .page.collect .card .background.image {
-        display: none;
-    }
-    
-    .page.explore .card {
-        min-height: 276px;
-        transition: opacity 200ms ease-in-out, min-height 200ms ease-in-out;
-        padding: 6px;
-        width: 100%;
-    }
-    
-    .page.collect .card {
-        background-color: #0005;
-        padding: 12px;
-    }
-    
-    .card .card-inner>* {
-        z-index: 200;
-    }
-    
-    .card .background {
-        position: absolute;
-        left: 0;
-        right: 0;
-        opacity: 0.85;
-        z-index: 100;
-    }
-    
-    .card .background.top {
-        top: 0;
-    }
-    
-    .card .background.bottom {
-        bottom: 0;
-    }
-    
-    .card-section {
-        display: flex;
-        flex-direction: column;
-        align-content: center;
-        justify-content: right;
-    }
-    
-    .card-quadrant {
-        display: flex;
-        flex-direction: column;
-        align-content: space-between;
-        justify-content: space-between;
-        gap: 0.5rem;
-    }
-    
-    .card.connect .card-quadrant {
-        flex-direction: row;
-        justify-content: space-evenly;
-    }
-    
-    .card.connect .card-quadrant .action-list {
-        width: auto;
-        flex-direction: column;
-        justify-content: center;
-    }
-    
-    .card-subtitle {
-        font-size: 0.8em;
-    }
-    
-    .card-text {
-        font-size: 10pt;
-        background-color: rgba(0, 0, 0, 0.5);
-        width: 100%;
-        border-radius: 0.25em;
-        padding: 0.25em 0.125em;
-        margin: 0.25em 0;
-    }
-    
-    .card-you {
-        font-size: 10pt;
-        background-color: rgba(0, 0, 0, 0.5);
-        padding: 0.5em;
-        width: 100%;
-        text-align: right;
-    }
-    
-    .card-title {
-        font-size: 18pt;
-        flex-direction: row;
-        align-items: flex-start;
-        display: flex;
-        align-content: space-around;
-        justify-content: space-between;
-        width: 100%;
-    }
-    .page.collect_board .card-title {
-        align-content: center;
-        justify-content: flex-start;
-        align-items: center;
-    }
-    
-    .card-title-text {
-        padding: 3px 6px;
-        border-radius: 3px;
-        font-size: 1em;
-        display: inline-flex;
-        flex-direction: row;
-        justify-content: center;
-        vertical-align: center;
-        margin-right: 1em;
-    }
-    
-    .card.explore {
-        background-color: #ff6666;
-        box-shadow: 2px 2px 4px 1px #00000088;
-    }
-    
-    .card.connect {
-        background-color: #e99821;
-        padding: 12px;
-    }
-    
-    /* .page.explore .row > * {
-        align-self: auto;
-    } */
-    
-    .page.explore>.content-panel>.row {
-        width: 100%;
-        gap: 0.25em;
-        padding: 0;
-    }
-    
-    .page.explore .card-list {
-        padding: 6px 6px 300px 6px;
-        /*margin: 0 0 144px 0;*/
-        /*align-self: center;*/
-        /*align-items: center;*/
-        /*align-content: center;*/
-        /*alignment: center;*/
-        width: 100%;
-    }
-    
-    .page.explore .card.explore {
-        background-color: #ff6666;
-        box-shadow: 2px 2px 4px 1px #00000088;
-        width: 100%;
-        margin: 0 4px 4px 0;
-        background-size: auto;
-    }
-    /*.page.explore .card.explore:nth-child(odd) {*/
-    /*    align-self: flex-start;*/
-    /*}*/
-    /*.page.explore .card.explore:nth-child(even) {*/
-    /*    align-self: flex-end;*/
-    /*}*/
-    
-    .page.explore .card .card-inner>.row,
-    .page.explore .card .card-inner>.row .col .row,
-    .page.explore .card .card-inner>.row .col .row .col {
-        /*width: 100%;*/
-        /*margin: 0 auto;*/
-    }
-    
-    .page.explore .row .icon-frame {
-        align-self: center;
-    }
-    
-    .card {
-        background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25)), black center/cover no-repeat;
-        /* prevents the exported black frames from figma from showing. */
-        background-size: 103%;
-        gap: 1rem;
-    }
-    
-    .card-inner {
-        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), black center/cover no-repeat;
-        background-size: 103%;
-        gap: 1rem;
-    }
-    
-    .card.collect,
-    .card.board {
-        background-color: #5667bc;
-    }
-    
-    .card.plan {
-        background-color: #67bc67;
-    }
-    
-    .card.settle {
-        background-color: #5623dE;
-    }
-    
-    .card.settle .titles {
-        width: 100%;
-    }
-    
-    .card.settle .title {
-        text-align: right;
-        width: max-content;
-        align-self: flex-end;
-        justify-self: flex-end;
-        color: white;
-        border: 0 solid white;
-        box-shadow: none;
-    }
-    
-    .card.settle .content-panel>.title {
-        background: none;
-    }
-    
-    .card.settle .card-title {
-        font-size: 15pt;
-    }
-    
-    /*.card.settle .content-panel,*/
-    /*.card.settle .content-panel .text,*/
-    /*.settle .title .col .row,*/
-    /*.settle.page .card.settle .content-panel>.row {*/
-    /*    text-align: center;*/
-    /*    align-self: center;*/
-    /*    justify-self: center;*/
-    /*    justify-content: center;*/
-    /*    justify-items: center;*/
-    /*    padding: 0;*/
-    /*}*/
-    
-    .settle-who .who,
-    .settle-who .amount,
-    .settle-who {
-        text-align: center;
-        align-self: center;
-        justify-self: center;
-    }
-    
-    .settle-who .amount {
-        font-size: 11px;
-    }
-    
-    .settle-who .who {
-        font-size: 9px;
-    }
-    
-    .card-list .title .row .col {
-        align-items: center;
-        align-content: center;
-        margin: 0 auto;
-        justify-content: center;
-        align-self: center;
-        justify-self: center;
-    }
-    
-    .green {
-        color: #339966;
-    }
-    
-    .red {
-        color: #996633;
-    }
-    
-    .black {
-        color: #333333;
-    }
-    
-    .dashboard-item .title,
-    .dashboard-item .text,
-    .dashboard-item .action-item {
-        text-align: center;
-        justify-self: center;
-        justify-content: center;
-        align-self: center;
-        align-content: center;
-    }
-    
-    .card.settle .action-item {
-        align-self: flex-start;
-    }
-    
-    .icon-frame,
-    .titles .row .action-item .icon-frame {
-        padding: 4px;
-    }
-    
-    .settle-who {
-        margin: 0;
-        background-color: #ffffffaa;
-        font-size: 1em;
-        padding: 12px 12px;
-        border-radius: 0.5em;
-    }
-    
-    .card-list .card-list .row {
-        width: 100%;
-    }
-    
-    .card-list .card {
-        width: 348px;
-        transition: opacity 300ms ease-in-out, padding 300ms ease-in-out, max-height 300ms ease-in-out, max-height 300ms ease-in-out, min-height 300ms ease-in-out, minwidth 300ms ease-in-out;
-    }
-    
-    /*.action-item.person .text,*/
-    .message-item .text,
-    .person-icon .text {
-        display: none;
-        width: 0;
-        max-height: 0;
-        max-width: 0;
-        opacity: 0;
-        visibility: collapse;
-        transition: opacity 300ms ease-in-out, height 300ms ease-in-out, width 300ms ease-in-out;
-    }
-    
-    .page.explore .action-item:hover .text {
-        /*display: flex;*/
-        /*position: absolute;*/
-        /*background-color: black;*/
-        /*z-index: 999;*/
-        /*margin-right:2em;*/
-        /*bottom:0;*/
-    }
-    
-    .person-icon:hover text {
-        display: flex;
-        position: absolute;
-        background-color: black;
-        z-index: 99999;
-        margin-right: 2em;
-        bottom: 0;
-    }
-    
-    .page.explore .action-item.collapse:hover .text {
-        display: none;
-    }
-    
-    .person-icon:hover .text {
-        display: block;
-        background: #0008;
-        position: absolute;
-        width: auto;
-        height: auto;
-        max-width: none;
-        max-height: none;
-        border-radius: 12px;
-        z-index: 99999;
-        top: -66%;
-        opacity: 1;
-        visibility: visible;
-        transition: all 1300ms ease-in-out;
-    }
-    
-    .activity-list .collapse .card {
-        opacity: 0;
-        min-height: 0;
-        max-height: 0;
-        margin: 0;
-        padding: 0;
-        transition: opacity 300ms ease-in-out, padding 300ms ease-in-out, max-height 300ms ease-in-out, max-height 300ms ease-in-out, min-height 300ms ease-in-out, minwidth 300ms ease-in-out;
-    }
-    
-    .activity-list .collapse .card>* {
-        display: none;
-    }
-    .activity-list > .row > .row > .action-item  {
-        background-color: transparent;
-    }
-    .activity-list>.row {
-        border-top: 1px solid #bbb;
-        padding: 1px;
-    }
-    
-    .activity-list .row>.title {
-        font-size: 16px;
-        background: none;
-    }
-    
-    .activity-list>.row>.action-item .icon {
-        transform: rotate(90deg);
-        transition: transform 300ms ease-in-out;
-    }
-    
-    .activity-list>.row.collapse>.action-item .icon {
-        transform: rotate(0deg);
-        transition: transform 300ms ease-in-out;
-    }
-    
-    .activity-list>.card-list {
-        padding-bottom: 1em;
-        height: auto;
-    }
-    
-    .activity-list>.card-list.collapse {
-        gap: 0;
-        padding-bottom: 0;
-    }
-    
-    .page.explore .card.explore .content-panel .action-item.favorite .text {
-        display: block;
-    }
-    
-    .page.explore .action-item.favorite .text {
-        display: block;
-    }
-    
-    .section-title {
-        margin: 0 -0.125em;
-        flex-direction: row;
-        background: none;
-        width: 100%;
-        padding: 0.125rem;
-        gap: 0.125rem;
-        justify-content: space-between;
-        align-content: space-between;
-    }
+.card {
+    border-radius: 13px;
+    background-color: #FFF3;
+    color: #FFFFFF;
+    padding: 0;
+    margin: 0;
+    /*width: auto;*/
+    /*width: calc(100% - 16px);*/
+    width: 100%;
+    align-self: center;
+    user-select: none;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    text-shadow: 1px 1px 0 black;
+    flex-direction: column;
+    align-content: space-between;
+    justify-content: space-between;
+    height: auto;
+    position: relative;
+    transition: all 300ms ease-in-out;
+}
 
-    .titles{
-        flex-direction: row;
-        justify-content: flex-start;
-        gap: 12px;
-    }
+.card-inner {
+    padding: 15px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    border-radius: 13px;
+    transition: all 300ms ease-in-out;
+}
+
+.smart .card-inner {
+    background-color: grey;
+}
+
+.smart.early-mornging .card-inner {
+    background-color: darkred;
+}
+
+.smart.breakfast .card-inner {
+    background-color: darkorange;
+}
+
+.smart.morning .card-inner {
+    background-color: goldenrod;
+}
+
+.smart.lunch .card-inner {
+    background-color: darkgreen;
+}
+
+.smart.afternoon .card-inner {
+    background-color: darkslateblue;
+}
+
+.smart.dinner .card-inner {
+    background-color: indigo;
+}
+
+.smart.evening .card-inner {
+    background-color: darkviolet;
+}
+
+.smart.late-night .card-inner {
+    background-color: black;
+}
+
+.card.smart .content-panel {
+    border-radius: 0;
+}
+
+.smart .card-tags {
+    white-space: normal;
+    flex-direction: row;
+    width: auto;
+}
+
+.smart .hash-tag.gold {
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    background-color: white;
+    color: black;
+}
+
+.card-tags {
+    display: block;
+    margin: 0px 0;
+    white-space: nowrap;
+    overflow-y: hidden;
+    overflow-x: scroll;
+}
+
+.page.explore .hash-tag {
+    font-size: 7px;
+}
+
+.explore.page .action-item.book {
+    font-size: 7px;
+}
+
+.page.explore .card-people .circle .text {
+    margin: 0 0 0 1px;
+    padding-top: 1px;
+    font-size: 9px;
+    white-space: nowrap;
+}
+
+.page.explore .card.collapsed .card-tags,
+.page.explore .card.collapsed .card-people,
+.page.explore .card.collapsed .content-panel {
+    display: none;
+}
+
+.page.explore .card .action-list .icon {
+    width: 12px;
+    height: 12px;
+    transition: width 300ms ease-in-out, height 300ms ease-in-out;
+}
+
+.page.explore .card .background.image {
+    opacity: 0.50;
+}
+
+.page.explore .card.collapsed .background.image {
+    opacity: 0.20;
+}
+
+.page.explore .card.collapsed {
+    min-height: 92px;
+}
+
+.page.explore .card-list > .card-title {
+    margin-bottom: 1rem;
+    flex-direction: column;
+}
+
+.page .card-list > .card-title {
+    display: none;
+}
+
+.page.explore .card-list > .card-title {
+    display: flex;
+}
+
+.page.explore .card-list > .card-title .card-title {
+    font-weight: bolder;
+    font-size: 11px;
+}
+
+.card.explore .content-panel {
+    background-color: #0006;
+}
+
+.page.explore .card.explore .icon {
+    position: static;
+    margin: 0;
+}
+
+.card .titles .row .col {
+    margin-left: 12px;
+}
+
+.page.explore .action-list .text {
+    display: none;
+}
+
+.page.explore .card.explore .card-title {
+    font-size: 12px
+}
+
+.page.explore .card.explore .row {
+    justify-content: space-between;
+}
+
+.page.explore .card.explore .content-panel .action-item {
+    padding: 0;
+}
+
+.page .card {
+    /*min-height: 60px;*/
+    /*background-size: 72%;*/
+    box-shadow: 2px 2px 4px 1px #00000088;
+    width: 100%;
+    padding: 12px;
+}
+
+.card-inner {
+    margin-left: 3px;
+}
+
+.page.timeline .card {
+    padding: 0;
+    margin: 6px auto;
+    width: 98%;
+    border-left: 9px solid #0004;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+    transition: none;
+
+}
+
+.page.explore_detail .card {
+    min-height: 466px;
+}
+
+.page.explore_detail .card .action-item.open {
+    display: none;
+}
+
+.page.collect .card {
+    /* background-blend-mode: darken; */
+    /*filter: brightness(50%);*/
+}
+
+.page.collect .card .background.image {
+    display: none;
+}
+
+.page.explore .card {
+    min-height: 276px;
+    transition: opacity 200ms ease-in-out, min-height 200ms ease-in-out;
+    padding: 6px;
+    width: 100%;
+}
+
+.page.collect .card {
+    background-color: #0005;
+    padding: 12px;
+}
+
+.card .card-inner > * {
+    z-index: 200;
+}
+
+.card .background {
+    position: absolute;
+    left: 0;
+    right: 0;
+    opacity: 0.85;
+    z-index: 100;
+}
+
+.card .background.top {
+    top: 0;
+}
+
+.card .background.bottom {
+    bottom: 0;
+}
+
+.card-section {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: right;
+}
+
+.card-quadrant {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.card.connect .card-quadrant {
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.card.connect .card-quadrant .action-list {
+    width: auto;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-subtitle {
+    font-size: 0.8em;
+}
+
+.card-text {
+    font-size: 10pt;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    border-radius: 0.25em;
+    padding: 0.25em 0.125em;
+    margin: 0.25em 0;
+}
+
+.card-you {
+    font-size: 10pt;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0.5em;
+    width: 100%;
+    text-align: right;
+}
+
+.card-title {
+    font-size: 18pt;
+    flex-direction: row;
+    align-items: flex-start;
+    display: flex;
+    align-content: space-around;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.page.collect_board .card-title {
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.card-title-text {
+    padding: 3px 6px;
+    border-radius: 3px;
+    font-size: 1em;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    vertical-align: center;
+    margin-right: 1em;
+}
+
+.card.explore {
+    background-color: #ff6666;
+    box-shadow: 2px 2px 4px 1px #00000088;
+}
+
+.card.connect {
+    background-color: #e99821;
+    padding: 12px;
+}
+
+/* .page.explore .row > * {
+    align-self: auto;
+} */
+
+.page.explore > .content-panel > .row {
+    width: 100%;
+    gap: 0.25em;
+    padding: 0;
+}
+
+.page.explore .card-list {
+    padding: 6px 6px 300px 6px;
+    /*margin: 0 0 144px 0;*/
+    /*align-self: center;*/
+    /*align-items: center;*/
+    /*align-content: center;*/
+    /*alignment: center;*/
+    width: 100%;
+}
+
+.page.explore .card.explore {
+    background-color: #ff6666;
+    box-shadow: 2px 2px 4px 1px #00000088;
+    width: 100%;
+    margin: 0 4px 4px 0;
+    background-size: auto;
+}
+
+/*.page.explore .card.explore:nth-child(odd) {*/
+/*    align-self: flex-start;*/
+/*}*/
+/*.page.explore .card.explore:nth-child(even) {*/
+/*    align-self: flex-end;*/
+/*}*/
+
+.page.explore .card .card-inner > .row,
+.page.explore .card .card-inner > .row .col .row,
+.page.explore .card .card-inner > .row .col .row .col {
+    /*width: 100%;*/
+    /*margin: 0 auto;*/
+}
+
+.page.explore .row .icon-frame {
+    align-self: center;
+}
+
+.card {
+    background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25)), black center/cover no-repeat;
+    /* prevents the exported black frames from figma from showing. */
+    background-size: 103%;
+    gap: 1rem;
+}
+
+.card-inner {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), black center/cover no-repeat;
+    background-size: 103%;
+    gap: 1rem;
+}
+
+.card.collect,
+.card.board {
+    background-color: #5667bc;
+}
+
+.card.plan {
+    background-color: #67bc67;
+}
+
+.card.settle {
+    background-color: #5623dE;
+}
+
+.card.settle .titles {
+    width: 100%;
+}
+
+.card.settle .title {
+    text-align: right;
+    width: max-content;
+    align-self: flex-end;
+    justify-self: flex-end;
+    color: white;
+    border: 0 solid white;
+    box-shadow: none;
+}
+
+.card.settle .content-panel > .title {
+    background: none;
+}
+
+.card.settle .card-title {
+    font-size: 15pt;
+}
+
+/*.card.settle .content-panel,*/
+/*.card.settle .content-panel .text,*/
+/*.settle .title .col .row,*/
+/*.settle.page .card.settle .content-panel>.row {*/
+/*    text-align: center;*/
+/*    align-self: center;*/
+/*    justify-self: center;*/
+/*    justify-content: center;*/
+/*    justify-items: center;*/
+/*    padding: 0;*/
+/*}*/
+
+.settle-who .who,
+.settle-who .amount,
+.settle-who {
+    text-align: center;
+    align-self: center;
+    justify-self: center;
+}
+
+.settle-who .amount {
+    font-size: 11px;
+}
+
+.settle-who .who {
+    font-size: 9px;
+}
+
+.card-list .title .row .col {
+    align-items: center;
+    align-content: center;
+    margin: 0 auto;
+    justify-content: center;
+    align-self: center;
+    justify-self: center;
+}
+
+.green {
+    color: #339966;
+}
+
+.red {
+    color: #996633;
+}
+
+.black {
+    color: #333333;
+}
+
+.dashboard-item .title,
+.dashboard-item .text,
+.dashboard-item .action-item {
+    text-align: center;
+    justify-self: center;
+    justify-content: center;
+    align-self: center;
+    align-content: center;
+}
+
+.card.settle .action-item {
+    align-self: flex-start;
+}
+
+.icon-frame,
+.titles .row .action-item .icon-frame {
+    padding: 4px;
+}
+
+.settle-who {
+    margin: 0;
+    background-color: #ffffffaa;
+    font-size: 1em;
+    padding: 12px 12px;
+    border-radius: 0.5em;
+}
+
+.card-list .card-list .row {
+    width: 100%;
+}
+
+.card-list .card {
+    width: 348px;
+    transition: opacity 300ms ease-in-out, padding 300ms ease-in-out, max-height 300ms ease-in-out, max-height 300ms ease-in-out, min-height 300ms ease-in-out, minwidth 300ms ease-in-out;
+}
+
+/*.action-item.person .text,*/
+.message-item .text,
+.person-icon .text {
+    display: none;
+    width: 0;
+    max-height: 0;
+    max-width: 0;
+    opacity: 0;
+    visibility: collapse;
+    transition: opacity 300ms ease-in-out, height 300ms ease-in-out, width 300ms ease-in-out;
+}
+
+.page.explore .action-item:hover .text {
+    /*display: flex;*/
+    /*position: absolute;*/
+    /*background-color: black;*/
+    /*z-index: 999;*/
+    /*margin-right:2em;*/
+    /*bottom:0;*/
+}
+
+.person-icon:hover text {
+    display: flex;
+    position: absolute;
+    background-color: black;
+    z-index: 99999;
+    margin-right: 2em;
+    bottom: 0;
+}
+
+.page.explore .action-item.collapse:hover .text {
+    display: none;
+}
+
+.person-icon:hover .text {
+    display: block;
+    background: #0008;
+    position: absolute;
+    width: auto;
+    height: auto;
+    max-width: none;
+    max-height: none;
+    border-radius: 12px;
+    z-index: 99999;
+    top: -66%;
+    opacity: 1;
+    visibility: visible;
+    transition: all 1300ms ease-in-out;
+}
+
+.activity-list .collapse .card {
+    opacity: 0;
+    min-height: 0;
+    max-height: 0;
+    margin: 0;
+    padding: 0;
+    transition: opacity 300ms ease-in-out, padding 300ms ease-in-out, max-height 300ms ease-in-out, max-height 300ms ease-in-out, min-height 300ms ease-in-out, minwidth 300ms ease-in-out;
+}
+
+.activity-list .collapse .card > * {
+    display: none;
+}
+
+.activity-list > .row > .row > .action-item {
+    background-color: transparent;
+}
+
+.activity-list > .row {
+    border-top: 1px solid #bbb;
+    padding: 1px;
+}
+
+.activity-list .row > .title {
+    font-size: 16px;
+    background: none;
+}
+
+.activity-list > .row > .action-item .icon {
+    transform: rotate(90deg);
+    transition: transform 300ms ease-in-out;
+}
+
+.activity-list > .row.collapse > .action-item .icon {
+    transform: rotate(0deg);
+    transition: transform 300ms ease-in-out;
+}
+
+.activity-list > .card-list {
+    padding-bottom: 1em;
+    height: auto;
+}
+
+.activity-list > .card-list.collapse {
+    gap: 0;
+    padding-bottom: 0;
+}
+
+.page.explore .card.explore .content-panel .action-item.favorite .text {
+    display: block;
+}
+
+.page.explore .action-item.favorite .text {
+    display: block;
+}
+
+.section-title {
+    margin: 0 -0.125em;
+    flex-direction: row;
+    background: none;
+    width: 100%;
+    padding: 0.125rem;
+    gap: 0.125rem;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+.titles {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 12px;
+}
+
+.card.contact {
+    background: #dddddd;
+}
+.card.contact > .row{
+    justify-content: space-between;
+}
+.card.contact > .row > select{
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.card.contact .card-tags{
+    width: 100%;
+}

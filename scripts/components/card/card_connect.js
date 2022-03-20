@@ -8,7 +8,6 @@ function connectCardTitle(title, subtitleText, which = "", id = 0) {
 function connectCardContent(groups, messageList = {messages:[],members:[]}) {
     return [
         messagePanel(messageList.messages.slice(-3)),
-        // actionItem("add", "person", -1, "Add Person", "", false),
     ].join("");
 }
 

@@ -37,6 +37,13 @@ function personItem(name, which, index, person) {
         action(name, which, index, person)
     );
 }
+function contactItem(name, person) {
+    return div(
+        `action-item contact ${name} person-${person.id}`,
+        personIcon(person),
+        action(name, "person", person.id, person)
+    );
+}
 
 function actionClick(e, target, action, which = "", index = -1, data = {}) {
     if (e.target != target &&
