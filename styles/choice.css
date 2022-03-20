@@ -16,6 +16,7 @@
     min-height: 24px;
     gap: 3px;
     flex-direction: row;
+    width: inherit;
 }
 
 #explore-filters .choice{

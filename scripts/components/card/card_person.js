@@ -5,13 +5,13 @@ function cardPerson(person, index = 0, limit = 3, which = -1) {
     );
 }
 
-function cardContact(person, tags = []) {
+function cardContact(person, tags = [], actionName="chat") {
     return div(
         "card contact",
         row(
             circle(contactItem("contact", person)) +
             hashTags(tags) +
-            actionItem("chat")
+            actionItem(actionName)
         )
     );
 }

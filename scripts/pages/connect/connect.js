@@ -7,14 +7,15 @@ function connectPage(selected = false) {
             connectCard(
                 {messages: [], members: []},
                 "I can join you on Saturday and Sunday",
-                "Thursday June 17th 10:23am",
-                0, [{
+                "",
+                0,
+                [{
                     people: [peopleList[BF]],
-                    title: "Connecting with",
+                    title: "",
                     groupName: "Participant",
-                    subtitle: "in 1 on 1 conversation."
+                    subtitle: ""
                 }],
-                "connect_chat"
+                "Thursday June 17th 10:23am"
             ),
         ].join("")
     );
@@ -23,7 +24,7 @@ function connectPage(selected = false) {
         [
             connectCard(
                 messageListExample,
-                "Group Chat",
+                "would you both like to join me to visit Santa Barbara this weekend? I was thinking of going wine tasting and seeing Hozier concert at the Santa Barbara bowl.",
                 peopleList.map(p => p.name).join(", "),
                 0, [{
                     people: peopleList,
@@ -31,7 +32,8 @@ function connectPage(selected = false) {
                     groupName: "Participant",
                     subtitle: "in group conversation."
                 }],
-                "connect_chat"
+                "Thursday June 17th 10:23am",
+                "GROUP-CHAT"
             ),
         ].join("")
     );

@@ -742,6 +742,7 @@ function apply(target, action, which, id) {
 ACTION_PAGES = {
     apply: apply,
     back: () => showPage(window.lastPage),
+    chat: addMessage,
     explore: openPage,
     open: openPage,
     settle_split: openPage,

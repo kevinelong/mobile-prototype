@@ -204,6 +204,30 @@ footer button {
     font-size: 16px;
     border-radius: 6px;
 }
+.dialog .card{
+    width: inherit;
+}
+.dialog .card-list{
+    height: inherit;
+    background: none;
+    border-radius: 0;
+}
+.dialog .contact .action-item {
+    color: black;
+    background: none;
+    padding: 1em;
+}
+.dialog .action-item.contact{
+    background-color: #dddddd;
+}
+.dialog .row .circle{
+    border-color: #dddddd;
+    background-color: #dddddd;
+}
+.dialog .content-panel .contact .circle .text {
+    color: black;
+    text-shadow: none;
+}
 
 .dialog .card-tags {
     margin: 0;

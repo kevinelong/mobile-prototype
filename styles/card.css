@@ -702,3 +702,7 @@
 .card.contact .card-tags{
     width: 100%;
 }
+
+.card.connect .titles .col{
+    align-items: end;
+}
