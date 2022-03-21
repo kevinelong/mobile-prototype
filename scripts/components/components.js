@@ -141,7 +141,11 @@ function mapPreview() {
 }
 
 function mapPanel() {
-    return div("map-panel", actionItem("pin") + mapPreview());
+    return div("map-panel",
+        button("Est. Time/Distance", "", `est-time-distance button`) +
+        actionItem("pin") +
+        mapPreview()
+    );
 }
 
 function hashTags(tags, tagAttrs = "") {

@@ -757,7 +757,7 @@ ACTION_PAGES = {
     add: addItem,
     contact: addContact,
     new: addItem,
-    search: addPerson,
+    search: showDestinations,
     "search-destination": showDestinations,
     invite: sendInvite,
     more: addPerson,
