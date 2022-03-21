@@ -26,7 +26,7 @@ function connectCard(
 
     return div(
         `card connect connect-${id}`,
-        cardTitles(kind, "", whenText, "connect", -1, "connect") +
+        cardTitles(kind, "", whenText, "connect_chat", -1, "connect_chat") +
         title(titleText) +
         subtitle(subtitleText) +
         actionItem("add","connect", -1, "Participants"),
