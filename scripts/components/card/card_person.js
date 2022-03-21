@@ -1,10 +1,33 @@
 function cardPerson(person, index = 0, limit = 3, which = -1) {
-    // if (index >= limit) {
-    //     return "";
-    // }
     return div(
         "person-icon",
         circle(personItem("person", which, index, person))
+    );
+}
+
+function cardContact(person, tags = [], actionName = "connect_chat") {
+    return div(
+        "card contact",
+        row(
+            circle(contactItem("contact", person)) +
+            hashTags(tags) +
+            actionItem(actionName)
+        )
+    );
+}
+
+function cardGroup(peopleList) {
+    return div(
+        "card contact",
+        row(
+            icon("people", "black") +
+            hashTags(peopleList.map(p => p.name)) +
+            actionItem("connect_chat", "open", -1, "")
+        ) +
+        row(
+            actionItem("add", "connect", -1, "Add Participant")
+        ),
+        action("open", "connect_chat")
     );
 }
 
@@ -48,9 +71,9 @@ function cardGroups(groups, limit = 0) {
 
 function cardSummary(groups, limit = 0) {
     let result = [];
-    groups.reduce(function(r, v) {
+    groups.reduce(function (r, v) {
         if (!r[v.title]) {
-            r[v.title] = { title: v.title, qty: 0 };
+            r[v.title] = {title: v.title, qty: 0};
             result.push(r[v.title])
         }
         r[v.title].qty += v.people.length;

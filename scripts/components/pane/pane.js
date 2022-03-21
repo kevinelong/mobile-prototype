@@ -1,5 +1,10 @@
 
 function onPaneAction(pane) {
+debugger;
+    if(pane.indexOf(".html") !== -1){
+        self.location = pane;
+        return;
+    }
 
     const hide = e => e.classList.add("hidden");
     let panes = document.querySelectorAll(".pane");
@@ -17,11 +22,7 @@ function onPaneAction(pane) {
 
 function paneAction(a) {
     let content = a.name;
-    let href = `onPaneAction('${a.pane}')`;
-
-    if(a.pane.indexOf(".html") !== -1){
-        href = a.pane;
-    }
+    let actionName = `onPaneAction('${a.pane}')`;
 
     if (a.name.toLocaleUpperCase() === "NEXT"){
         content = `
@@ -44,7 +45,7 @@ function paneAction(a) {
 
 
     return `
-<button class="pane-action" onclick="onPaneAction('${a.pane}')"> 
+<button class="pane-action" onclick="${actionName}"> 
     ${content}                   
 </button>`;
 }

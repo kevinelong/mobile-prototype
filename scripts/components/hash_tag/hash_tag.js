@@ -1,3 +1,3 @@
-function hashTag(c, color = "none") {
-    return div(`hash-tag ${color}`, c, action("open", "explore", c));
+function hashTag(c, color = "none", attrs="") {
+    return div(`hash-tag ${color}`, c, attrs);
 }

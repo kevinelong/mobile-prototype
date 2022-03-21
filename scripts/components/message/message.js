@@ -17,14 +17,38 @@ function messagePanel(messageList) {
     return div(
         "message-panel",
         [...messageList].map(message_item => {
-                const OUTPUT = messageItem(message_item, message_item.person.id === lastItem.person.id);
-                lastItem = message_item;
-                return OUTPUT;
-            }).join("") + inputMessage()
+            const OUTPUT = messageItem(message_item, message_item.person.id === lastItem.person.id);
+            lastItem = message_item;
+            return OUTPUT;
+        }).join("") + inputMessage()
     );
 }
 
 
 function addMessage() {
-    showSearch("Add Message");
+    showDialog(
+        "New Conversation",
+        contentPanel(
+            choiceSet("search-filter", [
+                "My Network",
+                "Groups",
+            ], "My Network") +
+            search([], -1, "Find Contact") +
+            contentPanel(
+                cardList(
+                    [
+                        cardContact(peopleList[BF], ["Friend", "Phone"], "right"),
+                        cardContact(peopleList[JOE], ["Friend", "Facebook", "Instagram"], "right"),
+                        cardContact(peopleList[RUBY], ["Expert"], "right"),
+                    ].join("")
+                )) +
+            actionList(
+                "filter",
+                ["Create New Group", "Add New Contact"],
+                false,
+                0,
+                "black"
+            )
+        )
+    );
 }

@@ -12,11 +12,24 @@ function page(
     tabs = "",
     pushSecondaryNavChoicesAboveSearchFilter = false,
     preSearchContent = "",
-    headerAction = ""
+    headerAction = "",
+    addAction = actionItem("add", name, -1, "Add", "black", false, 0)
 ) {
-    const addAction= actionItem("add", name, -1, "Add", "black", false, 0);
     headerAction = headerAction ? headerAction : addAction;
-    const filters = choiceSet(`${name}-filters`, choiceList, selectedChoice, name);
+    const filters = choiceSet(`${name}-filters`, choiceList, selectedChoice, name,
+        "",
+        addAction
+    );
+
+    let searchContent = "";
+    if(preSearchContent || searchMessage){
+        searchContent = row(
+            preSearchContent +
+            ((searchMessage !== undefined && searchMessage.length > 0) ? search([], -1, searchMessage) : "")
+            + headerAction
+        )
+    }
+
     return div(
         `${name} page ${selected ? "" : "hidden"}`,
         div("header",
@@ -29,11 +42,7 @@ function page(
                 cardPerson(peopleList[RUBY])
             ) +
             (pushSecondaryNavChoicesAboveSearchFilter ? filters : "") +
-            row(
-                preSearchContent +
-                ((searchMessage !== undefined && searchMessage.length > 0) ? search([], -1, searchMessage) : "")
-                + headerAction
-            ) +
+            searchContent +
             (!pushSecondaryNavChoicesAboveSearchFilter ? filters : "")
         ) +
         contentPanel(

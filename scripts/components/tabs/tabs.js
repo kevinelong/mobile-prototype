@@ -29,12 +29,15 @@ const tabContent = (t, name) => {
     return div(`tab-content tab-content-${t.name} ${hidden}`, t.content)
 }
 
-const tabSet = (name = "", tabList = [], selectedTabName = "") => {
-    return div("tab-set",
-        div("tab-row", tabList.map(t => tab(t, selectedTabName)).join("")) +
+const tabSet = (name = "", tabList = [], selectedTabName = "", preTabs = "", postTabs = "") => {
+    return div(`tab-set ${cleanName(name)}`,
+        div("tab-row", preTabs +
+            tabList.map(t => tab(t, selectedTabName)).join("") +
+            postTabs) +
         div("tab-row", tabList.map(t => tabContent(t, selectedTabName)).join("")),
         `onclick="onTabClick(this, event)"`
-    );
+    )
+        ;
 };
 /*
 USAGE:

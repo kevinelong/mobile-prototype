@@ -337,9 +337,9 @@ function showAddCollection() {
     );
 }
 
-function showAddCard() {
+function showAddCard(titleText = "Add Something to Board") {
     showDialog(
-        "Add Something to Board",
+        titleText,
         selectOptionsComponent("Category", activityData) +
         radioComponent("Card Type", [
             {
@@ -637,8 +637,11 @@ function edit(target, action, which, id) {
 }
 
 function openPage(target, action, which, id) {
+    // debugger;
     if ("open" === action && which.toLowerCase().startsWith("http")) {
         window.open(which, "_self");
+    } else if ("open" === action && "connect" === which) {
+        showPage("connect_person", "open", id);
     } else if ("open" === action || "explore" === action) {
         showPage(which, action, id);
     } else if ("person" === action) {
@@ -647,7 +650,7 @@ function openPage(target, action, which, id) {
         showPage("settle_split", "open", id);
     } else if ("board" === action) {
         showPage("collect", "collect", id);
-    }else{
+    } else {
         console.log("can't openPage", target, action, which, id);
     }
 }
@@ -691,7 +694,8 @@ function addItem(target, action, which, id) {
         showAddCard();
     } else if ("timeline" === which) {
         showSchedule(target, action, which, id);
-        // showAddEventDialog("Add to Timeline")
+    } else if ("attachment" === which) {
+        showAddCard("Add Something to Message:");
     } else {
         console.log("can't addItem", ...arguments);
     }
@@ -742,6 +746,8 @@ function apply(target, action, which, id) {
 ACTION_PAGES = {
     apply: apply,
     back: () => showPage(window.lastPage),
+    chat: addItem,
+    connect_chat: () => showPage("connect_chat"),
     explore: openPage,
     open: openPage,
     settle_split: openPage,
@@ -751,7 +757,7 @@ ACTION_PAGES = {
     add: addItem,
     contact: addContact,
     new: addItem,
-    search: addPerson,
+    search: showDestinations,
     "search-destination": showDestinations,
     invite: sendInvite,
     more: addPerson,

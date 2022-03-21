@@ -24,8 +24,8 @@ function contentPanel(content, className = "") {
     return content ? div(`content-panel ${className}`, content) : "";
 }
 
-function row(content, attrs = "", className="") {
-    return div(`row${className?className:""}`, content, attrs);
+function row(content, attrs = "", className = "") {
+    return div(`row${className ? className : ""}`, content, attrs);
 }
 
 
@@ -115,7 +115,7 @@ function inputMessage() {
         "input-message",
         row(
             input("message-input", "text", `placeholder="Type a message..."`) +
-            actionItem("add")
+            actionItem("add", "attachment")
         )
     );
 }
@@ -134,19 +134,25 @@ function actionButton(content, className, attrs) {
     );
 }
 
-function mapPreview(){
+function mapPreview() {
     return div("map-preview",
         mapActivityCard(activityData[0].items[0])
     )
 }
 
-function mapPanel(){
-    return div("map-panel", actionItem("pin") + mapPreview());
+function mapPanel() {
+    return div("map-panel",
+        button("Est. Time/Distance", "", `est-time-distance button`) +
+        actionItem("pin") +
+        mapPreview()
+    );
 }
 
-function hashTags(tags) {
+function hashTags(tags, tagAttrs = "") {
     if (!tags || tags.length === 0) {
         return "";
     }
-    return div("card-tags", [...tags].map(hashTag).join(""));
+    return div("card-tags", [...tags].map(
+        t => hashTag(t, "none", tagAttrs)
+    ).join(""));
 }

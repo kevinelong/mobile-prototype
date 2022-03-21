@@ -5,38 +5,33 @@ function connectCardTitle(title, subtitleText, which = "", id = 0) {
     ) + actionItem("open", which, id)
 }
 
-function connectCardContent(groups, messageList = {messages:[],members:[]}) {
+function connectCardContent(groups, messageList = {messages: [], members: []}) {
     return [
         messagePanel(messageList.messages.slice(-3)),
-        // actionItem("add", "person", -1, "Add Person", "", false),
     ].join("");
 }
 
 function connectCard(
-    messageList = {messages:[],members:[]},
-    title = "",
-    subtitle = "",
+    messageList = {messages: [], members: []},
+    titleText = "",
+    subtitleText = "",
     id = 0,
     groups = [],
-    which = "") {
-    const kind = (groups[0].people.length > 1 ? "GROUP-CHAT" : "1-ON-1");
+    whenText = "",
+    kind="1-ON-1") {
 
     let period = Period("");
     period.color = "#663399";
-    return card(
-        "connect" + " " + kind,
-        title,
-        subtitle,
-        connectCardContent(messageList),
-        groups,
-        ["Participants"],
-        "",
-        [],
-        0,
-        ` data-kind="${cleanName(kind)}" `,
-        period,
-        "connect_chat",
-    );
+
+
+    return div(
+        `card connect connect-${id}`,
+        cardTitles(kind, "", whenText, "connect_chat", -1, "connect_chat") +
+        title(titleText) +
+        subtitle(subtitleText) +
+        actionItem("add","connect", -1, "Participants"),
+        action("open", "connect_chat")
+    )
 }
 
 function connectPersonDetail(

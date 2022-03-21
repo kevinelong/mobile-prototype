@@ -5,16 +5,17 @@ function connectPage(selected = false) {
     const chatContent = cardList(
         [
             connectCard(
-                {messages:[],members:[]},
+                {messages: [], members: []},
                 "I can join you on Saturday and Sunday",
-                "Thursday June 17th 10:23am",
-                0, [{
+                "",
+                0,
+                [{
                     people: [peopleList[BF]],
-                    title: "Connecting with",
+                    title: "",
                     groupName: "Participant",
-                    subtitle: "in 1 on 1 conversation."
+                    subtitle: ""
                 }],
-                "connect_chat"
+                "Thursday June 17th 10:23am"
             ),
         ].join("")
     );
@@ -23,7 +24,7 @@ function connectPage(selected = false) {
         [
             connectCard(
                 messageListExample,
-                "Group Chat",
+                "would you both like to join me to visit Santa Barbara this weekend? I was thinking of going wine tasting and seeing Hozier concert at the Santa Barbara bowl.",
                 peopleList.map(p => p.name).join(", "),
                 0, [{
                     people: peopleList,
@@ -31,7 +32,8 @@ function connectPage(selected = false) {
                     groupName: "Participant",
                     subtitle: "in group conversation."
                 }],
-                "connect_chat"
+                "Thursday June 17th 10:23am",
+                "GROUP-CHAT"
             ),
         ].join("")
     );
@@ -112,33 +114,53 @@ function connectPage(selected = false) {
         ].join("")
     );
 
-    const messagesContent = choiceSet(
-            "connect", [
-                "Conversations",
-                "Notifications",
-                "People",
-            ], "Conversations"
-        ) +
-        tabSet("chat", [
-            {name: "1 on 1", content: chatContent},
-            {name: "Group Chat", content: groupContent},
-        ], "1 on 1") +
-        notificationsContent;
+    const preTabs = actionItem("search", "", -1, "search", "black", true);
+    const postTabs = actionItem("sort", "", -1, "sort", "black", true);
+
+    const messagesContent = tabSet("conversations", [
+        {name: "1 on 1", content: chatContent},
+        {name: "Group Chat", content: groupContent},
+    ], "1 on 1", preTabs, postTabs);
+
+    let contactsContent = button("Add Contact") +
+        cardList(
+            [
+                cardContact(peopleList[BF],["Friend",  "Phone"]),
+                cardContact(peopleList[JOE],["Friend",  "Facebook", "Instagram"]),
+                cardContact(peopleList[RUBY],["Expert"]),
+            ].join("")
+        );
+
+    let groupsContent = button("New Group") +
+        cardList(
+            [
+                cardGroup(peopleList),
+            ].join("")
+        );
+
+
+    const peopleContent = tabSet("people", [
+        {name: "Groups", content: groupsContent},
+        {name: "Contacts", content: contactsContent},
+    ], "Groups", preTabs, postTabs);
+
 
     return page(
         selected,
         "connect",
-        "Connect", [],
-        "All",
+        "Connect",
+        ["Conversations", "Notifications", "People"],
+        "Conversations",
         "",
         "",
         "",
+        actionItem("open", "connect_chat", -1, "", "black", true, 0),
         "",
-        "Find what?",
-        messagesContent,
+        messagesContent + peopleContent + notificationsContent,
         false,
         "",
-        actionItem("add", "message", -1, "Message", "black", false, 0)
+        "",
+        actionItem("chat", "message", -1, "", "black", true, 0),
     );
 }
 
