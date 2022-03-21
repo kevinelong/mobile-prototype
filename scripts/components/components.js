@@ -115,7 +115,7 @@ function inputMessage() {
         "input-message",
         row(
             input("message-input", "text", `placeholder="Type a message..."`) +
-            actionItem("add")
+            actionItem("add", "attachment")
         )
     );
 }

@@ -25,7 +25,7 @@ function cardGroup(peopleList) {
             actionItem("chat")
         ) +
         row(
-            actionItem("add","participant", -1, "Add Participant")
+            actionItem("add","connect", -1, "Add Participant")
         )
     );
 }
