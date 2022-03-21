@@ -41,7 +41,7 @@ function contactItem(name, person) {
     return div(
         `action-item contact ${name} person-${person.id}`,
         personIcon(person),
-        action("open", "person", person.id, person)
+        action("person", person.id-1, person.id-1, person)
     );
 }
 
