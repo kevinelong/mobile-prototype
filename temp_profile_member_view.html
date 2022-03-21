@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Vita Explorer</title>
+  <!--    <link href="styles/style.css" rel="stylesheet" type="text/css"/>-->
+  <script>
+    `
+timeline
+action
+card
+choice
+circle
+content-panel
+detail
+dialog
+hash-tag
+icon
+label
+main-nav
+message
+page
+person
+simple-list
+title
+toast
+cards card-connect
+pages connect
+pages settle
+
+main
+component
+`.split("\n").map(p => p ? document.write(`<li` + `nk href="styles/` +
+      p.split(" ").join("/") + ".css" +
+      `"  rel="stylesheet" type="text/css"/>`) : '');
+  </script>
+  <script>
+    `
+utils
+html
+
+components components
+
+components action action
+components grid
+
+components card card
+components card card_person
+components card card_explore
+components card card_connect
+components card card_settle
+components card card_plan
+components card card_collect
+
+components choice choice
+components dialog dialog
+components hash_tag hash_tag
+components list list
+components main_nav
+components message message
+components money money
+components page
+components search search
+components toast toast
+components timeline timeline
+
+pages connect connect
+pages connect connect_chat
+pages connect connect_person
+
+pages plan plan
+pages plan plan_detail
+
+pages settle settle
+pages settle settle_split
+pages settle settle_list
+
+pages explore explore_detail
+pages explore explore
+
+pages collect collect
+pages collect collect_board
+pages collect collect_details
+
+route
+`.split("\n").map(p => p ? document.write(`<scr` + `ipt src="scripts/` +
+      p.split(" ").join("/") + ".js" +
+      `"></scr` + `ipt>`) : '');
+  </script>
+
+  <style>
+    .outer-box {
+      overflow-y: scroll;
+      background: white;
+      color: black;
+    }
+
+    /* .inner-content{
+            height: auto;
+        } */
+
+    .profile-host {
+      justify-content: center;
+      height: 100%;
+      /* padding: 2em; */
+    }
+
+    .profile-host .profile-page {
+      border: 1px solid black;
+      height: 80%;
+      padding: 2em;
+      justify-content: space-evenly;
+    }
+
+    .profile-host .profile-nav {
+      border: 1px solid black;
+      height: 15%;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+
+    .profile-host .button-nav {
+      height: 2rem;
+      width: 8rem;
+      border: 1px solid black;
+      color: white;
+      font-size: 1em;
+    }
+
+    .profile-host .button-nav.profile {
+      background-color: #F9A831;
+    }
+
+    .profile-host .button-nav.settings {
+      background-color: grey;
+    }
+
+    .profile-host .profile-connections {
+      height: 10%;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+
+    .profile-host .connections-friends {
+      /* flex-direction: column; */
+    }
+
+    .profile-host .friends-people {
+      flex-direction: row;
+    }
+
+    .profile-host .profile-main {
+      border: 1px solid black;
+      height: 30%;
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+    }
+
+    .profile-host .profile-misc {
+      border: 1px solid black;
+      height: 20%;
+    }
+  </style>
+
+</head>
+
+<body cz-shortcut-listen="true">
+  <div class="content div">
+    <div class="outer-box div">
+      <div class="inner-content div">
+        <div class="profile-host">
+          <div class="profile-page">
+            <div class="profile-nav">
+              <button class="button-nav profile">
+                TasteMatch Profile
+              </button>
+              <button class="button-nav settings">
+                Settings
+              </button>
+            </div>
+            <div class="profile-connections">
+              <div class="connections-friends">
+                <div class="friends-title">Friends with</div>
+                <div class="friends-people">
+                  <img class="people-img" src="images/faces/face1.png" alt="">
+                  <div class="people-count"></div>
+                </div>
+              </div>
+              <div class="connections-followed">
+                <div class="friends-title">Followed by</div>
+                <div class="friends-people">
+                  <img class="people-img" src="images/faces/face1.png" alt="">
+                  <img class="people-img" src="images/faces/face2.png" alt="">
+                  <div class="people-count"></div>
+                </div>
+              </div>
+              <div class="connections-following">
+                <div class="friends-title">Following</div>
+                <div class="friends-people">
+                  <img class="people-img" src="images/faces/face1.png" alt="">
+                  <img class="people-img" src="images/faces/face2.png" alt="">
+                  <div class="people-count"></div>
+                </div>
+              </div>
+            </div>
+            <div class="profile-main">
+              <div class="main-headshot"></div>
+            </div>
+
+            <div class="profile-misc"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+
+<script>
+</script>
