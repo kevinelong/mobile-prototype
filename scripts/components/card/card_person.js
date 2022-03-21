@@ -5,7 +5,7 @@ function cardPerson(person, index = 0, limit = 3, which = -1) {
     );
 }
 
-function cardContact(person, tags = [], actionName="chat") {
+function cardContact(person, tags = [], actionName = "connect_chat") {
     return div(
         "card contact",
         row(
@@ -20,13 +20,14 @@ function cardGroup(peopleList) {
     return div(
         "card contact",
         row(
-            icon("people","black") +
-            hashTags(peopleList.map(p=>p.name)) +
-            actionItem("chat")
+            icon("people", "black") +
+            hashTags(peopleList.map(p => p.name)) +
+            actionItem("connect_chat", "open", -1, "")
         ) +
         row(
-            actionItem("add","connect", -1, "Add Participant")
-        )
+            actionItem("add", "connect", -1, "Add Participant")
+        ),
+        action("open", "connect_chat")
     );
 }
 

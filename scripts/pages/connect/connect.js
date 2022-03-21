@@ -154,7 +154,7 @@ function connectPage(selected = false) {
         "",
         "",
         "",
-        actionItem("chat", "message", -1, "", "black", true, 0),
+        actionItem("open", "connect_chat", -1, "", "black", true, 0),
         "",
         messagesContent + peopleContent + notificationsContent,
         false,

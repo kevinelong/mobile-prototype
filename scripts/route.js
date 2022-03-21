@@ -337,7 +337,7 @@ function showAddCollection() {
     );
 }
 
-function showAddCard(titleText="Add Something to Board") {
+function showAddCard(titleText = "Add Something to Board") {
     showDialog(
         titleText,
         selectOptionsComponent("Category", activityData) +
@@ -650,7 +650,7 @@ function openPage(target, action, which, id) {
         showPage("settle_split", "open", id);
     } else if ("board" === action) {
         showPage("collect", "collect", id);
-    }else{
+    } else {
         console.log("can't openPage", target, action, which, id);
     }
 }
@@ -746,7 +746,8 @@ function apply(target, action, which, id) {
 ACTION_PAGES = {
     apply: apply,
     back: () => showPage(window.lastPage),
-    chat: addMessage,
+    chat: addItem,
+    connect_chat: () => showPage("connect_chat"),
     explore: openPage,
     open: openPage,
     settle_split: openPage,
