@@ -21,13 +21,13 @@ function collectBoardPage(selected = false, isMyBoard = true) {
             icon("going", "", "Going"),
         ], icon("all") + "All") +
         mapPanel() +
-        choiceSet("activities-list", [
-            "All",
-            "People",
-            "Things to Do",
-            "Restaurants",
-            "Lodging"
-        ], "All") +
+        // choiceSet("activities-list", [
+        //     "All",
+        //     "People",
+        //     "Things to Do",
+        //     "Restaurants",
+        //     "Lodging"
+        // ], "All") +
         activityList(activityData, true),
         "all",
         "collect",
