@@ -114,7 +114,7 @@ route
       justify-content: space-evenly;
     }
 
-    .profile-host .nav-profile {
+    .profile-host .profile-nav {
       border: 1px solid black;
       height: 15%;
       flex-direction: row;
@@ -138,7 +138,7 @@ route
       background-color: grey;
     }
 
-    .profile-host .connections-profile {
+    .profile-host .profile-connections {
       height: 10%;
       flex-direction: row;
       justify-content: space-around;
@@ -148,9 +148,15 @@ route
       /* flex-direction: column; */
     }
 
+    .profile-host .friends-people {
+      flex-direction: row;
+    }
+
     .profile-host .profile-main {
       border: 1px solid black;
       height: 30%;
+      display: grid;
+      grid-template-rows: 1fr 1fr;
     }
 
     .profile-host .profile-misc {
@@ -167,7 +173,7 @@ route
       <div class="inner-content div">
         <div class="profile-host">
           <div class="profile-page">
-            <div class="nav-profile">
+            <div class="profile-nav">
               <button class="button-nav profile">
                 TasteMatch Profile
               </button>
@@ -175,7 +181,7 @@ route
                 Settings
               </button>
             </div>
-            <div class="connections-profile">
+            <div class="profile-connections">
               <div class="connections-friends">
                 <div class="friends-title">Friends with</div>
                 <div class="friends-people">
@@ -201,7 +207,7 @@ route
               </div>
             </div>
             <div class="profile-main">
-              <!-- <script>cardPerson(peopleList[0].name)</script> -->
+              <div class="main-headshot"></div>
             </div>
 
             <div class="profile-misc"></div>
