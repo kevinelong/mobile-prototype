@@ -112,6 +112,7 @@ route
       height: 80%;
       padding: 2em;
       justify-content: space-evenly;
+      
     }
 
     .profile-host .profile-nav {
@@ -156,7 +157,7 @@ route
       border: 1px solid black;
       height: 30%;
       display: grid;
-      grid-template-rows: 60% 40%;
+      grid-template-rows: 1fr 40%;
     }
 
     /* .profile-host .profile-main * {
@@ -165,7 +166,7 @@ route
 
     .profile-host .main-top {
       display: grid;
-      grid-template-columns: 16px 120px 16px 1fr;
+      grid-template-columns: 12px 120px 12px 1fr 12px;
     }
 
     .profile-host .main-headshot {
@@ -180,7 +181,7 @@ route
     }
 
     .profile-host img {
-      height: 40px
+      height: 40px;
     }
 
     .profile-host .headshot-info {
@@ -240,7 +241,7 @@ route
       background-color: #F9A831;
       justify-content: center;
       color: white;
-      font-weight: bold;
+      /* font-weight: bold; */
     }
 
     .profile-host .nav-link {
@@ -257,11 +258,20 @@ route
     }
 
     .profile-host .guide-others img {
-      height: 20px
+      height: 16px;
+    }
+
+    .profile-host .guide-others button {
+      height: 20px;
     }
 
     .profile-host .others-landscape {
       grid-column: 2;
+    }
+
+    .profile-host .main-interests {
+      background-color: #F9A831;
+      
     }
 
     .profile-host .profile-misc {
@@ -327,18 +337,31 @@ route
                   </div>
                   <div class="options-guide">
                     <div class="guide-nav">
-                      <div class="nav-btn">Local Guide</div>
+                      <button class="nav-btn">Local Guide</button>
                       <a href="" class="nav-link">Open Guide Profile</a>
                     </div>
                     <div class="guide-others">
-                      <img src="images/icons/icon-restaurants-black.svg" alt="" class="others-restaurant">
-                      <img src="images/icons/icon-activity-red.svg" alt="" class="others-activity">
-                      <img src="images/icons/icon-landscape-black.svg" alt="" class="others-landscape">
+                      <button class="others-restaurant">
+                        <img src="images/icons/icon-restaurants-black.svg" alt="">
+                      </button>
+                      <button class="others-activity">
+                        <img src="images/icons/icon-activity-red.svg" alt="">
+                      </button>
+                      <button class="others-landscape">
+                        <img src="images/icons/icon-landscape-black.svg" alt="">
+                      </button>
                     </div>
                   </div>
                 </div>
               </div>
-              
+              <div class="main-bottom">
+                <b>Interests</b>
+                <div class="main-interests">
+                  <div class="interests-item">
+                    Skiing - Shared
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div class="profile-misc"></div>
