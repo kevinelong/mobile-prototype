@@ -16,6 +16,10 @@
     scrollbar-width: none;  /* Firefox */
 }
 
+button {
+    cursor: pointer;
+}
+
 body {
     color: #ffffffbb;
     background: #123;
