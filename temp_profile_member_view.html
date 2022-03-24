@@ -127,25 +127,31 @@ route
 
     .profile-host .profile-page {
       border: 1px solid black;
-      height: 100%;
-      padding: 2em;
-      justify-content: space-evenly;
-      margin: 0;
-      border: 0;
+      /* height: auto; */
+      /* padding: 2em; */
+      justify-content: space-between;
+      /* margin: 0; */
+      /* border: 0; */
+      gap: 1em;
+    }
+
+    .profile-host button {
+      border-radius: 2px;
     }
 
     .profile-host .profile-nav {
-      border: 1px solid black;
-      height: 15%;
+      /* border: 1px solid black; */
+      /* height: 15%; */
       flex-direction: row;
       justify-content: space-evenly;
       align-items: center;
+      
     }
 
     .profile-host .button-nav {
       height: 2rem;
       width: 8rem;
-      border: 1px solid black;
+      /* border: 1px solid black; */
       color: white;
       font-size: 1em;
     }
@@ -159,9 +165,7 @@ route
     }
 
     .profile-host .profile-connections {
-      
-      flex-direction: row;
-      justify-content: space-evenly;
+      gap: 1px;
     }
 
     .profile-host .connections-friends {
@@ -173,10 +177,11 @@ route
     }
 
     .profile-host .profile-main {
-      border: 1px solid black;
-      height: 30%;
+      /* border: 1px solid black; */
+      /* height: 30%; */
       display: grid;
-      grid-template-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr auto;
+      gap: 2px;
     }
 
     /* .profile-host .profile-main * {
@@ -196,7 +201,7 @@ route
       justify-content: space-evenly;
       align-items: center;
       background-color: #DEDEDE;
-      border-radius: 16px;
+      border-radius: 1vh;
     }
 
     .profile-host img {
@@ -256,7 +261,7 @@ route
     }
 
     .profile-host .nav-btn {
-      border: 1px solid black;
+      /* border: 1px solid black; */
       background-color: #F9A831;
       justify-content: center;
       color: white;
@@ -289,6 +294,10 @@ route
       grid-column: 2;
     }
 
+    .profile-host .main-bottom {
+      gap: 2px;
+    }
+
     .profile-host .main-interests {
       flex-direction: row;
       flex-wrap: wrap;
@@ -304,8 +313,8 @@ route
     }
 
     .profile-host .profile-misc {
-      border: 1px solid black;
-      height: 20%;
+      /* border: 1px solid black; */
+      height: 8rem;
       justify-content: center;
       align-items: center;
     }
@@ -365,34 +374,7 @@ route
                 Settings
               </button>
             </div>
-            <div class="profile-connections">
-              <script>
-                document.write(groupElements)
-              </script>
-              <!-- <div class="connections-friends">
-                <div class="friends-title">Friends with</div>
-                <div class="friends-people">
-                  <img class="people-img" src="images/faces/face1.png" alt="">
-                  <div class="people-count"></div>
-                </div>
-              </div>
-              <div class="connections-followed">
-                <div class="friends-title">Followed by</div>
-                <div class="friends-people">
-                  <img class="people-img" src="images/faces/face1.png" alt="">
-                  <img class="people-img" src="images/faces/face2.png" alt="">
-                  <div class="people-count"></div>
-                </div>
-              </div>
-              <div class="connections-following">
-                <div class="friends-title">Following</div>
-                <div class="friends-people">
-                  <img class="people-img" src="images/faces/face1.png" alt="">
-                  <img class="people-img" src="images/faces/face2.png" alt="">
-                  <div class="people-count"></div>
-                </div>
-              </div> -->
-            </div>
+            
             <div class="profile-main">
               <div class="main-top">
                 <div class="main-headshot">
@@ -431,7 +413,7 @@ route
                 </div>
               </div>
               <div class="main-bottom">
-                <b>Interests</b>
+                <b><u>Interests</u></b>
                 <div class="main-interests">
                   <div class="interests-item">
                     Skiing - Shared
@@ -455,6 +437,34 @@ route
                     <u>19 more</u>
                   </div>
                 </div>
+              </div>
+              <div class="profile-connections">
+                <script>
+                  document.write(groupElements)
+                </script>
+                <!-- <div class="connections-friends">
+                  <div class="friends-title">Friends with</div>
+                  <div class="friends-people">
+                    <img class="people-img" src="images/faces/face1.png" alt="">
+                    <div class="people-count"></div>
+                  </div>
+                </div>
+                <div class="connections-followed">
+                  <div class="friends-title">Followed by</div>
+                  <div class="friends-people">
+                    <img class="people-img" src="images/faces/face1.png" alt="">
+                    <img class="people-img" src="images/faces/face2.png" alt="">
+                    <div class="people-count"></div>
+                  </div>
+                </div>
+                <div class="connections-following">
+                  <div class="friends-title">Following</div>
+                  <div class="friends-people">
+                    <img class="people-img" src="images/faces/face1.png" alt="">
+                    <img class="people-img" src="images/faces/face2.png" alt="">
+                    <div class="people-count"></div>
+                  </div>
+                </div> -->
               </div>
             </div>
             <div class="profile-misc">
