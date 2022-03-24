@@ -32,17 +32,17 @@ function cardGroup(peopleList) {
 }
 
 const PLURALS = {
-    "taste match": "Taste Matches",
-    "person": "People",
+    "taste match": "taste matches",
+    "person": "people",
     "match": "matches"
 }
 
 function pluralSuffix(word) {
     const wordLower = word.toLowerCase();
     if (PLURALS.hasOwnProperty(wordLower)) {
-        return PLURALS[wordLower];
+        return PLURALS[wordLower].toLowerCase();
     }
-    return `${word}s`;
+    return `${wordLower}s`;
 }
 
 function cardPeople(group, limit = -1, index, all) {
