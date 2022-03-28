@@ -1,6 +1,6 @@
 
 function onPaneAction(pane) {
-debugger;
+// debugger;
     if(pane.indexOf(".html") !== -1){
         self.location = pane;
         return;
