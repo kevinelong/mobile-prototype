@@ -549,7 +549,7 @@
 }
 
 .taste-match .info-name {
-    font-size: 14px;
+    font-size: 11px;
     font-weight: bold;
 }
 
@@ -566,9 +566,9 @@
     text-align: center;
     border-radius: 50vh;
     width: fit-content;
-    margin-top: 3px;
+    margin-top: 2px;
     padding: 7px 6px;
-    justify-self: center;
+    /* justify-self: center; */
 }
 
 .taste-match .friend-add {
@@ -578,7 +578,7 @@
     background-color: white;
     border: 2px solid grey;
     border-radius: 4px;
-    margin-top: 2px;
+    /* margin-top: 2px; */
     width: 56px;
     grid-column: 3;
 }

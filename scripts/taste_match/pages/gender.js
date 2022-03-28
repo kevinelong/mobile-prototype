@@ -23,7 +23,7 @@ TASTE_MATCH_PAGES.add("gender", Pane( `
 </div>
 `,
         [
-            PaneAction("SKIP", "connect3"),
+            PaneAction("SKIP", "connect4"),
             PaneAction("NEXT", "birthday"),
         ]
     )
