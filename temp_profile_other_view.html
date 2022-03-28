@@ -140,16 +140,27 @@ route
     border-radius: 2px;
   }
 
-  .profile-host .profile-nav {
-    /* border: 1px solid black; */
-    /* height: 15%; */
+  .profile-host .profile-icons {
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    margin-top: 0.5em;
   }
 
-  .profile-host .profile-nav .choice {
-    min-width: 49%;
+  .profile-host .icon-group {
+    /* width: 50%; */
+    flex-direction: row;
+    gap: 1em;
+    /* justify-content: space-between; */
+  }
+
+  .profile-host .icon {
+    /* flex-direction: row; */
+    align-items: center;
+    gap: 4px;
+  }
+
+  .profile-host .profile-icons img {
+    height: 20px;
   }
 
   .profile-host .button-nav {
@@ -329,6 +340,18 @@ route
     border: 1px solid grey;
   }
 
+  .profile-host .profile-nav {
+    /* border: 1px solid black; */
+    /* height: 15%; */
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .profile-host .profile-nav .choice {
+    min-width: 49%;
+  }
+
   .profile-host .profile-misc {
     /* border: 1px solid black; */
     height: 8rem;
@@ -387,12 +410,34 @@ route
                 <div class="icon-frame  div"><img class="icon" src="images/icons/icon-close.svg"></div>
               </div>
             </div>
-            <div class="profile-nav">
-              <div class="choice selected">
-                TasteMatch Profile
+            <div class="profile-icons">
+              <div class="icon-group">
+                <div class="icon">
+                  <img src="images/icons/icon-connect_chat-black.svg" alt="">
+                  chat
+                </div>
+                <div class="icon">
+                  <img src="images/call_black_24dp.svg" alt="" class="src">
+                  phone
+                </div>
+                <div class="icon">
+                  <img src="images/videocam_black_24dp.svg" alt="" class="src">
+                  video
+                </div>
               </div>
-              <div class="choice">
-                Settings
+              <div class="icon-group">
+                <div class="icon">
+                  <img src="images/icons/icon-friend-black.svg" alt="" class="src">
+                  friend
+                </div>
+                <div class="icon">
+                  <img src="images/icons/icon-follow-black.svg" alt="" class="src">
+                  follow
+                </div>
+                <div class="icon">
+                  <img src="images/icons/icon-block-black.svg" alt="" class="src">
+                  block
+                </div>
               </div>
             </div>
             <div class="profile-connections">
@@ -463,6 +508,7 @@ route
                   </div>
                 </div>
               </div>
+              
               <div class="main-bottom">
                 Interests
                 <div class="main-interests">
@@ -489,7 +535,14 @@ route
                   </div>
                 </div>
               </div>
-
+              <div class="profile-nav">
+                <div class="choice selected">
+                  Boards
+                </div>
+                <div class="choice">
+                  Plans
+                </div>
+              </div>
             </div>
             <!-- <div class="profile-misc">
               Room for future elements

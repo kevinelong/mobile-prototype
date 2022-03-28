@@ -522,6 +522,63 @@
     padding-bottom: 1em;
 }
 
-.taste-match .progress-control {
+.taste-match .connect-suggestions {
+    gap: 1em;
+}
 
+.taste-match .suggestions-friend {
+    display: grid;
+    grid-template-columns: auto 1fr;   
+    gap: 1em;
+}
+
+.taste-match .suggestions-friend img {
+    height: 40px;
+}
+
+.taste-match .friend-body {
+    display: grid;
+    grid-template-rows: auto auto;
+}
+
+.taste-match .body-content {
+    display: grid;
+    grid-row: 2;
+    grid-template-columns: 40% 57px auto;
+    gap: 1em;
+}
+
+.taste-match .info-name {
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.taste-match .info-location {
+    color: grey;
+}
+
+.taste-match .friend-tag {
+    background-color: black;
+    font-size: 9px;
+    color: white;
+    height: 12px;
+    justify-content: center;
+    text-align: center;
+    border-radius: 50vh;
+    width: fit-content;
+    margin-top: 2px;
+    padding: 7px 6px;
+    /* justify-self: center; */
+}
+
+.taste-match .friend-add {
+    height: 26px;
+    font-weight: bold;
+    font-size: 1em;
+    background-color: white;
+    border: 2px solid grey;
+    border-radius: 4px;
+    /* margin-top: 2px; */
+    width: 56px;
+    grid-column: 3;
 }

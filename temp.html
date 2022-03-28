@@ -8,7 +8,9 @@
     <!--    <link href="styles/style.css" rel="stylesheet" type="text/css"/>-->
     <script>
         `
+tabs
 timeline
+broadcast
 action
 card
 choice
@@ -36,15 +38,22 @@ component
             p.split(" ").join("/") + ".css" +
             `"  rel="stylesheet" type="text/css"/>`) : '');
     </script>
-    <script>
-        `
+</head>
+
+<body></body>
+<script>
+`
 utils
+
 html
 
 components components
 
-components action action
+data
+
 components grid
+
+components action action
 
 components card card
 components card card_person
@@ -53,6 +62,8 @@ components card card_connect
 components card card_settle
 components card card_plan
 components card card_collect
+components card card_smart
+components card card_timeline
 
 components choice choice
 components dialog dialog
@@ -65,6 +76,11 @@ components page
 components search search
 components toast toast
 components timeline timeline
+components tabs tabs
+
+pages broadcast broadcast
+
+pages timeline timeline
 
 pages connect connect
 pages connect connect_chat
@@ -77,6 +93,7 @@ pages settle settle
 pages settle settle_split
 pages settle settle_list
 
+pages explore explore_fake
 pages explore explore_detail
 pages explore explore
 
@@ -85,10 +102,12 @@ pages collect collect_board
 pages collect collect_details
 
 route
+main
 `.split("\n").map(p => p ? document.write(`<scr` + `ipt src="scripts/` +
-            p.split(" ").join("/") + ".js" +
-            `"></scr` + `ipt>`) : '');
-    </script>
+        p.split(" ").join("/") + ".js" +
+        `"></scr` + `ipt>`) : '');
+
+</script>
 
     <style>
         .outer-box{

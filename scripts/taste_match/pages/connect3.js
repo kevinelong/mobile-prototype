@@ -7,21 +7,71 @@ TASTE_MATCH_PAGES.add("connect3", Pane( `
         <div class="question-control">
             Check out who's already enjoying Vita.
         </div>
-        <div class="friend-suggestions">
-            <div class="">
-                Ann Chovey
+        <div class="connect-suggestions">
+            <div class="suggestions-friend">
+                <img src="images/faces/face4.png">
+                <div class="friend-body">
+                    <div class="body-content">
+                        <div class="friend-info">
+                            <div class="info-name">Viktor Ecclestone</div>
+                            <div class="info-location">Kemerovo Oblast, Russia</div>
+                        </div>
+                        <div class="friend-tag">Expert</div>
+                        <button class="friend-add">Friend</button>
+                    </div>
+                </div>
             </div>
-            <div class="">
-                E.L. Moray
+            <div class="suggestions-friend">
+                <img src="images/faces/face5.png">
+                <div class="friend-body">
+                    <div class="body-content">
+                        <div class="friend-info">
+                            <div class="info-name">Lois Kimball</div>
+                            <div class="info-location">Galicia, Spain</div>
+                        </div>
+                        <div class="friend-tag" style="display:none"></div>
+                        <button class="friend-add">Friend</button>
+                    </div>
+                </div>
             </div>
-            <div class="">
-                Chris P. Bacon
+            <div class="suggestions-friend">
+                <img src="images/faces/face6.png">
+                <div class="friend-body">
+                    <div class="body-content">
+                        <div class="friend-info">
+                            <div class="info-name">Jeane Paquet</div>
+                            <div class="info-location">California, United States</div>
+                        </div>
+                        <div class="friend-tag">Local</div>
+                        <button class="friend-add">Friend</button>
+                    </div>
+                </div>
             </div>
-            <div class="">
-                Pete Tsar
+            <div class="suggestions-friend">
+                <img src="images/faces/face9.png">
+                <div class="friend-body">
+                    <div class="body-content">
+                        <div class="friend-info">
+                            <div class="info-name">Montgomery Toloni</div>
+                            <div class="info-location">North Carolina, United States</div>
+                        </div>
+                        <div class="friend-tag" style="display:none"></div>
+                        <button class="friend-add">Friend</button>
+                    </div>
+                </div>
             </div>
-            <div class="">
-                Frank Furter
+            <div class="suggestions-friend">
+                <img src="images/faces/face10.png">
+                <div class="friend-body">
+                    <div class="body-content">
+                        <div class="friend-info">
+                            <div class="info-name">Slamet Lupu</div>
+                            <div class="info-location">Java, Indonesia</div>
+                        </div>
+                        <div class="friend-tag" style="display:none"></div>
+                        <button class="friend-add">Friend</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

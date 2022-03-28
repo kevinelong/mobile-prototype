@@ -7,15 +7,45 @@ TASTE_MATCH_PAGES.add("connect4", Pane( `
         <div class="question-control">
             Follow experts, guides, locals and travel pros.  Make new friends and discover even more.
         </div>
-        <div class="friend-suggestions">
-            <div class="">
-                Arthur Rightus
+        <div class="connect-suggestions">
+            <div class="suggestions-friend">
+                <img src="images/faces/face11.png">
+                <div class="friend-body">
+                    <div class="body-content">
+                        <div class="friend-info">
+                            <div class="info-name">Leontina Bishop</div>
+                            <div class="info-location">Sicily, Italy</div>
+                        </div>
+                        <div class="friend-tag">Expert</div>
+                        <button class="friend-add">Friend</button>
+                    </div>
+                </div>
             </div>
-            <div class="">
-                Al Zeimers
+            <div class="suggestions-friend">
+                <img src="images/faces/face12.png">
+                <div class="friend-body">
+                    <div class="body-content">
+                        <div class="friend-info">
+                            <div class="info-name">Katlego McGee</div>
+                            <div class="info-location">Johannesburg, South Africa</div>
+                        </div>
+                        <div class="friend-tag">Expert</div>
+                        <button class="friend-add">Friend</button>
+                    </div>
+                </div>
             </div>
-            <div class="">
-                Uri Nerybladda
+            <div class="suggestions-friend">
+                <img src="images/faces/face13.png">
+                <div class="friend-body">
+                    <div class="body-content">
+                        <div class="friend-info">
+                            <div class="info-name">Jamyang Zhou</div>
+                            <div class="info-location">Tibet, China</div>
+                        </div>
+                        <div class="friend-tag">Guide</div>
+                        <button class="friend-add">Friend</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
