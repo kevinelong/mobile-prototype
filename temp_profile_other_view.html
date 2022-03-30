@@ -417,26 +417,6 @@ route
     "Foodie",
   ]
 
-  function interest(text, className = "") {
-    return `<div class="hash-tag ${className}">${text
-      }</div>`
-  }
-
-  function showAll(button) {
-    const list = button.parentElement.querySelectorAll(".hash-tag")
-    Array.from(list).map(e => e.classList.remove("hidden"))
-    button.remove()
-  }
-
-  function interestList(title, list, limit = 4) {
-    const more = `<button onclick="showAll(this)" class="link">${list.length - limit} more</button>`
-    return title + `<div class="main-interests">` +
-      list.map((i, x) => x < limit ? interest(i) : interest(i, "hidden")).join("") +
-      (list.length > limit ? more : "") +
-      `</div>`;
-    // return list.map(interest).join("")
-  }
-
   const interestHTML = interestList("Shared Interests", interestsShared) + interestList("Other Interests", interests)
 
   const boards = cardList([
