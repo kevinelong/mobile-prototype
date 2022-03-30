@@ -50,13 +50,13 @@
     padding: 0;
 }
 
-.dialog .action-item {
+.dialog .action-list .action-item {
     color: black;
     background-color: white;
     padding: 0.5rem 0.75rem;
 }
 
-.dialog .action-item:hover {
+.dialog .action-list .action-item:hover {
     background-color: #dddddd;
 }
 .dialog .title {
