@@ -59,6 +59,11 @@
     white-space: nowrap;
 }
 
+.dialog .card-people .circle {
+    margin: 0;
+    padding-top: 0;
+}
+
 
 .profile-host .profile-page {
 
@@ -146,7 +151,7 @@
     padding: 10px;
 }
 
-.profile-host img {
+.profile-host .main-headshot img {
     height: 40px;
 }
 
@@ -355,7 +360,7 @@
     padding: 10px;
 }
 
-.profile-host img {
+.profile-host .main-heashot img {
     height: 40px;
 }
 
