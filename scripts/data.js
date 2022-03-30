@@ -321,46 +321,43 @@ const peopleList = [
         name: "Ruby Red",
         isCurrentUser: true,
         groups: [],
+        currentTown: "Los Angeles"
     },
     {
         id: 2,
         name: "Joe Shmoe",
         isCurrentUser: false,
         groups: [],
+        currentTown: "Los Angeles"
     },
     {
         id: 3,
         name: "Betty Ford",
         isCurrentUser: false,
         groups: [],
+        currentTown: "Los Angeles"
     },
 ];
 
 peopleList[RUBY].groups = [
     {
-        people: [peopleList[BF]],
+        people: peopleList,
         title: "Friends with",
-        groupName: "friend",
-        subtitle: "",
-    },
-    {
-        people: [peopleList[BF]],
-        title: "Linked To",
-        groupName: "currator",
-        subtitle: "",
-    },
-    {
-        people: [peopleList[BF], peopleList[JOE]],
-        title: "Plans With",
-        groupName: "Co-Planner",
+        groupName: "person",
         subtitle: "",
     },
     {
         people: [peopleList[BF], peopleList[JOE]],
         title: "Followed By",
-        groupName: "explorer",
+        groupName: "person",
         subtitle: "",
     },
+    {
+        people: [peopleList[BF], peopleList[JOE]],
+        title: "Following",
+        groupName: "person",
+        subtitle: "",
+    }
 ];
 
 peopleList[JOE].groups = [

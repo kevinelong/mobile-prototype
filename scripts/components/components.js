@@ -156,3 +156,22 @@ function hashTags(tags, tagAttrs = "") {
         t => hashTag(t, "none", tagAttrs)
     ).join(""));
 }
+
+function interest(text, className = "") {
+    return `<div class="hash-tag ${className}">${text
+    }</div>`
+}
+
+function showMore(button) {
+    const list = button.parentElement.querySelectorAll(".hash-tag")
+    Array.from(list).map(e => e.classList.remove("hidden"))
+    button.remove()
+}
+
+function interestList(title, list, limit = 4) {
+    const more = `<button onclick="showMore(this)" class="link">${list.length - limit} more</button>`
+    return title + `<div class="main-interests">` +
+        list.map((i, x) => x < limit ? interest(i) : interest(i, "hidden")).join("") +
+        (list.length > limit ? more : "") +
+        `</div>`;
+}

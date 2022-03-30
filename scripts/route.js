@@ -559,7 +559,70 @@ function showMatchDialog() {
     );
 }
 
+function showProfileDialogSelf(target, action, which, index = RUBY) {
+    const who = peopleList[index];
+    const settings = "Settings TBD.";
+    const profile = `    
+<div class="profile-connections">${cardGroups(who.groups)}</div>
+<div class="profile-main">
+  <div class="main-top">
+    <div class="main-headshot">
+      <img src="images/faces/face${who.id}.png" alt="">
+      <div class="headshot-info">
+        <div class="headshot-name">${who.name}</div>
+        <div class="headshot-location">
+          <img src="images/icons/location_on_black_24dp.svg" alt="">
+          <span>${who.currentTown}</span>
+        </div>
+      </div>
+    </div>
+    <div class="main-options">
+      <div class="options-guide">
+        <div class="guide-nav">
+          <div class="nav-btn">Local Guide</div>
+          <a href="#" class="link">Open Guide Profile</a>
+        </div>
+        <div class="guide-others">
+          <div class="others-restaurant">
+            <img src="images/icons/icon-restaurants-black.svg" alt="">
+          </div>
+          <div class="others-activity">
+            <img src="images/icons/icon-activity-red.svg" alt="">
+          </div>
+          <div class="others-landscape">
+            <img src="images/icons/icon-landscape-black.svg" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main-bottom">
+    <div class="main-interests">${interestList("Your Interests", [
+        "Hiking",
+        "Vodka",
+        "Skiing",
+        "Wine Tasting",
+        "Santa Barbara",
+        "Foodie",
+    ], 24)}</div>
+  </div>
+</div>
+`;
+
+    const tabs = tabSet("profile", [
+        {name: "Taste-Match Profile", content: profile},
+        {name: "Settings", content: settings},
+    ], "Taste-Match Profile");
+    const content = contentPanel(tabs,"profile-host");
+    showDialog("Your Profile", content);
+}
+
 function showProfileDialog(target, action, which, index = RUBY) {
+
+    if (index == 0) { //IS THIS THE CURRENT USER? e.g. 0==RUBY
+        return showProfileDialogSelf(target, action, which, index);
+    }
+
     const who = peopleList[index];
     const actions = actionPanel(
         ["block", "friend", "follow"]
@@ -569,9 +632,6 @@ function showProfileDialog(target, action, which, index = RUBY) {
             .join("")
     );
     const other =
-        // label("", "Relationship" +
-        //     input("relationship", "text", `placeholder="e.g. Acquaintance, Friend, BFF"`)
-        // ) +
         label(
             "",
             "Shared Plans" +
@@ -590,8 +650,8 @@ function showProfileDialog(target, action, which, index = RUBY) {
                 [
                     ...[
                         "Skiing",
-                        "Fine Dining - Shared",
-                        "Wine Tasting - Shared",
+                        "Fine Dining",
+                        "Wine Tasting",
                     ],
                 ]
                     .map(hashTag)
@@ -606,7 +666,7 @@ function showProfileDialog(target, action, which, index = RUBY) {
                 [
                     ...[
                         "Santa Barbara - Linked",
-                        "Paris - Shared. Link?",
+                        "Paris. Link?",
                         "Seattle",
                     ],
                 ]
@@ -614,14 +674,14 @@ function showProfileDialog(target, action, which, index = RUBY) {
                     .join("")
             )
         ) +
-        cardGroups(who.groups) +
-        (index === 0 ? "" : actions);
+        cardGroups(who.groups) + actions;
 
     const content = contentPanel(
         person(who) + (index === 0 ? "" : other),
         "profile"
     );
-    showDialog(index === 0 ? "Your Profile" : "Profile", content);
+
+    showDialog("Profile", content);
 }
 
 function collapseCard(target) {
