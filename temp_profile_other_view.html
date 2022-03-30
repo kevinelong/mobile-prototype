@@ -127,17 +127,26 @@ route
   }
 
   .profile-host .profile-page {
-    
+
     /* height: auto; */
     /* padding: 2em; */
     /* justify-content: space-between; */
     /* margin: 0; */
     /* border: 0; */
+    width: 100%;
     gap: 1em;
   }
 
   .profile-host button {
     border-radius: 2px;
+  }
+
+  .profile-host .link {
+    color: blue;
+    text-decoration: underline;
+    white-space: nowrap;
+    background: none;
+    border: none;
   }
 
   .profile-host .profile-icons {
@@ -184,10 +193,6 @@ route
     /* gap: 1em; */
     justify-content: space-between;
     margin: 1em 0;
-  }
-
-  .profile-host .connections-friends {
-    /* flex-direction: column; */
   }
 
   .profile-host .friends-people {
@@ -294,11 +299,8 @@ route
   }
 
   .profile-host .nav-link {
-    text-decoration-color: black;
-    color: black;
-    font-size: 8px;
-    font-weight: bold;
-    margin: 1em 0;
+    margin: .5em 0;
+    font-size: 0.88em;
   }
 
   .profile-host .guide-others {
@@ -329,6 +331,13 @@ route
 
   .profile-host .hash-tag {
     width: max-content;
+    margin-right: 6px;
+    font-size: 1.1em;
+  }
+
+  .profile-host .hash-tag.hidden {
+    width: 0;
+    margin-right: 0;
   }
 
   .profile-host .interests-item {
@@ -395,6 +404,106 @@ route
   ];
 
   const groupElements = cardGroups(groups)
+
+  const interests = [
+    "Hiking",
+    "Vodka",
+  ]
+
+  const interestsShared = [
+    "Skiing",
+    "Wine Tasting",
+    "Santa Barbara",
+    "Foodie",
+  ]
+
+  function interest(text, className = "") {
+    return `<div class="hash-tag ${className}">${text
+      }</div>`
+  }
+
+  function showAll(button) {
+    const list = button.parentElement.querySelectorAll(".hash-tag")
+    Array.from(list).map(e => e.classList.remove("hidden"))
+    button.remove()
+  }
+
+  function interestList(title, list, limit = 4) {
+    const more = `<button onclick="showAll(this)" class="link">${list.length - limit} more</button>`
+    return title + `<div class="main-interests">` +
+      list.map((i, x) => x < limit ? interest(i) : interest(i, "hidden")).join("") +
+      (list.length > limit ? more : "") +
+      `</div>`;
+    // return list.map(interest).join("")
+  }
+
+  const interestHTML = interestList("Shared Interests", interestsShared) + interestList("Other Interests", interests)
+
+  const boards = cardList([
+    collectCard("Santa Barbara", "California", [], "collect_board", 1,
+      "images/photos/santa_barbara_1500x500.jpg", [
+      {
+        people: peopleList,
+        title: "Linked with",
+        groupName: "Curator",
+        subtitle: "23 cards shared"
+      },
+      {
+        people: peopleList,
+        title: "Related Collections",
+        groupName: "Person",
+        subtitle: "from 23"
+      },
+    ]
+    ),
+    collectCard("Paris", "France", [], "collect_board", 2,
+      "images/photos/paris_france.jpg", [
+      {
+        people: [peopleList[JOE]],
+        title: "Linked with",
+        groupName: "Curator",
+        subtitle: "2 cards shared"
+      }
+    ]
+    ),
+  ].join(""));
+
+  const plans = div("card-list",
+    title("ONGOING") +
+    planCard(
+      "Santa Barbara",
+      "Tuesday March 3rd<br>Monday March 10th",
+      "8 Activities Planned",
+      [{
+        people: peopleList,
+        title: "Going with",
+        groupName: "Co-Planner",
+        subtitle: "8 activities planned"
+      }],
+      [],
+      "images/photos/santa_barbara_1500x500.jpg",
+    ) +
+    title("UPCOMING") +
+    planCard(
+      "Paris France",
+      "Tuesday September 3rd<br>Monday September 9th",
+      "12 Activities Planned",
+      [{
+        people: [peopleList[JOE]],
+        title: "Going with",
+        groupName: "Co-Planner",
+        subtitle: "2 activities planned"
+      }],
+      [],
+      "images/photos/paris_france.jpg"
+    )
+  )
+
+  const tab_content = tabSet("boards-plans", [
+    { name: "Boards", content: boards },
+    { name: "Plans", content: plans },
+  ], "Boards");
+
 </script>
 
 </head>
@@ -492,7 +601,7 @@ route
                   <div class="options-guide">
                     <div class="guide-nav">
                       <div class="nav-btn">Local Guide</div>
-                      <a href="" class="nav-link">Open Guide Profile</a>
+                      <a href="" class="link nav-link">Open Guide Profile</a>
                     </div>
                     <div class="guide-others">
                       <div class="others-restaurant">
@@ -508,41 +617,19 @@ route
                   </div>
                 </div>
               </div>
-              
               <div class="main-bottom">
-                Interests
-                <div class="main-interests">
-                  <div class="hash-tag">
-                    Skiing - Shared
-                  </div>
-                  <div class="hash-tag">
-                    Wine Tasting - Shared
-                  </div>
-                  <div class="hash-tag">
-                    Santa Barbara - Shared
-                  </div>
-                  <div class="hash-tag">
-                    Foodie - Shared
-                  </div>
-                  <div class="hash-tag">
-                    Hiking
-                  </div>
-                  <div class="hash-tag">
-                    Vodka
-                  </div>
-                  <div class="hash-tag">
-                    <u>19 more</u>
-                  </div>
-                </div>
+                <script>
+                  document.write(interestHTML + tab_content);
+                </script>
               </div>
-              <div class="profile-nav">
+              <!-- <div class="profile-nav">
                 <div class="choice selected">
                   Boards
                 </div>
                 <div class="choice">
                   Plans
                 </div>
-              </div>
+              </div> -->
             </div>
             <!-- <div class="profile-misc">
               Room for future elements
