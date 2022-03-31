@@ -560,7 +560,7 @@ function showMatchDialog() {
 
 function showProfileDialogSelf(target, action, which, index = RUBY) {
     const who = peopleList[index];
-    const settings = "Settings TBD.";
+    const settings = button("TasteMatch", `onclick="self.location='taste_match.html';"`);
     const profile = `    
 <div class="profile-connections">${cardGroups(who.groups)}</div>
 <div class="profile-main">
@@ -579,7 +579,7 @@ function showProfileDialogSelf(target, action, which, index = RUBY) {
       <div class="options-guide">
         <div class="guide-nav">
           <div class="nav-btn">Local Guide</div>
-          <a href="#" class="nav-link">Open Guide Profile</a>
+          <button class="nav-link">Open Guide Profile</button>
         </div>
         <div class="guide-others">
           <div class="others-restaurant">
@@ -615,10 +615,10 @@ function showProfileDialogSelf(target, action, which, index = RUBY) {
     const tabs = tabSet(
         "profile",
         [
-            { name: "Taste-Match Profile", content: profile },
+            { name: "Profile", content: profile },
             { name: "Settings", content: settings },
         ],
-        "Taste-Match Profile"
+        "Profile"
     );
     const content = contentPanel(tabs, "profile-host");
     showDialog("Your Profile", content);
@@ -783,7 +783,7 @@ function showProfileDialog(target, action, which, index = RUBY) {
                 <div class="options-guide">
                 <div class="guide-nav">
                     <div class="nav-btn">Local Guide</div>
-                    <a href="" class="nav-link">Open Guide Profile</a>
+                    <button class="nav-link">Open Guide Profile</button>
                 </div>
                 <div class="guide-others">
                     <div class="others-restaurant">

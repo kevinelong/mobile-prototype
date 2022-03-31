@@ -288,8 +288,11 @@
 .profile-host .profile-icons {
     flex-direction: row;
     justify-content: space-between;
-    margin-top: 0.5em;
     width: 100%;
+    border: 1px solid #0004;
+    padding: 3px;
+    margin: 3px 0em;
+    border-radius: 3px;
 }
 
 .profile-host .icon-group {
@@ -339,18 +342,22 @@
 
 .profile-host .main-top {
     display: grid;
-    grid-template-columns: 140px 12px 1fr;
+    grid-template-columns: 137px 2px 1fr;
+    border: 1px solid #0004;
+    padding: 3px;
+    margin: 3px 0em;
+    border-radius: 3px;
 }
 
 .profile-host .main-headshot {
     grid-column: 1;
     height: inherit;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     background-color: #DEDEDE;
     border-radius: 50vh;
-    padding: 10px;
+    padding: 5px 9px 5px 5px
 }
 
 .profile-host .main-heashot img {
@@ -360,7 +367,7 @@
 .profile-host .headshot-info {
     height: 100%;
     justify-content: center;
-    gap: 8px;
+    gap: 4px;
     align-items: center;
 }
 
@@ -427,6 +434,12 @@
     font-size: 8px;
     font-weight: bold;
     margin: .5em 0;
+    background: none;
+    border: none;
+}
+
+.profile-host .nav-link:hover {
+    text-decoration: underline;
 }
 
 .profile-host .guide-others {
