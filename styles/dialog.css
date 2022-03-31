@@ -21,6 +21,10 @@
     transition: opacity 90ms ease-in-out;
 }
 
+.dialog .tab-set {
+    width: 299px;
+}
+
 .dialog .person-icon,
 .dialog .person-icon .circle,
 .dialog .row > .circle {
