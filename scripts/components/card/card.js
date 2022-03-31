@@ -131,8 +131,8 @@ function mapCard(
     period = Period()
 ) {
 
-    const ve = VitaEvent(period, kind);
-    ve.imagePath = image;
+    // const ve = VitaEvent(period, kind);
+    // ve.imagePath = image;
 
     return div(
         `card ${kind} ${which}`,
@@ -145,7 +145,12 @@ function mapCard(
             content
         ) +
         row(
-            cardSummary(groups)
+            col(
+                cardSummary(groups)
+            ) +
+            col(
+                `<img class="child-image" src="${image}">`
+            )
         ) +
         div("preview-actions",
             actionItem("alternatives", "preview", -1, "Alternatives", "", false, 0, true) +
@@ -155,8 +160,8 @@ function mapCard(
             actionItem("Book", "book", -1, "Book Now!", "", false, 0, true)
         ),
         attrs +
-        ` data-kind="${cleanName(kind)}" data-which="${which}" ` +
-        cardStyle(ve)
+        ` data-kind="${cleanName(kind)}" data-which="${which}" `
+        // + cardStyle(ve)
     );
 }
 

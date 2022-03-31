@@ -184,7 +184,7 @@ div {
 .collect_board .map-panel{
     min-height: 326px;
 }
-.map-preview{
+.map-preview {
     position: absolute;
     top: calc(50% - 66px);
     left: 0;
@@ -192,8 +192,17 @@ div {
     /*background-color: white;*/
     /*border: 1px solid black;*/
     border-radius: 0px;
-    max-height: 90px;
+    /*max-height: 90px;*/
     /*overflow: hidden;*/
+    background-color: white;
+}
+.map-preview .card {
+    background-color: white;
+    color: black;
+}
+
+.map-preview .card .child-image{
+    width:50%;
 }
 
 .page.collect_board .map-preview .card ,
