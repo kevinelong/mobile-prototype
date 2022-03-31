@@ -221,13 +221,6 @@
     border-radius: 2px;
 }
 
-.profile-host .nav-link {
-    text-decoration-color: black;
-    color: black;
-    font-size: 8px;
-    font-weight: bold;
-    margin: 1em 0;
-}
 
 .profile-host .guide-others {
     flex-direction: row;
@@ -429,8 +422,11 @@
 }
 
 .profile-host .nav-link {
+    text-decoration-color: black;
+    color: blue;
+    font-size: 8px;
+    font-weight: bold;
     margin: .5em 0;
-    font-size: 0.88em;
 }
 
 .profile-host .guide-others {

@@ -579,7 +579,7 @@ function showProfileDialogSelf(target, action, which, index = RUBY) {
       <div class="options-guide">
         <div class="guide-nav">
           <div class="nav-btn">Local Guide</div>
-          <a href="#" class="link">Open Guide Profile</a>
+          <a href="#" class="nav-link">Open Guide Profile</a>
         </div>
         <div class="guide-others">
           <div class="others-restaurant">
@@ -783,7 +783,7 @@ function showProfileDialog(target, action, which, index = RUBY) {
                 <div class="options-guide">
                 <div class="guide-nav">
                     <div class="nav-btn">Local Guide</div>
-                    <a href="" class="link nav-link">Open Guide Profile</a>
+                    <a href="" class="nav-link">Open Guide Profile</a>
                 </div>
                 <div class="guide-others">
                     <div class="others-restaurant">
