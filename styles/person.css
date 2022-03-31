@@ -54,7 +54,7 @@
 .dialog .card-people .circle,
 .card-people .circle .text {
     margin: 0 0 0 2px;
-    padding-top: 2px;
+    padding-top: 0px;
     font-size: 11px;
     white-space: nowrap;
 }
