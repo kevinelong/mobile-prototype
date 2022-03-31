@@ -58,6 +58,17 @@
     color: black;
 }
 
+.card .content-panel .circle .text {
+    color: black;
+}
+
+.dialog .content-panel .card .circle .text {
+    color: black;
+}
+.dialog .content-panel .card .circle > .text {
+    color: white;
+}
+
 .content-panel .card-people {
     margin-top: -1px;
     align-self: flex-start;

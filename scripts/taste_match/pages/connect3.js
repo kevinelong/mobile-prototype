@@ -17,7 +17,10 @@ TASTE_MATCH_PAGES.add("connect3", Pane( `
                             <div class="info-location">Kemerovo Oblast, Russia</div>
                         </div>
                         <div class="friend-tag">Expert</div>
-                        <button class="friend-add">Friend</button>
+                        <div class="friend-buttons">
+                            <button class="btn-add">Friend</button>
+                            <button class="btn-follow">Follow</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -30,7 +33,10 @@ TASTE_MATCH_PAGES.add("connect3", Pane( `
                             <div class="info-location">Galicia, Spain</div>
                         </div>
                         <div class="friend-tag" style="display:none"></div>
-                        <button class="friend-add">Friend</button>
+                        <div class="friend-buttons">
+                            <button class="btn-add">Friend</button>
+                            <button class="btn-follow">Follow</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -43,7 +49,10 @@ TASTE_MATCH_PAGES.add("connect3", Pane( `
                             <div class="info-location">California, United States</div>
                         </div>
                         <div class="friend-tag">Local</div>
-                        <button class="friend-add">Friend</button>
+                        <div class="friend-buttons">
+                            <button class="btn-add">Friend</button>
+                            <button class="btn-follow">Follow</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -56,7 +65,10 @@ TASTE_MATCH_PAGES.add("connect3", Pane( `
                             <div class="info-location">North Carolina, United States</div>
                         </div>
                         <div class="friend-tag" style="display:none"></div>
-                        <button class="friend-add">Friend</button>
+                        <div class="friend-buttons">
+                            <button class="btn-add">Friend</button>
+                            <button class="btn-follow">Follow</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -69,7 +81,10 @@ TASTE_MATCH_PAGES.add("connect3", Pane( `
                             <div class="info-location">Java, Indonesia</div>
                         </div>
                         <div class="friend-tag" style="display:none"></div>
-                        <button class="friend-add">Friend</button>
+                        <div class="friend-buttons">
+                            <button class="btn-add">Friend</button>
+                            <button class="btn-follow">Follow</button>
+                        </div>
                     </div>
                 </div>
             </div>

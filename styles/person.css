@@ -44,18 +44,24 @@
     border: 1px solid black;
 }
 
-.card-people .circle{
+.dialog .card .card-people .circle,
+.card-people .circle {
     background: #000000ee;
     border: 1px solid #ffffffee;
     border-radius: 15px;
 }
 
+.dialog .card-people .circle,
 .card-people .circle .text {
     margin: 0 0 0 2px;
     padding-top: 2px;
     font-size: 11px;
     white-space: nowrap;
+}
 
+.dialog .card-people .circle {
+    margin: 0;
+    padding-top: 0;
 }
 
 
@@ -145,7 +151,7 @@
     padding: 10px;
 }
 
-.profile-host img {
+.profile-host .main-headshot img {
     height: 40px;
 }
 
@@ -264,6 +270,226 @@
 
 .profile-host .profile-misc {
     /* border: 1px solid black; */
+    height: 8rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-host .profile-page {
+    width: 100%;
+    gap: 1em;
+}
+
+.profile-host button {
+    border-radius: 2px;
+}
+
+.profile-host .link {
+    color: blue;
+    text-decoration: underline;
+    white-space: nowrap;
+    background: none;
+    border: none;
+}
+
+.profile-host .profile-icons {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 0.5em;
+    width: 100%;
+}
+
+.profile-host .icon-group {
+    flex-direction: row;
+    gap: 1em;
+}
+
+.profile-host .icon {
+    align-items: center;
+    gap: 4px;
+}
+
+.profile-host .profile-icons img {
+    height: 20px;
+}
+
+.profile-host .button-nav {
+    height: 2rem;
+    width: 8rem;
+    color: white;
+    font-size: 1em;
+}
+
+.profile-host .button-nav.profile {
+    background-color: #F9A831;
+}
+
+.profile-host .button-nav.settings {
+    background-color: grey;
+}
+
+.profile-host .profile-connections {
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1em 0;
+}
+
+.profile-host .friends-people {
+    flex-direction: row;
+}
+
+.profile-host .profile-main {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    gap: 1em;
+}
+
+.profile-host .main-top {
+    display: grid;
+    grid-template-columns: 140px 12px 1fr;
+}
+
+.profile-host .main-headshot {
+    grid-column: 1;
+    height: inherit;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #DEDEDE;
+    border-radius: 50vh;
+    padding: 10px;
+}
+
+.profile-host .main-heashot img {
+    height: 40px;
+}
+
+.profile-host .headshot-info {
+    height: 100%;
+    justify-content: center;
+    gap: 8px;
+    align-items: center;
+}
+
+.profile-host .headshot-name {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.profile-host .headshot-location {
+    flex-direction: row;
+    align-items: end;
+}
+
+.profile-host .headshot-location img {
+    height: 16px;
+}
+
+.profile-host .main-options {
+    grid-column: 3;
+    display: grid;
+    grid-template-rows: 1fr;
+}
+
+.profile-host .options-badges {
+    flex-direction: row;
+    
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    font-size: 8px;
+}
+
+.profile-host .options-badges .badge {
+    border: 1px solid black;
+    width: 60px;
+    height: 80%;
+    justify-content: center;
+}
+
+.profile-host .options-guide {
+    display: grid;
+    grid-template-columns: 55% auto;
+    text-align: center;
+    justify-content: space-around;
+}
+
+.profile-host .guide-nav {
+    row-gap: 5%;
+}
+
+.profile-host .nav-btn {
+    
+    background-color: #F9A831;
+    justify-content: center;
+    color: white;
+    
+    padding: 0.5em;
+    border-radius: 2px;
+}
+
+.profile-host .nav-link {
+    margin: .5em 0;
+    font-size: 0.88em;
+}
+
+.profile-host .guide-others {
+    flex-direction: row;
+    column-gap: 4px;
+}
+
+.profile-host .guide-others img {
+    height: 16px;
+}
+
+.profile-host .guide-others button {
+    height: 20px;
+    width: 24px;
+}
+
+.profile-host .others-landscape {
+    grid-column: 2;
+}
+
+.profile-host .main-bottom {
+    gap: 4px;
+}
+
+.profile-host .main-interests {
+    display: block;
+}
+
+.profile-host .hash-tag {
+    width: max-content;
+    margin-right: 6px;
+    font-size: 1.1em;
+}
+
+.profile-host .hash-tag.hidden {
+    width: 0;
+    margin-right: 0;
+}
+
+.profile-host .interests-item {
+    font-size: 12px;
+    background-color: #F9A831;
+    width: fit-content;
+    padding: 4px;
+    border-radius: 2px;
+    border: 1px solid grey;
+}
+
+.profile-host .profile-nav {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile-host .profile-nav .choice {
+    min-width: 49%;
+}
+
+.profile-host .profile-misc {
     height: 8rem;
     justify-content: center;
     align-items: center;

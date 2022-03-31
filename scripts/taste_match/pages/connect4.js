@@ -17,7 +17,10 @@ TASTE_MATCH_PAGES.add("connect4", Pane( `
                             <div class="info-location">Sicily, Italy</div>
                         </div>
                         <div class="friend-tag">Expert</div>
-                        <button class="friend-add">Friend</button>
+                        <div class="friend-buttons">
+                            <button class="btn-add">Friend</button>
+                            <button class="btn-follow">Follow</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -30,7 +33,10 @@ TASTE_MATCH_PAGES.add("connect4", Pane( `
                             <div class="info-location">Johannesburg, South Africa</div>
                         </div>
                         <div class="friend-tag">Expert</div>
-                        <button class="friend-add">Friend</button>
+                        <div class="friend-buttons">
+                            <button class="btn-add">Friend</button>
+                            <button class="btn-follow">Follow</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -43,7 +49,10 @@ TASTE_MATCH_PAGES.add("connect4", Pane( `
                             <div class="info-location">Tibet, China</div>
                         </div>
                         <div class="friend-tag">Guide</div>
-                        <button class="friend-add">Friend</button>
+                        <div class="friend-buttons">
+                            <button class="btn-add">Friend</button>
+                            <button class="btn-follow">Follow</button>
+                        </div>
                     </div>
                 </div>
             </div>
