@@ -122,6 +122,7 @@ function mapCard(
     kind,
     match_percent,
     content = "",
+    location = "",
     groups = [],
     actions = [],
     image = "",
@@ -138,18 +139,42 @@ function mapCard(
         `card ${kind} ${which}`,
         title(
             icon(kind) +
-            cardTags(tags) +
+            content +
             actionItem("open", "explore_detail", -1, "", "", true)
         ) +
         row(
-            content
+            location
+        ) +
+        row(
+            cardTags(tags)
         ) +
         row(
             col(
-                cardSummary(groups)
+                row(
+                    col(
+                        `<img src="images/icons/icon-connect_chat-black.svg">`
+                    ) +
+                    col(
+                        `<img src="images/icons/more-horiz-black.svg">`
+                    )
+                ) +
+                col(
+                    row(
+                        cardSummary(groups)
+                    ) +
+                    row (
+
+                    )   
+                ) +
+                row(
+
+                )
             ) +
             col(
                 `<img class="child-image" src="${image}">`
+            ) +
+            col(
+                actionItem("Book", "book", -1, "Book from $65", "", false, 0, true)
             )
         ) +
         div("preview-actions",
@@ -212,9 +237,10 @@ function mapActivityCard(item = {}, index = -1) {
         item.match_percent,
         [
             item.title,
-            item.subtitle,
+            // item.subtitle,
             item.content
         ].join("-"),
+        item.subtitle,
         item.groups,
         [],
         item.imagePath,
