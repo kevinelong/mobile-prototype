@@ -340,7 +340,7 @@ div {
 
 .button {
     width: calc(100% - 12px);
-    line-height: 3em;
+    line-height: 2em;
     color: white;
     background: goldenrod;
     border-style: none;
@@ -348,6 +348,7 @@ div {
     margin: 3px 6px;
     padding: 3px 6px;
 }
+
 
 .connect.page .header .action-item .text,
 .collect.page .header .action-item .text {

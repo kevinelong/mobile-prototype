@@ -73,7 +73,12 @@
     position: relative;
     transition: all 300ms ease-in-out;
 }
-
+.page.settle .card{
+    background: #dddddd;
+    border-radius: 0.5rem;
+    color: black;
+    text-shadow: none;
+}
 .card-inner {
     padding: 15px;
     background-repeat: no-repeat;
@@ -304,6 +309,44 @@
     bottom: 0;
 }
 
+.card .amount{
+    height: min-content;
+    background: white;
+    padding: 0.5em;
+    border-radius: 1em;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-self: center;
+    font-size: 11px;
+}
+
+.docs,
+.bulletin{
+    background: cornflowerblue;
+    padding: 1em;
+    border-radius: 1em;
+    color: white;
+    font-size: 15px;
+    justify-self: center;
+    text-align: center;
+    width: calc(100% - 2em);
+    margin: 1em;
+}
+.docs{
+    font-size: 11px;
+    color: #321;
+    justify-self: flex-start;
+    text-align: left;
+    background: lightgoldenrodyellow;
+}
+.docs p{
+    margin: 1em 0 0 -0.5em;
+}
+.settle.page > .content-panel .title{
+    font-size: 1.5em;
+    padding: 1em;
+}
 .card-section {
     display: flex;
     flex-direction: column;
@@ -352,7 +395,7 @@
 }
 
 .card-title {
-    font-size: 18pt;
+    font-size: 14px;
     flex-direction: row;
     align-items: flex-start;
     display: flex;
@@ -438,13 +481,13 @@
     background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25)), black center/cover no-repeat;
     /* prevents the exported black frames from figma from showing. */
     background-size: 103%;
-    gap: 1rem;
+    gap: 0px;
 }
 
 .card-inner {
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), black center/cover no-repeat;
     background-size: 103%;
-    gap: 1rem;
+    gap: 0px;
 }
 
 .card.collect,
@@ -524,7 +567,7 @@
 }
 
 .red {
-    color: #996633;
+    color: #993333;
 }
 
 .black {

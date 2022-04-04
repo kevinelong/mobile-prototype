@@ -25,7 +25,7 @@ function contentPanel(content, className = "") {
 }
 
 function row(content, attrs = "", className = "") {
-    return div(`row${className ? className : ""}`, content, attrs);
+    return div(`row${(className ? ' ' + className : '')}`, content, attrs);
 }
 
 
@@ -125,12 +125,13 @@ function sectionTitle(content) {
 }
 
 
-function actionButton(content, className, attrs) {
+function actionButton(content, actionName, which="", attrs) {
+    which = which ? which : actionName;
     return closedTag(
         "button",
         content,
-        `action-button ${className}`,
-        `onclick="actionClick(event, '${className}', '${className}', '${className}')" $attrs`
+        `action-button ${actionName}`,
+        `onclick="actionClick(event, '${actionName}', '${which}', '${which}')" $attrs`
     );
 }
 
@@ -174,4 +175,53 @@ function interestList(title, list, limit = 4) {
         list.map((i, x) => x < limit ? interest(i) : interest(i, "hidden")).join("") +
         (list.length > limit ? more : "") +
         `</div>`;
+}
+
+
+function labeledInput(name = "", inputType = "text") {
+    return label(
+        cleanName(name),
+        (name ? text(name) : "") + input(name, inputType)
+    );
+}
+
+function selectDate(name = "") {
+    return labeledInput(name, "date");
+}
+
+function selectTime(name = "") {
+    return labeledInput(name, "time");
+}
+
+function labeledRange(
+    name = "",
+    inputType = "date",
+    fromText = "From",
+    toText = "To"
+) {
+    return label(
+        cleanName(name),
+        (name ? text(name) : "") +
+        rangeRow(
+            labeledInput(fromText, inputType) +
+            " - " +
+            labeledInput(toText, inputType)
+        )
+    );
+}
+
+function selectDateRange(name = "") {
+    return labeledRange(name, "date");
+}
+
+function selectTimeRange(name = "") {
+    return labeledRange(name, "time");
+}
+
+function calendarControl(name="calendar"){
+    return div("calendar-control", input(name, "date"))
+}
+
+function timeControl(name="time"){
+    return div("time-control", input(name, "time"))
 }

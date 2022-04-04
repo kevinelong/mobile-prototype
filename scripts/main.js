@@ -46,13 +46,13 @@ document.addEventListener("DOMContentLoaded", () => {
     get(".main-nav-outer").innerHTML = mainNav(
         ["explore", "broadcast", "collect", "plan", "settle"],
         ["connect", "timeline"],
-        "explore"
+        "settle"
     );
 
     get(".inner-content").innerHTML = [
         explorePage(false),
         exploreDetailPage(),
-        exploreFakePage(true),
+        exploreFakePage(false),
         broadcastPage(),
         collectPage(),
         collectBoardPage(),
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
         connectPersonPage(),
         settleList(),
         settleSplit(),
-        settlePage(),
+        settlePage(true),
         mapView()
     ].join("");
 

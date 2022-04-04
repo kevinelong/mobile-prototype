@@ -37,7 +37,7 @@
     white-space: nowrap;
     align-items: center;
     overflow: visible;
-    min-width: 120px;
+    /*min-width: 120px;*/
     width: 100%;
     justify-content: center;
 }
