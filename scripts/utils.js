@@ -27,7 +27,7 @@ function titleCase(str) {
 }
 
 function selectItem(e, id, index, text) {
-    // console.log("select", e, id, index, text);
+    console.log("select", e, id, index, text);
     [...e.parentElement.children].forEach((s) =>
         s.classList.remove("selected")
     );
@@ -143,6 +143,17 @@ function applyConnectFilter(e, id, index, text) {
     show(`.page.connect .tab-set.${text}`);
 }
 
+function applySettleFilter(e, id, index, text) {
+    console.log("applySettleFilter", e, id, index, text)
+    const cp = e.closest(".page");
+    if (!cp) {
+        return;
+    }
+    text = cleanName(text);
+    hideAll(".page.settle .content-panel >  .tab-set");
+    show(`.page.settle .content-panel > .tab-set.${text}`);
+}
+
 function applyExploreFilter(e, id, index, text) {
     // console.log("applyExploreFilter", e, id, index, text);
     if (0 === index) {
@@ -182,6 +193,8 @@ function applyFilter(e, id, index, text) {
 
     if (page.classList.contains("connect")) {
         applyConnectFilter(e, id, index, text);
+    } else if (page.classList.contains("settle")) {
+            applySettleFilter(e, id, index, text);
     } else if (page.classList.contains("explore")) {
         if (id === "to-do-subcategory-choices") {
             if (text === "BROADCAST") {

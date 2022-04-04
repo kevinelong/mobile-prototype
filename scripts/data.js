@@ -1,4 +1,4 @@
-const Period = () => {
+const Period = (name = "", from = "", to = "", color = "") => {
     return {name: "", from: "", to: "", color: "", ideas: []};
 };
 

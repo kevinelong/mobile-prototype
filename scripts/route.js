@@ -58,45 +58,6 @@ function showSearch(title, index = -1) {
     );
 }
 
-function labeledInput(name = "", inputType = "text") {
-    return label(
-        cleanName(name),
-        (name ? text(name) : "") + input(name, inputType)
-    );
-}
-
-function selectDate(name = "") {
-    return labeledInput(name, "date");
-}
-
-function selectTime(name = "") {
-    return labeledInput(name, "time");
-}
-
-function labeledRange(
-    name = "",
-    inputType = "date",
-    fromText = "From",
-    toText = "To"
-) {
-    return label(
-        cleanName(name),
-        (name ? text(name) : "") +
-            rangeRow(
-                labeledInput(fromText, inputType) +
-                    " - " +
-                    labeledInput(toText, inputType)
-            )
-    );
-}
-
-function selectDateRange(name = "") {
-    return labeledRange(name, "date");
-}
-
-function selectTimeRange(name = "") {
-    return labeledRange(name, "time");
-}
 
 function onClickTabItem(e, name, index) {
     const top = e.closest(".tab-set");
@@ -908,6 +869,8 @@ function addItem(target, action, which, id) {
         showSearch(`${action} ${which}`, id);
     } else if ("message" === which) {
         addMessage();
+    } else if ("payment" === which) {
+        addPayment();
     } else if ("connect" === which) {
         addParticipant();
     } else if ("collection" === which) {
@@ -979,6 +942,7 @@ ACTION_PAGES = {
     "create-new-group": createGroup,
     "add-participant": addParticipant,
     add: addItem,
+    payment: addPayment,
     contact: addContact,
     new: addItem,
     search: showDestinations,

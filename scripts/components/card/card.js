@@ -85,7 +85,7 @@ function card(
     page = "",
     match_percent = "",
     booking_index = -1,
-    actionAttribute= ""
+    actionAttribute = ""
 ) {
     period = period ? period : Period();
     const ve = VitaEvent(period, kind);
@@ -115,6 +115,94 @@ function card(
         attrs +
         ` data-kind="${cleanName(kind)}" data-which="${which}" ` +
         cardStyle(ve)
+    )
+}
+
+function paymentCard(
+    kind = "restaurants",
+    titleText = "",
+    subtitleText = "",
+    content = "",
+    groups = [],
+    actions = [],
+    image = "",
+    tags = [],
+    which = -1,
+    attrs = "",
+    period = "",
+    page = "",
+    match_percent = "",
+    booking_index = -1,
+    actionAttribute = ""
+) {
+    period = period ? period : Period();
+    const ve = VitaEvent(period, kind);
+    ve.imagePath = image;
+
+    return div(
+        `card ${kind} ${which}`,
+        contentPanel(
+            row(
+                subtitle(subtitleText)
+            )
+        ) +
+        cardSection(
+            cardTags(tags) +
+            div(
+                "titles",
+                icon(kind) +
+                col(
+                    cardTitle(titleText) +
+                    subtitle("Note")
+                ) + content
+            )
+        ),
+        ` data-kind="${cleanName(kind)}" data-which="${which}" ` +
+        cardStyle(ve)
+    )
+}
+function amount(content="0", color=""){
+    const amount = parseFloat(content);
+    const colorClass = color ? color : (amount >= 0 ? "green" : "red");
+    return div(`amount ${colorClass}`, currency(amount))
+}
+function historyCard(
+    kind = "restaurants",
+    titleText = "",
+    subtitleText = "",
+    content = "",
+    groups = [],
+    actions = [],
+    image = "",
+    tags = [],
+    which = -1,
+    attrs = "",
+    period = "",
+    page = "",
+    match_percent = "",
+    booking_index = -1,
+    actionAttribute = ""
+) {
+    period = period ? period : Period();
+    const ve = VitaEvent(period, kind);
+    ve.imagePath = image;
+
+    return div(
+        `card ${kind} ${which}`,
+        cardSection(
+            cardTags(tags) +
+            div(
+                "titles",
+                icon(kind) +
+                col(
+                    subtitle(subtitleText) +
+                    cardTitle(titleText) +
+                    cardGroups(groups)
+                ) + amount(content)
+            )
+        ),
+        ` data-kind="${cleanName(kind)}" data-which="${which}" `
+        // cardStyle(ve)
     )
 }
 

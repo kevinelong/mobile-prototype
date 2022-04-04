@@ -1,0 +1,530 @@
+
+.pane-host {
+    background-color: white;
+    color: black;
+    /* overflow: auto; */
+    overflow: hidden;
+}
+
+.pane {
+    gap: 12px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 572px;
+    min-height: 572px;
+    padding: 3px;
+}
+
+.pane-host-page {
+    gap: 40px;
+}
+.pane-content{
+    margin-bottom: 40px;
+    overflow-y: scroll;
+    height: max-content;
+    gap: 6px;
+}
+.pane-actions {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    width: calc(100% - 40px);
+    position: absolute;
+    bottom:20px;
+    left:20px;
+    right:20px;
+}
+
+/*.pane-host .page1 {*/
+/*    min-height: calc(640px - (2 * 42px));*/
+/*    gap: 48px;*/
+/*}*/
+
+/*.pane-host .page2,*/
+/*.pane-host .page3,*/
+/*.pane-host .page4,*/
+/*.pane-host .page5,*/
+/*.pane-host .page6 {*/
+/*    min-height: calc(640px - (2 * 42px));*/
+/*    gap: 52px;*/
+/*}*/
+
+.pane-host .progress-control {
+   
+    /* position: absolute;
+    top: 0; */
+    /* display: inline; */
+    /* width: 100%; */
+    /* position: relative; */
+    min-height: 19px;
+    align-items: center;
+}
+
+/* .pane-host .progress-control hr {
+    border: 1px solid #F9A831;
+    width: 100%;
+    position: absolute;
+    top: 9px;
+} */
+
+.pane-host .progress-line {
+    background-color: #FFEFD8;
+    height: 3px;
+    width: 98%;
+    position: absolute;
+    top: 8px;
+    border-radius: 50vh;
+    display: inline-block;
+    /* flex-direction: row; */
+}
+
+/* .pane-host .progress-line .line-faded,
+.pane-host .progress-line .line-full {
+
+} */
+
+.pane-host .progress-line .line-full {
+    background-color: #F9A831;
+    height: 100%;
+    width: 0px;
+    border-radius: 50vh;
+}
+
+.pane-host .progress-icon {
+    height: 19px;
+    width: 19px;
+    position: absolute;
+    top: -8px;
+    left: -2px;
+}
+
+.pane-host .logo-control {
+    justify-self: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: #F9A831;
+    font-family: 'Averia Libre', sans-serif;
+    text-align: center;
+    gap: 12px;
+}
+
+.pane-host .slogan-control {
+    font-size: 38px;
+    font-weight: bold;
+    text-align: center;
+    /* margin: 48px 0 58px; */
+    /* margin-bottom: 10px; */
+    margin-bottom: 30px;
+}
+
+.pane-host .title-control {
+    font-size: 15px;
+    font-weight: bold;
+    /* margin: 48px 0 20px; */
+}
+.pane-host label{
+    font-size: 12px;
+    color: #757575;
+}
+.pane-host .question-control {
+    font-size: 12px;
+    color: #757575;
+}
+.pane-host .button {
+    line-height: 2.5em;
+}
+.pane-host .button.link {
+    line-height: 1em;
+    text-align: left;
+}
+.pane-host .login-control {
+    gap: 40px;
+}
+
+.pane-host .login-creds {
+    gap: 12px;
+}
+
+.pane-host .login-buttons {
+    gap: 8px;
+}
+
+.pane-host .login-control input {
+    color: black;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    border-bottom: 1px solid #B8B8B8;
+    width: 100%;
+    /* margin-top: 12px; */
+    padding: 12px 0;
+}
+
+.pane-host input:focus {
+    outline: none;
+}
+
+.pane-host .login-control input:focus {
+    border-bottom: 1px solid black;
+}
+
+.pane-host .login-control input::placeholder {
+    color: #B8B8B8;
+    opacity: 1;
+}
+
+.pane-host .step-nav {
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    width: 100%;
+}
+
+.pane-host .pane-actions button {
+    background-color: #F9A831;
+    color: white;
+    font-weight: bold;
+    /* margin-top: 40px; */
+    border: none;
+    /*width: 100%;*/
+    min-height: 4em;
+    min-width: 4em;
+    border-radius: 4em;
+    padding: 1em;
+}
+.pane-host .button.link{
+    color: blue;
+    text-decoration: none;
+    background: none;
+}
+
+.pane-host a,
+.pane-host button {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.pane-host a.left,
+.pane-host button.left{
+    text-align: left;
+    align-self: flex-start;
+    justify-self: flex-start;
+    justify-content: flex-start;
+}
+
+
+.pane-host .login-control .submit-signin,
+.pane-host .button-control .button-import {
+    border-radius: 4px;
+    background-color: #F9A831;
+    color: white;
+    font-weight: bold;
+    /* margin-top: 40px; */
+    border: none;
+    width: 100%;
+    height: 38px;
+}
+
+.pane-host .google-control,
+.pane-host .button-control .button-skip {
+    background-color: white;
+    font-size: 14px;
+    color: #8F8F8F;
+    min-height: 38px;
+    border: 2px solid #B8B8B8;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.pane-host .signup-control {
+    /* border: 1px solid red; */
+    min-height: 38px;
+
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+.pane-host .signup-control .new-here {
+    color: #B8B8B8;
+}
+
+.pane-host .signup-control .sign-up {
+    color: #F9A831;
+}
+
+.pane-host .question-heading {
+    margin-top: 1em;
+    gap: 10px;
+}
+
+.pane-host .radio-control,
+.pane-host .checkbox-control {
+    /* margin-top: 52px; */
+    font-size: 12px;
+    gap: 14px;
+}
+
+.pane-host .radio-control input,
+.pane-host .checkbox-control input {
+    display: inline;
+    opacity: 0;
+    position: fixed;
+    width: 0;
+}
+
+.pane-host > label,
+.pane-host .text-control input,
+.pane-host .calender-control input {
+    box-shadow: none;
+    /* display: inline-block; */
+    /* background-color: #ddd; */
+    font-size: 12px;
+    border: 1px solid #EAEAEA;
+    border-radius: 16px;
+    /* height: 32px; */
+    min-height: 32px;
+    /* text-align: center; */
+    line-height: 16px;
+    color: #8F8F8F;
+    /*padding: 0 20px 0 20px;*/
+}
+
+.pane-host label {
+    display: flex;
+    align-items: center;
+    padding: 1px 6px;
+    flex-direction: column;
+    gap: 6px;
+    border: 1px solid #bbb;
+    border-radius: 1em;
+}
+
+.flatpickr-calendar * {
+    flex-direction: row;
+}
+
+.pane-host .radio-control input:checked + label,
+.pane-host .checkbox-control input:checked + label {
+    background-color: #F9A831;
+    color: white;
+}
+
+.pane-host .radio-control label:hover,
+.pane-host .checkbox-control label:hover {
+    border: 1px solid #F9A831;
+    color: #F9A831;
+}
+
+/* .pane-host .radio-control input:focus + label {
+    border: 1px dashed blue;
+} */
+
+
+.pane-host .text-control input:focus {
+    border: 1px solid #F9A831;
+}
+
+.pane-host .dropbtn {
+    background-color: white;
+    border-radius: 16px;
+    border: 1px solid #EAEAEA;
+    color: #8F8F8F;
+    min-height: 0;
+    height: 32px;
+    /* padding: 16px; */
+    font-size: 12px;
+    /* border: none; */
+    cursor: pointer;
+    width: 100%;
+}
+
+.pane-host .dropbtn:hover,
+.pane-host .dropbtn:focus {
+    border: 1px solid #F9A831;
+    color: #F9A831;
+}
+
+.pane-host .dropdown-control {
+    position: relative;
+    display: inline-block;
+    min-width: 100%;
+}
+
+.pane-host .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    max-height: 250px;
+    overflow: auto;
+}
+
+.pane-host .dropdown-content p {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.pane-host .dropdown-content p:hover {
+    background-color: #ddd;
+}
+
+.pane-host .show {
+    display: block;
+}
+
+.pane-host .interests-list{
+    gap:6px;
+}
+
+.pane-host .place-card {
+    display: inline-block;
+    padding: 4px;
+    background-color: aquamarine;
+    width: fit-content;
+    border-radius: 4px;
+    border: 1px solid grey;
+}
+
+.pane-host .known-places {
+    gap: 1em;
+}
+
+.pane-host .known-place {
+    flex-direction: row;
+    font-size: 14px;
+    /* justify-content: space-evenly; */
+    /* gap: 1em; */
+}
+
+.pane-host .known-exp {
+    flex-direction: row;
+}
+
+.pane-host .known-place-tab,
+.pane-host .known-exp-tab {
+    border: 1px solid #F9A831;;
+    background-color: white;
+    height: 32px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 8px;
+    border-radius: 50vh;
+    width: 100%;
+}
+
+.pane-host .known-place-tab {
+    background-color: #ddd;
+    height: 32px;
+}
+
+.pane-host .known-exp {
+    /* margin: 0 32px; */
+    margin-left: 32px;
+    margin-right: 32px;
+}
+
+.pane-host .known-exp-tab {
+    height: 24px;
+}
+
+.pane-host .button-plus,
+.pane-host .button-minus {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 30px;
+    /* font-size: 0; */
+}
+
+.pane-host .pane.connect .pane-content{
+    height: 100%;
+}
+
+.pane-host .pane.connect .pane-host-page {
+    height: 100%;
+    justify-content: space-between;
+}
+
+.pane-host .pane.connect .connect-buttons {
+    gap: 1em;
+    padding-bottom: 1em;
+}
+
+.pane-host .connect-suggestions {
+    gap: 1.6em;
+}
+
+.pane-host .suggestions-friend {
+    display: grid;
+    grid-template-columns: auto 1fr;   
+    gap: 1em;
+}
+
+.pane-host .suggestions-friend img {
+    height: 40px;
+}
+
+.pane-host .friend-body {
+    display: grid;
+    grid-template-rows: auto auto;
+}
+
+.pane-host .body-content {
+    display: grid;
+    /* grid-row: 2; */
+    grid-template-columns: 40% 57px auto;
+    gap: 1em;
+    height: 52px;
+}
+
+.pane-host .info-name {
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.pane-host .info-location {
+    color: grey;
+}
+
+.pane-host .friend-tag {
+    background-color: black;
+    font-size: 9px;
+    color: white;
+    height: 12px;
+    justify-content: center;
+    text-align: center;
+    border-radius: 50vh;
+    width: fit-content;
+    margin-top: 2px;
+    padding: 7px 6px;
+    /* justify-self: center; */
+}
+.pane-host .friend-buttons {
+    justify-content: space-between;
+    grid-column: 3;
+}
+
+.pane-host .btn-follow,
+.pane-host .btn-add {
+    height: 22px;
+    font-weight: bold;
+    font-size: 1em;
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 4px;
+    /* margin-top: 2px; */
+    width: 56px;
+}

@@ -26,6 +26,10 @@ function button(text, attrs, className = "") {
     return closedTag("button", text, `button ${className}`, attrs);
 }
 
+function link(text, attrs, className = "") {
+    return closedTag("button", text, `button link ${className}`, attrs);
+}
+
 function helpText(text, className = "") {
     return closedTag("div", text, `help-text ${className}`);
 }

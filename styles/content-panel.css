@@ -38,6 +38,12 @@
     text-shadow: none;
 }
 
+.page.settle .content-panel label {
+    padding: 6px 9px;
+}
+
+
+
 .page .content-panel>.row {
     width: 100%;
     gap: 0.5em;
@@ -163,7 +169,7 @@
 
 .content-panel .subtitle {
     background: none;
-    padding: 0 0 0.5rem 0.5rem;
+    padding: 0;
 }
 
 .dialog .content-panel .text {
