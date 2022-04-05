@@ -253,10 +253,10 @@ div {
     background: none;
 }
 
-.page.collect_board .map-preview .card .row,
+/* .page.collect_board .map-preview .card .row,
 .page.explore .map-preview .card .row{
     justify-content: center;
-}
+} */
 
 .page.collect_board .map-preview .card .title,
 .page.explore .map-preview .card .title {
@@ -344,6 +344,30 @@ div {
     max-height: 24px;
     width: 24px;
     height: 24px;
+}
+
+.map-preview .coplanner-panel {
+    background-color: grey;
+    padding-left: 1em;
+}
+
+.map-preview .coplanner-panel .tag {
+    color: white;
+    background-color: black;
+    width: fit-content;
+    padding-right: .7em;
+    border-radius: 50vh;
+    height: 20px;
+}
+
+.map-preview .coplanner-panel div img {
+    width: 20px;
+}
+
+.map-preview .coplanner-panel .paid {
+    background-color: green;
+    padding-left: .7em;
+    justify-content: center;
 }
 
 .plan_detail .card .text,

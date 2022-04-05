@@ -34,8 +34,8 @@ function rangeRow(content, attrs = "") {
 }
 
 
-function col(content) {
-    return div("col", content);
+function col(content, attrs = "", className = "") {
+    return div(`col${(className ? ' ' + className : '')}`, content, attrs);
 }
 
 function iconPath(name, color = "") {

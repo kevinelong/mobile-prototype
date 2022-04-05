@@ -256,26 +256,37 @@ function mapCard(
                     )
                 ) +
                 col(
-                    cardGroups(
-                        [
-                            {
-                                people: three_people,
-                                title: "",
-                                groupName: "co-planner",
-                                subtitle: "plan contains 23 cards",
-                            }
-                        ]
+                    div("coplanner",
+                        "<b>3 co-planners</b>") +
+                    row(
+                        img("", "images/faces/face3.png") +
+                        "invited you",
+                        "",
+                        "tag invited"
                     ) +
-                    cardGroups(
-                        [
-                            {
-                                people: one_person,
-                                title: "",
-                                groupName: "invited you",
-                                subtitle: "",
-                            },
-                        ]
-                    )
+                    row(
+                      row(
+                            img("", "images/faces/face3.png") +
+                            "going",
+                            "",
+                            "tag going"
+                        ) +
+                        div("tag paid",
+                            "paid"
+                        )
+                    ),
+                    "",
+                    "coplanner-panel"
+                ) +
+                col(
+                    row(
+                        
+                    ) +
+                    row(
+
+                    ),
+                    "",
+                    "date-panel"
                 )
             ) +
             col(
