@@ -239,39 +239,57 @@ function mapCard(
         row(
             col(
                 row(
-                    col(
-                        `<img src="images/icons/icon-connect_chat-black.svg">`
-                    ) +
-                    col(
-                        `<img src="images/icons/more-horiz-black.svg">`
+                    `<img src="images/icons/icon-connect_chat-black.svg">` +
+                    `<img src="images/icons/more-horiz-black.svg">` 
+                ) + 
+                col(
+                    `<b>99% match</b>` +
+                    cardGroups(
+                        [
+                            {
+                                people: three_people,
+                                title: "",
+                                groupName: "recommend it",
+                                subtitle: "Recommended By",
+                            }
+                        ]
                     )
                 ) +
                 col(
-                    row(
-                        cardSummary(groups)
+                    cardGroups(
+                        [
+                            {
+                                people: three_people,
+                                title: "",
+                                groupName: "co-planner",
+                                subtitle: "plan contains 23 cards",
+                            }
+                        ]
                     ) +
-                    row (
-
-                    )   
-                ) +
-                row(
-
+                    cardGroups(
+                        [
+                            {
+                                people: one_person,
+                                title: "",
+                                groupName: "invited you",
+                                subtitle: "",
+                            },
+                        ]
+                    )
                 )
             ) +
             col(
-                `<img class="child-image" src="${image}">`
-            ) +
-            col(
-                actionItem("Book", "book", -1, "Book from $65", "", false, 0, true)
-            )
-        ) +
-        div("preview-actions",
+                div("preview-actions",
             actionItem("alternatives", "preview", -1, "Alternatives", "", false, 0, true) +
             actionItem("Share", "add", -1, "Share", "", true, 0, true) +
             actionItem("Message", "add", -1, "Invite", "", true, 0, true) +
-            actionItem("Directions", "map-on", -1, "Directions", "", true, 0, true) +
-            actionItem("Book", "book", -1, "Book Now!", "", false, 0, true)
+            actionItem("Directions", "map-on", -1, "Directions", "", true, 0, true)
+        ) +
+                `<img class="child-image" src="${image}">` +
+                 actionItem("Book", "book", -1, "Book from $65", "", false, 0, true)
+            )
         ),
+        
         attrs +
         ` data-kind="${cleanName(kind)}" data-which="${which}" `
         // + cardStyle(ve)

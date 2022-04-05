@@ -199,10 +199,20 @@ div {
 .map-preview .card {
     background-color: white;
     color: black;
+    text-shadow: none;
 }
+
+
 
 .map-preview .card .child-image{
     width: 100%;
+    position: relative;
+}
+
+.map-preview .action-item.book {
+    position: absolute;
+    bottom: 0;
+    left: 25%;
 }
 
 .page.collect_board .map-preview .card ,
@@ -265,11 +275,11 @@ div {
     justify-content: space-between;
 }
 
-.page.collect_board .map-preview .card .card-people,
+/* .page.collect_board .map-preview .card .card-people,
 .page.explore .map-preview .card .card-people {
     margin-top: -1px;
     align-self: flex-end;
-}
+} */
 
 /*.page.explore .map-preview .card .col,*/
 /*.page.explore .map-preview .card .col:last-child {*/
@@ -327,6 +337,13 @@ div {
     max-height: 12px;
     width: 12px;
     height: 12px;
+}
+
+.map-preview .person-icon .icon-frame .icon {
+    max-width: 24px;
+    max-height: 24px;
+    width: 24px;
+    height: 24px;
 }
 
 .plan_detail .card .text,
