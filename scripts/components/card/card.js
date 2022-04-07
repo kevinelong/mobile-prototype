@@ -280,24 +280,30 @@ function mapCard(
                 ) +
                 col(
                     row(
-                        
+                        img("", `images/icons/calendar-today-black.svg`) +
+                        `27 Jun 2021`
                     ) +
                     row(
-
+                        img("", `images/icons/schedule-black.svg`) +
+                        `12:30 - 14:00`
                     ),
                     "",
                     "date-panel"
-                )
+                ),
+                "",
+                "left"
             ) +
             col(
                 div("preview-actions",
-            actionItem("alternatives", "preview", -1, "Alternatives", "", false, 0, true) +
-            actionItem("Share", "add", -1, "Share", "", true, 0, true) +
-            actionItem("Message", "add", -1, "Invite", "", true, 0, true) +
-            actionItem("Directions", "map-on", -1, "Directions", "", true, 0, true)
-        ) +
+                    actionItem("alternatives", "preview", -1, "Alternatives", "", false, 0, true) +
+                    actionItem("Share", "add", -1, "Share", "", true, 0, true) +
+                    actionItem("Message", "add", -1, "Invite", "", true, 0, true) +
+                    actionItem("Directions", "map-on", -1, "Directions", "", true, 0, true)
+                ) +
                 `<img class="child-image" src="${image}">` +
-                 actionItem("Book", "book", -1, "Book from $65", "", false, 0, true)
+                actionItem("Book", "book", -1, "Book from $65", "", false, 0, true),
+                "",
+                "right"
             )
         ),
         

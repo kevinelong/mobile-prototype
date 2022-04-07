@@ -186,7 +186,7 @@ div {
 }
 .map-preview {
     position: absolute;
-    top: calc(50% - 66px);
+    /* top: calc(50% - 66px); */
     left: 0;
     right: 0;
     /*background-color: white;*/
@@ -195,6 +195,7 @@ div {
     /*max-height: 90px;*/
     /*overflow: hidden;*/
     background-color: white;
+    gap: 1em;
 }
 .map-preview .card {
     background-color: white;
@@ -202,7 +203,10 @@ div {
     text-shadow: none;
 }
 
-
+.map-preview .left {
+    /* align-items: center; */
+    
+}
 
 .map-preview .card .child-image{
     width: 100%;
@@ -349,6 +353,7 @@ div {
 .map-preview .coplanner-panel {
     background-color: grey;
     padding-left: 1em;
+    width: 80%;
 }
 
 .map-preview .coplanner-panel .tag {
