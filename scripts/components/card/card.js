@@ -266,7 +266,7 @@ function mapCard(
                     ) +
                     row(
                       row(
-                            img("", "images/faces/face3.png") +
+                            img("", "images/faces/face1.png") +
                             "going",
                             "",
                             "tag going"
@@ -291,7 +291,7 @@ function mapCard(
                     "date-panel"
                 ),
                 "",
-                "left"
+                "left-column"
             ) +
             col(
                 div("preview-actions",
@@ -303,8 +303,10 @@ function mapCard(
                 `<img class="child-image" src="${image}">` +
                 actionItem("Book", "book", -1, "Book from $65", "", false, 0, true),
                 "",
-                "right"
-            )
+                "right-column"
+            ),
+            "",
+            "main-columns"
         ),
         
         attrs +
