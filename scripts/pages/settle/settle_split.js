@@ -55,7 +55,7 @@ function settleSplit(selected = false) {
         "",
         row(
             actionItem("search") +
-            cardGroups(groups) +
+            actionItem("participants","","","Participants") +
             actionButton("History") +
             actionItem("chat")
             , "", "padded") +
