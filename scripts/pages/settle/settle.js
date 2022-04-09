@@ -1,21 +1,7 @@
-function dashBoardItem(titleText = "", valueText = "", actionName = "") {
-    return contentPanel(
-        col(
-            [
-                title(valueText),
-                text(titleText),
-                actionItem(actionName, "settle", -1, actionName, "", false),
-            ].join("")
-        ),
-        "dashboard-item"
-    );
-}
-
-function dashboard(items) {
-    return row(items.join(""));
-}
 
 let PAY_REQUEST_PAGES = PaneSet("taste-match", "add-person");
+
+let SPLIT_PAGES = PaneSet("split-pages", "add-split");
 
 PAY_REQUEST_PAGES.add("add-person", Pane(`
 <div class="taste-match-page page1">
@@ -116,6 +102,40 @@ PAY_REQUEST_PAGES.add("expenses", Pane(`
     )
 );
 
+SPLIT_PAGES.add("add-split", Pane(`
+<div class="taste-match-page page1">
+    <div class="question-heading">
+        <div class="title-control">
+            Create New Split
+        </div>
+        <div class="question-control row">
+            <div class="text">
+            </div>
+            <div class="selected-people">
+                Kevin L. (added)
+            </div>
+        </div>
+    </div>
+</div>
+` + div("question-control",
+            "Search for, and add people, by name, email, or mobile number."
+        ) +
+        row(
+            search([], -1, "Type search text") +
+            actionItem("sort", "", "", "", "black")) +
+        div("autocomplete",
+            listPeople(name, peopleList, "", "right")
+        ) + actionList(
+            "filter",
+            ["Create New Group", "Add New Contact"],
+            false,
+            0,
+            "black"
+        ) +
+        actionButton("Finish and Send", "close")
+        , [])
+);
+
 
 const payContent = div("pane-host",
     actionButton("Add Payment", "add", "payment")
@@ -128,7 +148,7 @@ const ts = tabSet("pay-request-subs", [
     {name: "Request", content: requestContent},
 ], "Pay");
 
-const payRequestContent = div("tab-set PAY-REQUEST", title(
+const payRequestContent = div("tab-set PAY-REQUEST hidden", title(
     search([], -1, "") +
     actionItem("chat", "pay", -1, "", "black")
 ) + ts);
@@ -137,11 +157,15 @@ function historyItem(data) {
     return historyCard(data.kind, data.name, data.when, data.amount, data.groups);
 }
 
+function splitItem(data) {
+    return splitCard(data.kind, data.name, data.when, data.amount, data.groups);
+}
+
 const groups = [
     {
         people: three_people,
         title: "Split with",
-        groupName: "participants",
+        groupName: "participant",
         subtitle: "",
     },
 ];
@@ -310,15 +334,53 @@ const walletContent = div("tab-set WALLET hidden",
     ], "Transfer Money")
 );
 
-const splitContent = div("tab-set SPLIT hidden",
+const splitContent = div("tab-set SPLIT",
     row(
         actionItem("search", "", "", "", "black") +
-        button("Create New Split") +
-        actionItem("sort", "", "", "", "black"),
+        actionButton("Create New Split", "add", "split") +
+        actionItem("sort", "All,1 on 1,Group", "", "Sort", "black"),
         "",
-        "spaced") +
-    title("Unsettled:") +
-    title("Settled:")
+        "spaced"
+    ) +
+    cardList(
+        title("Unsettled:") +
+        [
+            {
+                kind: "GROUP-CHAT",
+                amount: -86.50,
+                name: "Group Split: Ongoing",
+                when: "",
+                groups: groups
+            },
+            {
+                kind: "person",
+                amount: 72,
+                name: "1 on 1 Split: Ongoing",
+                when: "",
+                groups: [{
+                    people: [peopleList[JOE]],
+                    title: "",
+                    groupName: "",
+                    subtitle: "",
+                },]
+            },
+        ].map(splitItem).join("") +
+        title("Settled:") +
+        [
+            {
+                kind: "person",
+                amount: 0,
+                name: "1 on 1 Split: Ongoing",
+                when: "",
+                groups: [{
+                    people: [peopleList[BF]],
+                    title: "",
+                    groupName: "",
+                    subtitle: "",
+                },]
+            },
+        ].map(splitItem).join("")
+    )
 );
 
 function settlePage(selected = false) {
@@ -327,7 +389,7 @@ function settlePage(selected = false) {
         "settle",
         "Settle",
         ["Pay-Request", "Split", "History", "Wallet"],
-        "Pay-Request",
+        "Split",
         payRequestContent + splitContent + historyContent + walletContent,
         "",
         "",
@@ -346,6 +408,16 @@ function addPayment() {
         "Add Payment:",
         div("pane-host",
             panes(PAY_REQUEST_PAGES)
+        )
+    );
+}
+
+function addSplit() {
+    // debugger;
+    showDialog(
+        "Create New Split",
+        div("pane-host",
+            panes(SPLIT_PAGES)
         )
     );
 }

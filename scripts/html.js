@@ -114,6 +114,10 @@ function selectOptionsComponent(displayName, optionList) {
     )
 }
 
+function radioOptionItem(name = "option", value = "") {
+    return {name: name, value: (value ? value : name)};
+}
+
 function radioComponent(name, optionList) {
     return label("radio-component",
         text(name) +

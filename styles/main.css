@@ -310,7 +310,9 @@ div {
     border-radius: 3px;
     font-size: 11px;
 }
-
+.tiny-text{
+    font-size:7px;
+}
 .action-item.book{
     background: #F9A831cc;
 }
