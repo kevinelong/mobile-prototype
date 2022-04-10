@@ -486,9 +486,9 @@ function payCard(p = {}) {
             div("nowrap", p.paymentSplit) +
             row(p.paymentTypes.map((o, i) => paymentType("payment-type", o, 0 == i)).join(""))
         ) +
-        col(
-            div("tiny-text nowrap", "Amount Owed") +
-            amount(p.paymentAmount)
+        div("spread centered",
+            amount(p.paymentAmount) +
+            div("tiny-text nowrap centered", "Amount Owed")
         )
     );
 }

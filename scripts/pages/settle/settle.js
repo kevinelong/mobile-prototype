@@ -335,10 +335,10 @@ const walletContent = div("tab-set WALLET hidden",
 );
 
 const splitContent = div("tab-set SPLIT",
-    row(
+    div("padded row",
         actionItem("search", "", "", "", "black") +
         actionButton("Create New Split", "add", "split") +
-        actionItem("sort", "All,1 on 1,Group", "", "Sort", "black"),
+        actionItem("sort", "All,1 on 1,Group", "", "Sort", "black", true),
         "",
         "spaced"
     ) +

@@ -59,7 +59,7 @@ function settleSplit(selected = false) {
             actionButton("History") +
             actionItem("chat")
             , "", "padded") +
-        div("dashboard padded row",
+        div("dashboard padded row spread",
             [
                 dashBoardItem("Total Owed to You", "$0.00", "Request All"),
                 dashBoardItem("Total You Owe", "$0.00", "Pay All"),
