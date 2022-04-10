@@ -483,10 +483,13 @@ function payCard(p = {}) {
     return div("card settle row",
         person(p) +
         col(
-            div("tiny", p.paymentSplit)+
+            div("nowrap", p.paymentSplit) +
             row(p.paymentTypes.map((o, i) => paymentType("payment-type", o, 0 == i)).join(""))
         ) +
-        amount(p.amount)
+        col(
+            div("tiny-text nowrap", "Amount Owed") +
+            amount(p.paymentAmount)
+        )
     );
 }
 

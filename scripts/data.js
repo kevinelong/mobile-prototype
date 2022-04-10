@@ -323,7 +323,8 @@ const peopleList = [
         groups: [],
         currentTown: "Los Angeles",
         paymentTypes: ["Zelle", "Venmo", "PayPal"],
-        paymentSplit: "$60.00 / 3 = $20.00 each"
+        paymentSplit: "$60.00 / 3 = $20.00 each",
+        paymentAmount: 20
     },
     {
         id: 2,
@@ -332,7 +333,8 @@ const peopleList = [
         groups: [],
         currentTown: "Los Angeles",
         paymentTypes: ["Venmo"],
-        paymentSplit: "$300.00 / 3 = $100.00 each"
+        paymentSplit: "$300.00 / 3 = $100.00 each",
+        paymentAmount: 100
     },
     {
         id: 3,
@@ -341,7 +343,8 @@ const peopleList = [
         groups: [],
         currentTown: "Los Angeles",
         paymentTypes: ["Zelle", "Venmo", "PayPal"],
-        paymentSplit: "$60.00 / 3 = $20.00 each"
+        paymentSplit: "$60.00 / 3 = $20.00 each",
+        paymentAmount: 20
     },
 ];
 
