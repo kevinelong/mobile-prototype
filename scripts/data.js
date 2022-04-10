@@ -321,21 +321,27 @@ const peopleList = [
         name: "Ruby Red",
         isCurrentUser: true,
         groups: [],
-        currentTown: "Los Angeles"
+        currentTown: "Los Angeles",
+        paymentTypes: ["Zelle", "Venmo", "PayPal"],
+        paymentSplit: "$60.00 / 3 = $20.00 each"
     },
     {
         id: 2,
         name: "Joe Shmoe",
         isCurrentUser: false,
         groups: [],
-        currentTown: "Los Angeles"
+        currentTown: "Los Angeles",
+        paymentTypes: ["Venmo"],
+        paymentSplit: "$300.00 / 3 = $100.00 each"
     },
     {
         id: 3,
         name: "Betty Ford",
         isCurrentUser: false,
         groups: [],
-        currentTown: "Los Angeles"
+        currentTown: "Los Angeles",
+        paymentTypes: ["Zelle", "Venmo", "PayPal"],
+        paymentSplit: "$60.00 / 3 = $20.00 each"
     },
 ];
 

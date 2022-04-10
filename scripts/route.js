@@ -471,8 +471,32 @@ function showSchedule(target, action, which, index) {
     );
 }
 
+function paymentType(kind, name, selected) {
+    return choice(kind, name, selected)
+}
+
 function showAddPlaceDialog(target, action, which, index) {
     showAddPlace("Find a Place &amp; Time" + d);
+}
+
+function payCard(p = {}) {
+    return div("card settle row",
+        person(p) +
+        col(
+            div("tiny", p.paymentSplit)+
+            row(p.paymentTypes.map((o, i) => paymentType("payment-type", o, 0 == i)).join(""))
+        ) +
+        amount(p.amount)
+    );
+}
+
+function showPay(target, action, which, index) {
+    showDialog(
+        "Pay All",
+        helpText("Select a Pay-Type for each recipient, then click Pay-All.") +
+        cardList(peopleList.filter((v, i) => i > 0).map(payCard).join("")) +
+        actionPanel(actionButton("Cancel") + actionButton("Pay All"))
+    );
 }
 
 function showAddCheckInDialog(target, action, which, index) {
@@ -970,6 +994,7 @@ ACTION_PAGES = {
     show: toggleCollapse,
     "map-on": toggleMap,
     "map-off": toggleMap,
+    "pay all": showPay,
     person: showProfileDialog,
     match: showMatchDialog,
     upload: showUploadDialog,
@@ -1020,6 +1045,6 @@ function route(target, action, which = "", index = "") {
         const f = ACTION_PAGES[lower];
         return f(target, lower, which, index);
     } else {
-        console.log("UNKNOWN ACTION:" + lower, which, index, target);
+        console.log("UNKNOWN ACTION:'" + lower + "' ", which, index, target);
     }
 }

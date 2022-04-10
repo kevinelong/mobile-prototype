@@ -61,8 +61,8 @@ function settleSplit(selected = false) {
             , "", "padded") +
         div("dashboard padded row",
             [
-                dashBoardItem("Total Owed to You", "$0.00", "Request"),
-                dashBoardItem("Total You Owe", "$0.00", "Pay"),
+                dashBoardItem("Total Owed to You", "$0.00", "Request All"),
+                dashBoardItem("Total You Owe", "$0.00", "Pay All"),
             ]
         ) +
         cardList(

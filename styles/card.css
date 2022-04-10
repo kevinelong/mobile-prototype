@@ -74,12 +74,17 @@
     transition: all 300ms ease-in-out;
 }
 
+.dialog .card.settle,
 .page.settle_split .card,
 .page.settle .card{
     background: #dddddd;
     border-radius: 0.5rem;
     color: black;
     text-shadow: none;
+}
+
+.dialog .content-panel .person .text{
+    font-size: 9px;
 }
 
 .card-inner {
