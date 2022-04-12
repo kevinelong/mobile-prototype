@@ -225,23 +225,49 @@ function mapCard(
 
     return div(
         `card ${kind} ${which}`,
-        title(
-            icon(kind) +
-            content +
-            actionItem("open", "explore_detail", -1, "", "", true)
+        row(
+            icon(kind + '-black') +
+            div(
+                "",
+                div(
+                    "map-title",
+                    content
+                ) +
+                div(
+                    "map-subtitle",
+                    location
+                )
+            ) +
+            actionItem("open", "explore_detail", -1, "", "black", true),
+            "",
+            "map-heading"
         ) +
         row(
-            location
+            "Guided Experience"
+        ) +
+        // row(
+        //     cardTags(tags)
+        // ) +
+        row(
+            actionItem("chat", "", -1, "Message", "black", false, 0) +
+            actionItem("bookmark", "preview", -1, "Favorite", "black", true, 0) +
+            // actionItem("alternatives", "preview", -1, "Alternatives", "", false, 0, true) +
+            actionItem("Share", "add", -1, "Share", "black", true, 0) +
+            actionItem("Message", "add", -1, "Invite", "black", true, 0) +
+            actionItem("Directions", "map-on", -1, "Directions", "black", true, 0) +
+            select("category", [
+                {name: "Things to Do", value: "0"},
+                {name: "Places to See", value: "1"},
+                {name: "Restaurants", value: "2"},
+                {name: "Lodging", value: "3"},
+                {name: "Transportation", value: "4"},
+                {name: "People", value: "5"},
+            ], `placeholder="Category" value="0"`),
+            "",
+            "preview-actions"
         ) +
         row(
-            cardTags(tags)
-        ) +
-        row(
-            col(
-                row(
-                    `<img src="images/icons/icon-connect_chat-black.svg">` +
-                    `<img src="images/icons/more-horiz-black.svg">` 
-                ) + 
+            col( 
                 col(
                     `<b>99% match</b>` +
                     cardGroups(
@@ -279,13 +305,15 @@ function mapCard(
                     "coplanner-panel"
                 ) +
                 col(
-                    row(
-                        img("", `images/icons/calendar-today-black.svg`) +
-                        `27 Jun 2021`
-                    ) +
-                    row(
-                        img("", `images/icons/schedule-black.svg`) +
-                        `12:30 - 14:00`
+                    col(
+                        row(
+                            img("", `images/icons/calendar-today-black.svg`) +
+                            `27 Jun 2021`
+                        ) +
+                        row(
+                            img("", `images/icons/schedule-black.svg`) +
+                            `12:30 - 14:00`
+                        )
                     ),
                     "",
                     "date-panel"
@@ -294,12 +322,6 @@ function mapCard(
                 "left-column"
             ) +
             col(
-                div("preview-actions",
-                    actionItem("alternatives", "preview", -1, "Alternatives", "", false, 0, true) +
-                    actionItem("Share", "add", -1, "Share", "", true, 0, true) +
-                    actionItem("Message", "add", -1, "Invite", "", true, 0, true) +
-                    actionItem("Directions", "map-on", -1, "Directions", "", true, 0, true)
-                ) +
                 `<img class="child-image" src="${image}">` +
                 actionItem("Book", "book", -1, "Book from $65", "", false, 0, true),
                 "",
@@ -364,7 +386,7 @@ function mapActivityCard(item = {}, index = -1) {
             item.title,
             // item.subtitle,
             item.content
-        ].join("-"),
+        ].join(" - "),
         item.subtitle,
         item.groups,
         [],
