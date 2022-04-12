@@ -261,6 +261,7 @@ function mapCard(
     kind,
     match_percent,
     content = "",
+    location = "",
     groups = [],
     actions = [],
     image = "",
@@ -275,29 +276,112 @@ function mapCard(
 
     return div(
         `card ${kind} ${which}`,
-        title(
-            icon(kind) +
-            cardTags(tags) +
-            actionItem("open", "explore_detail", -1, "", "", true)
+        row(
+            icon(kind + '-black') +
+            div(
+                "",
+                div(
+                    "map-title",
+                    content
+                ) +
+                div(
+                    "map-subtitle",
+                    location
+                )
+            ) +
+            actionItem("open", "explore_detail", -1, "", "black", true),
+            "",
+            "map-heading"
         ) +
         row(
-            content
+            "Guided Experience"
+        ) +
+        // row(
+        //     cardTags(tags)
+        // ) +
+        row(
+            actionItem("chat", "", -1, "Message", "black", false, 0) +
+            actionItem("bookmark", "preview", -1, "Favorite", "black", true, 0) +
+            // actionItem("alternatives", "preview", -1, "Alternatives", "", false, 0, true) +
+            actionItem("Share", "add", -1, "Share", "black", true, 0) +
+            actionItem("Message", "add", -1, "Invite", "black", true, 0) +
+            actionItem("Directions", "map-on", -1, "Directions", "black", true, 0) +
+            select("category", [
+                {name: "Things to Do", value: "0"},
+                {name: "Places to See", value: "1"},
+                {name: "Restaurants", value: "2"},
+                {name: "Lodging", value: "3"},
+                {name: "Transportation", value: "4"},
+                {name: "People", value: "5"},
+            ], `placeholder="Category" value="0"`),
+            "",
+            "preview-actions"
         ) +
         row(
-            col(
-                cardSummary(groups)
+            col( 
+                col(
+                    `<b>99% match</b>` +
+                    cardGroups(
+                        [
+                            {
+                                people: three_people,
+                                title: "",
+                                groupName: "recommend it",
+                                subtitle: "Recommended By",
+                            }
+                        ]
+                    )
+                ) +
+                col(
+                    div("coplanner",
+                        "<b>3 co-planners</b>") +
+                    row(
+                        img("", "images/faces/face3.png") +
+                        "invited you",
+                        "",
+                        "tag invited"
+                    ) +
+                    row(
+                      row(
+                            img("", "images/faces/face1.png") +
+                            "going",
+                            "",
+                            "tag going"
+                        ) +
+                        div("tag paid",
+                            "paid"
+                        )
+                    ),
+                    "",
+                    "coplanner-panel"
+                ) +
+                col(
+                    col(
+                        row(
+                            img("", `images/icons/calendar-today-black.svg`) +
+                            `27 Jun 2021`
+                        ) +
+                        row(
+                            img("", `images/icons/schedule-black.svg`) +
+                            `12:30 - 14:00`
+                        )
+                    ),
+                    "",
+                    "date-panel"
+                ),
+                "",
+                "left-column"
             ) +
             col(
-                `<img class="child-image" src="${image}">`
-            )
-        ) +
-        div("preview-actions",
-            actionItem("alternatives", "preview", -1, "Alternatives", "", false, 0, true) +
-            actionItem("Share", "add", -1, "Share", "", true, 0, true) +
-            actionItem("Message", "add", -1, "Invite", "", true, 0, true) +
-            actionItem("Directions", "map-on", -1, "Directions", "", true, 0, true) +
-            actionItem("Book", "book", -1, "Book Now!", "", false, 0, true)
+                `<img class="child-image" src="${image}">` +
+                actionItem("Book", "book", -1, "Book from $65", "", false, 0, true),
+                "",
+                "right-column"
+            ),
+            "",
+            "main-columns"
         ),
+        
         attrs +
         ` data-kind="${cleanName(kind)}" data-which="${which}" `
         // + cardStyle(ve)
@@ -351,9 +435,10 @@ function mapActivityCard(item = {}, index = -1) {
         item.match_percent,
         [
             item.title,
-            item.subtitle,
+            // item.subtitle,
             item.content
-        ].join("-"),
+        ].join(" - "),
+        item.subtitle,
         item.groups,
         [],
         item.imagePath,

@@ -34,7 +34,7 @@ function rangeRow(content, attrs = "") {
 }
 
 
-function col(content, attrs="", className="") {
+function col(content, attrs = "", className = "") {
     return div(`col${(className ? ' ' + className : '')}`, content, attrs);
 }
 
