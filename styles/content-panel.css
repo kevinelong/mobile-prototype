@@ -9,7 +9,18 @@
     text-shadow: none;
 }
 .settle.page>.content-panel {
+    /*padding: 1em;*/
     /*padding-top: 24px;*/
+}
+.page.settle_day .label{
+    border: 1px solid #dddddd;
+    padding: 6px;
+    margin: 6px;
+    border-radius: 0.5em;
+    width: calc(100% - 12px);
+}
+input[type=number]{
+    text-align: right;
 }
 .content-panel {
     width: 100%;

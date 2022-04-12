@@ -29,7 +29,7 @@ function cardTitles(kind, title, subtitle = "", which = "", id = 0, page = "") {
             "titles",
 
             icon(kind) +
-            col(cardTitle(title) + cardSubtitle(subtitle)
+            stack(cardTitle(title) + cardSubtitle(subtitle)
             ) +
             actionItem("open", page, id)
         )
@@ -300,19 +300,16 @@ function mapCard(
         //     cardTags(tags)
         // ) +
         row(
-            actionItem("chat", "", -1, "Message", "black", false, 0) +
+            actionItem("chat", "", -1, "Discus", "black", false, 0) +
             actionItem("bookmark", "preview", -1, "Favorite", "black", true, 0) +
             // actionItem("alternatives", "preview", -1, "Alternatives", "", false, 0, true) +
             actionItem("Share", "add", -1, "Share", "black", true, 0) +
-            actionItem("Message", "add", -1, "Invite", "black", true, 0) +
+            // actionItem("Message", "add", -1, "Invite", "black", true, 0) +
             actionItem("Directions", "map-on", -1, "Directions", "black", true, 0) +
             select("category", [
-                {name: "Things to Do", value: "0"},
-                {name: "Places to See", value: "1"},
-                {name: "Restaurants", value: "2"},
-                {name: "Lodging", value: "3"},
-                {name: "Transportation", value: "4"},
-                {name: "People", value: "5"},
+                {name: "Idea", value: "0"},
+                {name: "Favorite", value: "1"},
+                {name: "Going", value: "2"},
             ], `placeholder="Category" value="0"`),
             "",
             "preview-actions"

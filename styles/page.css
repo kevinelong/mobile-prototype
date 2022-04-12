@@ -179,7 +179,9 @@
 input[type="text"] {
     width: 100%;
 }
-
+input[name=amount]{
+    text-align: right;
+}
 input[type="text"].vita-search {
     margin: 0;
     background-image: url(../images/icons/icon-search-black.svg);

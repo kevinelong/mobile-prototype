@@ -4,7 +4,7 @@ label input {
     /*width: 100%;*/
     /* margin-right: 15px; */
 }
-label .row .text{
+label > .row > .text{
     padding-top:3px;
 }
 textarea{

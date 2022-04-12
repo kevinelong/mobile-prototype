@@ -28,6 +28,9 @@ function row(content, attrs = "", className = "") {
     return div(`row${(className ? ' ' + className : '')}`, content, attrs);
 }
 
+function spread(content, attrs = "", className = "") {
+    return div(`spread${(className ? ' ' + className : '')}`, content, attrs);
+}
 
 function rangeRow(content, attrs = "") {
     return div("range-row", content, attrs);
@@ -36,6 +39,14 @@ function rangeRow(content, attrs = "") {
 
 function col(content, attrs = "", className = "") {
     return div(`col${(className ? ' ' + className : '')}`, content, attrs);
+}
+
+function stack(content, attrs="", className="") {
+    return div(`stack${(className ? ' ' + className : '')}`, content, attrs);
+}
+
+function rack(content, attrs="", className="") {
+    return div(`rack${(className ? ' ' + className : '')}`, content, attrs);
 }
 
 function iconPath(name, color = "") {
@@ -62,6 +73,7 @@ const ICON_MAP = {
     "explore_detail-black": "explore-black",
     "settle_split-black": "settle-black",
     "settle_list-black": "settle-black",
+    "settle_day-black": "settle-black",
     "connect_chat-black": "connect-black",
     "plan_detail-black": "plan-black",
     accept: "plan",

@@ -1,4 +1,3 @@
-
 let PAY_REQUEST_PAGES = PaneSet("taste-match", "add-person");
 
 let SPLIT_PAGES = PaneSet("split-pages", "add-split");
@@ -27,6 +26,28 @@ PAY_REQUEST_PAGES.add("add-person", Pane(`
     )
 );
 
+function addExpense() {
+    return label("add-expense",
+        `Add Expense Detail &amp; Earn Rewards. (Optional) ` +
+        input("expense-name", "text", `placeholder="Expense Name"`) +
+        row(
+            calendarControl("expense-date") +
+            timeControl("expense-date")
+            , "", "spread") +
+        row(
+            select("category", [
+                {name: "Restaurant", value: ""},
+                {name: "Lodging", value: ""},
+            ], `placeholder="Category"`)
+            , "", "spread") +
+        row(
+            text("$") +
+            input("amount", "text", `placeholder="0.00"`) +
+            button("Add")
+        )
+    )
+}
+
 PAY_REQUEST_PAGES.add("expenses", Pane(`
 <div class="taste-match-page page1">
     <div class="question-heading">
@@ -52,25 +73,8 @@ PAY_REQUEST_PAGES.add("expenses", Pane(`
                 "No",
                 "Already Checked-In",
             ], "Yes")
-        ) + label("add-expense",
-            `Add Expense Detail &amp; Earn Rewards. (Optional) ` +
-            input("expense-name", "text", `placeholder="Expense Name"`) +
-            row(
-                calendarControl("expense-date") +
-                timeControl("expense-date")
-                , "", "spread") +
-            row(
-                select("category", [
-                    {name: "Restaurant", value: ""},
-                    {name: "Lodging", value: ""},
-                ], `placeholder="Category"`)
-                , "", "spread") +
-            row(
-                text("$") +
-                input("amount", "text", `placeholder="0.00"`) +
-                button("Add")
-            )
         ) +
+        addExpense() +
         link("Reset (Clear All)", "", "left") +
         label(
             "list",

@@ -17,14 +17,14 @@ function settleDayCard(settleRecord = {}) {
         row(
             title(settleRecord.title)
         ) +
-        div("row spread",
+        spread(
             text(settleRecord.message) +
-            div("spread",
+            stack(
                 text(settleRecord.amountPrefix) +
                 amount(settleRecord.amount) +
                 text(settleRecord.amountSuffix)
             ) +
-            actionItem("open", "day", "", "Open Day", "black")
+            actionItem("open", "settle_day", "", "Open Day", "black")
         ),
         "",
         "card"
@@ -46,11 +46,20 @@ function settleDay(
     }
 }
 
+function settleDashboard(){
+    return div("dashboard padded row spread",
+        [
+            dashBoardItem("Total Owed to You", "$0.00", "Request All"),
+            dashBoardItem("Total You Owe", "$0.00", "Pay All"),
+        ]
+    )
+}
+
 function settleSplit(selected = false) {
     return page(
         selected,
         "settle_split",
-        "Group Split: Ongoing<br>(RR; BF; JS)",
+        "Settle - Group Split: Ongoing<br>(RR; BF; JS)",
         [],
         "",
         row(
@@ -59,12 +68,7 @@ function settleSplit(selected = false) {
             actionButton("History") +
             actionItem("chat")
             , "", "padded") +
-        div("dashboard padded row spread",
-            [
-                dashBoardItem("Total Owed to You", "$0.00", "Request All"),
-                dashBoardItem("Total You Owe", "$0.00", "Pay All"),
-            ]
-        ) +
+        settleDashboard() +
         cardList(
             [
                 settleDay(

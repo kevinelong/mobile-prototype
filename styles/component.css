@@ -64,6 +64,66 @@ input[type=radio] {
     margin-top: 3px;
     margin-left: 0.5em;
 }
+.page.settle_day .day .action-item.show .icon {
+    transform: rotate(90deg);
+    transition: transform 300ms ease-in-out;
+}
+.page.settle_day .day.collapse .action-item.show .icon {
+    transform: rotate(0deg);
+    transition: transform 300ms ease-in-out;
+}
+.page.settle_day .day.collapse {
+    max-height: 240px;
+}
+.page.settle_day .day {
+    max-height: 640px;
+    overflow: hidden;
+    transition: max-height 300ms ease-in-out;
+}
+.page.settle_day .day.collapse .add-expense{
+    max-height: 0;
+}
+.page.settle_day .day .add-expense{
+    max-height: 640px;
+    overflow: hidden;
+    transition: max-height 300ms ease-in-out;
+}
+.page.settle_day .day.collapse .breakdown{
+    max-height: 0;
+}
+.page.settle_day .day .breakdown{
+    max-height: 640px;
+    overflow: hidden;
+    transition: max-height 300ms ease-in-out;
+}
+
+.stack {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    padding: 0.5em;
+}
+.stack > * {
+    /*margin: 0;*/
+    /*padding: 0;*/
+}
+.stack .text{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+}
+.rack {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: baseline;
+    gap: 0.5em;
+    padding: 0.5em;
+
+}
 
 .col {
     display: flex;
@@ -105,6 +165,7 @@ input[type=radio] {
     align-self: center;
     justify-self: center;
     margin: auto;
+    align-items: center;
 }
 .center-content{
     justify-content: center;
@@ -130,8 +191,11 @@ input[type=radio] {
 
 .spread,
 .space-between {
-    align-items: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: space-between;
+    width: 100%;
 }
 
 .spaced,
@@ -174,7 +238,7 @@ input[type=radio] {
 
 .col,
 .row {
-    width: 100%;
+    width: auto;
 }
 
 .card-people .row {
@@ -184,7 +248,9 @@ input[type=radio] {
 .row > .action-item {
     justify-content: right;
 }
-
+.card-title{
+    width: 100%;
+}
 .taste-match .hidden .pane-actions button,
 .hidden.pane button,
 .hidden.pane,

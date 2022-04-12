@@ -1207,3 +1207,12 @@ const CONTACTS = [
     `Dulcie Veeta`,
     `Abby Normal`,
 ].sort()
+
+const categoryOptionData = [
+    {name: "Things to Do", value: "0"},
+    {name: "Places to See", value: "1"},
+    {name: "Restaurants", value: "2"},
+    {name: "Lodging", value: "3"},
+    {name: "Transportation", value: "4"},
+    {name: "People", value: "5"},
+]
