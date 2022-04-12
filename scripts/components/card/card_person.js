@@ -49,7 +49,7 @@ function cardPeople(group, limit = -1, index, all) {
     const titleText = group.title ? group.title.toUpperCase() : "";
     const length = group.people.length;
     const isPlural = ((length !== 1) && (titleText.length > 0)) ? titleText : "";
-    const textGroup = group.groupName === "" ? `${length}` : `&nbsp;${length} ${isPlural ? pluralSuffix(group.groupName) : group.groupName}&nbsp;&nbsp;`;
+    const textGroup = group.groupName === "" ? `` : `&nbsp;${length} ${isPlural ? pluralSuffix(group.groupName) : group.groupName}&nbsp;&nbsp;`;
     const isSameKind = index > 0 && group.title === all[index - 1].title;
     const isLast = index === all.length - 1;
     return div(
@@ -58,7 +58,7 @@ function cardPeople(group, limit = -1, index, all) {
             (isSameKind ? "" : text(titleText)) +
             row(
                 [...group.people].map(p => cardPerson(p, p.id - 1, limit, p.id - 1)).join("") +
-                circle(text(textGroup))
+                (textGroup ? circle(text(textGroup)) : "")
             )
             // + (!isSameKind || isLast ? text(group.subtitle) : "")
         )

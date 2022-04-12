@@ -64,6 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
         connectPersonPage(),
         settleList(),
         settleSplit(),
+        settleDayPage(),
         settlePage(true),
         mapView()
     ].join("");

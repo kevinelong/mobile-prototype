@@ -36,6 +36,20 @@ function cardTitles(kind, title, subtitle = "", which = "", id = 0, page = "") {
     );
 }
 
+function cardTitlesBlack(kind, title, subtitle = "", which = "", id = 0, page = "") {
+    page = page ? page : kind;
+    return (
+        div(
+            "titles",
+
+            icon(kind + "-black") +
+            col(cardTitle(title) + cardSubtitle(subtitle)
+            ) +
+            actionItem("open", page, id, "Open", "black", true)
+        )
+    );
+}
+
 function cardPhoto(c) {
     return div("card-photo", c);
 }
@@ -161,11 +175,13 @@ function paymentCard(
         cardStyle(ve)
     )
 }
-function amount(content="0", color=""){
+
+function amount(content = "0", color = "") {
     const amount = parseFloat(content);
     const colorClass = color ? color : (amount >= 0 ? "green" : "red");
     return div(`amount ${colorClass}`, currency(amount))
 }
+
 function historyCard(
     kind = "restaurants",
     titleText = "",
@@ -204,6 +220,41 @@ function historyCard(
         ` data-kind="${cleanName(kind)}" data-which="${which}" `
         // cardStyle(ve)
     )
+}
+
+function splitCard(
+    kind = "person",
+    titleText = "",
+    subtitleText = "",
+    content = "",
+    groups = [],
+    actions = [],
+    image = "",
+    tags = [],
+    which = -1
+) {
+    return div(
+        `card split ${kind} ${which}`,
+        cardTitlesBlack(kind, titleText, "", "split", -1, "settle_split") +
+        cardSection(
+            cardTags(tags) +
+            div(
+                "row spread",
+                actionItem("participants", "", "", "Participants", "black") +
+                row(
+                    (kind == "person" ? subtitle("&nbsp;You &amp;") : "") +
+                    cardGroups(groups)
+                    , "", "centered center-content"
+                ) +
+                div(
+                    "right nowrap",
+                    "Current Balance" +
+                    amount(content)
+                )
+            )
+        ),
+        ` data-kind="${cleanName(kind)}" data-which="${which}" `
+    );
 }
 
 function mapCard(

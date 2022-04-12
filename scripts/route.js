@@ -11,10 +11,10 @@ function addContact() {
             label("first", input("first", "text", `placeholder="First Name"`)),
             label("last", input("last", "text", `placeholder="Last Name"`)),
         ].join("") +
-            actionPanel(
-                actionItem("cancel", "contact", -1, "Cancel", "black") +
-                    actionItem("save", "contact", -1, "Save", "black")
-            )
+        actionPanel(
+            actionItem("cancel", "contact", -1, "Cancel", "black") +
+            actionItem("save", "contact", -1, "Save", "black")
+        )
     );
 }
 
@@ -22,10 +22,10 @@ function createGroup() {
     showDialog(
         "Create Group",
         label("name", input("name", "text", `placeholder="Name"`)) +
-            actionPanel(
-                actionItem("cancel", "contact", -1, "Cancel", "black") +
-                    actionItem("save", "contact", -1, "Save", "black")
-            )
+        actionPanel(
+            actionItem("cancel", "contact", -1, "Cancel", "black") +
+            actionItem("save", "contact", -1, "Save", "black")
+        )
     );
 }
 
@@ -46,14 +46,14 @@ function showSearch(title, index = -1) {
                 ["All", "Connections", "Groups", "Contacts"],
                 "All"
             ) +
-                search(peopleList, index) +
-                actionList(
-                    "filter",
-                    ["Create New Group", "Add New Contact"],
-                    false,
-                    0,
-                    "black"
-                )
+            search(peopleList, index) +
+            actionList(
+                "filter",
+                ["Create New Group", "Add New Contact"],
+                false,
+                0,
+                "black"
+            )
         )
     );
 }
@@ -82,15 +82,15 @@ function subcategoryChoices() {
     return label(
         "refine-filter",
         text("Refine Filter:") +
-            choiceSet(
-                "subcategory-choices",
-                [
-                    icon("activity") + "Instant Book",
-                    icon("collect") + "Personal Feed",
-                    icon("connect") + "Broadcast",
-                ],
-                icon("activity") + "Instant Book"
-            )
+        choiceSet(
+            "subcategory-choices",
+            [
+                icon("activity") + "Instant Book",
+                icon("collect") + "Personal Feed",
+                icon("connect") + "Broadcast",
+            ],
+            icon("activity") + "Instant Book"
+        )
     );
 }
 
@@ -124,7 +124,7 @@ function showThingsToDo(title = "Filter - Things To Do", index = -1) {
                 ]),
 
                 selectOptionsComponent("Time", [
-                    { name: "Any Time", value: 0 },
+                    {name: "Any Time", value: 0},
                 ]),
 
                 selectOptionsComponent("Duration", [
@@ -144,13 +144,13 @@ function showThingsToDo(title = "Filter - Things To Do", index = -1) {
                 label(
                     "keywords",
                     text("Keywords:") +
-                        choiceSet("keywords", ["KW1", "KW2", "KW3"])
+                    choiceSet("keywords", ["KW1", "KW2", "KW3"])
                 ),
 
                 label(
                     "personal-keywords",
                     text("Personal Keywords:") +
-                        choiceSet("keywords", ["PKW1", "PKW2", "PKW3"])
+                    choiceSet("keywords", ["PKW1", "PKW2", "PKW3"])
                 ),
 
                 actionList(
@@ -174,51 +174,51 @@ function showPeople(title = "Filter - People", index = -1) {
                 label(
                     "categories",
                     text("Categories:") +
-                        choiceSet(
-                            "categories",
-                            [
-                                "All",
-                                "Friends",
-                                "TasteMatch",
-                                "Experts",
-                                "Guides",
-                                "Travel Agents",
-                            ],
-                            "All"
-                        )
+                    choiceSet(
+                        "categories",
+                        [
+                            "All",
+                            "Friends",
+                            "TasteMatch",
+                            "Experts",
+                            "Guides",
+                            "Travel Agents",
+                        ],
+                        "All"
+                    )
                 ),
                 label(
                     "genders",
                     text("Genders:") +
-                        choiceSet("genders", ["Both", "Male", "Female"], "Both")
+                    choiceSet("genders", ["Both", "Male", "Female"], "Both")
                 ),
                 label(
                     "tags",
                     text("Tags:") +
-                        input(
-                            "tag-input",
-                            "text",
-                            `placeholder="Add tag name..."`
-                        ) +
-                        hashTags(["TasteMatch", "Foodie"])
+                    input(
+                        "tag-input",
+                        "text",
+                        `placeholder="Add tag name..."`
+                    ) +
+                    hashTags(["TasteMatch", "Foodie"])
                 ),
                 label(
                     "keywords",
                     text("Keywords:") +
-                        input(
-                            "keyword-input",
-                            "text",
-                            `placeholder="Add keyword..."`
-                        )
+                    input(
+                        "keyword-input",
+                        "text",
+                        `placeholder="Add keyword..."`
+                    )
                 ),
                 div(
                     "boolean-choices",
                     text("Attributes:") +
-                        toggleSet([
-                            "Must Have Collections",
-                            "Offers Tours",
-                            "Nearby",
-                        ])
+                    toggleSet([
+                        "Must Have Collections",
+                        "Offers Tours",
+                        "Nearby",
+                    ])
                 ),
                 actionList("filter-people", applyOrCancel, false, 0, "black"),
             ].join("")
@@ -231,16 +231,16 @@ function showRestaurants(title = "Filter - Restaurants", index = -1) {
         title,
         contentPanel(
             subcategoryChoices() +
-                // choiceSet("search-filter", RESTAURANT_FILTERS) +
-                // search([], index) +
-                search(RESTAURANTS, index) +
-                actionList(
-                    "filter-actions-restaurants",
-                    applyOrCancel,
-                    false,
-                    0,
-                    "black"
-                )
+            // choiceSet("search-filter", RESTAURANT_FILTERS) +
+            // search([], index) +
+            search(RESTAURANTS, index) +
+            actionList(
+                "filter-actions-restaurants",
+                applyOrCancel,
+                false,
+                0,
+                "black"
+            )
         )
     );
 }
@@ -250,16 +250,16 @@ function showLodging(title = "Filter - Lodging", index = -1) {
         title,
         contentPanel(
             subcategoryChoices() +
-                choiceSet("search-filter", LODGING_FILTERS) +
-                search([], index) +
-                // search(LODGING, index) +
-                actionList(
-                    "filter-actions-lodging",
-                    applyOrCancel,
-                    false,
-                    0,
-                    "black"
-                )
+            choiceSet("search-filter", LODGING_FILTERS) +
+            search([], index) +
+            // search(LODGING, index) +
+            actionList(
+                "filter-actions-lodging",
+                applyOrCancel,
+                false,
+                0,
+                "black"
+            )
         )
     );
 }
@@ -269,13 +269,13 @@ function showDestinations(title = "Destination", index = -1) {
         title,
         contentPanel(
             search(DESTINATIONS, index) +
-                actionList(
-                    "filter-actions-select-destination",
-                    applyOrCancel,
-                    false,
-                    0,
-                    "black"
-                )
+            actionList(
+                "filter-actions-select-destination",
+                applyOrCancel,
+                false,
+                0,
+                "black"
+            )
         )
     );
 }
@@ -284,16 +284,16 @@ function showAddCollection() {
     showDialog(
         "Create a Collection",
         choiceSet("dp", ["Destination", "Pursuit"], "") +
-            contentPanel(
-                search([], -1, "Type a Destination or a Pursuit") +
-                    actionList(
-                        "filter-actions-select-destination",
-                        applyOrCancel,
-                        false,
-                        0,
-                        "black"
-                    )
+        contentPanel(
+            search([], -1, "Type a Destination or a Pursuit") +
+            actionList(
+                "filter-actions-select-destination",
+                applyOrCancel,
+                false,
+                0,
+                "black"
             )
+        )
     );
 }
 
@@ -301,33 +301,33 @@ function showAddCard(titleText = "Add Something to Board") {
     showDialog(
         titleText,
         selectOptionsComponent("Category", activityData) +
-            radioComponent("Card Type", [
-                {
-                    name: "Favorite",
-                    value: "Favorite",
-                },
-                {
-                    name: "Going",
-                    value: "Going",
-                },
-            ]) +
-            contentPanel(
-                label(
-                    `name`,
-                    input(
-                        "name",
-                        "text",
-                        `placeholder="Add Card Name, Address, or Coordinates."`
-                    )
-                ) +
-                    actionList(
-                        "filter-actions-add-to-board",
-                        ["Add", "Cancel"],
-                        false,
-                        0,
-                        "black"
-                    )
+        radioComponent("Card Type", [
+            {
+                name: "Favorite",
+                value: "Favorite",
+            },
+            {
+                name: "Going",
+                value: "Going",
+            },
+        ]) +
+        contentPanel(
+            label(
+                `name`,
+                input(
+                    "name",
+                    "text",
+                    `placeholder="Add Card Name, Address, or Coordinates."`
+                )
+            ) +
+            actionList(
+                "filter-actions-add-to-board",
+                ["Add", "Cancel"],
+                false,
+                0,
+                "black"
             )
+        )
     );
 }
 
@@ -336,13 +336,13 @@ function showLocations(title = "Current Location", index = -1) {
         title,
         contentPanel(
             search(DESTINATIONS, index) +
-                actionList(
-                    "filter-actions-locations",
-                    ["apply"],
-                    false,
-                    0,
-                    "black"
-                )
+            actionList(
+                "filter-actions-locations",
+                ["apply"],
+                false,
+                0,
+                "black"
+            )
         )
     );
 }
@@ -362,7 +362,20 @@ function showReviewDialog() {
         "Write Review",
         contentPanel(
             label("review", text("Review") + textarea("review")) +
-                actionList("", ["cancel", "save"], false, 0, "black")
+            actionList("", ["cancel", "save"], false, 0, "black")
+        )
+    );
+}
+
+
+function showSort(target, action, which, id) {
+    showDialog(
+        "Sort",
+        contentPanel(
+            label("", text("Sort By:") +
+                radioComponent("", which.split(",").map(s => radioOptionItem(s))) +
+                actionList("", ["apply"], false, 0, "black")
+            )
         )
     );
 }
@@ -421,9 +434,9 @@ function showAddPlace(
             "place",
             "Where" + input("place", "text", 'placeholder="Where?"')
         ) +
-            places.map((p) => actionItem("right", p, -1, p, "")).join("") +
-            (showWhen ? label("place", "When" + input("time", "time")) : "") +
-            actionButton(actionText)
+        places.map((p) => actionItem("right", p, -1, p, "")).join("") +
+        (showWhen ? label("place", "When" + input("time", "time")) : "") +
+        actionButton(actionText)
     );
 }
 
@@ -442,11 +455,11 @@ function showScheduleDialog(
                 'placeholder="Type name of experience or address"'
             )
         ) +
-            places.map((p) => actionItem("right", p, -1, p, "")).join("") +
-            selectDateRange("Date Range:") +
-            // checkBox("Fills all periods in each day above.", "all-periods") +
-            selectTimeRange("When?") +
-            actionPanel(actionButton("Cancel") + actionButton("Apply"))
+        places.map((p) => actionItem("right", p, -1, p, "")).join("") +
+        selectDateRange("Date Range:") +
+        // checkBox("Fills all periods in each day above.", "all-periods") +
+        selectTimeRange("When?") +
+        actionPanel(actionButton("Cancel") + actionButton("Apply"))
     );
 }
 
@@ -458,8 +471,35 @@ function showSchedule(target, action, which, index) {
     );
 }
 
+function paymentType(kind, name, selected) {
+    return choice(kind, name, selected)
+}
+
 function showAddPlaceDialog(target, action, which, index) {
     showAddPlace("Find a Place &amp; Time" + d);
+}
+
+function payCard(p = {}) {
+    return div("card settle row",
+        person(p) +
+        col(
+            div("nowrap", p.paymentSplit) +
+            row(p.paymentTypes.map((o, i) => paymentType("payment-type", o, 0 == i)).join(""))
+        ) +
+        div("spread centered",
+            amount(p.paymentAmount) +
+            div("tiny-text nowrap centered", "Amount Owed")
+        )
+    );
+}
+
+function showPay(target, action, which, index) {
+    showDialog(
+        "Pay All",
+        helpText("Select a Pay-Type for each recipient, then click Pay-All.") +
+        cardList(peopleList.filter((v, i) => i > 0).map(payCard).join("")) +
+        actionPanel(actionButton("Cancel") + actionButton("Pay All"))
+    );
 }
 
 function showAddCheckInDialog(target, action, which, index) {
@@ -576,8 +616,8 @@ function showProfileDialogSelf(target, action, which, index = RUBY) {
     const tabs = tabSet(
         "profile",
         [
-            { name: "Profile", content: profile },
-            { name: "Settings", content: settings },
+            {name: "Profile", content: profile},
+            {name: "Settings", content: settings},
         ],
         "Profile"
     );
@@ -684,44 +724,44 @@ function showProfileDialog(target, action, which, index = RUBY) {
     const plans = div(
         "card-list",
         title("ONGOING") +
-            planCard(
-                "Santa Barbara",
-                "Tuesday March 3rd<br>Monday March 10th",
-                "8 Activities Planned",
-                [
-                    {
-                        people: peopleList,
-                        title: "Going with",
-                        groupName: "Co-Planner",
-                        subtitle: "8 activities planned",
-                    },
-                ],
-                [],
-                "images/photos/santa_barbara_1500x500.jpg"
-            ) +
-            title("UPCOMING") +
-            planCard(
-                "Paris France",
-                "Tuesday September 3rd<br>Monday September 9th",
-                "12 Activities Planned",
-                [
-                    {
-                        people: [peopleList[JOE]],
-                        title: "Going with",
-                        groupName: "Co-Planner",
-                        subtitle: "2 activities planned",
-                    },
-                ],
-                [],
-                "images/photos/paris_france.jpg"
-            )
+        planCard(
+            "Santa Barbara",
+            "Tuesday March 3rd<br>Monday March 10th",
+            "8 Activities Planned",
+            [
+                {
+                    people: peopleList,
+                    title: "Going with",
+                    groupName: "Co-Planner",
+                    subtitle: "8 activities planned",
+                },
+            ],
+            [],
+            "images/photos/santa_barbara_1500x500.jpg"
+        ) +
+        title("UPCOMING") +
+        planCard(
+            "Paris France",
+            "Tuesday September 3rd<br>Monday September 9th",
+            "12 Activities Planned",
+            [
+                {
+                    people: [peopleList[JOE]],
+                    title: "Going with",
+                    groupName: "Co-Planner",
+                    subtitle: "2 activities planned",
+                },
+            ],
+            [],
+            "images/photos/paris_france.jpg"
+        )
     );
 
     const tab_content = tabSet(
         "boards-plans",
         [
-            { name: "Boards", content: boards },
-            { name: "Plans", content: plans },
+            {name: "Boards", content: boards},
+            {name: "Plans", content: plans},
         ],
         "Boards"
     );
@@ -871,6 +911,8 @@ function addItem(target, action, which, id) {
         addMessage();
     } else if ("payment" === which) {
         addPayment();
+    } else if ("split" === which) {
+        addSplit();
     } else if ("connect" === which) {
         addParticipant();
     } else if ("collection" === which) {
@@ -938,7 +980,7 @@ ACTION_PAGES = {
     explore: openPage,
     open: openPage,
     settle_split: openPage,
-    split: openPage,
+    split: addItem,
     "create-new-group": createGroup,
     "add-participant": addParticipant,
     add: addItem,
@@ -955,6 +997,7 @@ ACTION_PAGES = {
     show: toggleCollapse,
     "map-on": toggleMap,
     "map-off": toggleMap,
+    "pay all": showPay,
     person: showProfileDialog,
     match: showMatchDialog,
     upload: showUploadDialog,
@@ -963,6 +1006,7 @@ ACTION_PAGES = {
     "check-in": showAddCheckInDialog,
     edit: edit,
     review: showReviewDialog,
+    sort: showSort,
 };
 
 function toggleCollapse(target) {
@@ -1004,6 +1048,6 @@ function route(target, action, which = "", index = "") {
         const f = ACTION_PAGES[lower];
         return f(target, lower, which, index);
     } else {
-        console.log("UNKNOWN ACTION:" + lower);
+        console.log("UNKNOWN ACTION:'" + lower + "' ", which, index, target);
     }
 }

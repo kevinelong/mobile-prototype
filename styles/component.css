@@ -106,7 +106,24 @@ input[type=radio] {
     justify-self: center;
     margin: auto;
 }
-
+.center-content{
+    justify-content: center;
+    align-items: center;
+    vertical-align: center;
+    text-align: center;
+}
+.right{
+    text-align: right;
+    align-items: flex-end;
+    align-content: flex-end;
+}
+.nowrap{
+    white-space: nowrap;
+}
+.page .content-panel > .row.padded,
+.padded{
+    padding: 9px 3px;
+}
 .fill {
     width: 100%;
 }

@@ -21,6 +21,7 @@ function actionItem(name, which = "", index = -1, textValue = "", iconColor = ""
     if ("favorite" === name) {
         textValue = qty ? qty : textValue;
     }
+
     const content = div(
         `action-item ${name} ${which} ${small ? 'small' : ''}`,
         icon(name, iconColor, textValue, hideText),
