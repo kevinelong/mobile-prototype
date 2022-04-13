@@ -25,8 +25,8 @@ function settleDayPage(selected = false) {
                             ) +
                             rack(
                                 input("expense-name", "text", `placeholder="Expense"`) +
-                                input("amount", "text", `placeholder="$0.00"`) +
-                                button("Add")
+                                input("expense-amount", "text", `placeholder="$0.00"`) +
+                                button("Add", `onclick="onAddExpense(this)"`)
                             ) +
                             rack(
                                 stack(
@@ -75,6 +75,9 @@ function settleDayPage(selected = false) {
                                 )
                             )
                         )
+                    ) +
+                    div("expense-list",
+                        "No Expenses"
                     )
                 )
             )
@@ -82,3 +85,90 @@ function settleDayPage(selected = false) {
         "", "settle"
     );
 }
+
+const currencyFormat = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: 2, 
+    roundingIncrement: 5
+  });
+
+  function currency(n){
+    return currencyFormat.format(n);
+  };
+  
+  function expenseRecord(name="", amount=0){
+      return {
+          name:name, 
+          amount:amount
+      };
+  }
+  
+  function expenseElement(record={}, index=0){
+      return `
+          <div class="expense-item" data-index="${index}">
+              ${record.name}
+              ${currency(record.amount)}
+          </div>
+      `
+  }
+  
+  let expenseRecordList = [];
+  
+  function getTotal(){
+    return expenseRecordList.reduce((c,i)=>i.amount+c,0);
+  }
+
+  function updateTotal(e){
+    e.innerHTML = currency(getTotal());
+  }
+  
+  function renderExpenseList(listElement){
+      listElement.innerHTML = expenseRecordList.map(expenseElement).join("");
+  }
+  
+  function onAddExpense(e){
+      try{
+          const parentElement = e.closest(".day");
+          const nameElement = parentElement.querySelectorAll(".expense-name")[0];
+          const amountElement = parentElement.querySelectorAll(".expense-amount")[0];
+          const amount = parseFloat(amountElement.value)
+          const name = nameElement.value;
+          console.log(name, amount)
+          console.log(amountElement.value)
+          if (name.length < 1 || isNaN(amount)){
+            return;
+          }
+          expenseRecordList.push(
+              expenseRecord(
+                  name,
+                  amount
+              )
+          );
+      
+          nameElement.value="";
+          amountElement.value ="";
+          nameElement.focus();
+          
+          renderExpenseList(
+              parentElement.querySelectorAll(".expense-list")[0]
+          );
+        
+          updateTotal(parentElement.querySelectorAll(".amount.green ")[1]);
+              
+      } catch (error) {
+        console.error(error);
+          return;
+      }
+  
+  }
+  
+  window.addEventListener("DOMContentLoaded",()=>{
+      document.querySelectorAll(".expense-name")[0].focus();
+  });
+  
+  window.addEventListener("keyup", e => {
+    if (e.key === "Enter") {
+      document.querySelector("button").click();
+    }
+  });
