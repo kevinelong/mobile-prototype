@@ -176,10 +176,10 @@ function paymentCard(
     )
 }
 
-function amount(content = "0", color = "") {
+function amount(content = "0", color = "", className = "") {
     const amount = parseFloat(content);
     const colorClass = color ? color : (amount >= 0 ? "green" : "red");
-    return div(`amount ${colorClass}`, currency(amount))
+    return div(`amount ${colorClass} ${className}`, currency(amount))
 }
 
 function historyCard(
