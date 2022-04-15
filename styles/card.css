@@ -326,6 +326,14 @@
     text-align: center;
 }
 
+.page.settle_day .card .amount {
+    padding: 0;
+}
+
+.page.settle_day .card {
+    text-shadow: none;
+}
+
 .card .titles .amount{
     justify-content: center;
     align-content: center;
@@ -771,11 +779,27 @@
 
 .expense-list {
     width: 100%;
+    gap: 6px;
 }
 
 .card.expense-item {
     background: none;
     color: black;
     background-color: white;
-    /* width: 100%; */
+    padding: 6px 0;
+    border-radius: 0.5em;
+    gap: 6px;
+}
+
+.page > .content-panel .card.expense-item .title {
+    padding: 0;
+}
+
+.card.expense-item .split-amounts .rack {
+    padding: 0;
+}
+
+.card.expense-item > .rack {
+    padding: 0 2em;
+    justify-content: space-between;
 }

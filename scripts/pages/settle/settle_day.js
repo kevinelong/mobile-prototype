@@ -135,20 +135,23 @@ function expenseRecord(name = "", amount = 0) {
     };
 }
 
-function amountElement(amount = 0, name = "") {
-    return stack(text(amount) + text(name));
+function amountElement(item = {name: "", amount: 0}) {
+    return rack(amount(item.amount) + text(item.name));
 }
 
 function expenseElement(record = {}, index = 0) {
     const divideBy = 3;
     const part = record.amount / divideBy;
     const remaining = record.amount - part * 2;
-    const amounts = [part, part, remaining];
+    const amounts = [
+        {name: "You", amount: part}, 
+        {name: "BF", amount: part}, 
+        {name: "JS", amount: remaining}
+    ];
     return `
         <div class="expense-item card" data-index="${index}">
-            ${title(record.name)}
-            ${amount(record.amount)}
-            ${amounts.map(amountElement).join("")}
+            ${rack(title(record.name) + text("total expense: ") + amount(record.amount))}
+            ${rack(amounts.map(amountElement).join(""), "", "split-amounts")}
         </div>
     `;
 }
