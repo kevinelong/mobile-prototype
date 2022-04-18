@@ -181,10 +181,15 @@ div {
     align-items: center;
     position: relative;
 }
+
 .collect_board .map-panel{
     min-height: 326px;
 }
 
+
+.map-panel .description{
+    font-size: 10px;
+}
 
 .page.collect_board .map-preview .card ,
 .page.explore .map-preview .card {
@@ -245,6 +250,9 @@ div {
     justify-content: space-between;
     width: 100%;
     gap: 4px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 6px;
 }
 
 /* .page.collect_board .map-preview .card .card-people,
@@ -323,7 +331,7 @@ div {
 }
 
 .map-preview .map-title {
-    font-size: 13px;
+    font-size: 12px;
 }
 
 .map-preview .map-subtitle {
@@ -420,6 +428,8 @@ div {
 }
 
 
+.map-preview select.select.respond,
+.map-preview select.select.respond option,
 .map-preview select.select.category,
 .map-preview select.select.category option {
     height: 24px;
@@ -430,6 +440,9 @@ div {
 
 .map-preview select.select.category {
     background-color: #F9A831;
+    position: absolute;
+    top: 6px;
+    left: 60px;
 }
 
 .map-preview select.select.category option {
@@ -450,7 +463,7 @@ div {
 
 .map-preview .action-item.book {
     position: absolute;
-    bottom: 0;
+    bottom: 6px;
     left: 25%;
 }
 .plan_detail .card .text,
