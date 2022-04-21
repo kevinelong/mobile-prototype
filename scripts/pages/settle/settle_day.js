@@ -135,22 +135,27 @@ function expenseRecord(name = "", amount = 0) {
     };
 }
 
-function amountElement(item = {name: "", amount: 0}) {
-    return rack(amount(item.amount) + text(item.name));
+function amountElement(item = { name: "", amount: 0, turn: false }) {
+    return rack(amount(item.amount) + text(item.name), "", item.turn ? "turn" : "");
 }
 
 function expenseElement(record = {}, index = 0) {
     const divideBy = 3;
     const part = record.amount / divideBy;
-    const remaining = record.amount - part * 2;
+    const remaining = Math.ceil(part * 100) / 100;
+    const turnIndex = index % divideBy;
     const amounts = [
-        {name: "You", amount: part}, 
-        {name: "BF", amount: part}, 
-        {name: "JS", amount: remaining}
+        { name: "You", amount: part, turn: 0 === turnIndex },
+        { name: "BF", amount: part, turn: 1 === turnIndex },
+        { name: "JS", amount: remaining, turn: 2 === turnIndex },
     ];
     return `
         <div class="expense-item card" data-index="${index}">
-            ${rack(title(record.name) + text("total expense: ") + amount(record.amount))}
+            ${rack(
+                title(record.name) +
+                    text("total expense: ") +
+                    amount(record.amount)
+            )}
             ${rack(amounts.map(amountElement).join(""), "", "split-amounts")}
         </div>
     `;
@@ -170,12 +175,17 @@ function renderExpenseList(listElement) {
     listElement.innerHTML = expenseRecordList.map(expenseElement).join("");
 }
 
+function handleInput(e) {
+
+}
+parentElement.querySelectorAll(".expense-amount")[0].oninput = onAddExpense;
 function onAddExpense(e) {
     try {
         const parentElement = e.closest(".day");
         const nameElement = parentElement.querySelectorAll(".expense-name")[0];
         const amountElement =
             parentElement.querySelectorAll(".expense-amount")[0];
+        amountElement.oninput = onAddExpense;
         const amount = parseFloat(amountElement.value);
         const name = nameElement.value;
         if (name.length < 1 || isNaN(amount)) {

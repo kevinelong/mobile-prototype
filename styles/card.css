@@ -330,6 +330,12 @@
     padding: 0;
 }
 
+.page.settle_day .card .turn .amount {
+    padding: 0;
+    color: black;
+    font-weight: bold;
+}
+
 .page.settle_day .card {
     text-shadow: none;
 }
@@ -803,3 +809,4 @@
     padding: 0 2em;
     justify-content: space-between;
 }
+
