@@ -293,29 +293,25 @@ function mapCard(
             "",
             "map-heading"
         ) +
-        row(
+        div("description",
             "Guided Experience"
         ) +
         // row(
         //     cardTags(tags)
         // ) +
         row(
-            actionItem("chat", "", -1, "Discus", "black", false, 0) +
-            actionItem("bookmark", "preview", -1, "Favorite", "black", true, 0) +
-            // actionItem("alternatives", "preview", -1, "Alternatives", "", false, 0, true) +
+            actionItem("chat", "", -1, "Discuss", "black", false, 0) +
+            actionItem("schedule", "preview", -1, "Schedule", "black", true, 0) +
             actionItem("Share", "add", -1, "Share", "black", true, 0) +
+            actionItem("navigation", "", -1, "Navigation", "black", true, 0) +
+            actionItem("invite", "", -1, "Invite", "black", true, 0),
+            // actionItem("alternatives", "preview", -1, "Alternatives", "", false, 0, true) +
             // actionItem("Message", "add", -1, "Invite", "black", true, 0) +
-            actionItem("Directions", "map-on", -1, "Directions", "black", true, 0) +
-            select("category", [
-                {name: "Idea", value: "0"},
-                {name: "Favorite", value: "1"},
-                {name: "Going", value: "2"},
-            ], `placeholder="Category" value="0"`),
             "",
             "preview-actions"
         ) +
         row(
-            col( 
+            col(
                 col(
                     `<b>99% match</b>` +
                     cardGroups(
@@ -330,6 +326,11 @@ function mapCard(
                     )
                 ) +
                 col(
+                    select("respond", [
+                        {name: "Accept", value: "0"},
+                        {name: "Decline", value: "1"},
+                        {name: "Going", value: "2"},
+                    ], `placeholder="Category" value="0"`) +
                     div("coplanner",
                         "<b>3 co-planners</b>") +
                     row(
@@ -339,7 +340,7 @@ function mapCard(
                         "tag invited"
                     ) +
                     row(
-                      row(
+                        row(
                             img("", "images/faces/face1.png") +
                             "going",
                             "",
@@ -348,29 +349,34 @@ function mapCard(
                         div("tag paid",
                             "paid"
                         )
+                    ) +
+                    col(
+                        col(
+                            row(
+                                img("", `images/icons/calendar-today-black.svg`) +
+                                `27 Jun 2021`
+                            ) +
+                            row(
+                                img("", `images/icons/schedule-black.svg`) +
+                                `12:30 - 14:00`
+                            )
+                        ),
+                        "",
+                        "date-panel"
                     ),
                     "",
                     "coplanner-panel"
-                ) +
-                col(
-                    col(
-                        row(
-                            img("", `images/icons/calendar-today-black.svg`) +
-                            `27 Jun 2021`
-                        ) +
-                        row(
-                            img("", `images/icons/schedule-black.svg`) +
-                            `12:30 - 14:00`
-                        )
-                    ),
-                    "",
-                    "date-panel"
                 ),
                 "",
                 "left-column"
             ) +
             col(
                 `<img class="child-image" src="${image}">` +
+                select("category", [
+                    {name: "Idea", value: "0"},
+                    {name: "Favorite", value: "1"},
+                    {name: "Going", value: "2"},
+                ], `placeholder="Category" value="0"`) +
                 actionItem("Book", "book", -1, "Book from $65", "", false, 0, true),
                 "",
                 "right-column"
@@ -378,7 +384,7 @@ function mapCard(
             "",
             "main-columns"
         ),
-        
+
         attrs +
         ` data-kind="${cleanName(kind)}" data-which="${which}" `
         // + cardStyle(ve)
