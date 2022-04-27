@@ -64,34 +64,39 @@ input[type=radio] {
     margin-top: 3px;
     margin-left: 0.5em;
 }
-.page.settle_day .day .action-item.show .icon {
+.page.settle_split .day .action-item.show .icon {
     transform: rotate(90deg);
     transition: transform 300ms ease-in-out;
 }
-.page.settle_day .day.collapse .action-item.show .icon {
+.page.settle_split .day.collapse .action-item.show .icon {
     transform: rotate(0deg);
     transition: transform 300ms ease-in-out;
 }
-.page.settle_day .day.collapse {
-    max-height: 240px;
+.page.settle_split .day.collapse {
+    /*max-height: 240px;*/
 }
-.page.settle_day .day {
+.page.settle_split .day {
+    max-height: 640px;
+    /*overflow: hidden;*/
+    transition: max-height 300ms ease-in-out;
+}
+.page.settle_split .day.collapse .add-expense{
+    max-height: 0;
+}
+.page.settle_split .day .add-expense{
     max-height: 640px;
     overflow: hidden;
     transition: max-height 300ms ease-in-out;
 }
-.page.settle_day .day.collapse .add-expense{
+
+.page.settle_split .day.collapse .expense-list{
     max-height: 0;
-}
-.page.settle_day .day .add-expense{
-    max-height: 640px;
     overflow: hidden;
-    transition: max-height 300ms ease-in-out;
 }
-.page.settle_day .day.collapse .breakdown{
+.page.settle_split .day.collapse .breakdown{
     max-height: 0;
 }
-.page.settle_day .day .breakdown{
+.page.settle_split .day .breakdown{
     max-height: 640px;
     overflow: hidden;
     transition: max-height 300ms ease-in-out;
@@ -113,13 +118,13 @@ input[type=radio] {
     text-align: center;
     justify-content: center;
     align-items: center;
-    white-space: nowrap;
+    /*white-space: nowrap;*/
 }
 .rack {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: baseline;
+    align-items: center;
     gap: 0.5em;
     padding: 0.5em;
 

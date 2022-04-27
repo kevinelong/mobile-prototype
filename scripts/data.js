@@ -856,7 +856,7 @@ const EXPLORE_DATA = [
 ];
 
 const ADItem = (id, icon, name, items = []) => {
-    return {id: id, icon: icon, name: name, items: items}
+    return {id: id, icon: icon, name: name, items: items};
 }
 
 const activityData = [
@@ -893,7 +893,7 @@ function cardData(
         kind: kind,
         booking_index: booking_index,
         match_percent: match_percent
-    }
+    };
 }
 
 let activityMap = {};
@@ -989,7 +989,7 @@ const WHITE_WINE_BRANDS = [
     "Franzia",
     "Cloudy Bay",
     "Barefoot",
-].sort()
+].sort();
 
 const RED_WINE_BRANDS = [
     "Josh Cellars",
@@ -1002,7 +1002,7 @@ const RED_WINE_BRANDS = [
     "Bota Box Wines",
     "The Pinot Project",
     "Zaccagnini",
-].sort()
+].sort();
 
 const ROSE_WINE_BRANDS = [
     "Chateau d'Esclans",
@@ -1015,7 +1015,7 @@ const ROSE_WINE_BRANDS = [
     "BABE",
     "Rose All Day",
     "Luc Belaire",
-].sort()
+].sort();
 
 const BANDS = [
     "Ariana Grande",
@@ -1048,7 +1048,7 @@ const BANDS = [
     "Fleetwood Mac",
     "Bon Jovi",
     "Bob Dylan",
-].sort()
+].sort();
 
 const CONTACTS = [
     `Patty O’Furniture`,
@@ -1206,7 +1206,7 @@ const CONTACTS = [
     `Anne Gloindian`,
     `Dulcie Veeta`,
     `Abby Normal`,
-].sort()
+].sort();
 
 const categoryOptionData = [
     {name: "Things to Do", value: "0"},
@@ -1215,4 +1215,74 @@ const categoryOptionData = [
     {name: "Lodging", value: "3"},
     {name: "Transportation", value: "4"},
     {name: "People", value: "5"},
-]
+];
+
+function expenseRecord(name = "", amount = 0) {
+    return {
+        name: name,
+        amount: amount,
+    };
+}
+
+function settleDay(
+    dateText = "Sunday 11/11/2022",
+    amount = 0,
+    message = "You're Settled Up!",
+    amountPrefix = "Ending Balance",
+    amountSuffix = "Carried Forward",
+    expenseList = [],
+    startingAmount = 0
+    ) {
+    
+        const q=expenseList.length;
+    
+    return {
+        title: `${q} Expense${ q == 1 ? "" : "s" } - ${dateText}`,
+        amount: amount,
+        message: message,
+        amountPrefix: amountPrefix,
+        amountSuffix: amountSuffix,
+        expenseList: expenseList,
+        startingAmount:startingAmount
+    }
+}
+
+let expenseData = [
+    settleDay(
+        "Sunday 11/11/2022",
+        0,
+        "You're Settled Up!",
+        "",
+        "Ending Balance",
+        [
+            expenseRecord("Coffee", 10.00),
+            expenseRecord("Coffee", 10.00),
+            expenseRecord("Coffee", 10.00),
+            expenseRecord("Coffee", 10.00),
+            expenseRecord("Coffee", 10.00),
+        ]
+    ),
+    settleDay(
+        "Monday 12/06/2022",
+        125,
+        "Total Owed to Me",
+        "Carried Forward",
+        "Ending Balance",
+        [
+            expenseRecord("Breakfast", 25.00),
+            expenseRecord("Lunch", 40.00),
+            expenseRecord("Diner", 60.00),
+        ]
+    ),
+    settleDay(
+        "2 Expenses - Sunday 12/12/2022",
+        300,
+        "Total Owed to Me",
+        "Carried Forward",
+        "Ending Balance",
+        [
+            expenseRecord("Lunch", 100.00),
+            expenseRecord("Dinner", 200.00),
+        ]
+    ),
+];

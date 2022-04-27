@@ -249,7 +249,7 @@
     /*background-size: 72%;*/
     box-shadow: 2px 2px 4px 1px #00000088;
     width: 100%;
-    padding: 12px;
+    padding: 6px;
 }
 
 .card-inner {
@@ -637,7 +637,7 @@
     width: 100%;
 }
 
-.card-list .card {
+.card-list > .card {
     width: 348px;
     transition: opacity 300ms ease-in-out, padding 300ms ease-in-out, max-height 300ms ease-in-out, max-height 300ms ease-in-out, min-height 300ms ease-in-out, minwidth 300ms ease-in-out;
 }
