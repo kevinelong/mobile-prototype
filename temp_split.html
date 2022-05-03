@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Vita Explorer</title>
+    <!--    <link href="http://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet">-->
+    <!--    <link href="http://fonts.cdnfonts.com/css/averia-libre" rel="stylesheet">-->
+
+    <!--    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />-->
+    <!--    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>-->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+
+    <!--    <link href="styles/style.css" rel="stylesheet" type="text/css"/>-->
+    <script>
+        `
+tabs
+timeline
+broadcast
+action
+card
+choice
+circle
+content-panel
+detail
+dialog
+hash-tag
+icon
+label
+main-nav
+message
+page
+panes
+person
+simple-list
+title
+toast
+cards card-connect
+pages connect
+pages settle
+
+main
+component
+`.split("\n").map(p => p ? document.write(`<li` + `nk href="styles/` +
+            p.split(" ").join("/") + ".css" +
+            `"  rel="stylesheet" type="text/css"/>`) : '');
+    </script>
+
+    <script>
+        `
+utils
+
+html
+
+components components
+
+data
+
+components grid
+
+components action action
+
+components card card
+components card card_person
+components card card_explore
+components card card_connect
+components card card_settle
+components card card_plan
+components card card_collect
+components card card_smart
+components card card_timeline
+
+components choice choice
+components dialog dialog
+components hash_tag hash_tag
+components list list
+components main_nav
+components message message
+components money money
+components page
+components search search
+components toast toast
+components timeline timeline
+components tabs tabs
+components pane pane
+components pay
+
+pages broadcast broadcast
+
+pages timeline timeline
+
+pages connect connect
+pages connect connect_chat
+pages connect connect_person
+
+pages plan plan
+pages plan plan_detail
+
+pages settle settle
+pages settle settle_split
+pages settle settle_list
+pages settle settle_day
+
+pages explore explore_fake
+pages explore explore_detail
+pages explore explore
+
+pages collect collect
+pages collect collect_board
+pages collect collect_details
+
+route
+
+`.split("\n").map(p => p ? document.write(`<scr` + `ipt src="scripts/` +
+            p.split(" ").join("/") + ".js" +
+            `"></scr` + `ipt>`) : '');
+
+    </script>
+
+    <style>
+        /* temporarily set for visibility */
+
+        .outer-box.div {
+            background-color: white;
+        }
+
+        body {
+            color: black;
+        }
+    </style>
+</head>
+<body cz-shortcut-listen="true">
+<div class="content div">
+    <div class="outer-box div">
+        <div class="inner-content div" id="content">
+
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
+<script>
+    function splitTitle() {
+        return rack("Split Settings");
+    }
+
+    function expenseSummary() {
+        return div("card",
+            spread(
+                col(
+                    row("Friday July 1, 2022 Manual Check-In 12:02 pm") +
+                    div("card-title", "The Boathouse Beach Cafe")
+                ) +
+                amount(300)
+            ),
+            `style="background:#ddd;color:black;text-shadow:none;"`
+        );
+    }
+
+    const whenChoices = [
+        "Just Once",
+        "For All"
+    ];
+
+    function appliesTo() {
+        return checkboxControl("Apply to All")
+        // return choiceSet("participants-when",
+        //     whenChoices,
+        //     whenChoices[0]
+        // )
+    }
+
+    function manageParticipants() {
+        return label("section",
+            // rack(`Manage Participants`) +
+            rack(
+                peopleList.map(person).join("")
+                + actionItem("add","participant")
+            ) +
+            rack(
+                appliesTo()
+            )
+        );
+    }
+
+    const splitTypes = [
+        "Equally",
+        "Custom"
+    ];
+    const splitSubtypes = [
+        "%",
+        "$",
+        "Item"
+    ];
+
+    function splitExpenseBy() {
+        return label("section",
+            rack(`Split Expense By:` +
+                col(
+                    choiceSet("split-type", splitTypes, splitTypes[0]) +
+                    choiceSet("split-subtype", splitSubtypes, splitSubtypes[0])
+                ) +
+                appliesTo()
+            )
+        );
+    }
+
+    function splitGrid() {
+        return `<table>
+            <tr>
+                <th>
+                    &nbsp;
+                </th>
+                <th>
+                    YOU
+                </th>
+                <th>
+                    BF
+                </th>
+                <th>
+                    JS
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;
+                </td>
+                <td>
+                    <span style="opacity:0">$</span><input type="number" value="33"/>%
+                </td>
+                <td>
+                    <span style="opacity:0">$</span><input type="number" value="33"/>%
+                </td>
+                <td>
+                    <span style="opacity:0">$</span><input type="number" value="33"/>%
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Paid so far
+                </td>
+                <td>
+                    $<input type="number" value="300"/><span style="opacity:0">%</span>
+                </td>
+                <td>
+                    $<input type="number" value="0"/><span style="opacity:0">%</span>
+                </td>
+                <td>
+                    $<input type="number" value="0"/><span style="opacity:0">%</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Agrees to pay
+                </td>
+                <td>
+                    $<input type="number" value="100"/><span style="opacity:0">%</span>
+                </td>
+                <td>
+                    $<input type="number" value="100"/><span style="opacity:0">%</span>
+                </td>
+                <td>
+                    $<input type="number" value="100"/><span style="opacity:0">%</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Owes
+                </td>
+                <td>
+                    $<input type="number" value="-200"/><span style="opacity:0">%</span>
+                </td>
+                <td>
+                    $<input type="number" value="100"/><span style="opacity:0">%</span>
+                </td>
+                <td>
+                    $<input type="number" value="100"/><span style="opacity:0">%</span>
+                </td>
+            </tr>
+        </table>`;
+        //     col(
+        //         text("") +
+        //         text("") +
+        //         text("Paid So Far") +
+        //         text("Agrees to Pay") +
+        //         text("Owes")
+        //         , "", "right"
+        //     ) +
+        //     col(
+        //         text("JS") +
+        //         number(0.33) +
+        //         number(0) +
+        //         number(0) +
+        //         number(100)
+        //         , "", "right"
+        //     ) +
+        //     col(
+        //         text("JS") +
+        //         number(0.33) +
+        //         number(0) +
+        //         number(0) +
+        //         number(100)
+        //         , "", "right"
+        //     ) +
+        //     col(
+        //         text("JS") +
+        //         number(0.33) +
+        //         number(0) +
+        //         number(0) +
+        //         number(100)
+        //         , "", "right"
+        //     )
+        // );
+    }
+
+    function splitDetail() {
+        return label("section",
+            // rack(
+            //     `Split Detail:`
+            // ) +
+            rack(
+                splitGrid()
+            ) +
+            rack(
+                appliesTo()
+            )
+        );
+    }
+
+    function settleAfter() {
+        return label("settle-after section",
+            div("nowrap", `Settle After:`) +
+            choiceSet("settle-after", [
+                "Each Expense",
+                "End of Each Day",
+            ], "Each Expense")
+        );
+    }
+
+    get("#content").innerHTML = page(
+        true,
+        "pay",
+        "Group Split: Ongoing<BR>\n(RR; BF; JS)",
+        [],
+        "",
+        div("card-list padded spaced",
+            [
+                splitTitle(),
+                expenseSummary(),
+                stack([
+                    manageParticipants(),
+                    splitExpenseBy(),
+                    splitDetail(),
+                    settleAfter(),
+                    button("Apply"),
+                ].join(""))
+            ].join("")
+            , `style="gap:0em;"`)
+    )
+
+</script>
+</html>

@@ -47,10 +47,16 @@ input[type=time] {
     padding: 0.75em;
     border: none;
     box-shadow: 1px 1px 2px 0 #0008;
-
 }
+
 input[type=number]{
     text-align: right;
+    width: 6em;
+    border-radius: 0.125em;
+    padding: 0.125em;
+    border: none;
+    box-shadow: 1px 1px 2px 0 #0008;
+    font-size: 9px;
 }
 
 .radio-input .row {

@@ -100,7 +100,7 @@ function radioControl(name, list) {
 function checkboxControl(textValue = "", name = "", checked = "", attrs = "") {
     name = name ? cleanName(name) : cleanName(textValue);
     checked = checked ? `checked="checked"` : "";
-    return div("checkbox-pair",
+    return div("checkbox-pair nowrap row",
         tag("input", name,
             `name="${name}" id="${name}" ${checked}" type="checkbox" ${attrs}`
         ) + label("label-" + name, textValue, "for=" + name)
@@ -136,6 +136,13 @@ function textarea(name, content = "", attrs = "") {
 
 function checkbox(name = "") {
     return input(name, "checkbox");
+}
+
+function number(amount=0, name = "number", className="number") {
+    return label(className,
+        input(name, "number",
+        `value="${amount}"`)
+    );
 }
 
 function toggleItem(text) {
