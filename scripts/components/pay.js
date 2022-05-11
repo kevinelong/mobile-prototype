@@ -1,4 +1,3 @@
-
 const currencyFormat = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
@@ -11,7 +10,7 @@ function currency(n) {
 }
 
 
-function amountElement(item = { name: "", amount: 0, turn: false }) {
+function amountElement(item = {name: "", amount: 0, turn: false}) {
     return rack(amount(item.amount) + text(item.name), "", item.turn ? "turn" : "");
 }
 
@@ -21,22 +20,23 @@ function expenseElement(record = {}, index = 0) {
     const remaining = Math.ceil(part * 100) / 100;
     const turnIndex = index % divideBy;
     const amounts = [
-        { name: "You", amount: part, turn: 0 === turnIndex },
-        { name: "BF", amount: part, turn: 1 === turnIndex },
-        { name: "JS", amount: remaining, turn: 2 === turnIndex },
+        {name: "You", amount: part, turn: 0 === turnIndex},
+        {name: "BF", amount: part, turn: 1 === turnIndex},
+        {name: "JS", amount: remaining, turn: 2 === turnIndex},
     ];
     return `
         <div class="expense-item card" data-index="${index}">
             ${rack(
-                title(record.name) +
-                    text("total expense: ") +
-                    amount(record.amount)
-            )}
+        title(record.name) +
+        text("total expense: ") +
+        amount(record.amount)
+    )}
             ${rack(amounts.map(amountElement).join(""), "", "split-amounts")}
         </div>
     `;
 }
 
+//THIS GLOBAL MUST DIE! We could use: "let expenseData = [" in data.js instead
 let expenseRecordList = [];
 
 function getTotal() {
@@ -83,7 +83,7 @@ function onAddExpense(e) {
 }
 
 
-function addExpensePanel(settleRecord){
+function addExpensePanel(settleRecord) {
     return div(
         "add-expense",
         label(
@@ -96,112 +96,116 @@ function addExpensePanel(settleRecord){
                     "Add with Details",
                     "black"
                 ) +
-                    actionItem(
-                        "settings",
-                        "expense",
-                        "",
-                        "Configure",
-                        "black"
-                    )
+                actionItem(
+                    "settings",
+                    "expense",
+                    "",
+                    "Configure",
+                    "black"
+                )
             ) +
-                rack(
-                    input(
-                        "expense-name",
-                        "text",
-                        `placeholder="Expense"`
-                    ) +
-                        input(
-                            "expense-amount",
-                            "text",
-                            `placeholder="$0.00"`
-                        ) +
-                        button(
-                            "Add",
-                            `onclick="onAddExpense(this)"`
-                        )
-                ) 
-                // +
-                // rack(
-                //     stack(
-                //         amount(0) +
-                //             text("You<br>(your turn)")
-                //     ) +
-                //         stack(amount(0) + text("BF")) +
-                //         stack(amount(0) + text("JS"))
-                // )
+            rack(
+                input(
+                    "expense-name",
+                    "text",
+                    `placeholder="Expense"`
+                ) +
+                input(
+                    "expense-amount",
+                    "text",
+                    `placeholder="$0.00"`
+                ) +
+                button(
+                    "Add",
+                    `onclick="onAddExpense(this)"`
+                )
+            )
+            // +
+            // rack(
+            //     stack(
+            //         amount(0) +
+            //             text("You<br>(your turn)")
+            //     ) +
+            //         stack(amount(0) + text("BF")) +
+            //         stack(amount(0) + text("JS"))
+            // )
         )
     );
 }
 
 
-function settleDayBlock(settleRecord){
+function settleDayBlock(settleRecord) {
 
     const titleContent = spread(
-        text(settleRecord.message) +
-        stack(
-            text(settleRecord.amountPrefix) +
-            amount(settleRecord.amount) +
-            text(settleRecord.amountSuffix)
-        ) +                         
-        actionItem("show")
-        // actionItem("open", "settle_day", "", "Open Day", "black")
-    );
+            text(settleRecord.title)
+        ) +
+        spread(
+            text(settleRecord.message) +
+            rack(
+                text(settleRecord.amountPrefix) +
+                amount(settleRecord.amount) +
+                text(settleRecord.amountSuffix)
+            ) +
+            actionItem("show")
+            // actionItem("open", "settle_day", "", "Open Day", "black")
+        );
 
     return div(
-        "day row card",
+        "day row card collapse",
         label(
             "",
             stack(
                 titleContent +
-                    rack(
-                        text(
-                            "Starting Balance<BR>\n(carried forward from the previous day):"
-                        ) + amount(settleRecord.startingAmount)
-                    ) +
-                    addExpensePanel(settleRecord)+
-                    div("expense-list", "No Expenses") +
-                    div(
-                        "breakdown",
-                        stack(
-                            rack(
-                                stack(
-                                    text("Breakdown for the day:") +
-                                        rack(
-                                            stack(
-                                                amount(0) + text("You")
-                                            ) +
-                                                stack(
-                                                    amount(0) +
-                                                        text("BF")
-                                                ) +
-                                                stack(
-                                                    amount(0) +
-                                                        text("JS")
-                                                )
-                                        )
-                                ) +
+                // rack(
+                //     text(
+                //         "Starting Balance<BR>\n(carried forward from the previous day):"
+                //     ) +
+                //     amount(settleRecord.startingAmount)
+                // ) +
+                addExpensePanel(settleRecord) +
+                div("expense-list", "No Expenses") +
+                div(
+                    "breakdown",
+                    stack(
+                        rack(
+                            stack(
+                                text("Breakdown for the day:") +
+                                rack(
                                     stack(
-                                        text("Balance") +
-                                            rack(
-                                                stack(
-                                                    amount(
-                                                        0,
-                                                        "",
-                                                        "balance"
-                                                    ) +
-                                                        actionItem(
-                                                            "settle",
-                                                            "",
-                                                            "",
-                                                            "Settle",
-                                                            "black"
-                                                        )
-                                                )
-                                            )
+                                        amount(0) + text("You")
+                                    ) +
+                                    stack(
+                                        amount(0) +
+                                        text("BF")
+                                    ) +
+                                    stack(
+                                        amount(0) +
+                                        text("JS")
                                     )
+                                )
+                            ) +
+                            stack(
+                                text("Balance") +
+                                rack(
+                                    stack(
+                                        amount(
+                                            0,
+                                            "",
+                                            "balance"
+                                        ) +
+                                        actionItem(
+                                            "settle",
+                                            "",
+                                            "",
+                                            "Settle",
+                                            "black"
+                                        )
+                                    )
+                                )
                             )
                         )
                     )
+                )
             )
         )
     );

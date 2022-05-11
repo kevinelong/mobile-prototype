@@ -1228,8 +1228,8 @@ function settleDay(
     dateText = "Sunday 11/11/2022",
     amount = 0,
     message = "You're Settled Up!",
-    amountPrefix = "Ending Balance",
-    amountSuffix = "Carried Forward",
+    amountPrefix = "",
+    amountSuffix = "",
     expenseList = [],
     startingAmount = 0
     ) {
@@ -1237,6 +1237,7 @@ function settleDay(
         const q=expenseList.length;
     
     return {
+        dateText: dateText,
         title: `${q} Expense${ q == 1 ? "" : "s" } - ${dateText}`,
         amount: amount,
         message: message,
@@ -1253,7 +1254,7 @@ let expenseData = [
         0,
         "You're Settled Up!",
         "",
-        "Ending Balance",
+        "Balance",
         [
             expenseRecord("Coffee", 10.00),
             expenseRecord("Coffee", 10.00),
@@ -1266,8 +1267,8 @@ let expenseData = [
         "Monday 12/06/2022",
         125,
         "Total Owed to Me",
-        "Carried Forward",
-        "Ending Balance",
+        "",
+        "Balance",
         [
             expenseRecord("Breakfast", 25.00),
             expenseRecord("Lunch", 40.00),
@@ -1275,11 +1276,11 @@ let expenseData = [
         ]
     ),
     settleDay(
-        "2 Expenses - Sunday 12/12/2022",
+        "Sunday 12/12/2022",
         300,
         "Total Owed to Me",
-        "Carried Forward",
-        "Ending Balance",
+        "",
+        "Balance",
         [
             expenseRecord("Lunch", 100.00),
             expenseRecord("Dinner", 200.00),

@@ -99,7 +99,7 @@ class Expense {
 let g:Array<Person> = [
     new Person("KL"),
     new Person("NM"),
-    new Person("PD")
+    new Person("PD"),
 ];
 
 let e = new Expense(
@@ -107,12 +107,13 @@ let e = new Expense(
     10.00,
     g,
     0);
+
 console.log(e+'');
 
 console.assert(
     r(e.portionList[0].balance) === -3.34,
     "",
-    `BALANCE: ${
+    `INITIAL BALANCE: ${
         r(e.portionList[0].balance)
     } should be ${
         -3.34
@@ -121,7 +122,13 @@ console.assert(
 e.portionList[0].setPaidAmount(10.00);
 
 console.assert(
-    r(e.portionList[0].balance) === 6.66
+    r(e.portionList[0].balance) === 6.66,
+    "",
+    `ADJUSTED BALANCE: ${
+        r(e.portionList[0].balance)
+    } should be ${
+        6.66
+    }`
 );
 
 console.log(e+'');
