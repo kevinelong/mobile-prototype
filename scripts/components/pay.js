@@ -47,7 +47,7 @@ function updateTotal(e) {
     e.innerHTML = currency(getTotal());
 }
 
-function renderExpenseList(listElement) {
+function renderExpenseList(listElement, expenseRecordList) {
     listElement.innerHTML = expenseRecordList.map(expenseElement).join("");
 }
 
@@ -73,7 +73,7 @@ function onAddExpense(e) {
         amountElement.value = "";
         nameElement.focus();
 
-        renderExpenseList(parentElement.querySelectorAll(".expense-list")[0]);
+        renderExpenseList(parentElement.querySelector(".expense-list"));
 
         updateTotal(parentElement.querySelectorAll(".amount.balance")[0]);
     } catch (error) {
@@ -82,6 +82,15 @@ function onAddExpense(e) {
     }
 }
 
+function populateExpenses() {
+    const dayElements = document.querySelectorAll(".card.day");
+    [...dayElements].map(d => {
+        renderExpenseList(
+            d.querySelector(".expense-list"),
+            expenseData[d.dataset.index].expenseList
+        )
+    });
+}
 
 function addExpensePanel(settleRecord) {
     return div(
@@ -134,8 +143,8 @@ function addExpensePanel(settleRecord) {
 }
 
 
-function settleDayBlock(settleRecord) {
-
+function settleDayBlock(settleRecord, index, fullList) {
+    // console.log(settleRecord, index, fullList)
     const titleContent = spread(
             text(settleRecord.title)
         ) +
@@ -207,6 +216,7 @@ function settleDayBlock(settleRecord) {
                     )
                 )
             )
-        )
+        ),
+        `data-index="${index}"`
     );
 }

@@ -303,4 +303,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //     document.querySelector("button").click();
   //   }
   // });
+
+  populateExpenses();
+
 });
