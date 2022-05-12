@@ -786,6 +786,8 @@
 .expense-list {
     width: 100%;
     gap: 6px;
+    height: 144px;
+    overflow-y: scroll;
 }
 
 .card.expense-item {

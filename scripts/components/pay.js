@@ -39,12 +39,12 @@ function expenseElement(record = {}, index = 0) {
 //THIS GLOBAL MUST DIE! We could use: "let expenseData = [" in data.js instead
 let expenseRecordList = [];
 
-function getTotal() {
+function getTotal(expenseRecordList) {
     return expenseRecordList.reduce((c, i) => i.amount + c, 0);
 }
 
-function updateTotal(e) {
-    e.innerHTML = currency(getTotal());
+function updateTotal(e, list) {
+    e.innerHTML = currency(getTotal(list));
 }
 
 function renderExpenseList(listElement, expenseRecordList) {
@@ -58,9 +58,10 @@ function handleInput(e) {
 function onAddExpense(e) {
     try {
         const parentElement = e.closest(".day");
+        debugger;
+        let expenseRecordList = expenseData[parentElement.dataset.index].expenseList;
         const nameElement = parentElement.querySelectorAll(".expense-name")[0];
-        const amountElement =
-            parentElement.querySelectorAll(".expense-amount")[0];
+        const amountElement = parentElement.querySelectorAll(".expense-amount")[0];
         amountElement.oninput = onAddExpense;
         const amount = parseFloat(amountElement.value);
         const name = nameElement.value;
@@ -72,10 +73,13 @@ function onAddExpense(e) {
         nameElement.value = "";
         amountElement.value = "";
         nameElement.focus();
+        const listElement = parentElement.querySelector(".expense-list");
+        renderExpenseList(listElement,expenseRecordList);
 
-        renderExpenseList(parentElement.querySelector(".expense-list"));
-
-        updateTotal(parentElement.querySelectorAll(".amount.balance")[0]);
+        updateTotal(
+            parentElement.querySelectorAll(".amount.balance")[0],
+            expenseRecordList
+        );
     } catch (error) {
         console.error(error);
         return;
