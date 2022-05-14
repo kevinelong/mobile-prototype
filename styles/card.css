@@ -788,17 +788,24 @@
     gap: 6px;
     height: 144px;
     overflow-y: scroll;
+    padding: 6px;
+    background: rgba(0,0,0,0.05);
+    box-shadow: 0 0 1px 1px rgba(0,0,0,0.2);
+    border-radius: 9px;
 }
 
-.card.expense-item {
+.page.settle_split .card.expense-item,
+.page.settle .card.expense-item {
     background: none;
     color: black;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.75);
     padding: 6px 0;
     border-radius: 0.5em;
     gap: 6px;
 }
-
+.expense-item .text{
+    white-space: nowrap;
+}
 .page > .content-panel .card.expense-item .title {
     padding: 0;
 }

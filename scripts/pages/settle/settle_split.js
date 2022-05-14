@@ -15,7 +15,7 @@ function dashboard(items) {
 
 
 function settleDashboard(){
-    return div("dashboard padded row spread",
+    return div("dashboard padded spread",
         [
             dashBoardItem("Total Owed to You", "$0.00", "Request All"),
             dashBoardItem("Total You Owe", "$0.00", "Pay All"),
@@ -37,8 +37,10 @@ function settleSplit(selected = false) {
             actionItem("chat")
             , "", "padded"
         ) +
-        settleDashboard() +
-        cardList(expenseData.map(settleDayBlock).join("")),
+        cardList(
+            settleDashboard() +
+            expenseData.map(settleDayBlock).join("")
+        ),
         "ALL NETWORK"
     );
 }

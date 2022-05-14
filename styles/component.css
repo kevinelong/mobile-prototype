@@ -95,13 +95,22 @@ input[type=radio] {
     transition: max-height 300ms ease-in-out;
 }
 
-.page.settle_split .day.collapse .expense-list{
+.page.settle_split .day.collapse .expense-item{
     max-height: 0;
     overflow: hidden;
 }
+
+.page.settle_split .day.collapse .expense-list{
+    padding: 0;
+    box-shadow: none;
+    max-height: 0;
+    overflow: hidden;
+}
+
 .page.settle_split .day.collapse .breakdown{
     max-height: 0;
 }
+
 .page.settle_split .day .breakdown{
     max-height: 640px;
     overflow: hidden;
