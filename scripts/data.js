@@ -1248,7 +1248,7 @@ function settleDay(
     }
 }
 
-let expenseData = [
+let SETTLE_GROUP_DATA = [
     settleDay(
         "Sunday 11/11/2022",
         0,

@@ -36,7 +36,7 @@ function expenseElement(record = {}, index = 0) {
     `;
 }
 
-//THIS GLOBAL MUST DIE! We could use: "let expenseData = [" in data.js instead
+//THIS GLOBAL MUST DIE! We could use: "let SETTLE_GROUP_DATA = [" in data.js instead
 let expenseRecordList = [];
 
 function getTotal(expenseRecordList) {
@@ -59,7 +59,7 @@ function onAddExpense(e) {
     try {
         const parentElement = e.closest(".day");
         // debugger;
-        let expenseRecordList = expenseData[parentElement.dataset.index].expenseList;
+        let expenseRecordList = SETTLE_GROUP_DATA[parentElement.dataset.index].expenseList;
         const nameElement = parentElement.querySelectorAll(".expense-name")[0];
         const amountElement = parentElement.querySelectorAll(".expense-amount")[0];
         amountElement.oninput = onAddExpense;
@@ -91,7 +91,7 @@ function populateExpenses() {
     [...dayElements].map(d => {
         renderExpenseList(
             d.querySelector(".expense-list"),
-            expenseData[d.dataset.index].expenseList
+            SETTLE_GROUP_DATA[d.dataset.index].expenseList
         )
     });
 }

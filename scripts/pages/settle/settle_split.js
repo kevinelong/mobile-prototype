@@ -39,7 +39,7 @@ function settleSplit(selected = false) {
         ) +
         cardList(
             settleDashboard() +
-            expenseData.map(settleDayBlock).join("")
+            SETTLE_GROUP_DATA.map(settleDayBlock).join("")
         ),
         "ALL NETWORK"
     );
