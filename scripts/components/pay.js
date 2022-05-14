@@ -58,7 +58,7 @@ function handleInput(e) {
 function onAddExpense(e) {
     try {
         const parentElement = e.closest(".day");
-        debugger;
+        // debugger;
         let expenseRecordList = expenseData[parentElement.dataset.index].expenseList;
         const nameElement = parentElement.querySelectorAll(".expense-name")[0];
         const amountElement = parentElement.querySelectorAll(".expense-amount")[0];
