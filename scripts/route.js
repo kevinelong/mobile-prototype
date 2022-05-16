@@ -486,7 +486,7 @@ function payCard(p = {}) {
             div("nowrap", p.paymentSplit) +
             row(p.paymentTypes.map((o, i) => paymentType("payment-type", o, 0 == i)).join(""))
         ) +
-        div("spread centered",
+        stack(
             amount(p.paymentAmount) +
             div("tiny-text nowrap centered", "Amount Owed")
         )
