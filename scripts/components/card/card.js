@@ -248,7 +248,7 @@ function splitCard(
                 ) +
                 div(
                     "right nowrap",
-                    "Current Balance" +
+                    "Balance" +
                     amount(content)
                 )
             )

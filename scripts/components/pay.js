@@ -75,11 +75,8 @@ function onAddExpense(e) {
         nameElement.focus();
         const listElement = parentElement.querySelector(".expense-list");
         renderExpenseList(listElement,expenseRecordList);
-
-        updateTotal(
-            parentElement.querySelectorAll(".amount.balance")[0],
-            expenseRecordList
-        );
+        const list = parentElement.querySelectorAll(".amount.balance");
+        [...list].map(e=>updateTotal(e,expenseRecordList));
     } catch (error) {
         console.error(error);
         return;
@@ -156,7 +153,7 @@ function settleDayBlock(settleRecord, index, fullList) {
             text(settleRecord.message) +
             rack(
                 text(settleRecord.amountPrefix) +
-                amount(settleRecord.amount) +
+                amount(settleRecord.amount, "balance") +
                 text(settleRecord.amountSuffix)
             ) +
             actionItem("show")
