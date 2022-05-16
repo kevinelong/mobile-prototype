@@ -15,11 +15,11 @@ function dashboard(items) {
 
 
 function settleDashboard(){
-    return div("dashboard padded spread",
+    return div("dashboard padded rack",
         [
             dashBoardItem("Total Owed to You", "$0.00", "Request All"),
             dashBoardItem("Total You Owe", "$0.00", "Pay All"),
-        ]
+        ].join("")
     )
 }
 

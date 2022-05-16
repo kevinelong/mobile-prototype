@@ -460,7 +460,7 @@ function titleRow(name, icon, index, collapse = true) {
         ) +
         actionItem("show"),
         action("show"),
-        collapse ? " collapse" : ""
+        `spread ${collapse ? " collapse" : ""}`
     )
 }
 

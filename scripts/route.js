@@ -1020,9 +1020,10 @@ function toggleCollapse(target) {
     row.classList.toggle("collapse");
 
     const card_list = row.nextElementSibling;
-    if (!card_list) {
+    if (!card_list || !card_list.classList.contains("card-list")) {
         return false;
     }
+
     card_list.classList.toggle("collapse");
 }
 

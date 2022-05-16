@@ -9,6 +9,11 @@
 .settle.page .header .row{
   display: none;
 }
+
+.dashboard{
+  width: 100%;
+}
+
 .dashboard-item .action-item {
   background-color: #0001;
 }
