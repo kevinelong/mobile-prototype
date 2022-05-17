@@ -330,8 +330,8 @@
     padding: 0;
 }
 
-.page.settle_day .card .turn .amount {
-    padding: 0;
+.page.settle_split .card .turn .amount {
+    /* padding: 0; */
     color: black;
     font-weight: bold;
 }
