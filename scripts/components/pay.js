@@ -22,8 +22,9 @@ function expenseElement(record = {}, index = 0) {
     const amounts = [
         {name: "You", amount: part, turn: 0 === turnIndex},
         {name: "BF", amount: part, turn: 1 === turnIndex},
-        {name: "JS", amount: remaining, turn: 2 === turnIndex},
-    ];
+        {name: "JS", amount: part, turn: 2 === turnIndex},
+    ].map(a => ({...a, amount: a.turn ? `${remaining}` : part}));
+    
     return `
         <div class="expense-item card" data-index="${index}">
             ${rack(
