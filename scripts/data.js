@@ -348,6 +348,22 @@ const peopleList = [
     },
 ];
 
+class Group{
+    constructor(
+        people = peopleList,
+        title = "Unamed Group",
+        groupName = "person",
+        subtitle = "",
+        turnIndex = 0
+    ) {
+        this.people = people;
+        this.title = title;
+        this.groupName = groupName;
+        this.subtitle = subtitle;
+        this.turnIndex = turnIndex;
+    }
+}
+
 peopleList[RUBY].groups = [
     {
         people: peopleList,
@@ -1217,73 +1233,87 @@ const categoryOptionData = [
     {name: "People", value: "5"},
 ];
 
-function expenseRecord(name = "", amount = 0) {
-    return {
-        name: name,
-        amount: amount,
-    };
-}
-
-function settleDay(
-    dateText = "Sunday 11/11/2022",
-    amount = 0,
-    message = "You're Settled Up!",
-    amountPrefix = "",
-    amountSuffix = "",
-    expenseList = [],
-    startingAmount = 0
-    ) {
-    
-        const q=expenseList.length;
-    
-    return {
-        dateText: dateText,
-        title: `${q} Expense${ q == 1 ? "" : "s" } - ${dateText}`,
-        amount: amount,
-        message: message,
-        amountPrefix: amountPrefix,
-        amountSuffix: amountSuffix,
-        expenseList: expenseList,
-        startingAmount:startingAmount
+class expenseRecord {
+    constructor(name = "", amount = 0, turn_index = 0) {
+        this.name = name;
+        this.amount = amount;
+        this.turn_index = turn_index;
     }
 }
 
+class settleDay {
+    constructor(
+        dateText = "Sunday 11/11/2022",
+        amount = 0,
+        message = "You're Settled Up!",
+        amountPrefix = "",
+        amountSuffix = "",
+        expenseList = [],
+        startingAmount = 0,
+        group = new Group()
+    ) {
+        this.dateText = dateText;
+        this.amount = amount;
+        this.message= message;
+        this.amountPrefix = amountPrefix;
+        this.amountSuffix = amountSuffix;
+        this.expenseList = expenseList;
+        this.startingAmount = startingAmount;
+        this.titleText = "";
+        this.group = group;
+        this.updateTitle();
+    }
+
+    updateTitle() {
+        const q = this.expenseList.length;
+        this.titleText = `${q} Expense${q == 1 ? "" : "s"} - ${this.dateText}`;
+    }
+
+    addExpense(x) {
+        this.group.turnIndex = this.group.turnIndex + 1 % this.group.people.length;
+        x.turnIndex = this.group.turnIndex;
+        this.expenseList.push(x);
+        this.updateTitle();
+    }
+}
+
+let SETTLE_GROUP = new Group();
+
 let SETTLE_GROUP_DATA = [
-    settleDay(
+    new settleDay(
         "Sunday 11/11/2022",
         0,
         "You're Settled Up!",
         "",
         "Balance",
-        [
-            expenseRecord("Coffee", 10.00),
-            expenseRecord("Coffee", 10.00),
-            expenseRecord("Coffee", 10.00),
-            expenseRecord("Coffee", 10.00),
-            expenseRecord("Coffee", 10.00),
-        ]
+        [],
+        0,
+        SETTLE_GROUP
     ),
-    settleDay(
+    new settleDay(
         "Monday 12/06/2022",
         125,
         "Total Owed to Me",
         "",
         "Balance",
-        [
-            expenseRecord("Breakfast", 25.00),
-            expenseRecord("Lunch", 40.00),
-            expenseRecord("Diner", 60.00),
-        ]
+        [],
+        0,
+        SETTLE_GROUP
     ),
-    settleDay(
+    new settleDay(
         "Sunday 12/12/2022",
         300,
         "Total Owed to Me",
         "",
         "Balance",
-        [
-            expenseRecord("Lunch", 100.00),
-            expenseRecord("Dinner", 200.00),
-        ]
+        [],
+        0,
+        SETTLE_GROUP
     ),
 ];
+
+SETTLE_GROUP_DATA[0].addExpense(new expenseRecord("Breakfast", 11.11));
+SETTLE_GROUP_DATA[0].addExpense(new expenseRecord("Lunch", 22.22));
+SETTLE_GROUP_DATA[0].addExpense(new expenseRecord("Dinner", 33.33));
+
+console.log(SETTLE_GROUP_DATA);

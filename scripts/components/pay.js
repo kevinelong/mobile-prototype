@@ -38,7 +38,7 @@ function expenseElement(record = {}, index = 0) {
 }
 
 //THIS GLOBAL MUST DIE! We could use: "let SETTLE_GROUP_DATA = [" in data.js instead
-let expenseRecordList = [];
+// let expenseRecordList = [];
 
 function getTotal(expenseRecordList) {
     return expenseRecordList.reduce((c, i) => i.amount + c, 0);
@@ -56,28 +56,39 @@ function handleInput(e) {
 
 }
 
+function updateBalance(day, expenseRecordList) {
+    try {
+        const listElement = day.querySelector(".expense-list");
+        renderExpenseList(listElement,expenseRecordList);
+        const list = day.querySelectorAll(".amount.balance");
+        [...list].map(e=>updateTotal(e,expenseRecordList));
+    } catch (error) {
+        console.error(error);
+        return;
+    }
+}
 function onAddExpense(e) {
     try {
-        const parentElement = e.closest(".day");
+        const day = e.closest(".day");
         // debugger;
-        let expenseRecordList = SETTLE_GROUP_DATA[parentElement.dataset.index].expenseList;
-        const nameElement = parentElement.querySelectorAll(".expense-name")[0];
-        const amountElement = parentElement.querySelectorAll(".expense-amount")[0];
+        let expenseRecordList = SETTLE_GROUP_DATA[day.dataset.index].expenseList;
+        const nameElement = day.querySelectorAll(".expense-name")[0];
+        const amountElement = day.querySelectorAll(".expense-amount")[0];
         amountElement.oninput = onAddExpense;
         const amount = parseFloat(amountElement.value);
         const name = nameElement.value;
         if (name.length < 1 || isNaN(amount)) {
             return;
         }
-        expenseRecordList.push(expenseRecord(name, amount));
+        expenseRecordList.push(new expenseRecord(name, amount));
 
         nameElement.value = "";
         amountElement.value = "";
         nameElement.focus();
-        const listElement = parentElement.querySelector(".expense-list");
-        renderExpenseList(listElement,expenseRecordList);
-        const list = parentElement.querySelectorAll(".amount.balance");
-        [...list].map(e=>updateTotal(e,expenseRecordList));
+
+        updateBalance(day, expenseRecordList);
+        const expenseElementList = day.querySelectorAll(".expense-list");
+        expenseElementList.scrollTop = expenseElementList.scrollHeight;
     } catch (error) {
         console.error(error);
         return;
@@ -90,7 +101,8 @@ function populateExpenses() {
         renderExpenseList(
             d.querySelector(".expense-list"),
             SETTLE_GROUP_DATA[d.dataset.index].expenseList
-        )
+        );
+        updateBalance(d, SETTLE_GROUP_DATA[d.dataset.index].expenseList);
     });
 }
 
@@ -146,9 +158,12 @@ function addExpensePanel(settleRecord) {
 
 
 function settleDayBlock(settleRecord, index, fullList) {
+
+    settleRecord.updateTitle();
     // console.log(settleRecord, index, fullList)
+
     const titleContent = spread(
-            text(settleRecord.title)
+            text(settleRecord.titleText)
         ) +
         spread(
             text(settleRecord.message) +

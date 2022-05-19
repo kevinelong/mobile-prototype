@@ -12,8 +12,6 @@ function dashboard(items) {
     return row(items.join(""));
 }
 
-
-
 function settleDashboard(){
     return div("dashboard padded rack",
         [
