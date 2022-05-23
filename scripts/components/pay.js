@@ -14,22 +14,21 @@ function amountElement(item = {name: "", amount: 0, turn: false}) {
     return rack(amount(item.amount) + text(item.name), "", item.turn ? "turn" : "");
 }
 
-function expenseElement(record = {}, index = 0) {
-    const divideBy = 3;
+function expenseElement(record = {}, index, data={}) {
+    const divideBy = data.group.people.length;
     const part = record.amount / divideBy;
     const remaining = Math.ceil(part * 100) / 100;
-    const turnIndex = index % divideBy;
-    const amounts = [
-        {name: "You", amount: part, turn: 0 === turnIndex},
-        {name: "BF", amount: part, turn: 1 === turnIndex},
-        {name: "JS", amount: part, turn: 2 === turnIndex},
-    ].map(a => ({...a, amount: a.turn ? `${remaining}` : part}));
-    
+    const turnIndex = record.turnIndex;
+    const amounts = data.group.people.map(
+        (p,i) => ({name: p.isCurrentUser ? "You" : initials(p.name), amount: i === turnIndex ? remaining : part, turn: i === turnIndex})
+    );
+    const person = data.group.people[record.turnIndex];
+    const by = person.isCurrentUser ? "you" : initials(person.name);
     return `
         <div class="expense-item card" data-index="${index}">
             ${rack(
         title(record.name) +
-        text("total expense: ") +
+        text(`Total paid by ${by}: `) +
         amount(record.amount)
     )}
             ${rack(amounts.map(amountElement).join(""), "", "split-amounts")}
@@ -48,8 +47,8 @@ function updateTotal(e, list) {
     e.innerHTML = currency(getTotal(list));
 }
 
-function renderExpenseList(listElement, expenseRecordList) {
-    listElement.innerHTML = expenseRecordList.map(expenseElement).join("");
+function renderExpenseList(listElement, expenseRecordList, data) {
+    listElement.innerHTML = expenseRecordList.map((e,i)=>expenseElement(e, i, data)).join("");
 }
 
 function handleInput(e) {
@@ -71,7 +70,8 @@ function onAddExpense(e) {
     try {
         const day = e.closest(".day");
         // debugger;
-        let expenseRecordList = SETTLE_GROUP_DATA[day.dataset.index].expenseList;
+        let data = SETTLE_GROUP_DATA[day.dataset.index];
+        let expenseRecordList = data.expenseList;
         const nameElement = day.querySelectorAll(".expense-name")[0];
         const amountElement = day.querySelectorAll(".expense-amount")[0];
         amountElement.oninput = onAddExpense;
@@ -80,7 +80,7 @@ function onAddExpense(e) {
         if (name.length < 1 || isNaN(amount)) {
             return;
         }
-        expenseRecordList.push(new expenseRecord(name, amount));
+        data.addExpense(new expenseRecord(name, amount));
 
         nameElement.value = "";
         amountElement.value = "";
@@ -100,7 +100,8 @@ function populateExpenses() {
     [...dayElements].map(d => {
         renderExpenseList(
             d.querySelector(".expense-list"),
-            SETTLE_GROUP_DATA[d.dataset.index].expenseList
+            SETTLE_GROUP_DATA[d.dataset.index].expenseList,
+            SETTLE_GROUP_DATA[d.dataset.index]
         );
         updateBalance(d, SETTLE_GROUP_DATA[d.dataset.index].expenseList);
     });
