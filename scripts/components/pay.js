@@ -64,9 +64,9 @@ function updateBalance(day, expenseRecordList) {
         [...list].map(e=>updateTotal(e,expenseRecordList));
     } catch (error) {
         console.error(error);
-        return;
     }
 }
+
 function onAddExpense(e) {
     try {
         const day = e.closest(".day");
@@ -156,6 +156,31 @@ function addExpensePanel(settleRecord) {
     );
 }
 
+function breakdownItem(amountValue= 0, nameText="You"){
+    return stack(
+        amount(amountValue) + text(nameText)
+    );
+}
+
+function dayBreakdown(settleRecord){
+    const output = stack(
+        text("Breakdown for the day:") +
+        rack(
+            settleRecord.group.people.map(
+                (g,gi) => breakdownItem(
+                    settleRecord.expenseList.reduce(
+                        (p, c) => c.turnIndex == gi ? p + c.amount : p,
+                        0
+                    ),
+                    g.isCurrentUser ? "You" : initials(g.name)
+                )
+            ).join("")
+            ,"","breakdown")
+    )
+    console.log(settleRecord);
+    console.log(output);
+    return output;
+}
 
 function settleDayBlock(settleRecord, index, fullList) {
 
@@ -194,22 +219,7 @@ function settleDayBlock(settleRecord, index, fullList) {
                     "breakdown",
                     stack(
                         rack(
-                            stack(
-                                text("Breakdown for the day:") +
-                                rack(
-                                    stack(
-                                        amount(0) + text("You")
-                                    ) +
-                                    stack(
-                                        amount(0) +
-                                        text("BF")
-                                    ) +
-                                    stack(
-                                        amount(0) +
-                                        text("JS")
-                                    )
-                                )
-                            ) +
+                            dayBreakdown(settleRecord) +
                             stack(
                                 text("Balance") +
                                 rack(

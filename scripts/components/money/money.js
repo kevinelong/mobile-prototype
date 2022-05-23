@@ -2,13 +2,6 @@ function moneyText(c) {
     return div("money-text", c);
 }
 
-function initials(name) {
-    return name
-        .split(" ")
-        .map((w) => w[0])
-        .join("");
-}
-
 function moneyItem(rowData, index) {
     return div(
         `money-item ${index}`,

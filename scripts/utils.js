@@ -307,3 +307,11 @@ const isCurrent = ve => {
 const currentPrefix = ic => ic ? 'is' : 'not';
 const currentClass = ve => `${currentPrefix(isCurrent(ve))}-current-period`;
 const cardStyle = ve => ve.imagePath ? imgStyle(rgbA([.7, 0, .7]), ve.imagePath, ve.period.color) : gradStyle(rgbA([.7, 0, .7]), ve.period.color);
+
+
+function initials(name) {
+    return name
+        .split(" ")
+        .map((w) => w[0])
+        .join("");
+}

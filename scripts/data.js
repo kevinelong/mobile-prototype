@@ -1234,10 +1234,10 @@ const categoryOptionData = [
 ];
 
 class expenseRecord {
-    constructor(name = "", amount = 0, turn_index = 0) {
+    constructor(name = "", amount = 0, turnIndex = 0) {
         this.name = name;
         this.amount = amount;
-        this.turn_index = turn_index;
+        this.turnIndex = turnIndex;
     }
 }
 
@@ -1270,8 +1270,8 @@ class settleDay {
     }
 
     addExpense(x) {
-        this.group.turnIndex = this.group.turnIndex + 1 % this.group.people.length;
         x.turnIndex = this.group.turnIndex;
+        this.group.turnIndex = this.group.turnIndex + 1 % this.group.people.length;
         this.expenseList.push(x);
         this.updateTitle();
     }
