@@ -14,15 +14,28 @@ function amountElement(item = {name: "", amount: 0, turn: false}) {
     return rack(amount(item.amount) + text(item.name), "", item.turn ? "turn" : "");
 }
 
-function expenseElement(record = {}, index, data={}) {
+function expenseElement(record = {}, index, data = {}) {
     const divideBy = data.group.people.length;
     const part = record.amount / divideBy;
     const remaining = Math.ceil(part * 100) / 100;
     const turnIndex = record.turnIndex;
     const amounts = data.group.people.map(
-        (p,i) => ({name: p.isCurrentUser ? "You" : initials(p.name), amount: i === turnIndex ? remaining : part, turn: i === turnIndex})
+        (p, i) => ({
+            name: p.isCurrentUser ? "You" : initials(p.name),
+            amount: i === turnIndex ? remaining : part,
+            turn: i === turnIndex
+        })
     );
+    if (undefined === data) {
+        console.log("NO DATA");
+    }
+    if (undefined === record) {
+        console.log("NO RECORD");
+    }
     const person = data.group.people[record.turnIndex];
+    if (undefined === person) {
+        console.log("NO PERSON");
+    }
     const by = person.isCurrentUser ? "you" : initials(person.name);
     return `
         <div class="expense-item card" data-index="${index}">
@@ -48,19 +61,22 @@ function updateTotal(e, list) {
 }
 
 function renderExpenseList(listElement, expenseRecordList, data) {
-    listElement.innerHTML = expenseRecordList.map((e,i)=>expenseElement(e, i, data)).join("");
+    listElement.innerHTML = expenseRecordList.map((e, i) => expenseElement(e, i, data)).join("");
 }
 
 function handleInput(e) {
 
 }
 
-function updateBalance(day, expenseRecordList) {
+function updateBalance(day, expenseRecordList, data) {
     try {
         const listElement = day.querySelector(".expense-list");
-        renderExpenseList(listElement,expenseRecordList);
+        renderExpenseList(listElement, expenseRecordList, data);
         const list = day.querySelectorAll(".amount.balance");
-        [...list].map(e=>updateTotal(e,expenseRecordList));
+        [...list].map(e => updateTotal(e, expenseRecordList, data));
+
+        const breakdown = day.querySelector(".breakdown .breakdown");
+        breakdown.outerHTML = dayBreakdown(data);
     } catch (error) {
         console.error(error);
     }
@@ -86,7 +102,7 @@ function onAddExpense(e) {
         amountElement.value = "";
         nameElement.focus();
 
-        updateBalance(day, expenseRecordList);
+        updateBalance(day, expenseRecordList, data);
         const expenseElementList = day.querySelectorAll(".expense-list");
         expenseElementList.scrollTop = expenseElementList.scrollHeight;
     } catch (error) {
@@ -103,7 +119,7 @@ function populateExpenses() {
             SETTLE_GROUP_DATA[d.dataset.index].expenseList,
             SETTLE_GROUP_DATA[d.dataset.index]
         );
-        updateBalance(d, SETTLE_GROUP_DATA[d.dataset.index].expenseList);
+        updateBalance(d, SETTLE_GROUP_DATA[d.dataset.index].expenseList, SETTLE_GROUP_DATA[d.dataset.index]);
     });
 }
 
@@ -157,18 +173,18 @@ function addExpensePanel(settleRecord) {
     );
 }
 
-function breakdownItem(amountValue= 0, nameText="You"){
+function breakdownItem(amountValue = 0, nameText = "You") {
     return stack(
         amount(amountValue) + text(nameText)
     );
 }
 
-function dayBreakdown(settleRecord){
+function dayBreakdown(settleRecord) {
     const output = stack(
         text("Breakdown for the day:") +
         rack(
             settleRecord.group.people.map(
-                (g,gi) => breakdownItem(
+                (g, gi) => breakdownItem(
                     settleRecord.expenseList.reduce(
                         (p, c) => c.turnIndex == gi ? p + c.amount : p,
                         0
@@ -176,8 +192,8 @@ function dayBreakdown(settleRecord){
                     g.isCurrentUser ? "You" : initials(g.name)
                 )
             ).join("")
-            ,"","breakdown")
-    )
+        )
+    , "", "breakdown");
     console.log(settleRecord);
     console.log(output);
     return output;

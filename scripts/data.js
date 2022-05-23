@@ -1271,7 +1271,7 @@ class settleDay {
 
     addExpense(x) {
         x.turnIndex = this.group.turnIndex;
-        this.group.turnIndex = this.group.turnIndex + 1 % this.group.people.length;
+        this.group.turnIndex = (this.group.turnIndex + 1) % this.group.people.length;
         this.expenseList.push(x);
         this.updateTitle();
     }
