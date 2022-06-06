@@ -59,8 +59,8 @@ document.addEventListener("DOMContentLoaded", () => {
             circle("") +
             mainNavOuter(
                 mainNav(
-                    ["explore", "broadcast", "collect", "plan", "settle"],
-                    ["connect", "timeline"],
+                    ["settle"],
+                    [],
                     "settle"
                 )
             ) +
