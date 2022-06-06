@@ -190,10 +190,10 @@ function interestList(title, list, limit = 4) {
 }
 
 
-function labeledInput(name = "", inputType = "text") {
+function labeledInput(name = "", inputType = "text", attrs="") {
     return label(
         cleanName(name),
-        (name ? text(name) : "") + input(name, inputType)
+        (name ? text(name) : "") + input(name, inputType, attrs)
     );
 }
 

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        const data = [
+            {
+                id: 123,
+                first: "Kevin",
+                last: "Long"
+            },
+            {
+                id: 234,
+                first: "Kay",
+                last: "Long"
+            },
+            {
+                id: 345,
+                first: "Nina",
+                last: "Marie"
+            },
+        ];
+
+        const matches = (text, list) =>
+            list.filter(v => JSON.stringify(v).indexOf(text) !== -1);
+        //TESTS
+        // console.log(JSON.stringify(data[0]));
+        console.assert(matches("Z", data).length === 0);
+        console.assert(matches("K", data).length === 2);
+        console.assert(matches("Marie", data).length === 1);
+        const filtered = (objectList = [{}], valueKey, displayKey) => {
+            const filtered = document.createElement("div");
+            const i = document.createElement("input");
+            const s = document.createElement("select");
+            s.setAttribute("size", objectList.length.toString());
+            objectList.forEach(d => {
+                const o = document.createElement("option");
+                o.innerHTML = d[displayKey];
+                o.setAttribute("value", d[valueKey])
+                s.appendChild(o);
+            });
+            filtered.appendChild(i);
+            filtered.appendChild(s);
+            i.addEventListener("keydown", e =>
+                [...s.children].forEach(
+                    (c,i,a) => a[i].style.visible = c.innerHTML.indexOf(e.target.value) !== -1
+                )
+            );
+            return filtered;
+        };
+        //TEST
+        document.addEventListener("DOMContentLoaded", () => {
+            document.body.appendChild(
+                filtered(
+                    data.map(d => ({id: d.id, name: `${d.first} ${d.last}`})),
+                    "id",
+                    "name"
+                )
+            );
+        });
+    </script>
+</head>
+<body></body>
+</html>
