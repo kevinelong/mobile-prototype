@@ -1264,13 +1264,28 @@ class SettleDay {
         this.titleText = "";
         this.group = group;
         this.updateTitle();
+        this.breakdown = [];
     }
 
     updateTitle() {
         const q = this.expenseList.length;
         this.titleText = `${q} Expense${q === 1 ? "" : "s"} - ${this.dateText}`;
     }
-
+    updateBreakdown(){
+        this.breakdown = [];
+        this.expenseList.forEach(
+            x => x.amounts.forEach(
+                (a,i) => {
+                    //create target object if it is the first amount row
+                    if( this.breakdown.length <= i){
+                        this.breakdown.push({total:0});
+                    }
+                    this.breakdown[i].person = a.person;
+                    this.breakdown[i].total += a.amount;
+                }
+            )
+        )
+    }
     addExpense(x) {
         x.turnIndex = this.group.turnIndex;
         this.group.turnIndex = (this.group.turnIndex + 1) % this.group.people.length;
@@ -1279,7 +1294,6 @@ class SettleDay {
         const part = x.amount / divideBy;
         const remaining = Math.ceil(part * 100) / 100;
         const turnIndex = x.turnIndex;
-
         x.amounts = this.group.people.map(
             (p, i) => {
                 if (i === turnIndex) {
@@ -1295,6 +1309,7 @@ class SettleDay {
         );
 
         this.expenseList.push(x);
+        this.updateBreakdown();
         this.updateTitle();
     }
 

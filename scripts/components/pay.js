@@ -189,13 +189,9 @@ function dayBreakdown(settleRecord) {
     const output = stack(
         text("Breakdown for the day:") +
         rack(
-            settleRecord.group.people.map(
-                (g, gi) => breakdownItem(
-                    settleRecord.expenseList.reduce(
-                        (p, c) => c.turnIndex == gi ? p + c.amount : p,
-                        0
-                    ),
-                    g.isCurrentUser ? "You" : initials(g.name)
+            settleRecord.breakdown.map(
+                b => breakdownItem( b.total,
+                    b.person.isCurrentUser ? "You" : initials(b.person.name)
                 )
             ).join("")
         )
