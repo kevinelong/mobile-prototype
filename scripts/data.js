@@ -1234,10 +1234,12 @@ const categoryOptionData = [
 ];
 
 class ExpenseRecord {
-    constructor(name = "", amount = 0, turnIndex = 0) {
+    constructor(name = "", amount = 0, turnIndex = 0, amounts = [], mainPayer = {}) {
         this.name = name;
         this.amount = amount;
         this.turnIndex = turnIndex;
+        this.mainPayer = mainPayer;
+        this.amounts = amounts;
     }
 }
 
@@ -1272,19 +1274,51 @@ class SettleDay {
     addExpense(x) {
         x.turnIndex = this.group.turnIndex;
         this.group.turnIndex = (this.group.turnIndex + 1) % this.group.people.length;
+
+        const divideBy = this.group.people.length;
+        const part = x.amount / divideBy;
+        const remaining = Math.ceil(part * 100) / 100;
+        const turnIndex = x.turnIndex;
+
+        x.amounts = this.group.people.map(
+            (p, i) => {
+                if (i === turnIndex) {
+                    x.mainPayer = p;
+                }
+                return {
+                    name: p.isCurrentUser ? "You" : initials(p.name),
+                    amount: i === turnIndex ? remaining : part,
+                    turn: i === turnIndex,
+                    person: p
+                }
+            }
+        );
+
         this.expenseList.push(x);
         this.updateTitle();
     }
 
     getOwedToMe() {
         let total = 0;
-        this.expenseList.forEach(x => total += x.amount);
+        this.expenseList.filter(
+            x => x.mainPayer.isCurrentUser
+        ).forEach(
+            x => x.amounts.filter(
+                a => a.person = x.mainPayer
+            ).forEach(a => total += a.amount)
+        );
         return total;
     }
 
     getTotalIOwe() {
         let total = 0;
-        this.expenseList.forEach(x => total += x.amount);
+        this.expenseList.filter(
+            x => !x.mainPayer.isCurrentUser
+        ).forEach(
+            x => x.amounts.filter(
+                a => a.person = !x.mainPayer
+            ).forEach(a => total += a.amount)
+        );
         return total;
     }
 }
