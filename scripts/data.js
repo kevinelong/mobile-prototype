@@ -1247,7 +1247,7 @@ class SettleDay {
     constructor(
         dateText = "Sunday 11/11/2022",
         amount = 0,
-        message = "You're Settled Up!",
+        message = "",
         amountPrefix = "",
         amountSuffix = "",
         expenseList = [],
@@ -1304,8 +1304,10 @@ class SettleDay {
             x => x.mainPayer.isCurrentUser
         ).forEach(
             x => x.amounts.filter(
-                a => a.person = x.mainPayer
-            ).forEach(a => total += a.amount)
+                a => a.person !== x.mainPayer
+            ).forEach(
+                a => total += round(a.amount)
+            )
         );
         return total;
     }
@@ -1316,8 +1318,10 @@ class SettleDay {
             x => !x.mainPayer.isCurrentUser
         ).forEach(
             x => x.amounts.filter(
-                a => a.person = !x.mainPayer
-            ).forEach(a => total += a.amount)
+                a => a.person === x.mainPayer
+            ).forEach(
+                a => total += round(a.amount)
+            )
         );
         return total;
     }
@@ -1356,9 +1360,9 @@ let SETTLE_GROUP_DATA = new GroupDayList([
     new SettleDay(
         "Sunday 11/11/2022",
         0,
-        "You're Settled Up!",
         "",
-        "Balance",
+        "",
+        "",
         [],
         0,
         SETTLE_GROUP
@@ -1366,9 +1370,9 @@ let SETTLE_GROUP_DATA = new GroupDayList([
     new SettleDay(
         "Monday 12/06/2022",
         125,
-        "Total Owed to Me",
         "",
-        "Balance",
+        "",
+        "",
         [],
         0,
         SETTLE_GROUP
@@ -1376,9 +1380,9 @@ let SETTLE_GROUP_DATA = new GroupDayList([
     new SettleDay(
         "Sunday 12/12/2022",
         300,
-        "Total Owed to Me",
         "",
-        "Balance",
+        "",
+        "",
         [],
         0,
         SETTLE_GROUP
