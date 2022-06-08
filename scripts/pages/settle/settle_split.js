@@ -12,11 +12,11 @@ function dashboard(items) {
     return row(items.join(""));
 }
 
-function settleDashboard(){
+function settleDashboard(settleDayList){
     return div("dashboard padded rack",
         [
-            dashBoardItem("Total Owed to You", "$0.00", "Request All"),
-            dashBoardItem("Total You Owe", "$0.00", "Pay All"),
+            dashBoardItem("Total Owed to You", amount(0, "", "total-owed-to-me"), "Request All"),
+            dashBoardItem("Total You Owe", amount(0,"", "total-i-owe"), "Pay All"),
         ].join("")
     )
 }
@@ -36,8 +36,8 @@ function settleSplit(selected = false) {
             , "", "padded"
         ) +
         cardList(
-            settleDashboard() +
-            SETTLE_GROUP_DATA.map(settleDayBlock).join("")
+            settleDashboard(SETTLE_GROUP_DATA) +
+            SETTLE_GROUP_DATA.list.map(settleDayBlock).join("")
         ),
         "ALL NETWORK"
     );
