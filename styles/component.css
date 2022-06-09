@@ -117,6 +117,15 @@ input[type=radio] {
     transition: max-height 300ms ease-in-out;
 }
 
+.page.settle_split .day .breakdown-inner{
+    display: inline-block;
+}
+
+.page.settle_split .day .breakdown-item{
+    display: inline-block;
+    margin: 1px;
+}
+
 .stack {
     display: flex;
     flex-direction: column;
