@@ -502,6 +502,15 @@ function showPay(target, action, which, index) {
     );
 }
 
+function showRequest(target, action, which, index) {
+    showDialog(
+        "Request All",
+        helpText("Select a Pay-Type for each recipient, then click Request-All.") +
+        cardList(peopleList.filter((v, i) => i > 0).map(payCard).join("")) +
+        actionPanel(actionButton("Cancel") + actionButton("Request All"))
+    );
+}
+
 function showAddCheckInDialog(target, action, which, index) {
     showAddPlace(
         "Add Item &amp; Check-In " + d,
@@ -973,40 +982,41 @@ function apply(target, action, which, id) {
 }
 
 ACTION_PAGES = {
+    "add-participant": addParticipant,
+    "add-place": showAddPlaceDialog,
+    "check-in": showAddCheckInDialog,
+    "create-new-group": createGroup,
+    "map-off": toggleMap,
+    "map-on": toggleMap,
+    "pay-all": showPay,
+    "request-all": showRequest,
+    "search-destination": showDestinations,
+    "smart-ideas": showSmartIdeasDialog,
+    add: addItem,
     apply: apply,
     back: () => showPage(window.lastPage),
     chat: addItem,
-    connect_chat: () => showPage("connect_chat"),
-    explore: openPage,
-    open: openPage,
-    settle_split: openPage,
-    split: addItem,
-    "create-new-group": createGroup,
-    "add-participant": addParticipant,
-    add: addItem,
-    payment: addPayment,
-    contact: addContact,
-    new: addItem,
-    search: showDestinations,
-    "search-destination": showDestinations,
-    invite: sendInvite,
-    more: addPerson,
-    hide: hideDialog,
     collapse: collapseCard,
-    right: handleRight,
-    show: toggleCollapse,
-    "map-on": toggleMap,
-    "map-off": toggleMap,
-    "pay all": showPay,
-    person: showProfileDialog,
-    match: showMatchDialog,
-    upload: showUploadDialog,
-    "smart-ideas": showSmartIdeasDialog,
-    "add-place": showAddPlaceDialog,
-    "check-in": showAddCheckInDialog,
+    connect_chat: () => showPage("connect_chat"),
+    contact: addContact,
     edit: edit,
+    explore: openPage,
+    hide: hideDialog,
+    invite: sendInvite,
+    match: showMatchDialog,
+    more: addPerson,
+    new: addItem,
+    open: openPage,
+    payment: addPayment,
+    person: showProfileDialog,
     review: showReviewDialog,
+    right: handleRight,
+    search: showDestinations,
+    settle_split: openPage,
+    show: toggleCollapse,
     sort: showSort,
+    split: addItem,
+    upload: showUploadDialog,
 };
 
 function toggleCollapse(target) {

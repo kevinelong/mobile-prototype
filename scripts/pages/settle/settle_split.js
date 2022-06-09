@@ -1,10 +1,10 @@
-function dashBoardItem(titleText = "", valueText = "", actionName = "") {
+function dashBoardItem(titleText = "", valueText = "", actionText = "", actionName="") {
     return col(
         col(
             title(valueText) +
             div("tiny-text", titleText)
         ) +
-        actionItem(actionName, "settle", -1, actionName, "black", false),
+        actionItem(actionName, "settle", -1, actionText, "black", false),
         "", "dashboard-item");
 }
 
@@ -15,8 +15,18 @@ function dashboard(items) {
 function settleDashboard(settleDayList){
     return div("dashboard padded rack",
         [
-            dashBoardItem("Total Owed to You", amount(0, "", "total-owed-to-me"), "Request All"),
-            dashBoardItem("Total You Owe", amount(0,"", "total-i-owe"), "Pay All"),
+            dashBoardItem(
+                "Total Owed to You",
+                amount(0, "", "total-owed-to-me"),
+                "Request All",
+                "request-all"
+            ),
+            dashBoardItem(
+                "Total You Owe",
+                amount(0,"", "total-i-owe"),
+                "Pay All",
+                "pay-all"
+            ),
         ].join("")
     )
 }

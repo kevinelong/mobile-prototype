@@ -52,15 +52,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     settleList(),
                     settleSplit(),
                     settlePage(true),
-                    mapView(),
-                    div("smoke")
+                    mapView()
                 ].join("")
             ) +
             circle("") +
             mainNavOuter(
                 mainNav(
-                    ["settle"],
-                    [],
+                    ["explore", "broadcast", "collect", "plan", "settle"],
+                    ["connect", "timeline"],
                     "settle"
                 )
             ) +

@@ -3,7 +3,7 @@ function tag(name, className = "", attrs = "") {
 }
 
 function closedTag(name, content, className = "", attrs = "") {
-    return `<${name} class="${className} ${name}" ${attrs}>${content}</${name}>`;
+    return `<${name} class="${className} ${name}" ${attrs}>${content !== undefined ? content : ""}</${name}>`;
 }
 
 function div(className, content, attrs) {
