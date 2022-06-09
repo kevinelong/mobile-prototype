@@ -68,7 +68,13 @@ function handleInput(e) {
 
 }
 
-function updateBalance(day, expenseRecordList, data) {
+function updateTotals(all){
+    get(".total-owed-to-me").innerHTML = currency(all.getOwedToMe());
+    get(".total-i-owe").innerHTML = currency(all.getTotalIOwe());
+}
+
+function updateBalance(day, expenseRecordList, data, all) {
+    updateTotals(all);
     try {
         const listElement = day.querySelector(".expense-list");
         renderExpenseList(listElement, expenseRecordList, data);
@@ -86,7 +92,7 @@ function onAddExpense(e) {
     try {
         const day = e.closest(".day");
         // debugger;
-        let data = SETTLE_GROUP_DATA[day.dataset.index];
+        let data = SETTLE_GROUP_DATA.list[day.dataset.index];
         let expenseRecordList = data.expenseList;
         const nameElement = day.querySelectorAll(".expense-name")[0];
         const amountElement = day.querySelectorAll(".expense-amount")[0];
@@ -96,13 +102,13 @@ function onAddExpense(e) {
         if (name.length < 1 || isNaN(amount)) {
             return;
         }
-        data.addExpense(new expenseRecord(name, amount));
+        data.addExpense(new ExpenseRecord(name, amount));
 
         nameElement.value = "";
         amountElement.value = "";
         nameElement.focus();
 
-        updateBalance(day, expenseRecordList, data);
+        updateBalance(day, expenseRecordList, data, SETTLE_GROUP_DATA);
         const expenseElementList = day.querySelectorAll(".expense-list");
         expenseElementList.scrollTop = expenseElementList.scrollHeight;
     } catch (error) {
@@ -116,10 +122,10 @@ function populateExpenses() {
     [...dayElements].map(d => {
         renderExpenseList(
             d.querySelector(".expense-list"),
-            SETTLE_GROUP_DATA[d.dataset.index].expenseList,
-            SETTLE_GROUP_DATA[d.dataset.index]
+            SETTLE_GROUP_DATA.list[d.dataset.index].expenseList,
+            SETTLE_GROUP_DATA.list[d.dataset.index]
         );
-        updateBalance(d, SETTLE_GROUP_DATA[d.dataset.index].expenseList, SETTLE_GROUP_DATA[d.dataset.index]);
+        updateBalance(d, SETTLE_GROUP_DATA.list[d.dataset.index].expenseList, SETTLE_GROUP_DATA.list[d.dataset.index], SETTLE_GROUP_DATA);
     });
 }
 
@@ -174,7 +180,7 @@ function addExpensePanel(settleRecord) {
 }
 
 function breakdownItem(amountValue = 0, nameText = "You") {
-    return stack(
+    return div("breakdown-item",
         amount(amountValue) + text(nameText)
     );
 }
@@ -182,14 +188,11 @@ function breakdownItem(amountValue = 0, nameText = "You") {
 function dayBreakdown(settleRecord) {
     const output = stack(
         text("Breakdown for the day:") +
-        rack(
-            settleRecord.group.people.map(
-                (g, gi) => breakdownItem(
-                    settleRecord.expenseList.reduce(
-                        (p, c) => c.turnIndex == gi ? p + c.amount : p,
-                        0
-                    ),
-                    g.isCurrentUser ? "You" : initials(g.name)
+        div(
+            "breakdown-inner",
+            settleRecord.breakdown.map(
+                b => breakdownItem( b.total,
+                    b.person.isCurrentUser ? "You" : initials(b.person.name)
                 )
             ).join("")
         )

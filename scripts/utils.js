@@ -315,3 +315,7 @@ function initials(name) {
         .map((w) => w[0])
         .join("");
 }
+
+function round(amount){
+    return Math.round(amount*100)/100;
+}

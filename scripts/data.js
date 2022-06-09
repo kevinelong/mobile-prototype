@@ -348,7 +348,7 @@ const peopleList = [
     },
 ];
 
-class Group{
+class Group {
     constructor(
         people = peopleList,
         title = "Unamed Group",
@@ -1233,19 +1233,21 @@ const categoryOptionData = [
     {name: "People", value: "5"},
 ];
 
-class expenseRecord {
-    constructor(name = "", amount = 0, turnIndex = 0) {
+class ExpenseRecord {
+    constructor(name = "", amount = 0, turnIndex = 0, amounts = [], mainPayer = {}) {
         this.name = name;
         this.amount = amount;
         this.turnIndex = turnIndex;
+        this.mainPayer = mainPayer;
+        this.amounts = amounts;
     }
 }
 
-class settleDay {
+class SettleDay {
     constructor(
         dateText = "Sunday 11/11/2022",
         amount = 0,
-        message = "You're Settled Up!",
+        message = "",
         amountPrefix = "",
         amountSuffix = "",
         expenseList = [],
@@ -1254,7 +1256,7 @@ class settleDay {
     ) {
         this.dateText = dateText;
         this.amount = amount;
-        this.message= message;
+        this.message = message;
         this.amountPrefix = amountPrefix;
         this.amountSuffix = amountSuffix;
         this.expenseList = expenseList;
@@ -1262,58 +1264,148 @@ class settleDay {
         this.titleText = "";
         this.group = group;
         this.updateTitle();
+        this.breakdown = [];
     }
 
     updateTitle() {
         const q = this.expenseList.length;
-        this.titleText = `${q} Expense${q == 1 ? "" : "s"} - ${this.dateText}`;
+        this.titleText = `${q} Expense${q === 1 ? "" : "s"} - ${this.dateText}`;
     }
-
+    updateBreakdown(){
+        this.breakdown = [];
+        this.expenseList.forEach(
+            x => x.amounts.forEach(
+                (a,i) => {
+                    //create target object if it is the first amount row
+                    if( this.breakdown.length <= i){
+                        this.breakdown.push({total:0});
+                    }
+                    this.breakdown[i].person = a.person;
+                    this.breakdown[i].total += a.amount;
+                }
+            )
+        )
+    }
     addExpense(x) {
         x.turnIndex = this.group.turnIndex;
         this.group.turnIndex = (this.group.turnIndex + 1) % this.group.people.length;
+
+        const divideBy = this.group.people.length;
+        const part = x.amount / divideBy;
+        const remaining = Math.ceil(part * 100) / 100;
+        const turnIndex = x.turnIndex;
+        x.amounts = this.group.people.map(
+            (p, i) => {
+                if (i === turnIndex) {
+                    x.mainPayer = p;
+                }
+                return {
+                    name: p.isCurrentUser ? "You" : initials(p.name),
+                    amount: i === turnIndex ? remaining : part,
+                    turn: i === turnIndex,
+                    person: p
+                }
+            }
+        );
+
         this.expenseList.push(x);
+        this.updateBreakdown();
         this.updateTitle();
+    }
+
+    getOwedToMe() {
+        let total = 0;
+        this.expenseList.filter(
+            x => x.mainPayer.isCurrentUser
+        ).forEach(
+            x => x.amounts.filter(
+                a => a.person !== x.mainPayer
+            ).forEach(
+                a => total += round(a.amount)
+            )
+        );
+        return total;
+    }
+
+    getTotalIOwe() {
+        let total = 0;
+        this.expenseList.filter(
+            x => !x.mainPayer.isCurrentUser
+        ).forEach(
+            x => x.amounts.filter(
+                a => a.person === x.mainPayer
+            ).forEach(
+                a => total += round(a.amount)
+            )
+        );
+        return total;
+    }
+}
+
+class GroupDayList {
+
+    constructor(list = []) {
+        this.list = list;
+        this.currentIndex = -1;
+    }
+
+    addExpense(date, x) {
+        //TODO: do we have a day or need to add a new one?
+        const day = new SettleDay();
+        day.addExpense(x)
+        this.list.push(day);
+    }
+
+    getOwedToMe() {
+        let total = 0;
+        this.list.forEach(day => total += day.getOwedToMe());
+        return total;
+    }
+
+    getTotalIOwe() {
+        let total = 0;
+        this.list.forEach(day => total += day.getTotalIOwe());
+        return total;
     }
 }
 
 let SETTLE_GROUP = new Group();
 
-let SETTLE_GROUP_DATA = [
-    new settleDay(
+let SETTLE_GROUP_DATA = new GroupDayList([
+    new SettleDay(
         "Sunday 11/11/2022",
         0,
-        "You're Settled Up!",
         "",
-        "Balance",
+        "",
+        "",
         [],
         0,
         SETTLE_GROUP
     ),
-    new settleDay(
+    new SettleDay(
         "Monday 12/06/2022",
         125,
-        "Total Owed to Me",
         "",
-        "Balance",
+        "",
+        "",
         [],
         0,
         SETTLE_GROUP
     ),
-    new settleDay(
+    new SettleDay(
         "Sunday 12/12/2022",
         300,
-        "Total Owed to Me",
         "",
-        "Balance",
+        "",
+        "",
         [],
         0,
         SETTLE_GROUP
     ),
-];
+]);
 
-SETTLE_GROUP_DATA[0].addExpense(new expenseRecord("Breakfast", 11.11));
-SETTLE_GROUP_DATA[0].addExpense(new expenseRecord("Lunch", 22.22));
-SETTLE_GROUP_DATA[0].addExpense(new expenseRecord("Dinner", 33.33));
+SETTLE_GROUP_DATA.list[0].addExpense(new ExpenseRecord("Breakfast", 11.11));
+SETTLE_GROUP_DATA.list[0].addExpense(new ExpenseRecord("Lunch", 22.22));
+SETTLE_GROUP_DATA.list[0].addExpense(new ExpenseRecord("Dinner", 33.33));
 
 console.log(SETTLE_GROUP_DATA);
