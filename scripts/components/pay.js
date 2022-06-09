@@ -180,7 +180,7 @@ function addExpensePanel(settleRecord) {
 }
 
 function breakdownItem(amountValue = 0, nameText = "You") {
-    return stack(
+    return div("breakdown-item",
         amount(amountValue) + text(nameText)
     );
 }
@@ -188,7 +188,8 @@ function breakdownItem(amountValue = 0, nameText = "You") {
 function dayBreakdown(settleRecord) {
     const output = stack(
         text("Breakdown for the day:") +
-        rack(
+        div(
+            "breakdown-inner",
             settleRecord.breakdown.map(
                 b => breakdownItem( b.total,
                     b.person.isCurrentUser ? "You" : initials(b.person.name)
