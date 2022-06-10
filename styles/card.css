@@ -330,9 +330,11 @@
     padding: 0;
 }
 
-.page.settle_split .card .turn .amount {
+.page.settle_split .card .turn > .amount,
+.page.settle_split .card .turn > .rack > .amount {
     /* padding: 0; */
-    color: black;
+    color: whitesmoke;
+    background-color: dimgray;
     font-weight: bold;
 }
 

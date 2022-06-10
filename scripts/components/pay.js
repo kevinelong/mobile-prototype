@@ -38,7 +38,7 @@ function expenseElement(record = {}, index, data = {}) {
     }
     const by = person.isCurrentUser ? "you" : initials(person.name);
     return `
-        <div class="expense-item card" data-index="${index}">
+        <div class="expense-item card ${person.isCurrentUser ? "turn" : ""}" data-index="${index}">
             ${rack(
         title(record.name) +
         text(`Total paid by ${by}: `) +
@@ -68,7 +68,7 @@ function handleInput(e) {
 
 }
 
-function updateTotals(all){
+function updateTotals(all) {
     get(".total-owed-to-me").innerHTML = currency(all.getOwedToMe());
     get(".total-i-owe").innerHTML = currency(all.getTotalIOwe());
 }
@@ -191,12 +191,12 @@ function dayBreakdown(settleRecord) {
         div(
             "breakdown-inner",
             settleRecord.breakdown.map(
-                b => breakdownItem( b.total,
+                b => breakdownItem(b.total,
                     b.person.isCurrentUser ? "You" : initials(b.person.name)
                 )
             ).join("")
         )
-    , "", "breakdown");
+        , "", "breakdown");
     console.log(settleRecord);
     console.log(output);
     return output;
