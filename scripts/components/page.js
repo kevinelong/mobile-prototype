@@ -34,12 +34,13 @@ function page(
         `${name} page ${selected ? "" : "hidden"}`,
         div("header",
             title(
-                actionItem(parent ? "back" : "menu") +
+                actionItem(parent ? "back" : "person","","","","black") +
                 col(
                     div("title-middle", icon(name + "-black", "", caption))
                 ) +
+                div("title-spacer","", "style=\"width:30px;height:30px;\"")
                 // actionItem("map-off") +
-                cardPerson(peopleList[RUBY])
+                // cardPerson(peopleList[RUBY])
             ) +
             (pushSecondaryNavChoicesAboveSearchFilter ? filters : "") +
             searchContent +
