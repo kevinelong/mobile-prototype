@@ -34,7 +34,7 @@ function page(
         `${name} page ${selected ? "" : "hidden"}`,
         div("header",
             title(
-                actionItem(parent ? "back" : "person","","","","black") +
+                actionItem(parent ? "back" : "person",0,0,"","black") +
                 col(
                     div("title-middle", icon(name + "-black", "", caption))
                 ) +
