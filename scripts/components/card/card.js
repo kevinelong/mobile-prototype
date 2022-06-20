@@ -223,11 +223,13 @@ function historyCard(
 }
 
 function splitCard(
-    kind = "person",
+    kind = "settle",
     titleText = "",
     subtitleText = "",
-    content = "",
+    amountOwedToMe = "",
+    amountIOwe = "",
     groups = [],
+    isSettled = false,
     actions = [],
     image = "",
     tags = [],
@@ -235,21 +237,38 @@ function splitCard(
 ) {
     return div(
         `card split ${kind} ${which}`,
-        cardTitlesBlack(kind, titleText, "", "split", -1, "settle_split") +
         cardSection(
+            div("row spread",
+                actionItem("add", "expense", -1, "Add Expense", "black", true) +
+                div(
+                    "row center",
+                    // actionItem("participants", "", "", "Participants", "black") +
+                    row(
+                        (kind == "person" ? subtitle("&nbsp;You &amp;") : "") +
+                        cardGroups(groups) +
+                        actionButton("Edit", "participants")
+                        , "", "centered center-content"
+                    )
+                ) +
+                actionItem("open", "settle", which, "Open", "black", true)
+            ) +
             cardTags(tags) +
             div(
                 "row spread",
-                actionItem("participants", "", "", "Participants", "black") +
-                row(
-                    (kind == "person" ? subtitle("&nbsp;You &amp;") : "") +
-                    cardGroups(groups)
-                    , "", "centered center-content"
-                ) +
                 div(
-                    "right nowrap",
-                    "Balance" +
-                    amount(content)
+                    "nowrap center",
+                    amount(amountOwedToMe) +
+                    "Owed to You"
+                ) +
+                (isSettled ?
+                        actionItem("settle", "settle", -1, "Settled", "black") :
+                        actionItem("settle", "settle", -1, "Settle", "gold", false, 0, false)
+                ) +
+
+                div(
+                    "nowrap center",
+                    amount(amountIOwe) +
+                    "You Owe"
                 )
             )
         ),

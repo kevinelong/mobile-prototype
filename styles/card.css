@@ -382,6 +382,7 @@
     flex-direction: column;
     align-content: center;
     justify-content: right;
+    gap:9px; /* added for settle */
 }
 
 .card-quadrant {

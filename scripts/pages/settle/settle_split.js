@@ -40,6 +40,7 @@ function settleSplit(selected = false) {
         "",
         row(
             actionItem("search") +
+            // actionItem("add","expense",-1,"Add Expense") +
             actionItem("participants","","","Participants") +
             actionButton("History") +
             actionItem("chat")

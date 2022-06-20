@@ -26,7 +26,7 @@ PAY_REQUEST_PAGES.add("add-person", Pane(`
     )
 );
 
-function addExpense() {
+function getAddExpense() {
     return label("add-expense",
         `Add Expense Detail &amp; Earn Rewards. (Optional) ` +
         input("expense-name", "text", `placeholder="Expense Name"`) +
@@ -74,7 +74,7 @@ PAY_REQUEST_PAGES.add("expenses", Pane(`
                 "Already Checked-In",
             ], "Yes")
         ) +
-        addExpense() +
+        getAddExpense() +
         link("Reset (Clear All)", "", "left") +
         label(
             "list",
@@ -140,7 +140,6 @@ SPLIT_PAGES.add("add-split", Pane(`
         , [])
 );
 
-
 const payContent = div("pane-host",
     actionButton("Add Payment", "add", "payment")
 );
@@ -162,7 +161,7 @@ function historyItem(data) {
 }
 
 function splitItem(data) {
-    return splitCard(data.kind, data.name, data.when, data.amount, data.groups);
+    return splitCard(data.kind, data.name, data.when, data.amountOwedToMe, data.amountIOwe,  data.groups, data.isSettled);
 }
 
 const groups = [
@@ -341,24 +340,27 @@ const walletContent = div("tab-set WALLET hidden",
 const splitContent = div("tab-set SPLIT",
     div("padded row",
         actionItem("search", "", "", "", "black") +
-        actionButton("Create New Split", "add", "split") +
-        actionItem("sort", "All,1 on 1,Group", "", "Sort", "black", true),
+        actionButton("Create New Group Split", "add", "split") +
+        actionItem("settings", "settings", "", "Settings", "black", true),
         "",
         "spaced"
     ) +
     cardList(
-        title("Unsettled:") +
+        // title("Unsettled:") +
         [
             {
                 kind: "GROUP-CHAT",
-                amount: -86.50,
+                amountOwedToMe: 528.00,
+                amountIOwe: 11.11,
                 name: "Group Split: Ongoing",
                 when: "",
-                groups: groups
+                groups: groups,
+                isSettled: false
             },
             {
                 kind: "person",
-                amount: 72,
+                amountOwedToMe: 0,
+                amountIOwe: 0,
                 name: "1 on 1 Split: Ongoing",
                 when: "",
                 groups: [{
@@ -366,14 +368,13 @@ const splitContent = div("tab-set SPLIT",
                     title: "",
                     groupName: "",
                     subtitle: "",
-                },]
+                },],
+                isSettled: true
             },
-        ].map(splitItem).join("") +
-        title("Settled:") +
-        [
             {
                 kind: "person",
-                amount: 0,
+                amountOwedToMe: 0,
+                amountIOwe: 0,
                 name: "1 on 1 Split: Ongoing",
                 when: "",
                 groups: [{
@@ -381,7 +382,8 @@ const splitContent = div("tab-set SPLIT",
                     title: "",
                     groupName: "",
                     subtitle: "",
-                },]
+                },],
+                isSettled: true
             },
         ].map(splitItem).join("")
     )
@@ -403,7 +405,7 @@ function settlePage(selected = false) {
         "",
         "",
         "",
-        actionItem("settings", "settle", -1, "Settings", "black"),
+        actionItem("add", "expense", -1, "Add Expense", "black"),
     );
 }
 
@@ -419,9 +421,36 @@ function addPayment() {
 function addSplit() {
     // debugger;
     showDialog(
-        "Create New Split",
+        "Create New Split Group",
         div("pane-host",
             panes(SPLIT_PAGES)
+        )
+    );
+}
+
+function addExpense() {
+    showDialog("Add Expense",
+        contentPanel([
+                label("Who",
+                    text("Who") +
+                    input("who", "text", `value="" placeholder="Begin Typing"`) +
+                    hashTags(["Kevin", "Greg", "+"])
+                ),
+                label("",
+                    text("Amount $") +
+                    rack(
+                        input("", "text", `value="" placeholder="0.00"`) +
+                        actionItem("edit", "",-1,"Split")
+                    )
+                ),
+                labeledInput("Description", "text", `value="" placeholder="Begin Typing"`),
+                labeledInput("Location", "text", `value="" placeholder="Begin Typing"`),
+                label("date-time",
+                    text("When") +
+                    selectDate() + selectTime()
+                ),
+                actionList("filter-people", applyOrCancel, false, 0, "black"),
+            ].join("")
         )
     );
 }

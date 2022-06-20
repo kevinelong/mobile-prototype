@@ -920,6 +920,8 @@ function addItem(target, action, which, id) {
         addMessage();
     } else if ("payment" === which) {
         addPayment();
+    } else if ("expense" === which) {
+        getAddExpense();
     } else if ("split" === which) {
         addSplit();
     } else if ("connect" === which) {

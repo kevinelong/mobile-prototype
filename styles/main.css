@@ -622,3 +622,7 @@ input[type="text"].tag-input {
     border-width: 5px;
 }
 
+.gold {
+    color: #F9A831;
+    background: white;
+}

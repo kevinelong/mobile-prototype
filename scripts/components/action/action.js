@@ -23,12 +23,12 @@ function actionItem(name, which = "", index = -1, textValue = "", iconColor = ""
     }
 
     const content = div(
-        `action-item ${name} ${which} ${small ? 'small' : ''}`,
+        `action-item ${name} ${which} ${iconColor} ${small ? 'small' : ''}`,
         icon(name, iconColor, textValue, hideText),
         action(name, which, index)
     );
 
-    return !hideText ? content : tooltip(name, content);
+    return !hideText ? content : tooltip(textValue, content);
 }
 
 function personItem(name, which, index, person) {
