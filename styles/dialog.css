@@ -39,7 +39,7 @@
 
 .dialog .content-panel {
     padding: 0;
-    gap: 0;
+    gap: 9px;
 }
 .dialog .content-panel .content-panel {
     flex-flow: wrap;

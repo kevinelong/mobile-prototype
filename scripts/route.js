@@ -921,7 +921,7 @@ function addItem(target, action, which, id) {
     } else if ("payment" === which) {
         addPayment();
     } else if ("expense" === which) {
-        getAddExpense();
+        addExpense();
     } else if ("split" === which) {
         addSplit();
     } else if ("connect" === which) {
