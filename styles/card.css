@@ -623,7 +623,10 @@
     align-self: flex-start;
 }
 
-.icon-frame,
+.person .icon-frame{
+    padding: 1px;
+}
+
 .titles .row .action-item .icon-frame {
     padding: 4px;
 }
