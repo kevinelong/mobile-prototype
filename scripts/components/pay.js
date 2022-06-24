@@ -208,54 +208,54 @@ function settleDayBlock(settleRecord, index, fullList) {
     // console.log(settleRecord, index, fullList)
 
     const titleContent = spread(
-            text(settleRecord.titleText)
+        actionItem("add", "expense") +
+    text(settleRecord.titleText) +
+        // ) +
+        // spread(
+        text(settleRecord.message) +
+        rack(
+            text(settleRecord.amountPrefix) +
+            amount(settleRecord.amount, "balance") +
+            text(settleRecord.amountSuffix)
         ) +
-        spread(
-            text(settleRecord.message) +
-            rack(
-                text(settleRecord.amountPrefix) +
-                amount(settleRecord.amount, "balance") +
-                text(settleRecord.amountSuffix)
-            ) +
-            actionItem("show")
-            // actionItem("open", "settle_day", "", "Open Day", "black")
-        );
+        actionItem("show")
+        // actionItem("open", "settle_day", "", "Open Day", "black")
+    );
 
     return div(
         "day row card collapse",
-        label(
-            "",
-            stack(
-                titleContent +
-                // rack(
-                //     text(
-                //         "Starting Balance<BR>\n(carried forward from the previous day):"
-                //     ) +
-                //     amount(settleRecord.startingAmount)
-                // ) +
-                addExpensePanel(settleRecord) +
-                div("expense-list", "No Expenses") +
-                div(
-                    "breakdown",
-                    stack(
-                        rack(
-                            dayBreakdown(settleRecord) +
-                            stack(
-                                text("Balance") +
-                                rack(
-                                    stack(
-                                        amount(
-                                            0,
-                                            "",
-                                            "balance"
-                                        ) +
-                                        actionItem(
-                                            "settle",
-                                            "",
-                                            "",
-                                            "Settle",
-                                            "black"
-                                        )
+        // label(
+        //     "",
+        stack(
+            titleContent +
+            // rack(
+            //     text(
+            //         "Starting Balance<BR>\n(carried forward from the previous day):"
+            //     ) +
+            //     amount(settleRecord.startingAmount)
+            // ) +
+            // addExpensePanel(settleRecord) +
+            div("expense-list", "No Expenses") +
+            div(
+                "breakdown",
+                stack(
+                    rack(
+                        dayBreakdown(settleRecord) +
+                        stack(
+                            text("Balance") +
+                            rack(
+                                stack(
+                                    amount(
+                                        0,
+                                        "",
+                                        "balance"
+                                    ) +
+                                    actionItem(
+                                        "settle",
+                                        "",
+                                        "",
+                                        "Settle",
+                                        "black"
                                     )
                                 )
                             )
@@ -263,6 +263,7 @@ function settleDayBlock(settleRecord, index, fullList) {
                     )
                 )
             )
+            // )
         ),
         `data-index="${index}"`
     );

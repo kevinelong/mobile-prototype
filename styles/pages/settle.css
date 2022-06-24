@@ -179,4 +179,10 @@
 
 .settle_split .stack {
   gap: 3px;
+  transition: gap 300ms ease-in-out;
+}
+
+.settle_split .collapse .stack {
+  gap: 0;
+  transition: gap 300ms ease-in-out;
 }

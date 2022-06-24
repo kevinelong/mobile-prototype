@@ -294,8 +294,10 @@ document.addEventListener("DOMContentLoaded", () => {
      * Settle/Expense/Pay/Split
      */
 
-    document.querySelectorAll(".expense-name")[0].focus();
-
+    const focusTarget = document.querySelectorAll(".expense-name")[0];
+    if (focusTarget !== undefined) {
+        focusTarget.focus();
+    }
     //parentElement.querySelectorAll(".expense-amount")[0].oninput = onAddExpense;
     //
     // window.addEventListener("keyup", (e) => {

@@ -36,9 +36,14 @@ const tabSet = (name = "", tabList = [], selectedTabName = "", preTabs = "", pos
             postTabs) +
         div("tab-row", tabList.map(t => tabContent(t, selectedTabName)).join("")),
         `onclick="onTabClick(this, event)"`
-    )
-        ;
+    );
 };
+
+const tabData = (name, content) => {
+    return {name: name, content: content};
+};
+
+
 /*
 USAGE:
     tabSet(name, [

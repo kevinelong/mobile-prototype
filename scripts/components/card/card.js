@@ -250,7 +250,7 @@ function splitCard(
                         , "", "centered center-content"
                     )
                 ) +
-                actionItem("open", "settle", which, "Open", "black", true)
+                actionItem("open", "settle_split", which, "Open", "black", true)
             ) +
             cardTags(tags) +
             div(

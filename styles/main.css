@@ -209,6 +209,7 @@ input[type=number] {
     gap: 6px;
     padding: 1em;
     border-radius: 2em;
+    display: none;
 }
 
 .map-panel .action-item.pin {
@@ -625,4 +626,8 @@ input[type="text"].tag-input {
 .gold {
     color: #F9A831;
     background: white;
+}
+
+.results {
+    min-height: 200px;
 }

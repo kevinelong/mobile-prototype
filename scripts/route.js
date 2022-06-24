@@ -881,6 +881,7 @@ function openPage(target, action, which, id) {
     } else if ("person" === action) {
         showPage("connect_person", "open", id);
     } else if ("split" === action) {
+        debugger;
         showPage("settle_split", "open", id);
     } else if ("board" === action) {
         showPage("collect", "collect", id);
