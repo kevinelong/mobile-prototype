@@ -209,7 +209,7 @@ function settleDayBlock(settleRecord, index, fullList) {
 
     const titleContent = spread(
         actionItem("add", "expense") +
-    text(settleRecord.titleText) +
+        text(settleRecord.titleText) +
         // ) +
         // spread(
         text(settleRecord.message) +
@@ -263,7 +263,6 @@ function settleDayBlock(settleRecord, index, fullList) {
                     )
                 )
             )
-            // )
         ),
         `data-index="${index}"`
     );

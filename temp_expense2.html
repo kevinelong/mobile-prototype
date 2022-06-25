@@ -96,46 +96,41 @@
 </div>
 </body>
 <script>
-    content.innerHTML = page(true, "settle", "Settle", [], "",
+    window.content.innerHTML = page(true, "settle", "Settle", [], "",
         div("hidden smoke",
             div("hidden dialog")
         )
     );
 
     showDialog("STEP 2 - Add Expense",
-        contentPanel([
-                button("Upload Receipt..."),
-                spread(div("centered", "OR")),
-                // label("Who",
-                //     text("Who") +
-                //     input("who", "text", `value="" placeholder="Begin Typing"`) +
-                //     hashTags(["Kevin", "Greg", "+"])
-                // ),
-                label("",
-                    text("Amount $") +
-                    rack(
-                        input("", "text", `value="" placeholder="0.00"`) +
-                        actionItem("edit", "", -1, "Edit Split")
-                    )
-                ),
-                labeledInput("Description", "text", `value="" placeholder="Begin Typing"`),
-                contentPanel(
-                    spread(
-                        text("(optional) Add Detail and earn rewards!") +
-                        actionItem("right")
-                    )
-                    // +
-                    // labeledInput("Location", "text", `value="" placeholder="Begin Typing"`),
-                    // label("date-time",
-                    //     text("When") +
-                    //     selectDate() + selectTime()
-                    // )
-                , "collapsed"),
+        row(
+            stack([
+                    button("Upload Receipt..."),
+                    spread(div("centered", "OR")),
 
-                actionList("filter-people", applyOrCancel, false, 0, "black"),
-            ].join("")
+                    label("",
+                        text("Amount $") +
+                        rack(
+                            input("", "text", `value="" placeholder="0.00"`) +
+                            actionItem("edit", "", -1, "Edit Split")
+                        )
+                    ),
+                    labeledInput("Description", "text", `value="" placeholder="Begin Typing"`),
+                    contentPanel(
+                        spread(
+                            text("(optional) Add Detail and earn rewards!") +
+                            actionItem("show")
+                        )
+                    )
+                ].join("")
+            ),
+            "",
+            "collapse"
+        ) +
+        div("card-list collapse",
+            text("TBD")
         )
+        + actionList("filter-people", applyOrCancel, false, 0, "black")
     );
 </script>
-<!--<script src="scripts/main.js"></script>-->
 </html>

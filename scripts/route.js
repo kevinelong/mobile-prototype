@@ -1038,6 +1038,7 @@ function toggleCollapse(target) {
     }
 
     card_list.classList.toggle("collapse");
+    return true;
 }
 
 function toggleMap(target) {

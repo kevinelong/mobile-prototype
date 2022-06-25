@@ -320,13 +320,32 @@ input[type=radio] {
 
 .collapse * {
     min-height: 0;
+    max-height: 0;
     gap: 0;
     transition: all 300ms ease-in-out;
 }
 
 .card-list.collapse {
     min-height: 0;
+    max-height: 0;
     gap: 0;
     padding: 0;
+    height: 0;
     transition: all 300ms ease-in-out;
+}
+.collapse *,
+.card-list {
+    max-height: 100vh;
+    transition: all 300ms ease-in-out;
+    height: auto;
+}
+
+.collapse .action-item.show .icon {
+    transform: rotate(0deg);
+    transition: transform 300ms ease-in-out;
+}
+
+.action-item.show .icon {
+    transform: rotate(90deg);
+    transition: transform 300ms ease-in-out;
 }
