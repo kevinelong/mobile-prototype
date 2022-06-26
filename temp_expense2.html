@@ -87,14 +87,16 @@
     <script src="scripts/pages/collect/collect_details.js"></script>
     <script src="scripts/route.js"></script>
 </head>
+
 <body>
-<div class="content div">
-    <div class="outer-box div">
-        <div class="inner-content div" id="content">
+    <div class="content div">
+        <div class="outer-box div">
+            <div class="inner-content div" id="content">
+            </div>
         </div>
     </div>
-</div>
 </body>
+
 <script>
     window.content.innerHTML = page(true, "settle", "Settle", [], "",
         div("hidden smoke",
@@ -105,32 +107,56 @@
     showDialog("STEP 2 - Add Expense",
         row(
             stack([
-                    button("Upload Receipt..."),
-                    spread(div("centered", "OR")),
+                button("Upload Receipt..."),
+                spread(div("centered", "OR")),
 
-                    label("",
-                        text("Amount $") +
-                        rack(
-                            input("", "text", `value="" placeholder="0.00"`) +
-                            actionItem("edit", "", -1, "Edit Split")
-                        )
-                    ),
-                    labeledInput("Description", "text", `value="" placeholder="Begin Typing"`),
-                    contentPanel(
-                        spread(
-                            text("(optional) Add Detail and earn rewards!") +
-                            actionItem("show")
-                        )
+                label("",
+                    text("Amount $") +
+                    rack(
+                        input("", "text", `value="" placeholder="0.00"`) +
+                        actionItem("edit", "", -1, "Edit Split")
                     )
-                ].join("")
+                ),
+                labeledInput("Description", "text", `value="" placeholder="Begin Typing"`),
+                contentPanel(
+                    spread(
+                        text("(optional) Add Detail and earn rewards!") +
+                        actionItem("show")
+                    )
+                )
+            ].join("")
             ),
             "",
             "collapse"
         ) +
         div("card-list collapse",
-            text("TBD")
+            select("Category", [
+                { name: "Santa Barbara" },
+                { name: "Paris" },
+                { name: "Las Vegas" }
+            ]) +
+            input("", "text", `placeholder="Begin Typing: Venue/Business Name"`) +
+            row(
+                selectDate("When:") +
+                selectTime("Time:")
+            ) +
+            row(
+                // radioControl("occasion-type", [
+                //     {
+                //         name: "occasion-type",
+                //         value: "Business"
+                //     },
+                //     {
+                //         name: "occasion-type",
+                //         value: "Personal"
+                //     },
+                // ])
+                radioInput("occasion-type", "Business") +
+                radioInput("occasion-type", "Personal")
+            )
         )
         + actionList("filter-people", applyOrCancel, false, 0, "black")
     );
 </script>
+
 </html>
