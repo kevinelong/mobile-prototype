@@ -542,6 +542,21 @@ const DEFAULT_GROUPS = [
     },
 ];
 
+const SETTLE_GROUPS = [
+    {
+        people: [peopleList[BF]],
+        groupName: "Friends",
+    },
+    {
+        people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+        groupName: "Coworkers",
+    },
+    {
+        people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+        groupName: "The Gang",
+    },
+];
+
 const defaultCardActionList = ["collect", "share", "favorite", "invite"];
 const EXPLORE_DATA = [
     [

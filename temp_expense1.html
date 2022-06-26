@@ -101,20 +101,21 @@
             div("hidden dialog")
         )
     );
-    const myGroups = [
+    const participants = label("participants",
+        text("Participants:") +
+        [
             "Kevin",
             "Greg",
             "Ahn Group (Added)",
-        ].join(", ") +
-        input("search-groups", "text", `placeholder="type name, email, or # to add participant"`) +
+        ].join(", ")
+    );
+
+    const myGroups = participants +
+        input("search-groups", "text", `placeholder="type group name to add group"`) +
         div("results") +
         button("Create New Group");
 
-    const myNetwork = [
-            "Paul",
-            "Richard",
-            "Harry",
-        ].join(", ") +
+    const myNetwork = participants +
         input("search-network", "text", `placeholder="type name, email, or # to add participant"`) +
         div("results") +
         button("Create New Group");
