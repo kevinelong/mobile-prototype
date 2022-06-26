@@ -136,18 +136,24 @@
                 { name: "Las Vegas" }
             ]) +
             input("", "text", `placeholder="Begin Typing: Venue/Business Name"`) +
-            selectDate("When:") +
-            selectTime("Time:") +
-            radioControl("occasion-type", [
-                {
-                    name: "occasion-type",
-                    value: "Business"
-                },
-                {
-                    name: "occasion-type",
-                    value: "Personal"
-                },
-            ])
+            row(
+                selectDate("When:") +
+                selectTime("Time:")
+            ) +
+            row(
+                // radioControl("occasion-type", [
+                //     {
+                //         name: "occasion-type",
+                //         value: "Business"
+                //     },
+                //     {
+                //         name: "occasion-type",
+                //         value: "Personal"
+                //     },
+                // ])
+                radioInput("occasion-type", "Business") +
+                radioInput("occasion-type", "Personal")
+            )
         )
         + actionList("filter-people", applyOrCancel, false, 0, "black")
     );

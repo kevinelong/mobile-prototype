@@ -197,8 +197,15 @@ function labeledInput(name = "", inputType = "text", attrs="") {
     );
 }
 
-function selectDate(name = "") {
-    return labeledInput(name, "date");
+function selectDate(name = "", dateTime = "") {
+    if(!dateTime) {
+        var date = new Date("Sun May 11,2014");
+        var dateString = new Date(date.getTime() - (date.getTimezoneOffset() * 60000 ))
+                    .toISOString()
+                    .split("T")[0];
+        return labeledInput(name, "date", `value=${dateString}`);
+    }
+    return labeledInput(name, "date", `value=${dateTime}`);
 }
 
 function selectTime(name = "") {
