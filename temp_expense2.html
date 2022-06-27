@@ -137,8 +137,14 @@
             ]) +
             input("", "text", `placeholder="Begin Typing: Venue/Business Name"`) +
             row(
-                selectDate("When:") +
-                selectTime("Time:")
+                selectDate(
+                    "When:",
+                    // "1996-08-17"
+                ) +
+                selectTime(
+                    "Time:",
+                    // "13:08"
+                )
             ) +
             row(
                 // radioControl("occasion-type", [
