@@ -197,19 +197,27 @@ function labeledInput(name = "", inputType = "text", attrs="") {
     );
 }
 
-function selectDate(name = "", dateTime = "") {
-    if(!dateTime) {
-        const date = new Date();
-        const dateString = new Date(date.getTime() - (date.getTimezoneOffset() * 60000 ))
-                    .toISOString()
-                    .split("T")[0];
-        return labeledInput(name, "date", `value=${dateString}`);
-    }
-    return labeledInput(name, "date", `value=${dateTime}`);
+function newISODateTime() {
+    const date = new Date();
+    const dateTimeStr = new Date(date.getTime() - (date.getTimezoneOffset() * 60000 ))
+        .toISOString();
+    return dateTimeStr;
 }
 
-function selectTime(name = "") {
-    return labeledInput(name, "time");
+function selectDate(name = "", chosenDate = "") {
+    if (!chosenDate) {
+        const dateString = newISODateTime().split("T")[0];
+        return labeledInput(name, "date", `value=${dateString}`);
+    }
+    return labeledInput(name, "date", `value=${chosenDate}`);
+}
+
+function selectTime(name = "", chosenTime = "") {
+    if (!chosenTime) {
+        const timeString = newISODateTime().split("T")[1].slice(0, 5);
+        return labeledInput(name, "time", `value=${timeString}`);
+    }
+    return labeledInput(name, "time", `value=${chosenTime}`);
 }
 
 function labeledRange(
