@@ -199,8 +199,8 @@ function labeledInput(name = "", inputType = "text", attrs="") {
 
 function selectDate(name = "", dateTime = "") {
     if(!dateTime) {
-        var date = new Date("Sun May 11,2014");
-        var dateString = new Date(date.getTime() - (date.getTimezoneOffset() * 60000 ))
+        const date = new Date();
+        const dateString = new Date(date.getTime() - (date.getTimezoneOffset() * 60000 ))
                     .toISOString()
                     .split("T")[0];
         return labeledInput(name, "date", `value=${dateString}`);
