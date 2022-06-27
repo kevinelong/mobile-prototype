@@ -427,8 +427,116 @@ function addSplit() {
         )
     );
 }
+function addExpense(){
+    const NAMED_GROUPS = [
+        {
+            name: "The Gang",
+            people: three_people
+        }
+    ];
 
-function addExpense() {
+    const namedGroup = (g) => {
+        return row(
+            text(g.name) +
+            [...g.people].map(p => cardPerson(p, p.id - 1, 9, p.id - 1)).join("")
+            + actionItem("Add")
+            ,"","named-group");
+    };
+
+    const myGroups = stack(text([
+            "Kevin",
+            "Greg",
+            "Ahn",
+        ].join(", ")) +
+        input("search-groups", "text", `placeholder="type name, email, or # to add participant"`) +
+        div("results", NAMED_GROUPS.map(namedGroup).join("")) +
+        button("Create New Group")
+    );
+
+    const myNetwork = [
+            "Paul",
+            "Richard",
+            "Harry",
+        ].join(", ") +
+        input("search-network", "text", `placeholder="type name, email, or # to add participant"`) +
+        div("results") +
+        button("Create New Group");
+
+    showDialog("STEP 1 - Select Split Group",
+        stack(
+            tabSet("select-group-mode", [
+                tabData("groups", myGroups),
+                tabData("network", myNetwork),
+            ], "groups")
+        )+
+        spread(button("Next", `onclick="addExpense2()"`))
+    );
+}
+function addExpense2(){
+
+    showDialog("STEP 2 - Add Expense",
+        row(
+            stack([
+                    button("Upload Receipt..."),
+                    spread(div("centered", "OR")),
+
+                    label("spread nowrap",
+                        div("nowrap","Amount $") +
+                        rack(
+                            input("", "text", `value="" placeholder="0.00"`) +
+                            actionItem("edit", "", -1, "Edit Split")
+                        )
+                    ),
+                    input("description", "text", `value="" placeholder="description"`),
+                    contentPanel(
+                        spread(
+                            text("(optional) Add Detail and earn rewards!") +
+                            actionItem("show")
+                        )
+                    )
+                ].join("")
+            ),
+            "",
+            "collapse"
+        ) +
+        div("card-list collapse",
+            select("Category", [
+                    { name: "Select Category"},
+                    { name: "Activity"},
+                    { name: "Dining"},
+                    { name: "Landmark"},
+                    { name: "Lodging"}
+            ]) +
+            input("", "text", `placeholder="Begin Typing: Venue/Business Name"`) +
+            row(
+                selectDate(
+                    "When:",
+                    // "1996-08-17"
+                ) +
+                selectTime(
+                    "&nbsp;",
+                    // "13:08"
+                )
+            ) +
+            row(
+                // radioControl("occasion-type", [
+                //     {
+                //         name: "occasion-type",
+                //         value: "Business"
+                //     },
+                //     {
+                //         name: "occasion-type",
+                //         value: "Personal"
+                //     },
+                // ])
+                radioInput("occasion-type", "Business") +
+                radioInput("occasion-type", "Personal", `checked="checked"`)
+            )
+        )
+        + actionList("filter-people", applyOrCancel, false, 0, "black")
+    );
+}
+function addExpenseKevin() {
     showDialog("Add Expense",
         contentPanel([
                 label("Who",
@@ -436,7 +544,7 @@ function addExpense() {
                     input("who", "text", `value="" placeholder="Begin Typing"`) +
                     hashTags(["Kevin", "Greg", "+"])
                 ),
-                label("",
+                label("row",
                     text("Amount $") +
                     rack(
                         input("", "text", `value="" placeholder="0.00"`) +

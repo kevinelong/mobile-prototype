@@ -15,6 +15,14 @@
     overflow-x: hidden;
 }
 
+.dialog .card-list{
+    padding: 0;
+    height: inherit;
+}
+.dialog .stack {
+    gap: 18px;
+}
+
 .card-list-section {
     gap: 2px;
     padding: 0;

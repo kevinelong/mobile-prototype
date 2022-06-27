@@ -1,0 +1,69 @@
+openapi: 3.0.2
+info:
+  title: Collagia-API
+  version: "1.0"
+servers:
+  - url: https://api.vitaexplorer.com/api/v1
+paths:
+  /user:
+    get:
+      responses:
+        "200":
+          description: OK
+      x-accepts: application/json
+    post:
+      parameters: [ ]
+      responses:
+        "200":
+          description: OK
+      x-accepts: application/json
+components:
+  schemas:
+    User:
+      properties:
+        display_name:
+          type: string
+        email:
+          type: string
+        activities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Activity'
+      type: object
+    Expense:
+      properties:
+        primary_payer:
+          type: integer
+        description:
+          type: string
+        amount:
+          type: integer
+        timestamp:
+          type: integer
+        participants:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+      type: object
+    Activity:
+      properties:
+        expense:
+          type: Expense
+        participants:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+    Day:
+      properties:
+        timestamp:
+          type: integer
+        activity_list:
+          type: array
+          items:
+            $ref: `#/components/schemas/Activity'
+    DayRange:
+      properties:
+        day_list:
+          type: array
+          items:
+            $ref: `#/components/schemas/Day'
