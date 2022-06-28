@@ -35,7 +35,8 @@ function settleSplit(selected = false) {
     return page(
         selected,
         "settle_split",
-        "Settle - Group Split: Ongoing<br>(RR; BF; JS)",
+        row("Settle - Group Split: Ongoing<br>(RR; BF; JS)" +
+        actionItem("edit"),"","nowrap"),
         [],
         "",
         row(

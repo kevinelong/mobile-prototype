@@ -56,8 +56,9 @@ function getTotal(expenseRecordList) {
     return expenseRecordList.reduce((c, i) => i.amount + c, 0);
 }
 
-function updateTotal(e, list) {
-    e.innerHTML = currency(getTotal(list));
+function updateTotal(e, list, data) {
+    // e.innerHTML = currency(getTotal(list));
+    e.innerHTML = currency(data.getTotalIOwe())
 }
 
 function updateTitle(e, list) {
