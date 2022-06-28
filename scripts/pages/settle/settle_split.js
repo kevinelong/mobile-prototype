@@ -41,11 +41,11 @@ function settleSplit(selected = false) {
         row(
             actionItem("search") +
             // actionItem("add","expense",-1,"Add Expense") +
-            actionItem("participants", "", "", "Participants") +
+            actionButton("Add Expense", "add", "expense") +
             actionButton("History") +
             actionItem("chat")
             , "", "padded"
-        ) +
+        ,"","nowrap") +
         actionButton("Settle All", "settle") +
         cardList(
             settleDashboard(SETTLE_GROUP_DATA) +

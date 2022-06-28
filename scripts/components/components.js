@@ -137,13 +137,14 @@ function sectionTitle(content) {
 }
 
 
-function actionButton(content, actionName, which="", attrs) {
+function actionButton(content, actionName="", which="", id="", attrs="") {
+    actionName = actionName ? actionName : cleanName(content);
     which = which ? which : actionName;
     return closedTag(
         "button",
         content,
         `action-button ${actionName}`,
-        `onclick="actionClick(event, '${actionName}', '${which}', '${which}')" $attrs`
+        `onclick="actionClick(event, this, '${actionName}', '${which}', '${id}');" ${attrs}`
     );
 }
 
