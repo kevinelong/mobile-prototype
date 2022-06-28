@@ -460,7 +460,7 @@ function addExpense(target, action, which, id){
         ].join(", ") +
         input("search-network", "text", `placeholder="type name, email, or # to add participant"`) +
         div("results") +
-        button("Create New Group");
+        button("Add Participant");
 
     showDialog("STEP 1 - Select Split Group",
         stack(
