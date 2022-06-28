@@ -254,15 +254,7 @@ function settleDayBlock(settleRecord, index, fullList) {
                             // text("Balance") +
                             rack(
                                 stack(
-                                    text("I Owe") +
-                                    amount(
-                                        0,
-                                        "",
-                                        "balance"
-                                    )
-                                    , "", "nowrap") +
-                                stack(
-                                    text("Owed to Me") +
+                                    text("Owed to You") +
                                     amount(
                                         0,
                                         "",
@@ -274,10 +266,17 @@ function settleDayBlock(settleRecord, index, fullList) {
                                         "settle",
                                         "",
                                         "",
-                                        "Settle",
+                                        "Settle Day",
                                         "black"
                                     )
-                                )
+                                ) + stack(
+                                    text("You Owe") +
+                                    amount(
+                                        0,
+                                        "",
+                                        "balance"
+                                    )
+                                    , "", "nowrap")
                             )
                         )
                     )

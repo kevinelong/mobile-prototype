@@ -211,6 +211,12 @@ input[type=radio] {
 .nowrap{
     white-space: nowrap;
 }
+.framed{
+    border: 1px solid black;
+}
+.rounded{
+    border-radius: 1em;
+}
 .page .content-panel > .row.padded,
 .padded{
     padding: 9px 3px;
