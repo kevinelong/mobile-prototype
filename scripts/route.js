@@ -881,7 +881,6 @@ function openPage(target, action, which, id) {
     } else if ("person" === action) {
         showPage("connect_person", "open", id);
     } else if ("split" === action) {
-        debugger;
         showPage("settle_split", "open", id);
     } else if ("board" === action) {
         showPage("collect", "collect", id);
@@ -922,7 +921,7 @@ function addItem(target, action, which, id) {
     } else if ("payment" === which) {
         addPayment();
     } else if ("expense" === which) {
-        addExpense();
+        addExpense(target, action, which, id);
     } else if ("split" === which) {
         addSplit();
     } else if ("connect" === which) {
@@ -967,7 +966,7 @@ function handleRight(target, action, which, id) {
     hideDialog();
 }
 
-function apply(target, action, which, id) {
+function apply(target, action, which, id = -1) {
     if ("filter-things-to-do" === which) {
         getAll(".page.explore .explore.card").map(hideElement);
         getAll(".page.explore .explore.card.things-to-do").map(showElement);
@@ -979,6 +978,19 @@ function apply(target, action, which, id) {
         getAll(".page.explore .explore.card.filter-actions-lodging").map(
             showElement
         );
+    } else if ("add-expense" === which) {
+        debugger;
+        const day = get(".settle_split .card-list > .day"); //first one for now.
+
+        const amount = get(".add-expense-amount").value;
+        const description = get(".add-expense-description").value;
+
+        const index = day.dataset.index;
+        let data = SETTLE_GROUP_DATA.list[index];
+        let expenseRecordList = data.expenseList;
+
+        data.addExpense(new ExpenseRecord(description, parseFloat(amount)));
+        updateBalance(day, expenseRecordList, data, SETTLE_GROUP_DATA);
     } else {
         // console.log(`APPLY ${target} ${action} ${which} ${id}?`)
     }

@@ -427,7 +427,7 @@ function addSplit() {
         )
     );
 }
-function addExpense(){
+function addExpense(target, action, which, id){
     const NAMED_GROUPS = [
         {
             name: "The Gang",
@@ -469,10 +469,10 @@ function addExpense(){
                 tabData("network", myNetwork),
             ], "groups")
         )+
-        spread(button("Next", `onclick="addExpense2()"`))
+        spread(button("Next", `onclick="addExpense2('${target}', '${action}', '${which}', '${id}')"`))
     );
 }
-function addExpense2(){
+function addExpense2(target = this, action="add", which="expense", id=-1){
 
     showDialog("STEP 2 - Add Expense",
         row(
@@ -483,11 +483,11 @@ function addExpense2(){
                     label("spread nowrap",
                         div("nowrap","Amount $") +
                         rack(
-                            input("", "text", `value="" placeholder="0.00"`) +
+                            input("add-expense-amount", "text", `value="" placeholder="0.00"`) +
                             actionItem("edit", "", -1, "Edit Split")
                         )
                     ),
-                    input("description", "text", `value="" placeholder="description"`),
+                    input("add-expense-description", "text", `value="" placeholder="description"`),
                     contentPanel(
                         spread(
                             text("(optional) Add Detail and earn rewards!") +
@@ -533,7 +533,7 @@ function addExpense2(){
                 radioInput("occasion-type", "Personal", `checked="checked"`)
             )
         )
-        + actionList("filter-people", applyOrCancel, false, 0, "black")
+        + actionList("add-expense", applyOrCancel, false, id, "black")
     );
 }
 function addExpenseKevin() {

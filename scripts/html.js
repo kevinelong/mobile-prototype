@@ -58,7 +58,7 @@ function input(name, inputType = "text", attrs = "") {
     return tag(
         "input",
         name,
-        `name="${name}" type="${inputType}" onkeypress="onTextInput(event);" ${attrs}`
+        `name="${name}" id="${name}" class="${name}" type="${inputType}" onkeypress="onTextInput(event);" ${attrs}`
     );
 }
 

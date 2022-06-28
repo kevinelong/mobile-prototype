@@ -60,6 +60,10 @@ function updateTotal(e, list) {
     e.innerHTML = currency(getTotal(list));
 }
 
+function updateTitle(e, list) {
+    e.innerHTML = list.length;
+}
+
 function renderExpenseList(listElement, expenseRecordList, data) {
     listElement.innerHTML = expenseRecordList.map((e, i) => expenseElement(e, i, data)).join("");
 }
@@ -78,8 +82,11 @@ function updateBalance(day, expenseRecordList, data, all) {
     try {
         const listElement = day.querySelector(".expense-list");
         renderExpenseList(listElement, expenseRecordList, data);
+
         const list = day.querySelectorAll(".amount.balance");
         [...list].map(e => updateTotal(e, expenseRecordList, data));
+
+        day.querySelectorAll(".title-content")[0].innerHTML = data.titleText;
 
         const breakdown = day.querySelector(".breakdown .breakdown");
         breakdown.outerHTML = dayBreakdown(data);
@@ -208,8 +215,8 @@ function settleDayBlock(settleRecord, index, fullList) {
     // console.log(settleRecord, index, fullList)
 
     const titleContent = spread(
-        actionItem("add", "expense") +
-        text(settleRecord.titleText) +
+        actionItem("add", "expense", index) +
+        div("title-content", settleRecord.titleText) +
         // ) +
         // spread(
         text(settleRecord.message) +
