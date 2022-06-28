@@ -465,9 +465,9 @@ function addExpense(target, action, which, id){
     showDialog("STEP 1 - Select Split Group",
         stack(
             tabSet("select-group-mode", [
-                tabData("groups", myGroups),
-                tabData("network", myNetwork),
-            ], "groups")
+                tabData("My Groups", myGroups),
+                tabData("My Network", myNetwork),
+            ], "My Groups")
         )+
         spread(button("Next", `onclick="addExpense2('${target}', '${action}', '${which}', '${id}')"`))
     );
