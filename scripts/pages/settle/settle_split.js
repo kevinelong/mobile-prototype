@@ -1,4 +1,4 @@
-function dashBoardItem(titleText = "", valueText = "", actionText = "", actionName="") {
+function dashBoardItem(titleText = "", valueText = "", actionText = "", actionName = "") {
     return col(
         col(
             title(valueText) +
@@ -12,8 +12,8 @@ function dashboard(items) {
     return row(items.join(""));
 }
 
-function settleDashboard(settleDayList){
-    return div("dashboard padded rack",
+function settleDashboard(settleDayList) {
+    return div("dashboard padded rack hidden",
         [
             dashBoardItem(
                 "Total Owed to You",
@@ -23,12 +23,12 @@ function settleDashboard(settleDayList){
             ),
             dashBoardItem(
                 "Total You Owe",
-                amount(0,"", "total-i-owe"),
+                amount(0, "", "total-i-owe"),
                 "Pay All",
                 "pay-all"
             ),
         ].join("")
-    )
+    );
 }
 
 function settleSplit(selected = false) {
@@ -41,11 +41,12 @@ function settleSplit(selected = false) {
         row(
             actionItem("search") +
             // actionItem("add","expense",-1,"Add Expense") +
-            actionItem("participants","","","Participants") +
+            actionItem("participants", "", "", "Participants") +
             actionButton("History") +
             actionItem("chat")
             , "", "padded"
         ) +
+        actionButton("Settle All", "settle") +
         cardList(
             settleDashboard(SETTLE_GROUP_DATA) +
             SETTLE_GROUP_DATA.list.map(settleDayBlock).join("")
