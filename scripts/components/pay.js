@@ -86,6 +86,7 @@ function updateBalance(day, expenseRecordList, data, all) {
 
         const list = day.querySelectorAll(".amount.balance");
         [...list].map(e => updateTotal(e, expenseRecordList, data));
+        day.querySelectorAll(".balance-owed")[0].innerHTML = currency(data.getOwedToMe())
 
         day.querySelectorAll(".title-content")[0].innerHTML = data.titleText;
 
@@ -222,9 +223,9 @@ function settleDayBlock(settleRecord, index, fullList) {
         // spread(
         text(settleRecord.message) +
         // rack(
-            // text(settleRecord.amountPrefix) +
-            // amount(settleRecord.amount, "balance") +
-            // text(settleRecord.amountSuffix)
+        // text(settleRecord.amountPrefix) +
+        // amount(settleRecord.amount, "balance") +
+        // text(settleRecord.amountSuffix)
         // ) +
         actionItem("show")
         // actionItem("open", "settle_day", "", "Open Day", "black")
@@ -248,16 +249,27 @@ function settleDayBlock(settleRecord, index, fullList) {
                 "breakdown",
                 stack(
                     rack(
-                        dayBreakdown(settleRecord) +
+                        // dayBreakdown(settleRecord) +
                         stack(
-                            text("Balance") +
+                            // text("Balance") +
                             rack(
                                 stack(
+                                    text("I Owe") +
                                     amount(
                                         0,
                                         "",
                                         "balance"
-                                    ) +
+                                    )
+                                    , "", "nowrap") +
+                                stack(
+                                    text("Owed to Me") +
+                                    amount(
+                                        0,
+                                        "",
+                                        "balance-owed"
+                                    )
+                                    , "", "nowrap") +
+                                stack(
                                     actionItem(
                                         "settle",
                                         "",
