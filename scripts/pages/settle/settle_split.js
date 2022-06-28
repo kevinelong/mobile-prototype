@@ -23,7 +23,7 @@ function settleDashboard(settleDayList) {
                 "Request All",
                 "request-all"
             ),
-            actionButton("Settle All Days", "settle"),
+            actionButton("Settle All Days", "pay-all"),
             dashBoardItem(
                 "Total You Owe",
                 amount(0, "", "total-i-owe"),
