@@ -1023,6 +1023,7 @@ ACTION_PAGES = {
     new: addItem,
     open: openPage,
     payment: addPayment,
+    pin: pin,
     person: showProfileDialog,
     review: showReviewDialog,
     right: handleRight,
@@ -1052,7 +1053,15 @@ function toggleCollapse(target) {
     card_list.classList.toggle("collapse");
     return true;
 }
-
+function pin(target){
+    const mp = target.closest(".map-panel");
+    const card = mp.querySelector(".card");
+    if (card.style.display !== "block"){
+        card.style.display = "block";
+    }else{
+        card.style.display = "none";
+    }
+}
 function toggleMap(target) {
     let img = target.querySelectorAll("img")[0];
     const src = img.getAttribute("src");
