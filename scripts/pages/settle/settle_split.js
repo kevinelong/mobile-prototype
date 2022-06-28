@@ -3,9 +3,11 @@ function dashBoardItem(titleText = "", valueText = "", actionText = "", actionNa
         col(
             title(valueText) +
             div("tiny-text", titleText)
-        ) +
-        actionItem(actionName, "settle", -1, actionText, "black", false),
-        "", "dashboard-item");
+        )
+        // +
+        // actionItem(actionName, "settle", -1, actionText, "black", false),
+        // "", "dashboard-item"
+    );
 }
 
 function dashboard(items) {
@@ -13,7 +15,7 @@ function dashboard(items) {
 }
 
 function settleDashboard(settleDayList) {
-    return div("dashboard padded rack hidden",
+    return div("dashboard padded rack",
         [
             dashBoardItem(
                 "Total Owed to You",
@@ -21,6 +23,7 @@ function settleDashboard(settleDayList) {
                 "Request All",
                 "request-all"
             ),
+            actionButton("Settle All", "settle"),
             dashBoardItem(
                 "Total You Owe",
                 amount(0, "", "total-i-owe"),
@@ -47,7 +50,6 @@ function settleSplit(selected = false) {
             actionItem("chat")
             , "", "padded"
         ,"","nowrap") +
-        actionButton("Settle All", "settle") +
         cardList(
             settleDashboard(SETTLE_GROUP_DATA) +
             SETTLE_GROUP_DATA.list.map(settleDayBlock).join("")

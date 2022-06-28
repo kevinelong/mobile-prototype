@@ -221,11 +221,11 @@ function settleDayBlock(settleRecord, index, fullList) {
         // ) +
         // spread(
         text(settleRecord.message) +
-        rack(
-            text(settleRecord.amountPrefix) +
-            amount(settleRecord.amount, "balance") +
-            text(settleRecord.amountSuffix)
-        ) +
+        // rack(
+            // text(settleRecord.amountPrefix) +
+            // amount(settleRecord.amount, "balance") +
+            // text(settleRecord.amountSuffix)
+        // ) +
         actionItem("show")
         // actionItem("open", "settle_day", "", "Open Day", "black")
     );
