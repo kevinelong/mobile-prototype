@@ -63,7 +63,7 @@ function cardTags(tags) {
 
 function actionList(id, list = [], hideText = false, qty = 0, iconColor = "") {
     return div(
-        `action-list ${id}`,
+        `action-list spread ${id}`,
         [...list].reverse()
             .map((c) =>
                 actionItem(

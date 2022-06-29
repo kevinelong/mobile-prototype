@@ -148,7 +148,7 @@ function exploreCardDetailContent(
                     col(cardGroups(groups)) +
                     booking
                 ) +
-                actionList(`card-actions`, actions, true, qty, "black")
+                actionList(`card-actions`, actions, false, qty, "black")
             )
         ) +
         img("detail-image", image) +

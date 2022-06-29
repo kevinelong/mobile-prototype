@@ -15,9 +15,56 @@
 .detail .image {
     /*border: 1rem solid #eeeeee;*/
     border-radius: 1rem;
+    max-height: 50vh;
+    margin: 1rem 0;
+}
+
+.detail a {
+    text-decoration-color: cornflowerblue;
+    color: cornflowerblue;
+}
+
+.detail {
+    font-size: 1.125rem;
+}
+
+.detail .card-title {
+    font-size: 1.25rem;
+}
+
+.detail .row,
+.detail .col {
     width: 100%;
 }
 
+.detail .image {
+    height: 50%;
+}
+
+.detail > .card-section,
+.detail > .row {
+    width: 98%;
+}
+
+.detail .card-subtitle {
+    width: 100%;
+}
+
+.detail .icon {
+    width: 36px;
+    height: 36px;
+}
+.detail .card-tags {
+    display: block;
+    margin: 0;
+    white-space: nowrap;
+    overflow-y: visible;
+    overflow-x: visible;
+}
+
+.page.explore_detail > .content-panel{
+    height: 560px;
+}
 /*.detail.explore {*/
 /*    align-content: space-between;*/
 /*    justify-content: space-between;*/
