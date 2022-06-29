@@ -877,6 +877,10 @@ function openPage(target, action, which, id) {
     } else if ("open" === action && "connect" === which) {
         showPage("connect_person", "open", id);
     } else if ("open" === action || "explore" === action) {
+        if (which === "explore_detail") {
+            const ed = get(".explore_detail .content-panel");
+            ed.innerHTML = exploreCardDetail(...EXPLORE_DATA[id]);
+        }
         showPage(which, action, id);
     } else if ("person" === action) {
         showPage("connect_person", "open", id);

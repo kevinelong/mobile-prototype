@@ -90,6 +90,72 @@ function exploreCardContent(
     )
 }
 
+function exploreCardDetailContent(
+    kind,
+    title,
+    subtitle,
+    body = "",
+    groups = [],
+    actions = "",
+    image,
+    tags = [],
+    id = -1,
+    kind2 = "",
+    booking_index = -1,
+    match_percent = 100
+) {
+
+    let qty = 0;
+    if (groups && groups[0] && groups[0].people) {
+        qty = groups[0].people.length;
+    }
+    // console.log("booking_index", booking_index)
+    let booking = "";
+    if (booking_index >= 0) {
+        booking = actionItem("book", "book", -1, "Book Now!");
+    }
+    // const booking = "";
+    return div(
+        `detail stack ${kind} ${kind2}`,
+        // img("background top", "images/backgrounds/top-gradient-black.svg") +
+        cardSection(
+           
+            div(
+                "titles",
+                icon(kind, "black") +
+                stack(cardTitle(title) + cardSubtitle(subtitle)
+                ) 
+            )
+        ) +
+        row(
+            col(
+                (kind2 === "people" ? a("Local Guide", "#") +
+                selectOptionsComponent("",[
+                    {name:"10 Collections:"},
+                    {name:"Santa Barbara, CA"},
+                    {name:"Portland, OR"},
+                    {name:"New York, NY"},
+                    {name:"Austin, TX"},
+                    {name:"San Francisco, CA"},
+                    {name:"Los Angeles, CA"},
+                    {name:"Seattle, WA"},
+                    {name:"Vancouver, BC"},
+                    {name:"Anchorage, AK"},
+                    {name:"Paris, FR"}
+                ]):"") +
+                text(`${match_percent}% match`) +
+                row(
+                    col(cardGroups(groups)) +
+                    booking
+                ) +
+                actionList(`card-actions`, actions, true, qty, "black")
+            )
+        ) +
+        img("detail-image", image) +
+        cardTags(tags) 
+    )
+}
+
 function exploreCard(
     imagePath = "images/photos/cannon-beach.jpg",
     title = "",
@@ -104,6 +170,35 @@ function exploreCard(
     match_percent = 100
 ) {
     return exploreCardContent(
+        "explore",
+        title,
+        subtitle,
+        "",
+        groups,
+        actions,
+        imagePath,
+        tags,
+        id,
+        kind,
+        booking_index,
+        match_percent
+    );
+}
+
+function exploreCardDetail(
+    imagePath = "images/photos/cannon-beach.jpg",
+    title = "",
+    subtitle = "",
+    content = "",
+    tags = [],
+    groups = [],
+    actions = [],
+    id = 0,
+    kind = "explore",
+    booking_index = -1,
+    match_percent = 100
+) {
+    return exploreCardDetailContent(
         "explore",
         title,
         subtitle,
