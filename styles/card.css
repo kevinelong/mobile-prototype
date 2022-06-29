@@ -587,7 +587,10 @@
     align-self: center;
     justify-self: center;
 }
-
+.title .amount{
+    margin: auto;
+    text-align: center;
+}
 .settle-who .amount {
     font-size: 11px;
 }

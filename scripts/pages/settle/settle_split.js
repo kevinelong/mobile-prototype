@@ -3,7 +3,7 @@ function dashBoardItem(titleText = "", valueText = "", actionText = "", actionNa
         col(
             title(valueText) +
             div("tiny-text", titleText)
-        )
+        ,"","centered")
         // +
         // actionItem(actionName, "settle", -1, actionText, "black", false),
         // "", "dashboard-item"
@@ -15,7 +15,7 @@ function dashboard(items) {
 }
 
 function settleDashboard(settleDayList) {
-    return div("dashboard padded rack",
+    return div("dashboard padded rack framed rounded nowrap",
         [
             dashBoardItem(
                 "Total Owed to You",
@@ -23,7 +23,7 @@ function settleDashboard(settleDayList) {
                 "Request All",
                 "request-all"
             ),
-            actionButton("Settle All", "settle"),
+            actionButton("Settle All Days", "pay-all"),
             dashBoardItem(
                 "Total You Owe",
                 amount(0, "", "total-i-owe"),

@@ -491,15 +491,15 @@ input[type=number] {
 .button {
     width: calc(100% - 12px);
     line-height: 2em;
-    color: #F9A831;
-    background: transparent;
+    color: white;
+    background: #bbbbbb;
     border-style: none;
     border-radius: 6px;
     margin: 3px 6px;
     padding: 3px 6px;
 }
 .button:hover{
-    background: #eeeeee;
+    background: #888888;
 }
 
 

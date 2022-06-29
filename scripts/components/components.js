@@ -157,9 +157,9 @@ function mapPreview() {
 function mapPanel() {
     return div("map-panel",
         button("Est. Time/Distance", "", `est-time-distance button`) +
-        actionItem("pin") +
+        actionItem("pin")+
         mapPreview()
-    );
+    , action("pin"));
 }
 
 function hashTags(tags, tagAttrs = "") {
