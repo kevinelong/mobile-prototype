@@ -672,6 +672,18 @@ const EXPLORE_DATA = [
         4,
         85,
         [0, 0],
+        "The Constantia Valley has an appeal that offers something of interest to everyone, from award winning restaurants offering, luxurious boutique hotel accommodation with spa’s as well as quant B&B’s. There are beautiful greenbelts to walk on, shops to explore, a brilliant zip lining adventure, mountain biking, horse riding, unique shops and a wine farms.",
+        [
+            {
+                timeStamp: 1656531438,
+                organizer: peopleList[BF],
+                participants: [
+                    {person: peopleList[RUBY], status: "going", paid: false},
+                    {person: peopleList[JOE], status: "going", paid: true},
+                    {person: peopleList[BF], status: "going", paid: true},
+                ],
+            }
+        ]
     ],
     [
         "images/photos/hanna-levin.png",

@@ -148,6 +148,11 @@ function exploreCardDetailContent(
                     col(cardGroups(groups)) +
                     booking
                 ) +
+                rack(
+                    selectDate() +
+                    selectTime()
+                )
+                 +
                 actionList(`card-actions`, actions, false, qty, "black")
             )
         ) +
