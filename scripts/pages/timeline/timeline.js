@@ -40,7 +40,10 @@ function timelinePage(selected = false) {
 
     const page_content =
         div("right",
-            title("11:04 am - Santa Barbara" +
+            title(
+                span("time nowrap", "", `style="width:40vw;"`) +
+                " - " +
+                span("location", "Santa Barbara") +
                 actionItem("edit", "location", -1, "edit", "black")
             )
         ) +

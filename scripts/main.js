@@ -309,5 +309,18 @@ document.addEventListener("DOMContentLoaded", () => {
     populateExpenses();
     const ed = get(".explore_detail .content-panel");
     ed.innerHTML = exploreCardDetail(...EXPLORE_DATA[6]);
+function now(){
+    return (new Date())
+}
+    function setTitleTime(){
+        const date = now();
+        get(".title .time.span").innerHTML =
+            date.toString().split(" ")[0] + " " +
+            date.toString().split(" ")[1] + " " +
+            date.toString().split(" ")[2] + " " +
+            date.toLocaleTimeString();
+        setTimeout(setTitleTime, 1000);
+    }
+    setTitleTime();
 });
 
