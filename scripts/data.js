@@ -666,7 +666,7 @@ const EXPLORE_DATA = [
                 groupName: "Co-Planner",
             },
         ],
-        defaultCardActionList,
+        [...defaultCardActionList, "review"],
         6,
         "things-to-do",
         4,

@@ -92,10 +92,10 @@ function exploreCardContent(
 
 function participant(p) {
     return row(
-        text(p.person.isCurrentUser ? "*" : "-") +
-        text(p.person.name) + 
-        text(p.status) + 
-        text(p.paid ? "Paid" : "Unpaid")
+        // text(p.person.isCurrentUser ? "*" : "-") +
+        personIcon(p.person) +
+        hashTag(p.status) + 
+        hashTag(p.paid ? "Paid" : "unpaid", "green")
     );
 }
 
@@ -123,6 +123,8 @@ function exploreCardDetailContent(
     description = "",
     plans = []
 ) {
+    // const otherActions = ["review", "check-in"].reverse();
+    const responseActions = ["accept", "counter", "decline"].reverse();
 
     let qty = 0;
     if (groups && groups[0] && groups[0].people) {
@@ -168,11 +170,15 @@ function exploreCardDetailContent(
                     booking
                 ) +
                 plans.map(plan).join("") +
-                actionList(`card-actions`, actions, false, qty, "black")
+                actionList("controls-response", responseActions, false, 0, "black")
+                // actionList("controls-other", otherActions, false, 0, "black") +
+                
             )
         ) +
+        cardTags(tags) +
         img("detail-image", image) +
-        cardTags(tags) 
+        text(description) +
+        actionList(`card-actions`, actions, false, qty, "black")
     )
 }
 
