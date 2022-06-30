@@ -19,12 +19,12 @@ function timelineCard(ve = VitaEvent()) {
                 contentPanel(
                     row(
                         cardSubtitle(`${ve.period.name} ${ve.when ? ve.when : ve.period.from}${ve.duration ? ' ' + ve.duration : '-' + ve.period.to}`)
-                        // + actionItem("plan", "", "", "Edit")
+                        + actionItem("edit", "slot", "", "Edit", "",true,0,true)
                     ) +
                     row(
                         icon(ve.kind) +
-                        cardTitle(ve.titleText) +
-                        actionItem("open", "explore_detail", ve.id, "")
+                        cardTitle(ve.titleText) //+
+                        // actionItem("open", "explore_detail", ve.id, "")
                     ) +
                     cardSubtitle(ve.subtitleText),
                 ) +
@@ -48,14 +48,15 @@ function timelineCard(ve = VitaEvent()) {
                 )
             ) +
             row(
-                col(
+                stack(
                     row(col(cardGroups(ve.groups)) + booking) +
                     div("card-actions",
                         actionItem("invite", "", "", "Invite","") +
-                        // actionItem("check-in", "", "", "Check-In","") +
+                        actionItem("settings", "timeline", "", "Edit Tags","") +
                         // actionItem("edit", "mood", "", "Update Mood","") +
-                        (isCurrent(ve) ? actionItem( "check-in", "", "", "Add &amp; Check-In","")
-                            : actionItem( "add-place", "", "", "",""))
+                        (isCurrent(ve) ? actionItem( "check-in", "", "", "Check-In","")
+                            : "") +
+                        actionItem( "add-place", "", "", "Add Place","", false)
                     ) +
                     actionList(`card-actions`, ve.actions, false, qty)
                 )

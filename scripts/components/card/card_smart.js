@@ -15,7 +15,6 @@ function smartCard(ve = VitaEvent()) {
     } else {
         style = gradStyle(rgbA([.7, 0, .7]), ve.period.color);
     }
-
     return div(
         `card timeline smart ${ve.kind} ${ve.period.name} ${currentClass(ve)}`,
         div(

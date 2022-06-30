@@ -57,3 +57,11 @@
     width: 24px;
     height: 24px;
 }
+
+.small.action-item .icon,
+.title .small.action-item.menu .icon {
+    max-width: 12px;
+    max-height: 12px;
+    width: 12px;
+    height: 12px;
+}
