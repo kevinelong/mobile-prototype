@@ -904,7 +904,6 @@ TOAST_MESSAGES = {
     share: "Shared to your Connections",
     collect: "Added to your Collection",
     plan: "Added to your Plan",
-    accept: "Accepted Invitation",
     // schedule: "Added to your Plan",
     decline: "Declined Invitation",
     settle: "Payment Settled",
@@ -916,6 +915,20 @@ TOAST_MESSAGES = {
     verify: "Verified",
     notify: "Notification Sent",
 };
+
+function acceptInvite(target, action, which, id) {
+    EXPLORE_DATA[6][13][0].participants[0].status = "Going";
+    const ed = get(".explore_detail .content-panel");
+    ed.innerHTML = exploreCardDetail(...EXPLORE_DATA[6]);
+    showToast("Invitation Accepted!");
+}
+
+function payEvent(target, action, which, id) {
+    EXPLORE_DATA[6][13][0].participants[0].paid = true;
+    const ed = get(".explore_detail .content-panel");
+    ed.innerHTML = exploreCardDetail(...EXPLORE_DATA[6]);
+    showToast("Payment Received!");
+}
 
 function addItem(target, action, which, id) {
     if ("person" === which) {
@@ -1012,6 +1025,7 @@ ACTION_PAGES = {
     "search-destination": showDestinations,
     "smart-ideas": showSmartIdeasDialog,
     add: addItem,
+    accept: acceptInvite,
     apply: apply,
     back: () => showPage(window.lastPage),
     chat: addItem,
@@ -1026,6 +1040,7 @@ ACTION_PAGES = {
     more: addPerson,
     new: addItem,
     open: openPage,
+    pay: payEvent,
     payment: addPayment,
     pin: pin,
     person: showProfileDialog,

@@ -18,13 +18,13 @@ option {
     border: none;
     background: white;
 }
-.left{
+.left {
     text-align: left;
     align-self: flex-start;
     justify-self: flex-start;
     justify-content: flex-start;
 }
-input[type=text] {
+input[type="text"] {
     margin: 0;
     /*background-image: url(../images/icons/icon-search-black.svg);*/
     background-repeat: no-repeat;
@@ -36,20 +36,20 @@ input[type=text] {
     background-position: 0.75em 0.75em;
 }
 
-input[type=text]:focus {
+input[type="text"]:focus {
     border: none;
 }
 
-input[type=number],
-input[type=date],
-input[type=time] {
+input[type="number"],
+input[type="date"],
+input[type="time"] {
     border-radius: 2em;
     padding: 0.75em;
     border: none;
     box-shadow: 1px 1px 2px 0 #0008;
 }
 
-input[type=number]{
+input[type="number"] {
     text-align: right;
     width: 6em;
     border-radius: 0.125em;
@@ -64,7 +64,7 @@ input[type=number]{
     align-content: center;
 }
 
-input[type=radio] {
+input[type="radio"] {
     /*align-self: center;*/
     /*justify-self: center;*/
     margin-top: 3px;
@@ -86,42 +86,42 @@ input[type=radio] {
     /*overflow: hidden;*/
     transition: max-height 300ms ease-in-out;
 }
-.page.settle_split .day.collapse .add-expense{
+.page.settle_split .day.collapse .add-expense {
     max-height: 0;
 }
-.page.settle_split .day .add-expense{
+.page.settle_split .day .add-expense {
     max-height: 640px;
     overflow: hidden;
     transition: max-height 300ms ease-in-out;
 }
 
-.page.settle_split .day.collapse .expense-item{
+.page.settle_split .day.collapse .expense-item {
     max-height: 0;
     overflow: hidden;
 }
 
-.page.settle_split .day.collapse .expense-list{
+.page.settle_split .day.collapse .expense-list {
     padding: 0;
     box-shadow: none;
     max-height: 0;
     overflow: hidden;
 }
 
-.page.settle_split .day.collapse .breakdown{
+.page.settle_split .day.collapse .breakdown {
     max-height: 0;
 }
 
-.page.settle_split .day .breakdown{
+.page.settle_split .day .breakdown {
     max-height: 640px;
     overflow: hidden;
     transition: max-height 300ms ease-in-out;
 }
 
-.page.settle_split .day .breakdown-inner{
+.page.settle_split .day .breakdown-inner {
     display: inline-block;
 }
 
-.page.settle_split .day .breakdown-item{
+.page.settle_split .day .breakdown-item {
     display: inline-block;
     margin: 1px;
 }
@@ -139,7 +139,7 @@ input[type=radio] {
     /*margin: 0;*/
     /*padding: 0;*/
 }
-.stack .text{
+.stack .text {
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -152,7 +152,6 @@ input[type=radio] {
     align-items: center;
     gap: 0.5em;
     padding: 0.5em;
-
 }
 
 .col {
@@ -197,30 +196,56 @@ input[type=radio] {
     margin: auto;
     align-items: center;
 }
-.center-content{
+.center-content {
     justify-content: center;
     align-items: center;
     vertical-align: center;
     text-align: center;
 }
-.right{
+.right {
     text-align: right;
     align-items: flex-end;
     align-content: flex-end;
 }
-.nowrap{
+.nowrap {
     white-space: nowrap;
 }
-.framed{
+.framed {
     border: 1px solid black;
 }
-.rounded{
+.rounded {
     border-radius: 1em;
 }
 .page .content-panel > .row.padded,
-.padded{
+.padded {
     padding: 9px 3px;
 }
+
+.event {
+    width: 100%;
+    gap: .5em;
+}
+
+.event .row > .text {
+    min-width: 95px;
+}
+
+.event .hash-tag {
+    min-width: 40px;
+}
+
+.event label {
+    width: 50%;
+}
+
+.event label input {
+    width: 100%;
+}
+
+.event.padded {
+    padding: 1em;
+}
+
 .fill {
     width: 100%;
 }
@@ -284,7 +309,7 @@ input[type=radio] {
 .row > .action-item {
     justify-content: right;
 }
-.card-title{
+.card-title {
     width: 100%;
 }
 .taste-match .hidden .pane-actions button,
@@ -298,9 +323,8 @@ input[type=radio] {
     width: 0;
     opacity: 0;
     visibility: collapse;
-    transition: opacity 300ms ease-in-out,
-    height 300ms ease-in-out,
-    width 300ms ease-in-out;
+    transition: opacity 300ms ease-in-out, height 300ms ease-in-out,
+        width 300ms ease-in-out;
 }
 
 .page.explore .card.hidden {
@@ -313,11 +337,9 @@ input[type=radio] {
     width: 0;
     opacity: 0;
     visibility: collapse;
-    transition: opacity 300ms ease-in-out,
-    height 300ms ease-in-out,
-    width 300ms ease-in-out;
+    transition: opacity 300ms ease-in-out, height 300ms ease-in-out,
+        width 300ms ease-in-out;
 }
-
 
 .stack {
     gap: 3px;
