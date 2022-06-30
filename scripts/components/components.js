@@ -198,27 +198,25 @@ function labeledInput(name = "", inputType = "text", attrs="") {
     );
 }
 
-function newISODateTime() {
+function newISODateTime(timeStamp) {
     const date = new Date();
-    const dateTimeStr = new Date(date.getTime() - (date.getTimezoneOffset() * 60000 ))
+    const dateTimeStr = new Date(timeStamp - (date.getTimezoneOffset() * 60000 ))
         .toISOString();
     return dateTimeStr;
 }
 
-function selectDate(name = "", chosenDate = "") {
-    if (!chosenDate) {
-        const dateString = newISODateTime().split("T")[0];
-        return labeledInput(name, "date", `value=${dateString}`);
-    }
-    return labeledInput(name, "date", `value=${chosenDate}`);
+const safeTime = timeStamp => timeStamp ? timeStamp : (new Date()).getTime();
+
+function selectDate(name = "", timeStamp = undefined) {
+    timeStamp = safeTime(timeStamp);
+    const dateString = newISODateTime(timeStamp).split("T")[0];
+    return labeledInput(name, "date", `value=${dateString}`);
 }
 
-function selectTime(name = "", chosenTime = "") {
-    if (!chosenTime) {
-        const timeString = newISODateTime().split("T")[1].slice(0, 5);
-        return labeledInput(name, "time", `value=${timeString}`);
-    }
-    return labeledInput(name, "time", `value=${chosenTime}`);
+function selectTime(name = "", timeStamp = undefined) {
+    timeStamp = safeTime(timeStamp);
+    const timeString = newISODateTime(timeStamp).split("T")[1].slice(0, 5);
+    return labeledInput(name, "time", `value=${timeString}`);
 }
 
 function labeledRange(

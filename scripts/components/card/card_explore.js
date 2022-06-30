@@ -90,6 +90,22 @@ function exploreCardContent(
     )
 }
 
+function participant(p) {
+    return row(
+        text(p.person.isCurrentUser ? "*" : "-") +
+        text(p.person.name) + 
+        text(p.status) + 
+        text(p.paid ? "Paid" : "Unpaid")
+    );
+}
+
+function plan(p) {
+    return row(     
+        selectDate("", p.timeStamp) +
+        selectTime("", p.timeStamp)
+    ) + p.participants.map(participant).join("");
+}
+
 function exploreCardDetailContent(
     kind,
     title,
@@ -102,7 +118,10 @@ function exploreCardDetailContent(
     id = -1,
     kind2 = "",
     booking_index = -1,
-    match_percent = 100
+    match_percent = 100,
+    location = [0, 0],
+    description = "",
+    plans = []
 ) {
 
     let qty = 0;
@@ -148,11 +167,7 @@ function exploreCardDetailContent(
                     col(cardGroups(groups)) +
                     booking
                 ) +
-                rack(
-                    selectDate() +
-                    selectTime()
-                )
-                 +
+                plans.map(plan).join("") +
                 actionList(`card-actions`, actions, false, qty, "black")
             )
         ) +
@@ -201,7 +216,10 @@ function exploreCardDetail(
     id = 0,
     kind = "explore",
     booking_index = -1,
-    match_percent = 100
+    match_percent = 100,
+    location = [0, 0],
+    description = "",
+    plans = []
 ) {
     return exploreCardDetailContent(
         "explore",
@@ -215,7 +233,10 @@ function exploreCardDetail(
         id,
         kind,
         booking_index,
-        match_percent
+        match_percent,
+        location,
+        description,
+        plans
     );
 }
 
