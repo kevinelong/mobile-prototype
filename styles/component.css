@@ -226,7 +226,7 @@ input[type="radio"] {
     gap: .5em;
 }
 
-.event .row > B.text {
+.event .row > .text {
     min-width: 95px;
 }
 
