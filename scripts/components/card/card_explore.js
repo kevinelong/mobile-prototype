@@ -106,6 +106,7 @@ function plan(p) {
     ) + p.participants.map(participant).join("");
 }
 
+
 function exploreCardDetailContent(
     kind,
     title,
@@ -125,6 +126,7 @@ function exploreCardDetailContent(
 ) {
     // const otherActions = ["review", "check-in"].reverse();
     const responseActions = ["accept", "counter", "decline"].reverse();
+    const payAction = ["pay"];
 
     let qty = 0;
     if (groups && groups[0] && groups[0].people) {
@@ -171,9 +173,12 @@ function exploreCardDetailContent(
                 ) +
                 label("","Events:") +
                 div(
-                    "rounded framed padded",
+                    "event rounded framed padded",
                     plans.map(plan).join("") +
-                    actionList("controls-response", responseActions, false, 0, "black")
+                    (plans[0].participants[0].status === "Invited" ? 
+                    actionList("controls-response", responseActions, false, 0, "black") : "") +
+                    (plans[0].participants[0].status !== "Invited" && !plans[0].participants[0].paid ?
+                    actionList("controls-response", payAction, false, 0, "black") : "" )
                     // actionList("controls-other", otherActions, false, 0, "black") +
                 )
             )
