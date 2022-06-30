@@ -169,6 +169,7 @@ function exploreCardDetailContent(
                     col(cardGroups(groups)) +
                     booking
                 ) +
+                label("","Plans:") +
                 plans.map(plan).join("") +
                 actionList("controls-response", responseActions, false, 0, "black")
                 // actionList("controls-other", otherActions, false, 0, "black") +

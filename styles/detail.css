@@ -51,9 +51,15 @@
 }
 
 .detail .icon {
+    width: 18px;
+    height: 18px;
+}
+
+.detail .titles .icon {
     width: 36px;
     height: 36px;
 }
+
 .detail .card-tags {
     display: block;
     margin: 0;
