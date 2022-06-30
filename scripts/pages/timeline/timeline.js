@@ -41,7 +41,7 @@ function timelinePage(selected = false) {
     const page_content =
         div("right",
             title(
-                span("time nowrap", "", `style="width:40vw;font-size:15px;"`) +
+                span("time nowrap", "", `style="width:180px;font-size:15px;"`) +
                 " - " +
                 span("location", "Santa Barbara") +
                 actionItem("edit", "location", -1, "edit", "black")
