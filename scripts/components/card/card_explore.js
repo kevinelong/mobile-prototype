@@ -90,6 +90,22 @@ function exploreCardContent(
     )
 }
 
+function participant(p) {
+    return row(
+        // text(p.person.isCurrentUser ? "*" : "-") +
+        personIcon(p.person) +
+        hashTag(p.status) + 
+        hashTag(p.paid ? "Paid" : "unpaid", "green")
+    );
+}
+
+function plan(p) {
+    return row(     
+        selectDate("", p.timeStamp) +
+        selectTime("", p.timeStamp)
+    ) + p.participants.map(participant).join("");
+}
+
 function exploreCardDetailContent(
     kind,
     title,
@@ -102,8 +118,13 @@ function exploreCardDetailContent(
     id = -1,
     kind2 = "",
     booking_index = -1,
-    match_percent = 100
+    match_percent = 100,
+    location = [0, 0],
+    description = "",
+    plans = []
 ) {
+    // const otherActions = ["review", "check-in"].reverse();
+    const responseActions = ["accept", "counter", "decline"].reverse();
 
     let qty = 0;
     if (groups && groups[0] && groups[0].people) {
@@ -148,11 +169,16 @@ function exploreCardDetailContent(
                     col(cardGroups(groups)) +
                     booking
                 ) +
-                actionList(`card-actions`, actions, false, qty, "black")
+                plans.map(plan).join("") +
+                actionList("controls-response", responseActions, false, 0, "black")
+                // actionList("controls-other", otherActions, false, 0, "black") +
+                
             )
         ) +
+        cardTags(tags) +
         img("detail-image", image) +
-        cardTags(tags) 
+        text(description) +
+        actionList(`card-actions`, actions, false, qty, "black")
     )
 }
 
@@ -196,7 +222,10 @@ function exploreCardDetail(
     id = 0,
     kind = "explore",
     booking_index = -1,
-    match_percent = 100
+    match_percent = 100,
+    location = [0, 0],
+    description = "",
+    plans = []
 ) {
     return exploreCardDetailContent(
         "explore",
@@ -210,7 +239,10 @@ function exploreCardDetail(
         id,
         kind,
         booking_index,
-        match_percent
+        match_percent,
+        location,
+        description,
+        plans
     );
 }
 

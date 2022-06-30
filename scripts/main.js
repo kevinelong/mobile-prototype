@@ -37,8 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
         outerBox(
             innerContent(
                 [
-                    explorePage(false),
-                    exploreDetailPage(),
+                    explorePage(),
+                    exploreDetailPage(true),
                     exploreFakePage(false),
                     broadcastPage(),
                     collectPage(),
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     connectPersonPage(),
                     settleList(),
                     settleSplit(),
-                    settlePage(true),
+                    settlePage(),
                     mapView()
                 ].join("")
             ) +
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 mainNav(
                     ["explore", "broadcast", "collect", "plan", "settle"],
                     ["connect", "timeline"],
-                    "settle"
+                    "explore"
                 )
             ) +
             hiddenToast("") +
@@ -307,5 +307,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // });
 
     populateExpenses();
-
+    const ed = get(".explore_detail .content-panel");
+    ed.innerHTML = exploreCardDetail(...EXPLORE_DATA[6]);
 });
+
