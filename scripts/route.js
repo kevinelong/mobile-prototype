@@ -928,6 +928,9 @@ function payEvent(target, action, which, id) {
     const ed = get(".explore_detail .content-panel");
     ed.innerHTML = exploreCardDetail(...EXPLORE_DATA[6]);
     showToast("Payment Received!");
+
+    window.kaching.play();
+
 }
 
 function addItem(target, action, which, id) {

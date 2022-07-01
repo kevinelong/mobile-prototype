@@ -322,5 +322,8 @@ function now(){
         setTimeout(setTitleTime, 1000);
     }
     setTitleTime();
+
+    window.kaching = new Audio('cash.mp3');
+
 });
 
