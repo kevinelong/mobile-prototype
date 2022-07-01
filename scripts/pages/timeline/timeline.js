@@ -38,7 +38,16 @@ function timelinePage(selected = false) {
     ];
     const card_content = calendar_days.map(showDay).join('');
 
+    const preTabs = actionItem("search", "", -1, "search", "black", true);
+    const postTabs = actionItem("add", "timeline", -1, "Add", "black", true);
+
+    const messagesContent = tabSet("conversations", [
+        {name: "Current", content: ""},
+        {name: "History", content: ""},
+    ], "Current", preTabs, postTabs);
+
     const page_content =
+        messagesContent +
         div("right",
             title(
                 span("time nowrap", "", `style="width:180px;font-size:15px;"`) +
@@ -63,13 +72,13 @@ function timelinePage(selected = false) {
 
     const pushSecondaryNavChoicesAboveSearchFilter = true;
     const tabs = "";
-    const searchMessage = "Find Scheduled Items";
+    const searchMessage = "";
 
     return page(
         selected,
         "timeline",
         "Timeline",
-        choices,
+        [], //choices,
         defaultChoice,
         page_content,
         "",
