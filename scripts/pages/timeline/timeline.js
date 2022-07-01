@@ -57,7 +57,7 @@ function timelinePage(selected = false) {
             )
         ) +
         // actionButton("Smart Ideas", "smart-ideas") +
-        title("Smart Ideas") +
+        // title("Smart Ideas") +
         cardList(card_content);
 
     const choices = [
