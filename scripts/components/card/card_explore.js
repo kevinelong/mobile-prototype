@@ -146,9 +146,9 @@ function exploreCardDetailContent(
             div(
                 "titles",
                 icon(kind, "black") +
-                stack(cardTitle(title) + cardSubtitle(subtitle)
-                ) 
-            )
+                stack(cardTitle(title) + cardSubtitle(subtitle)) +
+                actionButton("Alternatives", "", "", "", `style="width: auto; background: #F9A831cc"`)
+            ) 
         ) +
         row(
             col(
@@ -168,7 +168,7 @@ function exploreCardDetailContent(
                 ]):"") +
                 text(`${match_percent}% match`) +
                 row(
-                    col(cardGroups(groups)) +
+                    col(cardGroups(groups), "", "event rounded framed padded") +
                     booking
                 ) +
                 label("","Events:") +
