@@ -443,19 +443,22 @@ function showAddPlace(
 function showScheduleDialog(
     titleText = "Schedule an Experience",
     places = [],
-    actionText = "Add"
+    actionText = "Add",
+    hidePlaces = false
 ) {
     showDialog(
         titleText,
-        label(
-            "place",
-            input(
-                "place",
-                "text",
-                'placeholder="Type name of experience or address"'
-            )
+        (hidePlaces ? "" :
+                label(
+                    "place",
+                    input(
+                        "place",
+                        "text",
+                        'placeholder="Type name of experience or address"'
+                    )
+                ) +
+                places.map((p) => actionItem("right", p, -1, p, "")).join("")
         ) +
-        places.map((p) => actionItem("right", p, -1, p, "")).join("") +
         selectDateRange("Date Range:") +
         // checkBox("Fills all periods in each day above.", "all-periods") +
         selectTimeRange("When?") +
@@ -471,6 +474,14 @@ function showSchedule(target, action, which, index) {
     );
 }
 
+function schedule(target, action, which, index) {
+    showScheduleDialog(
+        "Schedule an Experience",
+        [],
+        "Schedule Experience",
+        true
+    );
+}
 function paymentType(kind, name, selected) {
     return choice(kind, name, selected)
 }
@@ -1049,6 +1060,7 @@ ACTION_PAGES = {
     person: showProfileDialog,
     review: showReviewDialog,
     right: handleRight,
+    schedule: schedule,
     search: showDestinations,
     settle_split: openPage,
     show: toggleCollapse,
@@ -1075,15 +1087,17 @@ function toggleCollapse(target) {
     card_list.classList.toggle("collapse");
     return true;
 }
-function pin(target){
+
+function pin(target) {
     const mp = target.closest(".map-panel");
     const card = mp.querySelector(".card");
-    if (card.style.display !== "block"){
+    if (card.style.display !== "block") {
         card.style.display = "block";
-    }else{
+    } else {
         card.style.display = "none";
     }
 }
+
 function toggleMap(target) {
     let img = target.querySelectorAll("img")[0];
     const src = img.getAttribute("src");
