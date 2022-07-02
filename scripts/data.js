@@ -425,12 +425,12 @@ peopleList[BF].groups = [
         groupName: "currator",
         subtitle: "",
     },
-    {
-        people: [peopleList[RUBY], peopleList[JOE]],
-        title: "Plans With",
-        groupName: "Co-Planner",
-        subtitle: "",
-    },
+    // {
+    //     people: [peopleList[RUBY], peopleList[JOE]],
+    //     title: "Plans With",
+    //     groupName: "Co-Planner",
+    //     subtitle: "",
+    // },
     {
         people: [peopleList[RUBY], peopleList[JOE]],
         title: "Followed By",
@@ -535,18 +535,18 @@ const DEFAULT_GROUPS = [
         title: "Recommended By",
         groupName: "Taste Match",
     },
-    {
-        people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
-        title: "Planning with",
-        groupName: "Co-Planner",
-    },
+    // {
+    //     people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+    //     title: "Planning with",
+    //     groupName: "Co-Planner",
+    // },
 ];
 
 const EXPLORE_IMG = 0;
 const EXPLORE_NAME = 1;
 const EXPLORE_LOCATION = 2;
 
-const defaultCardActionList = ["collect", "share", "favorite", "invite"];
+const defaultCardActionList = ["collect", "share", "discuss", "invite"];
 const EXPLORE_DATA = [
     [
         "images/explore_bg.png",
@@ -562,13 +562,25 @@ const EXPLORE_DATA = [
         3,
         100,
         [34.41421031876199, -119.69164738460584],
+        "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
+        [
+            {
+                timeStamp: 1656531438000,
+                invitedBy: [peopleList[BF]],
+                participants: [
+                    {person: peopleList[RUBY], status: "Invited", paid: false},
+                    {person: peopleList[JOE], status: "Going", paid: false},
+                    {person: peopleList[BF], status: "Going", paid: true},
+                ],
+            }
+        ]
     ],
 
     [
         "images/photos/brasil_arts_cafe.jpeg",
         "Brasil Arts Cafe",
         "Santa Barbara",
-        // "the perfect blend of traditional Brazilian fare & one-of-a-kind Açai, Juice, and Smoothie creations.",
+        // "",
         "Traditional Brazilian fare",
         ["Brazilian", "Cafe"],
         DEFAULT_GROUPS,
@@ -578,12 +590,24 @@ const EXPLORE_DATA = [
         4,
         97,
         [34.42427273044929, -119.70538318430323],
+        "The perfect blend of traditional Brazilian fare & one-of-a-kind Açai, Juice, and Smoothie creations.",
+        [
+            {
+                timeStamp: 1656531438000,
+                invitedBy: [peopleList[BF]],
+                participants: [
+                    {person: peopleList[RUBY], status: "Invited", paid: false},
+                    {person: peopleList[JOE], status: "Going", paid: false},
+                    {person: peopleList[BF], status: "Going", paid: true},
+                ],
+            }
+        ]
     ],
     [
         "images/photos/yoichis.jpg",
         "Yoichi's",
         "Santa Barbara",
-        // "A prix fixe only spot featuring traditional Japanese small plates &amp; sushi in an intimate setting.",
+        // "",
         "Sushi in an intimate setting",
         ["Japanese", "Sushi", "Prix fixe"],
         DEFAULT_GROUPS,
@@ -593,12 +617,14 @@ const EXPLORE_DATA = [
         4,
         95,
         [34.42715715496026, -119.70249364197355],
+        "A prix fixe only spot featuring traditional Japanese small plates &amp; sushi in an intimate setting.",
+        []
     ],
     [
         "images/photos/los_agaves.jpg",
         "Los Agaves",
         "Santa Barbara",
-        // "The bold flavors of Mexico, an authentic dining experience, high-quality ingredients.",
+        // "",
         "Flavors of Mexico",
         ["Mexican", "Family", "Catering", "Restaurant"],
         DEFAULT_GROUPS,
@@ -608,6 +634,8 @@ const EXPLORE_DATA = [
         4,
         90,
         [34.4375036989364, -119.72734258675358],
+        "The bold flavors of Mexico, an authentic dining experience, high-quality ingredients.",
+        []
     ],
     [
         "images/photos/santo_mezcal.jpg",
@@ -622,6 +650,8 @@ const EXPLORE_DATA = [
         4,
         90,
         [34.4134427932841, -119.69127914319921],
+        "Modern Mexican cuisine",
+        []
     ],
     [
         "images/photos/la_super-rica_taqueria.jpg",
@@ -637,12 +667,14 @@ const EXPLORE_DATA = [
         4,
         90,
         [34.42790056991083, -119.68722191681411],
+        "Celebrated Mexican spot for fish tacos, tamales & more served up in modest digs with patio seating.",
+        []
     ],
     [
         "images/photos/constantia.jpg",
         "Bridlewood Estate",
         "Santa Barbara",
-        "Wine & food testing tour",
+        "Guided experience led by Hans Thorvald.",
         [
             "Food &amp; Wine Pairing",
             "date ideas",
@@ -660,13 +692,13 @@ const EXPLORE_DATA = [
                 title: "Recommended By",
                 groupName: "Taste Match",
             },
-            {
-                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
-                title: "Planning with",
-                groupName: "Co-Planner",
-            },
+            // {
+            //     people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+            //     title: "Planning with",
+            //     groupName: "Co-Planner",
+            // },
         ],
-        [...defaultCardActionList, "review"],
+        defaultCardActionList,
         6,
         "things-to-do",
         4,
@@ -709,6 +741,8 @@ const EXPLORE_DATA = [
         -1,
         97,
         [0, 0],
+        "A trusted Local Guide.",
+        []
     ],
     [
         "images/photos/cannon-beach.jpg",
@@ -739,6 +773,8 @@ const EXPLORE_DATA = [
         -1,
         85,
         [45.884161669751066, -123.96863053734513],
+        "This is the Oregon coast's most iconic photo opportunity.",
+        []
     ],
     [
         "images/photos/rogue_astoria.jpg",
@@ -769,6 +805,8 @@ const EXPLORE_DATA = [
         4,
         85,
         [46.196750395147454, -123.79762603067174],
+        "A popular local brewery with amazing views.",
+        []
     ],
     [
         "images/photos/camel_valley_wines.jpg",
@@ -794,6 +832,8 @@ const EXPLORE_DATA = [
         4,
         85,
         [34.64230332164125, -120.43610020209037],
+        "A pleasant wine tasting and horse back riding tour.",
+        []
     ],
     [
         "images/photos/gargiulo_vineyards.jpg",
@@ -824,6 +864,8 @@ const EXPLORE_DATA = [
         4,
         85,
         [34.638058462065956, -120.14186578859605],
+        "Here you can experience making your own wine.",
+        []
     ],
     [
         "images/photos/sunstone_winery.jpg",
@@ -854,6 +896,8 @@ const EXPLORE_DATA = [
         4,
         85,
         [34.58679315470256, -120.10337263941516],
+        "Sunstone Wine Tour with a Local",
+        []
     ],
     [
         "images/photos/foxen_vineyard.jpg",
@@ -884,6 +928,8 @@ const EXPLORE_DATA = [
         4,
         85,
         [34.82021411953863, -120.23023950022402],
+        "Discover minimalist winemaking.",
+        []
     ],
 ];
 
@@ -935,7 +981,6 @@ activityData.map(a => a.id).forEach((c, i) => activityMap[c] = activityData[i]);
 EXPLORE_DATA.map(list => cardData(...list)).forEach(item => {
     activityMap[item.kind].items.push(item)
 });
-
 const INTERESTS = [
     "Self-Guided Tours",
     "Sightseeing",

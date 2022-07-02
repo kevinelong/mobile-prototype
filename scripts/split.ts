@@ -12,7 +12,7 @@ class Person {
         return this.name;
     }
 }
-class Group {
+class VitaGroup {
     public list: Array<Person>;
 
     constructor(list: Array<Person>) {

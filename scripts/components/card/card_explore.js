@@ -54,30 +54,33 @@ function exploreCardContent(
         // img("background top", "images/backgrounds/top-gradient-black.svg") +
         cardSection(
             cardTags(tags) +
-            cardTitles("explore", title, subtitle,-1,-1,"explore_detail")
+            cardTitles("explore", title, subtitle, -1, -1, "explore_detail")
         ) +
         row(
             col(
                 (kind2 === "people" ? a("Local Guide", "#") +
-                selectOptionsComponent("",[
-                    {name:"10 Collections:"},
-                    {name:"Santa Barbara, CA"},
-                    {name:"Portland, OR"},
-                    {name:"New York, NY"},
-                    {name:"Austin, TX"},
-                    {name:"San Francisco, CA"},
-                    {name:"Los Angeles, CA"},
-                    {name:"Seattle, WA"},
-                    {name:"Vancouver, BC"},
-                    {name:"Anchorage, AK"},
-                    {name:"Paris, FR"}
-                ]):"") +
+                    selectOptionsComponent("", [
+                        {name: "10 Collections:"},
+                        {name: "Santa Barbara, CA"},
+                        {name: "Portland, OR"},
+                        {name: "New York, NY"},
+                        {name: "Austin, TX"},
+                        {name: "San Francisco, CA"},
+                        {name: "Los Angeles, CA"},
+                        {name: "Seattle, WA"},
+                        {name: "Vancouver, BC"},
+                        {name: "Anchorage, AK"},
+                        {name: "Paris, FR"}
+                    ]) : "") +
                 text(`${match_percent}% match`) +
                 row(
                     col(cardGroups(groups)) +
-                    booking
-                ) +
-                actionList(`card-actions`, actions, true, qty)
+                    stack(
+                        booking +
+                        actionItem("directions", "", "", "Show Map", "",false)
+                    )
+                )
+                + actionList(`card-actions`, actions, true, qty)
             )
         )
         // img(
@@ -94,13 +97,13 @@ function participant(p) {
     return row(
         // text(p.person.isCurrentUser ? "*" : "-") +
         personIcon(p.person) +
-        hashTag(p.status) + 
+        hashTag(p.status) +
         hashTag(p.paid ? "Paid" : "unpaid", "green")
     );
 }
 
 function plan(p) {
-    return row(     
+    return row(
         selectDate("", p.timeStamp) +
         selectTime("", p.timeStamp)
     ) + p.participants.map(participant).join("");
@@ -142,51 +145,60 @@ function exploreCardDetailContent(
         `detail stack ${kind} ${kind2}`,
         // img("background top", "images/backgrounds/top-gradient-black.svg") +
         cardSection(
-           
             div(
                 "titles",
                 icon(kind, "black") +
-                stack(cardTitle(title) + cardSubtitle(subtitle)) +
-                actionButton("Alternatives", "", "", "", `style="width: auto; background: #F9A831cc"`)
-            ) 
+                div("",
+                    row(
+                        cardTitle(title) +
+                        actionButton("Alternatives", "", "", "", `style="width: auto; background: #F9A831cc"`)
+                    ) +
+                    cardSubtitle(subtitle) +
+                    cardSubtitle(a(body))
+                )
+            )
         ) +
         row(
             col(
                 (kind2 === "people" ? a("Local Guide", "#") +
-                selectOptionsComponent("",[
-                    {name:"10 Collections:"},
-                    {name:"Santa Barbara, CA"},
-                    {name:"Portland, OR"},
-                    {name:"New York, NY"},
-                    {name:"Austin, TX"},
-                    {name:"San Francisco, CA"},
-                    {name:"Los Angeles, CA"},
-                    {name:"Seattle, WA"},
-                    {name:"Vancouver, BC"},
-                    {name:"Anchorage, AK"},
-                    {name:"Paris, FR"}
-                ]):"") +
+                    selectOptionsComponent("", [
+                        {name: "10 Collections:"},
+                        {name: "Santa Barbara, CA"},
+                        {name: "Portland, OR"},
+                        {name: "New York, NY"},
+                        {name: "Austin, TX"},
+                        {name: "San Francisco, CA"},
+                        {name: "Los Angeles, CA"},
+                        {name: "Seattle, WA"},
+                        {name: "Vancouver, BC"},
+                        {name: "Anchorage, AK"},
+                        {name: "Paris, FR"}
+                    ]) : "") +
                 text(`${match_percent}% match`) +
                 row(
                     col(cardGroups(groups), "", "event rounded framed padded") +
-                    booking
+                    stack(
+                        booking +
+                        actionItem("directions","","","Directions", false)
+                    )
                 ) +
-                label("","Events:") +
+                actionList(`card-actions`, actions, false, qty, "black") +
+                label("", "Events:") +
+                (plans.length>0 ?
                 div(
                     "event rounded framed padded",
                     plans.map(plan).join("") +
-                    (plans[0].participants[0].status === "Invited" ? 
-                    actionList("controls-response", responseActions, false, 0, "black") : "") +
+                    (plans[0].participants[0].status === "Invited" ?
+                        actionList("controls-response", responseActions, false, 0, "black") : "") +
                     (plans[0].participants[0].status !== "Invited" && !plans[0].participants[0].paid ?
-                    actionList("controls-response", payAction, false, 0, "black") : "" )
+                        actionList("controls-response", payAction, false, 0, "black") : "")
                     // actionList("controls-other", otherActions, false, 0, "black") +
-                )
+                ) : "")
             )
         ) +
         cardTags(tags) +
         img("detail-image", image) +
-        text(description) +
-        actionList(`card-actions`, actions, false, qty, "black")
+        text(description)
     )
 }
 
@@ -239,7 +251,7 @@ function exploreCardDetail(
         "explore",
         title,
         subtitle,
-        "",
+        content,
         groups,
         actions,
         imagePath,

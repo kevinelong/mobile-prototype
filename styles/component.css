@@ -214,7 +214,7 @@ input[type="radio"] {
     border: 1px solid black;
 }
 .rounded {
-    border-radius: 1em;
+    border-radius: 0.5em;
 }
 .page .content-panel > .row.padded,
 .padded {
@@ -243,7 +243,7 @@ input[type="radio"] {
 }
 
 .event.padded {
-    padding: 1em;
+    padding: 0.5em;
 }
 
 .fill {
