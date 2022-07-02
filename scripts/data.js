@@ -546,7 +546,7 @@ const EXPLORE_IMG = 0;
 const EXPLORE_NAME = 1;
 const EXPLORE_LOCATION = 2;
 
-const defaultCardActionList = ["collect", "share", "discuss", "invite"];
+const defaultCardActionList = ["schedule", "collect", "share", "discuss", "invite"];
 const EXPLORE_DATA = [
     [
         "images/explore_bg.png",
