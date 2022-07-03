@@ -37,8 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
         outerBox(
             innerContent(
                 [
-                    explorePage(),
-                    exploreDetailPage(true),
+                    explorePage(true),
+                    exploreDetailPage(false),
                     exploreFakePage(false),
                     broadcastPage(),
                     collectPage(),
