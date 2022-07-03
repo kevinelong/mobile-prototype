@@ -309,9 +309,15 @@ input[type="radio"] {
 .row > .action-item {
     justify-content: right;
 }
+
 .card-title {
     width: 100%;
 }
+
+.card-subtitle {
+    width: 100%;
+}
+
 .taste-match .hidden .pane-actions button,
 .hidden.pane button,
 .hidden.pane,

@@ -46,15 +46,13 @@ function exploreCardContent(
     // console.log("booking_index", booking_index)
     let booking = "";
     if (booking_index >= 0) {
-        booking = actionItem("book", "book", -1, "Book Now!");
+        booking = actionItem("book", "book", id, "Book Now!");
     }
-    // const booking = "";
     return div(
         `card ${kind} ${kind2}`,
-        // img("background top", "images/backgrounds/top-gradient-black.svg") +
         cardSection(
             cardTags(tags) +
-            cardTitles("explore", title, subtitle, -1, -1, "explore_detail")
+            cardTitles("explore", title, subtitle, id, id, "explore_detail")
         ) +
         row(
             col(
@@ -77,17 +75,12 @@ function exploreCardContent(
                     col(cardGroups(groups)) +
                     stack(
                         booking +
-                        actionItem("directions", "", "", "Show Map", "",false)
+                        actionItem("directions", id, id, "Show Map", "",false)
                     )
                 )
                 + actionList(`card-actions`, actions, true, qty)
             )
-        )
-        // img(
-        //     "background bottom",
-        //     "images/backgrounds/bottom-gradient-black.svg"
-        // )
-        ,
+        ),
         (image ? `style="background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.25)), black url('${image}') center/cover no-repeat;"` : "") +
         action("open", "explore_detail", id)
     )

@@ -22,7 +22,7 @@ function cardSubtitle(content) {
     return content ? div("card-subtitle nowrap", content) : "";
 }
 
-function cardTitles(kind, title, subtitle = "", which = "", id = 0, page = "") {
+function cardTitles(kind, title, subtitle = "", which = "", index = 0, page = "") {
     page = page ? page : kind;
     return (
         div(
@@ -31,7 +31,7 @@ function cardTitles(kind, title, subtitle = "", which = "", id = 0, page = "") {
             icon(kind) +
             stack(cardTitle(title) + cardSubtitle(subtitle)
             ) +
-            actionItem("open", page, id)
+            actionItem("open", page, index)
         )
     );
 }
@@ -99,8 +99,10 @@ function card(
     page = "",
     match_percent = "",
     booking_index = -1,
-    actionAttribute = ""
+    actionAttribute = "",
+    index = -1
 ) {
+    // debugger;
     period = period ? period : Period();
     const ve = VitaEvent(period, kind);
     ve.imagePath = image;
@@ -116,7 +118,7 @@ function card(
         `card ${kind} ${which}`,
         cardSection(
             cardTags(tags) +
-            cardTitles(kind, titleText, subtitleText, which, -1, page) +
+            cardTitles(kind, titleText, subtitleText, which, index, page) +
             contentPanel(content)
         ) +
         match +
@@ -124,7 +126,7 @@ function card(
         booking +
         actionList(`card-actions`, actions),
 
-        action("open", page, -1) +
+        action("open", page, index) +
         actionAttribute +
         attrs +
         ` data-kind="${cleanName(kind)}" data-which="${which}" ` +
@@ -308,7 +310,7 @@ function mapCard(
                     location
                 )
             ) +
-            actionItem("open", "explore_detail", -1, "", "black", true),
+            actionItem("open", "explore_detail", which, "", "black", true),
             "",
             "map-heading"
         ) +
@@ -435,19 +437,24 @@ function detail(
 }
 
 function activityCard(item = {}, index = -1) {
+    // debugger;
     return card(
         "activity",
         item.title,
         item.subtitle,
         item.content,
         item.groups,
-        [],
+        item.actions,
         item.imagePath,
         item.tags,
-        index,
+        item.id,
         "recommended",
         [],
-        "explore_detail"
+        "explore_detail",
+        item.match_percent,
+        item.booking_index,
+        item.action,
+        item.id
     );
 }
 
@@ -471,7 +478,7 @@ function mapActivityCard(item = {}, index = -1) {
 }
 
 function titleRow(name, icon, index, collapse = true) {
-    // console.log("titleRow", name, icon, index, collapse);
+    console.log("titleRow", name, icon, index, collapse);
     return row(
         row(
             actionItem(icon, index, index) +

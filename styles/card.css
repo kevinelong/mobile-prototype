@@ -844,3 +844,7 @@
     padding: 0 2em;
     justify-content: space-between;
 }
+
+.page.collect_board .card .action-item.collect{
+    display: none;
+}

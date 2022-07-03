@@ -26,7 +26,7 @@
 
 .action-list,
 .card-actions {
-    gap: 0.25rem;
+    gap: 0;
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
