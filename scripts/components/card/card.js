@@ -111,7 +111,7 @@ function card(
     if (booking_index >= 0) {
         booking = actionItem("book", "book", booking_index, "Book Now!");
     }
-    const match = match_percent ? text(`${match_percent}% match`) : "";
+    const match = match_percent ? div("card-title", `${match_percent}% match`) : "";
     const groupsContent = groups ? col(cardGroups(groups)) : "";
 
     return div(
@@ -122,8 +122,10 @@ function card(
             contentPanel(content)
         ) +
         match +
-        groupsContent +
-        booking +
+        spread(
+            groupsContent +
+            booking)
+        +
         actionList(`card-actions`, actions),
 
         action("open", page, index) +
