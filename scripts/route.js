@@ -178,6 +178,7 @@ function showPeople(title = "Filter - People", index = -1) {
                         "categories",
                         [
                             "All",
+                            "Co-Planners",
                             "Friends",
                             "TasteMatch",
                             "Experts",

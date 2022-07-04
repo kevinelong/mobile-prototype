@@ -74,7 +74,7 @@
 
 .dialog .choice-set {
     background: none;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 0 6px 3px;
 }
 
