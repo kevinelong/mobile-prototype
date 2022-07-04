@@ -397,7 +397,7 @@ function mapCard(
                 `<img class="child-image" src="${image}">` +
                 select("category", [
                     {name: "Idea", value: "0"},
-                    {name: "Favorite", value: "1"},
+                    // {name: "Favorite", value: "1"},
                     {name: "Going", value: "2"},
                 ], `placeholder="Category" value="0"`) +
                 actionItem("Book", "book", -1, "Book from $65", "", false, 0, true),
