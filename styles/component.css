@@ -18,12 +18,14 @@ option {
     border: none;
     background: white;
 }
+
 .left {
     text-align: left;
     align-self: flex-start;
     justify-self: flex-start;
     justify-content: flex-start;
 }
+
 input[type="text"] {
     margin: 0;
     /*background-image: url(../images/icons/icon-search-black.svg);*/
@@ -70,25 +72,31 @@ input[type="radio"] {
     margin-top: 3px;
     margin-left: 0.5em;
 }
+
 .page.settle_split .day .action-item.show .icon {
     transform: rotate(90deg);
     transition: transform 300ms ease-in-out;
 }
+
 .page.settle_split .day.collapse .action-item.show .icon {
     transform: rotate(0deg);
     transition: transform 300ms ease-in-out;
 }
+
 .page.settle_split .day.collapse {
     /*max-height: 240px;*/
 }
+
 .page.settle_split .day {
     max-height: 640px;
     /*overflow: hidden;*/
     transition: max-height 300ms ease-in-out;
 }
+
 .page.settle_split .day.collapse .add-expense {
     max-height: 0;
 }
+
 .page.settle_split .day .add-expense {
     max-height: 640px;
     overflow: hidden;
@@ -135,16 +143,19 @@ input[type="radio"] {
     padding: 3px;
     width: 100%;
 }
+
 .stack > * {
     /*margin: 0;*/
     /*padding: 0;*/
 }
+
 .stack .text {
     text-align: center;
     justify-content: center;
     align-items: center;
     /*white-space: nowrap;*/
 }
+
 .rack {
     display: flex;
     flex-direction: row;
@@ -196,26 +207,32 @@ input[type="radio"] {
     margin: auto;
     align-items: center;
 }
+
 .center-content {
     justify-content: center;
     align-items: center;
     vertical-align: center;
     text-align: center;
 }
+
 .right {
     text-align: right;
     align-items: flex-end;
     align-content: flex-end;
 }
+
 .nowrap {
     white-space: nowrap;
 }
+
 .framed {
     border: 1px solid black;
 }
+
 .rounded {
     border-radius: 0.5em;
 }
+
 .page .content-panel > .row.padded,
 .padded {
     padding: 9px 3px;
@@ -330,7 +347,7 @@ input[type="radio"] {
     opacity: 0;
     visibility: collapse;
     transition: opacity 300ms ease-in-out, height 300ms ease-in-out,
-        width 300ms ease-in-out;
+    width 300ms ease-in-out;
 }
 
 .page.explore .card.hidden {
@@ -344,7 +361,7 @@ input[type="radio"] {
     opacity: 0;
     visibility: collapse;
     transition: opacity 300ms ease-in-out, height 300ms ease-in-out,
-        width 300ms ease-in-out;
+    width 300ms ease-in-out;
 }
 
 .stack {
@@ -367,6 +384,7 @@ input[type="radio"] {
     height: 0;
     transition: all 300ms ease-in-out;
 }
+
 .collapse *,
 .card-list {
     max-height: 100vh;
@@ -382,4 +400,33 @@ input[type="radio"] {
 .action-item.show .icon {
     transform: rotate(90deg);
     transition: transform 300ms ease-in-out;
+}
+
+.filtered input {
+    color: dimgray;
+    background: whitesmoke;
+    padding: 0.5em;
+    border-radius: 1em 1em 1.5em 1em;
+}
+
+.filtered input,
+.filtered select {
+    border: none;
+}
+
+.filtered option {
+    border: 1px solid silver;
+    margin-top: -1px;
+}
+
+.filtered select {
+    transition: max-height 300ms ease-in-out;
+    max-height: 0;
+}
+
+.filtered option {
+    border: 1px solid whitesmoke;
+    margin: 0 0 -1px 0;
+    padding: 0.5em;
+    border-radius: 0.5em;
 }

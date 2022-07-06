@@ -251,3 +251,56 @@ function calendarControl(name="calendar"){
 function timeControl(name="time"){
     return div("time-control", input(name, "time"))
 }
+
+const filtered = (objectList = [{}], valueKey, displayKey) => {
+    const filtered = document.createElement("div");
+    const i = document.createElement("input");
+    const s = document.createElement("select");
+
+    s.addEventListener("change", e=> {
+        i.value = s.selectedOptions[0].innerHTML;
+        s.style.maxHeight = "0vh";
+        [...s.children].forEach(
+            (c, i, a) => {
+                a[i].setAttribute("hidden", "hidden");
+            }
+        );
+    });
+
+    s.setAttribute("size", objectList.length.toString());
+    filtered.classList.add("filtered");
+
+    objectList.forEach(d => {
+        const o = document.createElement("option");
+        o.innerHTML = d[displayKey];
+        o.setAttribute("value", d[valueKey]);
+        s.appendChild(o);
+    });
+
+    i.style.padding = "0.5em";
+    i.setAttribute("placeholder", "Begin Typing Here")
+    filtered.style.display = 'flex';
+    filtered.style.flexDirection = 'column';
+    filtered.appendChild(i);
+    filtered.appendChild(s);
+    i.addEventListener("keyup", e => {
+
+            [...s.children].forEach(
+                (c, i, a) => {
+                    if (c.innerHTML.indexOf(e.target.value) === -1) {
+                        a[i].setAttribute("hidden", "hidden");
+                    } else {
+                        a[i].removeAttribute("hidden");
+                    }
+                }
+            )
+            if (i.value.length === 0) {
+                s.style.maxHeight = "0vh";
+                return;
+            } else {
+                s.style.maxHeight = "30vh";
+            }
+        }
+    );
+    return filtered;
+};

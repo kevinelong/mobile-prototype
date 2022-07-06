@@ -431,13 +431,26 @@ function showAddPlace(
 ) {
     showDialog(
         titleText,
-        label(
-            "place",
-            "Where" + input("place", "text", 'placeholder="Where?"')
-        ) +
-        places.map((p) => actionItem("right", p, -1, p, "")).join("") +
+        // label(
+        //     "place",
+        //     "Where" + input("place", "text", 'placeholder="Where?"')
+
+        div("place-search", "",`style="height:400px"`) +
+        // places.map((p) => actionItem("right", p, -1, p, "")).join("") +
         (showWhen ? label("place", "When" + input("time", "time")) : "") +
         actionButton(actionText)
+    );
+
+    get(".place-search").appendChild(
+        filtered(
+            EXPLORE_DATA.map(item => ({
+                id: item[EXPLORE_INDEX],
+                name: item[EXPLORE_NAME]
+            })),
+            // data.map(o => ({id: o.id, name: `${o.first} ${o.last}`})),
+            "id",
+            "name"
+        )
     );
 }
 
@@ -980,7 +993,10 @@ function insertAfter(newNode, referenceNode) {
 function handleRight(target, action, which, id) {
     if ("Loquita" === which) {
         let cardList = get(".timeline.page .card-list");
+
+        // Gets all three lunch periods
         const cps = cardList.querySelectorAll(".is-current-period");
+
         if (cps && cps.length > 1) {
             let ve = VitaEvent(getPeriods()[current_period], "restaurants");
             ve.titleText = "Loquita";
@@ -991,7 +1007,10 @@ function handleRight(target, action, which, id) {
             div.innerHTML = timelineCard(ve);
             let e = div.children[0];
             e.querySelectorAll(".card-actions")[0].remove();
+
+            // Today lunch not yesterday or tomorrow
             insertAfter(e, cps[1]);
+
             cardList.scrollTop = e.offsetTop - 100;
         }
     }

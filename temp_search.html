@@ -61,6 +61,16 @@
             const filtered = document.createElement("div");
             const i = document.createElement("input");
             const s = document.createElement("select");
+
+            s.addEventListener("change", e=> {
+                i.value = s.selectedOptions[0].innerHTML;
+                [...s.children].forEach(
+                    (c, i, a) => {
+                        a[i].setAttribute("hidden", "hidden");
+                    }
+                );
+            });
+
             s.setAttribute("size", objectList.length.toString());
             filtered.classList.add("filtered");
 

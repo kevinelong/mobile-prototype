@@ -545,6 +545,7 @@ const DEFAULT_GROUPS = [
 const EXPLORE_IMG = 0;
 const EXPLORE_NAME = 1;
 const EXPLORE_LOCATION = 2;
+const EXPLORE_INDEX = 7;
 
 const defaultCardActionList = ["schedule", "collect", "share", "discuss", "invite"];
 const EXPLORE_DATA = [
