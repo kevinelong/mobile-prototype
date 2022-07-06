@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Vita Explorer</title>
+    <!--    <link href="http://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet">-->
+    <!--    <link href="http://fonts.cdnfonts.com/css/averia-libre" rel="stylesheet">-->
+    <!--    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />-->
+    <!--    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>-->
+    <!--    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>-->
+    <!--    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>-->
+    <!--    <link href="styles/style.css" rel="stylesheet" type="text/css"/>-->
+
+    <link href="styles/tabs.css" rel="stylesheet" type="text/css">
+    <link href="styles/timeline.css" rel="stylesheet" type="text/css">
+    <link href="styles/broadcast.css" rel="stylesheet" type="text/css">
+    <link href="styles/action.css" rel="stylesheet" type="text/css">
+    <link href="styles/card.css" rel="stylesheet" type="text/css">
+    <link href="styles/choice.css" rel="stylesheet" type="text/css">
+    <link href="styles/circle.css" rel="stylesheet" type="text/css">
+    <link href="styles/content-panel.css" rel="stylesheet" type="text/css">
+    <link href="styles/detail.css" rel="stylesheet" type="text/css">
+    <link href="styles/dialog.css" rel="stylesheet" type="text/css">
+    <link href="styles/hash-tag.css" rel="stylesheet" type="text/css">
+    <link href="styles/icon.css" rel="stylesheet" type="text/css">
+    <link href="styles/label.css" rel="stylesheet" type="text/css">
+    <link href="styles/main-nav.css" rel="stylesheet" type="text/css">
+    <link href="styles/message.css" rel="stylesheet" type="text/css">
+    <link href="styles/page.css" rel="stylesheet" type="text/css">
+    <link href="styles/panes.css" rel="stylesheet" type="text/css">
+    <link href="styles/person.css" rel="stylesheet" type="text/css">
+    <link href="styles/simple-list.css" rel="stylesheet" type="text/css">
+    <link href="styles/title.css" rel="stylesheet" type="text/css">
+    <link href="styles/toast.css" rel="stylesheet" type="text/css">
+    <link href="styles/cards/card-connect.css" rel="stylesheet" type="text/css">
+    <link href="styles/pages/connect.css" rel="stylesheet" type="text/css">
+    <link href="styles/pages/settle.css" rel="stylesheet" type="text/css">
+    <link href="styles/main.css" rel="stylesheet" type="text/css">
+    <link href="styles/component.css" rel="stylesheet" type="text/css">
+
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/html.js"></script>
+    <script src="scripts/components/components.js"></script>
+    <script src="scripts/data.js"></script>
+    <script src="scripts/components/grid.js"></script>
+    <script src="scripts/components/action/action.js"></script>
+    <script src="scripts/components/card/card.js"></script>
+    <script src="scripts/components/card/card_person.js"></script>
+    <script src="scripts/components/card/card_explore.js"></script>
+    <script src="scripts/components/card/card_connect.js"></script>
+    <script src="scripts/components/card/card_settle.js"></script>
+    <script src="scripts/components/card/card_plan.js"></script>
+    <script src="scripts/components/card/card_collect.js"></script>
+    <script src="scripts/components/card/card_smart.js"></script>
+    <script src="scripts/components/card/card_timeline.js"></script>
+    <script src="scripts/components/choice/choice.js"></script>
+    <script src="scripts/components/dialog/dialog.js"></script>
+    <script src="scripts/components/hash_tag/hash_tag.js"></script>
+    <script src="scripts/components/list/list.js"></script>
+    <script src="scripts/components/main_nav.js"></script>
+    <script src="scripts/components/message/message.js"></script>
+    <script src="scripts/components/money/money.js"></script>
+    <script src="scripts/components/page.js"></script>
+    <script src="scripts/components/search/search.js"></script>
+    <script src="scripts/components/toast/toast.js"></script>
+    <script src="scripts/components/timeline/timeline.js"></script>
+    <script src="scripts/components/tabs/tabs.js"></script>
+    <script src="scripts/components/pane/pane.js"></script>
+    <script src="scripts/components/pay.js"></script>
+    <script src="scripts/pages/broadcast/broadcast.js"></script>
+    <script src="scripts/pages/timeline/timeline.js"></script>
+    <script src="scripts/pages/connect/connect.js"></script>
+    <script src="scripts/pages/connect/connect_chat.js"></script>
+    <script src="scripts/pages/connect/connect_person.js"></script>
+    <script src="scripts/pages/plan/plan.js"></script>
+    <script src="scripts/pages/plan/plan_detail.js"></script>
+    <script src="scripts/pages/settle/settle.js"></script>
+    <script src="scripts/pages/settle/settle_split.js"></script>
+    <script src="scripts/pages/settle/settle_list.js"></script>
+    <script src="scripts/pages/explore/explore_fake.js"></script>
+    <script src="scripts/pages/explore/explore_detail.js"></script>
+    <script src="scripts/pages/explore/explore.js"></script>
+    <script src="scripts/pages/collect/collect.js"></script>
+    <script src="scripts/pages/collect/collect_board.js"></script>
+    <script src="scripts/pages/collect/collect_details.js"></script>
+    <script src="scripts/route.js"></script>
+    <style>
+        .outer-box {
+            position: relative;
+            background: #F9A83133;
+            width: auto;
+            height: auto;
+            overflow: visible;
+        }
+        .inner-content {
+            display: block;
+            flex-direction: row;
+            justify-content: start;
+            height: auto;
+            width: auto;
+        }
+
+        .dialog,
+        .page {
+            position: relative;
+            width: 360px;
+            min-height: 720px;
+            margin:1em;
+
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 90ms ease-in-out;
+            gap: 0;
+            background-color: #fffe;
+            display: inline-block;
+            overflow-y: scroll;
+        }
+        .dialog {
+            background: #ffffff;
+            background-color: rgb(255, 255, 255);
+            opacity: 1;
+            visibility: visible;
+            margin: auto;
+            z-index: 999999;
+            height: auto;
+            color: black;
+            min-height: 360px;
+            max-height: 640px;
+            border-radius: 2rem;
+            padding: 24px;
+            justify-self: center;
+            justify-content: space-between;
+            justify-items: center;
+            width: 360px;
+            max-width: 360px;
+            min-width: 360px;
+
+            width: 360px;
+            height: 640px;
+
+            overflow: hidden;
+
+            display: inline-block;
+        }
+    </style>
+    <script>
+
+        function showDialog(name, content = "") {
+            const target = get(".inner-content");
+            let page = document.createElement("div");
+            page.classList.add("page");
+            page.innerHTML = dialog(name, content);
+            target.appendChild(page);
+            // show(".smoke");
+            // show(".dialog");
+        }
+
+
+        document.addEventListener("DOMContentLoaded",()=>{
+
+            setTimeout(()=> {
+                [...document.querySelectorAll(".page")].forEach(p => p.classList.remove("hidden"));
+                get(".map").style.display ='none';
+                showLocations();
+                showAddCard();
+                showAddCheckInDialog();
+                showAddCollection();
+                showAddPlace();
+                showAddPlaceDialog();
+                showDestinations();
+                showElement();
+                showMatchDialog();
+                showMoodDialog();
+                showPay();
+                showPeople();
+                showProfileDialogSelf();
+                showProfileDialog();
+                showRequest();
+                showRestaurants();
+                showReviewDialog();
+                showSchedule();
+                showScheduleDialog();
+                showSort();
+                showSmartIdeasDialog();
+                showThingsToDo();
+                showUploadDialog();
+            },1000);
+        });
+
+    </script>
+</head>
+<body></body>
+<script src="scripts/main.js"></script>
+</html>

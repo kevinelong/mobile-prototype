@@ -37,15 +37,15 @@ document.addEventListener("DOMContentLoaded", () => {
         outerBox(
             innerContent(
                 [
-                    explorePage(true),
-                    exploreDetailPage(false),
-                    exploreFakePage(false),
+                    explorePage(),
+                    exploreDetailPage(),
+                    exploreFakePage(),
                     broadcastPage(),
                     collectPage(),
                     collectBoardPage(),
                     planPage(),
                     planDetailPage(),
-                    timelinePage(),
+                    timelinePage(true),
                     connectPage(),
                     connectChatPage(),
                     connectPersonPage(),
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 mainNav(
                     ["explore", "broadcast", "collect", "plan", "settle"],
                     ["connect", "timeline"],
-                    "explore"
+                    "timeline"
                 )
             ) +
             hiddenToast("") +
