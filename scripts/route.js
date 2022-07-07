@@ -428,7 +428,8 @@ function showAddPlace(
     places = [],
     actionText = "Add",
     showWhen = true,
-    when = undefined
+    when = undefined,
+    start = "12:00 am"
 ) {
     showDialog(
         titleText,
@@ -436,12 +437,13 @@ function showAddPlace(
         //     "place",
         //     "Where" + input("place", "text", 'placeholder="Where?"')
 
-        div("place-search", "",`style="height:400px"`) +
+        div("place-search", "", `style="height:400px"`) +
         // places.map((p) => actionItem("right", p, -1, p, "")).join("") +
-        (showWhen ? 
+        (showWhen ?
             label("place", "When " + selectTime()) : "") +
         (when ? when.toString() : "no date") +
-        actionButton(actionText, "add", when)
+        (start ? start.toString() : "no start") +
+        actionButton(actionText, "apply", when, start)
     );
 
     get(".place-search").appendChild(
@@ -484,6 +486,7 @@ function showScheduleDialog(
 }
 
 function showSchedule(target, action, which, index) {
+    debugger;
     showScheduleDialog(
         "Schedule an Experience",
         (places = []),
@@ -499,12 +502,13 @@ function schedule(target, action, which, index) {
         true
     );
 }
+
 function paymentType(kind, name, selected) {
     return choice(kind, name, selected)
 }
 
 function showAddPlaceDialog(target, action, which, index) {
-    showAddPlace("Find a Place &amp; Time", [], "", true, which);
+    showAddPlace("Find a Place &amp; Time", [], "Add", true, which, index);
 }
 
 function payCard(p = {}) {
@@ -1021,7 +1025,18 @@ function handleRight(target, action, which, id) {
 }
 
 function apply(target, action, which, id = -1) {
-    if ("filter-things-to-do" === which) {
+    if (which === (new Date(which)).toString()) {
+
+        const selectElement = get(".filtered select");
+        const whereValue = selectElement.selectedOptions[0].value;
+
+        const timeElement = get(`.dialog input[type="time"]`);
+        const timeValue = timeElement.value;
+
+        //TODO Get date once its on the dialog
+        console.log("SAVE NEW EVENT", timeValue, whereValue);
+
+    } else if ("filter-things-to-do" === which) {
         getAll(".page.explore .explore.card").map(hideElement);
         getAll(".page.explore .explore.card.things-to-do").map(showElement);
     } else if ("filter-actions-restaurants" === which) {

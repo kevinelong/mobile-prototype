@@ -522,9 +522,9 @@ function activityList(list, collapse = true) {
 }
 
 
-function cardListSection(titleText, action, subtitleText = "", cards = []) {
+function cardListSection(titleText, when, action, subtitleText = "", cards = []) {
     return sectionTitle(title(titleText) +
-        actionItem("add-place", "timeline", titleText, "Add", "black")
+        actionItem("add-place", when, when, "Add", "black")
     ) + subtitle(subtitleText) + cards.join("")
 }
 

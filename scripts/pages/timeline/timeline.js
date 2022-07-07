@@ -21,18 +21,18 @@ function timelinePage(selected = false) {
     ve.kind = "restaurants";
 
     const showDay = day => {
+        // debugger;
         return cardListSection(
+            day.title,
             day.when,
-            actionItem("add-place", "timeline", -1, "add-place", "black") +
+            actionItem("add-place", day.when, -1, "add-place", "black") +
             actionItem("check-in", "timeline", -1, "Check-In", "black"),
             day.where,
-            day.events.map(timelineCard)
+            day.events.map(e => timelineCard(e, day))
         );
     }
     const calendar_days = [
-        Day(yesterdayDate, "Yesterday - " + yesterdayDate.toDateString(), [
-            VitaEvent(getPeriods()[BREAKFAST], "restaurants"),
-        ]),
+        Day(yesterdayDate, "Yesterday - " + yesterdayDate.toDateString(), []),
         Day(todayDate, "Today - " + todayDate.toDateString(), getPeriods()),
         Day(tomorrowDate, "Tomorrow - " + tomorrowDate.toDateString(), getPeriods()),
     ];
