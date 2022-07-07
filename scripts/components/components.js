@@ -287,7 +287,7 @@ const filtered = (objectList = [{}], valueKey, displayKey) => {
 
             [...s.children].forEach(
                 (c, i, a) => {
-                    if (c.innerHTML.indexOf(e.target.value) === -1) {
+                    if (c.innerHTML.toUpperCase().indexOf(e.target.value.toUpperCase()) === -1) {
                         a[i].setAttribute("hidden", "hidden");
                     } else {
                         a[i].removeAttribute("hidden");
