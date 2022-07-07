@@ -1,4 +1,5 @@
 function timelineCard(ve = VitaEvent()) {
+    // debugger;
     let qty = 0;
     if (ve.groups && ve.groups[0] && ve.groups[0].people) {
         qty = ve.groups[0].people.length;
@@ -56,7 +57,7 @@ function timelineCard(ve = VitaEvent()) {
                         // actionItem("edit", "mood", "", "Update Mood","") +
                         (isCurrent(ve) ? actionItem( "check-in", "", "", "Check-In","")
                             : "") +
-                        actionItem( "add-place", "", "", "Add Place","", false)
+                        actionItem( "add-place", ve.dayWhen, "", "Add Place","", false)
                     ) +
                     actionList(`card-actions`, ve.actions, false, qty)
                 )

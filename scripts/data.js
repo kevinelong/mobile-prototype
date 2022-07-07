@@ -213,7 +213,7 @@ const getPeriods = () =>
 
 let current_period = LUNCH;
 
-function Day(when = "", events = []) {
+function Day(when, title = "", events = []) {
     if (!Array.isArray(events)) {
         // console.log("events", events);
         return;
@@ -222,8 +222,10 @@ function Day(when = "", events = []) {
     let periods = getPeriods();
 
     periods.forEach((p) => {
+        p.dayWhen = when;
         events.forEach((e) => {
             if (e.when > p.from && e.when < p.to) {
+                e.dayWhen = when;
                 p.events.push(e);
             }
         });
@@ -231,6 +233,7 @@ function Day(when = "", events = []) {
 
     return {
         when: when,
+        title: title,
         events: [...events, ...getPeriods()],
     };
 }
