@@ -427,7 +427,8 @@ function showAddPlace(
     titleText,
     places = [],
     actionText = "Add",
-    showWhen = true
+    showWhen = true,
+    when = undefined
 ) {
     showDialog(
         titleText,
@@ -439,7 +440,8 @@ function showAddPlace(
         // places.map((p) => actionItem("right", p, -1, p, "")).join("") +
         (showWhen ? 
             label("place", "When " + selectTime()) : "") +
-        actionButton(actionText)
+        (when ? when.toString() : "no date") +
+        actionButton(actionText, "add", when)
     );
 
     get(".place-search").appendChild(
@@ -502,7 +504,7 @@ function paymentType(kind, name, selected) {
 }
 
 function showAddPlaceDialog(target, action, which, index) {
-    showAddPlace("Find a Place &amp; Time" + d);
+    showAddPlace("Find a Place &amp; Time", [], "", true, which);
 }
 
 function payCard(p = {}) {

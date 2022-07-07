@@ -30,11 +30,11 @@ function timelinePage(selected = false) {
         );
     }
     const calendar_days = [
-        Day("Yesterday - " + yesterdayDate.toDateString(), [
+        Day(yesterdayDate, "Yesterday - " + yesterdayDate.toDateString(), [
             VitaEvent(getPeriods()[BREAKFAST], "restaurants"),
         ]),
-        Day("Today - " + todayDate.toDateString(), getPeriods()),
-        Day("Tomorrow - " + tomorrowDate.toDateString(), getPeriods()),
+        Day(todayDate, "Today - " + todayDate.toDateString(), getPeriods()),
+        Day(tomorrowDate, "Tomorrow - " + tomorrowDate.toDateString(), getPeriods()),
     ];
     const card_content = calendar_days.map(showDay).join('');
 
