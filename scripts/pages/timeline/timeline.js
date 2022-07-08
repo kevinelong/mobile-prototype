@@ -20,22 +20,24 @@ function timelinePage(selected = false) {
     ve.tags = ["South-American"];
     ve.kind = "restaurants";
 
+    const showPeriod = (p, day) => timelineCard(p, day) + p.events.map(e => timelineCard(e, day)).join("");
+    
     const showDay = day => {
-        // debugger;
         return cardListSection(
             day.title,
             day.when,
             actionItem("add-place", day.when, -1, "add-place", "black") +
             actionItem("check-in", "timeline", -1, "Check-In", "black"),
             day.where,
-            day.events.map(e => timelineCard(e, day))
+            day.periods.map(p => showPeriod(p, day))
         );
     }
     const calendar_days = [
-        Day(yesterdayDate, "Yesterday - " + yesterdayDate.toDateString(), []),
-        Day(todayDate, "Today - " + todayDate.toDateString(), getPeriods()),
-        Day(tomorrowDate, "Tomorrow - " + tomorrowDate.toDateString(), getPeriods()),
+        Day(yesterdayDate, "Yesterday - " + yesterdayDate.toDateString(), EVENTS_DATA),
+        Day(todayDate, "Today - " + todayDate.toDateString(), EVENTS_DATA),
+        Day(tomorrowDate, "Tomorrow - " + tomorrowDate.toDateString(), EVENTS_DATA),
     ];
+
     const card_content = calendar_days.map(showDay).join('');
 
     const preTabs = actionItem("search", "", -1, "search", "black", true);

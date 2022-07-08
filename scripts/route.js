@@ -442,9 +442,10 @@ function showAddPlace(
     start = "12:00 AM"
 ) {
     let dateValue = new Date(when);
-    const timeParts = timeStringToArrayHHMM(start);
-    dateValue.setHours(timeParts[0]);
-    dateValue.setMinutes(timeParts[1]);
+    let startValue = new Date(start);
+    // const timeParts = timeStringToArrayHHMM(start);
+    dateValue.setHours(startValue.getHours());
+    dateValue.setMinutes(startValue.getMinutes());
     dateValue.setSeconds(0);
     dateValue.setMilliseconds(0);
 
@@ -1052,8 +1053,28 @@ function apply(target, action, which, id = -1) {
         const dateElement = get(`.dialog input[type="date"]`);
         const dateValue = dateElement.value;
 
-        //TODO Get date once its on the dialog
         console.log("SAVE NEW EVENT", dateValue, timeValue, whereValue);
+
+        let when = new Date(dateValue);
+        // TODO Update "when" with time portion
+
+        const data = cardData(...EXPLORE_DATA[whereValue])
+
+        EVENTS_DATA.push(new VitaEvent(
+            Period(),
+            data.kind, 
+            "", 
+            "", 
+            data.title, 
+            when, 
+            data
+        ));
+
+        // [X] Save event to global events list here 
+        // [X] Enhance timeline to consume from global events list where timeline is rendered
+        // TODO Redraw timeline here
+        get(".timeline.page").outerHTML = timelinePage(true);
+        initScroll();
 
     } else if ("filter-things-to-do" === which) {
         getAll(".page.explore .explore.card").map(hideElement);
