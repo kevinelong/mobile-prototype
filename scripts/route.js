@@ -457,7 +457,7 @@ function showAddPlace(
 
         div("place-search", "", `style="height:400px"`) +
         // places.map((p) => actionItem("right", p, -1, p, "")).join("") +
-        (showWhen ? label("place", "When <br>" + selectDate("", dateValue) + selectTime("", dateValue)) : "") +
+        (showWhen ? label("place", "When <br>" + selectDate("", dateValue).toLocaleString() + selectTime("", dateValue).toLocaleString()) : "") +
         (when ? when.toString() : "no date") +
         (start ? start.toString() : "no start") +
         actionButton(actionText, "apply", when, start)

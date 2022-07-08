@@ -13,7 +13,7 @@ const ACTION_COMPONENT_MAP = {
 
 function actionItem(name, which = "", index = -1, textValue = "", iconColor = "", hideText = false, qty = 0, small = false) {
     // console.log("actionItem", name, which, index);
-
+    
     if (ACTION_COMPONENT_MAP.hasOwnProperty(name)) {
         return ACTION_COMPONENT_MAP[name]();
     }

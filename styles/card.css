@@ -849,3 +849,8 @@
 .page.collect_board .card .action-item.collect{
     display: none;
 }
+
+.page.timeline .card.activity {
+    width: 90%;
+    border-radius: 0.5em;
+}
