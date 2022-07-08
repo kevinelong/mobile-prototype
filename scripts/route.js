@@ -423,14 +423,32 @@ function showUploadDialog() {
     showDialog("Upload", input("file", "file", "") + actionButton("upload"));
 }
 
+function timeStringToArrayHHMM(time) {
+    time = time.toUpperCase();
+    var hours   = Number(time.match(/^(\d+)/)[1]);
+    var minutes = Number(time.match(/:(\d+)/)[1]);
+    var AMPM    = time.match(/\d+:\d+(.*)$/)[1];
+    if (AMPM === "PM" && hours < 12) hours = hours + 12;
+    if (AMPM === "AM" && hours === 12) hours = hours - 12;
+    return [hours, minutes];
+}
+
 function showAddPlace(
     titleText,
     places = [],
     actionText = "Add",
     showWhen = true,
     when = undefined,
-    start = "12:00 am"
+    start = "12:00 AM"
 ) {
+    let dateValue = new Date(when);
+    let startValue = new Date(start);
+    // const timeParts = timeStringToArrayHHMM(start);
+    dateValue.setHours(startValue.getHours());
+    dateValue.setMinutes(startValue.getMinutes());
+    dateValue.setSeconds(0);
+    dateValue.setMilliseconds(0);
+
     showDialog(
         titleText,
         // label(
@@ -439,8 +457,7 @@ function showAddPlace(
 
         div("place-search", "", `style="height:400px"`) +
         // places.map((p) => actionItem("right", p, -1, p, "")).join("") +
-        (showWhen ?
-            label("place", "When " + selectTime()) : "") +
+        (showWhen ? label("place", "When <br>" + selectDate("", dateValue) + selectTime("", dateValue)) : "") +
         (when ? when.toString() : "no date") +
         (start ? start.toString() : "no start") +
         actionButton(actionText, "apply", when, start)
@@ -1033,8 +1050,31 @@ function apply(target, action, which, id = -1) {
         const timeElement = get(`.dialog input[type="time"]`);
         const timeValue = timeElement.value;
 
-        //TODO Get date once its on the dialog
-        console.log("SAVE NEW EVENT", timeValue, whereValue);
+        const dateElement = get(`.dialog input[type="date"]`);
+        const dateValue = dateElement.value;
+
+        console.log("SAVE NEW EVENT", dateValue, timeValue, whereValue);
+
+        let when = new Date(dateValue);
+        // TODO Update "when" with time portion
+
+        const data = cardData(...EXPLORE_DATA[whereValue])
+
+        EVENTS_DATA.push(new VitaEvent(
+            Period(),
+            data.kind, 
+            "", 
+            "", 
+            data.title, 
+            when, 
+            data
+        ));
+
+        // [X] Save event to global events list here 
+        // [X] Enhance timeline to consume from global events list where timeline is rendered
+        // TODO Redraw timeline here
+        get(".timeline.page").outerHTML = timelinePage(true);
+        initScroll();
 
     } else if ("filter-things-to-do" === which) {
         getAll(".page.explore .explore.card").map(hideElement);

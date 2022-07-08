@@ -1,3 +1,170 @@
+function initScroll() {
+    const outerBoxWidth = get(".outer-box").clientWidth;
+
+    const contentPanel = get(".content-panel");
+    const cssObjContentPanel = window.getComputedStyle(contentPanel);
+    const contentPanelPaddingSides =
+        parseFloat(cssObjContentPanel.paddingLeft) +
+        parseFloat(cssObjContentPanel.paddingRight);
+
+    const timelineWindowWidth = outerBoxWidth - contentPanelPaddingSides;
+    // const page = get(".page")
+    // const cssObjPage = window.getComputedStyle(page)
+
+    const dayPicker = get(".day-picker");
+    const days = dayPicker.children;
+
+    let count = 0;
+    let timelineScrollWidth = 0;
+
+    for (let i = 0; i < days.length; i++) {
+        const cssObjDay = window.getComputedStyle(days[i]);
+        timelineScrollWidth +=
+            days[i].clientWidth +
+            parseFloat(cssObjDay.marginLeft) +
+            parseFloat(cssObjDay.marginRight);
+        count += 1;
+    }
+
+    // const timelineScrollStart = (timelineScrollWidth / 2)
+    const timelineScrollStart =
+        timelineScrollWidth / 2 - timelineWindowWidth / 2;
+
+    dayPicker.scrollLeft = timelineScrollStart;
+
+    // const cssObjTimeline = window.getComputedStyle(timeline)
+    // margin = parseFloat(style.marginLeft) + parseFloat(style.marginRight)
+
+    window.lastPage = "connect";
+    hide(".smoke");
+    hide(".dialog");
+
+    const onScrollStop = (object, callback, milliseconds) => {
+        let timerID;
+        if (typeof object === "undefined") {
+            // console.log("no object")
+            return;
+        }
+        object.addEventListener(
+            "scroll",
+            (e) => {
+                clearTimeout(timerID);
+                timerID = setTimeout(() => {
+                    callback();
+                }, milliseconds);
+                // navigator.vibrate(30);
+            },
+            false
+        );
+    };
+    let cardList = get(".timeline.page .card-list");
+    const cps = cardList.querySelectorAll(".is-current-period");
+    if (cps && cps.length > 1) {
+        cardList.scrollTop = cps[1].offsetTop - 20;
+    }
+    const cardListHeight = cardList.offsetHeight;
+    const cardListHeightHalf = Math.floor(cardListHeight / 2);
+
+    const milliseconds = 250;
+    const offset = 45;
+    const offset2 = 45;
+    const divisor = 2;
+
+    let scrolling = false;
+
+    onScrollStop(
+        cardList,
+        () => {
+            if (scrolling) {
+                return;
+            }
+            scrolling = true;
+
+            let scrollAmount = cardList.scrollTop;
+
+            let centers = [];
+
+            [...cardList.querySelectorAll(".card")].forEach((c) => {
+                const half = Math.floor(c.offsetHeight / 2);
+                const delta = Math.abs(
+                    c.offsetTop +
+                        half +
+                        offset2 -
+                        (scrollAmount + cardListHeightHalf)
+                );
+                // console.log(delta, scrollAmount, cardListHeightHalf, half, c.offsetTop);
+                centers.push([delta, c]);
+            });
+            centers.sort((a, b) => a[0] - b[0]);
+            centers.forEach((c, i) => {
+                let o = c[1];
+                if (i === 0) {
+                    o.style.opacity = 1;
+                    o.classList.add("selected");
+                    // console.log(Array.from(o.parentNode.children).indexOf(o));
+                    // console.log(o.)
+                    // console.log(o.offsetTop, cardListHeightHalf, o.offsetHeight);
+                    cardList.scroll({
+                        top:
+                            offset +
+                            (o.offsetTop - cardListHeightHalf) +
+                            Math.floor(o.offsetHeight / divisor),
+                        behavior: "smooth",
+                    });
+                } else {
+                    o.classList.remove("selected");
+                    o.style.opacity = "0.65";
+                }
+            });
+
+            scrollAmount = cardList.scrollTop;
+            setTimeout(() => {
+                centers = [];
+
+                [...cardList.querySelectorAll(".card")].forEach((c) => {
+                    const half = Math.floor(c.offsetHeight / 2);
+                    const delta = Math.abs(
+                        c.offsetTop +
+                            half +
+                            offset2 -
+                            (scrollAmount + cardListHeightHalf)
+                    );
+                    // console.log(delta, scrollAmount, cardListHeightHalf, half, c.offsetTop);
+                    centers.push([delta, c]);
+                });
+                centers.sort((a, b) => a[0] - b[0]);
+                centers.forEach((c, i) => {
+                    let o = c[1];
+                    if (i === 0) {
+                        o.style.opacity = 1;
+                        o.classList.add("selected");
+                        // console.log(Array.from(o.parentNode.children).indexOf(o));
+                        // console.log(o.)
+                        // console.log(o.offsetTop, cardListHeightHalf, o.offsetHeight);
+                        cardList.scroll({
+                            top:
+                                offset +
+                                (o.offsetTop - cardListHeightHalf) +
+                                Math.floor(o.offsetHeight / divisor),
+                            behavior: "smooth",
+                        });
+                    } else {
+                        o.classList.remove("selected");
+                        o.style.opacity = "0.65";
+                    }
+                });
+            }, 310);
+
+            setTimeout(() => {
+                scrolling = false;
+            }, 650);
+
+            //console.log(centers);
+        },
+        milliseconds
+    );
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     function content(c) {
         return div("content", c);
@@ -52,60 +219,23 @@ document.addEventListener("DOMContentLoaded", () => {
                     settleList(),
                     settleSplit(),
                     settlePage(),
-                    mapView()
+                    mapView(),
                 ].join("")
             ) +
-            circle("") +
-            mainNavOuter(
-                mainNav(
-                    ["explore", "broadcast", "collect", "plan", "settle"],
-                    ["connect", "timeline"],
-                    "timeline"
-                )
-            ) +
-            hiddenToast("") +
-            hiddenSmoke(hiddenDialog())
+                circle("") +
+                mainNavOuter(
+                    mainNav(
+                        ["explore", "broadcast", "collect", "plan", "settle"],
+                        ["connect", "timeline"],
+                        "timeline"
+                    )
+                ) +
+                hiddenToast("") +
+                hiddenSmoke(hiddenDialog())
         )
     );
 
-    const outerBoxWidth = get(".outer-box").clientWidth;
-
-    const contentPanel = get(".content-panel");
-    const cssObjContentPanel = window.getComputedStyle(contentPanel);
-    const contentPanelPaddingSides =
-        parseFloat(cssObjContentPanel.paddingLeft) +
-        parseFloat(cssObjContentPanel.paddingRight);
-
-    const timelineWindowWidth = outerBoxWidth - contentPanelPaddingSides;
-    // const page = get(".page")
-    // const cssObjPage = window.getComputedStyle(page)
-
-    const dayPicker = get(".day-picker");
-    const days = dayPicker.children;
-
-    let count = 0;
-    let timelineScrollWidth = 0;
-
-    for (let i = 0; i < days.length; i++) {
-        const cssObjDay = window.getComputedStyle(days[i]);
-        timelineScrollWidth +=
-            days[i].clientWidth +
-            parseFloat(cssObjDay.marginLeft) +
-            parseFloat(cssObjDay.marginRight);
-        count += 1;
-    }
-
-    // const timelineScrollStart = (timelineScrollWidth / 2)
-    const timelineScrollStart = timelineScrollWidth / 2 - timelineWindowWidth / 2;
-
-    dayPicker.scrollLeft = timelineScrollStart;
-
-    // const cssObjTimeline = window.getComputedStyle(timeline)
-    // margin = parseFloat(style.marginLeft) + parseFloat(style.marginRight)
-
-    window.lastPage = "connect";
-    hide(".smoke");
-    hide(".dialog");
+    initScroll();
 
     listen(
         "click",
@@ -119,125 +249,7 @@ document.addEventListener("DOMContentLoaded", () => {
         get(".smoke")
     );
 
-    const onScrollStop = (object, callback, milliseconds) => {
-        let timerID;
-        if (typeof object === "undefined") {
-            // console.log("no object")
-            return;
-        }
-        object.addEventListener(
-            "scroll",
-            (e) => {
-                clearTimeout(timerID);
-                timerID = setTimeout(() => {
-                    callback();
-                }, milliseconds);
-                // navigator.vibrate(30);
-            },
-            false
-        );
-    };
-
-    let cardList = get(".timeline.page .card-list");
-    const cps = cardList.querySelectorAll(".is-current-period");
-    if (cps && cps.length > 1) {
-        cardList.scrollTop = cps[1].offsetTop - 20;
-    }
-    const cardListHeight = cardList.offsetHeight;
-    const cardListHeightHalf = Math.floor(cardListHeight / 2);
-
-    const milliseconds = 250;
-    const offset = 45;
-    const offset2 = 45;
-    const divisor = 2;
-
-    let scrolling = false;
-
-    onScrollStop(
-        cardList,
-        () => {
-            if (scrolling) {
-                return;
-            }
-            scrolling = true;
-
-            let scrollAmount = cardList.scrollTop;
-
-            let centers = [];
-
-            [...cardList.querySelectorAll(".card")].forEach((c) => {
-                const half = Math.floor(c.offsetHeight / 2);
-                const delta = Math.abs(
-                    c.offsetTop + half + offset2 - (scrollAmount + cardListHeightHalf)
-                );
-                // console.log(delta, scrollAmount, cardListHeightHalf, half, c.offsetTop);
-                centers.push([delta, c]);
-            });
-            centers.sort((a, b) => a[0] - b[0]);
-            centers.forEach((c, i) => {
-                let o = c[1];
-                if (i === 0) {
-                    o.style.opacity = 1;
-                    o.classList.add("selected");
-                    // console.log(Array.from(o.parentNode.children).indexOf(o));
-                    // console.log(o.)
-                    // console.log(o.offsetTop, cardListHeightHalf, o.offsetHeight);
-                    cardList.scroll({
-                        top:
-                            offset +
-                            (o.offsetTop - cardListHeightHalf) +
-                            Math.floor(o.offsetHeight / divisor),
-                        behavior: "smooth",
-                    });
-                } else {
-                    o.classList.remove("selected");
-                    o.style.opacity = "0.65";
-                }
-            });
-
-            scrollAmount = cardList.scrollTop;
-            setTimeout(() => {
-                centers = [];
-
-                [...cardList.querySelectorAll(".card")].forEach((c) => {
-                    const half = Math.floor(c.offsetHeight / 2);
-                    const delta = Math.abs(
-                        c.offsetTop + half + offset2 - (scrollAmount + cardListHeightHalf)
-                    );
-                    // console.log(delta, scrollAmount, cardListHeightHalf, half, c.offsetTop);
-                    centers.push([delta, c]);
-                });
-                centers.sort((a, b) => a[0] - b[0]);
-                centers.forEach((c, i) => {
-                    let o = c[1];
-                    if (i === 0) {
-                        o.style.opacity = 1;
-                        o.classList.add("selected");
-                        // console.log(Array.from(o.parentNode.children).indexOf(o));
-                        // console.log(o.)
-                        // console.log(o.offsetTop, cardListHeightHalf, o.offsetHeight);
-                        cardList.scroll({
-                            top:
-                                offset +
-                                (o.offsetTop - cardListHeightHalf) +
-                                Math.floor(o.offsetHeight / divisor),
-                            behavior: "smooth",
-                        });
-                    } else {
-                        o.classList.remove("selected");
-                        o.style.opacity = "0.65";
-                    }
-                });
-            }, 310);
-
-            setTimeout(() => {
-                scrolling = false;
-            }, 650);
-
-            //console.log(centers);
-        },
-        milliseconds
-    );
+    
 
     function initMap() {
         const tl = typeof L;
@@ -311,22 +323,23 @@ document.addEventListener("DOMContentLoaded", () => {
     ed.innerHTML = exploreCardDetail(...EXPLORE_DATA[6]);
 
     function now() {
-        return (new Date())
+        return new Date();
     }
 
     function setTitleTime() {
         const date = now();
         get(".title .time.span").innerHTML =
-            date.toString().split(" ")[0] + " " +
-            date.toString().split(" ")[1] + " " +
-            date.toString().split(" ")[2] + " " +
+            date.toString().split(" ")[0] +
+            " " +
+            date.toString().split(" ")[1] +
+            " " +
+            date.toString().split(" ")[2] +
+            " " +
             date.toLocaleTimeString();
         setTimeout(setTitleTime, 1000);
     }
 
     setTitleTime();
 
-    window.kaching = new Audio('cash.mp3');
-
+    window.kaching = new Audio("cash.mp3");
 });
-
