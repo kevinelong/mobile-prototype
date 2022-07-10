@@ -1,5 +1,8 @@
 function timelineCard(ve = VitaEvent(), day={}) {
-    // debugger;
+    if (ve.activity !== undefined) {
+        ve.activity.actions = [];
+        return activityCard(ve.activity);
+    }
     let qty = 0;
     if (ve.groups && ve.groups[0] && ve.groups[0].people) {
         qty = ve.groups[0].people.length;
