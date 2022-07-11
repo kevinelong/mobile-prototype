@@ -14,6 +14,9 @@ function timelineCard(ve = VitaEvent(), day={}) {
     if (ve.booking_index >= 0) {
         booking = actionItem("book", "book", -1, "Book Now!");
     }
+
+    const optionsDateString = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' };
+    const optionsTimeString = { hour: 'numeric', minute: '2-digit' };
     // debugger;
     return div(
         `card timeline ${ve.kind} ${ve.period.name} ${currentClass(ve)}`,
@@ -22,7 +25,7 @@ function timelineCard(ve = VitaEvent(), day={}) {
             cardSection(
                 contentPanel(
                     row(
-                        cardSubtitle(`NAME ${ve.what ? ve.what : ve.period.name} WHEN ${ve.when ? ve.when.toLocaleString() : ve.period.from.toLocalString()} DURATION ${ve.duration ? ' ' + ve.duration.getHours() + ':' + ve.duration.getMinutes() : ''}`)
+                        cardSubtitle(`${ve.period.name.toUpperCase()} ${ve.period.from.toLocaleTimeString(undefined, optionsTimeString)} - ${ve.period.to.toLocaleTimeString(undefined, optionsTimeString)}, ${day.when.toLocaleDateString(undefined, optionsDateString)}`)
                         + actionItem("edit", "slot", "", "Edit", "",true,0,true)
                     ) +
                     row(

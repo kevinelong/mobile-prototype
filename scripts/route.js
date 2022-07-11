@@ -1042,6 +1042,7 @@ function handleRight(target, action, which, id) {
 }
 
 function apply(target, action, which, id = -1) {
+    debugger;
     if (which === (new Date(which)).toString()) {
 
         const selectElement = get(".filtered select");
@@ -1055,7 +1056,7 @@ function apply(target, action, which, id = -1) {
 
         console.log("SAVE NEW EVENT", dateValue, timeValue, whereValue);
 
-        let when = new Date(dateValue);
+        let when = new Date(`${dateValue}T${timeValue}:00`);
         // TODO Update "when" with time portion
 
         const data = cardData(...EXPLORE_DATA[whereValue])
