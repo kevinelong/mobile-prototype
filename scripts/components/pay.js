@@ -124,7 +124,6 @@ function onAddExpense(e) {
         expenseElementList.scrollTop = expenseElementList.scrollHeight;
     } catch (error) {
         console.error(error);
-        return;
     }
 }
 

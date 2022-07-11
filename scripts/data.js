@@ -1,5 +1,5 @@
-const Period = (name = "", from = "", to = "", color = "") => {
-    return {name: "", from: "", to: "", color: "", ideas: []};
+const Period = (name = "", from = "", to = "", color = "", ideas= []) => {
+    return {name: name, from: from, to: to, color: color, ideas: ideas};
 };
 
 let currentLocation = "Santa Barbara";
@@ -572,7 +572,7 @@ const EXPLORE_DATA = [
         4,
         85,
         [0, 0],
-        "The Constantia Valley has an appeal that offers something of interest to everyone, from award winning restaurants offering, luxurious boutique hotel accommodation with spa’s as well as quant B&B’s. There are beautiful greenbelts to walk on, shops to explore, a brilliant zip lining adventure, mountain biking, horse riding, unique shops and a wine farms.",
+        "The Constantia Valley has an appeal that offers something of interest to everyone, from award winning restaurants offering, luxurious boutique hotel accommodation with spa’s as well as quaint B&B’s. There are beautiful greenbelts to walk on, shops to explore, a brilliant zip lining adventure, mountain biking, horse riding, unique shops and a wine farms.",
         [
             {
                 timeStamp: 1656531438000,
