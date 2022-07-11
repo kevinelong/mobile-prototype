@@ -480,7 +480,7 @@ function mapActivityCard(item = {}, index = -1) {
 }
 
 function titleRow(name, icon, index, collapse = true) {
-    console.log("titleRow", name, icon, index, collapse);
+    // console.log("titleRow", name, icon, index, collapse);
     return row(
         row(
             actionItem(icon, index, index) +

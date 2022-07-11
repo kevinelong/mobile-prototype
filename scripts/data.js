@@ -76,7 +76,7 @@ function Day(when, title = "", events = []) {
         p.dayWhen = when;
         // p.from = new Date(when.toLocaleString())
         events.forEach((e) => {
-            console.log(e.when, p.from, p.to, p.dayWhen);
+            // console.log(e.when, p.from, p.to, p.dayWhen);
             let timeWhen = new Date(e.when);
             timeWhen.setYear(1970);
             timeWhen.setMonth(0);
@@ -93,7 +93,7 @@ function Day(when, title = "", events = []) {
         });
     });
 
-    console.log(periods);
+    // console.log(periods);
 
     return {
         when: when,
@@ -1337,7 +1337,7 @@ SETTLE_GROUP_DATA.list[0].addExpense(new ExpenseRecord("Breakfast", 11.11));
 SETTLE_GROUP_DATA.list[0].addExpense(new ExpenseRecord("Lunch", 22.22));
 SETTLE_GROUP_DATA.list[0].addExpense(new ExpenseRecord("Dinner", 33.33));
 
-console.log(SETTLE_GROUP_DATA);
+// console.log(SETTLE_GROUP_DATA);
 
 const EVENTS_DATA = [
     new VitaEvent(Period(), "", "", "", "demo event", new Date(), cardData(...EXPLORE_DATA[0]))

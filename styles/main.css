@@ -165,7 +165,7 @@ input[type=number] {
 .help-text{
     font-size: 11px;
     margin: 6px 9px;
-    text-justify: newspaper;
+    text-justify: inter-word;
 }
 
 .map{

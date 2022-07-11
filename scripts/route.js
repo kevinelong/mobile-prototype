@@ -1041,9 +1041,14 @@ function handleRight(target, action, which, id) {
     hideDialog();
 }
 
+function isValidDateString(text){
+    const d = new Date(text);
+    return d.toString();
+}
+
 function apply(target, action, which, id = -1) {
     debugger;
-    if (which === (new Date(which)).toString()) {
+    if (isValidDateString(which)) {
 
         const selectElement = get(".filtered select");
         const whereValue = selectElement.selectedOptions[0].value;

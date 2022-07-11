@@ -91,7 +91,9 @@ function updateBalance(day, expenseRecordList, data, all) {
         day.querySelectorAll(".title-content")[0].innerHTML = data.titleText;
 
         const breakdown = day.querySelector(".breakdown .breakdown");
-        breakdown.outerHTML = dayBreakdown(data);
+        if(breakdown){
+            breakdown.outerHTML = dayBreakdown(data);
+        }
     } catch (error) {
         console.error(error);
     }
