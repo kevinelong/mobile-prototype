@@ -60,7 +60,16 @@ const LATE_NIGHT = 7;
 
 
 
+const optionsDateString = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+const optionsTimeString = { hour: 'numeric', minute: '2-digit' };
 
+function timeStringFromDate(dateObject){
+    return dateObject.toLocaleTimeString(undefined, optionsTimeString);
+}
+
+function dateStringFromDate(dateObject) {
+    return dateObject.toLocaleDateString(undefined, optionsDateString);
+}
 
 let current_period = LUNCH;
 

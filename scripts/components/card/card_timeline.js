@@ -1,7 +1,7 @@
-function timelineCard(ve = VitaEvent(), day={}) {
+function timelineCard(ve = VitaEvent(), day = {}) {
     if (ve.activity !== undefined) {
         ve.activity.actions = [];
-        return activityCard(ve.activity);
+        return activityEventCard(ve.activity, ve, day);
     }
     let qty = 0;
     if (ve.groups && ve.groups[0] && ve.groups[0].people) {
@@ -15,8 +15,6 @@ function timelineCard(ve = VitaEvent(), day={}) {
         booking = actionItem("book", "book", -1, "Book Now!");
     }
 
-    const optionsDateString = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' };
-    const optionsTimeString = { hour: 'numeric', minute: '2-digit' };
     // debugger;
     return div(
         `card timeline ${ve.kind} ${ve.period.name} ${currentClass(ve)}`,
@@ -25,8 +23,8 @@ function timelineCard(ve = VitaEvent(), day={}) {
             cardSection(
                 contentPanel(
                     row(
-                        cardSubtitle(`${ve.period.name.toUpperCase()} ${ve.period.from.toLocaleTimeString(undefined, optionsTimeString)} - ${ve.period.to.toLocaleTimeString(undefined, optionsTimeString)}, ${day.when.toLocaleDateString(undefined, optionsDateString)}`)
-                        + actionItem("edit", "slot", "", "Edit", "",true,0,true)
+                        cardSubtitle(`${ve.period.name} ${timeStringFromDate(ve.period.from)} - ${timeStringFromDate(ve.period.to)}, ${dateStringFromDate(day.when)}`)
+                        + actionItem("edit", "slot", "", "Edit", "", true, 0, true)
                     ) +
                     row(
                         icon(ve.kind) +
@@ -37,19 +35,19 @@ function timelineCard(ve = VitaEvent(), day={}) {
                 ) +
                 cardTags(ve.tags) +
                 ((!isCurrent(ve)) ?
-                div(
-                    "memories",
-                    col(
-                        row(text("Memories:")) +
-                        row(
+                    div(
+                        "memories",
+                        col(
+                            row(text("Memories:")) +
                             row(
-                                image("images/dish_1.png") +
-                                image("images/dish_2.png") +
-                                image("images/dish_3.png")
-                            ) + actionItem("upload", "", "", "Upload", "", false)
+                                row(
+                                    image("images/dish_1.png") +
+                                    image("images/dish_2.png") +
+                                    image("images/dish_3.png")
+                                ) + actionItem("upload", "", "", "Upload", "", false)
+                            )
                         )
-                    )
-                ) : "" )+
+                    ) : "") +
                 col(
                     ve.content
                 )
@@ -58,12 +56,12 @@ function timelineCard(ve = VitaEvent(), day={}) {
                 stack(
                     row(col(cardGroups(ve.groups)) + booking) +
                     div("card-actions",
-                        actionItem("invite", "", "", "Invite","") +
-                        actionItem("settings", "timeline", "", "Edit Tags","") +
+                        actionItem("invite", "", "", "Invite", "") +
+                        actionItem("settings", "timeline", "", "Edit Tags", "") +
                         // actionItem("edit", "mood", "", "Update Mood","") +
-                        (isCurrent(ve) ? actionItem( "check-in", "", "", "Check-In","")
+                        (isCurrent(ve) ? actionItem("check-in", "", "", "Check-In", "")
                             : "") +
-                        actionItem( "add-place", day.when, ve.period.from, "Add Place","", false)
+                        actionItem("add-place", day.when, ve.period.from, "Add Place", "", false)
                     ) +
                     actionList(`card-actions`, ve.actions, false, qty)
                 )

@@ -1047,7 +1047,7 @@ function isValidDateString(text){
 }
 
 function apply(target, action, which, id = -1) {
-    debugger;
+    // debugger;
     if (isValidDateString(which)) {
 
         const selectElement = get(".filtered select");

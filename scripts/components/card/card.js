@@ -115,7 +115,7 @@ function card(
     const groupsContent = groups ? col(cardGroups(groups)) : "";
 
     return div(
-        `card ${kind} ${which}`,
+        `card ${kind} ${which} ${currentClass(ve)}`,
         cardSection(
             cardTags(tags) +
             cardTitles(kind, titleText, subtitleText, which, index, page) +
@@ -443,6 +443,28 @@ function activityCard(item = {}, index = -1) {
     return card(
         "activity",
         item.title,
+        item.subtitle,
+        item.content,
+        item.groups,
+        item.actions,
+        item.imagePath,
+        item.tags,
+        item.id,
+        "recommended",
+        [],
+        "explore_detail",
+        item.match_percent,
+        item.booking_index,
+        item.action,
+        item.id
+    );
+}
+
+function activityEventCard(item = {}, ve, day) {
+    // debugger;
+    return card(
+        "activity",
+        item.title + "<br>\n" + timeStringFromDate(ve.when) + " " + dateStringFromDate(ve.when) ,
         item.subtitle,
         item.content,
         item.groups,

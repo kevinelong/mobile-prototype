@@ -129,6 +129,7 @@
 
 .card.not-current-period .card-inner > .content-panel,
 .card.not-current-period .card-inner > .row,
+.card.not-current-period .card-inner > .spread,
 .card.not-current-period .card-inner > .text,
 .card.not-current-period .action-item,
 .card.not-current-period .card-people,
@@ -138,6 +139,7 @@
 
 .card.not-current-period.selected .card-inner > .content-panel,
 .card.not-current-period.selected .card-inner > .row,
+.card.not-current-period.selected .card-inner > .spread,
 .card.not-current-period.selected .card-inner > .text,
 .card.not-current-period.selected .action-item,
 .card.not-current-period.selected .card-people{
@@ -156,4 +158,33 @@
 .current-mood{
     text-align: center;
     width: 100%;
+}
+
+.timeline.card .card-subtitle {
+    text-transform: capitalize;
+}
+
+
+.timeline .card-tags {
+    display: inline-flex;
+    flex-direction: row;
+    margin: 0 0;
+    white-space: nowrap;
+    overflow-x: scroll;
+    overflow-y: visible;
+    width: 100%;
+}
+
+.timeline .hash-tag {
+    white-space: nowrap;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    vertical-align: middle;
+    margin: 0 0.25em 0.25em auto;
+    padding: 1px 5px 2px;
+    width: fit-content;
+    box-shadow: 1px 1px 2px black;
+    cursor: pointer;
+    text-transform: capitalize;
 }

@@ -88,7 +88,7 @@ function hideAll(selector) {
     if (!e) {
         return;
     }
-    e.forEach(i=> i.classList.add("hidden"));
+    e.forEach(i => i.classList.add("hidden"));
 }
 
 function selectItemMainNav(e, id, index, text) {
@@ -194,7 +194,7 @@ function applyFilter(e, id, index, text) {
     if (page.classList.contains("connect")) {
         applyConnectFilter(e, id, index, text);
     } else if (page.classList.contains("settle")) {
-            applySettleFilter(e, id, index, text);
+        applySettleFilter(e, id, index, text);
     } else if (page.classList.contains("explore")) {
         if (id === "to-do-subcategory-choices") {
             if (text === "BROADCAST") {
@@ -297,7 +297,7 @@ const isCurrent = ve => {
     const periods = getPeriods();
     const currentPeriodObject = periods[current_period];
     // debugger;
-    if (ve.period.from.getTime() === currentPeriodObject.from.getTime()) {
+    if (ve.period.from && (ve.period.from.getTime() === currentPeriodObject.from.getTime())) {
         // debugger;
         return true;
     }
@@ -316,6 +316,6 @@ function initials(name) {
         .join("");
 }
 
-function round(amount){
-    return Math.round(amount*100)/100;
+function round(amount) {
+    return Math.round(amount * 100) / 100;
 }

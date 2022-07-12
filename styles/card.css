@@ -164,8 +164,10 @@
     display: block;
     margin: 0 0;
     white-space: nowrap;
-    overflow-y: hidden;
     overflow-x: scroll;
+    overflow-y: visible;
+    height: auto;
+    width: 100%;
 }
 
 .page.explore .hash-tag {
