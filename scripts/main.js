@@ -57,11 +57,16 @@ function initScroll() {
             false
         );
     };
+
     let cardList = get(".timeline.page .card-list");
     const cps = cardList.querySelectorAll(".is-current-period");
+
     if (cps && cps.length > 1) {
         cardList.scrollTop = cps[1].offsetTop - 20;
+    }else{
+        console.log("WTF", cps, cardList, cps.length, cps[1].offsetTop);
     }
+
     const cardListHeight = cardList.offsetHeight;
     const cardListHeightHalf = Math.floor(cardListHeight / 2);
 
@@ -71,26 +76,60 @@ function initScroll() {
     const divisor = 2;
 
     let scrolling = false;
+    const snapScroll = () => {
+        if (scrolling) {
+            return;
+        }
+        scrolling = true;
 
-    onScrollStop(
-        cardList,
-        () => {
-            if (scrolling) {
-                return;
+        let scrollAmount = cardList.scrollTop;
+
+        let centers = [];
+
+        [...cardList.querySelectorAll(".card")].forEach((c) => {
+            const half = Math.floor(c.offsetHeight / 2);
+            const delta = Math.abs(
+                c.offsetTop +
+                half +
+                offset2 -
+                (scrollAmount + cardListHeightHalf)
+            );
+            // console.log(delta, scrollAmount, cardListHeightHalf, half, c.offsetTop);
+            centers.push([delta, c]);
+        });
+        centers.sort((a, b) => a[0] - b[0]);
+        centers.forEach((c, i) => {
+            let o = c[1];
+            if (i === 0) {
+                o.style.opacity = 1;
+                o.classList.add("selected");
+                // console.log(Array.from(o.parentNode.children).indexOf(o));
+                // console.log(o.)
+                // console.log(o.offsetTop, cardListHeightHalf, o.offsetHeight);
+                cardList.scroll({
+                    top:
+                        offset +
+                        (o.offsetTop - cardListHeightHalf) +
+                        Math.floor(o.offsetHeight / divisor),
+                    behavior: "smooth",
+                });
+            } else {
+                o.classList.remove("selected");
+                o.style.opacity = "0.65";
             }
-            scrolling = true;
+        });
 
-            let scrollAmount = cardList.scrollTop;
-
-            let centers = [];
+        scrollAmount = cardList.scrollTop;
+        setTimeout(() => {
+            centers = [];
 
             [...cardList.querySelectorAll(".card")].forEach((c) => {
                 const half = Math.floor(c.offsetHeight / 2);
                 const delta = Math.abs(
                     c.offsetTop +
-                        half +
-                        offset2 -
-                        (scrollAmount + cardListHeightHalf)
+                    half +
+                    offset2 -
+                    (scrollAmount + cardListHeightHalf)
                 );
                 // console.log(delta, scrollAmount, cardListHeightHalf, half, c.offsetTop);
                 centers.push([delta, c]);
@@ -116,53 +155,22 @@ function initScroll() {
                     o.style.opacity = "0.65";
                 }
             });
+        }, 310);
 
-            scrollAmount = cardList.scrollTop;
-            setTimeout(() => {
-                centers = [];
+        setTimeout(() => {
+            scrolling = false;
+        }, 650);
 
-                [...cardList.querySelectorAll(".card")].forEach((c) => {
-                    const half = Math.floor(c.offsetHeight / 2);
-                    const delta = Math.abs(
-                        c.offsetTop +
-                            half +
-                            offset2 -
-                            (scrollAmount + cardListHeightHalf)
-                    );
-                    // console.log(delta, scrollAmount, cardListHeightHalf, half, c.offsetTop);
-                    centers.push([delta, c]);
-                });
-                centers.sort((a, b) => a[0] - b[0]);
-                centers.forEach((c, i) => {
-                    let o = c[1];
-                    if (i === 0) {
-                        o.style.opacity = 1;
-                        o.classList.add("selected");
-                        // console.log(Array.from(o.parentNode.children).indexOf(o));
-                        // console.log(o.)
-                        // console.log(o.offsetTop, cardListHeightHalf, o.offsetHeight);
-                        cardList.scroll({
-                            top:
-                                offset +
-                                (o.offsetTop - cardListHeightHalf) +
-                                Math.floor(o.offsetHeight / divisor),
-                            behavior: "smooth",
-                        });
-                    } else {
-                        o.classList.remove("selected");
-                        o.style.opacity = "0.65";
-                    }
-                });
-            }, 310);
+        //console.log(centers);
+    }
 
-            setTimeout(() => {
-                scrolling = false;
-            }, 650);
-
-            //console.log(centers);
-        },
+    onScrollStop(
+        cardList,
+        snapScroll,
         milliseconds
     );
+
+    snapScroll();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -235,7 +243,7 @@ document.addEventListener("DOMContentLoaded", () => {
         )
     );
 
-    initScroll();
+    setTimeout(initScroll, 500);
 
     listen(
         "click",

@@ -297,7 +297,7 @@ const isCurrent = ve => {
     const periods = getPeriods();
     const currentPeriodObject = periods[current_period];
     // debugger;
-    if (ve.period.from === currentPeriodObject.from) {
+    if (ve.period.from.getTime() === currentPeriodObject.from.getTime()) {
         // debugger;
         return true;
     }
