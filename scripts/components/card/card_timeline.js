@@ -1,6 +1,6 @@
 function timelineCard(ve = VitaEvent(), day = {}) {
     if (ve.activity !== undefined) {
-        ve.activity.actions = [];
+        // ve.activity.actions = [];
         return activityEventCard(ve.activity, ve, day);
     }
     let qty = 0;

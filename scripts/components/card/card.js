@@ -80,6 +80,25 @@ function actionList(id, list = [], hideText = false, qty = 0, iconColor = "") {
     );
 }
 
+function actionColumn(id, list = [], hideText = false, qty = 0, iconColor = "") {
+    return div(
+        `action-list col ${id}`,
+        [...list].reverse()
+            .map((c, i) =>
+                actionItemStep(
+                    c,
+                    id,
+                    i + 1,
+                    titleCase(c),
+                    iconColor,
+                    hideText,
+                    qty)
+            )
+            .join(""),
+        `id="${id}" class='action-list'`
+    );
+}
+
 function cardList(content, collapse = false) {
     return div("card-list" + (collapse ? " collapse" : ""), content);
 }
@@ -128,6 +147,57 @@ function card(
         +
         actionList(`card-actions`, actions),
 
+        action("open", page, index) +
+        actionAttribute +
+        attrs +
+        ` data-kind="${cleanName(kind)}" data-which="${which}" ` +
+        cardStyle(ve)
+    )
+}
+function eventCard(
+    kind = "explore",
+    titleText = "",
+    subtitleText = "",
+    content = "",
+    groups = [],
+    actions = [],
+    image = "",
+    tags = [],
+    which = -1,
+    attrs = "",
+    period = "",
+    page = "",
+    match_percent = "",
+    booking_index = -1,
+    actionAttribute = "",
+    index = -1
+) {
+    // debugger;
+    period = period ? period : Period();
+    const ve = VitaEvent(period, kind);
+    ve.imagePath = image;
+
+    let booking = "";
+    if (booking_index >= 0) {
+        booking = actionItem("book", "book", booking_index, "Book Now!");
+    }
+    const match = match_percent ? div("card-title", `${match_percent}% match`) : "";
+    const groupsContent = groups ? cardGroups(groups) : "";
+
+    return div(
+        `card ${kind} ${which} ${currentClass(ve)}`,
+        cardSection(
+            cardTags(tags) +
+            cardTitles(kind, titleText, subtitleText, which, index, page)
+        ) +
+        spread(
+            col(
+                contentPanel(content) +
+                match +
+                groupsContent
+            ) +
+            actionColumn(`card-actions`, ["invite", "check-in", "verify", "split", "review", "upload"].reverse())
+        ),
         action("open", page, index) +
         actionAttribute +
         attrs +
@@ -462,7 +532,7 @@ function activityCard(item = {}, index = -1) {
 
 function activityEventCard(item = {}, ve, day) {
     // debugger;
-    return card(
+    return eventCard(
         "activity",
         item.title + "<br>\n" + timeStringFromDate(ve.when) + " " + dateStringFromDate(ve.when) ,
         item.subtitle,
