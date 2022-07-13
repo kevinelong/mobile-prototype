@@ -71,6 +71,8 @@ function dateStringFromDate(dateObject) {
     return dateObject.toLocaleDateString(undefined, optionsDateString);
 }
 
+
+// TO DO - make period based on current time. Logic may be similar to similar to new VitaEvent period
 let current_period = LUNCH;
 
 function Day(when, title = "", events = []) {
