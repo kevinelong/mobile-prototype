@@ -331,6 +331,8 @@ document.addEventListener("DOMContentLoaded", () => {
     ed.innerHTML = exploreCardDetail(...EXPLORE_DATA[6]);
 
     function now() {
+        // TODO hard code to find dead zones and test fixes for dead zones.
+        // return new Date("2022-07-14T11:46:00");
         return new Date();
     }
 

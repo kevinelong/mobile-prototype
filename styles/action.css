@@ -55,12 +55,9 @@
                 color 300ms ease-in-out,
                 transform 300ms ease-in-out;
 }
+
 .person-icon .action-item{
     display: inline-block;
-}
-.action-list.col .action-item {
-    min-width: 115px;
-    justify-content: flex-start;
 }
 
 .explore.page .action-item.small {

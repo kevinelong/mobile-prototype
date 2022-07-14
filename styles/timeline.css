@@ -162,18 +162,24 @@
     display: flex;
 }
 
-/*.timeline .activity.card{*/
-/*    background: #000c;*/
-/*}*/
-
-.timeline .action-item{
+.timeline  .action-list .action-item{
+    min-width: 90px;
+    justify-content: flex-start;
     background: #fa0c;
+    padding: 3px;
+    font-size: 9px;
 }
 
-.timeline .action-item.completed{
+.timeline .action-list .action-item .icon {
+    max-width: 12px;
+    max-height: 12px;
+}
+
+.timeline .action-list .action-item.completed{
     background: #fa03;
 }
-.timeline .action-item.completed:hover{
+
+.timeline .action-list .action-item.completed:hover{
     background: #888888ff;
     border: none;
 }
