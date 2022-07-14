@@ -80,19 +80,18 @@ function actionList(id, list = [], hideText = false, qty = 0, iconColor = "") {
     );
 }
 
-function actionColumn(id, list = [], hideText = false, qty = 0, iconColor = "") {
+function actionColumn(id, list = [], completed = 0) {
     return div(
         `action-list col ${id}`,
-        [...list].reverse()
+        [...list]
             .map((c, i) =>
                 actionItemStep(
                     c,
                     id,
                     i + 1,
                     titleCase(c),
-                    iconColor,
-                    hideText,
-                    qty)
+                    completed
+                )
             )
             .join(""),
         `id="${id}" class='action-list'`
@@ -154,6 +153,7 @@ function card(
         cardStyle(ve)
     )
 }
+
 function eventCard(
     kind = "explore",
     titleText = "",
@@ -184,6 +184,9 @@ function eventCard(
     const match = match_percent ? div("card-title", `${match_percent}% match`) : "";
     const groupsContent = groups ? cardGroups(groups) : "";
 
+    actions = ["invite", "check-in", "verify", "split", "review", "upload"];
+    const completed = 2;
+
     return div(
         `card ${kind} ${which} ${currentClass(ve)}`,
         cardSection(
@@ -196,7 +199,11 @@ function eventCard(
                 match +
                 groupsContent
             ) +
-            actionColumn(`card-actions`, ["invite", "check-in", "verify", "split", "review", "upload"].reverse())
+            col(
+                row(row(coin()) + text(`+${5}pts`, "gold"), "","centered") +
+                spread(meter(actions.length, completed)) +
+                actionColumn(`card-actions`, actions, completed)
+            )
         ),
         action("open", page, index) +
         actionAttribute +
@@ -534,7 +541,7 @@ function activityEventCard(item = {}, ve, day) {
     // debugger;
     return eventCard(
         "activity",
-        item.title + "<br>\n" + timeStringFromDate(ve.when) + " " + dateStringFromDate(ve.when) ,
+        item.title + "<br>\n" + timeStringFromDate(ve.when) + " " + dateStringFromDate(ve.when),
         item.subtitle,
         item.content,
         item.groups,

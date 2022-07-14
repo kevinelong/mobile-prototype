@@ -1349,9 +1349,12 @@ SETTLE_GROUP_DATA.list[0].addExpense(new ExpenseRecord("Lunch", 22.22));
 SETTLE_GROUP_DATA.list[0].addExpense(new ExpenseRecord("Dinner", 33.33));
 
 // console.log(SETTLE_GROUP_DATA);
-
+// TODO add more events for debugging use index into array at end to choose alternate activities
+// TODO change
 const EVENTS_DATA = [
-    new VitaEvent(Period(), "", "", "", "demo event", new Date(), cardData(...EXPLORE_DATA[0]))
+    new VitaEvent(Period(), "", "", "", "demo event", new Date(), cardData(...EXPLORE_DATA[0])),
+    // new VitaEvent(Period(), "", "", "", "demo event", new Date("2022-07-14T11:45:00"), cardData(...EXPLORE_DATA[1])),
+    // new VitaEvent(Period(), "", "", "", "demo event", new Date("2022-07-15T00:45:00"), cardData(...EXPLORE_DATA[2])),
 ];
 
 const injectVitaEventProps = (periods) =>

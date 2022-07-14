@@ -56,9 +56,8 @@
                 transform 300ms ease-in-out;
 }
 
-.action-list.col .action-item {
-    min-width: 115px;
-    justify-content: flex-start;
+.person-icon .action-item{
+    display: inline-block;
 }
 
 .explore.page .action-item.small {

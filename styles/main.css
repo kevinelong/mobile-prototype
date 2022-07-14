@@ -625,6 +625,11 @@ input[type="text"].tag-input {
 
 .gold {
     color: #F9A831;
+    /*background: white;*/
+}
+
+.settle .gold {
+    color: #F9A831;
     background: white;
 }
 

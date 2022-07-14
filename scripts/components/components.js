@@ -41,11 +41,11 @@ function col(content, attrs = "", className = "") {
     return div(`col${(className ? ' ' + className : '')}`, content, attrs);
 }
 
-function stack(content, attrs="", className="") {
+function stack(content, attrs = "", className = "") {
     return div(`stack${(className ? ' ' + className : '')}`, content, attrs);
 }
 
-function rack(content, attrs="", className="") {
+function rack(content, attrs = "", className = "") {
     return div(`rack${(className ? ' ' + className : '')}`, content, attrs);
 }
 
@@ -137,7 +137,7 @@ function sectionTitle(content) {
 }
 
 
-function actionButton(content, actionName="", which="", id="", attrs="") {
+function actionButton(content, actionName = "", which = "", id = "", attrs = "") {
     actionName = actionName ? actionName : cleanName(content);
     which = which ? which : actionName;
     return closedTag(
@@ -157,9 +157,9 @@ function mapPreview() {
 function mapPanel() {
     return div("map-panel",
         button("Est. Time/Distance", "", `est-time-distance button`) +
-        actionItem("pin")+
+        actionItem("pin") +
         mapPreview()
-    , action("pin"));
+        , action("pin"));
 }
 
 function hashTags(tags, tagAttrs = "") {
@@ -191,7 +191,7 @@ function interestList(title, list, limit = 4) {
 }
 
 
-function labeledInput(name = "", inputType = "text", attrs="") {
+function labeledInput(name = "", inputType = "text", attrs = "") {
     return label(
         cleanName(name),
         (name ? text(name) : "") + input(name, inputType, attrs)
@@ -200,7 +200,7 @@ function labeledInput(name = "", inputType = "text", attrs="") {
 
 function newISODateTime(timeStamp) {
     const date = new Date();
-    const dateTimeStr = new Date(timeStamp - (date.getTimezoneOffset() * 60000 ))
+    const dateTimeStr = new Date(timeStamp - (date.getTimezoneOffset() * 60000))
         .toISOString();
     return dateTimeStr;
 }
@@ -244,11 +244,11 @@ function selectTimeRange(name = "") {
     return labeledRange(name, "time");
 }
 
-function calendarControl(name="calendar"){
+function calendarControl(name = "calendar") {
     return div("calendar-control", input(name, "date"))
 }
 
-function timeControl(name="time"){
+function timeControl(name = "time") {
     return div("time-control", input(name, "time"))
 }
 
@@ -257,7 +257,7 @@ const filtered = (objectList = [{}], valueKey, displayKey) => {
     const i = document.createElement("input");
     const s = document.createElement("select");
 
-    s.addEventListener("change", e=> {
+    s.addEventListener("change", e => {
         i.value = s.selectedOptions[0].innerHTML;
         s.style.maxHeight = "0vh";
         [...s.children].forEach(
@@ -304,3 +304,16 @@ const filtered = (objectList = [{}], valueKey, displayKey) => {
     );
     return filtered;
 };
+
+
+const meterStep = (completed = false) => div(`meter-step` + (completed === true ? " completed" : ""));
+
+const meter = (steps = 5, completed = 2) =>
+    div("progress-meter",
+        div("meter-start") +
+        repeat(() => meterStep(true), completed) +
+        repeat(meterStep, steps - completed) +
+        div("meter-finish")
+    );
+
+const coin = () => div(`coin`, div("front") + div("back"));

@@ -319,3 +319,6 @@ function initials(name) {
 function round(amount) {
     return Math.round(amount * 100) / 100;
 }
+
+const range = (a, b) => [...Array(b + 1).keys()].slice(a);
+const repeat = (f, n) => range(1, n).map(f).join('');

@@ -281,6 +281,11 @@
 
 }
 
+.page.timeline .activity.card {
+    border-left: none;
+    padding: 1em;
+}
+
 .page.explore_detail .card {
     min-height: 466px;
 }
@@ -848,7 +853,7 @@
     justify-content: space-between;
 }
 
-.page.collect_board .card .action-item.collect{
+.page.collect_board .card .action-item.collect {
     display: none;
 }
 

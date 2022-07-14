@@ -1,11 +1,12 @@
 function tag(name, className = "", attrs = "") {
-    return `<${name} class="${className}" ${attrs}>`;
+    return `<${name} class="${className}" ${attrs} />`;
 }
 
 function closedTag(name, content, className = "", attrs = "") {
     return `<${name} class="${className} ${name}" ${attrs}>${content !== undefined ? content : ""}</${name}>`;
 }
 
+// const div = (cls = "", cnt = "", attrs = "") => `<div class="${cls}" ${attrs}>${cnt}</div>`;
 function div(className, content, attrs) {
     return closedTag("div", content, className, attrs);
 }
@@ -61,7 +62,6 @@ function input(name, inputType = "text", attrs = "") {
         `name="${name}" id="${name}" class="${name}" type="${inputType}" onkeypress="onTextInput(event);" ${attrs}`
     );
 }
-
 
 function option(name, value) {
     return closedTag(
