@@ -430,3 +430,51 @@ input[type="radio"] {
     padding: 0.5em;
     border-radius: 0.5em;
 }
+
+.checkered{
+    background: repeating-conic-gradient(black 0% 25%, white 0% 50%) 50% / 2px 2px;
+}
+
+.progress-meter {
+    /*width: fit-content;*/
+    min-height: 8px;
+    background: black;
+    border: 1px solid black;
+    display: flex;
+    gap: 1px;
+    flex-direction: row;
+    width: 100%;
+}
+.page.timeline .progress-meter {
+    margin-right: 1em;
+}
+.meter-step {
+    background: #666;
+    border: 1px solid #333;
+    min-height: 8px;
+    min-width: 15px;
+    display: inline-block;
+    margin: 0;
+}
+
+.meter-step.completed {
+    background: #c93;
+    border: 1px solid #fc9;
+}
+
+.meter-start {
+    background: green;
+    border: 1px solid darkgreen;
+    min-height: 8px;
+    min-width: 8px;
+    display: inline-block;
+}
+
+.meter-finish {
+    background: black;
+    border: 1px solid #333;
+    min-height: 8px;
+    min-width: 8px;
+    display: inline-block;
+    background: repeating-conic-gradient(black 0% 25%, white 0% 50%) 50% / 3px 3px;
+}

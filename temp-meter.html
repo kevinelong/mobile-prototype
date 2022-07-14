@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .progress-meter {
+            width: fit-content;
+            min-height: 5px;
+            background: black;
+            border: 1px solid black;
+            display: flex;
+            gap: 1px;
+        }
+
+        .meter-step {
+            background: #666;
+            border: 1px solid #333;
+            min-height: 5px;
+            min-width: 8px;
+            display: inline-block;
+            margin: 0;
+        }
+
+        .meter-step.completed {
+            background: #c93;
+            border: 1px solid #fc9;
+        }
+
+        .meter-start {
+            background: green;
+            border: 1px solid darkgreen;
+            min-height: 5px;
+            min-width: 5px;
+            display: inline-block;
+        }
+
+        .meter-finish {
+            background: black;
+            border: 1px solid #333;
+            min-height: 5px;
+            min-width: 5px;
+            display: inline-block;
+            background: repeating-conic-gradient(black 0% 25%, white 0% 50%) 50% / 3px 3px;
+        }
+    </style>
+</head>
+<body></body>
+<script>
+    const range = (a, b) => [...Array(b + 1).keys()].slice(a);
+    const div = (cls = "", cnt = "", attrs = "") => `<div class="${cls}" ${attrs}>${cnt}</div>`;
+    const repeat = (f, n) => range(1, n).map(f).join('');
+    const meterStep = (completed = false) => div(`meter-step` + (completed===true ? " completed" : ""));
+    const meter = (steps = 5, completed = 2) => div("progress-meter",
+        div("meter-start") +
+        repeat(() => meterStep(true), completed) +
+        repeat(meterStep, steps - completed) +
+        div("meter-finish")
+    );
+
+    document.body.innerHTML = meter(7, 3);
+</script>
+</html>

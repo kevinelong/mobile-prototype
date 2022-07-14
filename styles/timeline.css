@@ -131,7 +131,9 @@
 .card.not-current-period .card-inner > .row,
 .card.not-current-period .card-inner > .spread,
 .card.not-current-period .card-inner > .text,
-.card.not-current-period .action-item,
+.card.not-current-period  div.coin,
+.card.not-current-period  div.text,
+.card.not-current-period .action-list .action-item,
 .card.not-current-period .card-people,
 .card.not-current-period .card-tags{
         display: none;
@@ -141,9 +143,14 @@
 .card.not-current-period.selected .card-inner > .row,
 .card.not-current-period.selected .card-inner > .spread,
 .card.not-current-period.selected .card-inner > .text,
-.card.not-current-period.selected .action-item,
+.card.not-current-period.selected .coin,
+.card.not-current-period.selected .text,
 .card.not-current-period.selected .card-people{
         display: flex;
+}
+
+.card.not-current-period.selected .action-list .action-item {
+        display: inline-block;
 }
 
 .card.not-current-period.selected .card-tags{
@@ -153,6 +160,22 @@
 .card.not-current-period .action-item.plan,
 .card.not-current-period .row > .card-subtitle{
     display: flex;
+}
+
+/*.timeline .activity.card{*/
+/*    background: #000c;*/
+/*}*/
+
+.timeline .action-item{
+    background: #fa0c;
+}
+
+.timeline .action-item.completed{
+    background: #fa03;
+}
+.timeline .action-item.completed:hover{
+    background: #888888ff;
+    border: none;
 }
 
 .current-mood{
