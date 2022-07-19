@@ -360,9 +360,16 @@ function showMoodDialog(title = "Mood", index = -1) {
 
 function showReviewDialog() {
     showDialog(
-        "Write Review",
+        "Rate & Review",
         contentPanel(
-            label("review", text("Review") + textarea("review")) +
+            col(
+                label("rate", text("Rate")) +
+                ratingAction() +
+                label("review", text("Review") + textarea("review")),
+                "",
+                'review-dialog'
+            )
+             +
             actionList("", ["cancel", "save"], false, 0, "black")
         )
     );

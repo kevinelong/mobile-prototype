@@ -130,12 +130,30 @@ input[type=number] {
     overflow: hidden;
 }
 
+.dialog .rating-action .rating,
 .rating-action:hover .rating {
     opacity: 1;
     transition:
             opacity 100ms ease-in-out,
             width 100ms ease-in-out;
     width: 110px;
+}
+
+.dialog .rating-action {
+    margin-bottom: 1em;
+    margin-left: -100vw;
+}
+
+.dialog .rating-action .rating {
+    left: 100vw;
+}
+
+.dialog .review-dialog.col {
+    min-width: 100%;
+}
+
+.dialog .review.label {
+    min-width: 100%;
 }
 
 .rating-action {
