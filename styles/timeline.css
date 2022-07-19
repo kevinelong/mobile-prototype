@@ -131,7 +131,7 @@
 .card.not-current-period .card-inner > .row,
 .card.not-current-period .card-inner > .spread,
 .card.not-current-period .card-inner > .text,
-.card.not-current-period  div.coin,
+.card.not-current-period  div.dot,
 .card.not-current-period  div.text,
 .card.not-current-period .action-list .action-item,
 .card.not-current-period .card-people,
@@ -143,7 +143,7 @@
 .card.not-current-period.selected .card-inner > .row,
 .card.not-current-period.selected .card-inner > .spread,
 .card.not-current-period.selected .card-inner > .text,
-.card.not-current-period.selected .coin,
+.card.not-current-period.selected .dot,
 .card.not-current-period.selected .text,
 .card.not-current-period.selected .card-people{
         display: flex;

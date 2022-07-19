@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body, html {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+            background: deepskyblue;
+            gap: 1em;
+        }
+
+        :root {
+            --dot-size: 2em;
+            --half-dot-size: 1em;
+        }
+
+        .dot {
+            background: gold;
+            width: var(--dot-size);
+            height: var(--dot-size);
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            -webkit-transform-style: preserve-3d;
+            animation: dot-move 3s alternate linear infinite;
+            /*transform: translateX(-dot-size);*/
+        }
+
+        @keyframes dot-move {
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+            50% {
+                transform: translate3d(calc(50vw - var(--half-dot-size)), calc(-100vh + var(--dot-size)), 0);
+            }
+            100% {
+                transform: translate3d(calc(100vw - var(--dot-size)), 0, 0);
+            }
+        }
+
+    </style>
+</head>
+<body>
+</body>
+<script>
+    // const range = (a, b) => [...Array(b + 1).keys()].slice(a);
+    const div = (cls = "", cnt = "", attrs = "") => `<div class="${cls}" ${attrs}>${cnt}</div>`;
+    const dot = () => div(`dot`);
+    document.body.innerHTML = dot();
+
+</script>
+</html>
