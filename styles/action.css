@@ -26,7 +26,7 @@
 
 .action-list,
 .card-actions {
-    gap: 0.25rem;
+    gap: 0;
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
@@ -55,6 +55,11 @@
                 color 300ms ease-in-out,
                 transform 300ms ease-in-out;
 }
+
+.person-icon .action-item{
+    display: inline-block;
+}
+
 .explore.page .action-item.small {
     padding: 1px 2px;
     margin: 0;
@@ -121,8 +126,8 @@
 }
 
 .action-list .action-item .icon {
-    max-width: 24px;
-    max-height: 24px;
+    max-width: 18px;
+    max-height: 18px;
 }
 
 .title .action-item .icon {

@@ -104,6 +104,22 @@
     const participants = label("participants",
         text("Participants:") +
         [
+    const NAMED_GROUPS = [
+        {
+            name: "The Gang",
+            people: three_people
+        }
+    ];
+
+    const namedGroup = (g) => {
+        return row(
+            text(g.name) +
+            [...g.people].map(p => cardPerson(p, p.id - 1, 9, p.id - 1)).join("")
+            + actionItem("Add")
+        ,"","named-group");
+    };
+
+    const myGroups = col(text([
             "Kevin",
             "Greg",
             "Ahn Group (Added)",
@@ -114,6 +130,11 @@
         input("search-groups", "text", `placeholder="type group name to add group"`) +
         div("results") +
         button("Create New Group");
+            "Ahn",
+        ].join(", ")) +
+        input("search-groups", "text", `placeholder="type name, email, or # to add participant"`) +
+        div("results", NAMED_GROUPS.map(namedGroup).join("")) +
+        button("Create New Group"));
 
     const myNetwork = participants +
         input("search-network", "text", `placeholder="type name, email, or # to add participant"`) +

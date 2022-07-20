@@ -129,8 +129,11 @@
 
 .card.not-current-period .card-inner > .content-panel,
 .card.not-current-period .card-inner > .row,
+.card.not-current-period .card-inner > .spread,
 .card.not-current-period .card-inner > .text,
-.card.not-current-period .action-item,
+.card.not-current-period  div.dot,
+.card.not-current-period  div.text,
+.card.not-current-period .action-list .action-item,
 .card.not-current-period .card-people,
 .card.not-current-period .card-tags{
         display: none;
@@ -138,10 +141,16 @@
 
 .card.not-current-period.selected .card-inner > .content-panel,
 .card.not-current-period.selected .card-inner > .row,
+.card.not-current-period.selected .card-inner > .spread,
 .card.not-current-period.selected .card-inner > .text,
-.card.not-current-period.selected .action-item,
+.card.not-current-period.selected .dot,
+.card.not-current-period.selected .text,
 .card.not-current-period.selected .card-people{
         display: flex;
+}
+
+.card.not-current-period.selected .action-list .action-item {
+        display: inline-block;
 }
 
 .card.not-current-period.selected .card-tags{
@@ -153,7 +162,58 @@
     display: flex;
 }
 
+.timeline  .action-list .action-item{
+    min-width: 90px;
+    justify-content: flex-start;
+    background: #fa0c;
+    padding: 3px;
+    font-size: 9px;
+}
+
+.timeline .action-list .action-item .icon {
+    max-width: 12px;
+    max-height: 12px;
+}
+
+.timeline .action-list .action-item.completed{
+    background: #fa03;
+}
+
+.timeline .action-list .action-item.completed:hover{
+    background: #888888ff;
+    border: none;
+}
+
 .current-mood{
     text-align: center;
     width: 100%;
+}
+
+.timeline.card .card-subtitle {
+    text-transform: capitalize;
+}
+
+
+.timeline .card-tags {
+    display: inline-flex;
+    flex-direction: row;
+    margin: 0 0;
+    white-space: nowrap;
+    overflow-x: scroll;
+    overflow-y: visible;
+    width: 100%;
+}
+
+.timeline .hash-tag {
+    white-space: nowrap;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    vertical-align: middle;
+    margin: 0 0.25em 0.25em auto;
+    padding: 1px 5px 2px;
+    width: fit-content;
+    box-shadow: 1px 1px 2px black;
+    cursor: pointer;
+    text-transform: capitalize;
 }

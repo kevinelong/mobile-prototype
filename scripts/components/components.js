@@ -41,11 +41,11 @@ function col(content, attrs = "", className = "") {
     return div(`col${(className ? ' ' + className : '')}`, content, attrs);
 }
 
-function stack(content, attrs="", className="") {
+function stack(content, attrs = "", className = "") {
     return div(`stack${(className ? ' ' + className : '')}`, content, attrs);
 }
 
-function rack(content, attrs="", className="") {
+function rack(content, attrs = "", className = "") {
     return div(`rack${(className ? ' ' + className : '')}`, content, attrs);
 }
 
@@ -137,13 +137,14 @@ function sectionTitle(content) {
 }
 
 
-function actionButton(content, actionName, which="", attrs) {
+function actionButton(content, actionName = "", which = "", id = "", attrs = "") {
+    actionName = actionName ? actionName : cleanName(content);
     which = which ? which : actionName;
     return closedTag(
         "button",
         content,
         `action-button ${actionName}`,
-        `onclick="actionClick(event, '${actionName}', '${which}', '${which}')" $attrs`
+        `onclick="actionClick(event, this, '${actionName}', '${which}', '${id}');" ${attrs}`
     );
 }
 
@@ -158,7 +159,7 @@ function mapPanel() {
         button("Est. Time/Distance", "", `est-time-distance button`) +
         actionItem("pin") +
         mapPreview()
-    );
+        , action("pin"));
 }
 
 function hashTags(tags, tagAttrs = "") {
@@ -190,19 +191,32 @@ function interestList(title, list, limit = 4) {
 }
 
 
-function labeledInput(name = "", inputType = "text", attrs="") {
+function labeledInput(name = "", inputType = "text", attrs = "") {
     return label(
         cleanName(name),
         (name ? text(name) : "") + input(name, inputType, attrs)
     );
 }
 
-function selectDate(name = "") {
-    return labeledInput(name, "date");
+function newISODateTime(timeStamp) {
+    const date = new Date();
+    const dateTimeStr = new Date(timeStamp - (date.getTimezoneOffset() * 60000))
+        .toISOString();
+    return dateTimeStr;
 }
 
-function selectTime(name = "") {
-    return labeledInput(name, "time");
+const safeTime = timeStamp => timeStamp ? timeStamp : (new Date()).getTime();
+
+function selectDate(name = "", timeStamp = undefined) {
+    timeStamp = safeTime(timeStamp);
+    const dateString = newISODateTime(timeStamp).split("T")[0];
+    return labeledInput(name, "date", `value=${dateString}`);
+}
+
+function selectTime(name = "", timeStamp = undefined) {
+    timeStamp = safeTime(timeStamp);
+    const timeString = newISODateTime(timeStamp).split("T")[1].slice(0, 5);
+    return labeledInput(name, "time", `value=${timeString}`);
 }
 
 function labeledRange(
@@ -230,10 +244,76 @@ function selectTimeRange(name = "") {
     return labeledRange(name, "time");
 }
 
-function calendarControl(name="calendar"){
+function calendarControl(name = "calendar") {
     return div("calendar-control", input(name, "date"))
 }
 
-function timeControl(name="time"){
+function timeControl(name = "time") {
     return div("time-control", input(name, "time"))
 }
+
+const filtered = (objectList = [{}], valueKey, displayKey) => {
+    const filtered = document.createElement("div");
+    const i = document.createElement("input");
+    const s = document.createElement("select");
+
+    s.addEventListener("change", e => {
+        i.value = s.selectedOptions[0].innerHTML;
+        s.style.maxHeight = "0vh";
+        [...s.children].forEach(
+            (c, i, a) => {
+                a[i].setAttribute("hidden", "hidden");
+            }
+        );
+    });
+
+    s.setAttribute("size", objectList.length.toString());
+    filtered.classList.add("filtered");
+
+    objectList.forEach(d => {
+        const o = document.createElement("option");
+        o.innerHTML = d[displayKey];
+        o.setAttribute("value", d[valueKey]);
+        s.appendChild(o);
+    });
+
+    i.style.padding = "0.5em";
+    i.setAttribute("placeholder", "Begin Typing Here")
+    filtered.style.display = 'flex';
+    filtered.style.flexDirection = 'column';
+    filtered.appendChild(i);
+    filtered.appendChild(s);
+    i.addEventListener("keyup", e => {
+
+            [...s.children].forEach(
+                (c, i, a) => {
+                    if (c.innerHTML.toUpperCase().indexOf(e.target.value.toUpperCase()) === -1) {
+                        a[i].setAttribute("hidden", "hidden");
+                    } else {
+                        a[i].removeAttribute("hidden");
+                    }
+                }
+            )
+            if (i.value.length === 0) {
+                s.style.maxHeight = "0vh";
+                return;
+            } else {
+                s.style.maxHeight = "30vh";
+            }
+        }
+    );
+    return filtered;
+};
+
+
+const meterStep = (completed = false) => div(`meter-step` + (completed === true ? " completed" : ""));
+
+const meter = (steps = 5, completed = 2) =>
+    div("progress-meter",
+        div("meter-start") +
+        repeat(() => meterStep(true), completed) +
+        repeat(meterStep, steps - completed) +
+        div("meter-finish")
+    );
+
+const coin = () => div(`coin`, div("front") + div("back"));

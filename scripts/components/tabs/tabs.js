@@ -10,23 +10,23 @@ function onTabClick(e, event) {
         t => t.classList.add("hidden")
     );
     event.target.classList.add("tab-highlight");
-    show(`.tab-content-${event.target.dataset.name}`);
+    show(`.tab-content-${cleanName(event.target.dataset.name)}`);
 }
 
 //HTML COMPONENTS
 const tab = (t, name) => {
     t.title = t.title ? t.title : t.name;
-    const highlight = t.name === name ? "tab-highlight" : "";
+    const highlight = cleanName(t.name) === cleanName(name) ? "tab-highlight" : "";
     return div(
-        `tab tab-${t.name} ${highlight}`,
+        `tab tab-${cleanName(t.name)} ${highlight}`,
         t.title + div(`tab-indicator`, ""),
-        `data-name=${t.name}`
+        `data-name=${cleanName(t.name)}`
     );
 }
 
 const tabContent = (t, name) => {
-    const hidden = t.name === name ? "" : "hidden";
-    return div(`tab-content tab-content-${t.name} ${hidden}`, t.content)
+    const hidden = cleanName(t.name) === cleanName(name) ? "" : "hidden";
+    return div(`tab-content tab-content-${cleanName(t.name)} ${hidden}`, t.content)
 }
 
 const tabSet = (name = "", tabList = [], selectedTabName = "", preTabs = "", postTabs = "") => {

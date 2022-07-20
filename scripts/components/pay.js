@@ -56,8 +56,13 @@ function getTotal(expenseRecordList) {
     return expenseRecordList.reduce((c, i) => i.amount + c, 0);
 }
 
-function updateTotal(e, list) {
-    e.innerHTML = currency(getTotal(list));
+function updateTotal(e, list, data) {
+    // e.innerHTML = currency(getTotal(list));
+    e.innerHTML = currency(data.getTotalIOwe())
+}
+
+function updateTitle(e, list) {
+    e.innerHTML = list.length;
 }
 
 function renderExpenseList(listElement, expenseRecordList, data) {
@@ -78,11 +83,17 @@ function updateBalance(day, expenseRecordList, data, all) {
     try {
         const listElement = day.querySelector(".expense-list");
         renderExpenseList(listElement, expenseRecordList, data);
+
         const list = day.querySelectorAll(".amount.balance");
         [...list].map(e => updateTotal(e, expenseRecordList, data));
+        day.querySelectorAll(".balance-owed")[0].innerHTML = currency(data.getOwedToMe())
+
+        day.querySelectorAll(".title-content")[0].innerHTML = data.titleText;
 
         const breakdown = day.querySelector(".breakdown .breakdown");
-        breakdown.outerHTML = dayBreakdown(data);
+        if(breakdown){
+            breakdown.outerHTML = dayBreakdown(data);
+        }
     } catch (error) {
         console.error(error);
     }
@@ -113,7 +124,6 @@ function onAddExpense(e) {
         expenseElementList.scrollTop = expenseElementList.scrollHeight;
     } catch (error) {
         console.error(error);
-        return;
     }
 }
 
@@ -208,16 +218,16 @@ function settleDayBlock(settleRecord, index, fullList) {
     // console.log(settleRecord, index, fullList)
 
     const titleContent = spread(
-        actionItem("add", "expense") +
-        text(settleRecord.titleText) +
+        actionItem("add", "expense", index) +
+        div("title-content", settleRecord.titleText) +
         // ) +
         // spread(
         text(settleRecord.message) +
-        rack(
-            text(settleRecord.amountPrefix) +
-            amount(settleRecord.amount, "balance") +
-            text(settleRecord.amountSuffix)
-        ) +
+        // rack(
+        // text(settleRecord.amountPrefix) +
+        // amount(settleRecord.amount, "balance") +
+        // text(settleRecord.amountSuffix)
+        // ) +
         actionItem("show")
         // actionItem("open", "settle_day", "", "Open Day", "black")
     );
@@ -240,24 +250,34 @@ function settleDayBlock(settleRecord, index, fullList) {
                 "breakdown",
                 stack(
                     rack(
-                        dayBreakdown(settleRecord) +
+                        // dayBreakdown(settleRecord) +
                         stack(
-                            text("Balance") +
+                            // text("Balance") +
                             rack(
                                 stack(
+                                    text("Owed to You") +
                                     amount(
                                         0,
                                         "",
-                                        "balance"
-                                    ) +
+                                        "balance-owed"
+                                    )
+                                    , "", "nowrap") +
+                                stack(
                                     actionItem(
                                         "settle",
                                         "",
                                         "",
-                                        "Settle",
+                                        "Settle Day",
                                         "black"
                                     )
-                                )
+                                ) + stack(
+                                    text("You Owe") +
+                                    amount(
+                                        0,
+                                        "",
+                                        "balance"
+                                    )
+                                    , "", "nowrap")
                             )
                         )
                     )

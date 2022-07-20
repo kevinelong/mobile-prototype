@@ -178,6 +178,7 @@ function showPeople(title = "Filter - People", index = -1) {
                         "categories",
                         [
                             "All",
+                            "Co-Planners",
                             "Friends",
                             "TasteMatch",
                             "Experts",
@@ -359,9 +360,16 @@ function showMoodDialog(title = "Mood", index = -1) {
 
 function showReviewDialog() {
     showDialog(
-        "Write Review",
+        "Rate & Review",
         contentPanel(
-            label("review", text("Review") + textarea("review")) +
+            col(
+                label("rate", text("Rate")) +
+                ratingAction() +
+                label("review", text("Review") + textarea("review")),
+                "",
+                'review-dialog'
+            )
+             +
             actionList("", ["cancel", "save"], false, 0, "black")
         )
     );
@@ -422,40 +430,78 @@ function showUploadDialog() {
     showDialog("Upload", input("file", "file", "") + actionButton("upload"));
 }
 
+function timeStringToArrayHHMM(time) {
+    time = time.toUpperCase();
+    var hours   = Number(time.match(/^(\d+)/)[1]);
+    var minutes = Number(time.match(/:(\d+)/)[1]);
+    var AMPM    = time.match(/\d+:\d+(.*)$/)[1];
+    if (AMPM === "PM" && hours < 12) hours = hours + 12;
+    if (AMPM === "AM" && hours === 12) hours = hours - 12;
+    return [hours, minutes];
+}
+
 function showAddPlace(
     titleText,
     places = [],
     actionText = "Add",
-    showWhen = true
+    showWhen = true,
+    when = undefined,
+    start = "12:00 AM"
 ) {
+    let dateValue = new Date(when);
+    let startValue = new Date(start);
+    // const timeParts = timeStringToArrayHHMM(start);
+    dateValue.setHours(startValue.getHours());
+    dateValue.setMinutes(startValue.getMinutes());
+    dateValue.setSeconds(0);
+    dateValue.setMilliseconds(0);
+
     showDialog(
         titleText,
-        label(
-            "place",
-            "Where" + input("place", "text", 'placeholder="Where?"')
-        ) +
-        places.map((p) => actionItem("right", p, -1, p, "")).join("") +
-        (showWhen ? label("place", "When" + input("time", "time")) : "") +
-        actionButton(actionText)
+        // label(
+        //     "place",
+        //     "Where" + input("place", "text", 'placeholder="Where?"')
+
+        div("place-search", "", `style="height:400px"`) +
+        // places.map((p) => actionItem("right", p, -1, p, "")).join("") +
+        (showWhen ? label("place", "When <br>" + selectDate("", dateValue).toLocaleString() + selectTime("", dateValue).toLocaleString()) : "") +
+        (when ? when.toString() : "no date") +
+        (start ? start.toString() : "no start") +
+        actionButton(actionText, "apply", when, start)
+    );
+
+    get(".place-search").appendChild(
+        filtered(
+            EXPLORE_DATA.map(item => ({
+                id: item[EXPLORE_INDEX],
+                name: item[EXPLORE_NAME]
+            })),
+            // data.map(o => ({id: o.id, name: `${o.first} ${o.last}`})),
+            "id",
+            "name"
+        )
     );
 }
 
 function showScheduleDialog(
     titleText = "Schedule an Experience",
     places = [],
-    actionText = "Add"
+    actionText = "Add",
+    hidePlaces = false
 ) {
     showDialog(
         titleText,
-        label(
-            "place",
-            input(
-                "place",
-                "text",
-                'placeholder="Type name of experience or address"'
-            )
+        (hidePlaces ? "" :
+                label(
+                    "place",
+                    input(
+                        "place",
+                        "text",
+                        'placeholder="Type name of experience or address"'
+                    )
+                ) +
+                places.map((p) => actionItem("right", p, -1, p, "")).join("")
         ) +
-        places.map((p) => actionItem("right", p, -1, p, "")).join("") +
         selectDateRange("Date Range:") +
         // checkBox("Fills all periods in each day above.", "all-periods") +
         selectTimeRange("When?") +
@@ -464,10 +510,20 @@ function showScheduleDialog(
 }
 
 function showSchedule(target, action, which, index) {
+    debugger;
     showScheduleDialog(
         "Schedule an Experience",
         (places = []),
         (actionText = "Add Experience")
+    );
+}
+
+function schedule(target, action, which, index) {
+    showScheduleDialog(
+        "Schedule an Experience",
+        [],
+        "Schedule Experience",
+        true
     );
 }
 
@@ -476,7 +532,7 @@ function paymentType(kind, name, selected) {
 }
 
 function showAddPlaceDialog(target, action, which, index) {
-    showAddPlace("Find a Place &amp; Time" + d);
+    showAddPlace("Find a Place &amp; Time", [], "Add", true, which, index);
 }
 
 function payCard(p = {}) {
@@ -877,11 +933,14 @@ function openPage(target, action, which, id) {
     } else if ("open" === action && "connect" === which) {
         showPage("connect_person", "open", id);
     } else if ("open" === action || "explore" === action) {
+        if (which === "explore_detail") {
+            const ed = get(".explore_detail .content-panel");
+            ed.innerHTML = exploreCardDetail(...EXPLORE_DATA[id]);
+        }
         showPage(which, action, id);
     } else if ("person" === action) {
         showPage("connect_person", "open", id);
     } else if ("split" === action) {
-        debugger;
         showPage("settle_split", "open", id);
     } else if ("board" === action) {
         showPage("collect", "collect", id);
@@ -901,7 +960,6 @@ TOAST_MESSAGES = {
     share: "Shared to your Connections",
     collect: "Added to your Collection",
     plan: "Added to your Plan",
-    accept: "Accepted Invitation",
     // schedule: "Added to your Plan",
     decline: "Declined Invitation",
     settle: "Payment Settled",
@@ -914,6 +972,23 @@ TOAST_MESSAGES = {
     notify: "Notification Sent",
 };
 
+function acceptInvite(target, action, which, id) {
+    EXPLORE_DATA[6][13][0].participants[0].status = "Going";
+    const ed = get(".explore_detail .content-panel");
+    ed.innerHTML = exploreCardDetail(...EXPLORE_DATA[6]);
+    showToast("Invitation Accepted!");
+}
+
+function payEvent(target, action, which, id) {
+    EXPLORE_DATA[6][13][0].participants[0].paid = true;
+    const ed = get(".explore_detail .content-panel");
+    ed.innerHTML = exploreCardDetail(...EXPLORE_DATA[6]);
+    showToast("Payment Received!");
+
+    window.kaching.play();
+
+}
+
 function addItem(target, action, which, id) {
     if ("person" === which) {
         showSearch(`${action} ${which}`, id);
@@ -922,7 +997,7 @@ function addItem(target, action, which, id) {
     } else if ("payment" === which) {
         addPayment();
     } else if ("expense" === which) {
-        addExpense();
+        addExpense(target, action, which, id);
     } else if ("split" === which) {
         addSplit();
     } else if ("connect" === which) {
@@ -949,7 +1024,10 @@ function insertAfter(newNode, referenceNode) {
 function handleRight(target, action, which, id) {
     if ("Loquita" === which) {
         let cardList = get(".timeline.page .card-list");
+
+        // Gets all three lunch periods
         const cps = cardList.querySelectorAll(".is-current-period");
+
         if (cps && cps.length > 1) {
             let ve = VitaEvent(getPeriods()[current_period], "restaurants");
             ve.titleText = "Loquita";
@@ -960,15 +1038,58 @@ function handleRight(target, action, which, id) {
             div.innerHTML = timelineCard(ve);
             let e = div.children[0];
             e.querySelectorAll(".card-actions")[0].remove();
+
+            // Today lunch not yesterday or tomorrow
             insertAfter(e, cps[1]);
+
             cardList.scrollTop = e.offsetTop - 100;
         }
     }
     hideDialog();
 }
 
-function apply(target, action, which, id) {
-    if ("filter-things-to-do" === which) {
+function isValidDateString(text){
+    const d = new Date(text);
+    return d.toString();
+}
+
+function apply(target, action, which, id = -1) {
+    // debugger;
+    if (isValidDateString(which)) {
+
+        const selectElement = get(".filtered select");
+        const whereValue = selectElement.selectedOptions[0].value;
+
+        const timeElement = get(`.dialog input[type="time"]`);
+        const timeValue = timeElement.value;
+
+        const dateElement = get(`.dialog input[type="date"]`);
+        const dateValue = dateElement.value;
+
+        console.log("SAVE NEW EVENT", dateValue, timeValue, whereValue);
+
+        let when = new Date(`${dateValue}T${timeValue}:00`);
+        // TODO Update "when" with time portion
+
+        const data = cardData(...EXPLORE_DATA[whereValue])
+
+        EVENTS_DATA.push(new VitaEvent(
+            Period(),
+            data.kind, 
+            "", 
+            "", 
+            data.title, 
+            when, 
+            data
+        ));
+
+        // [X] Save event to global events list here 
+        // [X] Enhance timeline to consume from global events list where timeline is rendered
+        // TODO Redraw timeline here
+        get(".timeline.page").outerHTML = timelinePage(true);
+        initScroll();
+
+    } else if ("filter-things-to-do" === which) {
         getAll(".page.explore .explore.card").map(hideElement);
         getAll(".page.explore .explore.card.things-to-do").map(showElement);
     } else if ("filter-actions-restaurants" === which) {
@@ -979,6 +1100,19 @@ function apply(target, action, which, id) {
         getAll(".page.explore .explore.card.filter-actions-lodging").map(
             showElement
         );
+    } else if ("add-expense" === which) {
+        debugger;
+        const day = get(".settle_split .card-list > .day"); //first one for now.
+
+        const amount = get(".add-expense-amount").value;
+        const description = get(".add-expense-description").value;
+
+        const index = day.dataset.index;
+        let data = SETTLE_GROUP_DATA.list[index];
+        let expenseRecordList = data.expenseList;
+
+        data.addExpense(new ExpenseRecord(description, parseFloat(amount)));
+        updateBalance(day, expenseRecordList, data, SETTLE_GROUP_DATA);
     } else {
         // console.log(`APPLY ${target} ${action} ${which} ${id}?`)
     }
@@ -996,6 +1130,7 @@ ACTION_PAGES = {
     "search-destination": showDestinations,
     "smart-ideas": showSmartIdeasDialog,
     add: addItem,
+    accept: acceptInvite,
     apply: apply,
     back: () => showPage(window.lastPage),
     chat: addItem,
@@ -1010,10 +1145,13 @@ ACTION_PAGES = {
     more: addPerson,
     new: addItem,
     open: openPage,
+    pay: payEvent,
     payment: addPayment,
+    pin: pin,
     person: showProfileDialog,
     review: showReviewDialog,
     right: handleRight,
+    schedule: schedule,
     search: showDestinations,
     settle_split: openPage,
     show: toggleCollapse,
@@ -1039,6 +1177,16 @@ function toggleCollapse(target) {
 
     card_list.classList.toggle("collapse");
     return true;
+}
+
+function pin(target) {
+    const mp = target.closest(".map-panel");
+    const card = mp.querySelector(".card");
+    if (card.style.display !== "block") {
+        card.style.display = "block";
+    } else {
+        card.style.display = "none";
+    }
 }
 
 function toggleMap(target) {

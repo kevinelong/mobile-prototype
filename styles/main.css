@@ -130,12 +130,30 @@ input[type=number] {
     overflow: hidden;
 }
 
+.dialog .rating-action .rating,
 .rating-action:hover .rating {
     opacity: 1;
     transition:
             opacity 100ms ease-in-out,
             width 100ms ease-in-out;
     width: 110px;
+}
+
+.dialog .rating-action {
+    margin-bottom: 1em;
+    margin-left: -100vw;
+}
+
+.dialog .rating-action .rating {
+    left: 100vw;
+}
+
+.dialog .review-dialog.col {
+    min-width: 100%;
+}
+
+.dialog .review.label {
+    min-width: 100%;
 }
 
 .rating-action {
@@ -165,7 +183,7 @@ input[type=number] {
 .help-text{
     font-size: 11px;
     margin: 6px 9px;
-    text-justify: newspaper;
+    text-justify: inter-word;
 }
 
 .map{
@@ -481,7 +499,7 @@ input[type=number] {
 }
 .plan_detail .card .text,
 .collect_board .card .text {
-    font-size: 11px;
+    font-size: 9px;
 }
 
 .collect_board #range .choice {
@@ -491,15 +509,15 @@ input[type=number] {
 .button {
     width: calc(100% - 12px);
     line-height: 2em;
-    color: #F9A831;
-    background: transparent;
+    color: white;
+    background: #bbbbbb;
     border-style: none;
     border-radius: 6px;
     margin: 3px 6px;
     padding: 3px 6px;
 }
 .button:hover{
-    background: #eeeeee;
+    background: #888888;
 }
 
 
@@ -624,6 +642,11 @@ input[type="text"].tag-input {
 }
 
 .gold {
+    color: #F9A831;
+    /*background: white;*/
+}
+
+.settle .gold {
     color: #F9A831;
     background: white;
 }

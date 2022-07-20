@@ -13,6 +13,16 @@
     height: 555px;
     overflow-y: scroll;
     overflow-x: hidden;
+    box-shadow: 0 0 3px #000;
+}
+
+.dialog .card-list {
+    padding: 0;
+    height: inherit;
+}
+
+.dialog .stack {
+    gap: 18px;
 }
 
 .card-list-section {
@@ -23,6 +33,7 @@
 
 .page.timeline .card-list {
     padding: 120px 0 180px;
+    gap: 3px;
 }
 
 .activity-list {
@@ -76,14 +87,14 @@
 
 .dialog .card.settle,
 .page.settle_split .card,
-.page.settle .card{
+.page.settle .card {
     background: #dddddd;
     border-radius: 0.5rem;
     color: black;
     text-shadow: none;
 }
 
-.dialog .content-panel .person .text{
+.dialog .content-panel .person .text {
     font-size: 9px;
 }
 
@@ -100,7 +111,7 @@
     background-color: grey;
 }
 
-.smart.early-mornging .card-inner {
+.smart.early-morning .card-inner {
     background-color: darkred;
 }
 
@@ -151,10 +162,12 @@
 
 .card-tags {
     display: block;
-    margin: 0px 0;
+    margin: 0 0;
     white-space: nowrap;
-    overflow-y: hidden;
     overflow-x: scroll;
+    overflow-y: visible;
+    height: auto;
+    width: 100%;
 }
 
 .page.explore .hash-tag {
@@ -258,7 +271,7 @@
 
 .page.timeline .card {
     padding: 0;
-    margin: 6px auto;
+    margin: 6px auto 0;
     width: 98%;
     border-left: 9px solid #0004;
     border-radius: 0;
@@ -266,6 +279,11 @@
     box-shadow: none;
     transition: none;
 
+}
+
+.page.timeline .activity.card {
+    border-left: none;
+    padding: 1em;
 }
 
 .page.explore_detail .card {
@@ -317,7 +335,7 @@
     bottom: 0;
 }
 
-.card .amount{
+.card .amount {
     height: min-content;
     background: white;
     padding: 0.5em;
@@ -342,7 +360,7 @@
     text-shadow: none;
 }
 
-.card .titles .amount{
+.card .titles .amount {
     justify-content: center;
     align-content: center;
     justify-items: center;
@@ -350,7 +368,7 @@
 }
 
 .docs,
-.bulletin{
+.bulletin {
     background: cornflowerblue;
     padding: 1em;
     border-radius: 1em;
@@ -361,18 +379,20 @@
     width: calc(100% - 2em);
     margin: 1em;
 }
-.docs{
+
+.docs {
     font-size: 11px;
     color: #321;
     justify-self: flex-start;
     text-align: left;
     background: lightgoldenrodyellow;
 }
-.docs p{
+
+.docs p {
     margin: 1em 0 0 -0.5em;
 }
 
-.settle.page > .content-panel .title{
+.settle.page > .content-panel .title {
     font-size: 2em;
     padding: 0;
 }
@@ -382,7 +402,7 @@
     flex-direction: column;
     align-content: center;
     justify-content: right;
-    gap:9px; /* added for settle */
+    gap: 9px; /* added for settle */
 }
 
 .card-quadrant {
@@ -448,7 +468,7 @@
     display: inline-flex;
     flex-direction: row;
     justify-content: center;
-    vertical-align: center;
+    vertical-align: middle;
     margin-right: 1em;
 }
 
@@ -473,7 +493,7 @@
 }
 
 .page.explore .card-list {
-    padding: 6px 6px 300px 6px;
+    padding: 6px 6px 660px 6px;
     /*margin: 0 0 144px 0;*/
     /*align-self: center;*/
     /*align-items: center;*/
@@ -512,17 +532,17 @@
     background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25)), black center/cover no-repeat;
     /* prevents the exported black frames from figma from showing. */
     background-size: 103%;
-    gap:0;
+    gap: 0;
 }
 
-.card.split{
+.card.split {
     gap: 9px;
 }
 
 .card-inner {
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), black center/cover no-repeat;
     background-size: 103%;
-    gap: 0px;
+    gap: 0;
 }
 
 .card.collect,
@@ -580,6 +600,11 @@
     justify-self: center;
 }
 
+.title .amount {
+    margin: auto;
+    text-align: center;
+}
+
 .settle-who .amount {
     font-size: 11px;
 }
@@ -623,7 +648,7 @@
     align-self: flex-start;
 }
 
-.person .icon-frame{
+.person .icon-frame {
     padding: 1px;
 }
 
@@ -773,19 +798,21 @@
 .card.contact {
     background: #dddddd;
 }
-.card.contact > .row{
+
+.card.contact > .row {
     justify-content: space-between;
 }
-.card.contact > .row > select{
+
+.card.contact > .row > select {
     padding: 10px;
     border-radius: 10px;
 }
 
-.card.contact .card-tags{
+.card.contact .card-tags {
     width: 100%;
 }
 
-.card.connect .titles .col{
+.card.connect .titles .col {
     align-items: end;
 }
 
@@ -795,23 +822,24 @@
     height: 172px;
     overflow-y: scroll;
     padding: 6px;
-    background: rgba(0,0,0,0.05);
-    box-shadow: 0 0 1px 1px rgba(0,0,0,0.2);
+    background: rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
     border-radius: 9px;
 }
 
 .page.settle_split .card.expense-item,
 .page.settle .card.expense-item {
-    background: none;
     color: black;
-    background-color: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.75) none;
     padding: 6px 0;
     border-radius: 0.5em;
     gap: 6px;
 }
-.expense-item .text{
+
+.expense-item .text {
     white-space: nowrap;
 }
+
 .page > .content-panel .card.expense-item .title {
     padding: 0;
 }
@@ -825,3 +853,17 @@
     justify-content: space-between;
 }
 
+.page.collect_board .card .action-item.collect {
+    display: none;
+}
+
+.page.timeline .card.activity {
+    width: 90%;
+    border-radius: 0.5em;
+    margin: 0 3.6px 0 auto;
+}
+
+.page.timeline .card-actions.spread {
+    flex-direction: column;
+    align-items: flex-start;
+}

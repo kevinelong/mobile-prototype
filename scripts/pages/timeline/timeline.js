@@ -20,32 +20,46 @@ function timelinePage(selected = false) {
     ve.tags = ["South-American"];
     ve.kind = "restaurants";
 
+    const showPeriod = (p, day) => timelineCard(p, day) + p.events.map(e => timelineCard(e, day)).join("");
+    
     const showDay = day => {
         return cardListSection(
+            day.title,
             day.when,
-            actionItem("add-place", "timeline", -1, "add-place", "black") +
+            actionItem("add-place", day.when, -1, "add-place", "black") +
             actionItem("check-in", "timeline", -1, "Check-In", "black"),
             day.where,
-            day.events.map(timelineCard)
+            day.periods.map(p => showPeriod(p, day))
         );
     }
     const calendar_days = [
-        Day("Yesterday - " + yesterdayDate.toDateString(), [
-            VitaEvent(getPeriods()[BREAKFAST], "restaurants"),
-        ]),
-        Day("Today - " + todayDate.toDateString(), getPeriods()),
-        Day("Tomorrow - " + tomorrowDate.toDateString(), getPeriods()),
+        Day(yesterdayDate, "Yesterday - " + yesterdayDate.toDateString(), EVENTS_DATA),
+        Day(todayDate, "Today - " + todayDate.toDateString(), EVENTS_DATA),
+        Day(tomorrowDate, "Tomorrow - " + tomorrowDate.toDateString(), EVENTS_DATA),
     ];
+
     const card_content = calendar_days.map(showDay).join('');
 
+    const preTabs = actionItem("search", "", -1, "search", "black", true);
+    const postTabs = actionItem("add", "timeline", -1, "Add", "black", true);
+
+    const messagesContent = tabSet("conversations", [
+        {name: "Current", content: ""},
+        {name: "History", content: ""},
+    ], "Current", preTabs, postTabs);
+
     const page_content =
+        messagesContent +
         div("right",
-            title("11:04 am - Santa Barbara" +
+            title(
+                span("time nowrap", "", `style="width:180px;font-size:15px;"`) +
+                " - " +
+                span("location", "Santa Barbara") +
                 actionItem("edit", "location", -1, "edit", "black")
             )
         ) +
         // actionButton("Smart Ideas", "smart-ideas") +
-        title("Smart Ideas") +
+        // title("Smart Ideas") +
         cardList(card_content);
 
     const choices = [
@@ -60,13 +74,13 @@ function timelinePage(selected = false) {
 
     const pushSecondaryNavChoicesAboveSearchFilter = true;
     const tabs = "";
-    const searchMessage = "Find Scheduled Items";
+    const searchMessage = "";
 
     return page(
         selected,
         "timeline",
         "Timeline",
-        choices,
+        [], //choices,
         defaultChoice,
         page_content,
         "",

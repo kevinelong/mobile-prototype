@@ -18,13 +18,15 @@ option {
     border: none;
     background: white;
 }
-.left{
+
+.left {
     text-align: left;
     align-self: flex-start;
     justify-self: flex-start;
     justify-content: flex-start;
 }
-input[type=text] {
+
+input[type="text"] {
     margin: 0;
     /*background-image: url(../images/icons/icon-search-black.svg);*/
     background-repeat: no-repeat;
@@ -36,20 +38,20 @@ input[type=text] {
     background-position: 0.75em 0.75em;
 }
 
-input[type=text]:focus {
+input[type="text"]:focus {
     border: none;
 }
 
-input[type=number],
-input[type=date],
-input[type=time] {
+input[type="number"],
+input[type="date"],
+input[type="time"] {
     border-radius: 2em;
     padding: 0.75em;
     border: none;
     box-shadow: 1px 1px 2px 0 #0008;
 }
 
-input[type=number]{
+input[type="number"] {
     text-align: right;
     width: 6em;
     border-radius: 0.125em;
@@ -64,64 +66,70 @@ input[type=number]{
     align-content: center;
 }
 
-input[type=radio] {
+input[type="radio"] {
     /*align-self: center;*/
     /*justify-self: center;*/
     margin-top: 3px;
     margin-left: 0.5em;
 }
+
 .page.settle_split .day .action-item.show .icon {
     transform: rotate(90deg);
     transition: transform 300ms ease-in-out;
 }
+
 .page.settle_split .day.collapse .action-item.show .icon {
     transform: rotate(0deg);
     transition: transform 300ms ease-in-out;
 }
+
 .page.settle_split .day.collapse {
     /*max-height: 240px;*/
 }
+
 .page.settle_split .day {
     max-height: 640px;
     /*overflow: hidden;*/
     transition: max-height 300ms ease-in-out;
 }
-.page.settle_split .day.collapse .add-expense{
+
+.page.settle_split .day.collapse .add-expense {
     max-height: 0;
 }
-.page.settle_split .day .add-expense{
+
+.page.settle_split .day .add-expense {
     max-height: 640px;
     overflow: hidden;
     transition: max-height 300ms ease-in-out;
 }
 
-.page.settle_split .day.collapse .expense-item{
+.page.settle_split .day.collapse .expense-item {
     max-height: 0;
     overflow: hidden;
 }
 
-.page.settle_split .day.collapse .expense-list{
+.page.settle_split .day.collapse .expense-list {
     padding: 0;
     box-shadow: none;
     max-height: 0;
     overflow: hidden;
 }
 
-.page.settle_split .day.collapse .breakdown{
+.page.settle_split .day.collapse .breakdown {
     max-height: 0;
 }
 
-.page.settle_split .day .breakdown{
+.page.settle_split .day .breakdown {
     max-height: 640px;
     overflow: hidden;
     transition: max-height 300ms ease-in-out;
 }
 
-.page.settle_split .day .breakdown-inner{
+.page.settle_split .day .breakdown-inner {
     display: inline-block;
 }
 
-.page.settle_split .day .breakdown-item{
+.page.settle_split .day .breakdown-item {
     display: inline-block;
     margin: 1px;
 }
@@ -135,16 +143,19 @@ input[type=radio] {
     padding: 3px;
     width: 100%;
 }
+
 .stack > * {
     /*margin: 0;*/
     /*padding: 0;*/
 }
-.stack .text{
+
+.stack .text {
     text-align: center;
     justify-content: center;
     align-items: center;
     /*white-space: nowrap;*/
 }
+
 .rack {
     display: flex;
     flex-direction: row;
@@ -152,7 +163,6 @@ input[type=radio] {
     align-items: center;
     gap: 0.5em;
     padding: 0.5em;
-
 }
 
 .col {
@@ -197,24 +207,62 @@ input[type=radio] {
     margin: auto;
     align-items: center;
 }
-.center-content{
+
+.center-content {
     justify-content: center;
     align-items: center;
-    vertical-align: center;
+    vertical-align: middle;
     text-align: center;
 }
-.right{
+
+.right {
     text-align: right;
     align-items: flex-end;
     align-content: flex-end;
 }
-.nowrap{
+
+.nowrap {
     white-space: nowrap;
 }
+
+.framed {
+    border: 1px solid black;
+}
+
+.rounded {
+    border-radius: 0.5em;
+}
+
 .page .content-panel > .row.padded,
-.padded{
+.padded {
     padding: 9px 3px;
 }
+
+.event {
+    width: 100%;
+    gap: .5em;
+}
+
+.event .row > .text {
+    min-width: 95px;
+}
+
+.event .hash-tag {
+    min-width: 40px;
+}
+
+.event label {
+    width: 50%;
+}
+
+.event label input {
+    width: 100%;
+}
+
+.event.padded {
+    padding: 0.5em;
+}
+
 .fill {
     width: 100%;
 }
@@ -278,9 +326,15 @@ input[type=radio] {
 .row > .action-item {
     justify-content: right;
 }
-.card-title{
+
+.card-title {
     width: 100%;
 }
+
+.card-subtitle {
+    width: 100%;
+}
+
 .taste-match .hidden .pane-actions button,
 .hidden.pane button,
 .hidden.pane,
@@ -292,8 +346,7 @@ input[type=radio] {
     width: 0;
     opacity: 0;
     visibility: collapse;
-    transition: opacity 300ms ease-in-out,
-    height 300ms ease-in-out,
+    transition: opacity 300ms ease-in-out, height 300ms ease-in-out,
     width 300ms ease-in-out;
 }
 
@@ -307,11 +360,9 @@ input[type=radio] {
     width: 0;
     opacity: 0;
     visibility: collapse;
-    transition: opacity 300ms ease-in-out,
-    height 300ms ease-in-out,
+    transition: opacity 300ms ease-in-out, height 300ms ease-in-out,
     width 300ms ease-in-out;
 }
-
 
 .stack {
     gap: 3px;
@@ -333,6 +384,7 @@ input[type=radio] {
     height: 0;
     transition: all 300ms ease-in-out;
 }
+
 .collapse *,
 .card-list {
     max-height: 100vh;
@@ -348,4 +400,81 @@ input[type=radio] {
 .action-item.show .icon {
     transform: rotate(90deg);
     transition: transform 300ms ease-in-out;
+}
+
+.filtered input {
+    color: dimgray;
+    background: whitesmoke;
+    padding: 0.5em;
+    border-radius: 1em 1em 1.5em 1em;
+}
+
+.filtered input,
+.filtered select {
+    border: none;
+}
+
+.filtered option {
+    border: 1px solid silver;
+    margin-top: -1px;
+}
+
+.filtered select {
+    transition: max-height 300ms ease-in-out;
+    max-height: 0;
+}
+
+.filtered option {
+    border: 1px solid whitesmoke;
+    margin: 0 0 -1px 0;
+    padding: 0.5em;
+    border-radius: 0.5em;
+}
+
+.checkered{
+    background: repeating-conic-gradient(black 0% 25%, white 0% 50%) 50% / 2px 2px;
+}
+
+.progress-meter {
+    /*width: fit-content;*/
+    min-height: 8px;
+    background: black;
+    border: 1px solid black;
+    display: flex;
+    gap: 1px;
+    flex-direction: row;
+    width: 100%;
+}
+.page.timeline .progress-meter {
+    margin-right: 1em;
+}
+.meter-step {
+    background: #666;
+    border: 1px solid #333;
+    min-height: 8px;
+    min-width: 15px;
+    display: inline-block;
+    margin: 0;
+}
+
+.meter-step.completed {
+    background: #c93;
+    border: 1px solid #fc9;
+}
+
+.meter-start {
+    background: green;
+    border: 1px solid darkgreen;
+    min-height: 8px;
+    min-width: 8px;
+    display: inline-block;
+}
+
+.meter-finish {
+    background: black;
+    border: 1px solid #333;
+    min-height: 8px;
+    min-width: 8px;
+    display: inline-block;
+    background: repeating-conic-gradient(black 0% 25%, white 0% 50%) 50% / 3px 3px;
 }

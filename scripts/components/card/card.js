@@ -19,10 +19,10 @@ function cardTitleText(content) {
 }
 
 function cardSubtitle(content) {
-    return content ? div("card-subtitle", content) : "";
+    return content ? div("card-subtitle nowrap", content) : "";
 }
 
-function cardTitles(kind, title, subtitle = "", which = "", id = 0, page = "") {
+function cardTitles(kind, title, subtitle = "", which = "", index = 0, page = "") {
     page = page ? page : kind;
     return (
         div(
@@ -31,7 +31,7 @@ function cardTitles(kind, title, subtitle = "", which = "", id = 0, page = "") {
             icon(kind) +
             stack(cardTitle(title) + cardSubtitle(subtitle)
             ) +
-            actionItem("open", page, id)
+            actionItem("open", page, index)
         )
     );
 }
@@ -63,7 +63,7 @@ function cardTags(tags) {
 
 function actionList(id, list = [], hideText = false, qty = 0, iconColor = "") {
     return div(
-        `action-list ${id}`,
+        `action-list spread ${id}`,
         [...list].reverse()
             .map((c) =>
                 actionItem(
@@ -74,6 +74,24 @@ function actionList(id, list = [], hideText = false, qty = 0, iconColor = "") {
                     iconColor,
                     hideText,
                     qty)
+            )
+            .join(""),
+        `id="${id}" class='action-list'`
+    );
+}
+
+function actionColumn(id, list = [], completed = 0) {
+    return div(
+        `action-list col ${id}`,
+        [...list]
+            .map((c, i) =>
+                actionItemStep(
+                    c,
+                    id,
+                    i + 1,
+                    titleCase(c),
+                    completed
+                )
             )
             .join(""),
         `id="${id}" class='action-list'`
@@ -99,8 +117,10 @@ function card(
     page = "",
     match_percent = "",
     booking_index = -1,
-    actionAttribute = ""
+    actionAttribute = "",
+    index = -1
 ) {
+    // debugger;
     period = period ? period : Period();
     const ve = VitaEvent(period, kind);
     ve.imagePath = image;
@@ -109,22 +129,83 @@ function card(
     if (booking_index >= 0) {
         booking = actionItem("book", "book", booking_index, "Book Now!");
     }
-    const match = match_percent ? text(`${match_percent}% match`) : "";
+    const match = match_percent ? div("card-title", `${match_percent}% match`) : "";
     const groupsContent = groups ? col(cardGroups(groups)) : "";
 
     return div(
-        `card ${kind} ${which}`,
+        `card ${kind} ${which} ${currentClass(ve)}`,
         cardSection(
             cardTags(tags) +
-            cardTitles(kind, titleText, subtitleText, which, -1, page) +
+            cardTitles(kind, titleText, subtitleText, which, index, page) +
             contentPanel(content)
         ) +
         match +
-        groupsContent +
-        booking +
+        spread(
+            groupsContent +
+            booking)
+        +
         actionList(`card-actions`, actions),
 
-        action("open", page, -1) +
+        action("open", page, index) +
+        actionAttribute +
+        attrs +
+        ` data-kind="${cleanName(kind)}" data-which="${which}" ` +
+        cardStyle(ve)
+    )
+}
+
+function eventCard(
+    kind = "explore",
+    titleText = "",
+    subtitleText = "",
+    content = "",
+    groups = [],
+    actions = [],
+    image = "",
+    tags = [],
+    which = -1,
+    attrs = "",
+    period = "",
+    page = "",
+    match_percent = "",
+    booking_index = -1,
+    actionAttribute = "",
+    index = -1
+) {
+    // debugger;
+    period = period ? period : Period();
+    const ve = VitaEvent(period, kind);
+    ve.imagePath = image;
+
+    let booking = "";
+    if (booking_index >= 0) {
+        booking = actionItem("book", "book", booking_index, "Book Now!");
+    }
+    const match = match_percent ? div("card-title", `${match_percent}% match`) : "";
+    const groupsContent = groups ? cardGroups(groups) : "";
+
+    actions = ["invite", "check-in", "verify", "split", "review", "upload"];
+    const completed = 2;
+
+    return div(
+        `card ${kind} ${which} ${currentClass(ve)}`,
+        cardSection(
+            cardTags(tags) +
+            cardTitles(kind, titleText, subtitleText, which, index, page)
+        ) +
+        spread(
+            col(
+                contentPanel(content) +
+                match +
+                groupsContent
+            ) +
+            col(
+                row(row(dot()) + text(`+${5}pts`, "gold"), "","centered") +
+                spread(meter(actions.length, completed)) +
+                actionColumn(`card-actions`, actions, completed)
+            )
+        ),
+        action("open", page, index) +
         actionAttribute +
         attrs +
         ` data-kind="${cleanName(kind)}" data-which="${which}" ` +
@@ -308,7 +389,7 @@ function mapCard(
                     location
                 )
             ) +
-            actionItem("open", "explore_detail", -1, "", "black", true),
+            actionItem("open", "explore_detail", which, "", "black", true),
             "",
             "map-heading"
         ) +
@@ -393,7 +474,7 @@ function mapCard(
                 `<img class="child-image" src="${image}">` +
                 select("category", [
                     {name: "Idea", value: "0"},
-                    {name: "Favorite", value: "1"},
+                    // {name: "Favorite", value: "1"},
                     {name: "Going", value: "2"},
                 ], `placeholder="Category" value="0"`) +
                 actionItem("Book", "book", -1, "Book from $65", "", false, 0, true),
@@ -435,19 +516,46 @@ function detail(
 }
 
 function activityCard(item = {}, index = -1) {
+    // debugger;
     return card(
         "activity",
         item.title,
         item.subtitle,
         item.content,
         item.groups,
-        [],
+        item.actions,
         item.imagePath,
         item.tags,
-        index,
+        item.id,
         "recommended",
         [],
-        "explore_detail"
+        "explore_detail",
+        item.match_percent,
+        item.booking_index,
+        item.action,
+        item.id
+    );
+}
+
+function activityEventCard(item = {}, ve, day) {
+    // debugger;
+    return eventCard(
+        "activity",
+        item.title + "<br>\n" + timeStringFromDate(ve.when) + " " + dateStringFromDate(ve.when),
+        item.subtitle,
+        item.content,
+        item.groups,
+        item.actions,
+        item.imagePath,
+        item.tags,
+        item.id,
+        "recommended",
+        [],
+        "explore_detail",
+        item.match_percent,
+        item.booking_index,
+        item.action,
+        item.id
     );
 }
 
@@ -513,9 +621,9 @@ function activityList(list, collapse = true) {
 }
 
 
-function cardListSection(titleText, action, subtitleText = "", cards = []) {
+function cardListSection(titleText, when, action, subtitleText = "", cards = []) {
     return sectionTitle(title(titleText) +
-        actionItem("add-place", "timeline", titleText, "Add", "black")
+        actionItem("add-place", when, when, "Add", "black")
     ) + subtitle(subtitleText) + cards.join("")
 }
 

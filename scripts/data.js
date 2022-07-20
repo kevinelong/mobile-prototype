@@ -1,5 +1,5 @@
-const Period = (name = "", from = "", to = "", color = "") => {
-    return {name: "", from: "", to: "", color: "", ideas: []};
+const Period = (name = "", from = "", to = "", color = "", ideas= []) => {
+    return {name: name, from: from, to: to, color: color, ideas: ideas};
 };
 
 let currentLocation = "Santa Barbara";
@@ -8,14 +8,17 @@ function VitaEvent(
     period = Period(),
     kind = "restaurants",
     currentMood = "hungry",
-    color = "#336699"
+    color = "#336699",
+    name = "",
+    when = undefined,
+    activity = undefined,
 ) {
     period.color = period.color ? period.color : color;
     return {
-        what: period.name,
-        when: period.from,
-        where: currentLocation,
-        duration: period.to,
+        what: name ? name : period.name,
+        when: when ? when : period.from,
+        where: activity ? activity.name : currentLocation,
+        duration: new Date(period.to - period.from),
         imagePath: "",
         titleText: period.name,
         subtitleText:
@@ -30,6 +33,7 @@ function VitaEvent(
         period: period,
         places: [],
         currentMood: currentMood,
+        activity: activity
     };
 }
 
@@ -53,167 +57,25 @@ const LATE_NIGHT = 7;
 8) late night experience 12:00am – 3:00am
  */
 //Ensure every period has all the default VitaEvent properties.
-const injectVitaEventProps = (periods) =>
-    periods.map((p) => {
-        return {...p, ...VitaEvent(p), events: []};
-    });
 
-const getPeriods = () =>
-    injectVitaEventProps([
-        {
-            name: "pre-breakfast",
-            from: "5:00am",
-            to: "7:30pm",
-            color: "darkred",
-            ideas: [
-                "serene points of interest",
-                "nature work-out experiences",
-                "self-guided nature tours",
-                "guided nature tours",
-                "local spas, gyms & yoga centers",
-                "local fitness guides",
-                "popular coffee & tea venues",
-                "hop-on hop-off tours",
-                "local resources",
-                "members nearby",
-                "interesting locals",
-                "dog parks",
-                "virtual tours",
-            ],
-        },
-        {
-            name: "breakfast",
-            from: "7:45am",
-            to: "9:30am",
-            color: "darkorange",
-            ideas: [
-                "view",
-                "outdoor seating",
-                "to go",
-                "fast food",
-                "booze for breakfast",
-                "where singles go",
-                "members nearby",
-                "American Cuisine",
-                "Mexican Cuisine",
-                "Japanese Cuisine",
-                "popular coffee & tea venues",
-            ],
-        },
-        {
-            name: "morning experience",
-            from: "9:45am",
-            to: "11:00am",
-            color: "goldenrod",
-            ideas: [
-                "e-bike rental",
-                "local hop-on hop-off tours",
-                "culture/history",
-                "adventure",
-                "places to see now",
-                "Drives",
-                "hiking",
-                "Water sports",
-                "Boating/sailing",
-                "All day guided tours",
-                "Self-guided tours",
-                "guides",
-            ],
-        },
-        {
-            name: "lunch",
-            from: "11:15am",
-            to: "2:30pm",
-            color: "darkgreen",
-            ideas: [
-                "Outdoor Seating",
-                "People Watching",
-                "Where Singles Go",
-                "Liquid Lunch",
-                "Mexican Cuisine",
-                "American Cuisine",
-                "Japanese Cuisine",
-                "Fine Dining",
-                "Fast Food",
-                "More...",
-            ],
-        },
-        {
-            name: "afternoon experience",
-            from: "2:45pm",
-            to: "4:45pm",
-            color: "blue",
-            ideas: [
-                "e-bike rental",
-                "outdoor bars/pubs",
-                "Wine Experiences",
-                "sailing tours",
-                "adventure tours",
-                "stand-up paddle",
-                "Beach",
-                "Live music",
-                "Places to see now",
-                "Adventure",
-                "Culture/history",
-            ],
-        },
-        {
-            name: "dinner",
-            from: "5:00pm",
-            to: "9:00pm",
-            color: "darkslateblue",
-            ideas: [
-                "Outdoor seating",
-                "view",
-                "People watching",
-                "$$-$$$$",
-                "Japanese Cuisine",
-                "Korean Cuisine",
-                "Vietnamese",
-                "Italian Cuisine",
-                "French Cuisine",
-                "Food Experiences",
-                "guides",
-            ],
-        },
-        {
-            name: "evening experience",
-            from: "9:15pm",
-            to: "11:45pm",
-            color: "#885588",
-            ideas: [
-                "places to go now",
-                "guides",
-                "guided experiences",
-                "Drive in movie theatres",
-                "Comedy",
-                "Beach",
-                "View",
-                "People watching",
-                "Live music (Alternative genre)",
-                "Live music (Pop genre)",
-                "Live music (classical genre)",
-                "Live music (Jazz genre)",
-            ],
-        },
-        {
-            name: "late-night experience",
-            from: "12:00am",
-            to: "3:00am",
-            color: "darkviolet",
-            ideas: [
-                "Burlesque",
-                "Restaurants open",
-                "Beach",
-                "View",
-                "People watching",
-            ],
-        },
-    ]);
 
+
+const optionsDateString = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+const optionsTimeString = { hour: 'numeric', minute: '2-digit' };
+
+function timeStringFromDate(dateObject){
+    return dateObject.toLocaleTimeString(undefined, optionsTimeString);
+}
+
+function dateStringFromDate(dateObject) {
+    return dateObject.toLocaleDateString(undefined, optionsDateString);
+}
+
+
+// TO DO - make period based on current time. Logic may be similar to similar to new VitaEvent period
 let current_period = LUNCH;
 
-function Day(when = "", events = []) {
+function Day(when, title = "", events = []) {
     if (!Array.isArray(events)) {
         // console.log("events", events);
         return;
@@ -222,16 +84,32 @@ function Day(when = "", events = []) {
     let periods = getPeriods();
 
     periods.forEach((p) => {
+        p.dayWhen = when;
+        // p.from = new Date(when.toLocaleString())
         events.forEach((e) => {
-            if (e.when > p.from && e.when < p.to) {
-                p.events.push(e);
+            // console.log(e.when, p.from, p.to, p.dayWhen);
+            let timeWhen = new Date(e.when);
+            timeWhen.setYear(1970);
+            timeWhen.setMonth(0);
+            timeWhen.setDate(1);
+            if (e.when.getYear() === p.dayWhen.getYear() &&
+                e.when.getMonth() === p.dayWhen.getMonth() &&
+                e.when.getDate() === p.dayWhen.getDate()
+            ) {
+                if (timeWhen >= p.from && timeWhen < p.to) {
+                    e.dayWhen = timeWhen;
+                    p.events.push(e);
+                }
             }
         });
     });
 
+    // console.log(periods);
+
     return {
         when: when,
-        events: [...events, ...getPeriods()],
+        title: title,
+        periods: periods,
     };
 }
 
@@ -425,12 +303,12 @@ peopleList[BF].groups = [
         groupName: "currator",
         subtitle: "",
     },
-    {
-        people: [peopleList[RUBY], peopleList[JOE]],
-        title: "Plans With",
-        groupName: "Co-Planner",
-        subtitle: "",
-    },
+    // {
+    //     people: [peopleList[RUBY], peopleList[JOE]],
+    //     title: "Plans With",
+    //     groupName: "Co-Planner",
+    //     subtitle: "",
+    // },
     {
         people: [peopleList[RUBY], peopleList[JOE]],
         title: "Followed By",
@@ -535,11 +413,11 @@ const DEFAULT_GROUPS = [
         title: "Recommended By",
         groupName: "Taste Match",
     },
-    {
-        people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
-        title: "Planning with",
-        groupName: "Co-Planner",
-    },
+    // {
+    //     people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+    //     title: "Planning with",
+    //     groupName: "Co-Planner",
+    // },
 ];
 
 const SETTLE_GROUPS = [
@@ -558,6 +436,12 @@ const SETTLE_GROUPS = [
 ];
 
 const defaultCardActionList = ["collect", "share", "favorite", "invite"];
+const EXPLORE_IMG = 0;
+const EXPLORE_NAME = 1;
+const EXPLORE_LOCATION = 2;
+const EXPLORE_INDEX = 7;
+
+const defaultCardActionList = ["schedule", "collect", "share", "discuss", "invite"];
 const EXPLORE_DATA = [
     [
         "images/explore_bg.png",
@@ -573,13 +457,25 @@ const EXPLORE_DATA = [
         3,
         100,
         [34.41421031876199, -119.69164738460584],
+        "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
+        [
+            {
+                timeStamp: 1656531438000,
+                invitedBy: [peopleList[BF]],
+                participants: [
+                    {person: peopleList[RUBY], status: "Invited", paid: false},
+                    {person: peopleList[JOE], status: "Going", paid: false},
+                    {person: peopleList[BF], status: "Going", paid: true},
+                ],
+            }
+        ]
     ],
 
     [
         "images/photos/brasil_arts_cafe.jpeg",
         "Brasil Arts Cafe",
         "Santa Barbara",
-        // "the perfect blend of traditional Brazilian fare & one-of-a-kind Açai, Juice, and Smoothie creations.",
+        // "",
         "Traditional Brazilian fare",
         ["Brazilian", "Cafe"],
         DEFAULT_GROUPS,
@@ -589,12 +485,24 @@ const EXPLORE_DATA = [
         4,
         97,
         [34.42427273044929, -119.70538318430323],
+        "The perfect blend of traditional Brazilian fare & one-of-a-kind Açai, Juice, and Smoothie creations.",
+        [
+            {
+                timeStamp: 1656531438000,
+                invitedBy: [peopleList[BF]],
+                participants: [
+                    {person: peopleList[RUBY], status: "Invited", paid: false},
+                    {person: peopleList[JOE], status: "Going", paid: false},
+                    {person: peopleList[BF], status: "Going", paid: true},
+                ],
+            }
+        ]
     ],
     [
         "images/photos/yoichis.jpg",
         "Yoichi's",
         "Santa Barbara",
-        // "A prix fixe only spot featuring traditional Japanese small plates &amp; sushi in an intimate setting.",
+        // "",
         "Sushi in an intimate setting",
         ["Japanese", "Sushi", "Prix fixe"],
         DEFAULT_GROUPS,
@@ -604,12 +512,14 @@ const EXPLORE_DATA = [
         4,
         95,
         [34.42715715496026, -119.70249364197355],
+        "A prix fixe only spot featuring traditional Japanese small plates &amp; sushi in an intimate setting.",
+        []
     ],
     [
         "images/photos/los_agaves.jpg",
         "Los Agaves",
         "Santa Barbara",
-        // "The bold flavors of Mexico, an authentic dining experience, high-quality ingredients.",
+        // "",
         "Flavors of Mexico",
         ["Mexican", "Family", "Catering", "Restaurant"],
         DEFAULT_GROUPS,
@@ -619,6 +529,8 @@ const EXPLORE_DATA = [
         4,
         90,
         [34.4375036989364, -119.72734258675358],
+        "The bold flavors of Mexico, an authentic dining experience, high-quality ingredients.",
+        []
     ],
     [
         "images/photos/santo_mezcal.jpg",
@@ -633,6 +545,8 @@ const EXPLORE_DATA = [
         4,
         90,
         [34.4134427932841, -119.69127914319921],
+        "Modern Mexican cuisine",
+        []
     ],
     [
         "images/photos/la_super-rica_taqueria.jpg",
@@ -648,12 +562,14 @@ const EXPLORE_DATA = [
         4,
         90,
         [34.42790056991083, -119.68722191681411],
+        "Celebrated Mexican spot for fish tacos, tamales & more served up in modest digs with patio seating.",
+        []
     ],
     [
         "images/photos/constantia.jpg",
         "Bridlewood Estate",
         "Santa Barbara",
-        "Wine & food testing tour",
+        "Guided experience led by Hans Thorvald.",
         [
             "Food &amp; Wine Pairing",
             "date ideas",
@@ -671,11 +587,11 @@ const EXPLORE_DATA = [
                 title: "Recommended By",
                 groupName: "Taste Match",
             },
-            {
-                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
-                title: "Planning with",
-                groupName: "Co-Planner",
-            },
+            // {
+            //     people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+            //     title: "Planning with",
+            //     groupName: "Co-Planner",
+            // },
         ],
         defaultCardActionList,
         6,
@@ -683,6 +599,18 @@ const EXPLORE_DATA = [
         4,
         85,
         [0, 0],
+        "The Constantia Valley has an appeal that offers something of interest to everyone, from award winning restaurants offering, luxurious boutique hotel accommodation with spa’s as well as quaint B&B’s. There are beautiful greenbelts to walk on, shops to explore, a brilliant zip lining adventure, mountain biking, horse riding, unique shops and a wine farms.",
+        [
+            {
+                timeStamp: 1656531438000,
+                invitedBy: [peopleList[BF]],
+                participants: [
+                    {person: peopleList[RUBY], status: "Invited", paid: false},
+                    {person: peopleList[JOE], status: "Going", paid: false},
+                    {person: peopleList[BF], status: "Going", paid: true},
+                ],
+            }
+        ]
     ],
     [
         "images/photos/hanna-levin.png",
@@ -708,6 +636,8 @@ const EXPLORE_DATA = [
         -1,
         97,
         [0, 0],
+        "A trusted Local Guide.",
+        []
     ],
     [
         "images/photos/cannon-beach.jpg",
@@ -738,6 +668,8 @@ const EXPLORE_DATA = [
         -1,
         85,
         [45.884161669751066, -123.96863053734513],
+        "This is the Oregon coast's most iconic photo opportunity.",
+        []
     ],
     [
         "images/photos/rogue_astoria.jpg",
@@ -768,6 +700,8 @@ const EXPLORE_DATA = [
         4,
         85,
         [46.196750395147454, -123.79762603067174],
+        "A popular local brewery with amazing views.",
+        []
     ],
     [
         "images/photos/camel_valley_wines.jpg",
@@ -793,6 +727,8 @@ const EXPLORE_DATA = [
         4,
         85,
         [34.64230332164125, -120.43610020209037],
+        "A pleasant wine tasting and horse back riding tour.",
+        []
     ],
     [
         "images/photos/gargiulo_vineyards.jpg",
@@ -823,6 +759,8 @@ const EXPLORE_DATA = [
         4,
         85,
         [34.638058462065956, -120.14186578859605],
+        "Here you can experience making your own wine.",
+        []
     ],
     [
         "images/photos/sunstone_winery.jpg",
@@ -847,12 +785,14 @@ const EXPLORE_DATA = [
                 groupName: "Co-Planner",
             },
         ],
-        ["favorite", "share", "collect"],
+        ["share", "collect"],
         12,
         "things-to-do",
         4,
         85,
         [34.58679315470256, -120.10337263941516],
+        "Sunstone Wine Tour with a Local",
+        []
     ],
     [
         "images/photos/foxen_vineyard.jpg",
@@ -877,12 +817,14 @@ const EXPLORE_DATA = [
                 groupName: "Co-Planner",
             },
         ],
-        ["favorite", "share", "collect"],
+        ["share", "collect"],
         13,
         "things-to-do",
         4,
         85,
         [34.82021411953863, -120.23023950022402],
+        "Discover minimalist winemaking.",
+        []
     ],
 ];
 
@@ -934,7 +876,6 @@ activityData.map(a => a.id).forEach((c, i) => activityMap[c] = activityData[i]);
 EXPLORE_DATA.map(list => cardData(...list)).forEach(item => {
     activityMap[item.kind].items.push(item)
 });
-
 const INTERESTS = [
     "Self-Guided Tours",
     "Sightseeing",
@@ -1423,4 +1364,169 @@ SETTLE_GROUP_DATA.list[0].addExpense(new ExpenseRecord("Breakfast", 11.11));
 SETTLE_GROUP_DATA.list[0].addExpense(new ExpenseRecord("Lunch", 22.22));
 SETTLE_GROUP_DATA.list[0].addExpense(new ExpenseRecord("Dinner", 33.33));
 
-console.log(SETTLE_GROUP_DATA);
+// console.log(SETTLE_GROUP_DATA);
+// TODO add more events for debugging use index into array at end to choose alternate activities
+// TODO change
+const EVENTS_DATA = [
+    new VitaEvent(Period(), "", "", "", "demo event", new Date(), cardData(...EXPLORE_DATA[0])),
+    // new VitaEvent(Period(), "", "", "", "demo event", new Date("2022-07-14T11:45:00"), cardData(...EXPLORE_DATA[1])),
+    // new VitaEvent(Period(), "", "", "", "demo event", new Date("2022-07-15T00:45:00"), cardData(...EXPLORE_DATA[2])),
+];
+
+const injectVitaEventProps = (periods) =>
+    periods.map((p) => {
+        return {...p, ...VitaEvent(p), events:[]};
+    });
+
+const getPeriods = () =>
+    injectVitaEventProps([
+        {
+            name: "pre-breakfast",
+            from: new Date('1970-01-01T05:00:00'),
+            to: new Date('1970-01-01T07:30:00'),
+            color: "darkred",
+            ideas: [
+                "serene points of interest",
+                "nature work-out experiences",
+                "self-guided nature tours",
+                "guided nature tours",
+                "local spas, gyms & yoga centers",
+                "local fitness guides",
+                "popular coffee & tea venues",
+                "hop-on hop-off tours",
+                "local resources",
+                "members nearby",
+                "interesting locals",
+                "dog parks",
+                "virtual tours",
+            ],
+        },
+        {
+            name: "breakfast",
+            from: new Date('1970-01-01T07:45:00'),
+            to: new Date('1970-01-01T09:30:00'),
+            color: "darkorange",
+            ideas: [
+                "view",
+                "outdoor seating",
+                "to go",
+                "fast food",
+                "booze for breakfast",
+                "where singles go",
+                "members nearby",
+                "American Cuisine",
+                "Mexican Cuisine",
+                "Japanese Cuisine",
+                "popular coffee & tea venues",
+            ],
+        },
+        {
+            name: "morning experience",
+            from: new Date('1970-01-01T09:45:00'),
+            to: new Date('1970-01-01T11:00:00'),
+            color: "goldenrod",
+            ideas: [
+                "e-bike rental",
+                "local hop-on hop-off tours",
+                "culture/history",
+                "adventure",
+                "places to see now",
+                "Drives",
+                "hiking",
+                "Water sports",
+                "Boating/sailing",
+                "All day guided tours",
+                "Self-guided tours",
+                "guides",
+            ],
+        },
+        {
+            name: "lunch",
+            from: new Date('1970-01-01T11:15:00'),
+            to: new Date('1970-01-01T14:30:00'),
+            color: "darkgreen",
+            ideas: [
+                "Outdoor Seating",
+                "People Watching",
+                "Where Singles Go",
+                "Liquid Lunch",
+                "Mexican Cuisine",
+                "American Cuisine",
+                "Japanese Cuisine",
+                "Fine Dining",
+                "Fast Food",
+                "More...",
+            ],
+        },
+        {
+            name: "afternoon experience",
+            from: new Date('1970-01-01T14:45:00'),
+            to: new Date('1970-01-01T16:45:00'),
+            color: "blue",
+            ideas: [
+                "e-bike rental",
+                "outdoor bars/pubs",
+                "Wine Experiences",
+                "sailing tours",
+                "adventure tours",
+                "stand-up paddle",
+                "Beach",
+                "Live music",
+                "Places to see now",
+                "Adventure",
+                "Culture/history",
+            ],
+        },
+        {
+            name: "dinner",
+            from: new Date('1970-01-01T17:00:00'),
+            to: new Date('1970-01-01T21:00:00'),
+            color: "darkslateblue",
+            ideas: [
+                "Outdoor seating",
+                "view",
+                "People watching",
+                "$$-$$$$",
+                "Japanese Cuisine",
+                "Korean Cuisine",
+                "Vietnamese",
+                "Italian Cuisine",
+                "French Cuisine",
+                "Food Experiences",
+                "guides",
+            ],
+        },
+        {
+            name: "evening experience",
+            from: new Date('1970-01-01T21:15:00'),
+            to: new Date('1970-01-01T23:45:00'),
+            color: "#885588",
+            ideas: [
+                "places to go now",
+                "guides",
+                "guided experiences",
+                "Drive in movie theatres",
+                "Comedy",
+                "Beach",
+                "View",
+                "People watching",
+                "Live music (Alternative genre)",
+                "Live music (Pop genre)",
+                "Live music (classical genre)",
+                "Live music (Jazz genre)",
+            ],
+        },
+        {
+            name: "late-night experience",
+            from: new Date('1970-01-01T00:00:00'),
+            to: new Date('1970-01-01T03:00:00'),
+            color: "darkviolet",
+            ideas: [
+                "Burlesque",
+                "Restaurants open",
+                "Beach",
+                "View",
+                "People watching",
+            ],
+        },
+    ]);
