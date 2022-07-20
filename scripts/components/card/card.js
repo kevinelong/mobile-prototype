@@ -80,7 +80,7 @@ function actionList(id, list = [], hideText = false, qty = 0, iconColor = "") {
     );
 }
 
-function actionColumn(id, list = [], completed = 0) {
+function actionColumn(id, list = ["invite", "check-in", "verify", "split", "review", "upload"], completed = []) {
     return div(
         `action-list col ${id}`,
         [...list]
@@ -90,7 +90,7 @@ function actionColumn(id, list = [], completed = 0) {
                     id,
                     i + 1,
                     titleCase(c),
-                    completed
+                    completed.includes(c)
                 )
             )
             .join(""),
@@ -185,7 +185,7 @@ function eventCard(
     const groupsContent = groups ? cardGroups(groups) : "";
 
     actions = ["invite", "check-in", "verify", "split", "review", "upload"];
-    const completed = 2;
+    const completed = ["invite", "check-in"];
 
     return div(
         `card ${kind} ${which} ${currentClass(ve)}`,
@@ -201,7 +201,9 @@ function eventCard(
             ) +
             col(
                 row(row(coin()) + text(`+${5}pts`, "gold"), "","centered") +
-                spread(meter(actions.length, completed)) +
+                spread(meter(actions.length, completed.length)) +
+                // row(row(coin()) + text(`+${5}pts`, "gold"), "","centered") +
+                // spread(meter(actions.length, completed)) +
                 actionColumn(`card-actions`, actions, completed)
             )
         ),

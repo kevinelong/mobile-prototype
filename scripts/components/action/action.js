@@ -31,7 +31,7 @@ function actionItem(name, which = "", index = -1, textValue = "", iconColor = ""
     return !hideText ? content : tooltip(textValue, content);
 }
 
-function actionItemStep(name, which = "", index = -1, textValue = "", completed=0, iconColor = "", hideText = false, qty = 0, small = false) {
+function actionItemStep(name, which = "", index = -1, textValue = "", isCompleted=false, iconColor = "", hideText = false, qty = 0, small = false) {
     // console.log("actionItem", name, which, index);
     
     if (ACTION_COMPONENT_MAP.hasOwnProperty(name)) {
@@ -41,7 +41,6 @@ function actionItemStep(name, which = "", index = -1, textValue = "", completed=
     if ("favorite" === name) {
         textValue = qty ? qty : textValue;
     }
-    const isCompleted = index <= completed;
     const color = isCompleted ? "white" : "clear";
     const completedClass = isCompleted ? " completed" : "";
 

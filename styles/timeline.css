@@ -162,24 +162,23 @@
     display: flex;
 }
 
-.timeline  .action-list .action-item{
-    min-width: 90px;
+.col.action-list .action-item{
+    min-width: 128px;
     justify-content: flex-start;
     background: #fa0c;
     padding: 3px;
     font-size: 9px;
 }
 
-.timeline .action-list .action-item .icon {
+.col.action-list .action-item .icon {
     max-width: 12px;
     max-height: 12px;
 }
-
-.timeline .action-list .action-item.completed{
+.col.action-list .action-item.completed{
     background: #fa03;
 }
 
-.timeline .action-list .action-item.completed:hover{
+.col.action-list .action-item.completed:hover{
     background: #888888ff;
     border: none;
 }

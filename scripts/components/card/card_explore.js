@@ -48,6 +48,7 @@ function exploreCardContent(
     if (booking_index >= 0) {
         booking = actionItem("book", "book", id, "Book Now!");
     }
+
     return div(
         `card ${kind} ${kind2}`,
         cardSection(
@@ -75,7 +76,7 @@ function exploreCardContent(
                     col(cardGroups(groups)) +
                     stack(
                         booking +
-                        actionItem("directions", id, id, "Show Map", "",false)
+                        actionItem("directions", id, id, "Show Map", "", false)
                     )
                 )
                 + actionList(`card-actions`, actions, true, qty)
@@ -133,6 +134,10 @@ function exploreCardDetailContent(
     if (booking_index >= 0) {
         booking = actionItem("book", "book", -1, "Book Now!");
     }
+
+    actions = ["invite", "check-in", "verify", "split", "review", "upload"];
+    const completed = ["invite", "check-in"];
+
     // const booking = "";
     return div(
         `detail stack ${kind} ${kind2}`,
@@ -169,24 +174,30 @@ function exploreCardDetailContent(
                     ]) : "") +
                 text(`${match_percent}% match`) +
                 row(
-                    col(cardGroups(groups), "", "event rounded framed padded") +
                     stack(
+                        col(
+                            cardGroups(groups),
+                            "", "event rounded framed padded vtop"
+                        ) +
                         booking +
-                        actionItem("directions","","","Directions", false)
+                        actionItem("directions", "", "", "Directions", false)
+                    ) +
+                    col(
+                        actionColumn(`card-actions`, actions, completed)
                     )
                 ) +
-                actionList(`card-actions`, actions, false, qty, "black") +
+                // actionList(`card-actions`, actions, false, qty, "black") +
                 label("", "Events:") +
-                (plans.length>0 ?
-                div(
-                    "event rounded framed padded",
-                    plans.map(plan).join("") +
-                    (plans[0].participants[0].status === "Invited" ?
-                        actionList("controls-response", responseActions, false, 0, "black") : "") +
-                    (plans[0].participants[0].status !== "Invited" && !plans[0].participants[0].paid ?
-                        actionList("controls-response", payAction, false, 0, "black") : "")
-                    // actionList("controls-other", otherActions, false, 0, "black") +
-                ) : "")
+                (plans.length > 0 ?
+                    div(
+                        "event rounded framed padded",
+                        plans.map(plan).join("") +
+                        (plans[0].participants[0].status === "Invited" ?
+                            actionList("controls-response", responseActions, false, 0, "black") : "") +
+                        (plans[0].participants[0].status !== "Invited" && !plans[0].participants[0].paid ?
+                            actionList("controls-response", payAction, false, 0, "black") : "")
+                        // actionList("controls-other", otherActions, false, 0, "black") +
+                    ) : "")
             )
         ) +
         cardTags(tags) +
