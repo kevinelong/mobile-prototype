@@ -435,13 +435,13 @@ const SETTLE_GROUPS = [
     },
 ];
 
-const defaultCardActionList = ["collect", "share", "favorite", "invite"];
 const EXPLORE_IMG = 0;
 const EXPLORE_NAME = 1;
 const EXPLORE_LOCATION = 2;
 const EXPLORE_INDEX = 7;
 
 const defaultCardActionList = ["schedule", "collect", "share", "discuss", "invite"];
+
 const EXPLORE_DATA = [
     [
         "images/explore_bg.png",
