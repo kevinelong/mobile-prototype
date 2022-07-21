@@ -1,5 +1,5 @@
 
-.dot {
+.coin {
     background: darkgoldenrod;
     width: 1em;
     height: 1em;
@@ -18,7 +18,7 @@
     }
 }
 
-.dot:before {
+.coin:before {
     background-color: darkgoldenrod;
     position: absolute;
     border-radius: 50%;
@@ -28,7 +28,7 @@
     -webkit-transform: translateZ(-0.075em);
 }
 
-.dot:after {
+.coin:after {
     background-color: darkgoldenrod;
     content: '';
     left: 0.425em;
@@ -41,7 +41,7 @@
 }
 
 
-.dot .back {
+.coin .back {
     background-color: darkgoldenrod;
     position: absolute;
     border-radius: 50%;
@@ -52,7 +52,7 @@
     border: 1px solid black;
 }
 
-.dot .front {
+.coin .front {
     background-color: transparent;
     position: absolute;
     border-radius: 50%;
