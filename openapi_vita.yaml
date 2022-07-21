@@ -49,10 +49,19 @@ components:
       properties:
         expense:
           type: Expense
+
+    Event:
+      properties:
+        when:
+          type: timestamp
+        event_name:
+          type: string
         participants:
           type: array
           items:
             $ref: '#/components/schemas/User'
+        activity:
+          type: $ref: `#/components/schemas/Activity'
     Day:
       properties:
         timestamp:
