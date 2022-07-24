@@ -201,7 +201,7 @@ CREATE TABLE IF NOT EXISTS "vita"."user_plan_share" (
     FOREIGN KEY ("user_id")
     REFERENCES "vita"."user" ("id")
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON UPDATE NO ACTION,c
   CONSTRAINT "fk_user_plan_share_plan1"
     FOREIGN KEY ("plan_id")
     REFERENCES "vita"."plan" ("id")
