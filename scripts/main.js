@@ -35,7 +35,8 @@ function initScroll() {
     // const cssObjTimeline = window.getComputedStyle(timeline)
     // margin = parseFloat(style.marginLeft) + parseFloat(style.marginRight)
 
-    window.lastPage = "connect";
+    window.currentPage = "timeline";
+    window.lastPage = "timeline";
     hide(".smoke");
     hide(".dialog");
 
@@ -352,4 +353,6 @@ document.addEventListener("DOMContentLoaded", () => {
     setTitleTime();
 
     window.kaching = new Audio("cash.mp3");
+
+
 });

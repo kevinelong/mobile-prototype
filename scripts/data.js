@@ -1,4 +1,4 @@
-const Period = (name = "", from = "", to = "", color = "", ideas= []) => {
+const Period = (name = "", from = "", to = "", color = "", ideas = []) => {
     return {name: name, from: from, to: to, color: color, ideas: ideas};
 };
 
@@ -59,11 +59,15 @@ const LATE_NIGHT = 7;
 //Ensure every period has all the default VitaEvent properties.
 
 
+const optionsDateString = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+};
+const optionsTimeString = {hour: 'numeric', minute: '2-digit'};
 
-const optionsDateString = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-const optionsTimeString = { hour: 'numeric', minute: '2-digit' };
-
-function timeStringFromDate(dateObject){
+function timeStringFromDate(dateObject) {
     return dateObject.toLocaleTimeString(undefined, optionsTimeString);
 }
 
@@ -96,7 +100,8 @@ function Day(when, title = "", events = []) {
                 e.when.getMonth() === p.dayWhen.getMonth() &&
                 e.when.getDate() === p.dayWhen.getDate()
             ) {
-                if (timeWhen >= p.from && timeWhen < p.to) {
+                // debugger;
+                if (timeWhen >= p.from && timeWhen < (new Date(p.to.getTime() + 15 * 60000)))  {
                     e.dayWhen = timeWhen;
                     p.events.push(e);
                 }
@@ -1227,14 +1232,15 @@ class SettleDay {
         const q = this.expenseList.length;
         this.titleText = `${q} Expense${q === 1 ? "" : "s"} - ${this.dateText}`;
     }
-    updateBreakdown(){
+
+    updateBreakdown() {
         this.breakdown = [];
         this.expenseList.forEach(
             x => x.amounts.forEach(
-                (a,i) => {
+                (a, i) => {
                     //create target object if it is the first amount row
-                    if( this.breakdown.length <= i){
-                        this.breakdown.push({total:0});
+                    if (this.breakdown.length <= i) {
+                        this.breakdown.push({total: 0});
                     }
                     this.breakdown[i].person = a.person;
                     this.breakdown[i].total += a.amount;
@@ -1242,6 +1248,7 @@ class SettleDay {
             )
         )
     }
+
     addExpense(x) {
         x.turnIndex = this.group.turnIndex;
         this.group.turnIndex = (this.group.turnIndex + 1) % this.group.people.length;
@@ -1375,7 +1382,7 @@ const EVENTS_DATA = [
 
 const injectVitaEventProps = (periods) =>
     periods.map((p) => {
-        return {...p, ...VitaEvent(p), events:[]};
+        return {...p, ...VitaEvent(p), events: []};
     });
 
 const getPeriods = () =>

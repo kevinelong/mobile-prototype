@@ -369,7 +369,7 @@ function showReviewDialog() {
                 "",
                 'review-dialog'
             )
-             +
+            +
             actionList("", ["cancel", "save"], false, 0, "black")
         )
     );
@@ -430,11 +430,35 @@ function showUploadDialog() {
     showDialog("Upload", input("file", "file", "") + actionButton("upload"));
 }
 
+function showVerifyDialog() {
+    showDialog("Verify",
+        label("verified",
+            rack(
+                input("file", "checkbox", "") +
+                text("Verified.")
+            )
+        ) + actionButton("Close")
+    );
+}
+
+
+function showSplitDialog() {
+    showDialog("Split",
+        label("split",
+            rack(
+                text("Expense will be split evenly.") +
+                link("Click here to edit the split.")
+            )
+        ) + actionButton("Close")
+    );
+}
+
+
 function timeStringToArrayHHMM(time) {
     time = time.toUpperCase();
-    var hours   = Number(time.match(/^(\d+)/)[1]);
+    var hours = Number(time.match(/^(\d+)/)[1]);
     var minutes = Number(time.match(/:(\d+)/)[1]);
-    var AMPM    = time.match(/\d+:\d+(.*)$/)[1];
+    var AMPM = time.match(/\d+:\d+(.*)$/)[1];
     if (AMPM === "PM" && hours < 12) hours = hours + 12;
     if (AMPM === "AM" && hours === 12) hours = hours - 12;
     return [hours, minutes];
@@ -968,7 +992,6 @@ TOAST_MESSAGES = {
     zelle: "Payment Settled",
     paypal: "Payment Settled",
     venmo: "Payment Settled",
-    verify: "Verified",
     notify: "Notification Sent",
 };
 
@@ -1048,7 +1071,7 @@ function handleRight(target, action, which, id) {
     hideDialog();
 }
 
-function isValidDateString(text){
+function isValidDateString(text) {
     const d = new Date(text);
     return d.toString();
 }
@@ -1058,12 +1081,21 @@ function apply(target, action, which, id = -1) {
     if (isValidDateString(which)) {
 
         const selectElement = get(".filtered select");
+        if (!selectElement){
+            return;
+        }
         const whereValue = selectElement.selectedOptions[0].value;
 
         const timeElement = get(`.dialog input[type="time"]`);
+        if(!timeElement){
+            return;
+        }
         const timeValue = timeElement.value;
 
         const dateElement = get(`.dialog input[type="date"]`);
+        if(!dateElement){
+            return;
+        }
         const dateValue = dateElement.value;
 
         console.log("SAVE NEW EVENT", dateValue, timeValue, whereValue);
@@ -1075,11 +1107,11 @@ function apply(target, action, which, id = -1) {
 
         EVENTS_DATA.push(new VitaEvent(
             Period(),
-            data.kind, 
-            "", 
-            "", 
-            data.title, 
-            when, 
+            data.kind,
+            "",
+            "",
+            data.title,
+            when,
             data
         ));
 
@@ -1118,6 +1150,38 @@ function apply(target, action, which, id = -1) {
     }
 }
 
+let earned = 0;
+let points = 5;
+
+function animatePoints() {
+    window.kaching.play();
+
+    const earnedElement = get(".earned");
+    const pointsElement = get(".points");
+    pointsElement.style.position = "absolute";
+    pointsElement.style.bottom = "0";
+
+    pointsElement.style.transition = "all 1000ms ease-in-out ";
+
+    showElement(pointsElement);
+    const dx = (earnedElement.offsetLeft - pointsElement.offsetLeft) + (pointsElement.offsetWidth / 2);
+    const dy = (earnedElement.offsetTop - pointsElement.offsetTop) + pointsElement.offsetHeight + earnedElement.offsetHeight;
+    pointsElement.style.transform = `translate3d(${dx}px,${dy}px,0)`;
+
+    setTimeout(() => {
+        pointsElement.style.transition = "";
+        hideElement(pointsElement)
+        pointsElement.style.transform = "";
+        earned += points;
+        earnedElement.innerHTML = `${earned}pts earned`
+    }, 1000);
+
+}
+
+function onCloseDialog() {
+
+}
+
 ACTION_PAGES = {
     "add-participant": addParticipant,
     "add-place": showAddPlaceDialog,
@@ -1134,6 +1198,7 @@ ACTION_PAGES = {
     apply: apply,
     back: () => showPage(window.lastPage),
     chat: addItem,
+    close: onCloseDialog,
     collapse: collapseCard,
     connect_chat: () => showPage("connect_chat"),
     contact: addContact,
@@ -1156,8 +1221,9 @@ ACTION_PAGES = {
     settle_split: openPage,
     show: toggleCollapse,
     sort: showSort,
-    split: addItem,
+    split: showSplitDialog,
     upload: showUploadDialog,
+    verify: showVerifyDialog,
 };
 
 function toggleCollapse(target) {
@@ -1202,8 +1268,10 @@ function toggleMap(target) {
     get(".map").classList.toggle("hidden");
 }
 
-function route(target, action, which = "", index = "") {
+function route(target, action, which = "", index = "", data = {}) {
     const lower = action.toLowerCase();
+
+    console.log("click", window.currentPage, window.currentDialog, lower, which, index, target, data);
 
     if (TOAST_MESSAGES.hasOwnProperty(lower)) {
         return showToast(TOAST_MESSAGES[lower]);
@@ -1211,6 +1279,6 @@ function route(target, action, which = "", index = "") {
         const f = ACTION_PAGES[lower];
         return f(target, lower, which, index);
     } else {
-        console.log("UNKNOWN ACTION:'" + lower + "' ", which, index, target);
+        console.log("UNKNOWN ACTION:'" + lower + "' ", which, index, target, data);
     }
 }

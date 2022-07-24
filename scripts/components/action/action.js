@@ -90,9 +90,10 @@ function actionClick(e, target, action, which = "", index = -1, data = {}) {
     else {
         e.cancelBubble = true;
     }
-    // console.log("click", action, which,index,data,target);
+
     if(action !== "show"){
         hideDialog();
     }
+
     route(target, action, which, index, data);
 }

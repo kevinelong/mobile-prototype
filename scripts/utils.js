@@ -50,6 +50,7 @@ function showPage(pageName, action = "", id = "") {
         console.log("Missing pageName: " + pageName);
         return;
     }
+    window.currentPage = pageName;
     const page = get(`.page.${pageName}`);
     if (!page) {
         console.log("No such page element: " + pageName);

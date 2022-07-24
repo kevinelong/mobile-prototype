@@ -1,7 +1,7 @@
-function text(textValue, color) {
+function text(textValue, className) {
     textValue = `${textValue}`; //ensure that the parameter is converted to text in case its was something like qty
     const word_count = textValue.split().length;
-    return div(`text wc-${word_count} ${color}`, textValue);
+    return div(`text wc-${word_count} ${className}`, textValue);
 }
 
 function image(path = "") {

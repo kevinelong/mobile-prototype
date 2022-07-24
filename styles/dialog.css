@@ -6,7 +6,7 @@
     z-index: 999999;
     height: auto;
     color: black;
-    min-height: 360px;
+    /*min-height: 360px;*/
     max-height: 640px;
     border-radius: 2rem;
     padding: 24px;
