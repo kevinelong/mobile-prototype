@@ -1071,57 +1071,15 @@ function handleRight(target, action, which, id) {
     hideDialog();
 }
 
-function isValidDateString(text) {
+function isValidDateString(text="") {
     const d = new Date(text);
-    return d.toString();
+    const result = d.toString();
+    return result === text;
 }
 
 function apply(target, action, which, id = -1) {
-    // debugger;
-    if (isValidDateString(which)) {
-
-        const selectElement = get(".filtered select");
-        if (!selectElement){
-            return;
-        }
-        const whereValue = selectElement.selectedOptions[0].value;
-
-        const timeElement = get(`.dialog input[type="time"]`);
-        if(!timeElement){
-            return;
-        }
-        const timeValue = timeElement.value;
-
-        const dateElement = get(`.dialog input[type="date"]`);
-        if(!dateElement){
-            return;
-        }
-        const dateValue = dateElement.value;
-
-        console.log("SAVE NEW EVENT", dateValue, timeValue, whereValue);
-
-        let when = new Date(`${dateValue}T${timeValue}:00`);
-        // TODO Update "when" with time portion
-
-        const data = cardData(...EXPLORE_DATA[whereValue])
-
-        EVENTS_DATA.push(new VitaEvent(
-            Period(),
-            data.kind,
-            "",
-            "",
-            data.title,
-            when,
-            data
-        ));
-
-        // [X] Save event to global events list here 
-        // [X] Enhance timeline to consume from global events list where timeline is rendered
-        // TODO Redraw timeline here
-        get(".timeline.page").outerHTML = timelinePage(true);
-        initScroll();
-
-    } else if ("filter-things-to-do" === which) {
+    debugger;
+    if ("filter-things-to-do" === which) {
         getAll(".page.explore .explore.card").map(hideElement);
         getAll(".page.explore .explore.card.things-to-do").map(showElement);
     } else if ("filter-actions-restaurants" === which) {
@@ -1134,6 +1092,50 @@ function apply(target, action, which, id = -1) {
         );
     } else if ("add-expense" === which) {
         debugger;
+        if (isValidDateString(which)) {
+
+            const selectElement = get(".filtered select");
+            if (!selectElement){
+                return;
+            }
+            const whereValue = selectElement.selectedOptions[0].value;
+
+            const timeElement = get(`.dialog input[type="time"]`);
+            if(!timeElement){
+                return;
+            }
+            const timeValue = timeElement.value;
+
+            const dateElement = get(`.dialog input[type="date"]`);
+            if(!dateElement){
+                return;
+            }
+            const dateValue = dateElement.value;
+
+            console.log("SAVE NEW EVENT", dateValue, timeValue, whereValue);
+
+            let when = new Date(`${dateValue}T${timeValue}:00`);
+            // TODO Update "when" with time portion
+
+            const data = cardData(...EXPLORE_DATA[whereValue])
+
+            EVENTS_DATA.push(new VitaEvent(
+                Period(),
+                data.kind,
+                "",
+                "",
+                data.title,
+                when,
+                data
+            ));
+
+            // [X] Save event to global events list here
+            // [X] Enhance timeline to consume from global events list where timeline is rendered
+            // TODO Redraw timeline here
+            get(".timeline.page").outerHTML = timelinePage(true);
+            initScroll();
+
+        }
         const day = get(".settle_split .card-list > .day"); //first one for now.
 
         const amount = get(".add-expense-amount").value;
@@ -1145,6 +1147,7 @@ function apply(target, action, which, id = -1) {
 
         data.addExpense(new ExpenseRecord(description, parseFloat(amount)));
         updateBalance(day, expenseRecordList, data, SETTLE_GROUP_DATA);
+
     } else {
         // console.log(`APPLY ${target} ${action} ${which} ${id}?`)
     }

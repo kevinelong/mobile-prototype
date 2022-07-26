@@ -200,7 +200,7 @@ function eventCard(
                 groupsContent
             ) +
             col(
-                row(row(coin()) + text(`${earned}pts earned.`, "white earned"), "","centered") +
+                row(row(coin()) + text(`${earned}pts earned`, "white earned"), "","centered") +
                 spread(meter(actions.length, completed.length)) +
                 // row(row(coin()) + text(`+${5}pts`, "gold"), "","centered") +
                 // spread(meter(actions.length, completed)) +
