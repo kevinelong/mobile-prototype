@@ -352,7 +352,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setTitleTime();
 
-    window.kaching = new Audio("cash.mp3");
+    window.kaching = new Audio("chaching.mp3");
 
 
 });
