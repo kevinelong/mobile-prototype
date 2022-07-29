@@ -70,6 +70,7 @@ function initScroll() {
                 timerID = setTimeout(() => {
                     callback();
                 }, milliseconds);
+                console.log("scroll check")
                 // navigator.vibrate(30);
             },
             false
@@ -88,7 +89,11 @@ function initScroll() {
     const cardListHeight = cardList.offsetHeight;
     const cardListHeightHalf = Math.floor(cardListHeight / 2);
 
-    const milliseconds = 200;
+    const timelineHeight = get(".timeline.page").offsetHeight;
+
+    const headerHeight = cardListHeight - timelineHeight;
+
+    const milliseconds = 250;
     const offset = 0;
     const offset2 = 0;
     const divisor = 2;
@@ -97,11 +102,12 @@ function initScroll() {
     const snapScroll = () => {
         // debugger;
         if (scrolling === true) {
-            console.log("SCROLL")
+             console.log("scrolling false")
             return;
         }
-        console.log("scrolling false")
         scrolling = true;
+        console.log("SCROLL")
+        // scrolling = true;
 
         let scrollAmount = cardList.scrollTop;
 
@@ -122,8 +128,11 @@ function initScroll() {
         centers.forEach((c, i) => {
             let o = c[1];
             if (i === 0) {
-                o.style.opacity = 1;
+                setTimeout(() => {
+                    o.style.opacity = 1;
                 o.classList.add("selected");
+                }, 400)
+                
                 // console.log(Array.from(o.parentNode.children).indexOf(o));
                 // console.log(o.)
                 // console.log(o.offsetTop, cardListHeightHalf, o.offsetHeight);
@@ -134,7 +143,7 @@ function initScroll() {
                         Math.floor(o.offsetHeight / divisor),
                     behavior: "smooth",
                 });
-                console.log(o.offsetHeight)
+                console.log(o.offsetTop)
             } else {
                 o.classList.remove("selected");
                 o.style.opacity = "0.65";
@@ -180,10 +189,11 @@ function initScroll() {
         //         }
         //     });
         // }, 10);
-
+        
         setTimeout(() => {
             scrolling = false;
-        }, 1000);
+            console.log("set to false")
+        }, 650);
 
         //console.log(centers);
     }
