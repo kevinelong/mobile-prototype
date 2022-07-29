@@ -16,7 +16,9 @@ Br = lambda class_names="", attrs="": solo_tag("br", class_names, attrs)
 Input = lambda name="", value="", input_type="input", attrs="": solo_tag(
     "input", name, f'name="{name}" value="{value}" type="{input_type}" ' + attrs
 )
-Submit = lambda name="Submit", attrs="": Input(name, name, "submit", attrs)
+Submit = lambda name="Submit", attrs="": solo_tag(
+    "input", name, f'value="{name}" type="submit" ' + attrs
+)
 Password = lambda name="password", attrs="": Input(name, "", "password", attrs)
 
 # CLOSED TAGS

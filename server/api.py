@@ -1,16 +1,31 @@
 from flask import Flask, jsonify, request, session
 from orm import ApiDatabase, ApiModel
 from dom import *
+from form import form
 
 app = Flask(__name__)
 app.secret_key = b'whatever'
 
 db = ApiDatabase()
-activity_model = ApiModel(db, "activity", ["id", "title", "description", "image_url", "lat", "lng", "region_id"])
-event_model = ApiModel(db, "event", ["id", "name", "when", "plan_id", "activity_id"])
-user_model = ApiModel(db, "user", ["id", "display_name", "email", "password"])
+activity_model = db.addModel("activity", ["id", "title", "description", "image_url", "lat", "lng", "region_id"])
+event_model = db.addModel("event", ["id", "name", "when", "plan_id", "activity_id"])
+user_model = db.addModel("user", ["id", "display_name", "email", "password"])
 
 activity_model.create_table()
+
+
+activity_model.create({
+    "title": "tt",
+    "description": "dd",
+    "image_url": "ii",
+    "lat": 0,
+    "lng": 0,
+    "region_id": 1
+})
+
+@app.route("/action", methods=["GET", "POST", "PUT", "DELETE"])
+def action():
+    return jsonify(db.models[request.args.get("model")].route(request.method, request.form))
 
 
 @app.route("/activity", methods=["GET", "POST", "PUT", "DELETE"])
@@ -20,7 +35,12 @@ def activity():
 
 @app.route("/event_new", methods=["GET"])
 def event_new():
-    return event_model.form()
+    return form(event_model.non_id_fields(), event_model.name)
+
+
+@app.route("/activity_new", methods=["GET"])
+def activity_new():
+    return form(activity_model.non_id_fields(), activity_model.name)
 
 
 @app.route("/event", methods=["GET", "POST", "PUT", "DELETE"])
@@ -39,7 +59,7 @@ def user():
 def user_list():
     if "username" not in session:
         return "not logged in"
-    return Br().join(map(lambda m: Template("{id}, {display_name}, {email}", m), user_model.read()))
+    return Br().join([Template("{id}, {display_name}, {email}", m) for m in user_model.read()])
 
 
 @app.route("/register", methods=['POST'])
@@ -69,14 +89,12 @@ def logout():
 
 @app.route("/reg")
 def reg():
-    return '''
-    <form action="/register" method="post">
-        <input name="display_name" placeholder="display_name">
-        <input name="email" placeholder="email">
-        <input name="password"  placeholder="password" type="password">
-        <input type="submit" value="Register">
-    </form>
-    '''
+    return Form("".join([
+        Input("display_name", "", "input", 'placeholder="Name"'),
+        Input("email", "", "input", 'placeholder="Name"'),
+        Password("password", 'placeholder="Password"'),
+        Submit("Login"),
+    ]), 'action="/register" method="post"')
 
 
 @app.route("/login")
