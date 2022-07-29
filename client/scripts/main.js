@@ -1,4 +1,20 @@
+function getRectTop(div) {
+    const rect = div.getBoundingClientRect()
+    // const left = rect.left
+    const top = rect.top
+    // console.log(top)
+    // const right = rect.right
+    // const bottom = rect.bottom
+    // const x = rect.x
+    // const y = rect.y
+    // const width = rect.width
+    // const height = rect.height
+    // return `left: ${left}, top: ${top}, right: ${right}, bottom: ${bottom}, x: ${x}, y: ${y}, width: ${width}, height: ${height}`
+    return top
+}
+
 function initScroll() {
+    // debugger;
     const outerBoxWidth = get(".outer-box").clientWidth;
 
     const contentPanel = get(".content-panel");
@@ -25,7 +41,7 @@ function initScroll() {
             parseFloat(cssObjDay.marginRight);
         count += 1;
     }
-
+    // debugger;
     // const timelineScrollStart = (timelineScrollWidth / 2)
     const timelineScrollStart =
         timelineScrollWidth / 2 - timelineWindowWidth / 2;
@@ -41,9 +57,10 @@ function initScroll() {
     hide(".dialog");
 
     const onScrollStop = (object, callback, milliseconds) => {
+        // debugger;
         let timerID;
         if (typeof object === "undefined") {
-            // console.log("no object")
+            console.log("no object")
             return;
         }
         object.addEventListener(
@@ -53,6 +70,7 @@ function initScroll() {
                 timerID = setTimeout(() => {
                     callback();
                 }, milliseconds);
+                console.log("scroll check")
                 // navigator.vibrate(30);
             },
             false
@@ -71,17 +89,25 @@ function initScroll() {
     const cardListHeight = cardList.offsetHeight;
     const cardListHeightHalf = Math.floor(cardListHeight / 2);
 
+    const timelineHeight = get(".timeline.page").offsetHeight;
+
+    const headerHeight = cardListHeight - timelineHeight;
+
     const milliseconds = 250;
-    const offset = 45;
-    const offset2 = 45;
+    const offset = 0;
+    const offset2 = 0;
     const divisor = 2;
 
     let scrolling = false;
     const snapScroll = () => {
-        if (scrolling) {
+        // debugger;
+        if (scrolling === true) {
+             console.log("scrolling false")
             return;
         }
         scrolling = true;
+        console.log("SCROLL")
+        // scrolling = true;
 
         let scrollAmount = cardList.scrollTop;
 
@@ -102,8 +128,11 @@ function initScroll() {
         centers.forEach((c, i) => {
             let o = c[1];
             if (i === 0) {
-                o.style.opacity = 1;
+                setTimeout(() => {
+                    o.style.opacity = 1;
                 o.classList.add("selected");
+                }, 400)
+                
                 // console.log(Array.from(o.parentNode.children).indexOf(o));
                 // console.log(o.)
                 // console.log(o.offsetTop, cardListHeightHalf, o.offsetHeight);
@@ -114,52 +143,56 @@ function initScroll() {
                         Math.floor(o.offsetHeight / divisor),
                     behavior: "smooth",
                 });
+                console.log(o.offsetTop)
             } else {
                 o.classList.remove("selected");
                 o.style.opacity = "0.65";
             }
         });
 
-        scrollAmount = cardList.scrollTop;
-        setTimeout(() => {
-            centers = [];
+        // scrollAmount = cardList.scrollTop;
+        // setTimeout(() => {
+        //     centers = [];
 
-            [...cardList.querySelectorAll(".card")].forEach((c) => {
-                const half = Math.floor(c.offsetHeight / 2);
-                const delta = Math.abs(
-                    c.offsetTop +
-                    half +
-                    offset2 -
-                    (scrollAmount + cardListHeightHalf)
-                );
-                // console.log(delta, scrollAmount, cardListHeightHalf, half, c.offsetTop);
-                centers.push([delta, c]);
-            });
-            centers.sort((a, b) => a[0] - b[0]);
-            centers.forEach((c, i) => {
-                let o = c[1];
-                if (i === 0) {
-                    o.style.opacity = 1;
-                    o.classList.add("selected");
-                    // console.log(Array.from(o.parentNode.children).indexOf(o));
-                    // console.log(o.)
-                    // console.log(o.offsetTop, cardListHeightHalf, o.offsetHeight);
-                    cardList.scroll({
-                        top:
-                            offset +
-                            (o.offsetTop - cardListHeightHalf) +
-                            Math.floor(o.offsetHeight / divisor),
-                        behavior: "smooth",
-                    });
-                } else {
-                    o.classList.remove("selected");
-                    o.style.opacity = "0.65";
-                }
-            });
-        }, 310);
-
+        //     [...cardList.querySelectorAll(".card")].forEach((c) => {
+        //         const half = Math.floor(c.offsetHeight / 2);
+        //         const delta = Math.abs(
+        //             getRectTop(c) +
+        //             half +
+        //             offset2 -
+        //             (scrollAmount + cardListHeightHalf)
+        //         );
+        //         // console.log(delta, scrollAmount, cardListHeightHalf, half, c.offsetTop);
+        //         centers.push([delta, c]);
+        //     });
+        //     centers.sort((a, b) => a[0] - b[0]);
+        //     centers.forEach((c, i) => {
+        //         let o = c[1];
+        //         if (i === 0) {
+        //             // debugger;
+        //             o.style.opacity = 1;
+        //             o.classList.add("selected");
+        //             // console.log(Array.from(o.parentNode.children).indexOf(o));
+        //             // console.log(o.)
+        //             // console.log(o.offsetTop, cardListHeightHalf, o.offsetHeight);
+        //             cardList.scroll({
+        //                 top:
+        //                     offset +
+        //                     (getRectTop(o) - cardListHeightHalf) +
+        //                     Math.floor(o.offsetHeight / divisor),
+        //                 behavior: "smooth",
+        //             });
+        //             console.log("SCROLL")
+        //         } else {
+        //             o.classList.remove("selected");
+        //             o.style.opacity = "0.65";
+        //         }
+        //     });
+        // }, 10);
+        
         setTimeout(() => {
             scrolling = false;
+            console.log("set to false")
         }, 650);
 
         //console.log(centers);
