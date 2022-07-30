@@ -1,19 +1,24 @@
 import psycopg2
 import psycopg2.extras
-from dom import *
 
 
 class ApiDatabase:
-    def __init__(self, database_name='vita', host="localhost", user="postgres", password="beer"):
+    def __init__(self, database_name='vita', host="localhost",
+                 user="postgres", password="beer"):
+        self.models = {}
         self.connection = psycopg2.connect(host=host, database=database_name, user=user, password=password)
         self.cursor = self.connection.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
         self.connection.autocommit = True
 
+    def addModel(self, model_name, fields):
+        self.models[model_name] = ApiModel(self, model_name, fields)
+        return self.models[model_name]
+
 
 class ApiModel:
-    def __init__(self, database, table, fields, id_field="id"):
+    def __init__(self, database, model_name, fields, id_field="id"):
         self.database = database
-        self.table = table
+        self.name = model_name
         self.fields = fields
         self.id_field = id_field
 
@@ -27,29 +32,29 @@ class ApiModel:
     def route(self, method, data={}):
         return self.routes[method](data)
 
+    def create_table(self):
+        self.execute(f"DROP TABLE IF EXISTS {self.name};")
+        field_list = ', '.join([f"{f} {self.sql_datatype(f)}" for f in self.fields])
+        sql = f"CREATE TABLE {self.name} ( {field_list} );"
+        print(sql)
+        self.execute(sql)
+
     def create(self, data):
-        values = ','.join(map(lambda p: f"'{p[1]}'", dict(data).items()))
-        query = f"INSERT INTO {self.name()} ({self.query_fields()}) VALUES ({values});"
+        values = ','.join([f"'{p[1]}'" for p in dict(data).items()])
+        query = f"INSERT INTO {self.name} ({','.join(self.non_id_fields())}) VALUES ({values});"
         return self.execute(query)
 
     def update(self, id, data):
-        pairs = map(lambda p: f"{p[0]}='{p[1]}'", dict(data).items())
-        query = f"UPDATE {self.name()} {pairs} WHERE {self.id_field} = {id};"
+        pairs = [f"{p[0]}='{p[1]}'" for p in dict(data).items()]
+        query = f"UPDATE {self.name} {pairs} WHERE {self.id_field} = {id};"
         return self.execute(query)
 
     def delete(self, id):
-        return self.execute(f"DELETE FROM {self.name()} WHERE {self.id_field} = {id};")
+        return self.execute(f"DELETE FROM {self.name} WHERE {self.id_field} = {id};")
 
     def read(self):
-        self.execute(f"SELECT {self.return_fields()} FROM {self.name()};")
+        self.execute(f"SELECT {self.return_fields()} FROM {self.name};")
         return self.database.cursor.fetchall()
-
-    def create_table(self):
-        self.execute(f"DROP TABLE IF EXISTS {self.table};")
-        field_list = ', '.join(map(lambda f: f"{f} {self.sql_datatype(f)}", self.fields))
-        sql = f"CREATE TABLE {self.table} ( {field_list} );"
-        print(sql)
-        self.execute(sql)
 
     @staticmethod
     def sql_datatype(field_name):
@@ -60,28 +65,15 @@ class ApiModel:
             return "timestamp"  # date, time, or both
         if f.endswith("_size") or f.endswith("_weight"):
             return "real"  # floating point decimal
-        if f == "id" or f.startswith("fk_") or f.endswith("_id"):
+        if f == "id":
+            return "serial"
+        if f.startswith("fk_") or f.endswith("_id"):
             return "integer"
-        return "character"  # Default
-
-    @staticmethod
-    def dom_datatype(field_name):
-        f = field_name.lower()
-        if f.startswith("is_") or f.startswith("has_"):
-            return "boolean"
-        if f.endswith("_date") or f.endswith("_time"):
-            return "date"  # date, time, or both
-        if f.endswith("_time"):
-            return "time"  # date, time, or both
-        if f.endswith("_size") or f.endswith("_weight"):
-            return "number"  # floating point decimal
-        if f == "id" or f.startswith("fk_") or f.endswith("_id"):
-            return "number"
-        return "input"  # Default
+        return "text"  # Default
 
     def read_one(self, id, field=None):
         field = field if field else self.id_field
-        self.execute(f"SELECT {self.return_fields()} FROM {self.name()} WHERE {field}='{id}';")
+        self.execute(f"SELECT {self.return_fields()} FROM {self.name} WHERE {field}='{id}';")
         return self.database.cursor.fetchone()
 
     def execute(self, query):
@@ -89,15 +81,13 @@ class ApiModel:
         return self.database.cursor.execute(query)
 
     def name(self):
-        return f'{self.database.connection.info.dbname}."{self.table}"'
+        return f'{self.database.connection.info.dbname}."{self.name}"'
+
+    def non_id_fields(self):
+        return [f for f in self.fields if f != self.id_field]
 
     def query_fields(self):
         return ','.join(self.fields)
 
     def return_fields(self):
         return ','.join([self.id_field] + self.fields)
-
-    def form(self):
-        return self.table + Br() + Form("".join([
-            "".join(map(lambda f: Input(f, "", self.dom_datatype(f), f'placeholder="{f}"'), self.fields)),
-            Submit()]))
