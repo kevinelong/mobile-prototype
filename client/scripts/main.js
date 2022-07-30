@@ -89,23 +89,23 @@ function initScroll() {
     const cardListHeight = cardList.offsetHeight;
     const cardListHeightHalf = Math.floor(cardListHeight / 2);
 
-    const timelineHeight = get(".timeline.page").offsetHeight;
+    // const timelineHeight = get(".timeline.page").offsetHeight;
 
-    const headerHeight = cardListHeight - timelineHeight;
+    // const headerHeight = cardListHeight - timelineHeight;
 
-    const milliseconds = 250;
+    const milliseconds = 300;
     const offset = 0;
     const offset2 = 0;
     const divisor = 2;
 
-    let scrolling = false;
+    // let scrolling = false;
     const snapScroll = () => {
         // debugger;
-        if (scrolling === true) {
-             console.log("scrolling false")
-            return;
-        }
-        scrolling = true;
+        // if (scrolling === true) {
+        //      console.log("scrolling false")
+        //     return;
+        // }
+        // scrolling = true;
         console.log("SCROLL")
         // scrolling = true;
 
@@ -124,31 +124,36 @@ function initScroll() {
             // console.log(delta, scrollAmount, cardListHeightHalf, half, c.offsetTop);
             centers.push([delta, c]);
         });
+        let target;
         centers.sort((a, b) => a[0] - b[0]);
         centers.forEach((c, i) => {
             let o = c[1];
             if (i === 0) {
-                setTimeout(() => {
-                    o.style.opacity = 1;
+                // setTimeout(() => {
+                target = o
+                o.style.opacity = 1;
                 o.classList.add("selected");
-                }, 400)
+                // }, 400)
                 
                 // console.log(Array.from(o.parentNode.children).indexOf(o));
                 // console.log(o.)
                 // console.log(o.offsetTop, cardListHeightHalf, o.offsetHeight);
-                cardList.scroll({
-                    top:
-                        offset +
-                        (o.offsetTop - cardListHeightHalf) +
-                        Math.floor(o.offsetHeight / divisor),
-                    behavior: "smooth",
-                });
-                console.log(o.offsetTop)
+                
             } else {
                 o.classList.remove("selected");
                 o.style.opacity = "0.65";
             }
+            
         });
+        cardList.scroll({
+                    top:
+                        offset +
+                        (target.offsetTop - cardListHeightHalf) +
+                        Math.floor(target.offsetHeight / divisor),
+                    behavior: "smooth",
+                });
+                console.log(target.offsetTop)
+        
 
         // scrollAmount = cardList.scrollTop;
         // setTimeout(() => {
@@ -190,10 +195,10 @@ function initScroll() {
         //     });
         // }, 10);
         
-        setTimeout(() => {
-            scrolling = false;
-            console.log("set to false")
-        }, 650);
+        // setTimeout(() => {
+        //     scrolling = false;
+        //     console.log("set to false")
+        // }, 650);
 
         //console.log(centers);
     }
