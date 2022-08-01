@@ -10,6 +10,7 @@
     color: black;
     min-height: 70px;
 }
+
 .day-picker .day {
     display: inline-flex;
     margin-left: 0.5rem;
@@ -21,6 +22,7 @@
     align-items: center;
     gap: 0.5rem;
 }
+
 .day-picker .day.current-day {
     background-color: black;
     color: white;
@@ -34,95 +36,112 @@
     font-size: 10px;
     justify-content: flex-end;
 }
-.smart .detail .content-panel, 
-.smart.card .content-panel, 
+
+.smart .detail .content-panel,
+.smart.card .content-panel,
 .smart .dialog .content-panel {
     min-height: auto;
 }
-.smart .card-inner{
+
+.smart .card-inner {
     gap: 6px;
 }
-.mood{
+
+.mood {
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    gap:6px;
+    gap: 6px;
 }
+
 .memories {
     flex-direction: row;
     background-color: #0008;
     padding: 0.25rem;
     border-radius: 0.25rem;
 }
+
 .memories .image {
     border-radius: 0.25rem;
     width: 72px;
     height: 48px;
 }
-.timeline.card{
+
+.timeline.card {
     border-radius: 13px;
     padding: 0;
     background-color: black;
 }
-.timeline.card .card-inner{
+
+.timeline.card .card-inner {
     border-radius: 13px;
     padding: 13px;
-    
+
 }
+
 .card.not-current-period .content-panel {
-    gap:1px;
-    padding:3px;
+    gap: 1px;
+    padding: 3px;
 }
+
 .card.not-current-period .memories {
     display: none;
 }
+
 .card.not-current-period .memories .image {
     border-radius: 0.125rem;
     width: 36px;
     height: 24px;
 }
 
-.page.timeline .card{
+.page.timeline .card {
     background-color: white;
 }
-.page.timeline .card{
+
+.page.timeline .card {
     background-color: white;
 }
-.card{
+
+.card {
     transition: opacity 100ms ease-in-out;
 }
-.page.timeline .card.selected .card-inner{
+
+.page.timeline .card.selected .card-inner {
     /*opacity: 1;*/
     transition: opacity 100ms ease-in-out;
 }
 
-.page.timeline .card .card-inner{
-    min-height:120px;
+.page.timeline .card .card-inner {
+    min-height: 120px;
     /*opacity: 0.55;*/
     transition: opacity 100ms ease-in-out;
 }
-.timeline .card .card-inner{
-     padding:7px;
+
+.timeline .card .card-inner {
+    padding: 7px;
 }
-.timeline .card .content-panel{
-        padding:0;
+
+.timeline .card .content-panel {
+    padding: 0;
 }
-.action-button{
+
+.action-button {
     background-color: goldenrod;
     color: white;
     white-space: nowrap;
     text-align: center;
-    margin:0;
+    margin: 0;
     padding: 0.5em 1em;
     border: none;
     border-radius: 3px;;
     /* box-shadow: 1px 1px 4px #0003; */
 }
 
-.action-button.search-destination{
+.action-button.search-destination {
     max-width: 36px;
     max-height: 36px;
 }
+
 /* .card.not-current-period .card-inner{
     background-blend-mode: darken;
 } */
@@ -131,12 +150,12 @@
 .card.not-current-period .card-inner > .row,
 .card.not-current-period .card-inner > .spread,
 .card.not-current-period .card-inner > .text,
-.card.not-current-period  div.dot,
-.card.not-current-period  div.text,
+.card.not-current-period div.dot,
+.card.not-current-period div.text,
 .card.not-current-period .action-list .action-item,
 .card.not-current-period .card-people,
-.card.not-current-period .card-tags{
-        display: none;
+.card.not-current-period .card-tags {
+    display: none;
 }
 
 .card.not-current-period.selected .card-inner > .content-panel,
@@ -145,45 +164,46 @@
 .card.not-current-period.selected .card-inner > .text,
 .card.not-current-period.selected .dot,
 .card.not-current-period.selected .text,
-.card.not-current-period.selected .card-people{
-        display: flex;
-}
-
-.card.not-current-period.selected .action-list .action-item {
-        display: inline-block;
-}
-
-.card.not-current-period.selected .card-tags{
-        display: block;
-}
-
-.card.not-current-period .action-item.plan,
-.card.not-current-period .row > .card-subtitle{
+.card.not-current-period.selected .card-people {
     display: flex;
 }
 
-.col.action-list .action-item{
+.card.not-current-period.selected .action-list .action-item {
+    display: inline-block;
+}
+
+.card.not-current-period.selected .card-tags {
+    display: block;
+}
+
+.card.not-current-period .action-item.plan,
+.card.not-current-period .row > .card-subtitle {
+    display: flex;
+}
+
+.col.action-list .action-item {
     min-width: 128px;
     justify-content: flex-start;
     background: #fa0c;
     padding: 3px;
-    font-size: 9px;
+    font-size: clamp(9px, min(2vh, 2vw), 18px);
 }
 
 .col.action-list .action-item .icon {
     max-width: 12px;
     max-height: 12px;
 }
-.col.action-list .action-item.completed{
+
+.col.action-list .action-item.completed {
     background: #fa03;
 }
 
-.col.action-list .action-item.completed:hover{
+.col.action-list .action-item.completed:hover {
     background: #888888ff;
     border: none;
 }
 
-.current-mood{
+.current-mood {
     text-align: center;
     width: 100%;
 }
