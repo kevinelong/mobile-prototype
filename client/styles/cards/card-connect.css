@@ -41,7 +41,7 @@
 }
 .card-people>.col>.text{
     margin-top: 3px;
-    font-size: 0.8em;
+    font-size: clamp(7px, 2vw, 10px)
 }
 .plan_detail .card,
 .collect_board .card {

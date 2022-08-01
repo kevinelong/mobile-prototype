@@ -20,6 +20,10 @@ button {
     cursor: pointer;
 }
 
+:root{
+    font-size: clamp(9px, min(2vw, 2vh), 36px);
+}
+
 body {
     color: #ffffffbb;
     background: #123;
@@ -29,7 +33,6 @@ body {
     justify-content: left;
     font-style: normal;
     font-weight: 500;
-    font-size: 11px;
     user-select: none;
     font-family: 'SF Pro Display', Arial, sans-serif;
 }
