@@ -65,16 +65,16 @@ input[type=number] {
 .outer-box {
     position: absolute;
     background: #F9A83133;
-    width: 360px;
-    height: 640px;
+    width: 100vw;
+    height: 100vh;
     overflow: hidden;
 }
 
 .inner-content {
     flex-direction: column;
     justify-content: start;
-    height: 100%;
-    width: 100%;
+    width: 100vw;
+    height: 100vh;
 }
 
 .rating {
@@ -187,7 +187,7 @@ input[type=number] {
 }
 
 .map{
-    width: 360px;
+    width: 100%;
     height:476px;
     z-index: 300;
     margin-top: 118px;
