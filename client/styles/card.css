@@ -32,7 +32,7 @@
 }
 
 .page.timeline .card-list {
-    padding: 120px 0 180px;
+    padding: 50vh 0 50vh;
     gap: 3px;
 }
 
@@ -245,7 +245,11 @@
 }
 
 .page.explore .card.explore .card-title {
-    font-size: 12px
+    font-size: clamp(12px, 1.2rem, 24px);
+}
+
+.page.explore .card.explore .sub-title {
+    font-size: clamp(12px, 1.1rem, 24px);
 }
 
 .page.explore .card.explore .row {
