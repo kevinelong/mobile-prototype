@@ -81,13 +81,11 @@ function initScroll() {
     const cps = cardList.querySelectorAll(".is-current-period");
 
     if (cps && cps.length > 1) {
-        cardList.scrollTop = cps[1].offsetTop - 20;
+        cardList.scrollTop = cps[1].offsetTop - (cps[1].offsetHeight / 2) - 210;
     }else{
         console.log("WTF", cps, cardList, cps.length, cps[1].offsetTop);
     }
 
-    const cardListHeight = cardList.offsetHeight;
-    const cardListHeightHalf = Math.floor(cardListHeight / 2);
 
     // const timelineHeight = get(".timeline.page").offsetHeight;
 
@@ -100,6 +98,8 @@ function initScroll() {
 
     // let scrolling = false;
     const snapScroll = () => {
+        const cardListHeight = cardList.offsetHeight;
+        const cardListHeightHalf = Math.floor(cardListHeight / 2);
         // debugger;
         // if (scrolling === true) {
         //      console.log("scrolling false")
