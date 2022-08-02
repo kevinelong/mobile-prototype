@@ -174,7 +174,8 @@
 }
 
 .page.explore .content-panel .card-list {
-    display: block;
+    display: flex;
+    flex-flow: row wrap;
     /*grid-template-columns: repeat(auto-fill, minmax(167px, 1fr));*/
     /*grid-template-rows: masonry;*/
     /*grid-gap: 3px 6px;*/
