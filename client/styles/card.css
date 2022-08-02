@@ -32,7 +32,8 @@
 }
 
 .page.timeline .card-list {
-    padding: 50vh 0 50vh;
+    padding-top: 50vh;
+    padding-bottom: 50vh;
     gap: 3px;
 }
 

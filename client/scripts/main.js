@@ -79,9 +79,10 @@ function initScroll() {
 
     let cardList = get(".timeline.page .card-list");
     const cps = cardList.querySelectorAll(".is-current-period");
-
+    
     if (cps && cps.length > 1) {
-        cardList.scrollTop = cps[1].offsetTop - (cps[1].offsetHeight / 2) - 210;
+        
+        cardList.scrollTop = cps[1].offsetTop - (cps[1].offsetHeight / 2);
     }else{
         console.log("WTF", cps, cardList, cps.length, cps[1].offsetTop);
     }
@@ -100,13 +101,14 @@ function initScroll() {
     const snapScroll = () => {
         const cardListHeight = cardList.offsetHeight;
         const cardListHeightHalf = Math.floor(cardListHeight / 2);
+        // const paddingTop = parseInt(window.getComputedStyle(cardList).getPropertyValue("padding-top"));
         // debugger;
         // if (scrolling === true) {
         //      console.log("scrolling false")
         //     return;
         // }
         // scrolling = true;
-        console.log("SCROLL")
+        console.log("SCROLL");
         // scrolling = true;
 
         let scrollAmount = cardList.scrollTop;
@@ -114,7 +116,7 @@ function initScroll() {
         let centers = [];
 
         [...cardList.querySelectorAll(".card")].forEach((c) => {
-            const half = Math.floor(c.offsetHeight / 2);
+            const half = Math.floor(c.offsetHeight); // /2
             const delta = Math.abs(
                 c.offsetTop +
                 half +
@@ -149,9 +151,10 @@ function initScroll() {
                     top:
                         offset +
                         (target.offsetTop - cardListHeightHalf) +
-                        Math.floor(target.offsetHeight / divisor),
+                        Math.floor(target.offsetHeight), // /divisor
                     behavior: "smooth",
                 });
+                console.log(paddingTop)
                 console.log(target.offsetTop)
         
 
