@@ -169,7 +169,7 @@
 .page.explore .card.explore {
     background-color: #ef5656;
     box-shadow: 1px 1px 2px 0px #000000FF;
-    width: clamp(150px, 46vw, 334px);
+    width: clamp(150px, 46vw, 242px);
     display: flex;
 }
 
