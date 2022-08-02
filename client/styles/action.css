@@ -37,7 +37,6 @@
     height: fit-content;
     margin: 0;
     /*white-space: nowrap;*/
-    font-size: 10px;
     user-select: none;
     cursor: pointer;
     display: inline-flex;
@@ -45,10 +44,10 @@
     align-items: center; /* align vertical */
     /*background: #F9A831;*/
     color: white;
-    border-radius: 30px;
+    border-radius: 3rem;
     flex-direction: row;
-    gap: 1px;
-    padding: 6px;
+    gap: 0.25rem;
+    padding: 0.5rem;
     /*padding: 0;*/
     transform: rotate(0deg);
     transition: background 300ms ease-in-out,
@@ -121,18 +120,18 @@
 .profile > .action-item.person .icon {
     max-width: none;
     max-height: none;
-    width: 56px;
-    height: 56px;
+    width: 5rem;
+    height: 5rem;
 }
 
 .action-list .action-item .icon {
-    max-width: 18px;
-    max-height: 18px;
+    max-width: 1.5rem;
+    max-height: 1.5rem;
 }
 
 .title .action-item .icon {
-    max-width: 24px;
-    max-height: 24px;
+    max-width: 2rem;
+    max-height: 2rem;
 }
 
 

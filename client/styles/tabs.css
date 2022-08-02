@@ -56,7 +56,7 @@
 
 .tab-content {
     display: block;
-    padding: 1em 0;
+    padding: 0;
 
     /*height: 555px;*/
     overflow-y: scroll;

@@ -13,7 +13,7 @@
     justify-self: center;
     justify-content: space-between;
     justify-items: center;
-    width: clamp(320px, auto, 720px);
+    width: clamp(320px, 10rem, 720px);
     max-width: 360px;
     min-width: 360px;
     overflow: scroll;
@@ -259,7 +259,7 @@ footer button {
     margin: 0;
 }
 .dialog label {
-    font-size: 11px;
+    font-size: 1.1rem;
     min-width: 45%;
 }
 

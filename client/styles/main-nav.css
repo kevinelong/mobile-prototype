@@ -168,10 +168,8 @@
 
 .page.explore .card.explore {
     background-color: #ef5656;
-    /*box-shadow: 2px 2px 4px 1px #00000088;*/
     box-shadow: 1px 1px 2px 0px #000000FF;
-    /*width: 100%;*/
-    width: clamp(170px, 47vw, 334px);
+    width: clamp(150px, 46vw, 334px);
     display: flex;
 }
 
