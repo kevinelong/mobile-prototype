@@ -1,3 +1,7 @@
+.content-panel {
+    font-size: 1rem;
+    white-space: break-spaces;
+}
 .page>.content-panel {
     /* min-height: 100vh; */
     height: 555px;
@@ -11,6 +15,11 @@
 .settle.page>.content-panel {
     /*padding: 1em;*/
     /*padding-top: 24px;*/
+}
+.card .content-panel .text-content {
+    font-size: 0.9rem;
+    white-space: break-spaces;
+    display: flex;
 }
 .section,
 .page.settle_day .label{
@@ -143,7 +152,7 @@ input[type=number]{
     color: #333333;
     background-color: #eeeeee;
     border-radius: 0;
-    font-size: 11px;
+    font-size: 1rem;
     align-content: space-between;
     justify-content: space-between;
 }
@@ -153,7 +162,8 @@ input[type=number]{
     color: white;
     background-color: #00000033;
     border-radius: 0.5rem;
-    font-size: 11px;
+    font-size: 1rem;
+    white-space: break-spaces;
 }
 
 .detail .content-panel,

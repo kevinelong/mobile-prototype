@@ -450,7 +450,7 @@
 }
 
 .card-title {
-    font-size: 14px;
+    font-size: 1.2rem;
     flex-direction: row;
     align-items: flex-start;
     display: flex;
@@ -673,7 +673,9 @@
 }
 
 .card-list > .card {
-    width: 348px;
+    width: 33vw;
+    height: 33vh;
+    white-space: break-spaces;
     transition: opacity 300ms ease-in-out, padding 300ms ease-in-out, max-height 300ms ease-in-out, max-height 300ms ease-in-out, min-height 300ms ease-in-out, minwidth 300ms ease-in-out;
 }
 

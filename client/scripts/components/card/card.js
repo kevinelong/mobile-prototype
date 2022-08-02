@@ -137,7 +137,7 @@ function card(
         cardSection(
             cardTags(tags) +
             cardTitles(kind, titleText, subtitleText, which, index, page) +
-            contentPanel(content)
+            contentPanel(content, "text-content")
         ) +
         match +
         spread(
