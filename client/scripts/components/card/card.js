@@ -19,7 +19,7 @@ function cardTitleText(content) {
 }
 
 function cardSubtitle(content) {
-    return content ? div("card-subtitle nowrap", content) : "";
+    return content ? div("card-subtitle", content) : "";
 }
 
 function cardTitles(kind, title, subtitle = "", which = "", index = 0, page = "") {

@@ -1,28 +1,25 @@
 .dialog {
+    height: auto;
+    max-height: clamp(200px, 95vh, 600px);
+    width: clamp(300px, 60vw, 800px);
     background: #ffffff;
     opacity: 1;
     visibility: visible;
     margin: auto;
     z-index: 999999;
-    height: clamp(320px, auto, 720px);;
     color: black;
-    /*min-height: 360px;*/
-    max-height: 640px;
     border-radius: 2rem;
     padding: 24px;
     justify-self: center;
     justify-content: space-between;
     justify-items: center;
-    width: clamp(320px, 10rem, 720px);
-    max-width: 360px;
-    min-width: 360px;
     overflow: scroll;
     transition: all 300ms ease-in-out;
     transition: opacity 90ms ease-in-out;
 }
 
 .dialog .tab-set {
-    width: 299px;
+    width: clamp(299px, 90wv, 299px);
 }
 
 .dialog .person-icon,
@@ -39,15 +36,18 @@
 
 .dialog .content-panel {
     padding: 0;
-    gap: 9px;
+    gap: 0.9rem;
 }
+
 .dialog .content-panel .content-panel {
     flex-flow: wrap;
 }
+
 .dialog .action-panel {
     justify-content: space-between;
     width: 100%;
 }
+
 .dialog .simple-list {
     padding: 0;
     margin: 0;
@@ -66,6 +66,7 @@
 .dialog .action-list .action-item:hover {
     background-color: #dddddd;
 }
+
 .dialog .title {
     padding: 0;
     box-shadow: none;
@@ -78,7 +79,7 @@
     padding: 0 6px 3px;
 }
 
-.dialog .title{
+.dialog .title {
     border-bottom: 1px solid #bbb;
 }
 
@@ -87,11 +88,13 @@
     color: black;
     font-size: 1.2rem;
 }
+
 .dialog .card .title,
 .dialog .card .subtitle {
     font-size: 14px;
     color: white;
 }
+
 .dialog .card .subtitle {
     font-size: 11px;
 }
@@ -104,6 +107,7 @@
 .dialog .autocomplete {
     width: 100%;
 }
+
 .dialog .autocomplete .simple-list {
     width: 100%;
     display: flex;
@@ -230,26 +234,32 @@ footer button {
     font-size: 16px;
     border-radius: 6px;
 }
-.dialog .card{
+
+.dialog .card {
     width: inherit;
 }
-.dialog .card-list{
+
+.dialog .card-list {
     height: inherit;
     background: none;
     border-radius: 0;
 }
+
 .dialog .contact .action-item {
     color: black;
     background: none;
     padding: 1em;
 }
-.dialog .action-item.contact{
+
+.dialog .action-item.contact {
     background-color: #dddddd;
 }
-.dialog .row .circle{
+
+.dialog .row .circle {
     border-color: #dddddd;
     background-color: #dddddd;
 }
+
 .dialog .content-panel .contact .circle .text {
     color: black;
     text-shadow: none;
@@ -258,16 +268,17 @@ footer button {
 .dialog .card-tags {
     margin: 0;
 }
+
 .dialog label {
-    font-size: 1.1rem;
-    min-width: 45%;
+    font-size: 1rem;
+    /*width: clamp(100px, 100%, 320px);*/
 }
 
-.dialog label.name{
+.dialog label.name {
     width: 100%;
 }
 
 select.select.category option,
-select.select.category{
-    width:100%;
+select.select.category {
+    width: 100%;
 }

@@ -178,7 +178,7 @@
 /*}*/
 
 input[type="text"] {
-    width: 100%;
+    width: clamp(100px, 100%, 200px);
 }
 input[name=amount]{
     text-align: right;

@@ -22,7 +22,7 @@ button {
 
 :root{
     font-size: clamp(11px, 2.5vw, 18px);
-    white-space: nowrap;
+
 }
 
 body {
@@ -550,7 +550,7 @@ input[type="text"].tag-input {
     flex-direction: row;
     /*margin-left: 36px;*/
     overflow: visible;
-    white-space: nowrap;
+
     align-items: center;
 }
 

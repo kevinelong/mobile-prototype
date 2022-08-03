@@ -248,7 +248,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return div("map", c, 'id="map"');
     }
 
-    // <div id='map' style='height: 555px; width: 320px;'></div>
+    // <div id='map' style='height: calc(100vh - 130px); width: 320px;'></div>
 
     document.body.innerHTML = content(
         outerBox(

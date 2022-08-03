@@ -5,7 +5,7 @@
     display: block;
     overflow-x: scroll;
     overflow-y: hidden;
-    white-space: nowrap;
+
     background: none;
     color: black;
     min-height: 70px;
@@ -128,7 +128,7 @@
 .action-button {
     background-color: goldenrod;
     color: white;
-    white-space: nowrap;
+
     text-align: center;
     margin: 0;
     padding: 0.5em 1em;
@@ -220,14 +220,14 @@
     display: inline-flex;
     flex-direction: row;
     margin: 0 0;
-    white-space: nowrap;
+
     overflow-x: scroll;
     overflow-y: visible;
     width: 100%;
 }
 
 .timeline .hash-tag {
-    white-space: nowrap;
+
     display: inline-flex;
     flex-direction: row;
     justify-content: center;

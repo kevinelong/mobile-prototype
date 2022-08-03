@@ -34,7 +34,7 @@
 .tab-set .tab {
     height: 44px;
     padding: 0;
-    white-space: nowrap;
+
     align-items: center;
     overflow: visible;
     /*min-width: 120px;*/
@@ -58,7 +58,7 @@
     display: block;
     padding: 0;
 
-    /*height: 555px;*/
+    /*height: calc(100vh - 130px);*/
     overflow-y: scroll;
     width: 100%;
 }

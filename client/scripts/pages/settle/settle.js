@@ -161,7 +161,7 @@ function historyItem(data) {
 }
 
 function splitItem(data) {
-    return splitCard(data.kind, data.name, data.when, data.amountOwedToMe, data.amountIOwe,  data.groups, data.isSettled);
+    return splitCard(data.kind, data.name, data.when, data.amountOwedToMe, data.amountIOwe, data.groups, data.isSettled);
 }
 
 const groups = [
@@ -427,7 +427,8 @@ function addSplit() {
         )
     );
 }
-function addExpense(target, action, which, id){
+
+function addExpense(target, action, which, id) {
     const NAMED_GROUPS = [
         {
             name: "The Gang",
@@ -440,7 +441,7 @@ function addExpense(target, action, which, id){
             text(g.name) +
             [...g.people].map(p => cardPerson(p, p.id - 1, 9, p.id - 1)).join("")
             + actionItem("Add")
-            ,"","named-group");
+            , "", "named-group");
     };
 
     const myGroups = stack(text([
@@ -468,11 +469,12 @@ function addExpense(target, action, which, id){
                 tabData("My Groups", myGroups),
                 tabData("My Network", myNetwork),
             ], "My Groups")
-        )+
+        ) +
         spread(button("Next", `onclick="addExpense2('${target}', '${action}', '${which}', '${id}')"`))
     );
 }
-function addExpense2(target = this, action="add", which="expense", id=-1){
+
+function addExpense2(target = this, action = "add", which = "expense", id = -1) {
 
     showDialog("STEP 2 - Add Expense",
         row(
@@ -481,11 +483,9 @@ function addExpense2(target = this, action="add", which="expense", id=-1){
                     spread(div("centered", "OR")),
 
                     label("spread nowrap",
-                        div("nowrap","Amount $") +
-                        rack(
-                            input("add-expense-amount", "text", `value="" placeholder="0.00"`) +
-                            actionItem("edit", "", -1, "Edit Split")
-                        )
+                        text("Amount $", "nowrap") +
+                        input("add-expense-amount", "text", `value="" placeholder="0.00"`) +
+                        actionItem("edit", "", -1, "Edit Split")
                     ),
                     input("add-expense-description", "text", `value="" placeholder="description"`),
                     contentPanel(
@@ -501,11 +501,11 @@ function addExpense2(target = this, action="add", which="expense", id=-1){
         ) +
         div("card-list collapse",
             select("Category", [
-                    { name: "Select Category"},
-                    { name: "Activity"},
-                    { name: "Dining"},
-                    { name: "Landmark"},
-                    { name: "Lodging"}
+                {name: "Select Category"},
+                {name: "Activity"},
+                {name: "Dining"},
+                {name: "Landmark"},
+                {name: "Lodging"}
             ]) +
             input("", "text", `placeholder="Begin Typing: Venue/Business Name"`) +
             row(
@@ -536,6 +536,7 @@ function addExpense2(target = this, action="add", which="expense", id=-1){
         + actionList("add-expense", applyOrCancel, false, id, "black")
     );
 }
+
 function addExpenseKevin() {
     showDialog("Add Expense",
         contentPanel([
@@ -548,7 +549,7 @@ function addExpenseKevin() {
                     text("Amount $") +
                     rack(
                         input("", "text", `value="" placeholder="0.00"`) +
-                        actionItem("edit", "",-1,"Split")
+                        actionItem("edit", "", -1, "Split")
                     )
                 ),
                 labeledInput("Description", "text", `value="" placeholder="Begin Typing"`),

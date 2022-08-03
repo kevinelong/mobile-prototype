@@ -31,11 +31,11 @@ input[type="text"] {
     /*background-image: url(../images/icons/icon-search-black.svg);*/
     background-repeat: no-repeat;
     /*width: 98%;*/
-    border-radius: 2em;
-    padding: 0.75em;
+    border-radius: 1rem;
+    padding: 0.5rem;
     border: none;
-    box-shadow: 1px 1px 2px 0 #0008;
-    background-position: 0.75em 0.75em;
+    box-shadow: 0.1rem 0.1rem 0.2rem 0 #0008;
+    background-position: 0.5rem 0.5rem;
 }
 
 input[type="text"]:focus {
@@ -45,20 +45,20 @@ input[type="text"]:focus {
 input[type="number"],
 input[type="date"],
 input[type="time"] {
-    border-radius: 2em;
-    padding: 0.75em;
+    border-radius: 1rem;
+    padding: 0.5rem;
     border: none;
-    box-shadow: 1px 1px 2px 0 #0008;
+    box-shadow: 0.1rem 0.1rem 0.2rem 0 #0008;
 }
 
 input[type="number"] {
     text-align: right;
-    width: 6em;
+    width: 6rem;
     border-radius: 0.125em;
-    padding: 0.125em;
+    padding: 0.125rem;
     border: none;
     box-shadow: 1px 1px 2px 0 #0008;
-    font-size: 9px;
+    font-size: 0.75rem;
 }
 
 .radio-input .row {
@@ -69,8 +69,8 @@ input[type="number"] {
 input[type="radio"] {
     /*align-self: center;*/
     /*justify-self: center;*/
-    margin-top: 3px;
-    margin-left: 0.5em;
+    margin-top: 0.25rem;
+    margin-left: 0.5rem;
 }
 
 .page.settle_split .day .action-item.show .icon {
@@ -88,7 +88,7 @@ input[type="radio"] {
 }
 
 .page.settle_split .day {
-    max-height: 640px;
+    max-height: 100vh;
     /*overflow: hidden;*/
     transition: max-height 300ms ease-in-out;
 }
@@ -98,7 +98,7 @@ input[type="radio"] {
 }
 
 .page.settle_split .day .add-expense {
-    max-height: 640px;
+    max-height: 100vh;
     overflow: hidden;
     transition: max-height 300ms ease-in-out;
 }
@@ -120,7 +120,7 @@ input[type="radio"] {
 }
 
 .page.settle_split .day .breakdown {
-    max-height: 640px;
+    max-height: 100vh;
     overflow: hidden;
     transition: max-height 300ms ease-in-out;
 }
@@ -131,7 +131,7 @@ input[type="radio"] {
 
 .page.settle_split .day .breakdown-item {
     display: inline-block;
-    margin: 1px;
+    margin: 0.1rem;
 }
 
 .stack {
@@ -140,7 +140,7 @@ input[type="radio"] {
     justify-content: center;
     align-items: center;
     gap: 0;
-    padding: 3px;
+    padding: 0.25rem;
     width: 100%;
 }
 
@@ -153,7 +153,7 @@ input[type="radio"] {
     text-align: center;
     justify-content: center;
     align-items: center;
-    /*white-space: nowrap;*/
+    /**/
 }
 
 .rack {
@@ -161,8 +161,8 @@ input[type="radio"] {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    gap: 0.5em;
-    padding: 0.5em;
+    gap: 0.5rem;
+    padding: 0.5rem;
 }
 
 .col {
@@ -170,7 +170,7 @@ input[type="radio"] {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    gap: 3px;
+    gap: 0.25rem;
 }
 
 .row {
@@ -178,7 +178,7 @@ input[type="radio"] {
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    gap: 6px;
+    gap: 0.5rem;
 }
 
 .range-row {
@@ -186,11 +186,11 @@ input[type="radio"] {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 6px;
+    gap: 0.5rem;
 }
 
 .card-people .row {
-    gap: 8px;
+    gap: 0.7rem;
 }
 
 .center-content {

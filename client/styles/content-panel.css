@@ -4,7 +4,7 @@
 }
 .page>.content-panel {
     /* min-height: 100vh; */
-    height: 555px;
+    height: calc(100vh - 130px);
     background-color: #fffffff0;
     gap: 0;
     padding: 0;
@@ -116,7 +116,7 @@ input[type=number]{
     gap: 6px;
     background: none;
     /*display: block;*/
-    height: 555px;
+    height: calc(100vh - 130px);
     overflow-y: scroll;
     overflow-x: hidden;
     padding-bottom: 96px;
