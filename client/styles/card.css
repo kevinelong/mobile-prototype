@@ -32,7 +32,8 @@
 }
 
 .page.timeline .card-list {
-    padding: 50vh 0 50vh;
+    padding-top: 50vh;
+    padding-bottom: 50vh;
     gap: 3px;
 }
 
@@ -867,6 +868,7 @@
     width: 90%;
     border-radius: 0.5em;
     margin: 0 3.6px 0 auto;
+    height: auto;
 }
 
 .page.timeline .card-actions.spread {
