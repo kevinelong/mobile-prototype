@@ -92,7 +92,7 @@ function initScroll() {
 
     // const headerHeight = cardListHeight - timelineHeight;
 
-    const milliseconds = 300;
+    const milliseconds = 200;
     const offset = 0;
     const offset2 = 0;
     const divisor = 2;
