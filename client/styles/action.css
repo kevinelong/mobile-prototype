@@ -32,6 +32,10 @@
     width: 100%;
 }
 
+.card-actions .action-item {
+    /*min-height: 54px;*/
+}
+
 .action-item {
     width: fit-content;
     height: fit-content;

@@ -100,6 +100,7 @@
 
 .page.timeline .card {
     background-color: white;
+    /*width: 100%;*/
 }
 
 .card {
@@ -223,14 +224,13 @@
     display: inline-flex;
     flex-direction: row;
     margin: 0 0;
-
-    overflow-x: scroll;
-    overflow-y: visible;
-    width: 100%;
+    overflow: scroll;
+    height: 3vh;
+    width: auto;
 }
 
 .timeline .hash-tag {
-
+    white-space: nowrap;
     display: inline-flex;
     flex-direction: row;
     justify-content: center;

@@ -5,6 +5,7 @@
 
 .person-icon .text {
     padding: 3px 12px 0 4px;
+    display:none;
 }
 
 .header .title .person-icon .text {
@@ -55,7 +56,7 @@
 .card-people .circle .text {
     margin: 0 0 0 2px;
     padding-top: 0px;
-    font-size: 11px;
+    font-size: 0.9rem;
 
 }
 

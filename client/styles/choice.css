@@ -49,6 +49,7 @@
 .explore.page .choice {
     background: black;
     flex-direction: row;
+    white-space: nowrap;
 }
 
 #range .choice{
