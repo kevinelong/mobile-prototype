@@ -148,14 +148,14 @@ function initScroll() {
             
         });
         cardList.scroll({
-                    top:
-                        offset +
-                        (target.offsetTop - cardListHeightHalf) +
-                        Math.floor(target.offsetHeight), // /divisor
-                    behavior: "smooth",
-                });
-                console.log(paddingTop)
-                console.log(target.offsetTop)
+            top:
+                offset +
+                (target.offsetTop - cardListHeightHalf) +
+                Math.floor(target.offsetHeight), // /divisor
+            behavior: "smooth",
+        });
+        
+        console.log(target.offsetTop)
         
 
         // scrollAmount = cardList.scrollTop;

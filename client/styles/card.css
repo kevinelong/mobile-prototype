@@ -868,6 +868,7 @@
     width: 90%;
     border-radius: 0.5em;
     margin: 0 3.6px 0 auto;
+    height: auto;
 }
 
 .page.timeline .card-actions.spread {
