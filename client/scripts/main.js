@@ -79,9 +79,9 @@ function initScroll() {
 
     let cardList = get(".timeline.page .card-list");
     const cps = cardList.querySelectorAll(".is-current-period");
-    
+
     if (cps && cps.length > 1) {
-        
+
         cardList.scrollTop = cps[1].offsetTop - (cps[1].offsetHeight / 2);
     }else{
         console.log("WTF", cps, cardList, cps.length, cps[1].offsetTop);
@@ -131,21 +131,19 @@ function initScroll() {
         centers.forEach((c, i) => {
             let o = c[1];
             if (i === 0) {
-                // setTimeout(() => {
-                target = o
+                target = o;
                 o.style.opacity = 1;
                 o.classList.add("selected");
-                // }, 400)
-                
+
                 // console.log(Array.from(o.parentNode.children).indexOf(o));
                 // console.log(o.)
                 // console.log(o.offsetTop, cardListHeightHalf, o.offsetHeight);
-                
+
             } else {
                 o.classList.remove("selected");
                 o.style.opacity = "0.65";
             }
-            
+
         });
         cardList.scroll({
             top:
@@ -154,56 +152,9 @@ function initScroll() {
                 Math.floor(target.offsetHeight), // /divisor
             behavior: "smooth",
         });
-        
+
         console.log(target.offsetTop)
-        
 
-        // scrollAmount = cardList.scrollTop;
-        // setTimeout(() => {
-        //     centers = [];
-
-        //     [...cardList.querySelectorAll(".card")].forEach((c) => {
-        //         const half = Math.floor(c.offsetHeight / 2);
-        //         const delta = Math.abs(
-        //             getRectTop(c) +
-        //             half +
-        //             offset2 -
-        //             (scrollAmount + cardListHeightHalf)
-        //         );
-        //         // console.log(delta, scrollAmount, cardListHeightHalf, half, c.offsetTop);
-        //         centers.push([delta, c]);
-        //     });
-        //     centers.sort((a, b) => a[0] - b[0]);
-        //     centers.forEach((c, i) => {
-        //         let o = c[1];
-        //         if (i === 0) {
-        //             // debugger;
-        //             o.style.opacity = 1;
-        //             o.classList.add("selected");
-        //             // console.log(Array.from(o.parentNode.children).indexOf(o));
-        //             // console.log(o.)
-        //             // console.log(o.offsetTop, cardListHeightHalf, o.offsetHeight);
-        //             cardList.scroll({
-        //                 top:
-        //                     offset +
-        //                     (getRectTop(o) - cardListHeightHalf) +
-        //                     Math.floor(o.offsetHeight / divisor),
-        //                 behavior: "smooth",
-        //             });
-        //             console.log("SCROLL")
-        //         } else {
-        //             o.classList.remove("selected");
-        //             o.style.opacity = "0.65";
-        //         }
-        //     });
-        // }, 10);
-        
-        // setTimeout(() => {
-        //     scrolling = false;
-        //     console.log("set to false")
-        // }, 650);
-
-        //console.log(centers);
     }
 
     onScrollStop(
@@ -299,7 +250,7 @@ document.addEventListener("DOMContentLoaded", () => {
         get(".smoke")
     );
 
-    
+
 
     function initMap() {
         const tl = typeof L;
