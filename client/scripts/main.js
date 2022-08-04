@@ -92,16 +92,16 @@ function initScroll() {
 
     // const headerHeight = cardListHeight - timelineHeight;
 
-    const milliseconds = 200;
+    const milliseconds = 500;
     const offset = 0;
     const offset2 = 0;
     const divisor = 2;
 
     // let scrolling = false;
     const snapScroll = () => {
-        const cardListHeight = cardList.offsetHeight;
-        const cardListHeightHalf = Math.floor(cardListHeight / 2);
-        // const paddingTop = parseInt(window.getComputedStyle(cardList).getPropertyValue("padding-top"));
+        let cardListHeight;
+        let cardListHeightHalf;
+        const paddingTop = parseInt(window.getComputedStyle(cardList).getPropertyValue("padding-top"));
         // debugger;
         // if (scrolling === true) {
         //      console.log("scrolling false")
@@ -114,27 +114,38 @@ function initScroll() {
         let scrollAmount = cardList.scrollTop;
 
         let centers = [];
-
+        // const bottomNavHeight = get(".normal-tabs").offsetHeight;
+        
         [...cardList.querySelectorAll(".card")].forEach((c) => {
+            c.classList.add("selected");
+            console.log("Height: " + c.offsetHeight)
+            cardListHeight = cardList.offsetHeight;
+            cardListHeightHalf = Math.floor(cardListHeight / 2);
+            const clhh = cardListHeightHalf;
+            
             const half = Math.floor(c.offsetHeight); // /2
             const delta = Math.abs(
-                c.offsetTop +
+                (c.offsetTop) +
                 half +
                 offset2 -
                 (scrollAmount + cardListHeightHalf)
             );
             // console.log(delta, scrollAmount, cardListHeightHalf, half, c.offsetTop);
-            centers.push([delta, c]);
+            centers.push([delta, c, clhh]);
+            c.classList.remove("selected");
         });
+
         let target;
+
         centers.sort((a, b) => a[0] - b[0]);
+
         centers.forEach((c, i) => {
             let o = c[1];
             if (i === 0) {
                 target = o;
                 o.style.opacity = 1;
                 o.classList.add("selected");
-
+                
                 // console.log(Array.from(o.parentNode.children).indexOf(o));
                 // console.log(o.)
                 // console.log(o.offsetTop, cardListHeightHalf, o.offsetHeight);
@@ -145,6 +156,9 @@ function initScroll() {
             }
 
         });
+
+        cardListHeightHalf = centers[0][2];
+
         cardList.scroll({
             top:
                 offset +
