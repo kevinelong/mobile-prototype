@@ -8,7 +8,7 @@
     /*justify-content: start;*/
     align-items: flex-start;
     padding: 0.6rem 0.6rem 14.4rem 0.6rem;
-    gap: clamp(0, 0.9rem, 1vw);
+    gap: clamp(0px, 1vh, 0.9rem);
     background: none;
     height: calc(100vh - 130px);
     overflow-y: scroll;
@@ -93,7 +93,7 @@
     border-radius: 0.5rem;
     color: black;
     text-shadow: none;
-    width: clamp(300px, 32vw, 320px);
+    width: clamp(388px, 36vw, 500px);
     height: auto;
     min-height: fit-content;
     padding: 1rem;

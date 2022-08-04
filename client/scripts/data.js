@@ -1206,7 +1206,7 @@ class ExpenseRecord {
 
 class SettleDay {
     constructor(
-        dateText = "Sunday 11/11/2022",
+        dateText = "11/11/2022",
         amount = 0,
         message = "",
         amountPrefix = "",
@@ -1336,7 +1336,7 @@ let SETTLE_GROUP = new Group();
 
 let SETTLE_GROUP_DATA = new GroupDayList([
     new SettleDay(
-        "Sunday 11/11/2022",
+        "11/11/2022",
         0,
         "",
         "",
@@ -1346,7 +1346,7 @@ let SETTLE_GROUP_DATA = new GroupDayList([
         SETTLE_GROUP
     ),
     new SettleDay(
-        "Monday 12/06/2022",
+        "12/06/2022",
         125,
         "",
         "",
@@ -1356,7 +1356,7 @@ let SETTLE_GROUP_DATA = new GroupDayList([
         SETTLE_GROUP
     ),
     new SettleDay(
-        "Sunday 12/12/2022",
+        "12/12/2022",
         300,
         "",
         "",

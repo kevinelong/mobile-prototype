@@ -491,7 +491,7 @@ function showAddPlace(
         (showWhen ? label("place", "When <br>" + selectDate("", dateValue).toLocaleString() + selectTime("", dateValue).toLocaleString()) : "") +
         (when ? when.toString() : "no date") +
         (start ? start.toString() : "no start") +
-        actionButton(actionText, "apply", when, start)
+        actionButton(actionText, "apply", "place", when, start)
     );
 
     get(".place-search").appendChild(
@@ -1078,7 +1078,6 @@ function isValidDateString(text="") {
 }
 
 function apply(target, action, which, id = -1) {
-    debugger;
     if ("filter-things-to-do" === which) {
         getAll(".page.explore .explore.card").map(hideElement);
         getAll(".page.explore .explore.card.things-to-do").map(showElement);
@@ -1090,58 +1089,62 @@ function apply(target, action, which, id = -1) {
         getAll(".page.explore .explore.card.filter-actions-lodging").map(
             showElement
         );
-    } else if ("add-expense" === which) {
-        debugger;
-        if (isValidDateString(which)) {
-
-            const selectElement = get(".filtered select");
-            if (!selectElement){
-                return;
-            }
-            const whereValue = selectElement.selectedOptions[0].value;
-
-            const timeElement = get(`.dialog input[type="time"]`);
-            if(!timeElement){
-                return;
-            }
-            const timeValue = timeElement.value;
-
-            const dateElement = get(`.dialog input[type="date"]`);
-            if(!dateElement){
-                return;
-            }
-            const dateValue = dateElement.value;
-
-            console.log("SAVE NEW EVENT", dateValue, timeValue, whereValue);
-
-            let when = new Date(`${dateValue}T${timeValue}:00`);
-            // TODO Update "when" with time portion
-
-            const data = cardData(...EXPLORE_DATA[whereValue])
-
-            EVENTS_DATA.push(new VitaEvent(
-                Period(),
-                data.kind,
-                "",
-                "",
-                data.title,
-                when,
-                data
-            ));
-
-            // [X] Save event to global events list here
-            // [X] Enhance timeline to consume from global events list where timeline is rendered
-            // TODO Redraw timeline here
-            get(".timeline.page").outerHTML = timelinePage(true);
-            initScroll();
-
+    } else if ("place" === which) {
+        const selectElement = get(".filtered select");
+        if (!selectElement){
+            return;
         }
-        const day = get(".settle_split .card-list > .day"); //first one for now.
+        const whereValue = selectElement.selectedOptions[0].value;
 
+        const timeElement = get(`.dialog input[type="time"]`);
+        if(!timeElement){
+            return;
+        }
+        const timeValue = timeElement.value;
+
+        const dateElement = get(`.dialog input[type="date"]`);
+        if(!dateElement){
+            return;
+        }
+        const dateValue = dateElement.value;
+
+        console.log("SAVE NEW EVENT", dateValue, timeValue, whereValue);
+
+        let when = new Date(`${dateValue}T${timeValue}:00`);
+        // TODO Update "when" with time portion
+
+        const cd = cardData(...EXPLORE_DATA[whereValue])
+
+        EVENTS_DATA.push(new VitaEvent(
+            Period(),
+            cd.kind,
+            "",
+            "",
+            cd.title,
+            when,
+            cd
+        ));
+
+        // [X] Save event to global events list here
+        // [X] Enhance timeline to consume from global events list where timeline is rendered
+        // TODO Redraw timeline here
+        get(".timeline.page").outerHTML = timelinePage(true);
+        initScroll();
+
+    } else if ("add-expense" === which) {
+        let index = 0;
+        SETTLE_GROUP_DATA.list.forEach((record, i) => {
+            if (record.dateText === id) {
+                index = i
+            }
+        })
+
+        const day = get(`.settle_split .card-list > .day[data-index="${index}"]`); //first one for now.
+        debugger;
         const amount = get(".add-expense-amount").value;
         const description = get(".add-expense-description").value;
 
-        const index = day.dataset.index;
+        // const index = day.dataset.index;
         let data = SETTLE_GROUP_DATA.list[index];
         let expenseRecordList = data.expenseList;
 
@@ -1185,7 +1188,7 @@ function onCloseDialog() {
 
 }
 
-ACTION_PAGES = {
+const ACTION_PAGES = {
     "add-participant": addParticipant,
     "add-place": showAddPlaceDialog,
     "check-in": showAddCheckInDialog,

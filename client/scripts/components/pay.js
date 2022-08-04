@@ -218,7 +218,7 @@ function settleDayBlock(settleRecord, index, fullList) {
     // console.log(settleRecord, index, fullList)
 
     const titleContent = spread(
-        actionItem("add", "expense", index) +
+        actionItem("add", "expense", settleRecord.dateText) +
         div("title-content", settleRecord.titleText) +
         // ) +
         // spread(

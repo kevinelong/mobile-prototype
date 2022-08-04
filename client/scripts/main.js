@@ -227,12 +227,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     collectBoardPage(),
                     planPage(),
                     planDetailPage(),
-                    timelinePage(true),
+                    timelinePage(),
                     connectPage(),
                     connectChatPage(),
                     connectPersonPage(),
                     settleList(),
-                    settleSplit(),
+                    settleSplit(true),
                     settlePage(),
                     mapView(),
                 ].join("")
@@ -242,7 +242,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     mainNav(
                         ["explore", "broadcast", "collect", "plan", "settle"],
                         ["connect", "timeline"],
-                        "timeline"
+                        "settle"
                     )
                 ) +
                 hiddenToast("") +
