@@ -475,7 +475,7 @@ function addExpense(target, action, which, id) {
 }
 
 function addExpense2(target = this, action = "add", which = "expense", id = -1) {
-
+    
     showDialog("STEP 2 - Add Expense",
         row(
             stack([
@@ -507,10 +507,11 @@ function addExpense2(target = this, action = "add", which = "expense", id = -1) 
                 {name: "Landmark"},
                 {name: "Lodging"}
             ]) +
-            input("", "text", `placeholder="Begin Typing: Venue/Business Name"`) +
+            input("venue", "text", `placeholder="Begin Typing: Venue/Business Name"`) +
             row(
                 selectDate(
                     "When:",
+                    (new Date(id)).getTime(),
                     // "1996-08-17"
                 ) +
                 selectTime(

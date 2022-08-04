@@ -69,7 +69,7 @@ function actionList(id, list = [], hideText = false, qty = 0, iconColor = "") {
                 actionItem(
                     c,
                     id,
-                    -1,
+                    qty,
                     titleCase(c),
                     iconColor,
                     hideText,
