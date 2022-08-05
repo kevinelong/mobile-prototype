@@ -1336,7 +1336,7 @@ let SETTLE_GROUP = new Group();
 
 let SETTLE_GROUP_DATA = new GroupDayList([
     new SettleDay(
-        "11/11/2022",
+        "Friday 11/11/2022",
         0,
         "",
         "",
@@ -1346,7 +1346,7 @@ let SETTLE_GROUP_DATA = new GroupDayList([
         SETTLE_GROUP
     ),
     new SettleDay(
-        "12/06/2022",
+        "Tuesday 12/06/2022",
         125,
         "",
         "",
@@ -1356,7 +1356,7 @@ let SETTLE_GROUP_DATA = new GroupDayList([
         SETTLE_GROUP
     ),
     new SettleDay(
-        "12/12/2022",
+        "Monday 12/12/2022",
         300,
         "",
         "",
