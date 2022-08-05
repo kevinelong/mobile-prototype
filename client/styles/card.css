@@ -190,7 +190,7 @@
 .page.explore .card-people .circle .text {
     margin: 0 0 0 1px;
     padding-top: 1px;
-    font-size: clamp(6px, 2vw, 1.2rem);
+    font-size: 0.7rem;
     white-space: nowrap;
 }
 
