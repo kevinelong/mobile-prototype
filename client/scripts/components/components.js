@@ -318,3 +318,11 @@ const meter = (steps = 5, completed = 2) =>
     );
 
 const coin = () => div(`coin`, div("front") + div("back"));
+
+function selectClassification(){
+    return select("category", [
+        {name: "Idea", value: "0"},
+        {name: "Going", value: "2"},
+        {name: "Favorite", value: "1"},
+    ], `placeholder="Category" value="0"`)
+}

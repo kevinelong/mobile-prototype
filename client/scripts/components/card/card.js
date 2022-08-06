@@ -475,11 +475,7 @@ function mapCard(
             ) +
             col(
                 `<img class="child-image" src="${image}">` +
-                select("category", [
-                    {name: "Idea", value: "0"},
-                    {name: "Going", value: "2"},
-                    {name: "Favorite", value: "1"},
-                ], `placeholder="Category" value="0"`) +
+                selectClassification() +
                 actionItem("Book", "book", -1, "Book from $65", "", false, 0, true),
                 "",
                 "right-column"
