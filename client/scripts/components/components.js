@@ -156,10 +156,10 @@ function mapPreview() {
 
 function mapPanel() {
     return div("map-panel",
+        mapPreview() +
         button("Est. Time/Distance", "", `est-time-distance button`) +
-        actionItem("pin") +
-        mapPreview()
-        , action("pin"));
+        actionItem("show-pin")
+        , action("hide-pin"));
 }
 
 function hashTags(tags, tagAttrs = "") {
