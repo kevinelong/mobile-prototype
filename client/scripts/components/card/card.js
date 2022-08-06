@@ -486,6 +486,9 @@ function mapCard(
             ),
             "",
             "main-columns"
+        ) +
+        row(
+            actionButton("Close","hide-pin")
         ),
 
         attrs +

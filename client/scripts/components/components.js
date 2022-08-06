@@ -159,7 +159,8 @@ function mapPanel() {
         mapPreview() +
         button("Est. Time/Distance", "", `est-time-distance button`) +
         actionItem("show-pin")
-        , action("hide-pin"));
+        // , action("hide-pin")
+    );
 }
 
 function hashTags(tags, tagAttrs = "") {

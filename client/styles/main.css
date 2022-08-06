@@ -208,7 +208,7 @@ input[type=number] {
 .map-panel{
     background: lightblue;
     width: 100%;
-    min-height: 240px;
+    min-height: 150px;
     display: flex;
     justify-content: center;
     align-content: center;
