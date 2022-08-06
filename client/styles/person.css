@@ -5,7 +5,7 @@
 
 .person-icon .text {
     padding: 3px 12px 0 4px;
-    display:none;
+    display: none;
 }
 
 .header .title .person-icon .text {
@@ -37,11 +37,12 @@
     font-size: 11px;
     margin-right: -16px;
 }
-.title .person-icon{
+
+.title .person-icon {
     margin-right: 7px;
 }
 
-.title .person-icon{
+.title .person-icon {
     border: 1px solid black;
 }
 
@@ -52,12 +53,11 @@
     border-radius: 15px;
 }
 
-.dialog .card-people .circle,
-.card-people .circle .text {
+.dialog .card-people .circle, .card-people .circle .text {
     margin: 0 0 0 2px;
-    padding-top: 0px;
+    padding-top: 0;
     font-size: 0.9rem;
-
+    white-space: nowrap;
 }
 
 .dialog .card-people .circle {
@@ -395,7 +395,7 @@
 
 .profile-host .options-badges {
     flex-direction: row;
-    
+
     justify-content: space-evenly;
     align-items: center;
     text-align: center;
@@ -421,11 +421,11 @@
 }
 
 .profile-host .nav-btn {
-    
+
     background-color: #F9A831;
     justify-content: center;
     color: white;
-    
+
     padding: 0.5em;
     border-radius: 2px;
 }
