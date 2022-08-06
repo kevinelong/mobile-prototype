@@ -4,8 +4,7 @@
     color: #ffffffCC;
     margin: 0;
     padding: 0.1rem 0.4rem 0.1rem;
-
-    font-size: 0.75rem;
+    font-size: 1.125rem;
     user-select: none;
     cursor: pointer;
     display: inline-flex;
@@ -17,6 +16,7 @@
     gap: 0.25rem;
     flex-direction: row;
     width: inherit;
+    white-space: nowrap;
 }
 
 #explore-filters .choice{
@@ -53,7 +53,7 @@
 }
 
 #range .choice{
-    min-width: 55px;
+    min-width: 10vw;
 }
 .explore.page .choice.selected {
     background: #F9A831;
@@ -62,11 +62,11 @@
 }
 
 .connect.page .choice {
-    min-width: 100px;
+    min-width: 28vw;
 }
 
 .collect.page .choice {
-    min-width: 86px;
+    min-width: 23vw;
 }
 
 .settle.page .choice {
@@ -74,9 +74,9 @@
 }
 
 #plan_detail-filters .choice {
-    min-width: 104px;
+    min-width: 20vw;
 }
 
 .plan.page .choice {
-    min-width: 76px;
+    font-size: 4vw;
 }

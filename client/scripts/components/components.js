@@ -156,10 +156,11 @@ function mapPreview() {
 
 function mapPanel() {
     return div("map-panel",
+        mapPreview() +
         button("Est. Time/Distance", "", `est-time-distance button`) +
-        actionItem("pin") +
-        mapPreview()
-        , action("pin"));
+        actionItem("show-pin")
+        // , action("hide-pin")
+    );
 }
 
 function hashTags(tags, tagAttrs = "") {
@@ -317,3 +318,11 @@ const meter = (steps = 5, completed = 2) =>
     );
 
 const coin = () => div(`coin`, div("front") + div("back"));
+
+function selectClassification(){
+    return select("category", [
+        {name: "Idea", value: "0"},
+        {name: "Going", value: "2"},
+        {name: "Favorite", value: "1"},
+    ], `placeholder="Category" value="0"`)
+}
