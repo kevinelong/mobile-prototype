@@ -176,7 +176,7 @@
     width: 100%;
     overflow-x: scroll;
     overflow-y: visible;
-    height: 3vh;
+    /* height: 3vh; */
 }
 
 .page.explore .hash-tag {
