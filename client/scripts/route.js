@@ -311,6 +311,10 @@ function showAddCard(titleText = "Add Something to Board") {
                 name: "Going",
                 value: "Going",
             },
+            {
+                name: "Favorite",
+                value: "Favorite",
+            },
         ]) +
         contentPanel(
             label(
