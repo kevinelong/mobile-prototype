@@ -304,6 +304,7 @@
 .profile-host .icon {
     align-items: center;
     gap: 4px;
+    white-space: nowrap;
 }
 
 .profile-host .profile-icons img {
