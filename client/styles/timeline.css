@@ -224,10 +224,16 @@
     display: inline-flex;
     flex-direction: row;
     margin: 0 0;
-    overflow: scroll;
-    height: 3vh;
+    /* overflow-x: scroll; */
+    /* height: 3vh; */
     width: auto;
+    /* white-space: nowrap; */
 }
+
+/* .timeline .restaurants .card-tags{
+    white-space: nowrap;
+} */
+
 
 .timeline .hash-tag {
     white-space: nowrap;
