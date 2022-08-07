@@ -251,13 +251,18 @@ function onStar(target, index) {
     parent.getElementsByClassName("text")[0].innerHTML = `${index + 1}`;
     parent.querySelectorAll(".rating-action > .icon-frame img")[0].setAttribute("src", iconPath("star"));
 
+    showToast("Rating Sent!")
+
+    if(cardElement === null) {
+        console.log("NOT FOUND: .rating-action > .icon-frame img")
+        return false;
+    }
     const ra = cardElement.querySelectorAll(".action-item.review");
 
     if (ra) {
         showElement(ra[0]);
     }
 
-    showToast("Rating Sent!")
 }
 
 function star(index) {

@@ -1,7 +1,7 @@
 .dialog {
     height: auto;
-    max-height: clamp(200px, 95vh, 600px);
-    width: clamp(300px, 60vw, 800px);
+    max-height: clamp(200px, 95vh, 768px);
+    width: clamp(300px, 75vw, 1024px);
     background: #ffffff;
     opacity: 1;
     visibility: visible;
