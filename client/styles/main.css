@@ -208,12 +208,14 @@ input[type=number] {
 .map-panel{
     background: lightblue;
     width: 100%;
-    min-height: 180px;
+    min-height: 150px;
     display: flex;
     justify-content: center;
     align-content: center;
     align-items: center;
     position: relative;
+    /*overflow: hidden;*/
+    z-index: 100;
 }
 
 .collect_board .map-panel{
@@ -232,6 +234,9 @@ input[type=number] {
     padding: 1em;
     border-radius: 2em;
     display: none;
+    width: 86%;
+    position: absolute;
+    top: 2rem;
 }
 
 .map-panel .action-item.pin {
@@ -353,6 +358,7 @@ input[type=number] {
     /* top: calc(50% - 66px); */
     left: 0;
     right: 0;
+    top:0;
     /*background-color: white;*/
     /*border: 1px solid black;*/
     border-radius: 2em;
@@ -397,6 +403,7 @@ input[type=number] {
     background-color: white;
     color: black;
     text-shadow: none;
+    z-index: 100;
 }
 
 .map-preview .left-column {

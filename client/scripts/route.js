@@ -1222,7 +1222,8 @@ const ACTION_PAGES = {
     open: openPage,
     pay: payEvent,
     payment: addPayment,
-    pin: pin,
+    "show-pin": showPin,
+    "hide-pin": hidePin,
     person: showProfileDialog,
     review: showReviewDialog,
     right: handleRight,
@@ -1255,14 +1256,16 @@ function toggleCollapse(target) {
     return true;
 }
 
-function pin(target) {
+function showPin(target) {
     const mp = target.closest(".map-panel");
     const card = mp.querySelector(".card");
-    if (card.style.display !== "block") {
-        card.style.display = "block";
-    } else {
-        card.style.display = "none";
-    }
+    card.style.display = "block";
+}
+
+function hidePin(target) {
+    const mp = target.closest(".map-panel");
+    const card = mp.querySelector(".card");
+    card.style.display = "none";
 }
 
 function toggleMap(target) {
