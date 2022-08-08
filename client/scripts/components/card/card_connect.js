@@ -29,7 +29,10 @@ function connectCard(
         cardTitles(kind, "", whenText, "connect_chat", -1, "connect_chat") +
         title(titleText) +
         subtitle(subtitleText) +
-        actionItem("add","connect", -1, "Participants"),
+        row(
+            actionItem("add","connect", -1, "Participants") +
+            cardGroups(groups)
+        ),
         action("open", "connect_chat")
     )
 }
