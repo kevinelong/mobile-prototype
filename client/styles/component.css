@@ -365,7 +365,7 @@ input[type="radio"] {
 }
 
 .stack {
-    gap: 3px;
+    gap: 0.5rem;
     transition: all 300ms ease-in-out;
 }
 

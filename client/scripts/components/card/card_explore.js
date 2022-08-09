@@ -145,6 +145,7 @@ function exploreCardDetailContent(
     return div(
         `detail stack ${kind} ${kind2}`,
         // img("background top", "images/backgrounds/top-gradient-black.svg") +
+        cardTags(tags) +
         cardSection(
             div(
                 "titles",
@@ -204,10 +205,13 @@ function exploreCardDetailContent(
             )
         ) +
         actionList(`card-actions`, actions) +
-        cardTags(tags) +
-        classificationContent +
-        img("detail-image", image) +
-        text(description)
+        spread(
+            div("relative",
+                classificationContent +
+                img("detail-image", image)
+            ) +
+            helpText(description)
+        )
     )
 }
 
@@ -223,9 +227,9 @@ function exploreCard(
     kind = "explore",
     booking_index = -1,
     match_percent = 100,
-    lat_long= "",
+    lat_long = "",
     description = "",
-    data={},
+    data = {},
     classificationContent = selectClassification()
 ) {
     return exploreCardContent(
