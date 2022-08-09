@@ -180,8 +180,7 @@ function exploreCardDetailContent(
                             "", "event rounded framed padded vtop"
                         ) +
                         booking +
-                        actionItem("directions", "", "", "Directions", false) +
-                        selectClassification()
+                        actionItem("directions", "", "", "Directions", false)
                     ) +
                     col(
                         actionColumn(`card-actions`, actions, completed)
@@ -201,7 +200,9 @@ function exploreCardDetailContent(
                     ) : "")
             )
         ) +
+        actionList(`card-actions`, actions) +
         cardTags(tags) +
+        selectClassification() +
         img("detail-image", image) +
         text(description)
     )
