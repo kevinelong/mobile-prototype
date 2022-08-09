@@ -110,7 +110,7 @@ function exploreCardDetailContent(
     subtitle,
     body = "",
     groups = [],
-    actions = "",
+    actions = [],
     image,
     tags = [],
     id = -1,
@@ -135,7 +135,7 @@ function exploreCardDetailContent(
         booking = actionItem("book", "book", -1, "Book Now!");
     }
 
-    actions = ["invite", "check-in", "verify", "split", "review", "upload"];
+    const list_actions = ["invite", "check-in", "verify", "split", "review", "upload"];
     const completed = ["invite", "check-in"];
 
     // const booking = "";
@@ -183,7 +183,7 @@ function exploreCardDetailContent(
                         actionItem("directions", "", "", "Directions", false)
                     ) +
                     col(
-                        actionColumn(`card-actions`, actions, completed)
+                        actionColumn(`card-actions`, list_actions, completed)
                     )
                 ) +
                 // actionList(`card-actions`, actions, false, qty, "black") +
