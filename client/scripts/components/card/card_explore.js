@@ -36,7 +36,8 @@ function exploreCardContent(
     id = -1,
     kind2 = "",
     booking_index = -1,
-    match_percent = 100
+    match_percent = 100,
+    classificationContent = selectClassification()
 ) {
 
     let qty = 0;
@@ -76,7 +77,8 @@ function exploreCardContent(
                     col(cardGroups(groups)) +
                     stack(
                         booking +
-                        actionItem("directions", id, id, "Show Map", "", false)
+                        actionItem("directions", id, id, "Show Map", "", false) +
+                        classificationContent
                     )
                 )
                 + actionList(`card-actions`, actions, true, qty)
@@ -119,7 +121,8 @@ function exploreCardDetailContent(
     match_percent = 100,
     location = [0, 0],
     description = "",
-    plans = []
+    plans = [],
+    classificationContent = selectClassification()
 ) {
     // const otherActions = ["review", "check-in"].reverse();
     const responseActions = ["accept", "counter", "decline"].reverse();
@@ -202,7 +205,7 @@ function exploreCardDetailContent(
         ) +
         actionList(`card-actions`, actions) +
         cardTags(tags) +
-        selectClassification() +
+        classificationContent +
         img("detail-image", image) +
         text(description)
     )
@@ -219,7 +222,11 @@ function exploreCard(
     id = 0,
     kind = "explore",
     booking_index = -1,
-    match_percent = 100
+    match_percent = 100,
+    lat_long= "",
+    description = "",
+    data={},
+    classificationContent = selectClassification()
 ) {
     return exploreCardContent(
         "explore",
@@ -233,7 +240,8 @@ function exploreCard(
         id,
         kind,
         booking_index,
-        match_percent
+        match_percent,
+        classificationContent
     );
 }
 

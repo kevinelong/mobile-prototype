@@ -118,7 +118,8 @@ function card(
     match_percent = "",
     booking_index = -1,
     actionAttribute = "",
-    index = -1
+    index = -1,
+    classificationContent = ""
 ) {
     // debugger;
     period = period ? period : Period();
@@ -140,10 +141,13 @@ function card(
             contentPanel(content, "text-content")
         ) +
         match +
-        spread(
+        row(
             groupsContent +
-            booking)
-        +
+            col(
+                booking +
+                classificationContent
+            )
+        ) +
         actionList(`card-actions`, actions),
 
         action("open", page, index) +
@@ -170,7 +174,8 @@ function eventCard(
     match_percent = "",
     booking_index = -1,
     actionAttribute = "",
-    index = -1
+    index = -1,
+    classificationContent = ""
 ) {
     // debugger;
     period = period ? period : Period();
@@ -197,15 +202,16 @@ function eventCard(
             col(
                 contentPanel(content) +
                 match +
-                groupsContent
+                groupsContent +
+                classificationContent
             ) +
             col(
-                row(row(coin()) + text(`${earned}pts earned`, "white earned"), "","centered") +
+                row(row(coin()) + text(`${earned}pts earned`, "white earned"), "", "centered") +
                 spread(meter(actions.length, completed.length)) +
                 // row(row(coin()) + text(`+${5}pts`, "gold"), "","centered") +
                 // spread(meter(actions.length, completed)) +
                 actionColumn(`card-actions`, actions, completed) +
-                div( "white points hidden", `+${5}pts`)
+                div("white points hidden", `+${5}pts`)
             )
         ),
         action("open", page, index) +
@@ -371,7 +377,8 @@ function mapCard(
     tags = [],
     which = -1,
     attrs = "",
-    period = Period()
+    period = Period(),
+    classificationContent = selectClassification()
 ) {
 
     // const ve = VitaEvent(period, kind);
@@ -475,7 +482,7 @@ function mapCard(
             ) +
             col(
                 `<img class="child-image" src="${image}">` +
-                selectClassification() +
+                classificationContent +
                 actionItem("Book", "book", -1, "Book from $65", "", false, 0, true),
                 "",
                 "right-column"
@@ -484,7 +491,7 @@ function mapCard(
             "main-columns"
         ) +
         row(
-            actionButton("Close","hide-pin")
+            actionButton("Close", "hide-pin")
         ),
 
         attrs +
@@ -535,7 +542,8 @@ function activityCard(item = {}, index = -1) {
         item.match_percent,
         item.booking_index,
         item.action,
-        item.id
+        item.id,
+        item.classificationContent = selectClassification()
     );
 }
 
@@ -557,7 +565,8 @@ function activityEventCard(item = {}, ve, day) {
         item.match_percent,
         item.booking_index,
         item.action,
-        item.id
+        item.id,
+        item.classificationContent = ""
     );
 }
 
