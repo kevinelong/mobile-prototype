@@ -102,7 +102,7 @@ function Day(when, title = "", events = []) {
                 e.when.getDate() === p.dayWhen.getDate()
             ) {
                 // debugger;
-                if (timeWhen >= p.from && timeWhen < (new Date(p.to.getTime() + 15 * 60000)))  {
+                if (timeWhen >= p.from && timeWhen < (new Date(p.to.getTime() + 15 * 60000))) {
                     e.dayWhen = timeWhen;
                     p.events.push(e);
                 }
@@ -447,6 +447,8 @@ const EXPLORE_LOCATION = 2;
 const EXPLORE_INDEX = 7;
 
 const defaultCardActionList = ["schedule", "collect", "share", "discuss", "invite"];
+
+
 
 const EXPLORE_DATA = [
     [
@@ -833,6 +835,13 @@ const EXPLORE_DATA = [
         []
     ],
 ];
+
+// function generate_insert(item) {
+//     return "INSERT INTO `vita`.`activity` (`image_url`, `title`, `subtitle`, `content`, `booking_index`, `match_percent`, `lat`, `lng`, `region_id`, `activity_id`, `kind_idkind`, `description`)" +
+//         ` VALUES ('${item[0]}', '${item[1].replace("'", "''")}', '${item[2]}', '${item[3]}', '${item[9]}', ${item[10]}, ${item[11][0]}, ${item[11][1]}, null, null, null, '${item[12].replace("'", "''")}');`;
+// }
+// console.log(EXPLORE_DATA.map(generate_insert).join("\n\n"));
+
 
 const ADItem = (id, icon, name, items = []) => {
     return {id: id, icon: icon, name: name, items: items};
