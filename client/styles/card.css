@@ -185,7 +185,7 @@
 }
 
 .explore.page .action-item.book {
-    font-size: clamp(6px, 2vw, 1.2rem);
+    font-size: 1rem;
 }
 
 .page.explore .card-people .circle .text {

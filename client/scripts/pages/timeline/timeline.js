@@ -52,7 +52,7 @@ function timelinePage(selected = false) {
         messagesContent +
         div("right",
             title(
-                span("time nowrap", "", `style="width:180px;font-size:15px;"`) +
+                span("time nowrap", "") +
                 " - " +
                 span("location", "Santa Barbara") +
                 actionItem("edit", "location", -1, "edit", "black")

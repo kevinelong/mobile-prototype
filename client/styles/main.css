@@ -20,7 +20,7 @@ button {
     cursor: pointer;
 }
 
-:root {
+:root{
     font-size: clamp(11px, 2.5vw, 18px);
 
 }

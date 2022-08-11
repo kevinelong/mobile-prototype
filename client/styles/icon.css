@@ -44,7 +44,7 @@
     font-size: clamp(7px, 2vw, 1rem);
 }
 .explore.page .action-item{
-    font-size: clamp(6px, 2vw, 1rem);
+    font-size: 1rem;
 }
 .explore.page .action-item.person .icon-frame .icon{
     width: 2rem;
