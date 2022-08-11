@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
+
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -12,17 +12,16 @@
 
 /* Hide scrollbar for IE, Edge and Firefox */
 * {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
 }
 
 button {
     cursor: pointer;
 }
 
-:root{
-    font-size: clamp(11px, 2.5vw, 18px);
-
+:root {
+    font-size: clamp(11px, min(2.5vw, 1.5vh), 22px);
 }
 
 body {
@@ -102,9 +101,8 @@ input[type=number] {
 
 .rating-action .action-item {
     opacity: 1;
-    transition:
-            opacity 100ms ease-in-out,
-            width 100ms ease-in-out;
+    transition: opacity 100ms ease-in-out,
+    width 100ms ease-in-out;
     position: absolute;
     top: 0;
     z-index: 10;
@@ -112,18 +110,16 @@ input[type=number] {
 
 .rating-action:hover .action-item {
     opacity: 0;
-    transition:
-            opacity 100ms ease-in-out,
-            width 100ms ease-in-out;
+    transition: opacity 100ms ease-in-out,
+    width 100ms ease-in-out;
 }
 
 .rating-action .rating {
     height: auto;
     margin: 0;
     opacity: 0;
-    transition:
-            opacity 100ms ease-in-out,
-            width 100ms ease-in-out;
+    transition: opacity 100ms ease-in-out,
+    width 100ms ease-in-out;
     position: absolute;
     top: 2px;
     z-index: 20;
@@ -137,9 +133,8 @@ input[type=number] {
 .dialog .rating-action .rating,
 .rating-action:hover .rating {
     opacity: 1;
-    transition:
-            opacity 100ms ease-in-out,
-            width 100ms ease-in-out;
+    transition: opacity 100ms ease-in-out,
+    width 100ms ease-in-out;
     width: 110px;
 }
 
@@ -165,9 +160,8 @@ input[type=number] {
     margin: 0;
     border-radius: 36px;
     padding: 0;
-    transition:
-            opacity 100ms ease-in-out,
-            width 100ms ease-in-out;
+    transition: opacity 100ms ease-in-out,
+    width 100ms ease-in-out;
     position: relative;
     display: flex;
     align-items: center;
@@ -175,24 +169,26 @@ input[type=number] {
     width: 60px;
     z-index: 10;
 }
-.rating-action .icon{
+
+.rating-action .icon {
     width: 24px;
     height: 24px;
 }
-.content-panel .action-item.rating-action .text{
+
+.content-panel .action-item.rating-action .text {
     font-size: 16px;
     margin-top: 4px;
 }
 
-.help-text{
+.help-text {
     font-size: 11px;
     margin: 6px 9px;
     text-justify: inter-word;
 }
 
-.map{
+.map {
     width: 100%;
-    height:476px;
+    height: 476px;
     z-index: 300;
     margin-top: 118px;
 }
@@ -201,11 +197,11 @@ input[type=number] {
     top: 100%;
 }
 
-#map{
+#map {
     z-index: -9999;
 }
 
-.map-panel{
+.map-panel {
     background: lightblue;
     width: 100%;
     min-height: 150px;
@@ -218,16 +214,16 @@ input[type=number] {
     z-index: 100;
 }
 
-.collect_board .map-panel{
+.collect_board .map-panel {
     min-height: 326px;
 }
 
 
-.map-panel .description{
+.map-panel .description {
     font-size: 10px;
 }
 
-.page.collect_board .map-preview .card ,
+.page.collect_board .map-preview .card,
 .page.explore .map-preview .card {
     min-height: 0;
     gap: 6px;
@@ -242,6 +238,7 @@ input[type=number] {
 .map-panel .action-item.pin {
     margin-top: 52px;
 }
+
 .map-panel .button.est-time-distance {
     position: absolute;
     top: 3px;
@@ -254,12 +251,12 @@ input[type=number] {
 .explore.collect_board .map-preview .card .card-title,
 .explore.page .map-preview .title,
 .explore.page .map-preview .action-item.book,
-.explore.page .map-preview .card .card-title{
+.explore.page .map-preview .card .card-title {
     font-size: 11px;
 }
 
 .page.collect_board .map-preview .card .content-panel,
-.page.explore .map-preview .card .content-panel{
+.page.explore .map-preview .card .content-panel {
     padding: 1px;
 }
 
@@ -279,12 +276,12 @@ input[type=number] {
 }
 
 .page.collect_board .map-preview .card .title .action-item,
-.page.explore .map-preview .card .title .action-item{
+.page.explore .map-preview .card .title .action-item {
     padding: 2px;
 }
 
 .page.collect_board .map-preview .card .preview-actions,
-.page.explore .map-preview .card .preview-actions{
+.page.explore .map-preview .card .preview-actions {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -313,7 +310,7 @@ input[type=number] {
 
 .page.collect_board .map-preview .card .person-icon:first-child,
 .page.explore .map-preview .card .person-icon:first-child {
-     display: flex;
+    display: flex;
 }
 
 .page.collect_board .map-preview .hash-tag,
@@ -321,14 +318,14 @@ input[type=number] {
     font-size: 7px;
 }
 
-.page.collect_board .map-preview .card .title  .icon,
-.explore.page .map-preview .card .title  .icon {
+.page.collect_board .map-preview .card .title .icon,
+.explore.page .map-preview .card .title .icon {
     width: 12px;
     height: 12px;
 }
 
 .explore.page .map-preview .card .title,
-.page.collect_board .map-preview .card .title{
+.page.collect_board .map-preview .card .title {
     font-size: 11px;
 }
 
@@ -340,16 +337,20 @@ input[type=number] {
     border-radius: 3px;
     font-size: 11px;
 }
-.tiny-text{
-    font-size:7px;
+
+.tiny-text {
+    font-size: 7px;
 }
-.action-item.book{
+
+.action-item.book {
     background: #F9A831cc;
 }
-.action-item.book:hover{
+
+.action-item.book:hover {
     background: #F9A831FF;
 }
-.card-title .action-item{
+
+.card-title .action-item {
     background: none;
 }
 
@@ -358,7 +359,7 @@ input[type=number] {
     /* top: calc(50% - 66px); */
     left: 0;
     right: 0;
-    top:0;
+    top: 0;
     /*background-color: white;*/
     /*border: 1px solid black;*/
     border-radius: 2em;
@@ -422,7 +423,7 @@ input[type=number] {
     justify-content: space-evenly;
 }
 
-.map-preview .social-nav img{
+.map-preview .social-nav img {
     width: 30px;
 }
 
@@ -460,9 +461,8 @@ input[type=number] {
 }
 
 .map-preview .date-panel img {
-    width: 1em;  
+    width: 1em;
 }
-
 
 
 .map-preview .right-column {
@@ -492,7 +492,7 @@ input[type=number] {
     color: rgba(255, 255, 255, 0.8);
 }
 
-.map-preview .card .child-image{
+.map-preview .card .child-image {
     min-height: 180px;
     width: 100%;
     /* background-position: center; */
@@ -508,6 +508,7 @@ input[type=number] {
     bottom: 6px;
     left: 25%;
 }
+
 .plan_detail .card .text,
 .collect_board .card .text {
     font-size: 9px;
@@ -527,7 +528,8 @@ input[type=number] {
     margin: 3px 6px;
     padding: 3px 6px;
 }
-.button:hover{
+
+.button:hover {
     background: #888888;
 }
 
@@ -614,7 +616,7 @@ input[type="text"].tag-input {
     border-radius: 50%;
 }
 
-.toggle-text{
+.toggle-text {
     margin-left: 32px;
 }
 
