@@ -103,6 +103,7 @@
 .page.settle_split .card-list,
 .page.settle .card-list {
     flex-flow: wrap;
+    justify-content: center;
 }
 .dialog .content-panel .person .text {
     font-size: 0.9rem;
@@ -506,7 +507,7 @@
 }
 
 .page.explore .card-list {
-    padding: 3px 3px 8vh 3px;
+    padding: 3px 3px 50vh 3px;
     width: 100%;
 }
 

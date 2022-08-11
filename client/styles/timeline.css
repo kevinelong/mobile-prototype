@@ -150,38 +150,38 @@
     background-blend-mode: darken;
 } */
 
-.card.not-current-period .card-inner > .content-panel,
-.card.not-current-period .card-inner > .row,
-.card.not-current-period .card-inner > .spread,
-.card.not-current-period .card-inner > .text,
-.card.not-current-period div.dot,
-.card.not-current-period div.text,
-.card.not-current-period .action-list .action-item,
-.card.not-current-period .card-people,
-.card.not-current-period .card-tags {
+.page.timeline .card.not-current-period .card-inner > .content-panel,
+.page.timeline .card.not-current-period .card-inner > .row,
+.page.timeline .card.not-current-period .card-inner > .spread,
+.page.timeline .card.not-current-period .card-inner > .text,
+.page.timeline .card.not-current-period div.dot,
+.page.timeline .card.not-current-period div.text,
+.page.timeline .card.not-current-period .action-list .action-item,
+.page.timeline .card.not-current-period .card-people,
+.page.timeline .card.not-current-period .card-tags {
     display: none;
 }
 
-.card.not-current-period.selected .card-inner > .content-panel,
-.card.not-current-period.selected .card-inner > .row,
-.card.not-current-period.selected .card-inner > .spread,
-.card.not-current-period.selected .card-inner > .text,
-.card.not-current-period.selected .dot,
-.card.not-current-period.selected .text,
-.card.not-current-period.selected .card-people {
+.page.timeline .card.not-current-period.selected .card-inner > .content-panel,
+.page.timeline .card.not-current-period.selected .card-inner > .row,
+.page.timeline .card.not-current-period.selected .card-inner > .spread,
+.page.timeline .card.not-current-period.selected .card-inner > .text,
+.page.timeline .card.not-current-period.selected .dot,
+.page.timeline .card.not-current-period.selected .text,
+.page.timeline .card.not-current-period.selected .card-people {
     display: flex;
 }
 
-.card.not-current-period.selected .action-list .action-item {
+.page.timeline .card.not-current-period.selected .action-list .action-item {
     display: inline-block;
 }
 
-.card.not-current-period.selected .card-tags {
+.page.timeline .card.not-current-period.selected .card-tags {
     display: block;
 }
 
-.card.not-current-period .action-item.plan,
-.card.not-current-period .row > .card-subtitle {
+.page.timeline .card.not-current-period .action-item.plan,
+.page.timeline .card.not-current-period .row > .card-subtitle {
     display: flex;
 }
 

@@ -20,8 +20,9 @@ button {
     cursor: pointer;
 }
 
-:root {
-    font-size: clamp(11px, min(2.5vw, 1.5vh), 22px);
+:root{
+    font-size: clamp(11px, 2.5vw, 18px);
+
 }
 
 body {
@@ -485,6 +486,13 @@ input[type=number] {
     position: absolute;
     top: 6px;
     left: 60px;
+}
+
+.explore_detail select.select.category {
+    background-color: #F9A831;
+    position: absolute;
+    top: 0.5vh;
+    left: calc(50% - 8vw);
 }
 
 .map-preview select.select.category option {

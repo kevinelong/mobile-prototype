@@ -36,7 +36,8 @@ function exploreCardContent(
     id = -1,
     kind2 = "",
     booking_index = -1,
-    match_percent = 100
+    match_percent = 100,
+    classificationContent = selectClassification()
 ) {
 
     let qty = 0;
@@ -76,7 +77,8 @@ function exploreCardContent(
                     col(cardGroups(groups)) +
                     stack(
                         booking +
-                        actionItem("directions", id, id, "Show Map", "", false)
+                        actionItem("directions", id, id, "Show Map", "", false) +
+                        classificationContent
                     )
                 )
                 + actionList(`card-actions`, actions, true, qty)
@@ -110,7 +112,7 @@ function exploreCardDetailContent(
     subtitle,
     body = "",
     groups = [],
-    actions = "",
+    actions = [],
     image,
     tags = [],
     id = -1,
@@ -119,7 +121,8 @@ function exploreCardDetailContent(
     match_percent = 100,
     location = [0, 0],
     description = "",
-    plans = []
+    plans = [],
+    classificationContent = selectClassification()
 ) {
     // const otherActions = ["review", "check-in"].reverse();
     const responseActions = ["accept", "counter", "decline"].reverse();
@@ -135,13 +138,14 @@ function exploreCardDetailContent(
         booking = actionItem("book", "book", -1, "Book Now!");
     }
 
-    actions = ["invite", "check-in", "verify", "split", "review", "upload"];
+    const list_actions = ["invite", "check-in", "verify", "split", "review", "upload"];
     const completed = ["invite", "check-in"];
 
     // const booking = "";
     return div(
         `detail stack ${kind} ${kind2}`,
         // img("background top", "images/backgrounds/top-gradient-black.svg") +
+        cardTags(tags) +
         cardSection(
             div(
                 "titles",
@@ -180,11 +184,10 @@ function exploreCardDetailContent(
                             "", "event rounded framed padded vtop"
                         ) +
                         booking +
-                        actionItem("directions", "", "", "Directions", false) +
-                        selectClassification()
+                        actionItem("directions", "", "", "Directions", false)
                     ) +
                     col(
-                        actionColumn(`card-actions`, actions, completed)
+                        actionColumn(`card-actions`, list_actions, completed)
                     )
                 ) +
                 // actionList(`card-actions`, actions, false, qty, "black") +
@@ -201,9 +204,14 @@ function exploreCardDetailContent(
                     ) : "")
             )
         ) +
-        cardTags(tags) +
-        img("detail-image", image) +
-        text(description)
+        actionList(`card-actions`, actions) +
+        spread(
+            div("relative",
+                classificationContent +
+                img("detail-image", image)
+            ) +
+            helpText(description)
+        )
     )
 }
 
@@ -218,7 +226,11 @@ function exploreCard(
     id = 0,
     kind = "explore",
     booking_index = -1,
-    match_percent = 100
+    match_percent = 100,
+    lat_long = "",
+    description = "",
+    data = {},
+    classificationContent = selectClassification()
 ) {
     return exploreCardContent(
         "explore",
@@ -232,7 +244,8 @@ function exploreCard(
         id,
         kind,
         booking_index,
-        match_percent
+        match_percent,
+        classificationContent
     );
 }
 

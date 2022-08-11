@@ -33,7 +33,8 @@ function VitaEvent(
         period: period,
         places: [],
         currentMood: currentMood,
-        activity: activity
+        activity: activity,
+        classificationContent: selectClassification()
     };
 }
 

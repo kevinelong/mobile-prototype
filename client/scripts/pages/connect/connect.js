@@ -43,7 +43,27 @@ function connectPage(selected = false) {
                 "settle",
                 "Pay",
                 "End of Day Settlement – Net All Items<br>Yesterday, Tuesday 12/12/2022 12:01 pm",
-                title("You Owe $267") + button("Pay $267"),
+                `
+                <div class="row spread div">
+                    <div class="nowrap center div">
+                        <div class="amount   div">
+                            $0
+                        </div>
+                        Owed to You
+                    </div>
+                    <div class="action-item settle settle gold  div" onclick="actionClick(event, this, 'settle','settle','-1')" alt="settle">
+                    <div class="icon-frame gold div"><img class="icon" src="images/icons/icon-settle-gold.svg"></div>
+                    <div class="text wc-1 gold div">Settle</div>
+                    </div>
+                    <div class="nowrap center div">
+                        <div class="amount   div">
+                            $267
+                        </div>
+                        You Owe
+                    </div>
+                </div>
+                `,
+                // title("You Owe $267") + button("Pay $267"),
                 [
                     {
                         people: three_people,
@@ -52,7 +72,7 @@ function connectPage(selected = false) {
                         subtitle: "",
                     },
                 ],
-                ["Split", "Auto&dash;Split Settings", "Review Day"].reverse(),
+                ["Split Settings", "Review Day"].reverse(),
                 "",
                 [],
                 "settle_list",
