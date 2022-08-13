@@ -205,13 +205,13 @@ function exploreCardDetailContent(
             )
         ) +
         actionList(`card-actions`, actions) +
-        spread(
+        // spread(
             div("relative",
                 classificationContent +
                 img("detail-image", image)
             ) +
             helpText(description)
-        )
+        // )
     )
 }
 

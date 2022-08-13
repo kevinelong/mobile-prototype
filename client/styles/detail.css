@@ -15,9 +15,11 @@
 .detail .image {
     /*border: 1rem solid #eeeeee;*/
     border-radius: 1rem;
-    max-height: 50vh;
+    /*max-height: 50vh;*/
     margin: 0;
+    /*height: 50%;*/
 }
+
 .detail.stack .text{
     text-align: left;
     align-items: flex-start;
@@ -44,10 +46,6 @@
 .detail .row,
 .detail .col {
     width: 100%;
-}
-
-.detail .image {
-    height: 50%;
 }
 
 .detail > .card-section,
