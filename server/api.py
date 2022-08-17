@@ -13,7 +13,6 @@ user_model = db.addModel("user", ["id", "display_name", "email", "password"])
 
 activity_model.create_table()
 
-
 activity_model.create({
     "title": "tt",
     "description": "dd",
@@ -22,6 +21,7 @@ activity_model.create({
     "lng": 0,
     "region_id": 1
 })
+
 
 @app.route("/action", methods=["GET", "POST", "PUT", "DELETE"])
 def action():

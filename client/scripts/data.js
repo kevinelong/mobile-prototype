@@ -449,392 +449,402 @@ const EXPLORE_INDEX = 7;
 const defaultCardActionList = ["schedule", "collect", "share", "discuss", "invite"];
 
 
+let EXPLORE_DATA = [];
 
-const EXPLORE_DATA = [
-    [
-        "images/explore_bg.png",
-        "Loquita",
-        "Santa Barbara",
-        // "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
-        "Authentic Spanish food",
-        ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
-        group_of_three,
-        defaultCardActionList,
-        0,
-        "restaurants",
-        3,
-        100,
-        [34.41421031876199, -119.69164738460584],
-        "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
-        [
-            {
-                timeStamp: 1656531438000,
-                invitedBy: [peopleList[BF]],
-                participants: [
-                    {person: peopleList[RUBY], status: "Invited", paid: false},
-                    {person: peopleList[JOE], status: "Going", paid: false},
-                    {person: peopleList[BF], status: "Going", paid: true},
-                ],
-            }
-        ]
-    ],
 
-    [
-        "images/photos/brasil_arts_cafe.jpeg",
-        "Brasil Arts Cafe",
-        "Santa Barbara",
-        // "",
-        "Traditional Brazilian fare",
-        ["Brazilian", "Cafe"],
-        DEFAULT_GROUPS,
-        defaultCardActionList,
-        1,
-        "restaurants",
-        4,
-        97,
-        [34.42427273044929, -119.70538318430323],
-        "The perfect blend of traditional Brazilian fare & one-of-a-kind Açai, Juice, and Smoothie creations.",
-        [
-            {
-                timeStamp: 1656531438000,
-                invitedBy: [peopleList[BF]],
-                participants: [
-                    {person: peopleList[RUBY], status: "Invited", paid: false},
-                    {person: peopleList[JOE], status: "Going", paid: false},
-                    {person: peopleList[BF], status: "Going", paid: true},
-                ],
-            }
-        ]
-    ],
-    [
-        "images/photos/yoichis.jpg",
-        "Yoichi's",
-        "Santa Barbara",
-        // "",
-        "Sushi in an intimate setting",
-        ["Japanese", "Sushi", "Prix fixe"],
-        DEFAULT_GROUPS,
-        defaultCardActionList,
-        2,
-        "restaurants",
-        4,
-        95,
-        [34.42715715496026, -119.70249364197355],
-        "A prix fixe only spot featuring traditional Japanese small plates &amp; sushi in an intimate setting.",
-        []
-    ],
-    [
-        "images/photos/los_agaves.jpg",
-        "Los Agaves",
-        "Santa Barbara",
-        // "",
-        "Flavors of Mexico",
-        ["Mexican", "Family", "Catering", "Restaurant"],
-        DEFAULT_GROUPS,
-        defaultCardActionList,
-        3,
-        "restaurants",
-        4,
-        90,
-        [34.4375036989364, -119.72734258675358],
-        "The bold flavors of Mexico, an authentic dining experience, high-quality ingredients.",
-        []
-    ],
-    [
-        "images/photos/santo_mezcal.jpg",
-        "Santo Mezcal",
-        "Santa Barbara",
-        "Modern Mexican cuisine",
-        ["Mexican", "Happy Hour", "Catering", "Restaurant"],
-        DEFAULT_GROUPS,
-        defaultCardActionList,
-        4,
-        "restaurants",
-        4,
-        90,
-        [34.4134427932841, -119.69127914319921],
-        "Modern Mexican cuisine",
-        []
-    ],
-    [
-        "images/photos/la_super-rica_taqueria.jpg",
-        "La Super-Rica Taqueria",
-        "Santa Barbara",
-        // "Celebrated Mexican spot for fish tacos, tamales & more served up in modest digs with patio seating.",
-        "Celebrated Mexican spot",
-        ["Mexican", "Dine-in", "Takeout", "Restaurant"],
-        DEFAULT_GROUPS,
-        defaultCardActionList,
-        5,
-        "restaurants",
-        4,
-        90,
-        [34.42790056991083, -119.68722191681411],
-        "Celebrated Mexican spot for fish tacos, tamales & more served up in modest digs with patio seating.",
-        []
-    ],
-    [
-        "images/photos/constantia.jpg",
-        "Bridlewood Estate",
-        "Santa Barbara",
-        "Guided experience led by Hans Thorvald.",
-        [
-            "Food &amp; Wine Pairing",
-            "date ideas",
-            "weekend getaways",
-            "wine tasting",
-        ],
-        [
-            {
-                people: [peopleList[BF]],
-                title: "Recommended By",
-                groupName: "Friend",
-            },
-            {
-                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
-                title: "Recommended By",
-                groupName: "Taste Match",
-            },
-            // {
-            //     people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
-            //     title: "Planning with",
-            //     groupName: "Co-Planner",
-            // },
-        ],
-        defaultCardActionList,
-        6,
-        "things-to-do",
-        4,
-        85,
-        [0, 0],
-        "The Constantia Valley has an appeal that offers something of interest to everyone, from award winning restaurants offering, luxurious boutique hotel accommodation with spa’s as well as quaint B&B’s. There are beautiful greenbelts to walk on, shops to explore, a brilliant zip lining adventure, mountain biking, horse riding, unique shops and a wine farms.",
-        [
-            {
-                timeStamp: 1656531438000,
-                invitedBy: [peopleList[BF]],
-                participants: [
-                    {person: peopleList[RUBY], status: "Invited", paid: false},
-                    {person: peopleList[JOE], status: "Going", paid: false},
-                    {person: peopleList[BF], status: "Going", paid: true},
-                ],
-            }
-        ]
-    ],
-    [
-        "images/photos/hanna-levin.png",
-        "Hanna Levin &#128994;",
-        "New Taste Match to Follow!",
-        "23 Similar Tastes <a href=''>View All</a>",
-        ["Local Guide", "Taste-Match"],
-        [
-            {
-                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
-                title: "Recommended By",
-                groupName: "Mutual Friend",
-            },
-            {
-                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
-                title: "Collected",
-                groupName: "Time",
-            },
-        ],
-        defaultCardActionList,
-        7,
-        "people",
-        -1,
-        97,
-        [0, 0],
-        "A trusted Local Guide.",
-        []
-    ],
-    [
-        "images/photos/cannon-beach.jpg",
-        "Haystack Rock",
-        "Cannon Beach, Oregon",
-        "This is an iconic photo opportunity",
-        ["Landmark", "Recommended"],
-        [
-            {
-                people: [peopleList[BF]],
-                title: "Recommended By",
-                groupName: "Friend",
-            },
-            {
-                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
-                title: "Recommended By",
-                groupName: "Taste Match",
-            },
-            {
-                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
-                title: "Planning with",
-                groupName: "Co-Planner",
-            },
-        ],
-        defaultCardActionList,
-        8,
-        "places-to-see",
-        -1,
-        85,
-        [45.884161669751066, -123.96863053734513],
-        "This is the Oregon coast's most iconic photo opportunity.",
-        []
-    ],
-    [
-        "images/photos/rogue_astoria.jpg",
-        "Rogue Brewery",
-        "Astoria Oregon",
-        "Beer tasting experience",
-        ["Beer Tasting"],
-        [
-            {
-                people: [peopleList[BF]],
-                title: "Recommended By",
-                groupName: "Friend",
-            },
-            {
-                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
-                title: "Recommended By",
-                groupName: "Taste Match",
-            },
-            {
-                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
-                title: "Planning with",
-                groupName: "Co-Planner",
-            },
-        ],
-        defaultCardActionList,
-        9,
-        "restaurants",
-        4,
-        85,
-        [46.196750395147454, -123.79762603067174],
-        "A popular local brewery with amazing views.",
-        []
-    ],
-    [
-        "images/photos/camel_valley_wines.jpg",
-        "Stolpman Vineyard",
-        "Santa Barbara",
-        "Wine tasting and horse back riding tour",
-        ["Food &amp; Wine Tasting Tour", "wine tasting"],
-        [
-            {
-                people: [peopleList[BF]],
-                title: "Recommended By",
-                groupName: "Mutual Friend",
-            },
-            {
-                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
-                title: "Collected",
-                groupName: "Item",
-            },
-        ],
-        defaultCardActionList,
-        10,
-        "things-to-do",
-        4,
-        85,
-        [34.64230332164125, -120.43610020209037],
-        "A pleasant wine tasting and horse back riding tour.",
-        []
-    ],
-    [
-        "images/photos/gargiulo_vineyards.jpg",
-        "Rusack Winery",
-        "Napa Valley Solvang",
-        "Make your own wine experience",
-        ["Food &amp; Wine Tasting Tour", "wine tasting"],
-        [
-            {
-                people: [peopleList[BF]],
-                title: "Recommended By",
-                groupName: "Friend",
-            },
-            {
-                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
-                title: "Recommended By",
-                groupName: "Taste Match",
-            },
-            {
-                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
-                title: "Planning with",
-                groupName: "Co-Planner",
-            },
-        ],
-        defaultCardActionList,
-        11,
-        "things-to-do",
-        4,
-        85,
-        [34.638058462065956, -120.14186578859605],
-        "Here you can experience making your own wine.",
-        []
-    ],
-    [
-        "images/photos/sunstone_winery.jpg",
-        "Sunstone Wine Tour with a Local",
-        "Santa Ynez",
-        "A true family-run winery",
-        ["Food &amp; Wine Tasting Tour", "wine tasting"],
-        [
-            {
-                people: [peopleList[BF]],
-                title: "Recommended By",
-                groupName: "Friend",
-            },
-            {
-                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
-                title: "Recommended By",
-                groupName: "Taste Match",
-            },
-            {
-                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
-                title: "Planning with",
-                groupName: "Co-Planner",
-            },
-        ],
-        ["share", "collect"],
-        12,
-        "things-to-do",
-        4,
-        85,
-        [34.58679315470256, -120.10337263941516],
-        "Sunstone Wine Tour with a Local",
-        []
-    ],
-    [
-        "images/photos/foxen_vineyard.jpg",
-        "Foxen Vineyard Wine Tasting Tour",
-        "Santa Maria",
-        "Minimalist winemaking",
-        ["Food &amp; Wine Tasting Tour", "wine tasting"],
-        [
-            {
-                people: [peopleList[BF]],
-                title: "Recommended By",
-                groupName: "Friend",
-            },
-            {
-                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
-                title: "Recommended By",
-                groupName: "Taste Match",
-            },
-            {
-                people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
-                title: "Planning with",
-                groupName: "Co-Planner",
-            },
-        ],
-        ["share", "collect"],
-        13,
-        "things-to-do",
-        4,
-        85,
-        [34.82021411953863, -120.23023950022402],
-        "Discover minimalist winemaking.",
-        []
-    ],
-];
+// const EXPLORE_DATA = [
+//     [
+//         "images/explore_bg.png",
+//         "Loquita",
+//         "Santa Barbara",
+//         // "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
+//         "Authentic Spanish food",
+//         ["Spanish", "Tapas", "Seafood", "Wine", "Cocktails", "Restaurant"],
+//         group_of_three,
+//         defaultCardActionList,
+//         0,
+//         "restaurants",
+//         3,
+//         100,
+//         [34.41421031876199, -119.69164738460584],
+//         "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
+//         [
+//             {
+//                 timeStamp: 1656531438000,
+//                 invitedBy: [peopleList[BF]],
+//                 participants: [
+//                     {person: peopleList[RUBY], status: "Invited", paid: false},
+//                     {person: peopleList[JOE], status: "Going", paid: false},
+//                     {person: peopleList[BF], status: "Going", paid: true},
+//                 ],
+//             }
+//         ]
+//     ],
+//
+//     [
+//         "images/photos/brasil_arts_cafe.jpeg",
+//         "Brasil Arts Cafe",
+//         "Santa Barbara",
+//         // "",
+//         "Traditional Brazilian fare",
+//         ["Brazilian", "Cafe"],
+//         DEFAULT_GROUPS,
+//         defaultCardActionList,
+//         1,
+//         "restaurants",
+//         4,
+//         97,
+//         [34.42427273044929, -119.70538318430323],
+//         "The perfect blend of traditional Brazilian fare & one-of-a-kind Açai, Juice, and Smoothie creations.",
+//         [
+//             {
+//                 timeStamp: 1656531438000,
+//                 invitedBy: [peopleList[BF]],
+//                 participants: [
+//                     {person: peopleList[RUBY], status: "Invited", paid: false},
+//                     {person: peopleList[JOE], status: "Going", paid: false},
+//                     {person: peopleList[BF], status: "Going", paid: true},
+//                 ],
+//             }
+//         ]
+//     ],
+//     [
+//         "images/photos/yoichis.jpg",
+//         "Yoichi's",
+//         "Santa Barbara",
+//         // "",
+//         "Sushi in an intimate setting",
+//         ["Japanese", "Sushi", "Prix fixe"],
+//         DEFAULT_GROUPS,
+//         defaultCardActionList,
+//         2,
+//         "restaurants",
+//         4,
+//         95,
+//         [34.42715715496026, -119.70249364197355],
+//         "A prix fixe only spot featuring traditional Japanese small plates &amp; sushi in an intimate setting.",
+//         []
+//     ],
+//     [
+//         "images/photos/los_agaves.jpg",
+//         "Los Agaves",
+//         "Santa Barbara",
+//         // "",
+//         "Flavors of Mexico",
+//         ["Mexican", "Family", "Catering", "Restaurant"],
+//         DEFAULT_GROUPS,
+//         defaultCardActionList,
+//         3,
+//         "restaurants",
+//         4,
+//         90,
+//         [34.4375036989364, -119.72734258675358],
+//         "The bold flavors of Mexico, an authentic dining experience, high-quality ingredients.",
+//         []
+//     ],
+//     [
+//         "images/photos/santo_mezcal.jpg",
+//         "Santo Mezcal",
+//         "Santa Barbara",
+//         "Modern Mexican cuisine",
+//         ["Mexican", "Happy Hour", "Catering", "Restaurant"],
+//         DEFAULT_GROUPS,
+//         defaultCardActionList,
+//         4,
+//         "restaurants",
+//         4,
+//         90,
+//         [34.4134427932841, -119.69127914319921],
+//         "Modern Mexican cuisine",
+//         []
+//     ],
+//     [
+//         "images/photos/la_super-rica_taqueria.jpg",
+//         "La Super-Rica Taqueria",
+//         "Santa Barbara",
+//         // "Celebrated Mexican spot for fish tacos, tamales & more served up in modest digs with patio seating.",
+//         "Celebrated Mexican spot",
+//         ["Mexican", "Dine-in", "Takeout", "Restaurant"],
+//         DEFAULT_GROUPS,
+//         defaultCardActionList,
+//         5,
+//         "restaurants",
+//         4,
+//         90,
+//         [34.42790056991083, -119.68722191681411],
+//         "Celebrated Mexican spot for fish tacos, tamales & more served up in modest digs with patio seating.",
+//         []
+//     ],
+//     [
+//         "images/photos/constantia.jpg",
+//         "Bridlewood Estate",
+//         "Santa Barbara",
+//         "Guided experience led by Hans Thorvald.",
+//         [
+//             "Food &amp; Wine Pairing",
+//             "date ideas",
+//             "weekend getaways",
+//             "wine tasting",
+//         ],
+//         [
+//             {
+//                 people: [peopleList[BF]],
+//                 title: "Recommended By",
+//                 groupName: "Friend",
+//             },
+//             {
+//                 people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+//                 title: "Recommended By",
+//                 groupName: "Taste Match",
+//             },
+//             // {
+//             //     people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+//             //     title: "Planning with",
+//             //     groupName: "Co-Planner",
+//             // },
+//         ],
+//         defaultCardActionList,
+//         6,
+//         "things-to-do",
+//         4,
+//         85,
+//         [0, 0],
+//         "The Constantia Valley has an appeal that offers something of interest to everyone, from award winning restaurants offering, luxurious boutique hotel accommodation with spa’s as well as quaint B&B’s. There are beautiful greenbelts to walk on, shops to explore, a brilliant zip lining adventure, mountain biking, horse riding, unique shops and a wine farms.",
+//         [
+//             {
+//                 timeStamp: 1656531438000,
+//                 invitedBy: [peopleList[BF]],
+//                 participants: [
+//                     {person: peopleList[RUBY], status: "Invited", paid: false},
+//                     {person: peopleList[JOE], status: "Going", paid: false},
+//                     {person: peopleList[BF], status: "Going", paid: true},
+//                 ],
+//             }
+//         ]
+//     ],
+//     [
+//         "images/photos/hanna-levin.png",
+//         "Hanna Levin &#128994;",
+//         "New Taste Match to Follow!",
+//         "23 Similar Tastes <a href=''>View All</a>",
+//         ["Local Guide", "Taste-Match"],
+//         [
+//             {
+//                 people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+//                 title: "Recommended By",
+//                 groupName: "Mutual Friend",
+//             },
+//             {
+//                 people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+//                 title: "Collected",
+//                 groupName: "Time",
+//             },
+//         ],
+//         defaultCardActionList,
+//         7,
+//         "people",
+//         -1,
+//         97,
+//         [0, 0],
+//         "A trusted Local Guide.",
+//         []
+//     ],
+//     [
+//         "images/photos/cannon-beach.jpg",
+//         "Haystack Rock",
+//         "Cannon Beach, Oregon",
+//         "This is an iconic photo opportunity",
+//         ["Landmark", "Recommended"],
+//         [
+//             {
+//                 people: [peopleList[BF]],
+//                 title: "Recommended By",
+//                 groupName: "Friend",
+//             },
+//             {
+//                 people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+//                 title: "Recommended By",
+//                 groupName: "Taste Match",
+//             },
+//             {
+//                 people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+//                 title: "Planning with",
+//                 groupName: "Co-Planner",
+//             },
+//         ],
+//         defaultCardActionList,
+//         8,
+//         "places-to-see",
+//         -1,
+//         85,
+//         [45.884161669751066, -123.96863053734513],
+//         "This is the Oregon coast's most iconic photo opportunity.",
+//         []
+//     ],
+//     [
+//         "images/photos/rogue_astoria.jpg",
+//         "Rogue Brewery",
+//         "Astoria Oregon",
+//         "Beer tasting experience",
+//         ["Beer Tasting"],
+//         [
+//             {
+//                 people: [peopleList[BF]],
+//                 title: "Recommended By",
+//                 groupName: "Friend",
+//             },
+//             {
+//                 people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+//                 title: "Recommended By",
+//                 groupName: "Taste Match",
+//             },
+//             {
+//                 people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+//                 title: "Planning with",
+//                 groupName: "Co-Planner",
+//             },
+//         ],
+//         defaultCardActionList,
+//         9,
+//         "restaurants",
+//         4,
+//         85,
+//         [46.196750395147454, -123.79762603067174],
+//         "A popular local brewery with amazing views.",
+//         []
+//     ],
+//     [
+//         "images/photos/camel_valley_wines.jpg",
+//         "Stolpman Vineyard",
+//         "Santa Barbara",
+//         "Wine tasting and horse back riding tour",
+//         ["Food &amp; Wine Tasting Tour", "wine tasting"],
+//         [
+//             {
+//                 people: [peopleList[BF]],
+//                 title: "Recommended By",
+//                 groupName: "Mutual Friend",
+//             },
+//             {
+//                 people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+//                 title: "Collected",
+//                 groupName: "Item",
+//             },
+//         ],
+//         defaultCardActionList,
+//         10,
+//         "things-to-do",
+//         4,
+//         85,
+//         [34.64230332164125, -120.43610020209037],
+//         "A pleasant wine tasting and horse back riding tour.",
+//         []
+//     ],
+//     [
+//         "images/photos/gargiulo_vineyards.jpg",
+//         "Rusack Winery",
+//         "Napa Valley Solvang",
+//         "Make your own wine experience",
+//         ["Food &amp; Wine Tasting Tour", "wine tasting"],
+//         [
+//             {
+//                 people: [peopleList[BF]],
+//                 title: "Recommended By",
+//                 groupName: "Friend",
+//             },
+//             {
+//                 people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+//                 title: "Recommended By",
+//                 groupName: "Taste Match",
+//             },
+//             {
+//                 people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+//                 title: "Planning with",
+//                 groupName: "Co-Planner",
+//             },
+//         ],
+//         defaultCardActionList,
+//         11,
+//         "things-to-do",
+//         4,
+//         85,
+//         [34.638058462065956, -120.14186578859605],
+//         "Here you can experience making your own wine.",
+//         []
+//     ],
+//     [
+//         "images/photos/sunstone_winery.jpg",
+//         "Sunstone Wine Tour with a Local",
+//         "Santa Ynez",
+//         "A true family-run winery",
+//         ["Food &amp; Wine Tasting Tour", "wine tasting"],
+//         [
+//             {
+//                 people: [peopleList[BF]],
+//                 title: "Recommended By",
+//                 groupName: "Friend",
+//             },
+//             {
+//                 people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+//                 title: "Recommended By",
+//                 groupName: "Taste Match",
+//             },
+//             {
+//                 people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+//                 title: "Planning with",
+//                 groupName: "Co-Planner",
+//             },
+//         ],
+//         ["share", "collect"],
+//         12,
+//         "things-to-do",
+//         4,
+//         85,
+//         [34.58679315470256, -120.10337263941516],
+//         "Sunstone Wine Tour with a Local",
+//         []
+//     ],
+//     [
+//         "images/photos/foxen_vineyard.jpg",
+//         "Foxen Vineyard Wine Tasting Tour",
+//         "Santa Maria",
+//         "Minimalist winemaking",
+//         ["Food &amp; Wine Tasting Tour", "wine tasting"],
+//         [
+//             {
+//                 people: [peopleList[BF]],
+//                 title: "Recommended By",
+//                 groupName: "Friend",
+//             },
+//             {
+//                 people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+//                 title: "Recommended By",
+//                 groupName: "Taste Match",
+//             },
+//             {
+//                 people: [peopleList[RUBY], peopleList[JOE], peopleList[BF]],
+//                 title: "Planning with",
+//                 groupName: "Co-Planner",
+//             },
+//         ],
+//         ["share", "collect"],
+//         13,
+//         "things-to-do",
+//         4,
+//         85,
+//         [34.82021411953863, -120.23023950022402],
+//         "Discover minimalist winemaking.",
+//         []
+//     ],
+// ];
+//
+// const group_less = EXPLORE_DATA.map(o=>{
+//     o[5] = [];
+//     o[13] = [];
+//     return o;
+// });
+//
+// console.log(JSON.stringify(group_less));
 
 // function generate_insert(item) {
 //     return "INSERT INTO `vita`.`activity` (`image_url`, `title`, `subtitle`, `content`, `booking_index`, `match_percent`, `lat`, `lng`, `region_id`, `activity_id`, `kind_idkind`, `description`)" +
@@ -1381,14 +1391,6 @@ SETTLE_GROUP_DATA.list[0].addExpense(new ExpenseRecord("Breakfast", 11.11));
 SETTLE_GROUP_DATA.list[0].addExpense(new ExpenseRecord("Lunch", 22.22));
 SETTLE_GROUP_DATA.list[0].addExpense(new ExpenseRecord("Dinner", 33.33));
 
-// console.log(SETTLE_GROUP_DATA);
-// TODO add more events for debugging use index into array at end to choose alternate activities
-// TODO change
-const EVENTS_DATA = [
-    new VitaEvent(Period(), "", "", "", "demo event", new Date(), cardData(...EXPLORE_DATA[0])),
-    // new VitaEvent(Period(), "", "", "", "demo event", new Date("2022-07-14T11:45:00"), cardData(...EXPLORE_DATA[1])),
-    // new VitaEvent(Period(), "", "", "", "demo event", new Date("2022-07-15T00:45:00"), cardData(...EXPLORE_DATA[2])),
-];
 
 const injectVitaEventProps = (periods) =>
     periods.map((p) => {
@@ -1547,3 +1549,4 @@ const getPeriods = () =>
             ],
         },
     ]);
+

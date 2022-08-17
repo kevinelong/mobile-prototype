@@ -1,0 +1,400 @@
+[
+  [
+    "images/explore_bg.png",
+    "Loquita",
+    "Santa Barbara",
+    "Authentic Spanish food",
+    [
+      "Spanish",
+      "Tapas",
+      "Seafood",
+      "Wine",
+      "Cocktails",
+      "Restaurant"
+    ],
+    [],
+    [
+      "schedule",
+      "collect",
+      "share",
+      "discuss",
+      "invite"
+    ],
+    0,
+    "restaurants",
+    3,
+    100,
+    [
+      34.41421031876199,
+      -119.69164738460584
+    ],
+    "Authentic Spanish food including hot and cold tapas, wood-fired grilled seafood and meats, and seasonal paella.",
+    []
+  ],
+  [
+    "images/photos/brasil_arts_cafe.jpeg",
+    "Brasil Arts Cafe",
+    "Santa Barbara",
+    "Traditional Brazilian fare",
+    [
+      "Brazilian",
+      "Cafe"
+    ],
+    [],
+    [
+      "schedule",
+      "collect",
+      "share",
+      "discuss",
+      "invite"
+    ],
+    1,
+    "restaurants",
+    4,
+    97,
+    [
+      34.42427273044929,
+      -119.70538318430323
+    ],
+    "The perfect blend of traditional Brazilian fare & one-of-a-kind Açai, Juice, and Smoothie creations.",
+    []
+  ],
+  [
+    "images/photos/yoichis.jpg",
+    "Yoichi's",
+    "Santa Barbara",
+    "Sushi in an intimate setting",
+    [
+      "Japanese",
+      "Sushi",
+      "Prix fixe"
+    ],
+    [],
+    [
+      "schedule",
+      "collect",
+      "share",
+      "discuss",
+      "invite"
+    ],
+    2,
+    "restaurants",
+    4,
+    95,
+    [
+      34.42715715496026,
+      -119.70249364197355
+    ],
+    "A prix fixe only spot featuring traditional Japanese small plates &amp; sushi in an intimate setting.",
+    []
+  ],
+  [
+    "images/photos/los_agaves.jpg",
+    "Los Agaves",
+    "Santa Barbara",
+    "Flavors of Mexico",
+    [
+      "Mexican",
+      "Family",
+      "Catering",
+      "Restaurant"
+    ],
+    [],
+    [
+      "schedule",
+      "collect",
+      "share",
+      "discuss",
+      "invite"
+    ],
+    3,
+    "restaurants",
+    4,
+    90,
+    [
+      34.4375036989364,
+      -119.72734258675358
+    ],
+    "The bold flavors of Mexico, an authentic dining experience, high-quality ingredients.",
+    []
+  ],
+  [
+    "images/photos/santo_mezcal.jpg",
+    "Santo Mezcal",
+    "Santa Barbara",
+    "Modern Mexican cuisine",
+    [
+      "Mexican",
+      "Happy Hour",
+      "Catering",
+      "Restaurant"
+    ],
+    [],
+    [
+      "schedule",
+      "collect",
+      "share",
+      "discuss",
+      "invite"
+    ],
+    4,
+    "restaurants",
+    4,
+    90,
+    [
+      34.4134427932841,
+      -119.69127914319921
+    ],
+    "Modern Mexican cuisine",
+    []
+  ],
+  [
+    "images/photos/la_super-rica_taqueria.jpg",
+    "La Super-Rica Taqueria",
+    "Santa Barbara",
+    "Celebrated Mexican spot",
+    [
+      "Mexican",
+      "Dine-in",
+      "Takeout",
+      "Restaurant"
+    ],
+    [],
+    [
+      "schedule",
+      "collect",
+      "share",
+      "discuss",
+      "invite"
+    ],
+    5,
+    "restaurants",
+    4,
+    90,
+    [
+      34.42790056991083,
+      -119.68722191681411
+    ],
+    "Celebrated Mexican spot for fish tacos, tamales & more served up in modest digs with patio seating.",
+    []
+  ],
+  [
+    "images/photos/constantia.jpg",
+    "Bridlewood Estate",
+    "Santa Barbara",
+    "Guided experience led by Hans Thorvald.",
+    [
+      "Food &amp; Wine Pairing",
+      "date ideas",
+      "weekend getaways",
+      "wine tasting"
+    ],
+    [],
+    [
+      "schedule",
+      "collect",
+      "share",
+      "discuss",
+      "invite"
+    ],
+    6,
+    "things-to-do",
+    4,
+    85,
+    [
+      0,
+      0
+    ],
+    "The Constantia Valley has an appeal that offers something of interest to everyone, from award winning restaurants offering, luxurious boutique hotel accommodation with spa’s as well as quaint B&B’s. There are beautiful greenbelts to walk on, shops to explore, a brilliant zip lining adventure, mountain biking, horse riding, unique shops and a wine farms.",
+    []
+  ],
+  [
+    "images/photos/hanna-levin.png",
+    "Hanna Levin &#128994;",
+    "New Taste Match to Follow!",
+    "23 Similar Tastes <a href=''>View All</a>",
+    [
+      "Local Guide",
+      "Taste-Match"
+    ],
+    [],
+    [
+      "schedule",
+      "collect",
+      "share",
+      "discuss",
+      "invite"
+    ],
+    7,
+    "people",
+    -1,
+    97,
+    [
+      0,
+      0
+    ],
+    "A trusted Local Guide.",
+    []
+  ],
+  [
+    "images/photos/cannon-beach.jpg",
+    "Haystack Rock",
+    "Cannon Beach, Oregon",
+    "This is an iconic photo opportunity",
+    [
+      "Landmark",
+      "Recommended"
+    ],
+    [],
+    [
+      "schedule",
+      "collect",
+      "share",
+      "discuss",
+      "invite"
+    ],
+    8,
+    "places-to-see",
+    -1,
+    85,
+    [
+      45.884161669751066,
+      -123.96863053734513
+    ],
+    "This is the Oregon coast's most iconic photo opportunity.",
+    []
+  ],
+  [
+    "images/photos/rogue_astoria.jpg",
+    "Rogue Brewery",
+    "Astoria Oregon",
+    "Beer tasting experience",
+    [
+      "Beer Tasting"
+    ],
+    [],
+    [
+      "schedule",
+      "collect",
+      "share",
+      "discuss",
+      "invite"
+    ],
+    9,
+    "restaurants",
+    4,
+    85,
+    [
+      46.196750395147454,
+      -123.79762603067174
+    ],
+    "A popular local brewery with amazing views.",
+    []
+  ],
+  [
+    "images/photos/camel_valley_wines.jpg",
+    "Stolpman Vineyard",
+    "Santa Barbara",
+    "Wine tasting and horse back riding tour",
+    [
+      "Food &amp; Wine Tasting Tour",
+      "wine tasting"
+    ],
+    [],
+    [
+      "schedule",
+      "collect",
+      "share",
+      "discuss",
+      "invite"
+    ],
+    10,
+    "things-to-do",
+    4,
+    85,
+    [
+      34.64230332164125,
+      -120.43610020209037
+    ],
+    "A pleasant wine tasting and horse back riding tour.",
+    []
+  ],
+  [
+    "images/photos/gargiulo_vineyards.jpg",
+    "Rusack Winery",
+    "Napa Valley Solvang",
+    "Make your own wine experience",
+    [
+      "Food &amp; Wine Tasting Tour",
+      "wine tasting"
+    ],
+    [],
+    [
+      "schedule",
+      "collect",
+      "share",
+      "discuss",
+      "invite"
+    ],
+    11,
+    "things-to-do",
+    4,
+    85,
+    [
+      34.638058462065956,
+      -120.14186578859605
+    ],
+    "Here you can experience making your own wine.",
+    []
+  ],
+  [
+    "images/photos/sunstone_winery.jpg",
+    "Sunstone Wine Tour with a Local",
+    "Santa Ynez",
+    "A true family-run winery",
+    [
+      "Food &amp; Wine Tasting Tour",
+      "wine tasting"
+    ],
+    [],
+    [
+      "share",
+      "collect"
+    ],
+    12,
+    "things-to-do",
+    4,
+    85,
+    [
+      34.58679315470256,
+      -120.10337263941516
+    ],
+    "Sunstone Wine Tour with a Local",
+    []
+  ],
+  [
+    "images/photos/foxen_vineyard.jpg",
+    "Foxen Vineyard Wine Tasting Tour",
+    "Santa Maria",
+    "Minimalist winemaking",
+    [
+      "Food &amp; Wine Tasting Tour",
+      "wine tasting"
+    ],
+    [],
+    [
+      "share",
+      "collect"
+    ],
+    13,
+    "things-to-do",
+    4,
+    85,
+    [
+      34.82021411953863,
+      -120.23023950022402
+    ],
+    "Discover minimalist winemaking.",
+    []
+  ]
+]

@@ -83,7 +83,7 @@ function initScroll() {
     if (cps && cps.length > 1) {
 
         cardList.scrollTop = cps[1].offsetTop - (cps[1].offsetHeight / 2);
-    }else{
+    } else {
         console.log("WTF", cps, cardList, cps.length, cps[1].offsetTop);
     }
 
@@ -115,14 +115,14 @@ function initScroll() {
 
         let centers = [];
         // const bottomNavHeight = get(".normal-tabs").offsetHeight;
-        
+
         [...cardList.querySelectorAll(".card")].forEach((c) => {
             c.classList.add("selected");
             console.log("Height: " + c.offsetHeight)
             cardListHeight = cardList.offsetHeight;
             cardListHeightHalf = Math.floor(cardListHeight / 2);
             const clhh = cardListHeightHalf;
-            
+
             const half = Math.floor(c.offsetHeight); // /2
             const delta = Math.abs(
                 (c.offsetTop) +
@@ -145,7 +145,7 @@ function initScroll() {
                 target = o;
                 o.style.opacity = 1;
                 o.classList.add("selected");
-                
+
                 // console.log(Array.from(o.parentNode.children).indexOf(o));
                 // console.log(o.)
                 // console.log(o.offsetTop, cardListHeightHalf, o.offsetHeight);
@@ -180,185 +180,215 @@ function initScroll() {
     snapScroll();
 }
 
+let card_content = "";
+
 document.addEventListener("DOMContentLoaded", () => {
-    function content(c) {
-        return div("content", c);
-    }
+    fetch('./mock/activities.json')
+        .then((response) => response.json())
+        .then((data) => {
+            EXPLORE_DATA = data;
+// console.log(SETTLE_GROUP_DATA);
+// TODO add more events for debugging use index into array at end to choose alternate activities
+// TODO change
+            const EVENTS_DATA = [
+                new VitaEvent(Period(), "", "", "", "demo event", new Date(), cardData(...EXPLORE_DATA[0])),
+                // new VitaEvent(Period(), "", "", "", "demo event", new Date("2022-07-14T11:45:00"), cardData(...EXPLORE_DATA[1])),
+                // new VitaEvent(Period(), "", "", "", "demo event", new Date("2022-07-15T00:45:00"), cardData(...EXPLORE_DATA[2])),
+            ];
+            const calendar_days = [
+                Day(yesterdayDate, "Yesterday - " + yesterdayDate.toDateString(), EVENTS_DATA),
+                Day(todayDate, "Today - " + todayDate.toDateString(), EVENTS_DATA),
+                Day(tomorrowDate, "Tomorrow - " + tomorrowDate.toDateString(), EVENTS_DATA),
+            ];
 
-    function outerBox(c) {
-        return div("outer-box", c);
-    }
+            card_content = calendar_days.map(showDay).join('');
 
-    function innerContent(c) {
-        return div("inner-content", c);
-    }
+            // while (EXPLORE_DATA === []) {
+            //     ;
+            // }
 
-    function mainNavOuter(c) {
-        return div("main-nav-outer", c);
-    }
-
-    function hiddenSmoke(c) {
-        return div("hidden smoke", c);
-    }
-
-    function hiddenDialog(c) {
-        return div("hidden dialog", c);
-    }
-
-    function hiddenToast(c) {
-        return div("hidden toast", c);
-    }
-
-    function mapView(c) {
-        return div("map", c, 'id="map"');
-    }
-
-    // <div id='map' style='height: calc(100vh - 130px); width: 320px;'></div>
-
-    document.body.innerHTML = content(
-        outerBox(
-            innerContent(
-                [
-                    explorePage(),
-                    exploreDetailPage(),
-                    exploreFakePage(),
-                    broadcastPage(),
-                    collectPage(),
-                    collectBoardPage(),
-                    planPage(),
-                    planDetailPage(),
-                    timelinePage(true),
-                    connectPage(),
-                    connectChatPage(),
-                    connectPersonPage(),
-                    settleList(),
-                    settleSplit(),
-                    settlePage(),
-                    mapView(),
-                ].join("")
-            ) +
-                circle("") +
-                mainNavOuter(
-                    mainNav(
-                        ["explore", "broadcast", "collect", "plan", "settle"],
-                        ["connect", "timeline"],
-                        "timeline"
-                    )
-                ) +
-                hiddenToast("") +
-                hiddenSmoke(hiddenDialog())
-        )
-    );
-
-    setTimeout(initScroll, 500);
-
-    listen(
-        "click",
-        (e) => {
-            //   console.log(e.target);
-            if (e.target.classList.contains("smoke")) {
-                hide(".smoke");
-                hide(".dialog");
+            function content(c) {
+                return div("content", c);
             }
-        },
-        get(".smoke")
-    );
+
+            function outerBox(c) {
+                return div("outer-box", c);
+            }
+
+            function innerContent(c) {
+                return div("inner-content", c);
+            }
+
+            function mainNavOuter(c) {
+                return div("main-nav-outer", c);
+            }
+
+            function hiddenSmoke(c) {
+                return div("hidden smoke", c);
+            }
+
+            function hiddenDialog(c) {
+                return div("hidden dialog", c);
+            }
+
+            function hiddenToast(c) {
+                return div("hidden toast", c);
+            }
+
+            function mapView(c) {
+                return div("map", c, 'id="map"');
+            }
+
+            // <div id='map' style='height: calc(100vh - 130px); width: 320px;'></div>
+
+            document.body.innerHTML = content(
+                outerBox(
+                    innerContent(
+                        [
+                            explorePage(),
+                            exploreDetailPage(),
+                            exploreFakePage(),
+                            broadcastPage(),
+                            collectPage(),
+                            collectBoardPage(),
+                            planPage(),
+                            planDetailPage(),
+                            timelinePage(true),
+                            connectPage(),
+                            connectChatPage(),
+                            connectPersonPage(),
+                            settleList(),
+                            settleSplit(),
+                            settlePage(),
+                            mapView(),
+                        ].join("")
+                    ) +
+                    circle("") +
+                    mainNavOuter(
+                        mainNav(
+                            ["explore", "broadcast", "collect", "plan", "settle"],
+                            ["connect", "timeline"],
+                            "timeline"
+                        )
+                    ) +
+                    hiddenToast("") +
+                    hiddenSmoke(hiddenDialog())
+                )
+            );
+
+            setTimeout(initScroll, 500);
+
+            listen(
+                "click",
+                (e) => {
+                    //   console.log(e.target);
+                    if (e.target.classList.contains("smoke")) {
+                        hide(".smoke");
+                        hide(".dialog");
+                    }
+                },
+                get(".smoke")
+            );
 
 
+            function initMap() {
+                const tl = typeof L;
+                if (tl === "undefined") {
+                    return setTimeout(initMap, 500);
+                }
+                // let host = 'https://maps.omniscale.net/v2/{id}/style.default/{z}/{x}/{y}.png';
+                let host = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
+                let attribution =
+                    '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>';
+                let map = L.map("map").setView([34.41, -119.69], 12);
+                // const id = window.location.hostname.indexOf("kevinelong") == -1 && window.location.hostname.indexOf("localhost") == -1 ? 'vitaexplorer-05d4f193' : 'kevinelong-github-io-0f6096e4';
+                // console.log("MAP API KEY: "+ id);
+                L.tileLayer(host, {
+                    // id: id,
+                    attribution: attribution,
+                }).addTo(map);
+                map.attributionControl.setPrefix(false);
 
-    function initMap() {
-        const tl = typeof L;
-        if (tl === "undefined") {
-            return setTimeout(initMap, 500);
-        }
-        // let host = 'https://maps.omniscale.net/v2/{id}/style.default/{z}/{x}/{y}.png';
-        let host = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
-        let attribution =
-            '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>';
-        let map = L.map("map").setView([34.41, -119.69], 12);
-        // const id = window.location.hostname.indexOf("kevinelong") == -1 && window.location.hostname.indexOf("localhost") == -1 ? 'vitaexplorer-05d4f193' : 'kevinelong-github-io-0f6096e4';
-        // console.log("MAP API KEY: "+ id);
-        L.tileLayer(host, {
-            // id: id,
-            attribution: attribution,
-        }).addTo(map);
-        map.attributionControl.setPrefix(false);
+                const data = [
+                    {
+                        name: "Loquita Santa Barbara",
+                        description: "Loquita Santa Barbara<br>5 Friends liked this.",
+                        latlong: [34.414843631936535, -119.69157509814653],
+                    },
+                    {
+                        name: "Boathouse at Hendry's Beach",
+                        description:
+                            "Boathouse at Hendry's Beach<br>14 Friends and 2 Co-Curators liked this.",
+                        latlong: [34.408724829930925, -119.74230426640375],
+                    },
+                    {
+                        name: "The Black Sheep",
+                        description:
+                            "The Black Sheep<br>14 Friends and 2 Co-Curators liked this.",
+                        latlong: [34.419441971416056, -119.6969748812218],
+                    },
+                ];
+                data.forEach((item) => {
+                    let marker = L.marker(item.latlong, {
+                        opacity: 0.75,
+                        title: item.name,
+                    });
+                    marker.bindPopup(item.description).openPopup();
+                    marker.addTo(map);
+                });
+                get("#map").classList.add("hidden");
+                get("#map").style.zIndex = "300";
+            }
 
-        const data = [
-            {
-                name: "Loquita Santa Barbara",
-                description: "Loquita Santa Barbara<br>5 Friends liked this.",
-                latlong: [34.414843631936535, -119.69157509814653],
-            },
-            {
-                name: "Boathouse at Hendry's Beach",
-                description:
-                    "Boathouse at Hendry's Beach<br>14 Friends and 2 Co-Curators liked this.",
-                latlong: [34.408724829930925, -119.74230426640375],
-            },
-            {
-                name: "The Black Sheep",
-                description:
-                    "The Black Sheep<br>14 Friends and 2 Co-Curators liked this.",
-                latlong: [34.419441971416056, -119.6969748812218],
-            },
-        ];
-        data.forEach((item) => {
-            let marker = L.marker(item.latlong, {
-                opacity: 0.75,
-                title: item.name,
-            });
-            marker.bindPopup(item.description).openPopup();
-            marker.addTo(map);
+            initMap();
+
+            /***
+             * Settle/Expense/Pay/Split
+             */
+
+            const focusTarget = document.querySelectorAll(".expense-name")[0];
+            if (focusTarget !== undefined) {
+                focusTarget.focus();
+            }
+            //parentElement.querySelectorAll(".expense-amount")[0].oninput = onAddExpense;
+            //
+            // window.addEventListener("keyup", (e) => {
+            //   if (e.key === "Enter") {
+            //     document.querySelector("button").click();
+            //   }
+            // });
+
+            populateExpenses();
+            const ed = get(".explore_detail .content-panel");
+            ed.innerHTML = exploreCardDetail(...EXPLORE_DATA[6]);
+
+            function now() {
+                // TODO hard code to find dead zones and test fixes for dead zones.
+                // return new Date("2022-07-14T11:46:00");
+                return new Date();
+            }
+
+            function setTitleTime() {
+                const date = now();
+                get(".title .time.span").innerHTML =
+                    date.toString().split(" ")[0] +
+                    " " +
+                    date.toString().split(" ")[1] +
+                    " " +
+                    date.toString().split(" ")[2] +
+                    " " +
+                    date.toLocaleTimeString();
+                setTimeout(setTitleTime, 1000);
+            }
+
+            setTitleTime();
+
+            window.kaching = new Audio("sounds/chaching.mp3");
+
+
         });
-        get("#map").classList.add("hidden");
-        get("#map").style.zIndex = "300";
-    }
-
-    initMap();
-
-    /***
-     * Settle/Expense/Pay/Split
-     */
-
-    const focusTarget = document.querySelectorAll(".expense-name")[0];
-    if (focusTarget !== undefined) {
-        focusTarget.focus();
-    }
-    //parentElement.querySelectorAll(".expense-amount")[0].oninput = onAddExpense;
-    //
-    // window.addEventListener("keyup", (e) => {
-    //   if (e.key === "Enter") {
-    //     document.querySelector("button").click();
-    //   }
-    // });
-
-    populateExpenses();
-    const ed = get(".explore_detail .content-panel");
-    ed.innerHTML = exploreCardDetail(...EXPLORE_DATA[6]);
-
-    function now() {
-        // TODO hard code to find dead zones and test fixes for dead zones.
-        // return new Date("2022-07-14T11:46:00");
-        return new Date();
-    }
-
-    function setTitleTime() {
-        const date = now();
-        get(".title .time.span").innerHTML =
-            date.toString().split(" ")[0] +
-            " " +
-            date.toString().split(" ")[1] +
-            " " +
-            date.toString().split(" ")[2] +
-            " " +
-            date.toLocaleTimeString();
-        setTimeout(setTitleTime, 1000);
-    }
-
-    setTitleTime();
-
-    window.kaching = new Audio("sounds/chaching.mp3");
-
 
 });
+
+
+//JS_CLIENT->SERVER_API->SQL_DATABASE
