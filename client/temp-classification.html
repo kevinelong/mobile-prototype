@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Vita Explorer</title>
+    <!--    <link href="styles/style.css" rel="stylesheet" type="text/css"/>-->
+    <script>
+        `
+tabs
+timeline
+broadcast
+action
+card
+choice
+circle
+content-panel
+detail
+dialog
+hash-tag
+icon
+label
+main-nav
+message
+page
+person
+simple-list
+title
+toast
+cards card-connect
+pages connect
+pages settle
+
+main
+component
+`.split("\n").map(p => p ? document.write(`<li` + `nk href="styles/` +
+            p.split(" ").join("/") + ".css" +
+            `"  rel="stylesheet" type="text/css"/>`) : '');
+    </script>
+
+    <script>
+        `
+utils
+
+html
+
+components components
+
+data
+
+components grid
+components pane pane
+
+components action action
+
+components card card
+components card card_person
+components card card_explore
+components card card_connect
+components card card_settle
+components card card_plan
+components card card_collect
+components card card_smart
+components card card_timeline
+
+components choice choice
+components dialog dialog
+components hash_tag hash_tag
+components list list
+components main_nav
+components message message
+components money money
+components page
+components search search
+components toast toast
+components timeline timeline
+components tabs tabs
+
+pages broadcast broadcast
+
+pages timeline timeline
+
+pages connect connect
+pages connect connect_chat
+pages connect connect_person
+
+pages plan plan
+pages plan plan_detail
+
+pages settle settle
+pages settle settle_split
+pages settle settle_list
+
+pages explore explore_fake
+pages explore explore_detail
+pages explore explore
+
+pages collect collect
+pages collect collect_board
+pages collect collect_details
+
+route
+`.split("\n").map(p => p ? document.write(`<scr` + `ipt src="scripts/` +
+            p.split(" ").join("/") + ".js" +
+            `"></scr` + `ipt>`) : '');
+
+    </script>
+
+    <style>
+        .outer-box {
+            overflow-y: scroll;
+            background: white;
+            color: black;
+        }
+
+        /* .inner-content{
+            height: auto;
+        } */
+        .card{
+            margin-top: 24vh;
+            transition: all 300ms ease-in-out;
+
+        }
+        .rating-action .rating{
+            flex-direction: column;
+            width:auto;
+            border-radius: 9px;
+            padding: 9px;
+            transition: all 300ms ease-in-out;
+        }
+        .rating .rating-star{
+            flex-direction: row;
+            width: auto;
+            gap: 0.5em;
+            padding: 0.5em;
+            opacity: 0.9;
+            transition: all 300ms ease-in-out;
+        }
+        .rating .rating-star:hover{
+            background-color: black;
+            opacity: 1;
+            transition: all 300ms ease-in-out;
+        }
+    </style>
+
+</head>
+
+<body>
+<div class="content div">
+    <div class="outer-box div">
+        <div class="inner-content div">
+        </div>
+    </div>
+</div>
+<div class="toast"></div>
+</body>
+
+</html>
+
+<script>
+
+    function onClickSelectorItem(target, name) {
+        const parent = target.closest(".action-item");
+        if (parent === null) {
+            console.log("NOT FOUND: .rating-action > .icon-frame img")
+            return false;
+        }
+
+        const cardElement = target.closest(".card");
+        if (cardElement === null) {
+            console.log("NOT FOUND: .rating-action > .icon-frame img")
+            return false;
+        }
+
+        const images =parent.querySelectorAll(".rating-action > .icon-frame img");
+        if(!images || !(images.length)){
+            return;
+        }
+
+        images[0].setAttribute("src", iconPath(iconMap(name)));
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+        function selectorItem(index = -1, list = [], selectedItem = "") {
+            return div(
+                "rating-star selected-item-" + index,
+                icon(list[index], "", list[index]),
+                `onclick="onClickSelectorItem(this, '${list[index]}')"`
+            )
+        }
+
+        function selections(list = [], selectedItem = "") {
+            return div("rating", list.map((item, index) => selectorItem(index, list, selectedItem)).join(""))
+        }
+
+        function selector(list = [], selectedItem = "") {
+            return div("action-item rating-action", selections(list, selectedItem) + icon(selectedItem));
+        }
+
+        document.querySelector(".inner-content").innerHTML = `
+            <div class="card-list">
+            <div class="card" style="align-items:center; flex-direction: row;">
+            ${selector(["idea", "favorite"], "idea")}
+            ${selector(["not interested", "interested"], "not interested")}
+            </div>
+            </div>
+        `;
+
+    });
+</script>
