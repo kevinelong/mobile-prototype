@@ -335,6 +335,76 @@ function showAddCard(titleText = "Add Something to Board") {
         )
     );
 }
+function showAddExploreCard(target, action, which, id) {
+    showDialog("STEP 1 - Find Existing",
+        stack(
+            tabSet("select-group-mode", [
+                tabData("By URL",
+                    div("by-site padded centered",
+                        input("search-text", "text", "placeholder=\"http://example.com\"")
+                    ,"")
+                ),
+                tabData("Near Me", label("near-me", "Locations Near Me")),
+                tabData("Manually", "Click Next"),
+            ], "By URL")
+        ) +
+        spread(button("Next", `onclick="showAddExploreCard2('${target}', '${action}', '${which}', '${id}')"`))
+    );
+
+}
+
+function showAddExploreCard2(target = this, action = "add", which = "expense", id = -1) {
+
+    showDialog("STEP 2 - Add Activity Card",
+        row(
+            stack([
+                labeledInput("Name"),
+                // labeledInput("Type"),
+                // labeledInput("Category"),
+                // labeledInput("Location"),
+                ].join("")
+            ),
+            "",
+            ""
+        ) +
+        div("card-list",
+            select("Category", [
+                {name: "Select Category"},
+                {name: "Activity"},
+                {name: "Dining"},
+                {name: "Landmark"},
+                {name: "Lodging"}
+            ]) +
+            input("venue", "text", `placeholder="Begin Typing: Venue/Business Name"`) +
+            // row(
+            //     selectDate(
+            //         "When:",
+            //         (new Date(id)).getTime(),
+            //         // "1996-08-17"
+            //     ) +
+            //     selectTime(
+            //         "&nbsp;",
+            //         // "13:08"
+            //     )
+            // ) +
+            row(
+                // radioControl("occasion-type", [
+                //     {
+                //         name: "occasion-type",
+                //         value: "Business"
+                //     },
+                //     {
+                //         name: "occasion-type",
+                //         value: "Personal"
+                //     },
+                // ])
+                radioInput("occasion-type", "Business") +
+                radioInput("occasion-type", "Personal", `checked="checked"`)
+            )
+        )
+        + actionList("add-expense", applyOrCancel, false, id, "black")
+    );
+}
 
 function showLocations(title = "Current Location", index = -1) {
     showDialog(
@@ -1039,6 +1109,8 @@ function addItem(target, action, which, id) {
         showSchedule(target, action, which, id);
     } else if ("attachment" === which) {
         showAddCard("Add Something to Message:");
+    } else if ("explore" === which) {
+        showAddExploreCard(target, action, which, id);
     } else {
         console.log("can't addItem", ...arguments);
     }
@@ -1075,7 +1147,7 @@ function handleRight(target, action, which, id) {
     hideDialog();
 }
 
-function isValidDateString(text="") {
+function isValidDateString(text = "") {
     const d = new Date(text);
     const result = d.toString();
     return result === text;
@@ -1095,19 +1167,19 @@ function apply(target, action, which, id = -1) {
         );
     } else if ("place" === which) {
         const selectElement = get(".filtered select");
-        if (!selectElement){
+        if (!selectElement) {
             return;
         }
         const whereValue = selectElement.selectedOptions[0].value;
 
         const timeElement = get(`.dialog input[type="time"]`);
-        if(!timeElement){
+        if (!timeElement) {
             return;
         }
         const timeValue = timeElement.value;
 
         const dateElement = get(`.dialog input[type="date"]`);
-        if(!dateElement){
+        if (!dateElement) {
             return;
         }
         const dateValue = dateElement.value;

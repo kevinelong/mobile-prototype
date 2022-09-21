@@ -1,4 +1,4 @@
-.main-nav{
+.main-nav {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -13,7 +13,7 @@
     box-shadow: -1px -1px 3px #000c;
 }
 
-.main-nav.normal-tabs{
+.main-nav.normal-tabs {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -27,9 +27,11 @@
     z-index: 500;
     box-shadow: -1px -1px 3px #000c;
 }
-#main-nav-tab-collect{
+
+#main-nav-tab-collect {
     /*margin: 0 48px;*/
 }
+
 .main-nav.promoted-tabs {
     display: flex;
     justify-self: center;
@@ -53,7 +55,8 @@
     padding: 6px 6px 0 6px;
     clip-path: inset(-8px -8px 0px -8px);
 }
-.promoted-tabs .main-nav-tab{
+
+.promoted-tabs .main-nav-tab {
     /*background: white;*/
     /*border-radius: 18px;*/
     /*padding: 1px;*/
@@ -78,6 +81,7 @@
     cursor: pointer;
     min-width: 55px;
 }
+
 /*#main-nav-tab-connect{*/
 /*    margin-bottom: 1em;*/
 /*    margin-right: -1em;*/
@@ -103,7 +107,8 @@
     border: 0px solid white;
     padding: 6px;
 }
-.promoted-tabs .icon-frame{
+
+.promoted-tabs .icon-frame {
     background: white;
     border: 1px solid white;
     padding: 6px;
@@ -140,13 +145,14 @@
     background-color: #aa6600;
 }
 
-.header>.row{
+.header > .row {
     padding: 1px 3px;
 }
 
-.page.collect_board .choice-set .choice{
+.page.collect_board .choice-set .choice {
     min-width: 72px;
 }
+
 /*.page.collect_board .choice-set .action-item{*/
 /*    width:48px;*/
 /*    height: 48px;*/
@@ -154,15 +160,15 @@
 
 
 .dialog .choice-set .action-item,
-/*.page.collect_board .header>.row .action-item,*/
-.page.explore_detail .header>.row .action-item,
-.page.plan_detail .header>.row .action-item,
-.page.plan .header>.row .action-item,
+    /*.page.collect_board .header>.row .action-item,*/
+.page.explore_detail .header > .row .action-item,
+.page.plan_detail .header > .row .action-item,
+.page.plan .header > .row .action-item,
 .page.connect #connect .action-item,
 .page.timeline #timeline-filters .action-item,
 .page.collect #collect-filters .action-item,
-.page.explore .header>.row  .action-item,
-.page.explore #explore-filters .action-item{
+/*.page.explore .header > .row .action-item,*/
+.page.explore #explore-filters .action-item {
     display: none;
 }
 
@@ -223,7 +229,7 @@
     margin-top: -2px;
 }
 
-.outer-box>.circle {
+.outer-box > .circle {
     display: none;
     width: 42px;
     height: 42px;

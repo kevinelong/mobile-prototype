@@ -13,7 +13,7 @@ function page(
     pushSecondaryNavChoicesAboveSearchFilter = false,
     preSearchContent = "",
     headerAction = "",
-    addAction = actionItem("add", name, -1, "Add", "black", false, 0)
+    addAction = actionItem("add", name, -1, "Add", "black", true, 0)
 ) {
     headerAction = headerAction ? headerAction : addAction;
     const filters = choiceSet(`${name}-filters`, choiceList, selectedChoice, name,

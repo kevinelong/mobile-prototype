@@ -15,8 +15,8 @@ function span(className, content = "", attrs = "") {
     return closedTag("span", content, className, attrs);
 }
 
-function a(text, href, className = "") {
-    return closedTag("a", text, className, `href="${href}"`);
+function a(text, href, className = "", attrs="") {
+    return closedTag("a", text, className, `href="${href}" ${attrs}`);
 }
 
 function p(content = "", className = "") {

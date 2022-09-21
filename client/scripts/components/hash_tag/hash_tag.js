@@ -1,3 +1,3 @@
 function hashTag(c, color = "none", attrs="") {
-    return div(`hash-tag ${color}`, c, attrs);
+    return a(c, `javascript:showPage('explore', '${c}');`, `hash-tag ${color}`, attrs);
 }
