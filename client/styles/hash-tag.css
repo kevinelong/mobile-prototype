@@ -14,8 +14,11 @@
     box-shadow: 1px 1px 2px black;
     /*cursor: pointer;*/
     text-transform: capitalize;
+    text-decoration: none;
 }
-
+.hash-tag:hover{
+    background: goldenrod;
+}
 .hash-tag.red {
     background: #FF8888;
 }
