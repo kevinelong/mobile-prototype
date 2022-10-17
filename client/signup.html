@@ -409,7 +409,8 @@
         self.location = "taste_match.html";
     }
 
-    function handleSubmit() {
+    function handleSubmit(e) {
+        e.preventDefault();
         main(document.getElementsByName("login")[0].password.value)
         return false;
     }

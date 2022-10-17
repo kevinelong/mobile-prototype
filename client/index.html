@@ -358,10 +358,10 @@
 <body>
 
 <div style="font-family:sans-serif;height:100vh;display:flex;align-items:center;justify-content:center;">
-    <form name="login" onsubmit="return handleSubmit()">
-<!--        <label>User Name:<br><input name="username"></label><br>-->
-<!--        <label>Password:<br><input name="password" type="password"></label><br>-->
-<!--        <input type="submit" value="LOGIN">-->
+    <form name="login" id="loginForm">
+        <!--        <label>User Name:<br><input name="username"></label><br>-->
+        <!--        <label>Password:<br><input name="password" type="password"></label><br>-->
+        <!--        <input type="submit" value="LOGIN">-->
 
         <div class="content div">
             <div class="outer-box div">
@@ -373,20 +373,19 @@
                             <form action="">
                                 <div class="login-control">
                                     <div class="login-creds">
-                                        <input class="email-signin" type="text" placeholder="User-name" name="username">
-                                        <input class="password-signin" type="password" name="password" id=""
-                                               placeholder="Password">
+                                        <input class="email-signin" type="text" placeholder="User-name" name="username" id="username">
+                                        <input class="password-signin" type="password" name="password" id="password" placeholder="Password">
                                     </div>
                                     <div class="login-buttons">
-                                        <button class="submit-signin" type="submit" onclick="handleSubmit()">LOGIN</button>
-                                        <button class="google-control">
-                                            <img src="images\google.png" alt="">
-                                            Continue with Google
-                                        </button>
-                                        <div class="signup-control">
-                                            <div class="new-here">New here?</div>
-                                            <a href="signup.html" class="sign-up">Sign up</a>
-                                        </div>
+                                        <button class="submit-signin" type="submit">LOGIN</button>
+                                        <!--                                        <button class="google-control">-->
+                                        <!--                                            <img src="images\google.png" alt="">-->
+                                        <!--                                            Continue with Google-->
+                                        <!--                                        </button>-->
+                                        <!--                                        <div class="signup-control">-->
+                                        <!--                                            <div class="new-here">New here?</div>-->
+                                        <!--                                            <a href="signup.html" class="sign-up">Sign up</a>-->
+                                        <!--                                        </div>-->
                                     </div>
                                 </div>
                             </form>
@@ -401,26 +400,36 @@
 
 <script>
 
-    async function sha256(source) {
-        const sourceBytes = new TextEncoder().encode(source);
-        const digest = await crypto.subtle.digest("SHA-256", sourceBytes);
-        const resultBytes = [...new Uint8Array(digest)];
-        return resultBytes.map(x => parseInt(x).toString(16).padStart(2, '0')).join("");
+    function getToken(username, password, cb) {
+        fetch('http://bblcht.com/api-token-auth/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+            },
+            body: `username=${username}&password=${password}`
+        }).then((response) => response.json())
+            .then((responseData) => {
+                window.token = responseData.token
+                // getMessages()
+                cb( responseData.token );
+            })
     }
 
-    async function main(text) {
-        const result = await sha256(text + "_v");
-        //   console.log(result);
-        if (result === "cef8213b097acde521a6b9b8ea03205305b8b6b1ea5b66d4383c4a855f366fec") {
-            self.location = "main.html";
-        }
-    }
-
-    function handleSubmit() {
-        main(document.getElementsByName("login")[0].password.value)
+    function handleSubmit(e) {
+        e.preventDefault();
+        getToken(
+            window.username.value,
+            window.password.value,
+            (result)=>{
+                console.log(result);
+                window.location = "connect_only.html";
+            }
+        )
         return false;
     }
-
+    document.addEventListener("DOMContentLoaded", ()=>{
+        document.getElementById("loginForm").addEventListener("submit", handleSubmit);
+    });
 </script>
 </body>
 </html>

@@ -1,0 +1,76 @@
+<body>
+<input id="dummy" placeholder="dummy">
+<input id="username" placeholder="username">
+<input id="password" placeholder="password" type="password">
+<button id="login">Login</button>
+<button id="refresh">Refresh</button>
+<div id="messages"></div>
+<input id="text"><button id="send">Send</button>
+</body>
+<script>
+
+    function showMessage(m){
+        let div = document.createElement("div");
+        div.innerHTML = `BODY:${m.message} FROM:${m.sender}`;
+        return div;
+    }
+
+    window.token = undefined;
+    function showMessageList(messageList){
+        // window.messages.innerHTML ="";
+
+        messageList.forEach(m => {
+            window.messages.appendChild(showMessage(m));
+        })
+        //window.messages.innerHTML = JSON.stringify(messageList);
+    }
+
+
+    function getMessages() {
+        fetch('http://bblcht.com/api/messages/', {
+            method: 'GET',
+            headers: {
+                'Authorization': 'Token ' + window.token
+            }
+        }).then((response) => response.json())
+            .then((responseData) => {
+                showMessageList(responseData);
+            })
+    }
+
+    function getToken(cb) {
+        fetch('http://bblcht.com/api-token-auth/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+            },
+            body: `username=${window.username.value}&password=${window.password.value}`
+        }).then((response) => response.json())
+            .then((responseData) => {
+                window.token = responseData.token
+                // getMessages()
+                cb( responseData.token );
+            })
+    }
+
+    function sendMessage() {
+        fetch('http://bblcht.com/api/messages/', {
+            method: 'POST',
+            headers: {
+                'Authorization': 'Token ' + window.token,
+                'Content-Type': 'application/json'
+            },
+            body: `{"message":"${window.text.value}","sender":"http://bblcht.com/api/users/2/"}`
+        }).then((response) => response.json())
+            .then((responseData) => {
+                console.log(responseData);
+                //showMessageList(responseData);
+            })
+    }
+
+    // document.getElementById("login").addEventListener("click", getToken);
+    window.login.onclick = ()=> getToken( (t) => console.log(t) );
+    window.refresh.onclick = getMessages;
+    window.send.onclick = sendMessage;
+
+</script>
