@@ -11,11 +11,35 @@ function div(className, content, attrs) {
     return closedTag("div", content, className, attrs);
 }
 
+function table(content, className = "", attrs = "") {
+    return closedTag("table", content, className, attrs);
+}
+
+function thead(content, className = "", attrs = "") {
+    return closedTag("thead", content, className, attrs);
+}
+
+function tbody(content, className = "", attrs = "") {
+    return closedTag("tbody", content, className, attrs);
+}
+
+function tr(content, className = "", attrs = "") {
+    return closedTag("tr", content, className, attrs);
+}
+
+function th(content, className = "", attrs = "") {
+    return closedTag("th", content, className, attrs);
+}
+
+function td(content, className = "", attrs = "") {
+    return closedTag("th", content, className, attrs);
+}
+
 function span(className, content = "", attrs = "") {
     return closedTag("span", content, className, attrs);
 }
 
-function a(text, href, className = "", attrs="") {
+function a(text, href, className = "", attrs = "") {
     return closedTag("a", text, className, `href="${href}" ${attrs}`);
 }
 
@@ -138,10 +162,10 @@ function checkbox(name = "") {
     return input(name, "checkbox");
 }
 
-function number(amount=0, name = "number", className="number") {
+function number(amount = 0, name = "number", className = "number") {
     return label(className,
         input(name, "number",
-        `value="${amount}"`)
+            `value="${amount}"`)
     );
 }
 

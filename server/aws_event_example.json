@@ -1,0 +1,53 @@
+{
+  "version": "2.0",
+  "routeKey": "$default",
+  "rawPath": "/foo/12",
+  "rawQueryString": "model=activity",
+  "headers": {
+    "sec-fetch-mode": "navigate",
+    "content-length": "63",
+    "referer": "http://127.0.0.1:5000/",
+    "x-amzn-tls-version": "TLSv1.2",
+    "sec-fetch-site": "cross-site",
+    "accept-language": "en-US,en;q=0.5",
+    "x-forwarded-proto": "https",
+    "origin": "http://127.0.0.1:5000",
+    "x-forwarded-port": "443",
+    "x-forwarded-for": "2601:1c0:4d7f:da90:8426:ddc3:cc7f:610d",
+    "sec-fetch-user": "?1",
+    "pragma": "no-cache",
+    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+    "x-amzn-tls-cipher-suite": "ECDHE-RSA-AES128-GCM-SHA256",
+    "x-amzn-trace-id": "Root=1-62e3001a-68e35b8b7d70bf2f38f96690",
+    "host": "wuczyfpg75avzy3qqiq3ci7r6q0ecsda.lambda-url.us-east-1.on.aws",
+    "upgrade-insecure-requests": "1",
+    "content-type": "application/x-www-form-urlencoded",
+    "cache-control": "no-cache",
+    "accept-encoding": "gzip, deflate, br",
+    "sec-fetch-dest": "document",
+    "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:102.0) Gecko/20100101 Firefox/102.0"
+  },
+  "queryStringParameters": {
+    "model": "activity"
+  },
+  "requestContext": {
+    "accountId": "anonymous",
+    "apiId": "wuczyfpg75avzy3qqiq3ci7r6q0ecsda",
+    "domainName": "wuczyfpg75avzy3qqiq3ci7r6q0ecsda.lambda-url.us-east-1.on.aws",
+    "domainPrefix": "wuczyfpg75avzy3qqiq3ci7r6q0ecsda",
+    "http": {
+      "method": "POST",
+      "path": "/foo/12",
+      "protocol": "HTTP/1.1",
+      "sourceIp": "2601:1c0:4d7f:da90:8426:ddc3:cc7f:610d",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:102.0) Gecko/20100101 Firefox/102.0"
+    },
+    "requestId": "3fffe70f-9c77-4efb-8c89-5b6e6e621ac6",
+    "routeKey": "$default",
+    "stage": "$default",
+    "time": "28/Jul/2022:21:31:06 +0000",
+    "timeEpoch": 1659043866543
+  },
+  "body": "dGl0bGU9dHR0JmRlc2NyaXB0aW9uPWRkZCZpbWFnZV91cmw9aWlpJmxhdD0wJmxuZz0wJnJlZ2lvbl9pZD0x",
+  "isBase64Encoded": true
+}
